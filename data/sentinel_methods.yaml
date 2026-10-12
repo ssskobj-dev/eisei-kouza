@@ -1,0 +1,152 @@
+# Sentinelで見られるユースケースと、解析手法の早見表のもと。
+# scripts/build.py nav が、ここと data/usecases.yaml から learn/sentinel.qmd を作る。
+# cases には data/usecases.yaml の no を書く。数字や仕様には、必ず sources の番号を付ける。
+
+satellites:
+  - name: Sentinel-1
+    kind: レーダー（SAR、Cバンド）
+    sees: 地表の凹凸や水面、船、地面の動き。夜でも、雲があっても撮れる
+    spec: 陸域の標準の撮り方で、幅250km、分解能5m×20m。1機だと12日ごと、2機だと6日ごとに同じ条件で撮る\[1\]
+  - name: Sentinel-2
+    kind: 光学（カメラ）
+    sees: 植物の元気さ、水際、土地の使われ方、焼け跡、雪
+    spec: 13の波長帯で撮る。分解能は10m、20m、60m。2機で、赤道付近なら5日ごと\[2\]
+  - name: Sentinel-3
+    kind: 海と陸の色、温度
+    sees: 海や湖の色（植物プランクトン、アオコ）、海面と地表の温度
+    spec: 色を見るセンサーは21の波長帯で分解能300m。温度を見るセンサーは熱赤外で分解能1km\[3\]
+  - name: Sentinel-5P
+    kind: 大気
+    sees: 二酸化窒素、メタン、一酸化炭素、二酸化硫黄、オゾンなどの量
+    spec: 幅2,600kmで撮り、ほぼ毎日、地球全体を観測する。1画素は数km四方\[4\]
+
+methods:
+  - id: sar-change
+    name: レーダー画像の前後比較
+    satellite: Sentinel-1
+    answers: 災害や工事の前と後で、どこが変わったか
+    examples: 浸水した範囲、油の広がり、雪崩の跡、水田に水が入った時期
+    steps:
+      - 出来事の前と後の画像を、同じ向きの軌道でそろえる
+      - 画像のざらつき（ノイズ）をならす
+      - 前後の明るさの比をとり、基準を超えた場所を「変化あり」とする
+      - 普段から水のある場所、傾斜地、ばらばらの小さな点を取り除く
+    weak:
+      - 市街地の浸水は、実際より狭く出やすい\[5\]
+      - 「変化あり」とする基準は経験で決めるもので、場所ごとに調整が要る\[5\]
+      - 撮影の合間に起きて消えた変化は拾えない
+    cases: [18, 118, 136, 176, 182]
+
+  - id: insar
+    name: 干渉SAR（地面の動きを測る）
+    satellite: Sentinel-1
+    answers: 地面や構造物が、どこで、どのくらいの速さで動いているか
+    examples: 地盤沈下、ダムや堤体の変位、地震後の被害範囲の推定
+    steps:
+      - 同じ場所を、同じ条件で繰り返し撮った画像を集める
+      - 2枚の画像の電波のずれ（位相の差）から、衛星に近づいたか遠ざかったかを求める
+      - 何年分も重ね、電波を安定して返す点ごとに、動きの時系列を作る
+      - 北行きと南行きの両方の軌道がそろえば、上下と東西の動きに分ける\[7\]
+    weak:
+      - 南北方向の動きは測れない\[7\]
+      - 雪に覆われる時期は、信頼できる結果にならないことがある\[7\]
+      - 起伏の大きい地形では、電波が届かず測れない場所が出る\[7\]
+      - 2枚の画像の「似ている度合い」の低下を被害の目印に使う方法は、積雪、植生、工事でも同じ変化が出る
+    cases: [90, 198, 218, 220]
+
+  - id: optical-index
+    name: 光学の指数と時系列
+    satellite: Sentinel-2
+    answers: 植物、水、雪、焼け跡が、どこにあり、どう変わったか
+    examples: 作物や森林の生育、枯れた林の抽出、海岸線の変化、積雪の範囲、山火事の焼け方
+    steps:
+      - 雲のかかっていない画像を選ぶ
+      - 2つの波長帯の明るさを組み合わせて、指数を計算する。植物なら赤と近赤外、焼け跡なら近赤外と短波長赤外を使う
+      - 出来事の前と後、または前年の同じ季節と比べて、差をとる
+      - 差の大きさで段階に分ける。山火事の焼け方は、米国地質調査所の基準で区分する方法が示されている\[6\]
+    weak:
+      - 雲があると地表が写らない
+      - 伐採や風倒など、別の原因でも同じ変化が出る
+      - 結果の確かさは、現地の調査で確かめるのが望ましい\[6\]
+    cases: [86, 82, 85, 192, 189, 168]
+
+  - id: classify
+    name: 機械学習による分類
+    satellite: Sentinel-1、Sentinel-2
+    answers: その場所が何であるか（作物の種類、森林か農地か、設備の有無）
+    examples: 作付けの確認、土地の使われ方の地図、森林減少の検知、太陽光パネルの分布
+    steps:
+      - 正解のデータを用意する（現地の調査、申請された区画、細かい画像の判読）
+      - 1年を通した画像から、季節ごとの変化の特徴を取り出す
+      - 正解のデータで学習させ、全域を分類する
+      - 学習に使っていない正解と比べて、当たり具合を確かめる
+    weak:
+      - 1画素が10m四方なので、小さい区画や細長い区画は判定しにくい
+      - 学習させたものと見た目が違う対象は見逃す
+      - 正解のデータの質で、結果の質が決まる
+    note: レーダーと光学の両方を使った、世界全体の10mの土地被覆図が公開されている\[8\]
+    cases: [41, 135, 97, 199, 105, 139, 143, 149, 164, 39, 184, 213, 219]
+
+  - id: detect
+    name: 海の上の物を見つける
+    satellite: Sentinel-1（補助にSentinel-2）
+    answers: 船や構造物が、どこに、いくつあるか
+    examples: 位置を発信していない船の候補、氷山、洋上の構造物、石油タンクの在庫の推定
+    steps:
+      - レーダー画像で、海面より強く電波を返す点を拾う
+      - 陸地、既知の構造物、ノイズを取り除く
+      - 船の位置情報（AIS）と突き合わせ、情報のない点を候補として残す
+    weak:
+      - 小さい船は見逃しやすい
+      - 岸に近い場所は対象から外れることがある
+      - 見つかるのは候補で、違法かどうかは分からない
+    cases: [127, 150, 214, 204, 138, 151]
+
+  - id: water-color
+    name: 水の色から水質を推定する
+    satellite: Sentinel-3、Sentinel-2
+    answers: 湖や海で、プランクトンやアオコ、濁りがどこに広がっているか
+    examples: アオコの監視、貯水池の濁り、養殖の判断
+    steps:
+      - 大気による色のにごりを取り除く
+      - 水の色から、植物プランクトンや藍藻の量を推定する
+      - 現地で採った水の分析と照らし合わせる
+    weak:
+      - 300mの分解能では、小さい湖や川は測れない
+      - 雲があると欠ける
+      - 分かるのは量の目安で、毒素の量は測れない
+    cases: [111, 195, 122, 15]
+
+  - id: atmosphere
+    name: 大気中のガスの分布を見る
+    satellite: Sentinel-5P
+    answers: ガスの濃い場所はどこか、時期によってどう変わったか
+    examples: 都市の二酸化窒素の分布、船からの排出の把握
+    steps:
+      - 毎日の観測から、雲のない日の値を集める
+      - 長い期間で平均し、細かい地図にする
+      - 地上の測定局の値と照らし合わせる
+    weak:
+      - 1画素が数km四方で、道路ごとの差は見えない
+      - 測っているのは上空までの合計の量で、地上の濃度そのものではない
+      - 1日1回の観測で、雲があると欠ける
+    cases: [186, 207]
+
+  - id: combined
+    name: 複数のデータの組み合わせ
+    satellite: Sentinelの複数の衛星と、他のデータ
+    answers: 1つの衛星だけでは答えの出ない問い
+    examples: 氷河湖の決壊リスク、洋上の風の推定、感染症の早期警戒、学校の教材
+    steps: []
+    weak: []
+    cases: [216, 91, 191, 12]
+
+sources:
+  - Copernicus SentiWiki「Sentinel-1 Mission」 https://sentiwiki.copernicus.eu/web/s1-mission
+  - Copernicus SentiWiki「Sentinel-2 Mission」 https://sentiwiki.copernicus.eu/web/s2-mission
+  - Copernicus SentiWiki「Sentinel-3 Mission」 https://sentiwiki.copernicus.eu/web/s3-mission
+  - Copernicus SentiWiki「Sentinel-5P Mission」 https://sentiwiki.copernicus.eu/web/s5p-mission
+  - 国連宇宙部 UN-SPIDER「Recommended Practice：Flood Mapping and Damage Assessment Using Sentinel-1 SAR Data in Google Earth Engine」 https://un-spider.org/advisory-support/recommended-practices/recommended-practice-google-earth-engine-flood-mapping/step-by-step
+  - 国連宇宙部 UN-SPIDER「Recommended Practice：Burn Severity Mapping」 https://un-spider.org/advisory-support/recommended-practices/recommended-practice-burn-severity/in-detail
+  - 欧州環境機関「European Ground Motion Service Product Description」 https://library.land.copernicus.eu/products/European_Ground_Motion_Service_Product_Description_v3.html
+  - Terrascope「ESA WorldCover」 https://docs.terrascope.be/ESA/WorldCover/WorldCover.html
