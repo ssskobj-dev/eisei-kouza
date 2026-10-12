@@ -8,6 +8,7 @@ project:
     - chapters/**/*.qmd
     - quiz/**/*.qmd
     - reports/**/*.qmd
+    - usecases/*.qmd
 
 # 講座のメニュー。scripts/build.py nav が作る。
 metadata-files:
@@ -34,6 +35,8 @@ website:
         href: course-survey.qmd
       - text: 農業向け
         href: course-agri.qmd
+      - text: ユースケース
+        href: usecases/index.qmd
       - text: 市場レポート
         href: reports/index.qmd
   page-footer:

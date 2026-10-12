@@ -14,7 +14,7 @@
 | `sightline` | 衛星SARが測れる向き（固定の図） | 干渉SARの限界を説明する章 |
 | `bar` | 横棒のグラフ。大きさの比較（1系列） | 市場規模の推移や比較。予測や見込みの値は `muted: true` で灰色にする。`unit` と `source` は必須 |
 | `range` | 推計の幅。小さい値から大きい値までの帯 | 調査会社ごとに数字が違うとき。`low` と `high` を書く。値が1つなら `low` だけ |
-| `thumbnail` | noteの見出し画像（1280×670） | note記事。`kind` は `news`（時事）、`course`（本編連動）、`guide`（実務メモ）、`report`（市場レポート） |
+| `thumbnail` | noteの見出し画像（1280×670） | note記事。`kind` は `news`（時事）、`course`（本編連動）、`guide`（実務メモ）、`report`（市場レポート）、`usecase`（ユースケース） |
 
 色の役割は3つ。`satellite`（青）は衛星や解析が行うこと、`human`（橙）は人や現地が行うこと、`none`（灰）は限界や対象外。
 

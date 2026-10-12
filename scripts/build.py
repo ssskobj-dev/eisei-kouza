@@ -7,6 +7,7 @@
   python scripts/build.py nav              サイトのメニューと講座ページを作る
   python scripts/build.py course <講座id>  講座を1つの文書にまとめる（研修テキスト用）
   python scripts/build.py reports [本数]   次に書く市場レポート（テーマと切り口）を一覧する
+  python scripts/build.py usecases [本数]  次に書くユースケースの記事を一覧する
 """
 import re
 import shutil
@@ -106,6 +107,18 @@ def check():
             if key not in angles:
                 errors.append(f"reports/topics.yaml: 切り口 '{key}' は patterns/report_angles.yaml にありません")
 
+    slugs = set()
+    for u in load_usecases():
+        if not u.get("name"):
+            errors.append("data/usecases.yaml: name のない行があります")
+        slug = u.get("slug")
+        if slug:
+            if not re.fullmatch(r"[a-z0-9-]+", slug):
+                errors.append(f"data/usecases.yaml: slug '{slug}' は英小文字、数字、ハイフンだけにしてください")
+            if slug in slugs:
+                errors.append(f"data/usecases.yaml: slug '{slug}' が重複しています")
+            slugs.add(slug)
+
     if errors:
         print("\n".join(errors))
         raise SystemExit(1)
@@ -158,6 +171,13 @@ def nav():
         if items:
             contents.append({"section": topic["name"], "contents": items})
     sidebars.append({"id": "reports", "title": "市場レポート", "contents": contents})
+    # ユースケースのメニュー。テーマごとに、書かれた記事を並べる
+    by_theme = {}
+    for u in load_usecases():
+        if u.get("slug") and (ROOT / "usecases" / f"{u['slug']}.qmd").exists():
+            by_theme.setdefault(u.get("theme", "その他"), []).append(f"usecases/{u['slug']}.qmd")
+    contents = ["usecases/index.qmd"] + [{"section": k, "contents": v} for k, v in by_theme.items()]
+    sidebars.append({"id": "usecases", "title": "ユースケース", "contents": contents})
     out = {"website": {"sidebar": sidebars}}
     (ROOT / "_sidebar.yml").write_text(
         "# scripts/build.py nav が作るファイル。手で直さない。\n"
@@ -200,6 +220,27 @@ def reports(limit):
         if shown >= limit:
             break
     print(f"残り {len([q for q in queue if q[1]])} 本（id 未設定のテーマを除く）")
+
+
+def load_usecases():
+    doc = load("data/usecases.yaml") or {}
+    return doc.get("usecases") or []
+
+
+def usecase_queue():
+    """まだ記事になっていないユースケースを、表の順に並べる。"""
+    return [u for u in load_usecases()
+            if not u.get("skip") and not (u.get("slug") and (ROOT / "usecases" / f"{u['slug']}.qmd").exists())]
+
+
+def usecases(limit):
+    queue = usecase_queue()
+    if not queue:
+        print("書くユースケースが残っていません。data/usecases.yaml に足してください")
+        return
+    for u in queue[:limit]:
+        print(f"{u.get('no', '-')}\t{u['name']}\t{u.get('theme', '')}\t{u.get('stage', '')}\t{u.get('region', '')}")
+    print(f"残り {len(queue)} 本")
 
 
 def strip_front_matter(text):
@@ -307,6 +348,8 @@ if __name__ == "__main__":
         todo()
     elif cmd == "nav":
         nav()
+    elif cmd == "usecases":
+        usecases(int(sys.argv[2]) if len(sys.argv) > 2 else 3)
     elif cmd == "reports":
         reports(int(sys.argv[2]) if len(sys.argv) > 2 else 2)
     elif cmd == "course" and len(sys.argv) > 2:

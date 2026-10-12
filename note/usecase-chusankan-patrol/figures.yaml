@@ -1,0 +1,43 @@
+# note記事「中山間地の見回りを衛星で減らす」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 農業・食料
+    title: 農地の見回りが半分に
+    sub: 年50万円前後の事例と、効果が出にくい条件
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、職員が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 農地を4段階に色分けする
+        - 見回り不要の農地を外す
+    right:
+      title: 職員が行う
+      items:
+        - 「要調査」の農地を見回る
+        - 不要と判定された農地の数%を抜き取りで確かめる
+        - 集落に説明する
+    note: 見回りはなくならない。公表されている効果は、約50%の削減
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の4つの限界
+    columns: 2
+    items:
+      - title: 小さな区画は解析できない
+        text: 「解析対象外」として残り、従来どおり見回る
+        role: none
+      - title: 狭い農地が多い集落では効果が小さい
+        text: 見回りの要る農地が多く残る
+        role: none
+      - title: 分かるのは耕作や管理の有無まで
+        text: 作物の種類や活動の中身は分からない
+        role: none
+      - title: 抜き取りの確認は続く
+        text: 不要と判定した農地の数%を見回っている
+        role: none

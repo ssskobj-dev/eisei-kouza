@@ -408,7 +408,8 @@ def fig_thumbnail(spec):
     """noteの見出し画像（1280×670）。題名を大きく入れる。図ではなく、完成したSVGを返す。"""
     tw, th = 1280, 670
     kinds = {"news": ("時事解説", MAIN, DEEP), "course": ("講座", DEEP, MAIN),
-             "guide": ("実務メモ", WARM, WARM_DEEP), "report": ("市場レポート", DEEP, MAIN)}
+             "guide": ("実務メモ", WARM, WARM_DEEP), "report": ("市場レポート", DEEP, MAIN),
+             "usecase": ("ユースケース", MAIN, DEEP)}
     label, c1, c2 = kinds[spec.get("kind", "news")]
     lines = wrap(spec["title"], 15)[:3]
     size = 76 if len(lines) <= 2 else 66
