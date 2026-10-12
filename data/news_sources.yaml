@@ -1,0 +1,45 @@
+# 時事記事の情報源。毎朝ここを調べる。足したい情報源があれば追記する。
+# 一次情報（発表元）を優先する。業界メディアは、話題を見つけるためだけに使う。
+
+primary:
+  - name: 国土交通省 報道発表
+    url: https://www.mlit.go.jp/report/press/
+    watch: [衛星, リモートセンシング, インフラDX, 点検, 災害]
+  - name: 内閣府 宇宙開発戦略推進事務局
+    url: https://www8.cao.go.jp/space/
+    watch: [衛星データ, 利用, 実証, 宇宙政策委員会]
+  - name: JAXA プレスリリース
+    url: https://www.jaxa.jp/press/
+    watch: [だいち, ALOS, 観測, 打上げ, 協定]
+  - name: 農林水産省 報道発表
+    url: https://www.maff.go.jp/j/press/
+    watch: [スマート農業, 衛星, リモートセンシング, 農地]
+  - name: 環境省 報道発表
+    url: https://www.env.go.jp/press/
+    watch: [衛星, 地盤沈下, 観測]
+  - name: 国土地理院
+    url: https://www.gsi.go.jp/
+    watch: [干渉SAR, 地殻変動, 地盤変動]
+  - name: 欧州宇宙機関（Sentinel）
+    url: https://www.esa.int/Applications/Observing_the_Earth/Copernicus
+    watch: [Sentinel-1, Sentinel-2, launch, data]
+
+discovery:
+  # 話題を見つけるために使う。記事の根拠にはしない
+  - name: 宙畑
+    url: https://sorabatake.jp/
+  - name: UchuBiz
+    url: https://uchubiz.com/
+  - name: PR TIMES（衛星データ）
+    url: https://prtimes.jp/
+    watch: [衛星データ, SAR衛星, 営農支援, インフラ監視]
+
+topics:
+  # 取り上げる話題の種類と、主に関係する読者
+  - 衛星の打ち上げ、運用開始、故障（全員）
+  - 国の方針、予算、ガイドライン、点検要領（測量・建設コンサル、インフラ管理者）
+  - 入札、実証事業の公募と結果（測量・建設コンサル、自治体）
+  - 補助金、助成制度（農業、中小企業）
+  - 災害時の衛星利用（全員）
+  - サービスの開始、料金の改定、終了（農業）
+  - 企業の提携、導入の発表（インフラ管理者）

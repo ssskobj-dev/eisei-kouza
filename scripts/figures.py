@@ -4,9 +4,14 @@
 使い方:
   python scripts/figures.py            全部の図を作る
   python scripts/figures.py <章のid>   その章の図だけ作る
+  python scripts/figures.py <記事のフォルダ名>   note記事の図と見出し画像だけ作る（PNGも出す）
 
 図の型（type）は patterns/figures.md を参照。色は design/typst-template.typ と同じ。
 """
+import glob
+import re
+import shutil
+import subprocess
 import sys
 from html import escape
 from pathlib import Path
@@ -318,7 +323,37 @@ def fig_sightline(spec):
     return ny + nh + PAD, "".join(out)
 
 
+def fig_thumbnail(spec):
+    """noteの見出し画像（1280×670）。題名を大きく入れる。図ではなく、完成したSVGを返す。"""
+    tw, th = 1280, 670
+    kinds = {"news": ("時事解説", MAIN, DEEP), "course": ("講座", DEEP, MAIN), "guide": ("実務メモ", WARM, WARM_DEEP)}
+    label, c1, c2 = kinds[spec.get("kind", "news")]
+    lines = wrap(spec["title"], 15)[:3]
+    size = 76 if len(lines) <= 2 else 66
+    out = [
+        f'<rect width="{tw}" height="{th}" fill="#ffffff"/>',
+        f'<rect width="{tw}" height="{th}" fill="{PALE}" opacity="0.55"/>',
+        f'<rect x="0" y="0" width="34" height="{th}" fill="{c1}"/>',
+        f'<circle cx="{tw - 90}" cy="{th + 40}" r="330" fill="{c1}" opacity="0.13"/>',
+        f'<circle cx="{tw + 40}" cy="110" r="210" fill="{c1}" opacity="0.10"/>',
+        rect(96, 78, 40 + len(label) * 34, 62, c1, "none", r=31),
+        text(116 + len(label) * 17, 121, label, size=34, fill="#fff", weight="bold", anchor="middle"),
+    ]
+    if spec.get("tag"):
+        out.append(text(96 + 40 + len(label) * 34 + 26, 121, spec["tag"], size=32, fill=c2, weight="bold"))
+    ty = 268 if len(lines) <= 2 else 250
+    out.append(text(96, ty, lines, size=size, fill=INK, weight="900", lh=1.34))
+    if spec.get("sub"):
+        sy = ty + size * 1.34 * (len(lines) - 1) + 78
+        out.append(rect(96, sy - 46, 14, 58, c1, "none", r=4))
+        out.append(text(128, sy, wrap(spec["sub"], 28)[:1], size=36, fill=c2, weight="bold"))
+    out.append(text(tw - 70, th - 52, spec.get("brand", "衛星データ実務講座"), size=28, fill=DEEP, weight="bold", anchor="end"))
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {tw} {th}" width="{tw}" height="{th}" '
+            f'font-family="{FONT}" role="img"><title>{escape(spec["title"])}</title>{"".join(out)}</svg>\n')
+
+
 TYPES = {
+    "thumbnail": fig_thumbnail,
     "cards": fig_cards,
     "flow": fig_flow,
     "funnel": fig_funnel,
@@ -328,20 +363,83 @@ TYPES = {
 }
 
 
+def find_browser():
+    """PNGへの変換に使うブラウザを探す。なければ None。"""
+    # 画面の枠を持たない版を優先する（普通の版は、下が切れた画像になる）
+    for pattern in ("/opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell",
+                    "/opt/pw-browsers/chromium-*/chrome-linux/chrome"):
+        found = sorted(glob.glob(pattern))
+        if found:
+            return found[-1]
+    for name in ("chromium", "chromium-browser", "google-chrome", "chrome"):
+        if shutil.which(name):
+            return shutil.which(name)
+    return None
+
+
+def to_png(svg_path, scale=2):
+    """SVGをPNGにする（noteはSVGを貼れないため）。同じ場所に同じ名前で保存する。"""
+    browser = find_browser()
+    if not browser:
+        print(f"  PNGを作れませんでした（ブラウザがありません）: {svg_path.name}")
+        return False
+    m = re.search(r'viewBox="0 0 ([\d.]+) ([\d.]+)"', svg_path.read_text(encoding="utf-8"))
+    w, h = int(float(m.group(1))), int(float(m.group(2)))
+    png = svg_path.with_suffix(".png")
+    page = svg_path.with_suffix(".html")
+    page.write_text(f'<html><body style="margin:0"><img src="{svg_path.name}" '
+                    f'style="display:block;width:{w}px;height:{h}px"></body></html>', encoding="utf-8")
+    subprocess.run(
+        [browser, "--headless", "--no-sandbox", "--disable-gpu", "--hide-scrollbars",
+         f"--window-size={w},{h + 200}", f"--force-device-scale-factor={scale}",
+         f"--screenshot={png}", page.resolve().as_uri()],
+        capture_output=True, timeout=90)
+    page.unlink()
+    if not png.exists():
+        print(f"  PNGを作れませんでした: {svg_path.name}")
+        return False
+    # 下に付けた余白を切り取る
+    try:
+        from PIL import Image
+        img = Image.open(png)
+        img.crop((0, 0, w * scale, h * scale)).save(png)
+    except ImportError:
+        print(f"  Pillowがないため、下に余白が残っています: {png.name}（pip install pillow）")
+    return True
+
+
+def render(spec_file, dest, png):
+    doc = yaml.safe_load(spec_file.read_text(encoding="utf-8")) or {}
+    dest.mkdir(exist_ok=True)
+    count = 0
+    for fig in doc.get("figures", []):
+        if fig["type"] not in TYPES:
+            raise SystemExit(f"{spec_file}: 図の型 '{fig['type']}' は patterns/figures.md にありません")
+        result = TYPES[fig["type"]](fig)
+        if isinstance(result, str):          # 見出し画像は完成したSVG
+            content = result
+        else:
+            content = svg(result[0], result[1], fig.get("alt", fig["id"]))
+        path = dest / f"{fig['id']}.svg"
+        path.write_text(content, encoding="utf-8")
+        if png:
+            to_png(path)
+        count += 1
+    return count
+
+
 def build(only=None):
+    """章の図（figures/<章のid>.yaml）と、note記事の図（note/<記事>/figures.yaml）を作る。"""
     count = 0
     for f in sorted((ROOT / "figures").glob("*.yaml")):
         if only and f.stem != only:
             continue
-        doc = yaml.safe_load(f.read_text(encoding="utf-8")) or {}
-        dest = ROOT / "figures" / f.stem
-        dest.mkdir(exist_ok=True)
-        for fig in doc.get("figures", []):
-            if fig["type"] not in TYPES:
-                raise SystemExit(f"{f.name}: 図の型 '{fig['type']}' は patterns/figures.md にありません")
-            height, body = TYPES[fig["type"]](fig)
-            (dest / f"{fig['id']}.svg").write_text(svg(height, body, fig.get("alt", fig["id"])), encoding="utf-8")
-            count += 1
+        count += render(f, ROOT / "figures" / f.stem, png=False)
+    # note記事の図は、貼り付けられるようにPNGも作る
+    for f in sorted((ROOT / "note").glob("*/figures.yaml")):
+        if only and f.parent.name != only:
+            continue
+        count += render(f, f.parent, png=True)
     print(f"図を {count} 個作りました")
 
 
