@@ -4,7 +4,7 @@
 使い方:
   python scripts/build.py check            章立ての書き間違いを点検する
   python scripts/build.py todo             まだ書かれていない章を一覧する
-  python scripts/build.py nav              サイトのメニューと講座ページを作る
+  python scripts/build.py nav              メニューと、自動で作るページ（各シリーズの入口、講座、テーマ）を作る
   python scripts/build.py course <講座id>  講座を1つの文書にまとめる（研修テキスト用）
   python scripts/build.py reports [本数]   次に書く市場レポート（テーマと切り口）を一覧する
   python scripts/build.py usecases [本数]  次に書くユースケースの記事を一覧する
@@ -45,7 +45,7 @@ def load_courses():
 
 
 def chapter_path(part):
-    return ROOT / "chapters" / part["domain"] / f"{part['id']}.qmd"
+    return ROOT / "learn" / part["domain"] / f"{part['id']}.qmd"
 
 
 def check():
@@ -95,17 +95,32 @@ def check():
     seen = set()
     for topic in load_topics():
         if not topic.get("name"):
-            errors.append("reports/topics.yaml: name のないテーマがあります")
+            errors.append("landscape/topics.yaml: name のないテーマがあります")
         tid = topic.get("id")
         if tid:
             if not re.fullmatch(r"[a-z0-9-]+", tid):
-                errors.append(f"reports/topics.yaml: id '{tid}' は英小文字、数字、ハイフンだけにしてください")
+                errors.append(f"landscape/topics.yaml: id '{tid}' は英小文字、数字、ハイフンだけにしてください")
             if tid in seen:
-                errors.append(f"reports/topics.yaml: id '{tid}' が重複しています")
+                errors.append(f"landscape/topics.yaml: id '{tid}' が重複しています")
             seen.add(tid)
         for key in topic.get("angles") or []:
             if key not in angles:
-                errors.append(f"reports/topics.yaml: 切り口 '{key}' は patterns/report_angles.yaml にありません")
+                errors.append(f"landscape/topics.yaml: 切り口 '{key}' は patterns/report_angles.yaml にありません")
+
+    theme_list = (load("data/themes.yaml") or {}).get("themes", [])
+    theme_names = {th["name"] for th in theme_list}
+    topic_ids = {x.get("id") for x in load_topics()}
+    course_ids = {c["id"] for c in load_courses()}
+    for th in theme_list:
+        for tid in th.get("landscape", []):
+            if tid not in topic_ids:
+                errors.append(f"data/themes.yaml: 市場ガイドのテーマ '{tid}' が landscape/topics.yaml にありません")
+        for cid in th.get("courses", []):
+            if cid not in course_ids:
+                errors.append(f"data/themes.yaml: 講座 '{cid}' が courses/ にありません")
+    for u in load_usecases():
+        if u.get("theme") and u["theme"] not in theme_names:
+            errors.append(f"data/usecases.yaml: テーマ '{u['theme']}' が data/themes.yaml にありません（{u.get('name')}）")
 
     slugs = set()
     for u in load_usecases():
@@ -131,62 +146,213 @@ def todo():
             print(f"{pid}\t{p['type']}\t{p['audience']}\t{p['depth']}\t{p['title']}")
 
 
-def nav():
-    """公開する講座ごとに、メニュー（_sidebar.yml）と講座ページを作る。"""
-    parts = load_parts()
-    sidebars = []
-    for c in load_courses():
-        if not c.get("public"):
+def front_matter(path):
+    """記事の冒頭の設定（題名など）を読む。"""
+    text = path.read_text(encoding="utf-8")
+    if text.startswith("---"):
+        end = text.find("\n---", 3)
+        if end != -1:
+            return yaml.safe_load(text[3:end]) or {}
+    return {}
+
+
+def full_title(path):
+    fm = front_matter(path)
+    return fm.get("title", path.stem) + (f"：{fm['subtitle']}" if fm.get("subtitle") else "")
+
+
+def write_page(rel, title, subtitle, body, extra=""):
+    """自動で作るページを書き出す。extra には、一覧の設定や、古いアドレスからの転送を書く。"""
+    head = f'---\ntitle: "{title}"\nsubtitle: "{subtitle}"\nformat: html\n{extra}---\n\n'
+    path = ROOT / rel
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(head + body.rstrip() + "\n", encoding="utf-8")
+
+
+LISTING = """listing:
+  contents: "{contents}"
+  type: default
+  sort: "date desc"
+  categories: true
+  fields: [date, title, subtitle, description, categories]
+  date-format: "YYYY年M月D日"
+  page-size: 30
+  filter-ui: [title, description]
+"""
+
+
+NEWS_DIR = re.compile(r"^(\d{4}-\d{2}-\d{2})-(.+)$")
+
+
+def news_pages():
+    """note/<日付>-<話題>/article.md から、サイトの時事解説のページ（news/<同じ名前>.qmd）を作る。
+    note用の下書きを、そのままサイトにも載せるための変換。要確認の節は編集用のメモなので載せない。"""
+    made = []
+    out_dir = ROOT / "news"
+    out_dir.mkdir(exist_ok=True)
+    for old in out_dir.glob("*.qmd"):
+        old.unlink()
+    for folder in sorted((ROOT / "note").iterdir()):
+        m = NEWS_DIR.match(folder.name)
+        src = folder / "article.md"
+        if not (m and src.exists()):
             continue
-        page = [f"---\ntitle: \"{c['title']}\"\nformat: html\n---\n"]
-        contents = [f"course-{c['id']}.qmd"]
+        lines = src.read_text(encoding="utf-8").splitlines()
+        title = next((l[2:].strip() for l in lines if l.startswith("# ")), folder.name)
+        body, skip = [], False
+        for l in lines:
+            if l.startswith("# ") or l.startswith("（note用の下書き") or "（リンクを入れる）" in l:
+                continue
+            if l.startswith("## "):
+                skip = l[3:].strip().startswith("要確認")
+            if skip:
+                continue
+            fig = re.fullmatch(r"（ここに (fig-\d+)\.png）", l.strip())
+            if fig:
+                name = fig.group(1)
+                ext = "svg" if (folder / f"{name}.svg").exists() else "png"
+                if (folder / f"{name}.{ext}").exists():
+                    body.append(f"![](../note/{folder.name}/{name}.{ext}){{fig-alt=\"図\"}}")
+                continue
+            body.append(re.sub(r"(?<![<(\[])(https?://[^\s<>）」]+)", r"<\1>", l))
+        text = "\n".join(body).strip()
+        first = next((l for l in body if l.strip() and not l.startswith(("#", "!", "-", "（"))), "")
+        desc = re.sub(r"\[\d+\]|\*\*", "", first).replace('"', "”")[:110]
+        thumb = f"../note/{folder.name}/thumbnail.png"
+        extra = f'date: {m.group(1)}\ndescription: "{desc}"\ncategories: [時事解説]\n'
+        if (folder / "thumbnail.png").exists():
+            extra += f'image: "{thumb}"\n'
+        head = f'---\ntitle: "{title}"\nformat: html\n{extra}---\n\n'
+        (out_dir / f"{folder.name}.qmd").write_text(head + text + "\n", encoding="utf-8")
+        made.append(folder.name)
+    return made
+
+
+def nav():
+    """メニュー（_sidebar.yml）と、自動で作るページ（各シリーズの入口、講座、テーマ）を作る。"""
+    parts = load_parts()
+    series = load("_variables.yml")["series"]
+    angles = load("patterns/report_angles.yaml")
+    topics = [x for x in load_topics() if x.get("id")]
+    cases = [u for u in load_usecases()
+             if u.get("slug") and (ROOT / "casebook" / f"{u['slug']}.qmd").exists()]
+    sidebars = []
+
+    # ---- 学習プログラム：講座ごとのページと、入口のページ ----
+    course_lines = []
+    public_courses = [c for c in load_courses() if c.get("public")]
+    for c in public_courses:
+        page, contents = [], [f"learn/course-{c['id']}.qmd"]
+        done = total = 0
         for sec in c["sections"]:
             page.append(f"\n## {sec['name']}\n")
+            if sec.get("lead"):
+                page.append(sec["lead"] + "\n")
             items = []
             for pid in sec["parts"]:
-                p = parts[pid]
-                path = chapter_path(p)
+                part = parts[pid]
+                path = chapter_path(part)
+                total += 1
                 if path.exists():
-                    rel = path.relative_to(ROOT).as_posix()
-                    items.append(rel)
-                    line = f"- [{p['title']}]({rel})"
-                    quiz = ROOT / "quiz" / f"{pid}.qmd"
-                    if quiz.exists():
+                    done += 1
+                    rel = path.relative_to(ROOT / "learn").as_posix()
+                    items.append("learn/" + rel)
+                    line = f"- [{part['title']}]({rel})"
+                    if (ROOT / "learn" / "quiz" / f"{pid}.qmd").exists():
                         line += f"　[ケース問題](quiz/{pid}.qmd)"
                     page.append(line)
                 else:
-                    page.append(f"- {p['title']}（準備中）")
+                    page.append(f"- {part['title']}（準備中）")
             if items:
                 contents.append({"section": sec["name"], "contents": items})
-        (ROOT / f"course-{c['id']}.qmd").write_text("\n".join(page) + "\n", encoding="utf-8")
+        main, _, sub = c["title"].partition("（")
+        write_page(f"learn/course-{c['id']}.qmd", main, sub.rstrip("）"), "\n".join(page),
+                   f'aliases:\n  - /course-{c["id"]}.html\n')
         sidebars.append({"id": c["id"], "title": c["title"], "contents": contents})
-    # 市場レポートのメニュー。テーマごとに、書かれた切り口を並べる
-    angles = load("patterns/report_angles.yaml")
-    contents = ["reports/index.qmd"]
-    for topic in load_topics():
-        if not topic.get("id"):
-            continue
-        items = [f"reports/{topic['id']}/{key}.qmd" for key in angles
-                 if (ROOT / "reports" / topic["id"] / f"{key}.qmd").exists()]
+        course_lines.append(f"- [{c['title']}](course-{c['id']}.qmd)　公開 {done} 章 / 全 {total} 章")
+    write_page("learn/index.qmd", series["learn"]["brand"], series["learn"]["ja"],
+               "衛星データを仕事に使うための講座です。使い道ごとに、欲しい成果、強み、限界、現実的な落とし所の順で学びます。"
+               "章には図とケース問題が付いています。\n\n## 講座\n\n" + "\n".join(course_lines))
+
+    # ---- 市場ガイド ----
+    write_page("landscape/index.qmd", series["landscape"]["brand"], series["landscape"]["ja"],
+               "衛星データの利活用を、分野ごとに整理しています。1つの分野を、次の8つの切り口で1本ずつ書いています。\n\n"
+               + "、".join(a["name"] for a in angles.values()) + "\n\n"
+               "市場規模の数字は、出どころ、対象の範囲、年を添えています。調査会社によって推計に幅があるときは、"
+               "1つに決めず、幅のまま示しています。右の分類から、分野や切り口で絞り込めます。",
+               LISTING.format(contents="*/*.qmd") + "aliases:\n  - /reports/index.html\n")
+    contents = ["landscape/index.qmd"]
+    n_guides = 0
+    for topic in topics:
+        items = [f"landscape/{topic['id']}/{key}.qmd" for key in angles
+                 if (ROOT / "landscape" / topic["id"] / f"{key}.qmd").exists()]
+        n_guides += len(items)
         if items:
             contents.append({"section": topic["name"], "contents": items})
-    sidebars.append({"id": "reports", "title": "市場レポート", "contents": contents})
-    # ユースケースのメニュー。テーマごとに、書かれた記事を並べる
+    sidebars.append({"id": "landscape", "title": series["landscape"]["short"], "contents": contents})
+
+    # ---- ユースケース集 ----
+    write_page("casebook/index.qmd", series["casebook"]["brand"], series["casebook"]["ja"],
+               "衛星データの使い道を、1つずつ取り上げます。研究事例と、企業や官公庁の発表から拾ったものです。"
+               "どの記事も、同じ順番で書いています。\n\n"
+               "事例、2026年時点の限界、業務に入れるときの想定、意思決定に使えるデータ、費用の考え方、向き不向き\n\n"
+               "費用は、公開されている金額だけを、出どころと条件を添えて書いています。"
+               "右の分類から、テーマ、段階（研究、実証、商用）、国内と海外で絞り込めます。",
+               LISTING.format(contents="*.qmd") + "aliases:\n  - /usecases/index.html\n")
     by_theme = {}
-    for u in load_usecases():
-        if u.get("slug") and (ROOT / "usecases" / f"{u['slug']}.qmd").exists():
-            by_theme.setdefault(u.get("theme", "その他"), []).append(f"usecases/{u['slug']}.qmd")
-    contents = ["usecases/index.qmd"] + [{"section": k, "contents": v} for k, v in by_theme.items()]
-    sidebars.append({"id": "usecases", "title": "ユースケース", "contents": contents})
+    for u in cases:
+        by_theme.setdefault(u.get("theme", "その他"), []).append(f"casebook/{u['slug']}.qmd")
+    sidebars.append({"id": "casebook", "title": series["casebook"]["short"],
+                     "contents": ["casebook/index.qmd"] + [{"section": k, "contents": v} for k, v in by_theme.items()]})
+
+    # ---- テーマから探す：テーマごとに、3つのシリーズを束ねる ----
+    themes = (load("data/themes.yaml") or {}).get("themes", [])
+    all_cases = [u for u in load_usecases() if not u.get("skip")]
+    index_lines = []
+    for th in themes:
+        body = [th.get("lead", ""), "", f"## {series['landscape']['short']}", ""]
+        rows = []
+        for tid in th.get("landscape", []):
+            for key in angles:
+                path = ROOT / "landscape" / tid / f"{key}.qmd"
+                if path.exists():
+                    rows.append(f"- [{full_title(path)}](../landscape/{tid}/{key}.qmd)")
+        body += rows or ["準備中です。"]
+        body += ["", f"## {series['casebook']['short']}", ""]
+        mine = [u for u in cases if u.get("theme") == th["name"]]
+        planned = len([u for u in all_cases if u.get("theme") == th["name"]])
+        body += [f"- [{full_title(ROOT / 'casebook' / (u['slug'] + '.qmd'))}](../casebook/{u['slug']}.qmd)" for u in mine]
+        body += ["", f"このテーマのユースケースは全{planned}件です。公開済みは{len(mine)}件で、順に追加しています。"]
+        body += ["", f"## {series['learn']['short']}", ""]
+        mine_courses = [c for c in public_courses if c["id"] in th.get("courses", [])]
+        body += [f"- [{c['title']}](../learn/course-{c['id']}.qmd)" for c in mine_courses] or ["準備中です。"]
+        write_page(f"themes/{th['id']}.qmd", th["name"], "テーマから探す", "\n".join(body))
+        index_lines.append(f"- [{th['name']}]({th['id']}.qmd)　ユースケース {len(mine)} / {planned} 件"
+                           + ("、市場ガイドあり" if rows else "") + ("、講座あり" if mine_courses else ""))
+    write_page("themes/index.qmd", "テーマから探す", "分野ごとに、市場ガイド、ユースケース、学習プログラムをまとめて見る",
+               "関心のある分野を選ぶと、その分野の記事をシリーズをまたいで一覧できます。\n\n" + "\n".join(index_lines))
+    sidebars.append({"id": "themes", "title": "テーマから探す",
+                     "contents": ["themes/index.qmd"] + [f"themes/{th['id']}.qmd" for th in themes]})
+
+    # ---- 時事解説：note用の下書きから、サイトのページを作る ----
+    news = news_pages()
+    write_page("news/index.qmd", series["news"]["brand"], series["news"]["ja"],
+               "衛星データに関する発表を取り上げ、発注する側にとっての意味を書きます。"
+               "ニュースの要約ではなく、何が変わり、何が変わらないかを整理します。発表元の資料をもとに書いています。",
+               LISTING.format(contents="*.qmd"))
+    sidebars.append({"id": "news", "title": series["news"]["short"],
+                     "contents": ["news/index.qmd"] + [f"news/{n}.qmd" for n in reversed(news)]})
+
     out = {"website": {"sidebar": sidebars}}
     (ROOT / "_sidebar.yml").write_text(
         "# scripts/build.py nav が作るファイル。手で直さない。\n"
         + yaml.safe_dump(out, allow_unicode=True, sort_keys=False), encoding="utf-8")
-    print(f"メニューを作りました（講座 {len(sidebars)} 個）")
+    print(f"メニューとページを作りました（講座 {len(public_courses)}、テーマ {len(themes)}、"
+          f"市場ガイド {n_guides} 本、ユースケース {len(cases)} 本、時事解説 {len(news)} 本）")
 
 
 def load_topics():
-    doc = load("reports/topics.yaml") or {}
+    doc = load("landscape/topics.yaml") or {}
     return [x for x in (doc.get("topics") or []) if not x.get("skip")]
 
 
@@ -199,7 +365,7 @@ def report_queue():
             queue.append((topic, None))       # id がまだない。最初に作るときに付ける
             continue
         for key in topic.get("angles") or list(angles):
-            if not (ROOT / "reports" / topic["id"] / f"{key}.qmd").exists():
+            if not (ROOT / "landscape" / topic["id"] / f"{key}.qmd").exists():
                 queue.append((topic, key))
     return queue
 
@@ -208,7 +374,7 @@ def reports(limit):
     angles = load("patterns/report_angles.yaml")
     queue = report_queue()
     if not queue:
-        print("書くテーマが残っていません。reports/topics.yaml にテーマを足してください")
+        print("書くテーマが残っていません。landscape/topics.yaml にテーマを足してください")
         return
     shown = 0
     for topic, key in queue:
@@ -230,7 +396,7 @@ def load_usecases():
 def usecase_queue():
     """まだ記事になっていないユースケースを、表の順に並べる。"""
     return [u for u in load_usecases()
-            if not u.get("skip") and not (u.get("slug") and (ROOT / "usecases" / f"{u['slug']}.qmd").exists())]
+            if not u.get("skip") and not (u.get("slug") and (ROOT / "casebook" / f"{u['slug']}.qmd").exists())]
 
 
 def usecases(limit):

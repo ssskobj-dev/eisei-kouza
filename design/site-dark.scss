@@ -1,0 +1,21 @@
+/*-- scss:defaults --*/
+// 暗い表示のときの色。紺の地に、白と橙。
+$body-bg: #0b1524;
+$body-color: #e3e9f0;
+$link-color: #ff8a57;
+$headings-color: #f2f5f7;
+
+/*-- scss:rules --*/
+main .quarto-title h1.title { background: #13233b; }
+main .quarto-title .subtitle { color: #ff8a57; }
+main h2 { color: #f2f5f7; border-bottom-color: #2b4369; }
+main table thead th { background: #13233b; color: #f2f5f7; border-bottom-color: #2b4369; }
+main figcaption { color: #c9d4e2; }
+main figure img { background: #ffffff; }
+.quarto-category, .listing-category { color: #c9d4e2 !important; }
+.quarto-listing .listing-title a, .quarto-listing a.title { color: #f2f5f7; }
+.s2d-hero { border: 1px solid #1c2f4f; }
+.s2d-series a.s2d-card { border-top-color: #2b4369; }
+.s2d-card .name, .s2d-card .ja { color: #f2f5f7; }
+.s2d-card .num { color: #ff8a57; }
+.s2d-card .lead { color: #a9b7c9; }

@@ -1,9 +1,11 @@
 ---
 title: "ケース問題：道路のり面と斜面の絞り込み"
 format: html
+aliases:
+  - /quiz/survey-road-slope-screening.html
 ---
 
-[本文に戻る](../chapters/survey/survey-road-slope-screening.qmd)
+[本文に戻る](../survey/survey-road-slope-screening.qmd)
 
 場面はすべて架空です。
 

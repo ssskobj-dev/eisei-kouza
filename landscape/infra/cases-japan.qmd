@@ -4,6 +4,8 @@ subtitle: "誰が、何に、どう使っているか"
 description: "道路、ダム、埋立地、地盤沈下、水道管。国内の公開事例を、実証か実装かを区別して整理します。"
 date: 2026-10-12
 categories: [インフラ・地盤監視, 国内の事例]
+aliases:
+  - /reports/infra/cases-japan.html
 ---
 
 ## この記事で分かること
@@ -88,7 +90,8 @@ JAXAは、衛星SARを使ったことがない利用者でも扱える解析ツ�
 
 ## 関連する記事
 
-- 講座：[道路のり面と斜面：路線全体から、見に行く場所を絞り込む](../../chapters/survey/survey-road-slope-screening.qmd)
+- テーマから探す：[インフラ・建設](../../themes/infrastructure.qmd)
+- 講座：[道路のり面と斜面：路線全体から、見に行く場所を絞り込む](../../learn/survey/survey-road-slope-screening.qmd)
 
 ## 出典
 
