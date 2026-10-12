@@ -1,0 +1,72 @@
+# ユースケースの記事「クレジット事業の候補地を、衛星で先に絞る」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 候補地の森林面積の変化を、過去にさかのぼって調べる
+        - 候補地を同じ物差しで比べる
+        - 始まった後の変化を見張る
+    right:
+      title: 人が行う
+      items:
+        - 現地で木を測り、炭素の量を決める
+        - 土地の権利と地元の合意を確かめる
+        - 認証の審査を受ける
+    note: 衛星で分かるのは面積と変化まで。炭素の量は現地調査で決まる
+
+  - id: limits
+    type: cards
+    alt: この使い方の4つの限界
+    columns: 2
+    items:
+      - title: 炭素の量は現地で決まる
+        text: 木の太さ、高さ、種類は現地で測る
+        role: none
+      - title: 森林の劣化は捉えにくい
+        text: 抜き切りによる少しずつの変化
+        role: none
+      - title: 水田には条件がある
+        text: 1辺30m以上、稲70cm以下で精度80%
+        role: none
+      - title: 精度の数字が非公表
+        text: 事例の資料に、精度と金額の数字はない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 現地調査の前に、衛星で候補地を絞る手順
+    steps:
+      - title: 型と国を決める
+        text: 認証制度も
+        who: human
+      - title: 過去の変化を調べる
+        text: 衛星で解析
+        who: satellite
+      - title: 候補を絞る
+        text: 同じ物差しで比較
+        who: satellite
+      - title: 現地調査
+        text: 木を測る、権利
+        who: human
+      - title: 計画書に使う
+        text: 解析と現地の値
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星で分かりやすいことから、現地調査が要ることまで
+    left: 衛星で分かりやすい
+    right: 現地調査が要る
+    items:
+      - title: 森林面積の変化
+        text: いつ、どこで減ったか
+      - title: 水田の水の有無
+        text: 圃場と稲に条件
+      - title: 森林の劣化
+        text: 少しずつの変化
+      - title: 炭素の量、樹種
+        text: 現地で測る

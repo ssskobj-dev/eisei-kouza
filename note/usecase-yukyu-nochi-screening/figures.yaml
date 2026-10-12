@@ -1,0 +1,43 @@
+# note記事「遊休農地の調査で、現地に行く農地を衛星で絞る」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 農業・食料
+    title: 行く農地を、衛星の点数で絞る
+    sub: 20以上の自治体で本運用。書かれていない限界
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、農業委員会が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 全部の農地に、耕作放棄の可能性の点数を付ける
+        - 現地に行く農地の候補を絞る
+    right:
+      title: 農業委員会が行う
+      items:
+        - おそれのある農地を、一筆ごとに現地で見る
+        - 遊休農地かどうかを判断する
+        - 結果を台帳に戻す
+    note: 画像の判定で済むのは、おそれがないと確実に言える農地だけ
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の4つの限界
+    columns: 2
+    items:
+      - title: 可能性で、確定ではない
+        text: おそれのある農地は、一筆ごとに現地で確かめる
+        role: none
+      - title: 狭い農地は難しい
+        text: ごく小さな区画は「解析対象外」になる
+        role: none
+      - title: 果樹園と茶畑
+        text: 衛星画像では見分けにくい
+        role: none
+      - title: 精度の基準に数字がない
+        text: 通知が求めるのは「十分な水準」
+        role: none

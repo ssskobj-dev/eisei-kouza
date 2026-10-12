@@ -1,0 +1,44 @@
+# note記事「クレジット事業の候補地を、衛星で先に絞る」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 林業・カーボン
+    title: 候補地を、衛星で先に絞る
+    sub: クレジット事業。炭素の量は現地で決まる
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 候補地の森林面積の変化を、過去にさかのぼって調べる
+        - 候補地を同じ物差しで比べる
+        - 始まった後の変化を見張る
+    right:
+      title: 人が行う
+      items:
+        - 現地で木を測り、炭素の量を決める
+        - 土地の権利と地元の合意を確かめる
+        - 認証の審査を受ける
+    note: 衛星で分かるのは面積と変化まで。炭素の量は現地調査で決まる
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の4つの限界
+    columns: 2
+    items:
+      - title: 炭素の量は現地で決まる
+        text: 木の太さ、高さ、種類は現地で測る
+        role: none
+      - title: 森林の劣化は捉えにくい
+        text: 抜き切りによる少しずつの変化
+        role: none
+      - title: 水田には条件がある
+        text: 1辺30m以上、稲70cm以下で精度80%
+        role: none
+      - title: 精度の数字が非公表
+        text: 事例の資料に、精度と金額の数字はない
+        role: none
