@@ -1,0 +1,39 @@
+# 時事記事「Sentinel-2Aの追加観測の延長」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: news
+    tag: 衛星の運用
+    title: Sentinel-2Aの追加観測を延長
+    sub: 日本の利用者は、何を確かめるか
+
+  - id: fig-1
+    type: cards
+    alt: Sentinel-2Aの追加観測の経緯
+    columns: 3
+    items:
+      - title: 2025年3月
+        text: 2Aが3機目として観測に戻る。予定は1年間
+      - title: 2026年5月
+        text: 2026年末までの延長が発表される
+      - title: 2026年10月
+        text: 2027年末までの延長が発表される
+
+  - id: fig-2
+    type: split
+    alt: 追加観測の延長で変わることと、変わらないこと
+    link: ⇔
+    left:
+      title: 変わること
+      items:
+        - 追加観測が2027年末まで続く
+        - 2機だけの体制より観測の機会が増える
+        - 増え方は地域で違う。中心は欧州と熱帯
+    right:
+      title: 変わらないこと
+      role: none
+      items:
+        - 雲があると地表は写らない
+        - 細かさは10mのまま
+        - 通常の体制は2機。3機は臨時の措置
+    note: 3機の頻度を前提に、業務を組まない
