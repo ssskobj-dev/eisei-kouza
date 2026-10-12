@@ -36,7 +36,7 @@ listing:
 ::: {.s2d-series}
 <a class="s2d-card" href="landscape/index.html"><span class="num">01</span><p class="name">Landscape</p><span class="ja">{{< var series.landscape.lead >}}</span><p class="lead">{{< var series.landscape.ja >}}。分野ごとに、世界と国内の市場、事例、主なプレイヤー、普及の壁を整理します。</p></a>
 <a class="s2d-card" href="casebook/index.html"><span class="num">02</span><p class="name">Casebook</p><span class="ja">{{< var series.casebook.lead >}}</span><p class="lead">{{< var series.casebook.ja >}}。使い道を1つずつ、2026年時点の限界、判断に使えるデータ、費用の考え方まで。</p></a>
-<a class="s2d-card" href="learn/index.html"><span class="num">03</span><p class="name">Codex</p><span class="ja">{{< var series.learn.lead >}}</span><p class="lead">{{< var series.learn.ja >}}。欲しい成果、強み、限界、落とし所の順に学ぶ講座。図とケース問題付き。</p></a>
+<a class="s2d-card" href="learn/index.html"><span class="num">03</span><p class="name">Codex</p><span class="ja">{{< var series.learn.lead >}}</span><p class="lead">{{< var series.learn.ja >}}。浸水、農地、地盤の動きなど、ユースケース別に、使う衛星と解析の流れを学べます。</p></a>
 :::
 
 ## 新着

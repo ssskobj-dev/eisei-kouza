@@ -228,6 +228,50 @@ def news_pages():
     return made
 
 
+def sentinel_page(series, cases_done):
+    """Sentinelで見られるユースケースの一覧と、解析手法の早見表（learn/sentinel.qmd）を作る。"""
+    doc = load("data/sentinel_methods.yaml")
+    rows = {u["no"]: u for u in load_usecases()}
+    done = {u["no"]: u["slug"] for u in cases_done}
+    b = ["無償で使える欧州の衛星 Sentinel を例に、ユースケースごとに「どの衛星の、どの解析手法を使うか」をまとめます。"
+         "手法の数は多くありません。同じ手法が、分野をまたいで使われています。", "",
+         "## Sentinelの4つの衛星", "",
+         "| 衛星 | 種類 | 見えるもの | 撮り方 |", "|---|---|---|---|"]
+    b += [f"| {x['name']} | {x['kind']} | {x['sees']} | {x['spec']} |" for x in doc["satellites"]]
+    b += ["", ': {tbl-colwidths="[15,17,30,38]"}']
+    b += ["", "## ユースケースと解析手法の対応", "",
+          "| 解析手法 | 使う衛星 | 答えられる問い | ユースケースの例 |", "|---|---|---|---|"]
+    b += [f"| [{m['name']}](#{m['id']}) | {m['satellite']} | {m['answers']} | {m['examples']} |" for m in doc["methods"]]
+    total = 0
+    for m in doc["methods"]:
+        b += ["", f"## {m['name']} {{#{m['id']}}}", "", f"**使う衛星**：{m['satellite']}", "",
+              f"**答えられる問い**：{m['answers']}", ""]
+        if m.get("steps"):
+            b += ["**解析の流れ**", ""] + [f"{i}. {x}" for i, x in enumerate(m["steps"], 1)] + [""]
+        if m.get("weak"):
+            b += ["**苦手なこと**", ""] + [f"- {x}" for x in m["weak"]] + [""]
+        if m.get("note"):
+            b += [m["note"], ""]
+        b += ["**この手法を使うユースケース**", "", "| ユースケース | 使うデータ | 段階 | 地域 |", "|---|---|---|---|"]
+        for no in m["cases"]:
+            u = rows[no]
+            name = f"[{u['name']}](../casebook/{done[no]}.qmd)" if no in done else u["name"]
+            region = {"両方": "国内・海外"}.get(u["region"], u["region"])
+            b.append(f"| {name} | {u['data']} | {u['stage']} | {region} |")
+            total += 1
+        b += ["", ': {tbl-colwidths="[36,40,10,14]"}']
+    b += ["", "## 出典", ""] + [f"{i}. {x}" for i, x in enumerate(doc["sources"], 1)]
+    b += ["", "各ユースケースの出典は、[" + series["casebook"]["short"] + "](../casebook/index.qmd)の個別の記事に載せています。", "",
+          "## 要確認", "",
+          "- 番号のない「解析の流れ」と「苦手なこと」は、一般的な手順と、各ユースケースの下調べをもとにまとめたものです。個別の記事を公開するときに、出典と照らし合わせます",
+          "- ユースケースの一覧は下調べの段階のものを含みます。リンクのあるものが、記事として公開済みです",
+          "- 衛星の機数や撮影の間隔は、運用の状況で変わります"]
+    write_page("learn/sentinel.qmd", "Sentinelで見られるユースケースと解析手法",
+               "ユースケース別に、使う衛星と解析の流れを早見表で", "\n".join(b),
+               "toc-depth: 2\n")
+    return total, doc
+
+
 def nav():
     """メニュー（_sidebar.yml）と、自動で作るページ（各シリーズの入口、講座、テーマ）を作る。"""
     parts = load_parts()
@@ -270,9 +314,22 @@ def nav():
                    f'aliases:\n  - /course-{c["id"]}.html\n')
         sidebars.append({"id": c["id"], "title": c["title"], "contents": contents})
         course_lines.append(f"- [{c['title']}](course-{c['id']}.qmd)　公開 {done} 章 / 全 {total} 章")
+    n_sentinel, sdoc = sentinel_page(series, cases)
+    method_rows = "\n".join(f"| [{m['name']}](sentinel.qmd#{m['id']}) | {m['satellite']} | {m['examples']} |"
+                            for m in sdoc["methods"])
     write_page("learn/index.qmd", series["learn"]["brand"], series["learn"]["ja"],
-               "衛星データを仕事に使うための講座です。使い道ごとに、欲しい成果、強み、限界、現実的な落とし所の順で学びます。"
-               "章には図とケース問題が付いています。\n\n## 講座\n\n" + "\n".join(course_lines))
+               "衛星データの解析を、ユースケース別に学べます。浸水、農地、地盤の動き、森林、水質など、"
+               "知りたいことから入り、使う衛星、解析の流れ、苦手なことの順で身につけます。\n\n"
+               "## ユースケース別に学ぶ\n\n"
+               f"無償で使える欧州の衛星 Sentinel を例に、{n_sentinel}件のユースケースを、解析手法ごとに整理しました。"
+               "手法の名前から、解析の流れとユースケースの一覧に進めます。\n\n"
+               "| 解析手法 | 使う衛星 | ユースケースの例 |\n|---|---|---|\n" + method_rows + "\n\n"
+               "[Sentinelで見られるユースケースと解析手法の一覧を開く](sentinel.qmd)\n\n"
+               "## 講座で体系的に学ぶ\n\n"
+               "使い道ごとに、欲しい成果、強み、限界、現実的な落とし所の順で学ぶ講座です。章には図とケース問題が付いています。\n\n"
+               + "\n".join(course_lines))
+    sidebars.append({"id": "learn", "title": series["learn"]["short"],
+                     "contents": ["learn/index.qmd", "learn/sentinel.qmd"]})
 
     # ---- 市場ガイド ----
     write_page("landscape/index.qmd", series["landscape"]["brand"], series["landscape"]["ja"],

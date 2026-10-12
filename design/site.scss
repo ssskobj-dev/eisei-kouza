@@ -169,3 +169,11 @@ body:has(.s2d-hero) #title-block-header { display: none; }
   }
   a.cta-link:hover { background: #ff8a57; }
 }
+
+// 狭い画面では、表だけを横に動かせるようにする（ページ全体は横に動かさない）
+@media (max-width: 767px) {
+  main table.table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  main table.table th, main table.table td { min-width: 7.5em; }
+}
+// 長いアドレスが画面からはみ出さないよう、途中で折り返す
+main a, main li, main p { overflow-wrap: anywhere; }

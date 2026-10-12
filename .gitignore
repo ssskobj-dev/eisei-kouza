@@ -5,6 +5,7 @@ _sidebar.yml
 # scripts/build.py nav が作るページ
 learn/course-*.qmd
 learn/index.qmd
+learn/sentinel.qmd
 landscape/index.qmd
 casebook/index.qmd
 themes/
