@@ -10,6 +10,6 @@
   - 事業者に最初に確認すべきことはどれか
 - 正解は1つに決まるようにする。迷う選択肢には、なぜ違うかを解説に書く
 - 場面設定は架空にする。実在の組織名を使わない
-- 正解と解説は、開くまで見えない折りたたみにする（手本：`quiz/survey-road-slope-screening.qmd`）
+- 正解と解説は、開くまで見えない折りたたみにする（手本：`learn/quiz/survey-road-slope-screening.qmd`）
 - 冒頭の設定に `format: html` を書く（問題のページはPDFにしない）
-- 保存先：`quiz/<章のid>.qmd`
+- 保存先：`learn/quiz/<章のid>.qmd`

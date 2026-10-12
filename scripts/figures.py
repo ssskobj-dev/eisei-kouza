@@ -430,7 +430,7 @@ def fig_thumbnail(spec):
         sy = ty + size * 1.34 * (len(lines) - 1) + 78
         out.append(rect(96, sy - 46, 14, 58, c1, "none", r=4))
         out.append(text(128, sy, wrap(spec["sub"], 28)[:1], size=36, fill=c2, weight="bold"))
-    out.append(text(tw - 70, th - 52, spec.get("brand", "衛星データ実務講座"), size=28, fill=DEEP, weight="bold", anchor="end"))
+    out.append(text(tw - 70, th - 52, spec.get("brand", "Satellite to Decision"), size=28, fill=DEEP, weight="bold", anchor="end"))
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {tw} {th}" width="{tw}" height="{th}" '
             f'font-family="{FONT}" role="img"><title>{escape(spec["title"])}</title>{"".join(out)}</svg>\n')
 

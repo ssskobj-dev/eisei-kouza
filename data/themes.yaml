@@ -1,0 +1,71 @@
+# テーマの一覧。「テーマから探す」のページは、ここから自動で作られる。
+#   id        ：ページのアドレスになる英字の名前
+#   name      ：テーマ名。data/usecases.yaml の theme と同じ名前にする
+#   lead      ：テーマの説明（1〜2文）
+#   landscape ：対応する市場ガイドのテーマの id（landscape/topics.yaml の id）
+#   courses   ：対応する学習プログラムの講座の id（courses/ のファイル名）
+
+themes:
+- id: agriculture
+  name: 農業・食料
+  lead: 生育の診断、農地の調査、農業保険、産地の作況の把握など。国内でも商用のサービスが広がっている分野です。
+  landscape: []
+  courses:
+  - agri
+- id: forestry-carbon
+  name: 林業・カーボン
+  lead: 森林資源の把握、違法伐採の検知、カーボンクレジットの算定と検証など。
+  landscape: []
+  courses: []
+- id: fisheries-ocean
+  name: 水産・海洋
+  lead: 漁場の探索、赤潮の監視、船舶の動静の把握、油の流出の検知など。
+  landscape: []
+  courses: []
+- id: infrastructure
+  name: インフラ・建設
+  lead: 道路の斜面、ダム、埋立地、地盤沈下、水道管など。広い範囲から詳しく調べる場所を絞り込む使い方が中心です。
+  landscape:
+  - infra
+  courses:
+  - survey
+- id: city-government
+  name: 都市・行政
+  lead: 違反開発や不法投棄の把握、固定資産税の調査、地図の更新など、自治体の業務での使い方。
+  landscape: []
+  courses: []
+- id: disaster
+  name: 防災
+  lead: 浸水や土砂災害の範囲の把握、地震の被害の判読、災害後の道路の状況の確認など。
+  landscape: []
+  courses: []
+- id: insurance-finance
+  name: 保険・金融
+  lead: 保険金の支払いの迅速化、引受のリスク評価、融資先の確認、投資の判断材料など。
+  landscape: []
+  courses: []
+- id: energy-resources
+  name: エネルギー・資源
+  lead: 太陽光や風力の適地の選定、石油やガスの施設の監視、鉱山の監視など。
+  landscape: []
+  courses: []
+- id: environment-water
+  name: 環境・水
+  lead: 温室効果ガスの排出源の把握、水質や水量の監視、生物多様性の評価、開示や規制への対応など。
+  landscape: []
+  courses: []
+- id: security-logistics
+  name: 安全保障・物流
+  lead: 海域や国境の監視、港や輸送路の状況の把握など。公開されている一般的な用途を扱います。
+  landscape: []
+  courses: []
+- id: health-humanitarian
+  name: 公衆衛生・人道支援
+  lead: 感染症の早期警戒、水質の注意喚起、人口の推計、災害や紛争時の支援の計画など。
+  landscape: []
+  courses: []
+- id: life-culture
+  name: 生活・文化・その他
+  lead: 観光やレジャー、文化財の保護、報道や調査、通信や移動の計画など。
+  landscape: []
+  courses: []

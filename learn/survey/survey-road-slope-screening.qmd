@@ -1,6 +1,8 @@
 ---
 title: "道路のり面と斜面"
 subtitle: "路線全体から、見に行く場所を絞り込む"
+aliases:
+  - /chapters/survey/survey-road-slope-screening.html
 description: "衛星SARで道路斜面の変状をどこまで捉えられるか。限界と、現実的な使い方。"
 part-id: survey-road-slope-screening
 chapter-type: usecase

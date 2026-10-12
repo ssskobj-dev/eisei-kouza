@@ -27,3 +27,24 @@ alos4:
   wavelength: 約24cm
   revisit: 14日
   since: 2024年
+
+# サイトとシリーズの名前。変えるときは、ここを直すだけでよい（メニューの文字は _quarto.yml）。
+site:
+  name: Satellite to Decision
+  tagline: 衛星データを、意思決定に使える形にする
+series:
+  landscape:
+    brand: Satellite to Decision Landscape
+    ja: 衛星データ活用 市場ガイド
+    en: Satellite Data Market Guide
+    short: 市場ガイド
+  casebook:
+    brand: Satellite to Decision Casebook
+    ja: 衛星データ活用 ユースケース集
+    en: Satellite Data Use Case Collection
+    short: ユースケース集
+  learn:
+    brand: Satellite to Decision Codex
+    ja: 衛星データ解析 学習プログラム
+    en: Satellite Data Analysis Training Program
+    short: 学習プログラム

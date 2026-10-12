@@ -20,7 +20,7 @@
 7. **費用の考え方**：データ、解析、システム、運用のどこにお金がかかるか。無償データで成り立つか。公開されている金額は、出どころ、年度、条件を添えて書く
 8. **向いている条件、向いていない条件**（表）
 9. **コンサルタントへの示唆**：顧客に最初に確かめること、提案で避ける言い方を3点まで
-10. **関連する記事**
+10. **関連する記事**：最初に、テーマのページへのリンクを置く（`../themes/<テーマのid>.qmd`。id は `data/themes.yaml`）。続けて、関係する市場ガイドや講座の章
 11. **出典**
 12. **要確認**
 
@@ -59,5 +59,5 @@ categories: [農業・食料, 商用, 国内]
 ## slug と保存先
 
 - 記事を書くときに、英小文字とハイフンの短い `slug` を決め、`data/usecases.yaml` の該当する行に `slug:` を足す（例：`chusankan-patrol`）
-- 本文：`usecases/<slug>.qmd`（手本：`usecases/chusankan-patrol.qmd`）
+- 本文：`casebook/<slug>.qmd`（手本：`casebook/chusankan-patrol.qmd`）
 - note用の要約：`note/usecase-<slug>/article.md` と `figures.yaml`。`patterns/outputs/note.md` の型で、1,200〜1,800字。見出し画像は `kind: usecase`、`tag` にテーマ名、図は本文から1〜2枚

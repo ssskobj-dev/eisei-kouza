@@ -227,7 +227,7 @@
       #block(width: 100%, height: 38%, fill: c-main)[]
       #block(inset: (x: 26mm, top: 14mm))[
         #set par(justify: false, leading: 0.6em)
-        #text(size: 10pt, weight: "bold", fill: c-main)[衛星データ実務講座]
+        #text(size: 10pt, weight: "bold", fill: c-main)[Satellite to Decision]
         #v(4mm)
         #text(size: 24pt, weight: "black", fill: c-ink)[#title]
         #if subtitle != none [

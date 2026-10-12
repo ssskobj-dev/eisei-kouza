@@ -2,7 +2,12 @@ _site/
 .quarto/
 custom/
 _sidebar.yml
-course-*.qmd
+# scripts/build.py nav が作るページ
+learn/course-*.qmd
+learn/index.qmd
+landscape/index.qmd
+casebook/index.qmd
+themes/
 __pycache__/
 *.typ
 !design/*.typ

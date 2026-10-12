@@ -1,6 +1,19 @@
 # このリポジトリでの作業ルール（Claude向け）
 
-衛星データ実務講座の教材を作るリポジトリ。章立てとパターンから原稿を生成する。
+Satellite to Decisionの教材を作るリポジトリ。章立てとパターンから原稿を生成する。
+
+## サイトの構造
+
+| フォルダ | シリーズ | 中身 |
+|---|---|---|
+| `landscape/` | 市場ガイド | テーマごとのフォルダに、切り口ごとに1本 |
+| `casebook/` | ユースケース集 | 1件につき1本 |
+| `learn/` | 学習プログラム | 講座の章（`learn/<分野>/`）とケース問題（`learn/quiz/`） |
+| `themes/` | テーマから探す | 自動で作られる。手で書かない |
+
+- シリーズの名前は `_variables.yml` の `series`、テーマは `data/themes.yaml` にある
+- 各シリーズの入口（`index.qmd`）、講座のページ（`learn/course-*.qmd`）、`themes/` は `python scripts/build.py nav` が作る。手で書かない、コミットしない
+- 記事の「関連する記事」には、最初にテーマのページへのリンクを置く
 
 ## 「未作成の章を作って」と頼まれたら
 
@@ -14,7 +27,7 @@
    - `patterns/style.md`（必ず守る）
    - `data/sources.yaml`（タグが合う資料）
 4. 資料を実際に読んで裏を取る。足りなければ公的資料を探し、`data/sources.yaml` に追記する
-5. 原稿を `chapters/<章立てのファイル名>/<id>.qmd` に書く。手本は `chapters/survey/survey-road-slope-screening.qmd`
+5. 原稿を `learn/<章立てのファイル名>/<id>.qmd` に書く。手本は `learn/survey/survey-road-slope-screening.qmd`
 6. 図を `figures/<id>.yaml` に書き、`python scripts/figures.py <id>` で作る。型と入れる位置は `patterns/figures.md` に従う。できた図を1枚ずつ見て、文字のはみ出しや重なりがないか確かめる
 7. `outputs` に指定された出力を、`patterns/outputs/` の型に従って作る
 8. 章立ての `status` を `done` にする
@@ -34,13 +47,13 @@ noteへの投稿は人が行う。Claudeは投稿しない。
 ## 「今日の市場レポートを作って」と頼まれたら（毎朝の自動実行も同じ）
 
 1. `python scripts/build.py check` を通す。次に `python scripts/build.py reports 2` で、次に書く2本（テーマと切り口）を確かめる
-2. `reports/topics.yaml` に `id` のないテーマがあれば、英小文字の短い `id` を付ける（例：農業 → `agri`）。それ以外の行は書き換えない
-3. 書くテーマが残っていなければ、作らずに「テーマが残っていません。`reports/topics.yaml` に足してください」と報告して終わる
+2. `landscape/topics.yaml` に `id` のないテーマがあれば、英小文字の短い `id` を付ける（例：農業 → `agri`）。それ以外の行は書き換えない
+3. 書くテーマが残っていなければ、作らずに「テーマが残っていません。`landscape/topics.yaml` に足してください」と報告して終わる
 4. 1本ごとに `patterns/outputs/report.md` の手順どおりに書く。下調べは `data/market-report-2026-10/` の該当する章。**数字と事例は、必ず出典の原文を開いて確かめる**
 5. 図を `figures/report-<テーマのid>-<切り口>.yaml` に書き、`python scripts/figures.py report-<テーマのid>-<切り口>` で作る。1枚ずつ見て確かめる
 6. note用の要約を `note/report-<テーマのid>-<切り口>/` に作る（`article.md` と `figures.yaml`。`python scripts/figures.py report-<テーマのid>-<切り口>` で、見出し画像と図のPNGもできる）
 7. `python scripts/build.py check` と `nav` を通す
-8. ブランチ `reports/<日付>` を作り、プルリクエストを出す。説明欄に、記事ごとの題名、主な出典、要確認の件数と内容を書く
+8. ブランチ `landscape/<日付>` を作り、プルリクエストを出す。説明欄に、記事ごとの題名、主な出典、要確認の件数と内容を書く
 9. 最後に、作った本数と題名、残りの本数、プルリクエストの場所を短く報告する
 
 市場レポートの読者はコンサルタント。価格表、有料の報告書の中身、非公開の契約金額は書かない。
@@ -54,7 +67,7 @@ noteへの投稿は人が行う。Claudeは投稿しない。
 5. 図を `figures/usecase-<slug>.yaml` に書き、`python scripts/figures.py usecase-<slug>` で作る。1枚ずつ見て確かめる
 6. note用の要約を `note/usecase-<slug>/` に作る（`article.md` と `figures.yaml`）。同じコマンドで、見出し画像と図のPNGもできる
 7. `python scripts/build.py check` と `nav` を通す
-8. ブランチ `usecases/<日付>` を作り、プルリクエストを出す。説明欄に、記事ごとの題名、主な出典、要確認の件数と内容を書く
+8. ブランチ `casebook/<日付>` を作り、プルリクエストを出す。説明欄に、記事ごとの題名、主な出典、要確認の件数と内容を書く
 9. 最後に、作った本数と題名、残りの本数、プルリクエストの場所を短く報告する
 
 ## 守ること
