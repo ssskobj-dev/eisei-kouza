@@ -323,10 +323,92 @@ def fig_sightline(spec):
     return ny + nh + PAD, "".join(out)
 
 
+def fmt_num(v):
+    """数字を、桁区切り付きで書く。小数は必要なときだけ。"""
+    return f"{v:,.0f}" if float(v).is_integer() else f"{v:,.1f}"
+
+
+def chart_frame(spec, body_h):
+    """グラフの題名と、下の出どころ。戻り値は（上端のy、全体の高さ、部品）。"""
+    out, y = [], PAD + 6
+    if spec.get("title"):
+        out.append(text(PAD, y + 14, spec["title"], size=16, weight="bold"))
+        y += 26
+    if spec.get("unit"):
+        out.append(text(PAD, y + 12, f"単位：{spec['unit']}", size=12.5, fill=GRAY))
+        y += 20
+    top = y + 12
+    bottom = top + body_h
+    src = wrap("出どころ：" + spec["source"], (W - PAD * 2) / 12) if spec.get("source") else []
+    if src:
+        out.append(text(PAD, bottom + 26, src, size=12, fill=GRAY, lh=1.45))
+    return top, bottom + (22 + text_h(len(src), 12, 1.45) if src else 0) + PAD - 4, out
+
+
+def fig_bar(spec):
+    """横棒のグラフ。大きさを比べる。1系列だけ。値は棒の右に書く。"""
+    items = spec["items"]
+    label_w = min(250, max(sum(units(c) for c in i["label"]) for i in items) * 14 + 10)
+    row, bar_h = 44, 20
+    top, height, out = chart_frame(spec, len(items) * row)
+    x0 = PAD + label_w + 10
+    vmax = max(i["value"] for i in items)
+    span = W - PAD - x0 - 120          # 値の文字を書く場所を右に残す
+    out.append(f'<line x1="{x0}" y1="{top - 4}" x2="{x0}" y2="{top + len(items) * row - 6}" stroke="{GRAY}" stroke-width="1"/>')
+    for k, it in enumerate(items):
+        cy = top + k * row + row / 2 - 5
+        w = max(3, span * it["value"] / vmax)
+        fill = GRAY if it.get("muted") else MAIN     # 予測や参考値は灰色にする
+        out.append(text(x0 - 12, cy + 5, wrap(it["label"], label_w / 14)[:2], size=14, anchor="end", lh=1.2))
+        out.append(f'<path d="M{x0},{cy - bar_h / 2} h{w - 4:.1f} a4,4 0 0 1 4,4 v{bar_h - 8} a4,4 0 0 1 -4,4 h-{w - 4:.1f} z" fill="{fill}"/>')
+        label = fmt_num(it["value"]) + (f"　{it['note']}" if it.get("note") else "")
+        out.append(text(x0 + w + 8, cy + 5, label, size=14, weight="bold"))
+    return height, "".join(out)
+
+
+def fig_range(spec):
+    """推計の幅。出どころごとに、小さい値から大きい値までを1本の帯で示す。"""
+    items = spec["items"]
+    label_w = min(250, max(sum(units(c) for c in i["label"]) for i in items) * 14 + 10)
+    row = 46
+    top, height, out = chart_frame(spec, len(items) * row + 26)
+    x0 = PAD + label_w + 10
+    x1 = W - PAD - 30
+    vmax = max(i.get("high", i["low"]) for i in items) * 1.08
+    sx = lambda v: x0 + (x1 - x0) * v / vmax
+    base = top + len(items) * row
+    out.append(f'<line x1="{x0}" y1="{base}" x2="{x1}" y2="{base}" stroke="{GRAY}" stroke-width="1"/>')
+    for frac in (0, 0.5, 1):
+        v = vmax / 1.08 * frac
+        out.append(f'<line x1="{sx(v):.1f}" y1="{top - 4}" x2="{sx(v):.1f}" y2="{base}" stroke="{GRAY_PALE}" stroke-width="1"/>')
+        out.append(text(sx(v), base + 18, fmt_num(v), size=12, fill=GRAY, anchor="middle"))
+    for k, it in enumerate(items):
+        cy = top + k * row + row / 2 - 4
+        lo, hi = it["low"], it.get("high", it["low"])
+        out.append(text(x0 - 12, cy + 5, wrap(it["label"], label_w / 14)[:2], size=14, anchor="end", lh=1.2))
+        if hi > lo:
+            out.append(rect(sx(lo), cy - 7, sx(hi) - sx(lo), 14, MAIN, "none", r=7))
+            label = f"{fmt_num(lo)}〜{fmt_num(hi)}"
+        else:
+            out.append(f'<circle cx="{sx(lo):.1f}" cy="{cy}" r="7" fill="{MAIN}"/>')
+            label = fmt_num(lo)
+        if it.get("note"):
+            label += f"　{it['note']}"
+        tx = sx(hi) + 12
+        anchor = "start"
+        if tx + len(label) * 12 > W - PAD:      # 右にはみ出すときは、帯の上に書く
+            tx, anchor = sx(hi), "end"
+            out.append(text(tx, cy - 13, label, size=13, weight="bold", anchor=anchor))
+        else:
+            out.append(text(tx, cy + 5, label, size=13, weight="bold", anchor=anchor))
+    return height, "".join(out)
+
+
 def fig_thumbnail(spec):
     """noteの見出し画像（1280×670）。題名を大きく入れる。図ではなく、完成したSVGを返す。"""
     tw, th = 1280, 670
-    kinds = {"news": ("時事解説", MAIN, DEEP), "course": ("講座", DEEP, MAIN), "guide": ("実務メモ", WARM, WARM_DEEP)}
+    kinds = {"news": ("時事解説", MAIN, DEEP), "course": ("講座", DEEP, MAIN),
+             "guide": ("実務メモ", WARM, WARM_DEEP), "report": ("市場レポート", DEEP, MAIN)}
     label, c1, c2 = kinds[spec.get("kind", "news")]
     lines = wrap(spec["title"], 15)[:3]
     size = 76 if len(lines) <= 2 else 66
@@ -354,6 +436,8 @@ def fig_thumbnail(spec):
 
 TYPES = {
     "thumbnail": fig_thumbnail,
+    "bar": fig_bar,
+    "range": fig_range,
     "cards": fig_cards,
     "flow": fig_flow,
     "funnel": fig_funnel,
