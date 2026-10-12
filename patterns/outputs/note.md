@@ -7,4 +7,5 @@
 - 構成：現場の悩み → 衛星でできること → できないこと → 落とし所を1つ → 続きはサイトで
 - 章の内容を全部は書かない。判定表とチェックリストはサイト側に残す
 - 末尾に、サイトの該当章へのリンクを置く
-- 保存先：`note/<章のid>.md`
+- 見出し画像と図：`note/<章のid>/figures.yaml` に書く。`thumbnail`（`kind: course`）と、本編から選んだ図を1〜2枚。`python scripts/figures.py <章のid>` でPNGもできる
+- 保存先：`note/<章のid>/article.md`（手本：`note/survey-road-slope-screening/`）
