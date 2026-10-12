@@ -1,0 +1,9 @@
+_site/
+.quarto/
+custom/
+_sidebar.yml
+course-*.qmd
+__pycache__/
+*.typ
+!design/*.typ
+figures/*/
