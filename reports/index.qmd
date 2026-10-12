@@ -1,0 +1,20 @@
+---
+title: "市場レポート"
+subtitle: "分野ごとの市場、事例、プレイヤー、普及の壁"
+format: html
+listing:
+  contents: "*/*.qmd"
+  type: default
+  sort: "date desc"
+  categories: true
+  fields: [date, title, subtitle, description, categories]
+  date-format: "YYYY年M月D日"
+  page-size: 20
+  filter-ui: [title, description]
+---
+
+衛星データの利活用を、分野（ユースケース）ごとに整理しています。1つの分野を、次の8つの切り口で1本ずつ書いています。
+
+世界の市場、国内の市場と政策、海外の事例、国内の事例、主なプレイヤー、使うデータと手法、普及の壁と限界、提案の組み立て方
+
+市場規模の数字は、出どころ、対象の範囲、年を添えています。調査会社によって推計に幅があるときは、1つに決めず、幅のまま示しています。右の分類から、分野や切り口で絞り込めます。

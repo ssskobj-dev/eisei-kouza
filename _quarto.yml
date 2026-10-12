@@ -7,6 +7,7 @@ project:
     - course-*.qmd
     - chapters/**/*.qmd
     - quiz/**/*.qmd
+    - reports/**/*.qmd
 
 # 講座のメニュー。scripts/build.py nav が作る。
 metadata-files:
@@ -24,7 +25,7 @@ format-links:
 
 website:
   title: "衛星データ実務講座"
-  description: "衛星データの強み、限界、現実的な落とし所を、使う側の立場で解説します。"
+  description: "衛星データの強み、限界、現実的な落とし所と、分野ごとの市場と事例を解説します。"
   # 公開先が決まったら書き換える（例：https://ユーザー名.github.io/リポジトリ名/）
   # site-url: ""
   navbar:
@@ -33,6 +34,8 @@ website:
         href: course-survey.qmd
       - text: 農業向け
         href: course-agri.qmd
+      - text: 市場レポート
+        href: reports/index.qmd
   page-footer:
     center: "どの衛星会社にも解析会社にも属さない立場で書いています。"
 

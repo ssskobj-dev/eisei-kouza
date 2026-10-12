@@ -1,0 +1,50 @@
+# 市場レポートの切り口。1つのテーマ（ユースケース）を、この順で1本ずつ書く。
+# 切り口を足すと、全テーマに1本ずつ増える。
+
+world-market:
+  name: 世界の市場
+  question: 世界では、どれくらいの規模で、誰が買っているか
+  include: [市場規模の推計と出どころ, 推計の幅と定義の違い, 主な買い手, 伸びている理由と伸び悩む理由]
+  sources: [03-market-overview, 08-usecases-1, 09-usecases-2]
+
+japan-market:
+  name: 国内の市場と政策
+  question: 日本では、どれくらいの規模で、どの予算が支えているか
+  include: [国内の市場規模, 関係する省庁と予算, 制度や指針, 官需と民需の割合]
+  sources: [03-market-overview, 07-policy-budget]
+
+cases-overseas:
+  name: 海外の事例
+  question: 海外では、誰が、何に、どう使っているか
+  include: [事例を3〜5件, 使ったデータと手法, 成果として公表されていること, 日本に持ち込むときの違い]
+  sources: [08-usecases-1, 09-usecases-2, 05-players-overseas]
+
+cases-japan:
+  name: 国内の事例
+  question: 日本では、誰が、何に、どう使っているか
+  include: [事例を3〜5件, 実証か本格運用かの区別, 公表されている費用や効果, 共通する使い方の型]
+  sources: [08-usecases-1, 09-usecases-2, 06-players-japan]
+
+players:
+  name: 主なプレイヤー
+  question: 誰がデータを売り、誰が解析し、誰が買っているか
+  include: [データを持つ会社, 解析やサービスの会社, 買い手, 役割ごとの関係図]
+  sources: [04-value-chain, 05-players-overseas, 06-players-japan]
+
+data-and-methods:
+  name: 使うデータと手法
+  question: どの衛星の、どんなデータを、どう処理しているか
+  include: [使われるセンサー, 無償データと商用データの使い分け, 解析の流れ, 費用がかかる所（金額の表は載せない）]
+  sources: [04-value-chain, 08-usecases-1, 09-usecases-2]
+
+barriers:
+  name: 普及の壁と限界
+  question: なぜ期待ほど広がらないのか。どこが限界か
+  include: [技術の限界, 業務への組み込みの難しさ, 費用対効果の説明, 実証で止まる理由, 現実的な落とし所]
+  sources: [14-challenges, 15-outlook]
+
+proposal:
+  name: 提案の組み立て方
+  question: コンサルタントは、この分野でどう提案を組み立てるか
+  include: [向く課題と向かない課題, 最初に聞く質問, 小さく試す設計, 顧客への説明で避ける表現]
+  sources: [16-consulting-guide, 14-challenges]

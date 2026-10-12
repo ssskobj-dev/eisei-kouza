@@ -6,6 +6,7 @@
   python scripts/build.py todo             まだ書かれていない章を一覧する
   python scripts/build.py nav              サイトのメニューと講座ページを作る
   python scripts/build.py course <講座id>  講座を1つの文書にまとめる（研修テキスト用）
+  python scripts/build.py reports [本数]   次に書く市場レポート（テーマと切り口）を一覧する
 """
 import re
 import shutil
@@ -89,6 +90,22 @@ def check():
                 if pid not in parts:
                     errors.append(f"講座 {c['id']}: 部品 '{pid}' が章立てにありません")
 
+    angles = load("patterns/report_angles.yaml")
+    seen = set()
+    for topic in load_topics():
+        if not topic.get("name"):
+            errors.append("reports/topics.yaml: name のないテーマがあります")
+        tid = topic.get("id")
+        if tid:
+            if not re.fullmatch(r"[a-z0-9-]+", tid):
+                errors.append(f"reports/topics.yaml: id '{tid}' は英小文字、数字、ハイフンだけにしてください")
+            if tid in seen:
+                errors.append(f"reports/topics.yaml: id '{tid}' が重複しています")
+            seen.add(tid)
+        for key in topic.get("angles") or []:
+            if key not in angles:
+                errors.append(f"reports/topics.yaml: 切り口 '{key}' は patterns/report_angles.yaml にありません")
+
     if errors:
         print("\n".join(errors))
         raise SystemExit(1)
@@ -130,11 +147,59 @@ def nav():
                 contents.append({"section": sec["name"], "contents": items})
         (ROOT / f"course-{c['id']}.qmd").write_text("\n".join(page) + "\n", encoding="utf-8")
         sidebars.append({"id": c["id"], "title": c["title"], "contents": contents})
+    # 市場レポートのメニュー。テーマごとに、書かれた切り口を並べる
+    angles = load("patterns/report_angles.yaml")
+    contents = ["reports/index.qmd"]
+    for topic in load_topics():
+        if not topic.get("id"):
+            continue
+        items = [f"reports/{topic['id']}/{key}.qmd" for key in angles
+                 if (ROOT / "reports" / topic["id"] / f"{key}.qmd").exists()]
+        if items:
+            contents.append({"section": topic["name"], "contents": items})
+    sidebars.append({"id": "reports", "title": "市場レポート", "contents": contents})
     out = {"website": {"sidebar": sidebars}}
     (ROOT / "_sidebar.yml").write_text(
         "# scripts/build.py nav が作るファイル。手で直さない。\n"
         + yaml.safe_dump(out, allow_unicode=True, sort_keys=False), encoding="utf-8")
     print(f"メニューを作りました（講座 {len(sidebars)} 個）")
+
+
+def load_topics():
+    doc = load("reports/topics.yaml") or {}
+    return [x for x in (doc.get("topics") or []) if not x.get("skip")]
+
+
+def report_queue():
+    """まだ書かれていない市場レポートを、書く順に並べる。テーマは表の上から、切り口は定義の順。"""
+    angles = load("patterns/report_angles.yaml")
+    queue = []
+    for topic in load_topics():
+        if not topic.get("id"):
+            queue.append((topic, None))       # id がまだない。最初に作るときに付ける
+            continue
+        for key in topic.get("angles") or list(angles):
+            if not (ROOT / "reports" / topic["id"] / f"{key}.qmd").exists():
+                queue.append((topic, key))
+    return queue
+
+
+def reports(limit):
+    angles = load("patterns/report_angles.yaml")
+    queue = report_queue()
+    if not queue:
+        print("書くテーマが残っていません。reports/topics.yaml にテーマを足してください")
+        return
+    shown = 0
+    for topic, key in queue:
+        if key is None:
+            print(f"（id 未設定）\t{topic['name']}\t→ id を付けてから、切り口を上から順に書く")
+        else:
+            print(f"{topic['id']}\t{key}\t{topic['name']}：{angles[key]['name']}")
+        shown += 1
+        if shown >= limit:
+            break
+    print(f"残り {len([q for q in queue if q[1]])} 本（id 未設定のテーマを除く）")
 
 
 def strip_front_matter(text):
@@ -242,6 +307,8 @@ if __name__ == "__main__":
         todo()
     elif cmd == "nav":
         nav()
+    elif cmd == "reports":
+        reports(int(sys.argv[2]) if len(sys.argv) > 2 else 2)
     elif cmd == "course" and len(sys.argv) > 2:
         course(sys.argv[2])
     else:

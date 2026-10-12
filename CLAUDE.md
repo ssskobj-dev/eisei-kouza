@@ -31,6 +31,20 @@
 
 noteへの投稿は人が行う。Claudeは投稿しない。
 
+## 「今日の市場レポートを作って」と頼まれたら（毎朝の自動実行も同じ）
+
+1. `python scripts/build.py check` を通す。次に `python scripts/build.py reports 2` で、次に書く2本（テーマと切り口）を確かめる
+2. `reports/topics.yaml` に `id` のないテーマがあれば、英小文字の短い `id` を付ける（例：農業 → `agri`）。それ以外の行は書き換えない
+3. 書くテーマが残っていなければ、作らずに「テーマが残っていません。`reports/topics.yaml` に足してください」と報告して終わる
+4. 1本ごとに `patterns/outputs/report.md` の手順どおりに書く。下調べは `data/market-report-2026-10/` の該当する章。**数字と事例は、必ず出典の原文を開いて確かめる**
+5. 図を `figures/report-<テーマのid>-<切り口>.yaml` に書き、`python scripts/figures.py report-<テーマのid>-<切り口>` で作る。1枚ずつ見て確かめる
+6. note用の要約を `note/report-<テーマのid>-<切り口>/` に作る（`article.md` と `figures.yaml`。`python scripts/figures.py report-<テーマのid>-<切り口>` で、見出し画像と図のPNGもできる）
+7. `python scripts/build.py check` と `nav` を通す
+8. ブランチ `reports/<日付>` を作り、プルリクエストを出す。説明欄に、記事ごとの題名、主な出典、要確認の件数と内容を書く
+9. 最後に、作った本数と題名、残りの本数、プルリクエストの場所を短く報告する
+
+市場レポートの読者はコンサルタント。価格表、有料の報告書の中身、非公開の契約金額は書かない。
+
 ## 守ること
 
 - 出典のない数字、仕様、金額、事例を書かない。確認できなければ【要確認】を付け、章末に理由を書く

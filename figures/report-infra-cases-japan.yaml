@@ -1,0 +1,49 @@
+# 市場レポート「インフラ・地盤監視：国内の事例」の図。
+figures:
+  - id: targets
+    type: cards
+    alt: 国内の事例が出ている5つの対象
+    columns: 3
+    items:
+      - title: 道路の斜面と盛土
+        text: 路線全体から変状のある箇所を拾う
+      - title: ダム
+        text: 計器のない場所の変位を測る
+      - title: 埋立地と港湾
+        text: 沈下の経年変化を追う
+      - title: 地盤沈下
+        text: 水準測量と併用して面で見る
+      - title: 水道管
+        text: 漏水調査の区画を絞り込む
+
+  - id: stage
+    type: split
+    alt: 実装が進んだ分野と、実証が中心の分野
+    link: ｜
+    left:
+      title: 手引きやマニュアルが整った分野
+      items:
+        - 水道管の漏水調査（技術カタログ、導入の手引き）
+        - 地盤沈下の監視（環境省のマニュアル）
+    right:
+      title: 研究と実証が中心の分野
+      role: none
+      items:
+        - 道路の斜面と盛土
+        - ダムの変位計測
+        - 鉄道、電力など民間インフラ会社の取り組み
+    note: 顧客が見た事例が、どちらの段階のものかを先に確かめる
+
+  - id: pattern
+    type: flow
+    alt: 国内の事例に共通する3つの手順
+    steps:
+      - title: 広い範囲を解析する
+        text: 動きのある場所を拾う
+        who: satellite
+      - title: 順位を付ける
+        text: 動きの大きさで分ける
+        who: satellite
+      - title: 現地で確かめる
+        text: 順位の高い所から、人が判定する
+        who: human
