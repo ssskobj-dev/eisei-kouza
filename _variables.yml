@@ -32,6 +32,12 @@ alos4:
 site:
   name: Satellite to Decision
   tagline: 地球観測データを、事業の意思決定へ。
+  # 相談の窓口（Googleフォーム）
+  contact: "https://docs.google.com/forms/d/e/1FAIpQLSdnVnZ8Zyy489Uv9cZFXWKydWljGHd-dhqgPjqQtlrSQVCxIg/viewform"
+  # 検定の対策講座の案内。検定の名前は、主催者の表記に合わせる
+  exam_course: サテライトデータビジネス検定の対策講座も提供しています。
+  # 監修者についての説明。人数や経歴が変わったら、ここを直す
+  supervision: JAXA、ISROなど、世界の宇宙機関で働いた経験を持つ5名が監修しています。
 series:
   landscape:
     brand: Satellite to Decision Landscape
