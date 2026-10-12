@@ -1,0 +1,51 @@
+# 読者のパターン。章立てで audience: に指定する。
+# 足したい読者がいれば、同じ形で追記するだけで使える。
+
+survey_engineer:
+  name: 測量・建設コンサルの技術者
+  knows: 水準測量、GNSS、現場調査の実務
+  does_not_know: 衛星データの種類、干渉SARの限界、調達の方法
+  cares_about: 既存業務とどう組み合わせるか、顧客にどう説明するか
+  examples_from: 道路、河川、斜面、造成地
+
+survey_manager:
+  name: 測量・建設コンサルの経営者、営業担当
+  knows: 受注の流れ、発注者との関係、原価の感覚
+  does_not_know: 技術の詳細
+  cares_about: 売上になるか、初期投資、失注や手戻りのリスク
+  examples_from: 提案、見積もり、体制づくり
+
+agri_advisor:
+  name: JAの営農指導員、普及指導員
+  knows: 作物の生育、施肥、地域の圃場
+  does_not_know: 衛星画像の指標の意味、サービスごとの違い
+  cares_about: 巡回の手間を減らせるか、農家にどう伝えるか
+  examples_from: 水稲、小麦、大豆
+
+agri_manager:
+  name: 農業法人の経営者
+  knows: 自分の圃場、作業の段取り、資材の費用
+  does_not_know: サービスの選び方、費用対効果の測り方
+  cares_about: 払った分だけ得をするか、使い続けられる手軽さか
+  examples_from: 分散した圃場の管理、収穫順、追肥
+
+agri_committee:
+  name: 農業委員会事務局、自治体の農政担当
+  knows: 農地利用状況調査、台帳、現地確認の負担
+  does_not_know: 衛星による推定の精度、仕様書の書き方
+  cares_about: 現地確認を減らせるか、予算と説明責任
+  examples_from: 荒廃農地の調査、作付け確認
+
+infra_owner:
+  name: インフラ管理者（自治体、鉄道、電力、高速道路）の担当者
+  knows: 点検の制度、自分の施設、予算の流れ
+  does_not_know: 実証の結果をどう評価するか、事業者の比べ方
+  cares_about: 本格導入の判断、社内や議会への説明
+  examples_from: のり面、堤防、ダム、埋立地
+
+generalist:
+  name: 予備知識のない一般の読者
+  knows: 特になし
+  does_not_know: すべて
+  cares_about: 衛星で何ができて、自分に関係があるか
+  examples_from: 身近な例

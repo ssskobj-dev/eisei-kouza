@@ -1,0 +1,56 @@
+project:
+  type: website
+  output-dir: _site
+  # 公開するのはここに書いたものだけ。patterns、note、custom などは載らない。
+  render:
+    - index.qmd
+    - course-*.qmd
+    - chapters/**/*.qmd
+    - quiz/**/*.qmd
+
+# 講座のメニュー。scripts/build.py nav が作る。
+metadata-files:
+  - _sidebar.yml
+
+lang: ja
+
+# 章のページ右側に出る、PDFへのリンクの表示名
+language:
+  related-formats-title: この章をPDFで読む
+format-links:
+  - format: typst
+    text: PDFを開く
+    icon: file-pdf
+
+website:
+  title: "衛星データ実務講座"
+  description: "衛星データの強み、限界、現実的な落とし所を、使う側の立場で解説します。"
+  # 公開先が決まったら書き換える（例：https://ユーザー名.github.io/リポジトリ名/）
+  # site-url: ""
+  navbar:
+    left:
+      - text: 測量・建設コンサル向け
+        href: course-survey.qmd
+      - text: 農業向け
+        href: course-agri.qmd
+  page-footer:
+    center: "どの衛星会社にも解析会社にも属さない立場で書いています。"
+
+format:
+  html:
+    # サイトのデザイン。色や見出しの形は design/site.scss で変える。
+    theme:
+      light: [cosmo, design/site.scss]
+      dark: [darkly, design/site.scss]
+    toc: true
+    toc-title: この章の内容
+    number-sections: false
+  # 章ごとのPDF。ページ右側の「他の形式」から開ける。
+  typst:
+    papersize: a4
+    mainfont: "Noto Sans CJK JP"
+    toc: false
+    # PDFのデザイン。色や見出しの形は design/typst-template.typ で変える。
+    template-partials:
+      - design/typst-template.typ
+      - design/typst-show.typ

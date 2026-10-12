@@ -1,0 +1,32 @@
+# 衛星データの5つの強みと、それぞれの限界。
+# ユースケース型の章は、ここから当てはまるものを選んで書く。
+
+wide_area:
+  name: 広く見られる
+  want: 一度に広い範囲を把握したい
+  limit: 広く撮るほど細部は粗くなる。細かく撮れる衛星は範囲が狭く、費用も上がる
+  tradeoffs: [screen_then_confirm, right_target_first]
+
+history:
+  name: 過去に遡れる
+  want: 以前の状態と比べたい、いつから変化したか知りたい
+  limit: 過去に撮られていない場所や条件のデータは存在しない。衛星ごとに運用期間が違う
+  tradeoffs: [free_data_first, change_not_absolute]
+
+remote:
+  name: 行かずに分かる
+  want: 現地に行く手間や危険を減らしたい
+  limit: 撮りたい時に撮れるとは限らない。回ってくる周期があり、光学は雲があると見えない
+  tradeoffs: [routine_before_urgent, combine_with_existing]
+
+visualize:
+  name: 見えないものが見える
+  want: 目視では分からない変化や状態を知りたい
+  limit: 見えるのは指標であって、知りたい値そのものではない。指標から実際の状態への読み替えには現地の知識が要る
+  tradeoffs: [change_not_absolute, screen_then_confirm]
+
+objective:
+  name: 客観的に示せる
+  want: 第三者にも通る根拠がほしい
+  limit: 解析の方法や設定で結果が変わり、誤差もある。単独では証拠として弱い場面がある
+  tradeoffs: [combine_with_existing, state_what_cannot_be_said]

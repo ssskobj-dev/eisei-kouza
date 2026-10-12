@@ -1,0 +1,20 @@
+# 顧客別の研修テキストの例。部品を選んで並べ、読者と深さを上書きできる。
+# public: false の講座はサイトに載らない。`python scripts/build.py course example-custom` で1冊にまとまる。
+# 注意：このリポジトリは公開なので、顧客名や案件の内容はここに書かない。
+id: example-custom
+title: 道路管理者向け半日研修（例）
+public: false
+override:
+  audience: infra_owner
+  depth: overview
+sections:
+  - name: 午前
+    lead: 衛星でできること、できないことの全体像をつかみます。
+    parts:
+      - common-strengths-limits
+      - survey-road-slope-screening
+  - name: 午後
+    lead: 成果物の読み方と、発注の実務を扱います。
+    parts:
+      - survey-quality-explain
+      - survey-proposal-pricing

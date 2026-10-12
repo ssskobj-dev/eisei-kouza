@@ -1,0 +1,116 @@
+# 講座A：農業向けの部品。
+
+defaults:
+  audience: agri_advisor
+  depth: standard
+  outputs: [note, quiz]
+
+parts:
+  # ---- ユースケース ----
+  - id: agri-growth-patrol
+    title: 生育診断：圃場を回る順番を決める
+    type: usecase
+    tags: [生育診断, 水稲, 小麦, 巡回]
+    strengths: [wide_area, remote, visualize]
+    tradeoffs: [screen_then_confirm, right_target_first, change_not_absolute]
+    goals:
+      - 生育マップから読めることと読めないことを説明できる
+      - 巡回の優先順位付けに使う手順を組める
+    must_include: [指標の意味, 雲の影響, 草丈の低い作物, ドローンとの補完]
+    material: ""
+    status: todo
+
+  - id: agri-variable-fertilizer
+    title: 可変施肥：生育ムラを追肥に反映する
+    type: usecase
+    tags: [可変施肥, 農機連携]
+    strengths: [visualize, wide_area]
+    tradeoffs: [right_target_first, change_not_absolute]
+    goals:
+      - 可変施肥に必要な機械とデータの条件を挙げられる
+    must_include: [施肥マップ, 対応農機, 撮影時期と作業時期のずれ]
+    material: ""
+    status: todo
+
+  - id: agri-harvest-order
+    title: 収穫適期：刈り取りの順番を決める
+    type: usecase
+    tags: [収穫, 小麦, 水稲]
+    strengths: [wide_area, visualize]
+    tradeoffs: [change_not_absolute, combine_with_existing]
+    goals:
+      - 収穫順の判断に衛星を使う場合の精度と限界を説明できる
+    must_include: [水分やタンパクの推定, 現地の実測との組み合わせ]
+    material: ""
+    status: todo
+
+  - id: agri-abandoned-farmland
+    title: 農地利用状況調査：荒廃農地の候補を先に絞る
+    type: usecase
+    audience: agri_committee
+    tags: [農業委員会, 荒廃農地, 自治体]
+    strengths: [wide_area, objective]
+    tradeoffs: [screen_then_confirm, state_what_cannot_be_said]
+    goals:
+      - 衛星による推定と現地判定の役割分担を設計できる
+    must_include: [推定と判定の違い, 導入費用の公開事例, 調査員の端末運用]
+    material: ""
+    status: todo
+
+  - id: agri-carbon-credit
+    title: カーボンクレジット：取り組みの証拠として使う
+    type: usecase
+    audience: agri_manager
+    tags: [カーボンクレジット, 中干し]
+    strengths: [objective, history]
+    tradeoffs: [state_what_cannot_be_said, combine_with_existing]
+    goals:
+      - 衛星データが証拠として使われ始めている場面と、まだ実証段階の点を区別できる
+    must_include: [中干し期間の確認, 実証段階であること, 制度側の要件の確認]
+    material: ""
+    status: todo
+
+  # ---- 実務 ----
+  - id: agri-service-selection
+    title: 営農支援サービスの比べ方と選び方
+    type: comparison
+    tags: [サービス比較, 料金]
+    goals:
+      - 自分の作物と機械に合うサービスを選ぶ基準を持てる
+    must_include: [対応作物, 料金体系, 更新頻度, 農機や営農アプリとの連携, 解約条件]
+    material: ""
+    status: todo
+
+  - id: agri-satellite-vs-drone
+    title: 衛星、ドローン、見回りの使い分け
+    type: comparison
+    tags: [ドローン, 比較]
+    tradeoffs: [right_target_first, combine_with_existing]
+    goals:
+      - 圃場の規模と作物から、手段の組み合わせを決められる
+    must_include: [面積, 作物の草丈, 天候, 手間, 費用]
+    material: ""
+    status: todo
+
+  - id: agri-cost-benefit
+    title: 費用対効果の測り方
+    type: practice
+    audience: agri_manager
+    tags: [費用対効果, 補助事業]
+    goals:
+      - 導入の前後で比べる項目を決め、1年後に評価できる
+    must_include: [巡回時間, 資材費, 収量と品質, 補助事業の確認方法]
+    material: ""
+    status: todo
+
+  - id: agri-municipal-spec
+    title: 自治体が衛星サービスを導入するときの仕様書
+    type: practice
+    depth: deep
+    audience: agri_committee
+    tags: [仕様書, 自治体]
+    goals:
+      - 農地調査に衛星サービスを入れる際の仕様書の骨格を書ける
+    must_include: [対象範囲, 推定の精度の扱い, 成果物, 現地調査との接続, 継続年度の扱い]
+    material: ""
+    status: todo

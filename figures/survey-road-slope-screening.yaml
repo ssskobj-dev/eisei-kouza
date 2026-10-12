@@ -1,0 +1,127 @@
+# 「道路のり面と斜面」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/survey-road-slope-screening/<id>.svg を作る。
+
+figures:
+  - id: conclusion
+    type: split
+    alt: 衛星に任せられることと、人が行うことの分担
+    link: ＋
+    left:
+      title: 衛星に任せられる
+      items:
+        - 路線全体から、動きのある箇所を拾う
+        - 動きの大きさで順番を付ける
+        - いつから動いていたかを過去に遡る
+    right:
+      title: 人が行う
+      items:
+        - 現地を見て、変状かどうかを判定する
+        - 通常の点検を続ける
+        - 対策や詳細調査の要否を決める
+    note: 衛星は「監視の代わり」ではなく「見に行く順番を決める道具」
+
+  - id: strengths
+    type: cards
+    alt: この用途で効く3つの強み
+    columns: 3
+    items:
+      - title: 広く見られる
+        text: 1回の観測に路線全体が入る。計器のない斜面も面で見られる
+      - title: 過去に遡れる
+        text: 気づいた後で「いつから動いていたか」を調べられる
+      - title: 見えないものが見える
+        text: 月に数ミリの動きを数字にできる
+
+  - id: limits
+    type: cards
+    alt: 現在の技術的な5つの限界
+    columns: 2
+    items:
+      - title: 植生があると測りにくい
+        text: 草木は季節や風で変わり、信号が乱れる
+        role: none
+      - title: 斜面の向きで見えない動きがある
+        text: 南北方向の動きはほとんど捉えられない
+        role: none
+      - title: 波長によって結果が変わる
+        text: 無償データで駄目でも、別の衛星なら出ることがある
+        role: none
+      - title: 誤って「変状あり」と出ることがある
+        text: 現地で確認すると変状がない例が報告されている
+        role: none
+      - title: 急な動きや崩壊の予測には向かない
+        text: 観測は十数日に1回。ゆっくり進む変状が中心
+        role: none
+
+  - id: sightline
+    type: sightline
+    alt: 衛星SARが捉えやすい動きと、捉えにくい動き（上から見た図）
+    note: 測れるのは、衛星に近づく動きと遠ざかる動きだけ。南北向きの斜面は苦手
+
+  - id: screening-flow
+    type: flow
+    alt: 絞り込みから対応方針までの5つの手順
+    steps:
+      - title: 路線全体を解析
+        text: 動きのある箇所を拾う
+        who: satellite
+      - title: ランクを付ける
+        text: 動きの大きさで分ける
+        who: satellite
+      - title: 条件と重ねる
+        text: 地形と地質
+        who: human
+      - title: 現地を確認
+        text: 高い所から順に
+        who: human
+      - title: 対応を決める
+        text: 観察、調査、対策
+        who: human
+
+  - id: funnel
+    type: funnel
+    alt: 路線全体から現地確認の箇所へ絞り込む流れ
+    stages:
+      - label: 路線の全箇所
+        title: 全部を同じ密度では見られない
+        text: のり面、切土、盛土が数百か所
+        who: none
+      - label: 動きのある候補
+        title: 衛星で候補を拾い、順番を付ける
+        text: 候補であって、変状の確定ではない
+        who: satellite
+      - label: 現地で確認
+        title: 技術者が現地で判定する
+        text: 候補から外れた箇所も「安全」とは扱わない
+        who: human
+
+  - id: cost
+    type: cards
+    alt: 費用を分けて考える3つの項目
+    columns: 3
+    items:
+      - title: データ
+        text: 無償か有償か。過去の何年分、何枚を使うか
+        mark: A
+      - title: 解析
+        text: 自社で行うか、解析会社に頼むか
+        mark: B
+      - title: 現地確認と報告
+        text: 候補を何か所見に行くか
+        mark: C
+        role: human
+
+  - id: fit
+    type: scale
+    alt: 衛星に向いている地表の状態から、向いていない状態まで
+    left: 結果が安定しやすい
+    right: 測りにくい
+    items:
+      - title: 舗装、構造物
+        text: 埋立地、造成地
+      - title: 吹付、のり枠
+        text: 切土のり面
+      - title: 盛土、草地
+        text: 季節で変わる
+      - title: 樹木に覆われた斜面
+        text: 自然斜面、山林

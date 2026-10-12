@@ -1,0 +1,129 @@
+# 講座B：測量・建設コンサル向けの部品。
+
+defaults:
+  audience: survey_engineer
+  depth: standard
+  outputs: [note, quiz]
+
+parts:
+  # ---- ユースケース ----
+  - id: survey-road-slope-screening
+    title: 道路のり面と斜面：路線全体から、見に行く場所を絞り込む
+    type: usecase
+    tags: [道路, 斜面, 干渉SAR, 絞り込み]
+    strengths: [wide_area, history, visualize]
+    tradeoffs: [screen_then_confirm, right_target_first, change_not_absolute]
+    goals:
+      - 道路斜面の監視で、衛星に任せられる範囲と任せられない範囲を説明できる
+      - 自分の路線が衛星に向くかを判定できる
+    must_include: [植生の影響, 斜面の向き, 波長による違い, ランク分け, 現地確認]
+    material: ""
+    status: done
+
+  - id: survey-subsidence
+    title: 地盤沈下：水準測量と組み合わせて面で把握する
+    type: usecase
+    tags: [地盤沈下, 干渉SAR, 水準測量, 併用]
+    strengths: [wide_area, history, visualize]
+    tradeoffs: [combine_with_existing, change_not_absolute, free_data_first]
+    goals:
+      - 衛星による観測が水準測量の代替ではなく併用とされる理由を説明できる
+    must_include: [環境省のマニュアル, 水準測量との比較, 路線の選定への活用]
+    material: ""
+    status: todo
+
+  - id: survey-reclaimed-land
+    title: 埋立地、造成地、空港、港湾：沈下の経年変化を追う
+    type: usecase
+    tags: [埋立地, 港湾, 干渉SAR]
+    strengths: [history, visualize, objective]
+    tradeoffs: [right_target_first, combine_with_existing]
+    goals:
+      - 構造物の多い平坦地が衛星に向く理由を説明できる
+    must_include: [反射の安定した対象, 過去データの活用, 測量値との検証]
+    material: ""
+    status: todo
+
+  - id: survey-dam-levee
+    title: ダムと河川堤防：計器のない場所の変位を補う
+    type: usecase
+    tags: [ダム, 堤防, 干渉SAR]
+    strengths: [wide_area, remote, visualize]
+    tradeoffs: [combine_with_existing, state_what_cannot_be_said]
+    goals:
+      - 既存の計測と衛星の役割分担を提案できる
+    must_include: [複数施設の同時観測, 他の計測との組み合わせ, 万能ではない点]
+    material: ""
+    status: todo
+
+  - id: survey-disaster-damage
+    title: 災害時の被災状況：平時から備えておくこと
+    type: usecase
+    tags: [災害, 被災把握, SAR]
+    strengths: [wide_area, remote]
+    tradeoffs: [routine_before_urgent, screen_then_confirm]
+    goals:
+      - 災害時に衛星を使うために、平時に決めておくことを挙げられる
+    must_include: [緊急観測の要請, 撮影までの時間, 平時の手順と契約]
+    material: ""
+    status: todo
+
+  # ---- 実務 ----
+  - id: survey-make-or-buy
+    title: 解析を内製するか、外注するか
+    type: comparison
+    audience: survey_manager
+    tags: [体制, 内製, 外注]
+    tradeoffs: [outsource_then_inhouse]
+    goals:
+      - 自社の件数と体制に合う進め方を選べる
+    must_include: [解析ツール, 解析会社への発注, 必要な人員, 責任の所在]
+    material: ""
+    status: todo
+
+  - id: survey-procurement
+    title: 衛星データの選び方と調達の実務
+    type: practice
+    depth: deep
+    tags: [調達, データ選定]
+    goals:
+      - 対象と目的から、衛星とデータの条件を決められる
+    must_include: [波長, 観測方向, 期間と枚数, 過去データの有無の確認, 利用条件]
+    material: ""
+    status: todo
+
+  - id: survey-quality-explain
+    title: 成果物の品質確認と、顧客への説明
+    type: practice
+    depth: deep
+    tags: [検収, 説明, 精度]
+    tradeoffs: [state_what_cannot_be_said]
+    goals:
+      - 変位マップから言えることと言えないことを、顧客に説明できる
+    must_include: [視線方向の変位, 基準点, ノイズ, 実測との比較, 報告書の書き方]
+    material: ""
+    status: todo
+
+  - id: survey-proposal-pricing
+    title: 提案書、仕様書、見積もりの作り方
+    type: practice
+    depth: deep
+    audience: survey_manager
+    tags: [提案, 仕様書, 見積もり]
+    goals:
+      - 衛星を含む業務の提案書と見積もりの骨格を作れる
+    must_include: [対象範囲, 精度の約束の仕方, 成果物, 検証方法, 内訳]
+    material: ""
+    status: todo
+
+  - id: survey-first-project
+    title: 最初の1件の始め方
+    type: practice
+    audience: survey_manager
+    tags: [始め方, 助成金]
+    tradeoffs: [free_data_first, outsource_then_inhouse]
+    goals:
+      - 小さな案件で試す計画を立てられる
+    must_include: [既存顧客への提案, 無償データでの試行, 人材育成の助成制度]
+    material: ""
+    status: todo

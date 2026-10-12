@@ -1,0 +1,51 @@
+# 共通の基礎編。どの講座からも使う部品。
+# 人が書くのはこのファイル。status: todo の章が生成の対象になる。
+
+defaults:
+  audience: generalist
+  depth: standard
+  outputs: [note, quiz]
+
+parts:
+  - id: common-strengths-limits
+    title: 衛星データの5つの強みと、それぞれの限界
+    type: basics
+    tags: [基礎, 全体像]
+    goals:
+      - 衛星データの強みを5つ挙げ、それぞれの限界を説明できる
+      - 自分の課題が、どの強みに当たるかを言える
+    must_include: [広域, 過去履歴, 遠隔, 可視化, 客観性, 落とし所の考え方]
+    material: ""
+    status: todo
+
+  - id: common-optical-sar
+    title: 光学とSARの違い、解像度と観測頻度
+    type: basics
+    tags: [基礎, センサー]
+    goals:
+      - 光学とSARのどちらが自分の課題に向くかを判断できる
+      - 解像度、観測幅、観測頻度が両立しない理由を説明できる
+    must_include: [雲と夜間, 波長の違い, 解像度と範囲の関係]
+    material: ""
+    status: todo
+
+  - id: common-data-cost
+    title: データの入手方法と費用の考え方
+    type: basics
+    tags: [基礎, 調達]
+    goals:
+      - 無償データと商用データの違いを説明できる
+      - 過去データの購入と新規撮像の違いを説明できる
+    must_include: [無償データ, 商用データ, アーカイブ, 新規撮像, 利用条件]
+    material: ""
+    status: todo
+
+  - id: common-vs-other-means
+    title: 衛星、航空機、ドローン、現地調査の使い分け
+    type: comparison
+    tags: [基礎, 比較]
+    goals:
+      - 課題に対して、衛星が最適でない場合を見分けられる
+    must_include: [範囲, 頻度, 精度, 費用, 天候]
+    material: ""
+    status: todo

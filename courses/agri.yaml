@@ -1,0 +1,25 @@
+id: agri
+title: 衛星サービスの選び方と使いこなし（農業向け）
+public: true
+sections:
+  - name: 第1部 全体像
+    lead: 衛星データの強みは5つあります。そして、どの強みにも限界があります。まず全体を見渡し、自分の課題がどこに当たるかをつかみます。
+    parts:
+      - common-strengths-limits
+      - common-optical-sar
+      - common-vs-other-means
+  - name: 第2部 使い道ごとの限界と落とし所
+    lead: 使い道ごとに、今の技術でどこまでできるかを見ていきます。どの章も、欲しい成果、強み、限界、落とし所の順に書いています。
+    parts:
+      - agri-growth-patrol
+      - agri-variable-fertilizer
+      - agri-harvest-order
+      - agri-abandoned-farmland
+      - agri-carbon-credit
+  - name: 第3部 選び方と導入の実務
+    lead: サービスを選び、使い続けるための実務です。比べ方、ドローンとの使い分け、費用対効果、自治体の仕様書を扱います。
+    parts:
+      - agri-service-selection
+      - agri-satellite-vs-drone
+      - agri-cost-benefit
+      - agri-municipal-spec

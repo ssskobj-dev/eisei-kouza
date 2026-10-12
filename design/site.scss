@@ -1,0 +1,67 @@
+/*-- scss:defaults --*/
+// サイトのデザイン。PDF（design/typst-template.typ）と同じ青にそろえる。
+$primary: #2b8fd6;
+$link-color: #14609c;
+
+/*-- scss:rules --*/
+// 章の題名：薄い青の帯
+main .quarto-title h1.title {
+  background: rgba(43, 143, 214, 0.16);
+  border-radius: 0 18px 18px 0;
+  padding: 0.5em 0.8em;
+  margin-bottom: 0.3em;
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+main .quarto-title .subtitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: $link-color;
+  margin: 0.2em 0 0 1.25em;
+}
+
+// 節の見出し：青い四角と下線
+main h2 {
+  border-bottom: 2px solid $primary;
+  padding-bottom: 0.3em;
+  margin-top: 3em;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $primary;
+}
+main h2::before {
+  content: "";
+  display: inline-block;
+  width: 0.65em;
+  height: 0.65em;
+  margin-right: 0.45em;
+  border-radius: 2px;
+  background: $primary;
+}
+
+main li::marker { color: $primary; }
+
+// 表：見出し行を薄い青に
+main table thead th {
+  background: rgba(43, 143, 214, 0.16);
+  border-bottom: 2px solid $primary;
+}
+main table { font-size: 0.93em; }
+
+body { line-height: 1.85; }
+
+// PDFへのリンクが2つ出るので、表示名を付けた1つ目だけを残す
+.quarto-alternate-formats li:nth-child(n + 2) { display: none; }
+
+// 図：幅いっぱいに置き、説明は小さく
+main figure { margin: 1.6em 0; }
+main figure img { width: 100%; height: auto; border-radius: 12px; }
+main figcaption {
+  font-size: 0.85em;
+  font-weight: 700;
+  color: $link-color;
+  text-align: center;
+  margin-top: 0.5em;
+}

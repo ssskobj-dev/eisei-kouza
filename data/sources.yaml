@@ -1,0 +1,85 @@
+# 根拠にする公的資料の一覧。章を書く前にここを見て、足りなければ調べて追記する。
+
+- id: mlit-road-sar-summary
+  title: リモートセンシング技術を活用した道路土構造物の維持管理の効率化に関する研究開発（研究概要）
+  publisher: 国土交通省 道路局
+  url: https://www.mlit.go.jp/road/tech/jigo/r03/pdf/gaiyo29-9.pdf
+  tags: [道路, 斜面, 干渉SAR]
+
+- id: mlit-road-sar-h30
+  title: 同（平成30年度の研究概要）
+  publisher: 国土交通省 道路局
+  url: https://www.mlit.go.jp/road/tech/hyouka/h30/29-9_gaiyo.pdf
+  tags: [道路, 斜面, 干渉SAR]
+
+- id: mlit-road-sar-r1
+  title: 同（令和元年度の報告）
+  publisher: 国土交通省 道路局
+  url: https://www.mlit.go.jp/road/tech/hyouka/r1/29-9_houkoku.pdf
+  tags: [道路, 斜面, 干渉SAR]
+
+- id: mlit-road-sar-report
+  title: 同（研究報告書）
+  publisher: 国土交通省 道路局
+  url: https://www.mlit.go.jp/road/tech/jigo/r03/pdf/report29-9.pdf
+  tags: [道路, 斜面, 干渉SAR]
+
+- id: pwrc-road-sar-2021
+  title: 道路土工構造物の維持管理の高度化に資する衛星SARの活用（土木技術資料 63-9）
+  publisher: 土木研究センター
+  url: https://www.pwrc.or.jp/thesis_shouroku/thesis_pdf/2109-P018-021_fujihara.pdf
+  tags: [道路, 斜面, 干渉SAR]
+
+- id: jsece-2023-road-slope
+  title: SARデータによる道路斜面監視への適用性評価
+  publisher: 砂防学会 研究発表会（2023）
+  url: https://www.jsece.or.jp/event/conf/abstract/2023/pdf/169.pdf
+  tags: [道路, 斜面, 干渉SAR]
+
+- id: env-subsidence-manual
+  title: 地盤沈下観測等における衛星活用マニュアル（概要補足版）
+  publisher: 環境省
+  url: https://www.env.go.jp/content/000135343.pdf
+  tags: [地盤沈下, 水準測量, 併用]
+
+- id: jaxa-sar-tool
+  title: 衛星SARによるインフラ変位監視ツール
+  publisher: JAXA
+  url: https://www.jaxa.jp/press/2019/04/files/20190418b_01.pdf
+  tags: [埋立地, 港湾, 堤防, 解析ツール]
+
+- id: nilim-dam-sar
+  title: 衛星SARの1データに含まれる複数ダムの変位モニタリングの技術開発
+  publisher: 国土技術政策総合研究所
+  url: https://www.nilim.go.jp/lab/bcg/siryou/2016report/ar2016hp106.pdf
+  tags: [ダム, 干渉SAR]
+
+- id: cao-bridge-infra
+  title: 住宅・社会資本分野における人工衛星等を活用したリモートセンシング技術の社会実装 最終報告（概要）
+  publisher: 内閣府
+  url: https://www8.cao.go.jp/cstp/gaiyo/sip/250911/siryo5.pdf
+  tags: [災害, 被災把握]
+
+- id: mlit-satellite-policy
+  title: 衛星データ利用の取組
+  publisher: 国土交通省
+  url: https://www.mlit.go.jp/report/press/content/002019868.pdf
+  tags: [政策, 災害, インフラ]
+
+- id: maff-smart-agri-catalog
+  title: スマート農業技術カタログ掲載資料
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/kanbo/smart/attach/pdf/products-286.pdf
+  tags: [生育診断, 可変施肥, ドローン]
+
+- id: gamagori-farmland
+  title: 衛星データのAI解析を用いた農地活用事業
+  publisher: 愛知県蒲郡市
+  url: https://www.city.gamagori.lg.jp/uploaded/attachment/109200.pdf
+  tags: [農業委員会, 荒廃農地, 自治体]
+
+- id: sagri-faeger-credit
+  title: 中干し期間の延長を衛星データで確認する共同実証（発表）
+  publisher: サグリ、フェイガー
+  url: https://ascii.jp/elem/000/004/153/4153068/
+  tags: [カーボンクレジット, 中干し]

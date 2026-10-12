@@ -1,0 +1,29 @@
+# 変わりやすい値の置き場。本文からは {{< var sentinel1.revisit >}} のように参照する。
+# 値を直すと、参照している全章に反映される。直したら checked の年月も更新する。
+# 料金や価格の相場は公開リポジトリに置かない（会員向けに別管理）。
+
+checked: "2026年10月"
+
+sentinel1:
+  name: Sentinel-1
+  operator: 欧州宇宙機関（ESA）
+  band: Cバンド
+  wavelength: 約5.6cm
+  revisit: 12日（1機あたり）
+  cost: 無償
+
+alos2:
+  name: だいち2号（ALOS-2）
+  operator: JAXA
+  band: Lバンド
+  wavelength: 約24cm
+  revisit: 14日
+  since: 2014年
+
+alos4:
+  name: だいち4号（ALOS-4）
+  operator: JAXA
+  band: Lバンド
+  wavelength: 約24cm
+  revisit: 14日
+  since: 2024年
