@@ -9,6 +9,7 @@ project:
     - casebook/*.qmd
     - learn/**/*.qmd
     - themes/*.qmd
+    - news/*.qmd
 
 # メニュー。scripts/build.py nav が作る。
 metadata-files:
@@ -26,10 +27,19 @@ format-links:
 
 website:
   title: "Satellite to Decision"
-  description: "衛星データを、意思決定に使える形にする。市場、ユースケース、学び方を、使う側の立場で整理します。"
+  description: "地球観測データを、事業の意思決定へ。市場、ユースケース、解析の知識を、使う側の立場で整理します。"
   # 公開先のアドレス。独自ドメインにしたら書き換える（検索エンジン向けのサイトマップに使われる）
   site-url: "https://ssskobj-dev.github.io/eisei-kouza/"
+  favicon: design/brand/icon.png
+  # SNSなどで共有されたときに出る画像と説明
+  open-graph:
+    image: design/brand/og.png
+  twitter-card:
+    image: design/brand/og.png
+    card-style: summary_large_image
   navbar:
+    logo: design/brand/logo.svg
+    logo-alt: "Satellite to Decision"
     left:
       - text: 市場ガイド
         href: landscape/index.qmd
@@ -37,6 +47,8 @@ website:
         href: casebook/index.qmd
       - text: 学習プログラム
         href: learn/index.qmd
+      - text: 時事解説
+        href: news/index.qmd
       - text: テーマから探す
         href: themes/index.qmd
     right:
@@ -50,7 +62,7 @@ format:
     # サイトのデザイン。色や見出しの形は design/site.scss で変える。
     theme:
       light: [cosmo, design/site.scss]
-      dark: [darkly, design/site.scss]
+      dark: [darkly, design/site.scss, design/site-dark.scss]
     toc: true
     toc-title: このページの内容
     number-sections: false

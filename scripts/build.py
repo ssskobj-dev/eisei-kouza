@@ -181,6 +181,53 @@ LISTING = """listing:
 """
 
 
+NEWS_DIR = re.compile(r"^(\d{4}-\d{2}-\d{2})-(.+)$")
+
+
+def news_pages():
+    """note/<日付>-<話題>/article.md から、サイトの時事解説のページ（news/<同じ名前>.qmd）を作る。
+    note用の下書きを、そのままサイトにも載せるための変換。要確認の節は編集用のメモなので載せない。"""
+    made = []
+    out_dir = ROOT / "news"
+    out_dir.mkdir(exist_ok=True)
+    for old in out_dir.glob("*.qmd"):
+        old.unlink()
+    for folder in sorted((ROOT / "note").iterdir()):
+        m = NEWS_DIR.match(folder.name)
+        src = folder / "article.md"
+        if not (m and src.exists()):
+            continue
+        lines = src.read_text(encoding="utf-8").splitlines()
+        title = next((l[2:].strip() for l in lines if l.startswith("# ")), folder.name)
+        body, skip = [], False
+        for l in lines:
+            if l.startswith("# ") or l.startswith("（note用の下書き") or "（リンクを入れる）" in l:
+                continue
+            if l.startswith("## "):
+                skip = l[3:].strip().startswith("要確認")
+            if skip:
+                continue
+            fig = re.fullmatch(r"（ここに (fig-\d+)\.png）", l.strip())
+            if fig:
+                name = fig.group(1)
+                ext = "svg" if (folder / f"{name}.svg").exists() else "png"
+                if (folder / f"{name}.{ext}").exists():
+                    body.append(f"![](../note/{folder.name}/{name}.{ext}){{fig-alt=\"図\"}}")
+                continue
+            body.append(re.sub(r"(?<![<(\[])(https?://[^\s<>）」]+)", r"<\1>", l))
+        text = "\n".join(body).strip()
+        first = next((l for l in body if l.strip() and not l.startswith(("#", "!", "-", "（"))), "")
+        desc = re.sub(r"\[\d+\]|\*\*", "", first).replace('"', "”")[:110]
+        thumb = f"../note/{folder.name}/thumbnail.png"
+        extra = f'date: {m.group(1)}\ndescription: "{desc}"\ncategories: [時事解説]\n'
+        if (folder / "thumbnail.png").exists():
+            extra += f'image: "{thumb}"\n'
+        head = f'---\ntitle: "{title}"\nformat: html\n{extra}---\n\n'
+        (out_dir / f"{folder.name}.qmd").write_text(head + text + "\n", encoding="utf-8")
+        made.append(folder.name)
+    return made
+
+
 def nav():
     """メニュー（_sidebar.yml）と、自動で作るページ（各シリーズの入口、講座、テーマ）を作る。"""
     parts = load_parts()
@@ -287,12 +334,21 @@ def nav():
     sidebars.append({"id": "themes", "title": "テーマから探す",
                      "contents": ["themes/index.qmd"] + [f"themes/{th['id']}.qmd" for th in themes]})
 
+    # ---- 時事解説：note用の下書きから、サイトのページを作る ----
+    news = news_pages()
+    write_page("news/index.qmd", series["news"]["brand"], series["news"]["ja"],
+               "衛星データに関する発表を取り上げ、発注する側にとっての意味を書きます。"
+               "ニュースの要約ではなく、何が変わり、何が変わらないかを整理します。発表元の資料をもとに書いています。",
+               LISTING.format(contents="*.qmd"))
+    sidebars.append({"id": "news", "title": series["news"]["short"],
+                     "contents": ["news/index.qmd"] + [f"news/{n}.qmd" for n in reversed(news)]})
+
     out = {"website": {"sidebar": sidebars}}
     (ROOT / "_sidebar.yml").write_text(
         "# scripts/build.py nav が作るファイル。手で直さない。\n"
         + yaml.safe_dump(out, allow_unicode=True, sort_keys=False), encoding="utf-8")
     print(f"メニューとページを作りました（講座 {len(public_courses)}、テーマ {len(themes)}、"
-          f"市場ガイド {n_guides} 本、ユースケース {len(cases)} 本）")
+          f"市場ガイド {n_guides} 本、ユースケース {len(cases)} 本、時事解説 {len(news)} 本）")
 
 
 def load_topics():

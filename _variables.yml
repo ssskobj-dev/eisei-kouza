@@ -31,20 +31,29 @@ alos4:
 # サイトとシリーズの名前。変えるときは、ここを直すだけでよい（メニューの文字は _quarto.yml）。
 site:
   name: Satellite to Decision
-  tagline: 衛星データを、意思決定に使える形にする
+  tagline: 地球観測データを、事業の意思決定へ。
 series:
   landscape:
     brand: Satellite to Decision Landscape
     ja: 衛星データ活用 市場ガイド
     en: Satellite Data Market Guide
     short: 市場ガイド
+    lead: 市場の全体像を知る
   casebook:
     brand: Satellite to Decision Casebook
     ja: 衛星データ活用 ユースケース集
     en: Satellite Data Use Case Collection
     short: ユースケース集
+    lead: 自社に合う使い方を見つける
   learn:
     brand: Satellite to Decision Codex
     ja: 衛星データ解析 学習プログラム
     en: Satellite Data Analysis Training Program
     short: 学習プログラム
+    lead: 解析の知識を身につける
+  news:
+    brand: 時事解説
+    ja: 衛星データに関する発表を、発注する側の目で読む
+    en: News Commentary
+    short: 時事解説
+    lead: 動きの意味を読む

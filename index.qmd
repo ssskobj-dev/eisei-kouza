@@ -1,10 +1,31 @@
 ---
 title: "Satellite to Decision"
-subtitle: "衛星データを、意思決定に使える形にする"
+pagetitle: "Satellite to Decision｜地球観測データを、事業の意思決定へ。"
+title-block-style: none
 format:
   html:
     toc: false
+listing:
+  id: latest
+  contents:
+    - "news/*.qmd"
+    - "casebook/*.qmd"
+    - "landscape/*/*.qmd"
+    - "!news/index.qmd"
+    - "!casebook/index.qmd"
+  type: default
+  sort: "date desc"
+  max-items: 6
+  fields: [date, title, subtitle, categories]
+  date-format: "YYYY年M月D日"
+  page-size: 6
 ---
+
+::: {.s2d-hero}
+<p class="s2d-wordmark"><img src="design/brand/logo.svg" alt=""><span>Satellite <span class="to">to</span> Decision</span></p>
+<p class="s2d-tagline">{{< var site.tagline >}}</p>
+<p class="s2d-kicker">LANDSCAPE / CASEBOOK / CODEX</p>
+:::
 
 衛星データで「できること」を並べた資料は多くあります。このサイトは、その先を書きます。今の技術でどこまでできて、どこからできないのか。業務に入れると、何を判断できて、どこに費用がかかるのか。
 
@@ -12,33 +33,18 @@ format:
 
 ## 3つのシリーズ
 
-::: {.grid}
-
-::: {.g-col-12 .g-col-md-4}
-### [{{< var series.landscape.short >}}](landscape/index.qmd)
-
-**{{< var series.landscape.brand >}}**
-
-分野ごとに、世界と国内の市場、事例、主なプレイヤー、普及の壁を整理します。市場規模は、出どころと対象の範囲を添え、推計の幅のまま示します。
+::: {.s2d-series}
+<a class="s2d-card" href="landscape/index.html"><span class="num">01</span><p class="name">Landscape</p><span class="ja">{{< var series.landscape.lead >}}</span><p class="lead">{{< var series.landscape.ja >}}。分野ごとに、世界と国内の市場、事例、主なプレイヤー、普及の壁を整理します。</p></a>
+<a class="s2d-card" href="casebook/index.html"><span class="num">02</span><p class="name">Casebook</p><span class="ja">{{< var series.casebook.lead >}}</span><p class="lead">{{< var series.casebook.ja >}}。使い道を1つずつ、2026年時点の限界、判断に使えるデータ、費用の考え方まで。</p></a>
+<a class="s2d-card" href="learn/index.html"><span class="num">03</span><p class="name">Codex</p><span class="ja">{{< var series.learn.lead >}}</span><p class="lead">{{< var series.learn.ja >}}。欲しい成果、強み、限界、落とし所の順に学ぶ講座。図とケース問題付き。</p></a>
 :::
 
-::: {.g-col-12 .g-col-md-4}
-### [{{< var series.casebook.short >}}](casebook/index.qmd)
+## 新着
 
-**{{< var series.casebook.brand >}}**
-
-使い道を1つずつ取り上げます。事例、2026年時点の限界、業務に入れるときの想定、意思決定に使えるデータ、費用の考え方をまとめます。
+::: {#latest}
 :::
 
-::: {.g-col-12 .g-col-md-4}
-### [{{< var series.learn.short >}}](learn/index.qmd)
-
-**{{< var series.learn.brand >}}**
-
-衛星データを仕事に使うための講座です。欲しい成果、強み、限界、落とし所の順に学びます。図とケース問題が付いています。
-:::
-
-:::
+[時事解説の一覧](news/index.qmd)　[ユースケース集の一覧](casebook/index.qmd)　[市場ガイドの一覧](landscape/index.qmd)
 
 ## テーマから探す
 

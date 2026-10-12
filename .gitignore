@@ -8,6 +8,7 @@ learn/index.qmd
 landscape/index.qmd
 casebook/index.qmd
 themes/
+news/
 __pycache__/
 *.typ
 !design/*.typ

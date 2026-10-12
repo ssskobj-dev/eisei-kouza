@@ -1,7 +1,7 @@
 // 講座のPDFデザイン。色を変えるときは、下の3色を直す。
-#let c-main = rgb("#2b8fd6")   // 見出しや帯の青
-#let c-deep = rgb("#14609c")   // 文字に使う濃い青
-#let c-pale = rgb("#dcedfa")   // 帯の地の薄い青
+#let c-main = rgb("#2f5d94")   // 見出しや帯の青
+#let c-deep = rgb("#1c2f4f")   // 文字に使う濃い青
+#let c-pale = rgb("#e6edf6")   // 帯の地の薄い青
 #let c-ink = rgb("#1f2a33")
 
 // 章番号と部番号。scripts/build.py が1冊にまとめるときに入れる。

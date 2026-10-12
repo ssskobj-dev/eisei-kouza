@@ -22,8 +22,8 @@ ROOT = Path(__file__).resolve().parent.parent
 W = 720  # 図の幅。高さは内容に合わせて決まる
 PAD = 22
 
-MAIN, DEEP, PALE, INK = "#2b8fd6", "#14609c", "#dcedfa", "#1f2a33"
-WARM, WARM_DEEP, WARM_PALE = "#e8943a", "#a85e12", "#fdf0e0"   # 人が行う部分
+MAIN, DEEP, PALE, INK = "#2f5d94", "#0b1524", "#e6edf6", "#1a2433"
+WARM, WARM_DEEP, WARM_PALE = "#ff6b2c", "#c2410c", "#ffeee5"   # 人が行う部分
 GRAY, GRAY_PALE = "#8a949c", "#eef1f3"                          # 向かない、対象外
 FONT = "'Noto Sans CJK JP','Noto Sans JP','Hiragino Sans','Yu Gothic','Meiryo',sans-serif"
 
@@ -405,32 +405,46 @@ def fig_range(spec):
 
 
 def fig_thumbnail(spec):
-    """noteの見出し画像（1280×670）。題名を大きく入れる。図ではなく、完成したSVGを返す。"""
+    """noteの見出し画像（1280×670）。題名を大きく入れる。図ではなく、完成したSVGを返す。
+    色と形は、サイトのブランド（紺の地、白い軌道の線、オレンジのひし形）にそろえる。"""
     tw, th = 1280, 670
-    kinds = {"news": ("時事解説", MAIN, DEEP), "course": ("講座", DEEP, MAIN),
-             "guide": ("実務メモ", WARM, WARM_DEEP), "report": ("市場レポート", DEEP, MAIN),
-             "usecase": ("ユースケース", MAIN, DEEP)}
-    label, c1, c2 = kinds[spec.get("kind", "news")]
+    navy, white, orange, slate, line = "#0b1524", "#f2f5f7", "#ff6b2c", "#8ea0b8", "#1c2f4f"
+    mono = "'IBM Plex Mono','DejaVu Sans Mono','Noto Sans Mono',monospace"
+    kinds = {"news": ("時事解説", "NEWS"), "course": ("学習プログラム", "CODEX"),
+             "guide": ("実務メモ", "CODEX"), "report": ("市場ガイド", "LANDSCAPE"),
+             "usecase": ("ユースケース", "CASEBOOK")}
+    label, series = kinds[spec.get("kind", "news")]
     lines = wrap(spec["title"], 15)[:3]
     size = 76 if len(lines) <= 2 else 66
     out = [
-        f'<rect width="{tw}" height="{th}" fill="#ffffff"/>',
-        f'<rect width="{tw}" height="{th}" fill="{PALE}" opacity="0.55"/>',
-        f'<rect x="0" y="0" width="34" height="{th}" fill="{c1}"/>',
-        f'<circle cx="{tw - 90}" cy="{th + 40}" r="330" fill="{c1}" opacity="0.13"/>',
-        f'<circle cx="{tw + 40}" cy="110" r="210" fill="{c1}" opacity="0.10"/>',
-        rect(96, 78, 40 + len(label) * 34, 62, c1, "none", r=31),
-        text(116 + len(label) * 17, 121, label, size=34, fill="#fff", weight="bold", anchor="middle"),
+        f'<rect width="{tw}" height="{th}" fill="{navy}"/>',
+        # 軌道の線（右下に大きく、薄く）
+        f'<circle cx="{tw - 40}" cy="{th + 150}" r="420" fill="none" stroke="{line}" stroke-width="2"/>',
+        f'<circle cx="{tw - 40}" cy="{th + 150}" r="560" fill="none" stroke="{line}" stroke-width="2"/>',
+        f'<circle cx="{tw - 40}" cy="{th + 150}" r="700" fill="none" stroke="{line}" stroke-width="2"/>',
+        # ロゴの形（衛星の輪、軌道、決定のひし形）
+        f'<g transform="translate({tw - 196},56) scale(0.2)"><g transform="translate(-330,-390)">'
+        f'<path d="M 492 452 C 610 412, 762 424, 815 522 C 850 592, 812 652, 772 698" fill="none" stroke="{white}" stroke-width="47" stroke-linecap="round"/>'
+        f'<circle cx="424" cy="485" r="52" fill="none" stroke="{white}" stroke-width="47"/>'
+        f'<rect x="684" y="746" width="160" height="160" fill="{orange}" transform="rotate(45 764 826)"/></g></g>',
+        f'<rect x="96" y="92" width="18" height="18" fill="{orange}" transform="rotate(45 105 101)"/>',
+        f'<text x="134" y="113" font-family="{mono}" font-size="30" font-weight="600" fill="{orange}" letter-spacing="4">{series}</text>',
+        text(134 + len(series) * 22 + 34, 113, label, size=30, fill=slate, weight="bold"),
     ]
     if spec.get("tag"):
-        out.append(text(96 + 40 + len(label) * 34 + 26, 121, spec["tag"], size=32, fill=c2, weight="bold"))
+        out.append(text(134 + len(series) * 22 + 34 + len(label) * 30 + 28, 113, "｜ " + spec["tag"], size=30, fill=slate, weight="bold"))
     ty = 268 if len(lines) <= 2 else 250
-    out.append(text(96, ty, lines, size=size, fill=INK, weight="900", lh=1.34))
+    out.append(text(96, ty, lines, size=size, fill=white, weight="900", lh=1.34))
     if spec.get("sub"):
         sy = ty + size * 1.34 * (len(lines) - 1) + 78
-        out.append(rect(96, sy - 46, 14, 58, c1, "none", r=4))
-        out.append(text(128, sy, wrap(spec["sub"], 28)[:1], size=36, fill=c2, weight="bold"))
-    out.append(text(tw - 70, th - 52, spec.get("brand", "Satellite to Decision"), size=28, fill=DEEP, weight="bold", anchor="end"))
+        out.append(rect(96, sy - 44, 8, 56, orange, "none", r=0))
+        out.append(text(124, sy, wrap(spec["sub"], 28)[:1], size=36, fill=slate, weight="bold"))
+    brand = spec.get("brand", "Satellite to Decision")
+    if brand == "Satellite to Decision":
+        out.append(f'<text x="96" y="{th - 50}" font-family="\'Plus Jakarta Sans\',\'DejaVu Sans\',sans-serif" font-size="28" font-weight="700" fill="{white}">'
+                   f'Satellite <tspan fill="{orange}">to</tspan> Decision</text>')
+    else:
+        out.append(text(96, th - 50, brand, size=28, fill=white, weight="bold"))
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {tw} {th}" width="{tw}" height="{th}" '
             f'font-family="{FONT}" role="img"><title>{escape(spec["title"])}</title>{"".join(out)}</svg>\n')
 
