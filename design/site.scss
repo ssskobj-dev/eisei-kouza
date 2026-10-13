@@ -217,3 +217,13 @@ body:has(a[data-s2d-track="register_form_open"]) .s2d-register { display: none; 
   .termsfeed-com---nb .cc-nb-title { font-size: 1.05rem !important; }
   .termsfeed-com---nb .cc-nb-text { font-size: 0.85rem !important; }
 }
+
+// 有料の範囲の手前に出る案内
+.s2d-paywall {
+  margin: 2.5rem 0; padding: 1.5rem 1.6rem; background: $brand-mist; border-top: 4px solid $brand-orange;
+  border-radius: 0 0 14px 14px;
+  > p:first-child { font-size: 1.15rem; color: $brand-navy; margin-bottom: 0.6rem; }
+  ul { margin-bottom: 1.2rem; }
+  .s2d-paywall-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.2rem; margin: 0; }
+  .s2d-paywall-note { font-size: 0.92rem; color: #4b5b70; }
+}

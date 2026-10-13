@@ -61,7 +61,7 @@ quarto preview                  # サイトを表示する（Quartoが必要）
 
 ## 公開のしくみ
 
-main が更新されると、GitHub Actions がサイトとPDFを作り直し、GitHub Pages に公開します。最初に一度だけ、リポジトリの Settings → Pages → Source を「GitHub Actions」にします。
+main が更新されると、GitHub Actions がサイトを作り直し、GitHub Pages に公開します。有料の範囲（記事の後半、PDFなど）は、公開するサイトには出ません。最初に一度だけ、リポジトリの Settings → Pages → Source を「GitHub Actions」にします。
 
 ## このリポジトリに置かないもの
 

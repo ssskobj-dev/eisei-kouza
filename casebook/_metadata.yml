@@ -1,0 +1,4 @@
+# このフォルダの記事は、後半を有料にする（design/paywall.lua が、公開するサイトとPDFから外す）
+paywall: true
+filters:
+  - ../design/paywall.lua

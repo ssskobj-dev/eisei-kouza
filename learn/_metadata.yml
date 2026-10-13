@@ -1,0 +1,6 @@
+# 講座の章は、最初の3分の1までを無料にする（design/paywall.lua が、残りを公開するサイトから外す）。
+# 入口のページ、講座の目次、ケース問題は全部を見せる（それぞれの側で paywall: false を指定している）。
+paywall: true
+paywall-free: 0.34
+filters:
+  - ../design/paywall.lua

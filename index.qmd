@@ -16,7 +16,7 @@ listing:
   type: default
   sort: "date desc"
   max-items: 6
-  fields: [date, title, subtitle, categories]
+  fields: [date, title, subtitle]
   date-format: "YYYY年M月D日"
   page-size: 6
 ---
@@ -45,12 +45,6 @@ listing:
 :::
 
 [時事解説の一覧](news/index.qmd)　[ユースケース集の一覧](casebook/index.qmd)　[市場ガイドの一覧](landscape/index.qmd)
-
-## テーマから探す
-
-関心のある分野から、3つのシリーズの記事をまとめて見られます。
-
-- [テーマの一覧](themes/index.qmd)
 
 ## 法人プラン
 

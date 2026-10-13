@@ -9,6 +9,7 @@
   python scripts/build.py reports [本数]   次に書く市場レポート（テーマと切り口）を一覧する
   python scripts/build.py usecases [本数]  次に書くユースケースの記事を一覧する
 """
+import math
 import re
 import shutil
 import sys
@@ -163,21 +164,24 @@ def full_title(path):
 
 def write_page(rel, title, subtitle, body, extra=""):
     """自動で作るページを書き出す。extra には、一覧の設定や、古いアドレスからの転送を書く。"""
+    if "paywall:" not in extra:
+        extra = "paywall: false\n" + extra   # 自動で作るページは、指定がなければ全部を見せる
     head = f'---\ntitle: "{title}"\nsubtitle: "{subtitle}"\nformat: html\n{extra}---\n\n'
     path = ROOT / rel
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(head + body.rstrip() + "\n", encoding="utf-8")
 
 
-LISTING = """listing:
+LISTING = """paywall: false
+listing:
   contents: "{contents}"
   type: default
   sort: "date desc"
-  categories: true
-  fields: [date, title, subtitle, description, categories]
+  categories: false
+  fields: [date, title, subtitle, description]
   date-format: "YYYY年M月D日"
   page-size: 30
-  filter-ui: [title, description]
+  filter-ui: false
 """
 
 
@@ -268,7 +272,7 @@ def sentinel_page(series, cases_done):
           "- 衛星の機数や撮影の間隔は、運用の状況で変わります"]
     write_page("learn/sentinel.qmd", "Sentinelで見られるユースケースと解析手法",
                "ユースケース別に、使う衛星と解析の流れを早見表で", "\n".join(b),
-               "toc-depth: 2\n")
+               "toc-depth: 2\npaywall: true\npaywall-sections: 1\n")
     return total, doc
 
 
@@ -328,7 +332,8 @@ def english_pages(series, cases_done):
           "- The list includes use cases that are still at the research-note stage. Linked items have a published article (in Japanese)",
           "- The number of satellites in operation and the revisit interval change over time"]
     write_page("en/learn/sentinel.qmd", "Use Cases and Analysis Methods with Sentinel",
-               "Which satellite and which method, by use case", "\n".join(b), EN_HEAD + "toc-depth: 2\n")
+               "Which satellite and which method, by use case", "\n".join(b),
+               EN_HEAD + "toc-depth: 2\npaywall: true\npaywall-sections: 1\nfilters:\n  - ../../design/paywall.lua\n")
 
     method_rows = "\n".join(f"| [{m['name']}](sentinel.qmd#{m['id']}) | {m['satellite']} | {m['examples']} |" for m in methods)
     note = "Articles in this series are written in Japanese. The list below links to the Japanese pages."
@@ -358,6 +363,78 @@ def english_pages(series, cases_done):
                    lead + "\n\n" + note, EN_HEAD + EN_LISTING.format(contents=contents))
     return total
 
+
+PAID_TAIL = ("関連する記事", "出典", "要確認")
+PAID_MARK = "――――― ここから有料（noteでは、この行の位置に有料ラインを置く。この行は消す） ―――――"
+
+
+def paid_start(heads, ratio=None):
+    """有料にする最初の節の番号を返す。決め方は design/paywall.lua と同じにしておく。"""
+    for n, h in enumerate(heads):
+        if "{.paid}" in h:
+            return max(n, 1)
+    if ratio:
+        return max(math.ceil(len(heads) * ratio), 1)
+    for n, h in enumerate(heads):
+        if h.startswith("（仮）"):
+            return max(n, 1)
+    return max(len(heads) // 2, 1)
+
+
+def notefull():
+    """有料で売る記事（ユースケース集、市場ガイド）の、note用の全文（full.md）を作る。
+    サイトでは後半を外して公開するので、noteで売るときは、この全文を貼って有料ラインを置く。"""
+    variables = load("_variables.yml")
+
+    def var(m):
+        v = variables
+        for key in m.group(1).split("."):
+            v = v[key]
+        return str(v)
+
+    made = []
+    targets = [(p, f"usecase-{p.stem}", None) for p in sorted((ROOT / "casebook").glob("*.qmd")) if p.name != "index.qmd"]
+    targets += [(p, f"report-{p.parent.name}-{p.stem}", None) for p in sorted((ROOT / "landscape").glob("*/*.qmd"))]
+    # 講座の章は、最初の3分の1までが無料（learn/_metadata.yml の paywall-free と同じ値にする）
+    targets += [(p, p.stem, 0.34) for p in sorted((ROOT / "learn").glob("*/*.qmd")) if p.parent.name != "quiz"]
+    for path, folder, ratio in targets:
+        fm = front_matter(path)
+        text = path.read_text(encoding="utf-8")
+        body = text[text.find("\n---", 3) + 4:]
+        parts = re.split(r"(?m)^## ", body)
+        intro, sections = parts[0], [x for x in parts[1:]]
+        content = [x for x in sections if not x.split("\n", 1)[0].strip().startswith(PAID_TAIL)]
+        tail = [x for x in sections if x.split("\n", 1)[0].strip().startswith(("関連する記事", "出典"))]
+        start = paid_start([x.split("\n", 1)[0].strip() for x in content], ratio)
+        out = [f"# {full_title(path)}", "", "（note用の全文。「ここから有料」の行より下が有料の範囲。図は、サイトの記事の図を使う）", ""]
+        if intro.strip():
+            out.append(intro.strip() + "\n")
+        for n, sec in enumerate(content + tail):
+            if n == start:
+                out += [PAID_MARK, ""]
+            out.append("## " + sec.rstrip() + "\n")
+        doc = "\n".join(out)
+        doc = re.sub(r"\{\{<\s*var\s+([\w.]+)\s*>\}\}", var, doc)
+        doc = re.sub(r"!\[([^\]]*)\]\(([^)]*)\)(\{[^}]*\})?", lambda m: f"（ここに図：{Path(m.group(2)).stem}　{m.group(1)}）", doc)
+        doc = re.sub(r"\\\[(\d+)\\\]", r"[\1]", doc)
+        doc = re.sub(r"(?m)^(#+ .*?)\s*\{[^}]*\}\s*$", r"\1", doc)
+        doc = re.sub(r"<(https?://[^>]+)>", r"\1", doc)
+        doc = re.sub(r"\]\(\.\./[^)]*\)", "]（サイト内のページ）", doc)
+        dest = ROOT / "note" / folder
+        dest.mkdir(parents=True, exist_ok=True)
+        (dest / "full.md").write_text(doc.rstrip() + "\n", encoding="utf-8")
+        made.append(folder)
+    print(f"note用の全文を {len(made)} 本作りました：" + "、".join(made))
+
+
+THEME_STUB = """::: {.s2d-paywall}
+**「テーマから探す」は、有料版の機能です。**
+
+分野ごとに、市場ガイド、ユースケース、学習プログラムの記事をまとめて見られます。
+
+<p class="s2d-paywall-cta"><a class="s2d-button" data-s2d-register="paywall" href="/register.html">サイトに有料登録する</a></p>
+:::
+"""
 
 def nav():
     """メニュー（_sidebar.yml）と、自動で作るページ（各シリーズの入口、講座、テーマ）を作る。"""
@@ -423,7 +500,7 @@ def nav():
                "衛星データの利活用を、分野ごとに整理しています。1つの分野を、次の8つの切り口で1本ずつ書いています。\n\n"
                + "、".join(a["name"] for a in angles.values()) + "\n\n"
                "市場規模の数字は、出どころ、対象の範囲、年を添えています。調査会社によって推計に幅があるときは、"
-               "1つに決めず、幅のまま示しています。右の分類から、分野や切り口で絞り込めます。",
+               "1つに決めず、幅のまま示しています。各レポートの前半は無料で読めます。後半は有料です。",
                LISTING.format(contents="*/*.qmd") + "aliases:\n  - /reports/index.html\n")
     contents = ["landscape/index.qmd"]
     n_guides = 0
@@ -441,7 +518,7 @@ def nav():
                "どの記事も、同じ順番で書いています。\n\n"
                "事例、2026年時点の限界、業務に入れるときの想定、意思決定に使えるデータ、費用の考え方、向き不向き\n\n"
                "費用は、公開されている金額だけを、出どころと条件を添えて書いています。"
-               "右の分類から、テーマ、段階（研究、実証、商用）、国内と海外で絞り込めます。",
+               "各レポートの前半（事例と限界まで）は無料で読めます。後半は有料です。",
                LISTING.format(contents="*.qmd") + "aliases:\n  - /usecases/index.html\n")
     by_theme = {}
     for u in cases:
@@ -470,11 +547,10 @@ def nav():
         body += ["", f"## {series['learn']['short']}", ""]
         mine_courses = [c for c in public_courses if c["id"] in th.get("courses", [])]
         body += [f"- [{c['title']}](../learn/course-{c['id']}.qmd)" for c in mine_courses] or ["準備中です。"]
-        write_page(f"themes/{th['id']}.qmd", th["name"], "テーマから探す", "\n".join(body))
+        write_page(f"themes/{th['id']}.qmd", th["name"], "テーマから探す", THEME_STUB)
         index_lines.append(f"- [{th['name']}]({th['id']}.qmd)　ユースケース {len(mine)} / {planned} 件"
                            + ("、市場ガイドあり" if rows else "") + ("、講座あり" if mine_courses else ""))
-    write_page("themes/index.qmd", "テーマから探す", "分野ごとに、市場ガイド、ユースケース、学習プログラムをまとめて見る",
-               "関心のある分野を選ぶと、その分野の記事をシリーズをまたいで一覧できます。\n\n" + "\n".join(index_lines))
+    write_page("themes/index.qmd", "テーマから探す", "分野ごとに、市場ガイド、ユースケース、学習プログラムをまとめて見る", THEME_STUB)
     sidebars.append({"id": "themes", "title": "テーマから探す",
                      "contents": ["themes/index.qmd"] + [f"themes/{th['id']}.qmd" for th in themes]})
 
@@ -660,6 +736,8 @@ if __name__ == "__main__":
         todo()
     elif cmd == "nav":
         nav()
+    elif cmd == "notefull":
+        notefull()
     elif cmd == "usecases":
         usecases(int(sys.argv[2]) if len(sys.argv) > 2 else 3)
     elif cmd == "reports":
