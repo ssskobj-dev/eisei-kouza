@@ -12,6 +12,7 @@
 
 local LEAD = "ここから先は有料です。"
 local NOTE = "noteでも購入できます。"
+local NOTE_URL = "https://note.com/s_to_decision"   -- noteのアカウント。押された回数も記録する
 local BUTTON = "サイトに有料登録する"
 local TAIL = { ["関連する記事"] = true, ["出典"] = true, ["要確認"] = true, ["Sources"] = true, ["To be verified"] = true }
 
@@ -53,7 +54,7 @@ function Pandoc(doc)
 
   local lead, note, button, list_title = LEAD, NOTE, BUTTON, "この先に書いてあること"
   if doc.meta.lang and pandoc.utils.stringify(doc.meta.lang) == "en" then
-    lead, note, button, list_title = "The rest of this page is for paid members.", "", "Become a paid member", "What follows"
+    lead, note, button, list_title = "The rest of this page is for paid members.", "Also available on note (in Japanese)", "Become a paid member", "What follows"
   end
   local out = {}
   for i = 1, heads[start].at - 1 do table.insert(out, doc.blocks[i]) end
@@ -68,9 +69,9 @@ function Pandoc(doc)
   if quarto.doc.is_format("html") then
     table.insert(box, pandoc.RawBlock("html",
       '<p class="s2d-paywall-cta"><a class="s2d-button" data-s2d-register="paywall" href="/register.html">' .. button ..
-      '</a><span class="s2d-paywall-note">' .. note .. '</span></p>'))
+      '</a><a class="s2d-paywall-note" href="' .. NOTE_URL .. '" target="_blank" rel="noopener" data-s2d-track="note_click">' .. note .. '</a></p>'))
   else
-    table.insert(box, pandoc.Para({ pandoc.Str("有料登録の案内は、サイトの「有料登録」のページにあります。" .. note) }))
+    table.insert(box, pandoc.Para({ pandoc.Str("有料登録の案内は、サイトの「有料登録」のページにあります。" .. note .. " " .. NOTE_URL) }))
   end
   table.insert(out, pandoc.Div(box, pandoc.Attr("", { "s2d-paywall" })))
 

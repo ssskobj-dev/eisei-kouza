@@ -13,6 +13,7 @@ Paid membership is a monthly plan for people who use satellite data in business 
 - **Price**: JPY {{< var paid.price >}} per month
 - **Refunds**: payments are not refunded
 - **Sign-up**: in preparation. This page will be updated when it opens
+- **On note**: the paid sections can also be bought article by article on [note]({{< var site.note >}}){target="_blank" data-s2d-track="note_click"} (in Japanese)
 
 ## Free and paid
 

@@ -227,3 +227,5 @@ body:has(a[data-s2d-track="register_form_open"]) .s2d-register { display: none; 
   .s2d-paywall-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.2rem; margin: 0; }
   .s2d-paywall-note { font-size: 0.92rem; color: #4b5b70; }
 }
+
+.s2d-paywall a.s2d-paywall-note { text-decoration: underline; }
