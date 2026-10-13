@@ -61,6 +61,7 @@ Satellite to Decision は、衛星データを仕事の判断に使いたい人�
 
 - 名称：{{< var site.operator >}}
 - 所在地：{{< var site.address >}}
+- 代表者：{{< var site.representative >}}
 - 連絡先：[相談フォーム]({{< var site.contact >}}){target="_blank"}
 
 個人情報とアクセス解析の扱いは、[プライバシーポリシー](privacy.qmd)にまとめています。

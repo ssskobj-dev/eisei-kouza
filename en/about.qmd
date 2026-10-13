@@ -65,6 +65,7 @@ We also offer a preparation course for the Satellite Data Business Kentei (サ�
 
 - Name: {{< var site.operator_en >}}
 - Address: {{< var site.address_en >}}
+- Representative: Takaya Sato (佐藤孝也)
 - Contact: [Enquiry form]({{< var site.contact >}}){target="_blank"}
 
 See the [Privacy Policy](privacy.qmd) for how we handle personal information and analytics.

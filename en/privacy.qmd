@@ -14,23 +14,23 @@ format:
 
 - Name: {{< var site.operator_en >}}
 - Address: {{< var site.address_en >}}
-- Name of representative: provided without delay on request
+- Representative: Takaya Sato (佐藤孝也)
+- Contact: {{< var site.email >}}
 
 ## Information we collect
 
 | When | What we collect |
 |---|---|
 | Enquiry form, request to be notified about paid membership | What you enter in the form (name, company, email address, your enquiry) |
-| Subscribing to email | Email address, records of opens and clicks |
 | Buying a course or document, taking a certification exam | Name, email address, purchase and exam records, exam results. Card numbers are handled by the payment provider and are not passed to us |
 | Browsing the site (only if you agree) | Pages viewed, button clicks, browser and device type, approximate region |
 
-Email, sales and the exam are in preparation. The names of the external services will be added to this page when they start.
+Sales and the exam are in preparation. The names of the external services will be added to this page when they start.
 
 ## Purposes
 
 - To answer enquiries
-- To deliver notices, emails, courses, documents, exam results and certificates you asked for
+- To deliver notices, courses, documents, exam results and certificates you asked for
 - To bill and keep purchase records
 - To produce statistics and analysis that improve the site and courses
 - To respond to use that breaches our terms

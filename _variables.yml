@@ -35,6 +35,8 @@ site:
   # 運営者。プライバシーポリシーと「このサイトについて」に出る
   operator: Spacify合同会社
   address: 東京都台東区下谷2-10-1
+  representative: 佐藤孝也
+  email: head.sourcing@longevity-ooo.com
   operator_en: Spacify LLC (Spacify合同会社)
   address_en: 2-10-1 Shitaya, Taito-ku, Tokyo, Japan
   # 相談の窓口（Googleフォーム）
@@ -43,6 +45,10 @@ site:
   exam_course: サテライトデータビジネス検定の対策講座も提供しています。
   # 監修者についての説明。人数や経歴が変わったら、ここを直す
   supervision: JAXA、ISROなど、世界の宇宙機関で働いた経験を持つ5名が監修しています。
+# 有料登録の条件。変えたら、特定商取引法に基づく表記のページも確かめる
+paid:
+  price: "390"
+
 series:
   landscape:
     brand: Satellite to Decision Landscape

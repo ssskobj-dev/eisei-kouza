@@ -1,16 +1,39 @@
 ---
 title: "Paid Membership"
-subtitle: "In preparation. You can ask to be notified when it opens"
+subtitle: "JPY {{< var paid.price >}} per month. Training content, market reports and use case reports"
 lang: en
+toc-title: On this page
 format:
   html:
-    toc: false
+    toc: true
 ---
 
-Paid membership is in preparation. Details and pricing will be announced on this page.
+Paid membership is a monthly plan for people who use satellite data in business decisions. The content is in Japanese.
 
-If you would like to be notified when it opens, or have requests about what it should include, please use the form below.
+- **Price**: JPY {{< var paid.price >}} per month
+- **Refunds**: payments are not refunded
+- **Sign-up**: in preparation. This page will be updated when it opens
+
+## What members can read
+
+### Training content ({{< var series.learn.brand >}})
+
+- **Analysis methods by use case**: flooding, farmland, ground motion, forests, water quality, ships, atmosphere and more, with the satellite, the analysis steps and the limitations for each method
+- **Courses by sector**: for surveying and civil engineering consultants, and for agriculture
+- **Figures and case questions** for each chapter, plus PDF versions
+
+### Market reports ({{< var series.landscape.brand >}})
+
+One sector at a time, from eight angles: global market, Japanese market and policy, overseas cases, Japanese cases, key players, data and methods, barriers and limits, and how to build a proposal.
+
+### Use case reports ({{< var series.casebook.brand >}})
+
+One use case per report, drawn from 221 cases found in research and in announcements by companies and public bodies. Each report covers the case, limits as of 2026, how it fits into operations, data that supports decisions, and how to think about cost.
+
+## Get notified
+
+If you would like to be notified when sign-up opens, please use the form.
 
 [Open the form]({{< var site.contact >}}){.s2d-button target="_blank" data-s2d-track="register_form_open"}
 
-For corporate use, please use the same form.
+For corporate use, please use the same form. Sales terms are set out in the [Japanese legal notice](../tokushoho.qmd).
