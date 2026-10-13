@@ -38,7 +38,22 @@ Satellite to Decisionの教材を作るリポジトリ。章立てとパター�
 7. `outputs` に指定された出力を、`patterns/outputs/` の型に従って作る
 8. 章立ての `status` を `done` にする
 9. `python scripts/build.py check` と `nav` を実行し、通ることを確かめる
-10. ブランチを作ってプルリクエストを出す。説明欄に、章ごとの「要確認」の件数と内容を書く
+9-2. 「公開前の点検」の手順を行う（`python scripts/verify.py`、note用フォルダの `sns.md` の作成）。続けて `python scripts/build.py notefull` を実行し、できた `note/<id>/full.md` も一緒にコミットする
+10. ブランチ（毎朝の自動実行では `learn/<日付>`）を作ってプルリクエストを出す。説明欄に、章ごとの「要確認」の件数と内容、点検の「印」の一覧を書く
+
+### 毎朝の自動実行で作る章の順番
+
+1回に2章まで。検定の問題の材料が足りない分野（調達と費用、基礎）を先に作る。次の順で、`status: todo` のものを上から選ぶ。全部終わったら、`python scripts/build.py todo` の順に進む。
+
+1. `common-data-cost`（データの入手方法と費用の考え方）
+2. `survey-procurement`（衛星データの選び方と調達の実務）
+3. `agri-cost-benefit`（費用対効果の測り方）
+4. `survey-proposal-pricing`（提案書、仕様書、見積もりの作り方）
+5. `agri-municipal-spec`（自治体が衛星サービスを導入するときの仕様書）
+6. `survey-quality-explain`（成果物の品質確認と、顧客への説明）
+7. `common-strengths-limits`、`common-optical-sar`、`common-vs-other-means`（基礎）
+
+開いたままのプルリクエストに同じ章があれば、その章は飛ばす。`material`（現場のメモ）が空の章は、公的な資料だけで書き、書かれていない事例を作らない。金額や相場は、出典のある公開の数字だけを書く。
 
 ## 「今日のnote記事を作って」と頼まれたら（毎朝の自動実行も同じ）
 
