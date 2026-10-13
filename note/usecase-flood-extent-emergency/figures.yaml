@@ -1,0 +1,46 @@
+# note記事「夜の浸水、朝まで何も分からない。衛星で翌朝の計画をどこまで立てられるか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 防災
+    title: 夜の浸水を夜のうちにつかむ
+    sub: だいち2号の緊急観測と、判読できる条件
+
+  - id: fig-1
+    type: flow
+    alt: 要請から提供までの経過（2023年6月の台風2号）
+    steps:
+      - title: 18時00分 要請
+        text: 国土交通省からJAXAへ
+        who: human
+      - title: 23時44分 観測
+        text: だいち2号が撮像
+        who: satellite
+      - title: 翌2時40分 提供
+        text: 自動抽出の浸水推定
+        who: satellite
+      - title: 翌朝 配置と調査
+        text: ポンプ車とヘリ
+        who: human
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 衛星が通る時刻まで待つ
+        text: 要請は撮像の約3.5時間前まで
+        role: none
+      - title: 小さな浸水は判読できない
+        text: 概ね50m四方以上が目安
+        role: none
+      - title: 市街地は判読が難しい
+        text: 建物がすべて浸水しないと出ない
+        role: none
+      - title: 水田と風が誤りを生む
+        text: 田植え時期と波立ちに注意
+        role: none
+      - title: 水が引いた後は分からない
+        text: 乾いた場所は検出できない
+        role: none

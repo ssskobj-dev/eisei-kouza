@@ -69,6 +69,7 @@ usecases:
   verified: true
 - 'no': 4
   name: 自治体の広域地盤沈下の監視
+  slug: subsidence-wide-area
   theme: インフラ・建設
   field: インフラ維持管理
   stage: 商用
@@ -88,6 +89,7 @@ usecases:
   verified: true
 - 'no': 5
   name: 残土・再生土の違反埋立ての監視
+  slug: illegal-fill-monitoring
   theme: 都市・行政
   field: 行政の業務
   stage: 商用
@@ -107,6 +109,7 @@ usecases:
   verified: true
 - 'no': 6
   name: 洪水の浸水域の緊急把握
+  slug: flood-extent-emergency
   theme: 防災
   field: 防災・災害対応
   stage: 商用

@@ -1,0 +1,74 @@
+# ユースケースの記事「違反の埋立てを、衛星で先に見つける」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、職員が行うこと
+    link: ＋
+    left:
+      title: 衛星画像の解析が行う
+      items:
+        - 県内の地表の変化を定期的に抜き出す
+        - 人目につかない場所も含めて広く見る
+    right:
+      title: 職員が行う
+      items:
+        - 許可や届出の記録と照合する
+        - 疑いのある場所に立ち入って確かめる
+        - 違反なら是正を指導する
+    note: 衛星が見つけるのは地表の変化。違反かどうかは、照合と現地確認で決まる
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 小さな盛土は拾えない
+        text: 無償の光学画像で1,000m²以上が目安
+        role: none
+      - title: 盛土以外の変化も拾う
+        text: 造成や伐採も変化として出る
+        role: none
+      - title: 分かるのは地表の変化まで
+        text: 土砂の高さや量は分からない
+        role: none
+      - title: 画像の種類ごとに弱点がある
+        text: 無償の光学は頻度と精度が劣る
+        role: none
+      - title: 違反かどうかは決まらない
+        text: 許可の有無は台帳と現地で確かめる
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 監視の工程に衛星を組み込む手順
+    steps:
+      - title: 画像を確保
+        text: 規制区域の指定直後
+        who: human
+      - title: 変化を抽出
+        text: 定期的に画像を比べる
+        who: satellite
+      - title: 台帳と照合
+        text: 許可と届出の範囲
+        who: human
+      - title: 立入で確認
+        text: 説明のつかない変化
+        who: human
+      - title: 是正と計画
+        text: 指導と撮影の見直し
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の監視が効く対象から、効きにくい対象まで
+    left: 見つけやすい
+    right: 見つけにくい
+    items:
+      - title: 森林を開く埋立て
+        text: 大きく色調が変わる
+      - title: 農地や造成地の埋立て
+        text: 台帳との照合が要る
+      - title: 1,000m²未満の埋立て
+        text: 無償の画像では拾いにくい
+      - title: 土砂の高さと量
+        text: 画像だけでは分からない

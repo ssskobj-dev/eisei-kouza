@@ -1,0 +1,91 @@
+# ユースケースの記事「夜の浸水を、夜のうちにつかむ」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、河川管理者が行うこと
+    link: ＋
+    left:
+      title: 衛星の緊急観測が行う
+      items:
+        - 夜間や雨の中で広い範囲を一度に見る
+        - 浸水の可能性がある範囲を抜き出す
+    right:
+      title: 河川管理者が行う
+      items:
+        - 撮像の約3.5時間前までに要請する
+        - 推定面積から排水量を概算する
+        - 翌朝のヘリと地上調査の行き先を決める
+    note: 衛星は観測した瞬間の水面を見る。夜明け後の確認はなくならない
+
+  - id: timeline
+    type: flow
+    alt: 要請から提供までの経過（2023年6月の台風2号）
+    steps:
+      - title: 18時00分 要請
+        text: 国土交通省からJAXAへ
+        who: human
+      - title: 23時44分 観測
+        text: だいち2号が撮像
+        who: satellite
+      - title: 翌2時40分 提供
+        text: 自動抽出の浸水推定
+        who: satellite
+      - title: 翌朝 配置と調査
+        text: ポンプ車とヘリ
+        who: human
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 衛星が通る時刻まで待つ
+        text: 要請は撮像の約3.5時間前まで
+        role: none
+      - title: 小さな浸水は判読できない
+        text: 概ね50m四方以上が目安
+        role: none
+      - title: 市街地は判読が難しい
+        text: 建物がすべて浸水しないと出ない
+        role: none
+      - title: 水田と風が誤りを生む
+        text: 田植え時期と波立ちに注意
+        role: none
+      - title: 水が引いた後は分からない
+        text: 乾いた場所は検出できない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 水害の初動に衛星の結果を組み込む手順
+    steps:
+      - title: 平時に備える
+        text: 災害前の画像と要請の経路
+        who: human
+      - title: 要請する
+        text: 撮像の約3.5時間前まで
+        who: human
+      - title: 観測と抽出
+        text: 夜間に速報図と判読図
+        who: satellite
+      - title: 排水と調査
+        text: 面積から排水量を概算
+        who: human
+      - title: 翌朝に確認
+        text: ヘリと地上調査
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の判読が効く浸水から、効きにくい浸水まで
+    left: 判読しやすい
+    right: 判読しにくい
+    items:
+      - title: 平野の広い浸水
+        text: 50m四方以上
+      - title: 農地と市街地の縁
+        text: 時期と条件による
+      - title: 建物が密集する市街地
+        text: 全部が浸からないと出ない
+      - title: 深さと最大範囲
+        text: 別の方法で推定する
