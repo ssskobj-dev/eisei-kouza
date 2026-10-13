@@ -43,7 +43,8 @@ Satellite to Decisionの教材を作るリポジトリ。章立てとパター�
 1. `data/news_sources.yaml` の情報源を調べ、`patterns/outputs/news.md` の基準を満たす話題を選ぶ。最大3本。基準を満たす話題が足りなければ、本数を減らす。1つもなければ作らず、その旨を報告して終わる
 2. 話題ごとに、発表元の資料を読んで `note/<日付>-<話題>/article.md` を書く
 3. 同じフォルダに `figures.yaml` を書き、`python scripts/figures.py <フォルダ名>` で見出し画像と図（PNG）を作る。できた画像を1枚ずつ見て、文字のはみ出しや切れがないか確かめる
-4. `python scripts/build.py nav` を実行し、サイトの時事解説のページ（`news/`、自動で作られる）ができることを確かめる。`article.md` の形は `patterns/outputs/news.md` の「サイトへの掲載」に従う
+4. 「公開前の点検」の手順を行う（`python scripts/verify.py`、`sns.md` の作成）。結果の「印」の一覧をプルリクエストの説明欄に貼る
+4-2. `python scripts/build.py nav` を実行し、サイトの時事解説のページ（`news/`、自動で作られる）ができることを確かめる。`article.md` の形は `patterns/outputs/news.md` の「サイトへの掲載」に従う
 5. ブランチ `note/<日付>` を作り、プルリクエストを出す。説明欄に、記事ごとの題名、出典、要確認の件数を書く
 6. 最後に、作った本数と題名、プルリクエストの場所を短く報告する
 
@@ -69,11 +70,24 @@ noteへの投稿は人が行う。Claudeは投稿しない。プルリクエス�
 2. 書くものが残っていなければ、作らずに「ユースケースが残っていません。`data/usecases.yaml` に足してください」と報告して終わる
 3. 1本ごとに `patterns/outputs/usecase_article.md` の手順どおりに書く。`data/usecases.yaml` の行は下調べ。**出典を開いて確かめる。限界と費用は、出典にあることを優先する**
 4. 記事を書いたら、`data/usecases.yaml` の該当する行に `slug:` を足す。ほかの行は書き換えない
+4-2. 「公開前の点検」の手順を行う（`python scripts/verify.py`、note用フォルダの `sns.md` の作成）。結果の「印」の一覧をプルリクエストの説明欄に貼る
 5. 図を `figures/usecase-<slug>.yaml` に書き、`python scripts/figures.py usecase-<slug>` で作る。1枚ずつ見て確かめる
 6. note用の要約を `note/usecase-<slug>/` に作る（`article.md` と `figures.yaml`）。同じコマンドで、見出し画像と図のPNGもできる
 7. `python scripts/build.py check` と `nav` を通す
 8. ブランチ `casebook/<日付>` を作り、プルリクエストを出す。説明欄に、記事ごとの題名、主な出典、要確認の件数と内容を書く
 9. 最後に、作った本数と題名、残りの本数、プルリクエストの場所を短く報告する
+
+## 公開前の点検（どの記事にも共通）
+
+記事を書いたら、プルリクエストを出す前に必ず実行する。
+
+1. `python scripts/verify.py <書いた記事のファイル>` を実行する
+2. 「止める」が出たら、直してからやり直す。直せないときは、その記事を出さずに報告する
+3. 「印」のうち「出典の番号がない数字」は、1つずつ出典と照らし合わせる。出典にあれば番号を付ける。なければ消すか【要確認】を付ける
+4. 残った「印」の一覧を、プルリクエストの説明欄に貼る（人が見るのは、この一覧だけで済むようにする）
+5. note用のフォルダには、`patterns/outputs/sns.md` の型で `sns.md` も作る
+
+プルリクエストでは、同じ点検が自動で動く（`.github/workflows/check.yml`）。失敗していたら直す。
 
 ## 守ること
 

@@ -1,0 +1,61 @@
+---
+title: "Privacy Policy"
+subtitle: "How we handle personal information and analytics"
+lang: en
+toc-title: On this page
+format:
+  html:
+    toc: true
+---
+
+{{< var site.operator_en >}} ("we") handles personal information received through Satellite to Decision ("this site") as set out below. The Japanese version of this policy is the authoritative text.
+
+## Operator
+
+- Name: {{< var site.operator_en >}}
+- Address: {{< var site.address_en >}}
+- Name of representative: provided without delay on request
+
+## Information we collect
+
+| When | What we collect |
+|---|---|
+| Enquiry form, request to be notified about paid membership | What you enter in the form (name, company, email address, your enquiry) |
+| Subscribing to email | Email address, records of opens and clicks |
+| Buying a course or document, taking a certification exam | Name, email address, purchase and exam records, exam results. Card numbers are handled by the payment provider and are not passed to us |
+| Browsing the site (only if you agree) | Pages viewed, button clicks, browser and device type, approximate region |
+
+Email, sales and the exam are in preparation. The names of the external services will be added to this page when they start.
+
+## Purposes
+
+- To answer enquiries
+- To deliver notices, emails, courses, documents, exam results and certificates you asked for
+- To bill and keep purchase records
+- To produce statistics and analysis that improve the site and courses
+- To respond to use that breaches our terms
+
+## Sharing with third parties
+
+We do not share personal information with third parties without your consent, except where required by law or where needed to protect life, body or property and consent is difficult to obtain.
+
+## External services
+
+| Service | Provider | Information sent | Purpose |
+|---|---|---|---|
+| Google Forms | Google LLC | What you enter in the form | Receiving enquiries and requests |
+| Google Analytics | Google LLC | Pages viewed, button clicks, browser and device type, cookie identifiers | Counting visitors and understanding which pages are read |
+| GitHub Pages | GitHub, Inc. | Connection records such as IP address | Serving the site |
+| Google Fonts | Google LLC | Connection records such as IP address | Displaying fonts |
+
+These providers are located in the United States and elsewhere, and information may be stored outside Japan.
+
+## Analytics and cookies
+
+Google Analytics uses cookies. Measurement starts only after you agree in the notice shown on your first visit. You can change your choice at any time through the cookie settings link at the bottom of the page.
+
+## Your requests
+
+You can ask us to disclose, correct, delete or stop using your information through the [enquiry form]({{< var site.contact >}}){target="_blank"}. We respond in line with the law after confirming your identity.
+
+Established: 13 October 2026

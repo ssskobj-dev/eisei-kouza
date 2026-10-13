@@ -1,0 +1,28 @@
+# プルリクエストが出るたびに、記事を機械的に点検する。
+# 「止める」が1つでもあれば失敗（赤）になる。「印」は、結果の画面（Summary）に一覧で出る。
+name: check
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: 章立てを点検する
+        run: python scripts/build.py check
+      - name: 変わった記事を点検する（出典、要確認、数字、アドレス）
+        env:
+          VERIFY_BASE: origin/${{ github.base_ref }}
+        run: python scripts/verify.py --changed --links
