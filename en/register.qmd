@@ -14,6 +14,17 @@ Paid membership is a monthly plan for people who use satellite data in business 
 - **Refunds**: payments are not refunded
 - **Sign-up**: in preparation. This page will be updated when it opens
 
+## Free and paid
+
+| | Free | Paid |
+|---|---|---|
+| Use case reports | First half (the use, the case, limits as of 2026) | Second half (fitting it into operations, decision data, cost, suitability, notes for consultants) |
+| Market reports | First half | Second half |
+| Courses | First third of each chapter | The rest of each chapter |
+| Use cases and analysis methods with Sentinel | The four satellites | Steps, limitations and use case lists by method |
+| Case questions, news commentary | All | |
+| PDF downloads, site search, list filters, browsing by theme | | Available |
+
 ## What members can read
 
 ### Training content ({{< var series.learn.brand >}})

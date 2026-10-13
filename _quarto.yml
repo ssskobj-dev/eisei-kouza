@@ -21,15 +21,10 @@ metadata-files:
 
 lang: ja
 
-# 章のページ右側に出る、PDFへのリンクの表示名
-language:
-  related-formats-title: PDFで読む
-format-links:
-  - format: typst
-    text: PDFを開く
-    icon: file-pdf
+# 記事ごとのPDFと、サイト内の検索は、有料版の機能。公開するサイトでは作らない。
 
 website:
+  search: false
   title: "Satellite to Decision"
   description: "地球観測データを、事業の意思決定へ。市場、ユースケース、解析の知識を、使う側の立場で整理します。"
   # 公開先のアドレス。独自ドメインにしたら書き換える（検索エンジン向けのサイトマップに使われる）
@@ -54,8 +49,6 @@ website:
         href: learn/index.qmd
       - text: 時事解説
         href: news/index.qmd
-      - text: テーマから探す
-        href: themes/index.qmd
     right:
       - text: このサイトについて
         href: about.qmd
@@ -96,12 +89,3 @@ format:
     toc: true
     toc-title: このページの内容
     number-sections: false
-  # 章ごとのPDF。ページ右側の「他の形式」から開ける。
-  typst:
-    papersize: a4
-    mainfont: "Noto Sans CJK JP"
-    toc: false
-    # PDFのデザイン。色や見出しの形は design/typst-template.typ で変える。
-    template-partials:
-      - design/typst-template.typ
-      - design/typst-show.typ
