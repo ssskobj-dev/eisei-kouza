@@ -15,6 +15,8 @@ Satellite to Decisionの教材を作るリポジトリ。章立てとパター�
 - 各シリーズの入口（`index.qmd`）、講座のページ（`learn/course-*.qmd`）、`themes/` は `python scripts/build.py nav` が作る。手で書かない、コミットしない
 - 記事の「関連する記事」には、最初にテーマのページへのリンクを置く
 - 「Sentinelで見られるユースケースと解析手法」（`learn/sentinel.qmd`）も `nav` が作る。もとは `data/sentinel_methods.yaml`（手法の説明と、`data/usecases.yaml` の番号）。手法やユースケースを足すときは、この yaml を直す。数字と仕様には出典の番号を付ける
+- 英語版は固定ページだけ（`en/` の下）。`en/index.qmd`、`en/about.qmd`、`en/register.qmd` は手で書く。各シリーズの入口とSentinelの早見表の英語版は `nav` が作る（英語の文は `data/sentinel_methods_en.yaml` と `scripts/build.py` の `english_pages`）。日本語の固定ページを直したら、英語版も合わせて直す。記事は英語にしない
+- メニューの英語化、言語の切り替え、有料登録のボタン、押下の記録は `design/track.html`。訪問者数の計測は `design/analytics.html`（Google Analytics 4、同意した人だけ）
 - `news/`（時事解説）も `nav` が `note/<日付>-<話題>/article.md` から作る
 
 ## 「未作成の章を作って」と頼まれたら

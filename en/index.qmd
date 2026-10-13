@@ -1,0 +1,43 @@
+---
+title: "Satellite to Decision"
+pagetitle: "Satellite to Decision | From Earth observation data to business decisions"
+lang: en
+title-block-style: none
+format:
+  html:
+    toc: false
+---
+
+::: {.s2d-hero}
+<p class="s2d-wordmark"><img src="../design/brand/logo.svg" alt=""><span>Satellite <span class="to">to</span> Decision</span></p>
+<p class="s2d-tagline">From Earth observation data to business decisions.</p>
+<p class="s2d-kicker">LANDSCAPE / CASEBOOK / CODEX</p>
+:::
+
+Many sources list what satellite data can do. This site goes one step further. How far does today's technology reach, and where does it stop? Once it is part of your operations, what can you decide with it, and where does the cost fall?
+
+We write from the user's side, independent of any satellite operator or analytics company. The site is supervised by five people who have worked at space agencies around the world, including JAXA and ISRO.
+
+Articles are written in Japanese. The pages listed here are available in English.
+
+## Three series
+
+::: {.s2d-series}
+<a class="s2d-card" href="landscape/index.html"><span class="num">01</span><p class="name">Landscape</p><span class="ja">See the whole market</span><p class="lead">{{< var series.landscape.en >}}. Markets, case studies, key players and barriers to adoption, sector by sector.</p></a>
+<a class="s2d-card" href="casebook/index.html"><span class="num">02</span><p class="name">Casebook</p><span class="ja">Find the use that fits you</span><p class="lead">{{< var series.casebook.en >}}. One use case at a time, with limits as of 2026, decision data and cost.</p></a>
+<a class="s2d-card" href="learn/index.html"><span class="num">03</span><p class="name">Codex</p><span class="ja">Build analysis knowledge</span><p class="lead">{{< var series.learn.en >}}. Learn by use case which satellite and which analysis method to use.</p></a>
+:::
+
+## Corporate plans
+
+::: {.s2d-corporate}
+[Corporate plans are available.]{.head}
+
+[If you are considering use across a company or department, please get in touch. We also offer a preparation course for the Satellite Data Business Kentei, a Japanese certification exam.]{.body}
+
+[Open the enquiry form]({{< var site.contact >}}){.cta-link target="_blank"}
+:::
+
+## How to read the articles
+
+Figures and cases come with sources. Statements that have not been fully verified are listed at the end of each article. See [About](about.qmd) for how articles are produced and how sources are handled.

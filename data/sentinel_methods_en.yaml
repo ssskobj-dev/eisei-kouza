@@ -1,0 +1,182 @@
+# data/sentinel_methods.yaml の英語版。英語のページ（en/learn/sentinel.qmd）に使う。
+# 手法の id と、ユースケースの割り当て（cases）は日本語版のものを使う。ここには英語の文だけを書く。
+# 日本語版を直したら、ここも合わせて直す。
+
+satellites:
+  - name: Sentinel-1
+    kind: Radar (C-band SAR)
+    sees: Surface roughness, water, ships and ground motion. Works at night and through cloud
+    spec: In the main land mode, a 250 km swath at 5 m × 20 m resolution. One satellite repeats every 12 days, two satellites every 6 days\[1\]
+  - name: Sentinel-2
+    kind: Optical
+    sees: Vegetation health, shorelines, land use, burn scars and snow
+    spec: 13 spectral bands at 10 m, 20 m and 60 m resolution. Two satellites revisit every 5 days at the equator\[2\]
+  - name: Sentinel-3
+    kind: Ocean and land colour, temperature
+    sees: Colour of seas and lakes (phytoplankton, algal blooms), sea and land surface temperature
+    spec: The colour instrument has 21 bands at 300 m resolution. The temperature instrument measures thermal infrared at 1 km\[3\]
+  - name: Sentinel-5P
+    kind: Atmosphere
+    sees: Nitrogen dioxide, methane, carbon monoxide, sulphur dioxide, ozone and other gases
+    spec: A 2,600 km swath gives near-daily global coverage. Each pixel is several kilometres across\[4\]
+
+methods:
+  sar-change:
+    name: Before-and-after comparison of radar images
+    satellite: Sentinel-1
+    answers: Where did the surface change after a disaster or construction work?
+    examples: Flood extent, oil slicks, avalanche debris, timing of paddy flooding
+    steps:
+      - Pair images from before and after the event, taken from the same orbit direction
+      - Smooth the speckle noise in the images
+      - Take the ratio of brightness before and after, and flag pixels above a threshold as changed
+      - Remove permanent water, steep slopes and small isolated pixels
+    weak:
+      - Flooding in built-up areas tends to be underestimated\[5\]
+      - The threshold is set by trial and error and needs tuning for each area\[5\]
+      - Changes that appear and vanish between two passes are missed
+  insar:
+    name: InSAR (measuring ground motion)
+    satellite: Sentinel-1
+    answers: Where is the ground or a structure moving, and how fast?
+    examples: Land subsidence, displacement of dams and embankments, estimating damage extent after an earthquake
+    steps:
+      - Collect many images of the same place taken under the same conditions
+      - Use the phase difference between two images to tell whether the surface moved towards or away from the satellite
+      - Stack several years of data and build a displacement time series for each stable reflecting point
+      - With both ascending and descending orbits, split the motion into vertical and east-west components\[7\]
+    weak:
+      - North-south motion cannot be measured\[7\]
+      - Results can be unreliable during snow cover\[7\]
+      - In steep terrain, some places cannot be measured\[7\]
+      - Using a drop in similarity between two images as a sign of damage also picks up snow, vegetation and construction
+  optical-index:
+    name: Optical indices and time series
+    satellite: Sentinel-2
+    answers: Where are vegetation, water, snow or burn scars, and how did they change?
+    examples: Crop and forest condition, dieback detection, shoreline change, snow extent, burn severity
+    steps:
+      - Select cloud-free images
+      - Combine two bands into an index. Red and near-infrared for vegetation, near-infrared and shortwave infrared for burn scars
+      - Take the difference between before and after, or against the same season of the previous year
+      - Classify by the size of the difference. For burn severity, a practice using the USGS classification is published\[6\]
+    weak:
+      - Cloud hides the surface
+      - Other causes such as logging or windthrow produce the same signal
+      - Accuracy is best checked with a field assessment\[6\]
+  classify:
+    name: Classification with machine learning
+    satellite: Sentinel-1, Sentinel-2
+    answers: What is at this location (crop type, forest or farmland, presence of an installation)?
+    examples: Checking declared crops, land cover maps, deforestation alerts, mapping solar panels
+    steps:
+      - Prepare reference data (field surveys, declared parcels, interpretation of finer imagery)
+      - Extract seasonal patterns from a year of images
+      - Train a model on the reference data and classify the whole area
+      - Check accuracy against reference data not used for training
+    weak:
+      - With 10 m pixels, small or narrow parcels are hard to classify
+      - Objects that look different from the training data are missed
+      - The quality of the reference data limits the quality of the result
+    note: A global 10 m land cover map based on both radar and optical data is publicly available\[8\]
+  detect:
+    name: Detecting objects at sea
+    satellite: Sentinel-1 (supported by Sentinel-2)
+    answers: Where are ships or structures, and how many?
+    examples: Vessels not broadcasting their position, icebergs, offshore structures, estimating oil tank inventories
+    steps:
+      - Pick out points that return a stronger radar signal than the sea surface
+      - Remove land, known structures and noise
+      - Match against vessel position data (AIS) and keep unmatched points as candidates
+    weak:
+      - Small vessels are easily missed
+      - Areas close to shore may be excluded
+      - The result is a list of candidates. It does not show whether an activity is illegal
+  water-color:
+    name: Estimating water quality from water colour
+    satellite: Sentinel-3, Sentinel-2
+    answers: Where are plankton, algal blooms or turbidity spreading in a lake or sea?
+    examples: Algal bloom monitoring, reservoir turbidity, aquaculture decisions
+    steps:
+      - Remove the effect of the atmosphere on colour
+      - Estimate the amount of phytoplankton or cyanobacteria from water colour
+      - Compare with water samples taken on site
+    weak:
+      - At 300 m resolution, small lakes and rivers cannot be measured
+      - Cloud leaves gaps
+      - The result is an indication of abundance. Toxin levels cannot be measured
+  atmosphere:
+    name: Mapping gases in the atmosphere
+    satellite: Sentinel-5P
+    answers: Where are gas concentrations high, and how do they change over time?
+    examples: Nitrogen dioxide across a city, emissions from ships
+    steps:
+      - Collect cloud-free values from daily observations
+      - Average over a long period to make a finer map
+      - Compare with ground monitoring stations
+    weak:
+      - Pixels are several kilometres across, so differences between roads are not visible
+      - The measurement is the total amount in the air column, not the concentration at ground level
+      - One observation per day, with gaps under cloud
+  combined:
+    name: Combining several data sources
+    satellite: Several Sentinel satellites and other data
+    answers: Questions that one satellite alone cannot answer
+    examples: Glacial lake outburst risk, offshore wind estimates, early warning of disease, school teaching materials
+
+# ユースケースの英語名と、使うデータの英語表記（番号は data/usecases.yaml の no）
+cases:
+  18: [Estimating flood depth and flooded roads, "SAR (StriX, Sentinel-1 and others) plus elevation data"]
+  118: [Detecting unauthorised works along pipelines, "SAR (Sentinel-1), optical (Sentinel-2) for classification"]
+  136: [Oil spill detection and alerting, "SAR (Sentinel-1 and others), optical where needed, AIS"]
+  176: [Automatic detection of avalanche sites, "SAR (Sentinel-1, C-band)"]
+  182: [Verifying alternate wetting and drying in paddies, "SAR (Sentinel-1, ALOS-2), high-resolution optical (THEOS-2)"]
+  90: [Estimating the extent of liquefaction, "SAR (Sentinel-1, C-band, coherence difference)"]
+  198: [Retrospective analysis of displacement before a bridge collapse, "X-band SAR (COSMO-SkyMed), Sentinel-1, Envisat"]
+  218: [Monitoring displacement of a tailings dam, "SAR (Sentinel-1, InSAR, every 12 days)"]
+  220: [Monitoring displacement of a mine waste dam, "SAR (Sentinel-1 InSAR)"]
+  86: [Mapping oak wilt damage, "Optical (Sentinel-2 NDVI difference; single trees need higher resolution)"]
+  82: [Monitoring shoreline and beach erosion, "Optical (Sentinel-2, about 10 m); SAR also a candidate"]
+  85: [Finding candidate sites of embankments and landform changes, "Optical (Sentinel-2), L-band SAR (ALOS-2, ALOS-4)"]
+  192: [Snow maps for mountain tourism, "Optical (Sentinel-2, MODIS, VIIRS) and ground observations"]
+  189: [Urban heat maps and estimating the effect of greening, "Land surface temperature estimated from optical data (Sentinel-2, 10 m)"]
+  168: [National reporting of land degradation indicators, "Optical (MODIS, Landsat, Sentinel-2)"]
+  41: [Automatic farmland classification with SAR and optical, "SAR plus optical (ALOS-2 and Sentinel-2 in a Yamaguchi Prefecture example)"]
+  135: [Monitoring every parcel for farm subsidies, "Optical and SAR (Copernicus Sentinel, free of charge)"]
+  97: [Mapping solar installations across Japan, "Optical (Sentinel-2, 10–20 m)"]
+  199: [Building a global inventory of solar power plants, "Optical (SPOT 6/7 at 1.5 m, Sentinel-2)"]
+  105: [Estimating soil carbon credits, "Optical (Sentinel-2) and machine learning"]
+  139: [Integrated deforestation alerts, "Optical (Landsat, Sentinel-2), SAR (Sentinel-1)"]
+  143: [Forest monitoring for palm oil sourcing, "Optical, 10 m to 30 cm (Sentinel, SPOT, Pléiades Neo)"]
+  149: [Checking deforestation on cocoa farm plots, "Optical, 10 m to 30 cm (Sentinel, Airbus constellation)"]
+  164: [Detecting illegal gold mining, "Optical (Sentinel-2)"]
+  39: [Mapping coral reef habitats and geomorphology, "Optical (PlanetScope, Sentinel-2, Landsat-8)"]
+  184: [Population estimates to fill census gaps, "Building footprints from high-resolution imagery, Sentinel-1"]
+  213: [Finding and counting penguin colonies, "Optical (search with Sentinel-2, confirm with WorldView-3)"]
+  219: [Detecting floating marine litter, "Optical (Sentinel-2)"]
+  127: [Finding vessels that do not broadcast AIS, "SAR (Sentinel-1, about 20 m), satellite AIS"]
+  150: [Iceberg monitoring and the iceberg limit, "SAR (Sentinel-1, RCM and others), optical (Sentinel-2)"]
+  214: [Building an inventory of offshore structures, "SAR (Sentinel-1), optical (Sentinel-2, 10 m)"]
+  204: [Tracking ships waiting off ports, "Optical (Sentinel-2, 10 m), SAR, AIS"]
+  138: [Estimating crude oil tank inventories, "SAR (Sentinel-1 and others), optical"]
+  151: [Estimating crude oil stocks, "SAR (Sentinel-1, C-band)"]
+  111: [Monitoring algal blooms in lakes, "Optical (Sentinel-3 OLCI, Sentinel-2)"]
+  195: [Lake algal bloom monitoring and bathing advisories, "Ocean colour (Sentinel-3 OLCI, 300 m)"]
+  122: [Monitoring reservoir turbidity and water quality, "Optical (Sentinel-2 and other satellites)"]
+  15: [Feeding and harvest decisions in aquaculture, "Ocean colour and thermal infrared plus ocean models (Copernicus Marine data)"]
+  186: [Mapping NO2 across a city, "Atmospheric spectrometer (Sentinel-5P TROPOMI)"]
+  207: [Monitoring NO2 emissions from individual ships, "Atmospheric sensor (Sentinel-5P TROPOMI), AIS"]
+  216: [Ranking glacial lake outburst risk, "SAR (Sentinel-1), optical (Sentinel-2), satellite rainfall"]
+  91: [Estimating offshore wind conditions over an area, "SAR (Sentinel-1 Level-2 ocean wind, 1 km grid)"]
+  191: [Early warning of mosquito-borne disease, "Copernicus satellite data with trap and epidemiological data"]
+  12: [Teaching material for school research projects, "Open Earth observation data (Sentinel and others)"]
+
+sources:
+  - Copernicus SentiWiki, "Sentinel-1 Mission" https://sentiwiki.copernicus.eu/web/s1-mission
+  - Copernicus SentiWiki, "Sentinel-2 Mission" https://sentiwiki.copernicus.eu/web/s2-mission
+  - Copernicus SentiWiki, "Sentinel-3 Mission" https://sentiwiki.copernicus.eu/web/s3-mission
+  - Copernicus SentiWiki, "Sentinel-5P Mission" https://sentiwiki.copernicus.eu/web/s5p-mission
+  - "UN-SPIDER, \"Recommended Practice: Flood Mapping and Damage Assessment Using Sentinel-1 SAR Data in Google Earth Engine\" https://un-spider.org/advisory-support/recommended-practices/recommended-practice-google-earth-engine-flood-mapping/step-by-step"
+  - "UN-SPIDER, \"Recommended Practice: Burn Severity Mapping\" https://un-spider.org/advisory-support/recommended-practices/recommended-practice-burn-severity/in-detail"
+  - European Environment Agency, "European Ground Motion Service Product Description" https://library.land.copernicus.eu/products/European_Ground_Motion_Service_Product_Description_v3.html
+  - Terrascope, "ESA WorldCover" https://docs.terrascope.be/ESA/WorldCover/WorldCover.html

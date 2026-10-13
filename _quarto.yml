@@ -5,6 +5,8 @@ project:
   render:
     - index.qmd
     - about.qmd
+    - register.qmd
+    - en/**/*.qmd
     - landscape/**/*.qmd
     - casebook/*.qmd
     - learn/**/*.qmd
@@ -38,6 +40,7 @@ website:
     image: design/brand/og.png
     card-style: summary_large_image
   navbar:
+    collapse-below: xl
     logo: design/brand/logo.svg
     logo-alt: "Satellite to Decision"
     left:
@@ -54,6 +57,21 @@ website:
     right:
       - text: このサイトについて
         href: about.qmd
+      - text: 有料登録
+        href: register.qmd
+      - text: English
+        href: en/index.qmd
+  # 訪問者数の計測は design/analytics.html（Google Analytics 4）。
+  # 下の cookie-consent で同意した人のブラウザでだけ動く。
+  cookie-consent:
+    type: express
+    style: simple
+    palette: dark
+    policy-url: "https://ssskobj-dev.github.io/eisei-kouza/about.html"
+    prefs-text: "クッキーの設定"
+  # 各ページの本文の下に出る、有料登録のボタン
+  body-footer: |
+    <div class="s2d-register"><a class="s2d-button" data-s2d-register="page-bottom" href="/register.html">サイトに有料登録する</a></div>
   page-footer:
     center: "どの衛星会社にも解析会社にも属さない立場で書いています。"
 
@@ -63,6 +81,8 @@ format:
     theme:
       light: [cosmo, design/site.scss]
       dark: [darkly, design/site.scss, design/site-dark.scss]
+    include-in-header: design/analytics.html
+    include-after-body: design/track.html
     toc: true
     toc-title: このページの内容
     number-sections: false

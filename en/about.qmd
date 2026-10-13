@@ -1,0 +1,72 @@
+---
+title: "About"
+subtitle: "Our position, how articles are produced, and how sources are handled"
+lang: en
+toc-title: On this page
+format:
+  html:
+    toc: true
+---
+
+## What this site is
+
+Satellite to Decision is for people who want to use satellite data in business decisions. Our readers include consultants who are new to satellite data, local government and infrastructure managers, surveying and civil engineering consultants, and people working in agriculture.
+
+We cover not only what is possible, but also how far today's technology reaches, what you can decide once it is part of your operations, and where the cost falls.
+
+Articles are written in Japanese. This page and the entry pages of each series are available in English.
+
+## Three series
+
+| Series | Content |
+|---|---|
+| [{{< var series.landscape.brand >}}](landscape/index.qmd) | {{< var series.landscape.en >}}. Markets, cases, players and barriers by sector |
+| [{{< var series.casebook.brand >}}](casebook/index.qmd) | {{< var series.casebook.en >}}. One use case at a time, with limits and cost |
+| [{{< var series.learn.brand >}}](learn/index.qmd) | {{< var series.learn.en >}}. Learn by use case which satellite and method to use |
+
+## Our position
+
+We write independently of any satellite operator or analytics company.
+
+- We do not recommend specific companies or services. We set out criteria for choosing
+- We give what cannot be done the same weight as what can
+- When we mention a company, we write only publicly announced facts
+
+## Supervision
+
+The site is supervised by five people who have worked at space agencies around the world, including JAXA and ISRO.
+
+They take part as individuals. This does not represent the official view or involvement of any agency.
+
+## How articles are produced
+
+We use AI to draft the text. Published articles have had their sources and unverified points checked by a person.
+
+- Figures, specifications, regulations and cases come with sources. We give priority to official material from government bodies, research institutes, academic societies and companies
+- Statements that could not be verified are marked and explained at the end of the article
+- Figures are produced by this site
+
+## Figures and costs
+
+- Market sizes are shown with their source, scope and year. Where estimates differ between research firms, we show the range
+- Costs are limited to published amounts (public budgets, official price lists, announced contract values), with source and conditions
+- Statements beginning with 「仮定：」 (assumption) are rough estimates based on premises set by this site
+- We distinguish between pilot and full operation. The classification is our own reading of public material and may differ from that of the parties involved
+
+## Corporate plans
+
+Corporate plans are available. If you are considering use across a company or department, please get in touch.
+
+We also offer a preparation course for the Satellite Data Business Kentei (サテライトデータビジネス検定), a Japanese certification exam. The course is not an official offering of the exam organiser.
+
+[Open the enquiry form]({{< var site.contact >}}){target="_blank"}
+
+## Access analytics
+
+This site uses Google Analytics, provided by Google LLC, to understand how many people visit and which pages are read. Information such as the pages you view and your browser type is sent to Google through cookies. It is used only for statistics and does not identify individuals.
+
+Measurement starts only after you agree in the notice shown on your first visit. You can change your choice at any time through the cookie settings link at the bottom of the page.
+
+## Reporting errors
+
+If you find an error or outdated information, please let us know through the [GitHub issues page](https://github.com/ssskobj-dev/eisei-kouza/issues).

@@ -6,6 +6,10 @@ _sidebar.yml
 learn/course-*.qmd
 learn/index.qmd
 learn/sentinel.qmd
+en/learn/
+en/landscape/
+en/casebook/
+en/news/
 landscape/index.qmd
 casebook/index.qmd
 themes/

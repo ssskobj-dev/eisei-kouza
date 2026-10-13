@@ -272,6 +272,93 @@ def sentinel_page(series, cases_done):
     return total, doc
 
 
+EN_HEAD = 'lang: en\ntoc-title: On this page\n'
+EN_STAGE = {"商用": "Commercial", "実証": "Pilot", "研究": "Research"}
+EN_REGION = {"国内": "Japan", "海外": "Overseas", "両方": "Japan and overseas"}
+EN_LISTING = """listing:
+  contents:
+{contents}
+  type: default
+  sort: "date desc"
+  fields: [date, title, subtitle]
+  date-format: "D MMM YYYY"
+  page-size: 30
+"""
+
+
+def english_pages(series, cases_done):
+    """英語版の固定ページのうち、自動で作るもの（en/ の各シリーズの入口と、Sentinelの早見表）を作る。
+    記事そのものは日本語のまま。英語の文は data/sentinel_methods_en.yaml と、この関数の中にある。"""
+    ja = load("data/sentinel_methods.yaml")
+    en = load("data/sentinel_methods_en.yaml")
+    rows = {u["no"]: u for u in load_usecases()}
+    done = {u["no"]: u["slug"] for u in cases_done}
+    methods = [dict(en["methods"][m["id"]], id=m["id"], cases=m["cases"]) for m in ja["methods"]]
+
+    b = ["Using the free European Sentinel satellites as the example, this page shows which satellite and which "
+         "analysis method each use case relies on. There are only a handful of methods, and the same ones are used across sectors.", "",
+         "## The four Sentinel satellites", "",
+         "| Satellite | Type | What it sees | How it observes |", "|---|---|---|---|"]
+    b += [f"| {x['name']} | {x['kind']} | {x['sees']} | {x['spec']} |" for x in en["satellites"]]
+    b += ["", ': {tbl-colwidths="[15,17,30,38]"}', "", "## Use cases and methods at a glance", "",
+          "| Method | Satellite | Question it answers | Example use cases |", "|---|---|---|---|"]
+    b += [f"| [{m['name']}](#{m['id']}) | {m['satellite']} | {m['answers']} | {m['examples']} |" for m in methods]
+    total = 0
+    for m in methods:
+        b += ["", f"## {m['name']} {{#{m['id']}}}", "", f"**Satellite**: {m['satellite']}", "",
+              f"**Question it answers**: {m['answers']}", ""]
+        if m.get("steps"):
+            b += ["**How the analysis works**", ""] + [f"{i}. {x}" for i, x in enumerate(m["steps"], 1)] + [""]
+        if m.get("weak"):
+            b += ["**Limitations**", ""] + [f"- {x}" for x in m["weak"]] + [""]
+        if m.get("note"):
+            b += [m["note"], ""]
+        b += ["**Use cases that rely on this method**", "", "| Use case | Data used | Stage | Region |", "|---|---|---|---|"]
+        for no in m["cases"]:
+            name, data = en["cases"][no]
+            if no in done:
+                name = f"[{name}](../../casebook/{done[no]}.qmd) (in Japanese)"
+            u = rows[no]
+            b.append(f"| {name} | {data} | {EN_STAGE.get(u['stage'], u['stage'])} | {EN_REGION.get(u['region'], u['region'])} |")
+            total += 1
+        b += ["", ': {tbl-colwidths="[36,40,10,14]"}']
+    b += ["", "## Sources", ""] + [f"{i}. {x}" for i, x in enumerate(en["sources"], 1)]
+    b += ["", "## To be verified", "",
+          "- Steps and limitations without a source number are summaries based on common practice and on our background research for each use case. They will be checked against the sources when each article is published",
+          "- The list includes use cases that are still at the research-note stage. Linked items have a published article (in Japanese)",
+          "- The number of satellites in operation and the revisit interval change over time"]
+    write_page("en/learn/sentinel.qmd", "Use Cases and Analysis Methods with Sentinel",
+               "Which satellite and which method, by use case", "\n".join(b), EN_HEAD + "toc-depth: 2\n")
+
+    method_rows = "\n".join(f"| [{m['name']}](sentinel.qmd#{m['id']}) | {m['satellite']} | {m['examples']} |" for m in methods)
+    note = "Articles in this series are written in Japanese. The list below links to the Japanese pages."
+    write_page("en/learn/index.qmd", series["learn"]["brand"], series["learn"]["en"],
+               "Learn satellite data analysis by use case. Start from what you want to know, such as flooding, farmland, "
+               "ground motion, forests or water quality, then follow the satellite, the analysis steps and the limitations.\n\n"
+               "## Learn by use case\n\n"
+               f"Using the free European Sentinel satellites as the example, {total} use cases are grouped by analysis method.\n\n"
+               "| Method | Satellite | Example use cases |\n|---|---|---|\n" + method_rows + "\n\n"
+               "[Open the full list of use cases and methods](sentinel.qmd)\n\n"
+               "## Courses\n\nStructured courses with figures and case questions are available in Japanese.\n\n"
+               "- [Courses (in Japanese)](../../learn/index.qmd)", EN_HEAD)
+    for key, globs, lead in (
+        ("landscape", ['"../../landscape/*/*.qmd"'],
+         "Market guides by sector. Each sector is covered from eight angles, including global and Japanese market size, "
+         "case studies, key players and barriers to adoption. Market figures are shown with their source, scope and year."),
+        ("casebook", ['"../../casebook/*.qmd"', '"!../../casebook/index.qmd"'],
+         "One article per use case, drawn from research and from announcements by companies and public bodies. "
+         "Every article follows the same order: the case, limits as of 2026, how it fits into operations, "
+         "data that supports decisions, and how to think about cost."),
+        ("news", ['"../../news/*.qmd"', '"!../../news/index.qmd"'],
+         "Commentary on announcements about satellite data, written from the buyer's side: what changes, and what does not."),
+    ):
+        contents = "\n".join(f"    - {g}" for g in globs)
+        write_page(f"en/{key}/index.qmd", series[key]["brand"] if key != "news" else "News Commentary",
+                   series[key]["en"] if key != "news" else "Reading announcements from the buyer's side",
+                   lead + "\n\n" + note, EN_HEAD + EN_LISTING.format(contents=contents))
+    return total
+
+
 def nav():
     """メニュー（_sidebar.yml）と、自動で作るページ（各シリーズの入口、講座、テーマ）を作る。"""
     parts = load_parts()
@@ -399,6 +486,8 @@ def nav():
                LISTING.format(contents="*.qmd"))
     sidebars.append({"id": "news", "title": series["news"]["short"],
                      "contents": ["news/index.qmd"] + [f"news/{n}.qmd" for n in reversed(news)]})
+
+    english_pages(series, cases)
 
     out = {"website": {"sidebar": sidebars}}
     (ROOT / "_sidebar.yml").write_text(
