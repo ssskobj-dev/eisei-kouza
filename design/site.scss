@@ -177,3 +177,21 @@ body:has(.s2d-hero) #title-block-header { display: none; }
 }
 // 長いアドレスが画面からはみ出さないよう、途中で折り返す
 main a, main li, main p { overflow-wrap: anywhere; }
+
+// 有料登録のボタン（各ページの下と、メニュー）
+a.s2d-button, a.s2d-button:hover {
+  display: inline-block; background: $brand-orange; color: $brand-navy; font-weight: 700;
+  padding: 0.6rem 1.3rem; border-radius: 999px; text-decoration: none; border-bottom: 0; white-space: nowrap;
+}
+a.s2d-button:hover { background: #ff8a57; }
+.s2d-register {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.8rem 1.5rem;
+  margin: 3rem 0 1rem; padding: 1.1rem 1.4rem; background: $brand-navy; color: $brand-white;
+  border-radius: 14px; font-size: 0.95rem;
+}
+body:has(a[data-s2d-track="register_form_open"]) .s2d-register { display: none; }
+.navbar a.s2d-nav-cta {
+  background: $brand-orange; color: $brand-navy !important; font-weight: 700;
+  border-radius: 999px; padding: 0.3rem 0.95rem !important; margin-left: 0.4rem;
+}
+.navbar a.s2d-nav-cta:hover { background: #ff8a57; }

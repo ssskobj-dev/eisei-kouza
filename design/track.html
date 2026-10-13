@@ -1,0 +1,24 @@
+<script>
+// 「有料登録」のボタンのリンク先を、どの階層のページからでも正しくする。
+// あわせて、押された回数をアクセス解析（Google Analytics）に送る。解析が未設定のときは何も送らない。
+(function () {
+  var meta = document.querySelector('meta[name="quarto:offset"]');
+  var root = meta ? meta.getAttribute("content") : "./";
+  document.querySelectorAll("a[data-s2d-register]").forEach(function (a) {
+    a.setAttribute("href", root + "register.html");
+  });
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest("a[data-s2d-track], a[data-s2d-register]") : null;
+    if (!a || typeof window.gtag !== "function") return;
+    window.gtag("event", a.getAttribute("data-s2d-track") || "paid_register_click", {
+      page_path: location.pathname,
+      button_position: a.getAttribute("data-s2d-register") || "page"
+    });
+  });
+  // メニューの「有料登録」にも同じ印を付ける
+  document.querySelectorAll('.navbar a[href$="register.html"]').forEach(function (a) {
+    a.setAttribute("data-s2d-register", "menu");
+    a.classList.add("s2d-nav-cta");
+  });
+})();
+</script>
