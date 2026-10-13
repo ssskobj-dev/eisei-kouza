@@ -9,6 +9,7 @@
 usecases:
 - 'no': 1
   name: 遊休農地調査の絞り込み
+  slug: yukyu-nochi-screening
   theme: 農業・食料
   field: 農業
   stage: 商用
@@ -28,6 +29,7 @@ usecases:
   verified: true
 - 'no': 2
   name: 自然由来クレジットの適地探索
+  slug: nature-credit-siting
   theme: 林業・カーボン
   field: カーボン
   stage: 商用
@@ -47,6 +49,7 @@ usecases:
   verified: true
 - 'no': 3
   name: 沖合漁場の探索
+  slug: offshore-fishing-ground
   theme: 水産・海洋
   field: 水産・養殖
   stage: 商用

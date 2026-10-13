@@ -1,0 +1,43 @@
+# note記事「沖合の漁場探しを、衛星の水温図で短くする」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 水産・海洋
+    title: 衛星の水温図で漁場を探す
+    sub: 利用者アンケートの数字と、4つの限界
+
+  - id: fig-1
+    type: range
+    alt: 利用者アンケートで答えられた効果の幅
+    title: 利用者が答えた効果の幅（2018年）
+    unit: "%"
+    source: 漁業情報サービスセンター「スマート水産業と衛星利用」（2022年）。利用漁船452隻へのアンケート、回答150隻。計器で測った値ではない
+    items:
+      - label: 漁場を探す時間の短縮
+        low: 15
+        high: 33
+      - label: 漁獲量の増加
+        low: 10
+        high: 25
+      - label: 給油の削減
+        low: 4
+        high: 23
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の4つの限界
+    columns: 2
+    items:
+      - title: 雲の下は見えにくい
+        text: 光や赤外線で測る衛星は、雲があると海が見えない
+        role: none
+      - title: 沖合では通信が細い
+        text: 大きなデータを自由に受け取れない
+        role: none
+      - title: 沿岸の赤潮は別
+        text: 衛星データに求められる条件が厳しい
+        role: none
+      - title: 海の中は見えない
+        text: 測るのは表面。中は数値モデルで補う
+        role: none
