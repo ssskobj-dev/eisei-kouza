@@ -1,24 +1,85 @@
 <script>
-// 「有料登録」のボタンのリンク先を、どの階層のページからでも正しくする。
-// あわせて、押された回数をアクセス解析（Google Analytics）に送る。解析が未設定のときは何も送らない。
-(function () {
+// このファイルの役目は3つ。
+// 1. 「有料登録」のボタンのリンク先を、どの階層のページからでも正しくする
+// 2. ボタンが押された回数を、アクセス解析（Google Analytics）に送る。同意していない人の分は送らない
+// 3. 英語のページ（en/ の下）では、メニューと下部の文字を英語にし、日本語との切り替えを付ける
+document.addEventListener("DOMContentLoaded", function () {
   var meta = document.querySelector('meta[name="quarto:offset"]');
-  var root = meta ? meta.getAttribute("content") : "./";
-  document.querySelectorAll("a[data-s2d-register]").forEach(function (a) {
-    a.setAttribute("href", root + "register.html");
+  var rootPath = new URL(meta ? meta.getAttribute("content") : "./", location.href).pathname;
+  var rel = location.pathname.slice(rootPath.length) || "index.html";
+  if (rel.slice(-1) === "/") rel += "index.html";
+  var isEn = rel.indexOf("en/") === 0;
+  var jaRel = isEn ? rel.slice(3) : rel;
+  // 英語版のあるページ。増やしたら、ここにも足す
+  var translated = ["index.html", "about.html", "register.html", "landscape/index.html",
+                    "casebook/index.html", "learn/index.html", "learn/sentinel.html", "news/index.html"];
+  var hasEn = translated.indexOf(jaRel) !== -1;
+  function relOf(a) {
+    try {
+      var r = new URL(a.href).pathname.slice(rootPath.length);
+      return (r === "" || r.slice(-1) === "/") ? r + "index.html" : r;
+    } catch (e) { return ""; }
+  }
+
+  // 3. 言語の切り替え
+  var labels = { "landscape/index.html": "Market Guide", "casebook/index.html": "Use Cases",
+                 "learn/index.html": "Training", "news/index.html": "News", "themes/index.html": "Themes (JA)",
+                 "about.html": "About", "register.html": "Membership" };
+  document.querySelectorAll(".navbar a").forEach(function (a) {
+    var raw = a.getAttribute("href") || "";
+    if (!raw || raw.charAt(0) === "#" || a.classList.contains("quarto-color-scheme-toggle")) return;
+    var r = relOf(a);
+    if (r === "en/index.html" && !a.classList.contains("navbar-brand") && !a.classList.contains("navbar-brand-logo")) {
+      a.setAttribute("data-s2d-lang", "1");
+      if (isEn) { a.textContent = "日本語"; a.setAttribute("href", rootPath + jaRel); a.setAttribute("lang", "ja"); }
+      else { a.setAttribute("href", rootPath + "en/" + (hasEn ? jaRel : "index.html")); a.setAttribute("lang", "en"); }
+      return;
+    }
+    if (!isEn) return;
+    if (a.classList.contains("navbar-brand") || a.classList.contains("navbar-brand-logo")) { a.setAttribute("href", rootPath + "en/index.html"); return; }
+    if (labels[r]) {
+      var span = a.querySelector(".menu-text") || a;
+      span.textContent = labels[r];
+      if (translated.indexOf(r) !== -1) a.setAttribute("href", rootPath + "en/" + r);
+    }
   });
+  if (isEn) {
+    var foot = document.querySelector(".nav-footer-center p");
+    if (foot) foot.textContent = "Written independently of any satellite operator or analytics company.";
+    document.querySelectorAll("a[data-s2d-register]").forEach(function (a) { a.textContent = "Become a paid member"; });
+    document.querySelectorAll("#open_preferences_center, a[data-cc='c-settings']").forEach(function (a) { a.textContent = "Cookie settings"; });
+  }
+
+  // 計測の同意の表示。広告には使っていないので、実際の使い方に合わせた文にする
+  var consentText = isEn
+    ? ["Cookies for visitor statistics", "This site uses Google Analytics to count visitors and see which pages are read. Cookies are used for measurement only if you agree. We do not use them for advertising."]
+    : ["クッキーの使用について", "このサイトは、訪問者の数と読まれているページを知るために、Google Analytics を使います。同意した場合にだけ、クッキーを使って計測します。広告には使いません。"];
+  var tries = 0;
+  var timer = setInterval(function () {
+    var t = document.getElementById("cc-nb-title"), x = document.getElementById("cc-nb-text");
+    if (t && x) { t.textContent = consentText[0]; x.textContent = consentText[1]; }
+    if ((t && x) || ++tries > 40) clearInterval(timer);
+  }, 100);
+
+  // 1. 有料登録のボタン
+  var registerHref = rootPath + (isEn ? "en/" : "") + "register.html";
+  document.querySelectorAll('.navbar a').forEach(function (a) {
+    if (relOf(a).replace(/^en\//, "") === "register.html") {
+      a.setAttribute("data-s2d-register", "menu");
+      a.classList.add("s2d-nav-cta");
+    }
+  });
+  document.querySelectorAll("a[data-s2d-register]").forEach(function (a) { a.setAttribute("href", registerHref); });
+
+  // 2. 押された回数の記録
   document.addEventListener("click", function (e) {
     var a = e.target.closest ? e.target.closest("a[data-s2d-track], a[data-s2d-register]") : null;
     if (!a || typeof window.gtag !== "function") return;
     window.gtag("event", a.getAttribute("data-s2d-track") || "paid_register_click", {
       page_path: location.pathname,
-      button_position: a.getAttribute("data-s2d-register") || "page"
+      button_position: a.getAttribute("data-s2d-register") || "page",
+      page_language: isEn ? "en" : "ja"
     });
   });
-  // メニューの「有料登録」にも同じ印を付ける
-  document.querySelectorAll('.navbar a[href$="register.html"]').forEach(function (a) {
-    a.setAttribute("data-s2d-register", "menu");
-    a.classList.add("s2d-nav-cta");
-  });
-})();
+});
 </script>

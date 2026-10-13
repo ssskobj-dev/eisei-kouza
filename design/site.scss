@@ -195,3 +195,25 @@ body:has(a[data-s2d-track="register_form_open"]) .s2d-register { display: none; 
   border-radius: 999px; padding: 0.3rem 0.95rem !important; margin-left: 0.4rem;
 }
 .navbar a.s2d-nav-cta:hover { background: #ff8a57; }
+.s2d-register { justify-content: center; }
+.s2d-series > p { display: none; }
+// メニューの文字を途中で折り返さない。項目が多いので、少し詰める
+.navbar .nav-link { white-space: nowrap; }
+@media (min-width: 1200px) {
+  .navbar .navbar-nav .nav-link { font-size: 0.9rem; padding-left: 0.5rem; padding-right: 0.5rem; }
+}
+:lang(en) .s2d-tagline { letter-spacing: 0.01em; }
+// 計測の同意の表示を、サイトの色にそろえる
+.termsfeed-com---palette-dark.termsfeed-com---nb { background: $brand-navy !important; border-top: 3px solid $brand-orange; }
+.termsfeed-com---palette-dark .cc-nb-okagree, .termsfeed-com---palette-dark .cc-nb-reject {
+  background: $brand-orange !important; color: $brand-navy !important; border-radius: 999px; font-weight: 700;
+}
+.termsfeed-com---palette-dark .cc-nb-reject, .termsfeed-com---palette-dark .cc-nb-changep {
+  background: transparent !important; color: $brand-white !important; border: 1px solid $brand-slate; border-radius: 999px;
+}
+@media (max-width: 600px) {
+  .termsfeed-com---nb { width: 100% !important; max-width: 100% !important; left: 0 !important; right: 0 !important; }
+  .termsfeed-com---nb .cc-nb-main-container { padding: 1rem 1.1rem !important; }
+  .termsfeed-com---nb .cc-nb-title { font-size: 1.05rem !important; }
+  .termsfeed-com---nb .cc-nb-text { font-size: 0.85rem !important; }
+}
