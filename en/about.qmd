@@ -61,11 +61,14 @@ We also offer a preparation course for the Satellite Data Business Kentei (サ�
 
 [Open the enquiry form]({{< var site.contact >}}){target="_blank"}
 
-## Access analytics
+## Operator
 
-This site uses Google Analytics, provided by Google LLC, to understand how many people visit and which pages are read. Information such as the pages you view and your browser type is sent to Google through cookies. It is used only for statistics and does not identify individuals.
+- Name: {{< var site.operator_en >}}
+- Address: {{< var site.address_en >}}
+- Representative: Takaya Sato (佐藤孝也)
+- Contact: [Enquiry form]({{< var site.contact >}}){target="_blank"}
 
-Measurement starts only after you agree in the notice shown on your first visit. You can change your choice at any time through the cookie settings link at the bottom of the page.
+See the [Privacy Policy](privacy.qmd) for how we handle personal information and analytics.
 
 ## Reporting errors
 

@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var isEn = rel.indexOf("en/") === 0;
   var jaRel = isEn ? rel.slice(3) : rel;
   // 英語版のあるページ。増やしたら、ここにも足す
-  var translated = ["index.html", "about.html", "register.html", "landscape/index.html",
+  var translated = ["index.html", "about.html", "register.html", "privacy.html", "landscape/index.html",
                     "casebook/index.html", "learn/index.html", "learn/sentinel.html", "news/index.html"];
   var hasEn = translated.indexOf(jaRel) !== -1;
   function relOf(a) {
@@ -46,7 +46,12 @@ document.addEventListener("DOMContentLoaded", function () {
   if (isEn) {
     var foot = document.querySelector(".nav-footer-center p");
     if (foot) foot.textContent = "Written independently of any satellite operator or analytics company.";
-    document.querySelectorAll("a[data-s2d-register]").forEach(function (a) { a.textContent = "Become a paid member"; });
+document.querySelectorAll(".nav-footer a").forEach(function (a) {
+      var r = relOf(a);
+      if (r === "about.html") { a.textContent = "Operated by Spacify LLC"; a.setAttribute("href", rootPath + "en/about.html"); }
+      if (r === "privacy.html") { a.textContent = "Privacy Policy"; a.setAttribute("href", rootPath + "en/privacy.html"); }
+    });
+        document.querySelectorAll("a[data-s2d-register]").forEach(function (a) { a.textContent = "Become a paid member"; });
     document.querySelectorAll("#open_preferences_center, a[data-cc='c-settings']").forEach(function (a) { a.textContent = "Cookie settings"; });
   }
 

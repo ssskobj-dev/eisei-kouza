@@ -6,6 +6,8 @@ project:
     - index.qmd
     - about.qmd
     - register.qmd
+    - privacy.qmd
+    - tokushoho.qmd
     - en/**/*.qmd
     - landscape/**/*.qmd
     - casebook/*.qmd
@@ -67,13 +69,21 @@ website:
     type: express
     style: simple
     palette: dark
-    policy-url: "https://ssskobj-dev.github.io/eisei-kouza/about.html"
+    policy-url: "https://ssskobj-dev.github.io/eisei-kouza/privacy.html"
     prefs-text: "クッキーの設定"
   # 各ページの本文の下に出る、有料登録のボタン
   body-footer: |
     <div class="s2d-register"><a class="s2d-button" data-s2d-register="page-bottom" href="/register.html">サイトに有料登録する</a></div>
   page-footer:
     center: "どの衛星会社にも解析会社にも属さない立場で書いています。"
+    left:
+      - text: "運営：Spacify合同会社"
+        href: about.qmd
+    right:
+      - text: "プライバシーポリシー"
+        href: privacy.qmd
+      - text: "特定商取引法に基づく表記"
+        href: tokushoho.qmd
 
 format:
   html:
