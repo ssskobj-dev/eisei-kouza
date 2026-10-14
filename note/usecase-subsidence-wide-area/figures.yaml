@@ -1,0 +1,47 @@
+# note記事「地盤沈下の測量、全部は続けられない。衛星でどこまで補えるか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: インフラ・建設
+    title: 地盤沈下の測量を衛星で補う
+    sub: 環境省のマニュアルと、静岡県の本格導入
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、県が行うこと
+    link: ＋
+    left:
+      title: 衛星の干渉解析が行う
+      items:
+        - 地盤の動きを面で捉える
+        - 水準点のない場所の沈下を見つける
+        - 過去にさかのぼって推移を調べる
+    right:
+      title: 県が行う
+      items:
+        - 幹線の水準測量を毎年続ける
+        - 衛星の結果を水準測量で検証する
+        - 地下水の規制と測量路線を決める
+    note: 衛星は水準測量の代わりではなく、併用する位置付け（環境省のマニュアル）
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 測量なしでは精度を確かめられない
+        text: 較差の標準偏差0.5cmが目安
+        role: none
+      - title: 観測の回数が足りないことがある
+        text: だいち2号は年4回が基本
+        role: none
+      - title: 雨の日のデータは外す
+        text: 水蒸気と降雨が信号を悪くする
+        role: none
+      - title: 植生の変化が大きい時期は向かない
+        text: 被覆の変化が少ない時期を組む
+        role: none
+      - title: 測れるのは視線方向の動き
+        text: 上下の量にするには補正が要る
+        role: none
