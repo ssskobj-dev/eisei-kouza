@@ -1,0 +1,75 @@
+# ユースケースの記事「訪問する前に、屋根の発電量を見積もる」の図。
+figures:
+  - id: split
+    type: split
+    alt: 自動の推定に任せることと、営業と施工の担当者が行うこと
+    link: ＋
+    left:
+      title: 自動の推定が行う
+      items:
+        - 屋根の区画と向きを読み取る
+        - 影を含めて日射を計算する
+        - 設置枚数と年間発電量を出す
+    right:
+      title: 担当者が行う
+      items:
+        - 訪問する先を選ぶ
+        - 屋根の強度と配線を現地で確かめる
+        - 見積もりを確定する
+    note: 主役は航空写真と表層モデル。衛星画像は最も粗い区分の元データ
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: データのある地域だけ
+        text: 表層モデルのない地域は対象外
+        role: none
+      - title: 画像の品質で精度が変わる
+        text: 1画素0.1mから0.25mまで
+        role: none
+      - title: 撮影後の変化は映らない
+        text: 増改築、隣の建物、木の成長
+        role: none
+      - title: 強度と配線は分からない
+        text: 屋根材、分電盤、系統の空き
+        role: none
+      - title: パネルの条件を変えられない
+        text: 寸法と効率は標準の前提
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 問い合わせから見積もり確定までの手順
+    steps:
+      - title: 住所を座標に
+        text: 対象範囲かを確かめる
+        who: human
+      - title: 推定を取る
+        text: 枚数と年間発電量の概算
+        who: satellite
+      - title: 優先順位を付ける
+        text: 概算と電気の使い方で
+        who: human
+      - title: 訪問して確認
+        text: 屋根、分電盤、配線
+        who: human
+      - title: 見積もりを確定
+        text: 現地の情報で前提を直す
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 自動の推定が効く建物から、効きにくい建物まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 高品質の画像がある
+        text: 屋根の形が単純な一戸建て
+      - title: 粗い画像の地域
+        text: 概算の誤差が広がる
+      - title: 建て替えた建物
+        text: 撮影時の古い状態で計算
+      - title: 対象範囲の外
+        text: 結果が返らない
