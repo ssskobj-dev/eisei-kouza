@@ -1,0 +1,72 @@
+# 「衛星データの選び方と調達の実務」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/survey-procurement/<id>.svg を作る。
+
+figures:
+  - id: flow
+    type: flow
+    alt: データの選定から発注までの6つの手順
+    steps:
+      - title: 対象と目的
+        text: 動きの向き、速さ、範囲
+        who: human
+      - title: 波長を選ぶ
+        text: 植生ならL、短い間隔ならC
+        who: satellite
+      - title: 観測方向
+        text: 北行か南行か、両方か
+        who: satellite
+      - title: 期間と枚数
+        text: 解析の方法から逆算
+        who: satellite
+      - title: 蓄積を確認
+        text: 仕様のそろう枚数があるか
+        who: satellite
+      - title: 条件と発注
+        text: 帰属、精度の指標、内訳
+        who: human
+
+  - id: wavelength
+    type: cards
+    alt: 波長で変わる、植生のある場所での干渉のしやすさ
+    columns: 3
+    items:
+      - title: Lバンド（約24cm）
+        text: 草木を通り抜けやすい。山地でも干渉が残りやすい
+        mark: L
+      - title: Cバンド（約6cm）
+        text: 植生で落ちる。無償で観測の間隔が短い
+        mark: C
+      - title: Xバンド（約3cm）
+        text: 細かく撮れる。都市域や構造物が中心
+        mark: X
+
+  - id: sightline
+    type: sightline
+    alt: 衛星SARが捉えやすい動きと、捉えにくい動き（上から見た図）
+    note: 測れるのは、衛星に近づく動きと遠ざかる動きだけ。南北の動きは捉えにくい
+
+  - id: checklist
+    type: cards
+    alt: 発注前に確かめる6つの項目
+    columns: 3
+    items:
+      - title: 対象と目的
+        text: 動きの向きと、求める精度を言葉にした
+        mark: "1"
+        role: human
+      - title: 波長
+        text: 植生があるならLバンドを第一候補に
+        mark: "2"
+      - title: 観測方向
+        text: 向きに対して見える軌道。両軌道の共通範囲
+        mark: "3"
+      - title: 期間と枚数
+        text: 解析の方法に見合う数。仕様のそろい
+        mark: "4"
+      - title: アーカイブ
+        text: その場所と期間に、実際にあるか
+        mark: "5"
+      - title: 条件と帰属
+        text: 翌年も使えるか。出所の表示。比べる実測
+        mark: "6"
+        role: human

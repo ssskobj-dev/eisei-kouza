@@ -90,7 +90,7 @@ parts:
       - 対象と目的から、衛星とデータの条件を決められる
     must_include: [波長, 観測方向, 期間と枚数, 過去データの有無の確認, 利用条件]
     material: ""
-    status: todo
+    status: done
 
   - id: survey-quality-explain
     title: 成果物の品質確認と、顧客への説明

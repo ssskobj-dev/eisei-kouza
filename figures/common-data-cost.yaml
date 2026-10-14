@@ -1,0 +1,77 @@
+# 「データの入手方法と費用の考え方」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/common-data-cost/<id>.svg を作る。
+
+figures:
+  - id: free-vs-commercial
+    type: split
+    alt: 無償データと商用データの違い
+    link: vs
+    left:
+      title: 無償データ
+      items:
+        - 世界中を決まった計画で撮り続ける
+        - 過去の蓄積が厚い
+        - 細かさは中くらい
+        - 撮る場所や時期は頼めない
+    right:
+      title: 商用データ
+      items:
+        - 細かく撮れる
+        - 新しく撮る注文ができる
+        - 利用条件は契約で決まる
+        - 価格は配布事業者が決める
+    note: どちらも出所の表示と利用条件がある。無償は「質が低い」ではなく「頼めない」
+
+  - id: flow
+    type: flow
+    alt: 入手までの5つの手順
+    steps:
+      - title: 目的と範囲
+        text: 場所、時期、知りたいこと
+        who: human
+      - title: アーカイブを検索
+        text: あるかを無料で確かめる
+        who: satellite
+      - title: 無償で試す
+        text: 使えるかを小さく確認
+        who: satellite
+      - title: 商用を買う
+        text: 足りない点が分かってから
+        who: human
+      - title: 利用条件を確認
+        text: 誰が、何に、どこまで
+        who: human
+
+  - id: license
+    type: cards
+    alt: 買う前に確かめる4つの利用条件
+    columns: 2
+    items:
+      - title: 使う人の範囲
+        text: 組織の中の何人か。顧客にも渡せるか
+        mark: "1"
+      - title: 使う目的の範囲
+        text: 内部で見るだけか、外部に公開するか
+        mark: "2"
+      - title: 外に出せる形
+        text: 元の画像か、戻せない形の結果か
+        mark: "3"
+      - title: 出所の表示
+        text: 無償データでも表示が要る
+        mark: "4"
+
+  - id: cost
+    type: cards
+    alt: 費用を分けて考える3つの項目
+    columns: 3
+    items:
+      - title: データ代
+        text: 無償か商用か。何枚か。単位は何か
+        mark: A
+      - title: 解析
+        text: 自社で行うか、解析会社に頼むか
+        mark: B
+      - title: 確認
+        text: 現地で何か所を見に行くか
+        mark: C
+        role: human

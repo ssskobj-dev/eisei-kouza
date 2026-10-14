@@ -38,7 +38,7 @@ parts:
       - 過去データの購入と新規撮像の違いを説明できる
     must_include: [無償データ, 商用データ, アーカイブ, 新規撮像, 利用条件]
     material: ""
-    status: todo
+    status: done
 
   - id: common-vs-other-means
     title: 衛星、航空機、ドローン、現地調査の使い分け

@@ -83,3 +83,153 @@
   publisher: サグリ、フェイガー
   url: https://ascii.jp/elem/000/004/153/4153068/
   tags: [カーボンクレジット, 中干し]
+
+- id: copernicus-sentinel-licence
+  title: Copernicus Sentinel data licence (rev. 1)
+  publisher: 欧州委員会（Copernicus）、ECMWF掲載
+  url: https://ads.atmosphere.copernicus.eu/licences/ec-sentinel
+  tags: [無償データ, 利用条件, Sentinel]
+
+- id: cdse-terms
+  title: Terms and Conditions of the Copernicus Data Space Ecosystem
+  publisher: ESA、T-Systems
+  url: https://dataspace.copernicus.eu/node/10
+  tags: [無償データ, 利用条件, Sentinel]
+
+- id: sentiwiki-s1-mission
+  title: Sentinel-1 Mission（SentiWiki）
+  publisher: ESA
+  url: https://sentiwiki.copernicus.eu/web/s1-mission
+  tags: [Sentinel, 観測頻度, 観測計画]
+
+- id: usgs-landsat-restrictions
+  title: Are there any restrictions on the use or redistribution of Landsat data?
+  publisher: 米国地質調査所（USGS）
+  url: https://www.usgs.gov/faqs/are-there-any-restrictions-use-or-redistribution-landsat-data
+  tags: [無償データ, 利用条件, Landsat]
+
+- id: usgs-landsat-free-decade
+  title: Free, Open Landsat Data Unleashed the Power of Remote Sensing a Decade Ago
+  publisher: 米国地質調査所（USGS）
+  url: https://www.usgs.gov/news/free-open-landsat-data-unleashed-power-remote-sensing-decade-ago
+  tags: [無償データ, Landsat]
+
+- id: jaxa-alos-open-free
+  title: ALOSシリーズ Open and Freeデータ
+  publisher: JAXA 地球観測研究センター
+  url: https://www.eorc.jaxa.jp/ALOS/jp/dataset/alos_open_and_free_j.htm
+  tags: [無償データ, ALOS, ALOS-2]
+
+- id: jaxa-palsar2-open-free
+  title: ALOS-2 / PALSAR-2 観測プロダクト（Open and Free）
+  publisher: JAXA 地球観測研究センター
+  url: https://www.eorc.jaxa.jp/ALOS/jp/dataset/open_and_free/palsar2_l11_l22_j.htm
+  tags: [無償データ, 利用条件, ALOS-2]
+
+- id: jaxa-alos4-data-service
+  title: 先進レーダ衛星「だいち4号」（ALOS-4）PALSAR-3観測データを用いたデータ・サービス事業
+  publisher: JAXA
+  url: https://www.satnavi.jaxa.jp/ja/alos-4_palsar-3_dataservise/index.html
+  tags: [商用データ, ALOS-4, 配布事業者]
+
+- id: jaxa-alos4-qa
+  title: だいち4号データ・サービス事業者募集 回答済みの主要質問一覧（2024年10月31日時点）
+  publisher: JAXA
+  url: https://www.satnavi.jaxa.jp/files/project/alos4/data/QA.pdf
+  tags: [商用データ, ALOS-4, 観測要求]
+
+- id: jaxa-alos2-bos-v4
+  title: ALOS-2基本観測シナリオ（第4版）
+  publisher: JAXA
+  url: https://www.eorc.jaxa.jp/ALOS/jp/alos-2/pdf/ALOS-2%E5%9F%BA%E6%9C%AC%E8%A6%B3%E6%B8%AC%E3%82%B7%E3%83%8A%E3%83%AA%E3%82%AA%28%E7%AC%AC4%E7%89%88%29_20251003.pdf
+  tags: [ALOS-2, 観測計画, 観測方向]
+
+- id: tellus-catalog
+  title: 衛星データ一覧
+  publisher: Tellus（経済産業省の事業で整備された衛星データプラットフォーム）
+  url: https://www.tellusxdp.com/ja/catalog/data/
+  tags: [無償データ, Tellus]
+
+- id: tellus-palsar2-l21
+  title: PALSAR-2_L2.1 衛星データ詳細
+  publisher: Tellus
+  url: https://www.tellusxdp.com/ja/catalog/data/palsar-2_l2_1.html
+  tags: [無償データ, 利用条件, Tellus]
+
+- id: meti-tellus-2022
+  title: 経済産業省における衛星データの利用促進に関する取組について（令和4年3月）
+  publisher: 経済産業省 製造産業局 宇宙産業室
+  url: https://www8.cao.go.jp/space/taskforce/rs/dai2/siryou1_5.pdf
+  tags: [無償データ, Tellus, 政策]
+
+- id: cao-rs-law-criteria
+  title: 衛星リモセン法における装置・記録に係る基準等（平成29年11月）
+  publisher: 内閣府 宇宙開発戦略推進事務局
+  url: https://www8.cao.go.jp/space/comittee/dai64/siryou3.pdf
+  tags: [利用条件, 衛星リモセン法]
+
+- id: cao-rs-law-faq
+  title: 衛星リモートセンシング記録の適正な取扱いの確保に関する法律に関するFAQ集
+  publisher: 内閣府 宇宙開発戦略推進事務局
+  url: https://www8.cao.go.jp/space/application/rs/documents/faq.pdf
+  tags: [利用条件, 衛星リモセン法]
+
+- id: jsf-rs-usage-2011
+  title: 衛星リモセンデータの利用促進に向けた利用実態図の作成（平成22年度 科学技術調査研究助成 報告書）
+  publisher: 日本宇宙フォーラム
+  url: https://www.jsforum.or.jp/files/libs/611/20220712145453624.pdf
+  tags: [商用データ, 利用条件, 価格の考え方]
+
+- id: nids-sar-purchase-spec-2025
+  title: 画像データの購入 仕様書（令和7年9月）
+  publisher: 防衛省 防衛研究所
+  url: https://www.nids.mod.go.jp/procurement/ippan/pdf/2025/35_b.pdf
+  tags: [商用データ, 新規撮像, アーカイブ, 仕様書]
+
+- id: iwate-satellite-spec-2021
+  title: 令和3年度衛星画像データ整備（北上川中流区域）仕様書
+  publisher: 岩手県
+  url: https://www.pref.iwate.jp/_res/projects/default_project/_page_/001/046/712/04_shiyousyo.pdf
+  tags: [商用データ, 利用条件, 仕様書, 森林]
+
+- id: kochi-satellite-spec-2026
+  title: 写真地図データファイル等及びその二次利用権利の購入仕様書
+  publisher: 高知県
+  url: https://www.pref.kochi.lg.jp/doc/2026041000074/file_contents/file_2026574111210_8.pdf
+  tags: [商用データ, 利用条件, 仕様書, 森林]
+
+- id: env-subsidence-manual-full
+  title: 地盤沈下観測等における衛星活用マニュアル（平成29年3月）
+  publisher: 環境省 水・大気環境局
+  url: https://www.env.go.jp/content/000135342.pdf
+  tags: [地盤沈下, 干渉SAR, 調達, 仕様書, データ選定]
+
+- id: mlit-road-sar-manual
+  title: 合成開口レーダー（SAR）の道路土構造物の維持管理への活用マニュアル（案）（令和3年7月）
+  publisher: 国土交通省 道路局（東京大学、基礎地盤コンサルタンツ）
+  url: https://www.mlit.go.jp/road/tech/jigo/r03/pdf/manual29-9.pdf
+  tags: [道路, 干渉SAR, データ選定, 波長, 枚数]
+
+- id: gsi-sar-faq1
+  title: 干渉SARのQ&A Q1. 干渉SARの基礎・原理に関する質問
+  publisher: 国土地理院
+  url: https://www.gsi.go.jp/uchusokuchi/gsi_sar_faq1.html
+  tags: [干渉SAR, 観測方向, 原理]
+
+- id: gsi-sar-faq3
+  title: 干渉SARのQ&A Q3. SAR干渉画像の読み方に関する質問
+  publisher: 国土地理院
+  url: https://www.gsi.go.jp/uchusokuchi/gsi_sar_faq3.html
+  tags: [干渉SAR, 読み方, 観測方向]
+
+- id: gsi-sar-faq4
+  title: 干渉SARのQ&A Q4. SAR干渉画像に含まれる誤差についての質問
+  publisher: 国土地理院
+  url: https://www.gsi.go.jp/uchusokuchi/gsi_sar_faq4.html
+  tags: [干渉SAR, 誤差, 波長, 植生]
+
+- id: gsi-sar-satellite
+  title: 国土地理院で利用している主なSAR衛星
+  publisher: 国土地理院
+  url: https://www.gsi.go.jp/uchusokuchi/sar_satellite.html
+  tags: [SAR衛星, 仕様]
