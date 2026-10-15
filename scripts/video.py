@@ -61,13 +61,54 @@ def text(x, y, lines, size, fill=INK, weight="normal", lh=1.5, anchor="start", f
     return "".join(out)
 
 
+CURRENT = {}   # 今作っている場面の情報（目次と進み具合を描くために、build() が入れる）
+
+
+def agenda_panel():
+    """右側の目次。今の節を強調し、終わった節は薄くする。"""
+    items, cur = CURRENT.get("agenda", []), CURRENT.get("agenda_pos")
+    if not items:
+        return ""
+    x, y0 = 1560, 200
+    out = [f'<rect x="{x}" y="{y0 - 50}" width="300" height="{H - 150 - (y0 - 50) - 40}" rx="14" fill="{MIST}"/>',
+           text(x + 24, y0, "この動画の流れ", 22, SLATE, "bold")]
+    avail = H - 150 - 40 - y0 - 60
+    size = 22 if len(items) * (22 * 1.25 + 22) <= avail else 19
+    y = y0 + 48
+    for i, label in enumerate(items):
+        lines = wrap(label, int(236 / (size * 0.95)))[:2]
+        state = "now" if i == cur else ("done" if cur is not None and i < cur else "todo")
+        if state == "now":
+            out.append(f'<rect x="{x + 10}" y="{y - size - 4}" width="280" height="{size * 1.25 * len(lines) + 12:.0f}" rx="8" fill="{ORANGE}"/>')
+            out.append(text(x + 28, y, lines, size, NAVY, "bold", lh=1.25))
+        elif state == "done":
+            out.append(f'<path d="M {x + 22} {y - size * 0.45:.0f} l 6 6 l 11 -12" stroke="{SLATE}" stroke-width="3" fill="none" stroke-linecap="round"/>')
+            out.append(text(x + 52, y, lines, size, SLATE, lh=1.25))
+        else:
+            out.append(f'<circle cx="{x + 30}" cy="{y - size * 0.4:.0f}" r="4" fill="{SLATE}"/>')
+            out.append(text(x + 52, y, lines, size, INK, lh=1.25))
+        y += size * 1.25 * len(lines) + 20
+    return "".join(out)
+
+
+def progress_bar():
+    n, i = CURRENT.get("n", 0), CURRENT.get("i")
+    if not n or i is None:
+        return ""
+    frac = (i + 1) / n
+    return (f'<rect x="0" y="120" width="{W}" height="6" fill="{LINE}"/>'
+            f'<rect x="0" y="120" width="{W * frac:.0f}" height="6" fill="{ORANGE}"/>'
+            f'<text x="{W - 72}" y="{H - 165}" font-size="20" fill="{SLATE}" text-anchor="end" font-family="{MONO}">{i + 1} / {n}</text>')
+
+
 def frame(kicker, heading, body, series="CASEBOOK", dark=False):
-    """共通の枠。上に帯、下に字幕の帯。"""
+    """共通の枠。上に帯と進み具合、右に目次、下に字幕の帯。"""
     bg = NAVY if dark else "#ffffff"
     out = [f'<rect width="{W}" height="{H}" fill="{bg}"/>']
     if not dark:
         out.append(f'<rect width="{W}" height="120" fill="{NAVY}"/>')
-        out.append(f'<rect x="0" y="120" width="{W}" height="6" fill="{ORANGE}"/>')
+        out.append(progress_bar())
+        out.append(agenda_panel())
         out.append(f'<rect x="72" y="46" width="22" height="22" fill="{ORANGE}" transform="rotate(45 83 57)"/>')
         out.append(text(116, 68, series, 26, ORANGE, "600", family=MONO))
         out.append(text(116 + len(series) * 18 + 40, 68, kicker, 26, SLATE, "bold"))
@@ -383,7 +424,12 @@ def build(vid, slides_only=False):
     work = vdir / "_work"
     work.mkdir(exist_ok=True)
     scenes = ctx["scenes"]
+    body_idx = [i for i, sc in enumerate(scenes) if sc["kind"] not in ("cover", "cta")]
+    agenda = [sc.get("heading", "") for i, sc in enumerate(scenes) if i in body_idx]
     for i, s in enumerate(scenes):
+        CURRENT.clear()
+        CURRENT.update({"n": len(scenes), "i": i, "agenda": agenda,
+                        "agenda_pos": body_idx.index(i) if i in body_idx else None})
         png = work / f"slide_{i:02d}.png"
         svg_to_png(SLIDES[s["kind"]](s, ctx), png)
     print(f"スライド {len(scenes)} 枚")

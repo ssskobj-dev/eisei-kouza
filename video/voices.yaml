@@ -1,20 +1,9 @@
 # 案内役の声の一覧。動画の台本で voice に名前を書く。書かなければ、この中から動画ごとに選ぶ（動画のidで決まるので、作り直しても同じ声になる）。
 # credit は、VOICEVOXの利用規約で求められる表記。動画の末尾に自動で入る。
-# pitch は声の高さの調整（0が元のまま。+0.05でやや高く）。
+# pitch は声の高さの調整（0が元のまま。マイナスで低く）。
 voices:
-  - name: ニア
-    id: 74
-    credit: "VOICEVOX:琴詠ニア"
-    note: 女性。やや高めで軽い
   - name: もち子
     id: 20
+    pitch: -0.04
     credit: "VOICEVOX:もち子さん"
-    note: 女性。親しみのある話し方
-  - name: まろん
-    id: 67
-    credit: "VOICEVOX:栗田まろん"
-    note: 男性寄りの中性的な声。低すぎない
-  - name: 花丸
-    id: 73
-    credit: "VOICEVOX:満別花丸"
-    note: 少年風。明るい
+    note: 女性。親しみのある話し方。少し低くしている
