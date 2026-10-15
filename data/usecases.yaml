@@ -186,6 +186,7 @@ usecases:
   verified: true
 - 'no': 10
   name: 防衛向けの画像の高頻度な取得
+  slug: defense-constellation-imagery
   theme: 安全保障・物流
   field: 安全保障
   stage: 商用
@@ -205,6 +206,7 @@ usecases:
   verified: true
 - 'no': 11
   name: 災害前の地図の空白埋め
+  slug: missing-maps-prep
   theme: 公衆衛生・人道支援
   field: 人道支援・国際開発
   stage: 商用
@@ -224,6 +226,7 @@ usecases:
   verified: true
 - 'no': 12
   name: 中高生の探究学習の教材
+  slug: climate-detectives-school
   theme: 生活・文化・その他
   field: その他
   stage: 商用
