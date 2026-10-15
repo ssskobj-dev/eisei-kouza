@@ -113,4 +113,4 @@ parts:
       - 農地調査に衛星サービスを入れる際の仕様書の骨格を書ける
     must_include: [対象範囲, 推定の精度の扱い, 成果物, 現地調査との接続, 継続年度の扱い]
     material: ""
-    status: todo
+    status: done
