@@ -363,7 +363,7 @@ PlayResY: 1080
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Sub,Noto Sans CJK JP,52,&H00F7F5F2,&H00FFFFFF,&H00241509,&H00000000,-1,0,0,0,100,100,0,0,1,1,0,2,100,420,40,1
+Style: Sub,Noto Sans CJK JP,52,&H00F7F5F2,&H00FFFFFF,&H00241509,&H00000000,-1,0,0,0,100,100,0,0,1,1,0,2,100,100,40,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -389,7 +389,8 @@ def build(vid, slides_only=False):
     print(f"スライド {len(scenes)} 枚")
     if slides_only:
         return
-    avatars = build_avatar_frames(work)
+    # 案内役の顔は、既定では出さない（口が動くだけの顔は学習の助けにならないため。台本に avatar: true で出せる）
+    avatars = build_avatar_frames(work) if ctx.get("avatar") or any(sc.get("avatar") for sc in scenes) else None
     parts = []
     for i, s in enumerate(scenes):
         say = s.get("say", "")
@@ -420,20 +421,20 @@ def build(vid, slides_only=False):
             ev.append(f"Dialogue: 0,{ass_time(a)},{ass_time(b + 0.3)},Sub,,0,0,0,,{joined}")
         ass.write_text(ASS_HEAD + "\n".join(ev) + "\n", encoding="utf-8")
         # アバターの口
-        track = mouth_track(audio)
-        lst = work / f"avatar_{i:02d}.txt"
-        lines = []
-        for level, blink in track:
-            lines.append(f"file '{avatars[(level, blink)].name}'\nduration {1 / FPS:.4f}")
-        lines.append(f"file '{avatars[(0, 0)].name}'\nduration 0.5")
-        lst.write_text("\n".join(lines) + "\n", encoding="utf-8")
         out = work / f"scene_{i:02d}.mp4"
-        show_avatar = s.get("avatar", ctx.get("avatar", True)) and s["kind"] not in ("cover", "cta")
-        fc = (f"[0:v][1:v]overlay={AVATAR_X}:{AVATAR_Y}:shortest=1[a];[a]ass={ass.name}[v]" if show_avatar
-              else f"[0:v]ass={ass.name}[v]")
-        cmd = ["ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-framerate", "25", "-i", f"slide_{i:02d}.png",
-               "-f", "concat", "-safe", "0", "-i", lst.name, "-i", audio.name,
-               "-filter_complex", fc, "-map", "[v]", "-map", "2:a", "-t", f"{total:.2f}",
+        show_avatar = s.get("avatar", ctx.get("avatar", False)) and s["kind"] not in ("cover", "cta")
+        cmd = ["ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-framerate", "25", "-i", f"slide_{i:02d}.png"]
+        if show_avatar:
+            track = mouth_track(audio)
+            lst = work / f"avatar_{i:02d}.txt"
+            lines = [f"file '{avatars[(level, blink)].name}'\nduration {1 / FPS:.4f}" for level, blink in track]
+            lines.append(f"file '{avatars[(0, 0)].name}'\nduration 0.5")
+            lst.write_text("\n".join(lines) + "\n", encoding="utf-8")
+            cmd += ["-f", "concat", "-safe", "0", "-i", lst.name, "-i", audio.name,
+                    "-filter_complex", f"[0:v][1:v]overlay={AVATAR_X}:{AVATAR_Y}:shortest=1[a];[a]ass={ass.name}[v]", "-map", "[v]", "-map", "2:a"]
+        else:
+            cmd += ["-i", audio.name, "-filter_complex", f"[0:v]ass={ass.name}[v]", "-map", "[v]", "-map", "1:a"]
+        cmd += ["-t", f"{total:.2f}",
                "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", "-pix_fmt", "yuv420p", "-r", "25",
                "-c:a", "aac", "-b:a", "128k", out.name]
         r = subprocess.run(cmd, cwd=work, capture_output=True, text=True)
