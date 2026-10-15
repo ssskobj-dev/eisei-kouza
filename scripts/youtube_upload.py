@@ -24,9 +24,17 @@ mp4 = vdir / f"{vid}.mp4"
 if not mp4.exists():
     sys.exit(f"動画がありません：{mp4}")
 
+def env(name):
+    v = os.environ.get(name, "").strip().strip('"').strip("'")
+    if not v:
+        sys.exit(f"環境変数 {name} が空です。GitHubのSecretsを確認してください")
+    return v
+
+cid = env("YT_CLIENT_ID")
+print(f"  使うクライアントID：{cid[:16]}…{cid[-30:]}")
 creds = google.oauth2.credentials.Credentials(
-    None, refresh_token=os.environ["YT_REFRESH_TOKEN"], token_uri="https://oauth2.googleapis.com/token",
-    client_id=os.environ["YT_CLIENT_ID"], client_secret=os.environ["YT_CLIENT_SECRET"],
+    None, refresh_token=env("YT_REFRESH_TOKEN"), token_uri="https://oauth2.googleapis.com/token",
+    client_id=cid, client_secret=env("YT_CLIENT_SECRET"),
     scopes=["https://www.googleapis.com/auth/youtube.upload", "https://www.googleapis.com/auth/youtube"])
 yt = build("youtube", "v3", credentials=creds)
 
