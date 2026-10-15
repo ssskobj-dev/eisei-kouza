@@ -25,3 +25,14 @@
 ## 場面の種類
 
 cover、bullets、figure、table、code、prompt、steps、cta。項目は `scripts/video.py` の各関数を参照。
+
+## 英語の事例動画（海外向け）
+
+英語チャンネルには、海外（`region` が「海外」「両方」）の事例を優先して動画にする。もとにするのは、**日本語で公開済みのユースケース記事**（`casebook/<slug>.qmd`）。公開済みの記事を使うことで、事実と出典が確認済みのものだけを英語にする。
+
+- 候補は `python scripts/build.py envideos` で出る（公開済み・海外/両方・英語動画が未作成）
+- 台本は `video/usecase-<slug>-en/script.yaml`。`lang: en`、`voice` は Ryan か Joe（海外向けはUS発音）
+- 中身は日本語版と同じ事実。数字は記事にあるものだけ。費用の概算は「仮定：」で、公開価格の出どころと日付を `credits` に書く
+- `source_url` を自分で開いて、事例と数字を確かめてから書く
+- 図は日本語の文字が入るので使わない。表・手順・箇条書きで作る（手本：`video/usecase-chusankan-patrol-en/script.yaml`）
+- 投稿は英語チャンネル：Actions の video ワークフローで `channel: en`、`privacy: unlisted`
