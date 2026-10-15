@@ -19,6 +19,8 @@ from googleapiclient.http import MediaFileUpload
 ROOT = Path(__file__).resolve().parent.parent
 vid = sys.argv[1]
 privacy = sys.argv[sys.argv.index("--privacy") + 1] if "--privacy" in sys.argv else "unlisted"
+channel = sys.argv[sys.argv.index("--channel") + 1] if "--channel" in sys.argv else "ja"
+suffix = "_EN" if channel == "en" else ""
 vdir = ROOT / "video" / vid
 mp4 = vdir / f"{vid}.mp4"
 if not mp4.exists():
@@ -30,18 +32,19 @@ def env(name):
         sys.exit(f"環境変数 {name} が空です。GitHubのSecretsを確認してください")
     return v
 
-cid = env("YT_CLIENT_ID")
-print(f"  使うクライアントID：{cid[:16]}…{cid[-30:]}")
+cid = env("YT_CLIENT_ID" + suffix)
+print(f"  投稿先チャンネル：{channel}　クライアントID：{cid[:16]}…{cid[-30:]}")
 creds = google.oauth2.credentials.Credentials(
-    None, refresh_token=env("YT_REFRESH_TOKEN"), token_uri="https://oauth2.googleapis.com/token",
-    client_id=cid, client_secret=env("YT_CLIENT_SECRET"),
+    None, refresh_token=env("YT_REFRESH_TOKEN" + suffix), token_uri="https://oauth2.googleapis.com/token",
+    client_id=cid, client_secret=env("YT_CLIENT_SECRET" + suffix),
     scopes=["https://www.googleapis.com/auth/youtube.upload", "https://www.googleapis.com/auth/youtube"])
 yt = build("youtube", "v3", credentials=creds)
 
 desc_path = vdir / "description.txt"
 description = desc_path.read_text(encoding="utf-8") if desc_path.exists() else ""
 title = description.splitlines()[0] if description else vid
-body = {"snippet": {"title": title[:100], "description": description[:4900], "defaultLanguage": "ja",
+body = {"snippet": {"title": title[:100], "description": description[:4900], "defaultLanguage": ("en" if channel == "en" else "ja"),
+                    "defaultAudioLanguage": ("en" if channel == "en" else "ja"),
                     "categoryId": "27"},   # 27 = 教育
         "status": {"privacyStatus": privacy, "selfDeclaredMadeForKids": False}}
 req = yt.videos().insert(part="snippet,status", body=body,

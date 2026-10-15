@@ -1,0 +1,106 @@
+# English use-case video. Same facts as casebook/chusankan-patrol.qmd; English narration & slides.
+lang: en
+title: Cutting field patrols in half with satellites
+series: CASEBOOK
+kicker: Use case
+number: 1
+total: 221
+thumb: Half the patrols
+summary: How a Japanese municipality cut on-site field checks by about half with satellites. Where it fits in the workflow, what decisions it supports, how far free satellites go, and a cost estimate for paid imagery. 6 minutes.
+scenes:
+  - kind: cover
+    heading: Cutting field patrols in half with satellites
+    sub: Narrowing subsidy field checks with a colour-coded map
+    say: Can thousands of farm plots be checked without visiting every one? Yes. The answer is to rule out the plots you do not need to visit, using satellites first. A municipality in Japan cut its on-site patrols by about half this way. In this video, we look at who uses it, where it fits in the workflow, what decisions it supports, how far free satellites go, and what paid imagery would cost.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Country: Japan. Imari City, Saga Prefecture"
+      - "Who: the city's agriculture staff (the buyer), and a local company (the analysis)"
+      - "Why: to confirm that subsidised farmland is actually being cultivated and managed"
+      - "The problem: when plots reach the thousands, visiting every one is a heavy load"
+    say: The case is set in Imari City, in Saga Prefecture, Japan. The buyer is the city's agriculture department; the analysis is done by a local company. The goal is to confirm that farmland under a hillside-farming subsidy is actually being cultivated and managed. When the plots number in the thousands, sending staff to walk every one is a heavy burden. So they use satellites to rule out the plots that do not need a visit.
+
+  - kind: steps
+    heading: Where it fits in the workflow
+    items:
+      - The city hands the plot boundary data to the company
+      - The company analyses satellite data and returns a four-level colour-coded map
+      - Plots marked "no check needed" are dropped from the patrol plan
+      - Staff patrol the remaining plots
+      - A sample of the "no check needed" plots is also checked, to confirm the judgment
+    say: Here is where it fits. It goes in before the patrol plan is made. First, the city hands over the farm plot boundary data. The company analyses the satellite data following the agriculture ministry's manual, and returns a map that colours each plot into four levels. The city drops the plots judged "no check needed" and patrols the rest. Finally, a few percent of the "no check needed" plots are still visited, to confirm the judgment holds. In short, the satellite is not a replacement for patrols. It decides the order and the scope of where to go.
+
+  - kind: table
+    heading: Satellite versus people
+    columns: [The satellite does, The staff do]
+    widths: [0.5, 0.5]
+    rows:
+      - [Colour each plot into four levels, Patrol the plots that need checking]
+      - [Rule out plots that need no visit, Sample-check the "no check needed" plots]
+      - ["", Explain the results to the community]
+    say: The split of roles looks like this. The satellite analysis colours each plot into four levels and rules out the plots that need no visit. The staff patrol the plots that need checking, sample-check the ones ruled out, and explain the results to the community. Before full adoption, Imari City ran a one-year trial. On-site patrols fell by about four thousand plots, roughly fifty percent. This is a case in real operation, not just a trial.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.42, 0.58]
+    rows:
+      - [Four-level colour map of each plot, Which plots to patrol and which to skip]
+      - [List of plots judged "abandoned", Where to check first, and what to raise with the community]
+      - [List of "not analysable" plots, How many plots the satellite cannot judge, to patrol as before]
+      - [Results of the sample patrol, Whether to keep using the method next year]
+    say: Here is the data you receive and what it lets you decide. The four-level colour map tells you which plots to patrol and which to skip. The list of plots judged abandoned tells you where to check first and what to raise with the community. The list of plots that cannot be analysed tells you how many the satellite cannot judge, which you patrol as before. And the sample-patrol results tell you whether to keep using the method next year. The "not analysable" plus "needs checking" plots are the patrol workload that remains. Estimating that share on a small area first lets you size the benefit.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - Small plots cannot be analysed; pixels smaller than the sensor blur into the surroundings
+      - Where plots are small and scattered, the benefit shrinks
+      - It tells you cultivation and management only, not the crop type or activity
+      - The satellite does not finish the check; sample patrols continue
+    say: The limits are stated plainly in the source material too. First, small plots cannot be analysed, because anything smaller than the satellite's pixel blurs into the land around it. Second, where plots are small and scattered, many still need checking, so the benefit shrinks. Third, it tells you only whether a plot is cultivated and managed, not the crop type or the specific activity. Fourth, the satellite does not finish the job. Sample patrols continue even after full adoption. Note also that the source does not state which satellite was used.
+
+  - kind: bullets
+    heading: How far do free satellites go?
+    items:
+      - "Europe's Sentinel-2 is free: 10 m pixels, revisit every 5 days at the equator with two satellites"
+      - Cultivation and management can be read from the seasonal change in a vegetation index. Data cost is zero
+      - At 10 m, small or narrow plots are hard to judge, so "not analysable" grows
+      - Clouds block some days; the image you want may not exist for the period you want
+    say: So how far can free satellites take you? Europe's Sentinel-2 is free, with ten metre pixels, and with two satellites it revisits every five days near the equator. Whether land is cultivated and managed can be read from how a vegetation index changes through the season. The data cost is zero. On the other hand, at ten metres, small or narrow plots are hard to judge, so the "not analysable" share grows. Clouds block some days too. Since the source does not name the satellite used, we cannot say the same result comes from free data alone.
+
+  - kind: table
+    heading: What paid imagery would cost (estimate)
+    columns: [Item, Assumption and calculation]
+    widths: [0.34, 0.66]
+    rows:
+      - [Imagery, "3 m optical archive. List price 1.80 USD per sq km, 250 sq km minimum (Apollo Mapping, Dec 2022 post)"]
+      - [Area, "Assumption: the target farmland fits within the 250 sq km minimum"]
+      - [Times, "Assumption: twice a year (planting and after harvest)"]
+      - [Yearly imagery cost, "250 x 1.80 x 2 = 900 USD. About 135,000 yen at 150 yen/USD. Four times a year, about 270,000 yen"]
+      - [On top of that, "Analysis fee (Imari's example was about 500,000 yen/year including analysis), base map data, sample patrols"]
+    say: Here is an estimate for using paid imagery. This is a calculation with assumptions, not a quote. There is a public list price for 3-metre optical archive imagery, one point eight US dollars per square kilometre, with a 250 square kilometre minimum. That figure is from a December 2022 public post. Assuming the target farmland fits in the minimum and you analyse twice a year, the imagery cost is 900 dollars, about one hundred thirty-five thousand yen at 150 yen to the dollar. Four times a year, about two hundred seventy thousand yen. On top of that is the analysis fee. Imari's example was about five hundred thousand yen a year, including analysis. Prices change, so always confirm with a real quote.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.22, 0.39, 0.39]
+    rows:
+      - [Plot size, Large, consolidated plots, Small, fragmented plots]
+      - [Number of plots, Thousands, heavy patrol load, A few hundred, walkable]
+      - [Map data, Plot boundaries already digitised, Paper ledgers only]
+      - [What you check, Whether cultivated and managed, Crop type or specific activity]
+    say: Finally, where it fits. It fits where plots are large and consolidated, where there are thousands of them with a heavy patrol load, and where the plot boundaries are already digitised. It also fits when what you need to confirm is simply whether land is cultivated and managed. It does not fit where plots are small and scattered, where there are only a few hundred you could walk, where you have only paper ledgers, or where you need the crop type. When you propose this, three points matter - ask about the plot size distribution first, never say patrols disappear, and discuss it together with the funding source.
+
+  - kind: cta
+    heading: Considering it for your region?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source: MAFF, 'Satellite imagery use is spreading' https://www.maff.go.jp/j/kanbo/dx/attach/pdf/eisei-3.pdf"
+      - "Price: Apollo Mapping, Product Update (6 Dec 2022) https://apollomapping.com/blog/product-update-simplified-ordering-options-for-3-m-planetscope-satellite-imagery"
+      - "Satellite specs: Copernicus SentiWiki, Sentinel-2 Mission"
+    say: To consider this for your own region or client, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.

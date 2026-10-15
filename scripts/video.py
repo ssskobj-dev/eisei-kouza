@@ -39,7 +39,41 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
-from figures import find_browser, wrap  # noqa: E402
+from figures import find_browser
+from figures import wrap as _jwrap  # noqa: E402
+
+LANG = "ja"   # build() が台本の lang で設定する
+
+
+def wrap(text, max_units):
+    """折り返し。英語は単語の切れ目で折る。日本語は figures.wrap に任せる。"""
+    if LANG != "en":
+        return _jwrap(text, max_units)
+    max_chars = max(4, int(max_units / 0.56))
+    words, lines, cur = str(text).split(), [], ""
+    for w in words:
+        if cur and len(cur) + 1 + len(w) > max_chars:
+            lines.append(cur); cur = w
+        else:
+            cur = (cur + " " + w) if cur else w
+    if cur:
+        lines.append(cur)
+    return lines or [""]
+
+
+# 画面と説明欄に出る、言語ごとの言葉
+L = {
+    "ja": {"agenda": "この動画の流れ", "sources": "出典", "verify": "要確認",
+           "credit": lambda v: f"音声：{v['credit']}　案内役：{v['name']}",
+           "transcript": "動画の全文です。", "chapters": "■ 章立て", "src_head": "■ 出典と表記",
+           "foot": ["Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。",
+                    "どの衛星会社にも解析会社にも属さない立場で作っています。"]},
+    "en": {"agenda": "In this video", "sources": "Sources", "verify": "To be verified",
+           "credit": lambda v: f"Voice: {v['credit']} · Host: {v['name']}",
+           "transcript": "Full transcript of the video.", "chapters": "Chapters", "src_head": "Sources and credits",
+           "foot": ["Satellite to Decision | From Earth observation data to business decisions.",
+                    "Made independently of any satellite operator or analytics company."]},
+}
 
 W, H = 1920, 1080
 NAVY, WHITE, ORANGE, SLATE, LINE, MIST, INK = "#0b1524", "#f2f5f7", "#ff6b2c", "#8ea0b8", "#1c2f4f", "#eef2f7", "#1a2433"
@@ -71,7 +105,7 @@ def agenda_panel():
         return ""
     x, y0 = 1560, 200
     out = [f'<rect x="{x}" y="{y0 - 50}" width="300" height="{H - 150 - (y0 - 50) - 40}" rx="14" fill="{MIST}"/>',
-           text(x + 24, y0, "この動画の流れ", 22, SLATE, "bold")]
+           text(x + 24, y0, L[LANG]["agenda"], 20, SLATE, "bold")]
     avail = H - 150 - 40 - y0 - 60
     size = 22 if len(items) * (22 * 1.25 + 22) <= avail else 19
     y = y0 + 48
@@ -342,24 +376,35 @@ def mouth_track(wav_path):
 
 # ---------------------------------------------------------------- 音声と字幕
 def split_sentences(say):
-    parts = [p.strip() for p in re.split(r"(?<=[。！？])", say.replace("\n", "")) if p.strip()]
-    return parts
+    if LANG == "en":
+        parts = re.split(r"(?<=[.!?])\s+", say.replace("\n", " "))
+    else:
+        parts = re.split(r"(?<=[。！？])", say.replace("\n", ""))
+    return [p.strip() for p in parts if p.strip()]
 
 
 def pick_voice(ctx, vid):
-    """台本の voice（名前か番号）から声を決める。なければ一覧から、動画のidで決まる1つを選ぶ。"""
+    """台本の voice（名前）から声を決める。なければ、同じ言語の一覧から動画のidで1つ選ぶ。"""
+    import hashlib
     roster = yaml.safe_load((ROOT / "video" / "voices.yaml").read_text(encoding="utf-8"))["voices"]
+    lang = ctx.get("lang", "ja")
+    same = [v for v in roster if v.get("lang", "ja") == lang] or roster
     want = ctx.get("voice")
-    if want in (None, "", "random"):
-        import hashlib
-        return roster[int(hashlib.md5(vid.encode()).hexdigest(), 16) % len(roster)]
-    for v in roster:
-        if want == v["name"] or want == v["id"]:
-            return v
-    return {"name": str(want), "id": int(want), "credit": "VOICEVOX", "pitch": 0}
+    if want not in (None, "", "random"):
+        for v in roster:
+            if want == v.get("name") or want == v.get("id"):
+                return v
+    return same[int(hashlib.md5(vid.encode()).hexdigest(), 16) % len(same)]
 
 
 def synth(text_, out_wav, ctx):
+    voice = ctx["_voice"]
+    if voice.get("engine") == "piper":
+        model = Path(os.environ.get("PIPER_VOICE_DIR", str(ROOT / "piper_voices"))) / (voice["model"] + ".onnx")
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "piper_tts.py"), str(model), text_, str(out_wav), str(ctx.get("speed", 1.0))],
+                       capture_output=True, text=True, timeout=600)
+        if out_wav.exists():
+            return
     vv = os.environ.get("VOICEVOX_PY")
     if vv:
         env = dict(os.environ)
@@ -430,12 +475,14 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 def build(vid, slides_only=False):
     vdir = ROOT / "video" / vid
     ctx = yaml.safe_load((vdir / "script.yaml").read_text(encoding="utf-8"))
+    global LANG
+    LANG = ctx.get("lang", "ja")
     ctx["_voice"] = pick_voice(ctx, vid)
     print(f"声：{ctx['_voice']['name']}（{ctx['_voice']['credit']}）")
     for s in ctx["scenes"]:
         if s["kind"] == "cta":
             s.setdefault("credits", [])
-            s["credits"] = [c for c in s["credits"] if "VOICEVOX" not in c] + [f"音声：{ctx['_voice']['credit']}　案内役：{ctx['_voice']['name']}"]
+            s["credits"] = [c for c in s["credits"] if "VOICEVOX" not in c and "Piper" not in c] + [L[LANG]["credit"](ctx["_voice"])]
     work = vdir / "_work"
     work.mkdir(exist_ok=True)
     scenes = ctx["scenes"]
@@ -456,9 +503,11 @@ def build(vid, slides_only=False):
     for i, s in enumerate(scenes):
         say = s.get("say", "")
         sentences = split_sentences(say)
-        wavs, times, t = [], [], 0.5
+        # 字幕の開始は、実際の音声に合わせる：冒頭（サウンドロゴ2秒か無音0.5秒）＋その後の間0.35秒
+        lead_dur = 2.0 if i == 0 else 0.5
+        wavs, times, t = [], [], lead_dur + 0.35
         for j, sent in enumerate(sentences):
-            wv = work / f"s{i:02d}_{j:02d}_v{ctx['_voice']['id']}.wav"
+            wv = work / f"s{i:02d}_{j:02d}_{ctx['_voice'].get('id', ctx['_voice']['name'])}.wav"
             if not wv.exists():
                 synth(sent, wv, ctx)
             d = wav_len(wv)
@@ -537,12 +586,12 @@ def write_companions(vid, vdir, ctx, scenes, starts, body_idx, agenda, work):
         desc += [ctx["summary"], ""]
     if cta.get("action"):
         desc += [f"▶ {cta['action']}", link, ""]
-    desc += ["■ 章立て"] + chapters + [""]
+    desc += [L[LANG]["chapters"]] + chapters + [""]
     if cta.get("credits"):
-        desc += ["■ 出典と表記"] + cta["credits"] + [""]
-    desc += ["Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。", "どの衛星会社にも解析会社にも属さない立場で作っています。"]
+        desc += [L[LANG]["src_head"]] + cta["credits"] + [""]
+    desc += L[LANG]["foot"]
     (vdir / "description.txt").write_text("\n".join(desc) + "\n", encoding="utf-8")
-    tr = [f"# {ctx['title']}", "", "動画の全文です。", ""]
+    tr = [f"# {ctx['title']}", "", L[LANG]["transcript"], ""]
     for sc in scenes:
         if sc.get("heading") and sc["kind"] not in ("cover",):
             tr.append(f"## {sc['heading']}\n")
