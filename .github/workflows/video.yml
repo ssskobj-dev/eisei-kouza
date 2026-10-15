@@ -1,0 +1,69 @@
+# 動画を作ってYouTubeに投稿する。
+# 動かし方：Actions → video → Run workflow で、動画のid（video/ の下のフォルダ名）を入れる。
+# 鍵は Settings → Secrets and variables → Actions に、YT_CLIENT_ID、YT_CLIENT_SECRET、YT_REFRESH_TOKEN を登録しておく。
+name: video
+
+on:
+  workflow_dispatch:
+    inputs:
+      video_id:
+        description: "動画のid（例：usecase-chusankan-patrol）"
+        required: true
+      privacy:
+        description: "unlisted（限定公開）、private、public"
+        default: unlisted
+
+permissions:
+  contents: write
+
+jobs:
+  render-and-upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: 日本語フォントと ffmpeg を入れる
+        run: sudo apt-get update && sudo apt-get install -y fonts-noto-cjk ffmpeg chromium-browser || sudo apt-get install -y chromium
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pyyaml pillow numpy google-api-python-client google-auth google-auth-oauthlib
+      - name: 合成音声（VOICEVOX）を用意する
+        uses: actions/cache@v4
+        id: vv
+        with:
+          path: vv
+          key: voicevox-0.15.7
+      - if: steps.vv.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p vv && cd vv
+          curl -sSL -o core.zip https://github.com/VOICEVOX/voicevox_core/releases/download/0.15.7/voicevox_core-linux-x64-cpu-0.15.7.zip
+          curl -sSL -o "voicevox_core-0.15.7+cpu-cp38-abi3-linux_x86_64.whl" "https://github.com/VOICEVOX/voicevox_core/releases/download/0.15.7/voicevox_core-0.15.7+cpu-cp38-abi3-linux_x86_64.whl"
+          curl -sSL -o dic.tgz https://github.com/r9y9/open_jtalk/releases/download/v1.11.1/open_jtalk_dic_utf_8-1.11.tar.gz
+          unzip -q core.zip && tar xzf dic.tgz && rm core.zip dic.tgz
+          python -m venv venv && ./venv/bin/pip install -q "voicevox_core-0.15.7+cpu-cp38-abi3-linux_x86_64.whl" numpy
+      - name: 動画を作る
+        env:
+          VOICEVOX_PY: ${{ github.workspace }}/vv/venv/bin/python
+          VOICEVOX_LIB: ${{ github.workspace }}/vv/voicevox_core-linux-x64-cpu-0.15.7
+          OPEN_JTALK_DICT: ${{ github.workspace }}/vv/open_jtalk_dic_utf_8-1.11
+        run: |
+          python scripts/figures.py
+          python scripts/video.py "${{ github.event.inputs.video_id }}"
+      - name: YouTubeに投稿する
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: python scripts/youtube_upload.py "${{ github.event.inputs.video_id }}" --privacy "${{ github.event.inputs.privacy }}"
+      - name: 動画のURLをリポジトリに書き戻す
+        run: |
+          git config user.name "github-actions" && git config user.email "actions@users.noreply.github.com"
+          git add video/*/youtube.json video/*/description.txt video/*/transcript.md video/*/thumbnail.png
+          git commit -m "動画を投稿：${{ github.event.inputs.video_id }}" || echo "変更なし"
+          git push
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.event.inputs.video_id }}
+          path: video/${{ github.event.inputs.video_id }}/*.mp4
+          retention-days: 7
