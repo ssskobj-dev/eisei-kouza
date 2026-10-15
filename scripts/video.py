@@ -503,7 +503,9 @@ def build(vid, slides_only=False):
     for i, s in enumerate(scenes):
         say = s.get("say", "")
         sentences = split_sentences(say)
-        wavs, times, t = [], [], 0.5
+        # 字幕の開始は、実際の音声に合わせる：冒頭（サウンドロゴ2秒か無音0.5秒）＋その後の間0.35秒
+        lead_dur = 2.0 if i == 0 else 0.5
+        wavs, times, t = [], [], lead_dur + 0.35
         for j, sent in enumerate(sentences):
             wv = work / f"s{i:02d}_{j:02d}_{ctx['_voice'].get('id', ctx['_voice']['name'])}.wav"
             if not wv.exists():
