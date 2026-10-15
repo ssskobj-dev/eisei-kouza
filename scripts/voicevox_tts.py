@@ -7,7 +7,8 @@ if sys.argv[1] == "list":
 else:
     sid = int(sys.argv[1]); text = sys.argv[2]; out = sys.argv[3]
     speed = float(sys.argv[4]) if len(sys.argv) > 4 else 1.0
+    pitch = float(sys.argv[5]) if len(sys.argv) > 5 else 0.0
     core.load_model(sid)
-    q = core.audio_query(text, sid); q.speed_scale = speed
+    q = core.audio_query(text, sid); q.speed_scale = speed; q.pitch_scale = pitch
     wav = core.synthesis(q, sid)
     open(out, "wb").write(wav)

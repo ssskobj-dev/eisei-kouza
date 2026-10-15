@@ -2,7 +2,7 @@
 title: AIへの頼み方
 series: CODEX
 kicker: 第0部 第2章
-voice: 13
+voice: ニア
 speed: 1.0
 scenes:
   - kind: cover
@@ -155,5 +155,4 @@ scenes:
     url: ssskobj-dev.github.io/eisei-kouza
     credits:
       - "この動画のコードは実際に動かして確かめています。倍率、ずらし、分類の番号は、Copernicus の公式資料で確かめてから使ってください"
-      - "音声：VOICEVOX:青山龍星"
     say: 共通のレビュー観点の一覧と、この章のケース問題は、サイトの学習プログラムにあります。法人での研修や、分野に合わせた講座は、相談フォームからご連絡ください。ご視聴ありがとうございました。

@@ -2,7 +2,7 @@
 title: 中山間地の見回りを衛星で減らす
 series: CASEBOOK
 kicker: ユースケース解説
-voice: 13
+voice: もち子
 speed: 1.0
 scenes:
   - kind: cover
@@ -89,5 +89,5 @@ scenes:
     credits:
       - "出典：農林水産省「衛星画像活用の動きが広がっています！」 https://www.maff.go.jp/j/kanbo/dx/attach/pdf/eisei-3.pdf"
       - "価格：Apollo Mapping, Product Update（2022年12月6日） https://apollomapping.com/blog/product-update-simplified-ordering-options-for-3-m-planetscope-satellite-imagery"
-      - "衛星の仕様：Copernicus SentiWiki「Sentinel-2 Mission」　音声：VOICEVOX:青山龍星"
+      - "衛星の仕様：Copernicus SentiWiki「Sentinel-2 Mission」"
     say: この事例をもとに、自分の地域や顧客に合わせて導入を検討したい方へ。仕様書、いわゆるRFPの作成と、相見積もりの取り方をお手伝いします。どの衛星会社にも解析会社にも属さない立場で、条件の整理と比較をします。希望の方は、サイトの相談フォームからご連絡ください。記事の全文と出典は、サイトのユースケース集にあります。ご視聴ありがとうございました。

@@ -246,23 +246,21 @@ def svg_to_png(svg, png):
 
 # ---------------------------------------------------------------- アバター
 def avatar_svg(mouth, blink):
-    """オリジナルの案内役。紺の服、白い顔、オレンジの印。口は 0（閉じる）1（半開き）2（開く）。"""
+    """案内役。ブランドの記号（紺の円、白い輪と軌道の線、オレンジのひし形）がそのまま顔になる。
+    軌道の線が口で、0（閉じる）1（半開き）2（開く）。"""
     s = AVATAR_SIZE
-    eyes = (f'<rect x="{s * 0.36}" y="{s * 0.44}" width="{s * 0.07}" height="4" fill="{NAVY}"/>'
-            f'<rect x="{s * 0.57}" y="{s * 0.44}" width="{s * 0.07}" height="4" fill="{NAVY}"/>') if blink else (
-            f'<circle cx="{s * 0.395}" cy="{s * 0.44}" r="{s * 0.028}" fill="{NAVY}"/>'
-            f'<circle cx="{s * 0.605}" cy="{s * 0.44}" r="{s * 0.028}" fill="{NAVY}"/>')
-    mouths = {0: f'<path d="M {s * 0.44} {s * 0.56} Q {s * 0.5} {s * 0.6} {s * 0.56} {s * 0.56}" stroke="{NAVY}" stroke-width="5" fill="none" stroke-linecap="round"/>',
-              1: f'<ellipse cx="{s * 0.5}" cy="{s * 0.575}" rx="{s * 0.05}" ry="{s * 0.028}" fill="{NAVY}"/>',
-              2: f'<ellipse cx="{s * 0.5}" cy="{s * 0.585}" rx="{s * 0.06}" ry="{s * 0.05}" fill="{NAVY}"/><ellipse cx="{s * 0.5}" cy="{s * 0.6}" rx="{s * 0.035}" ry="{s * 0.02}" fill="#e06a5a"/>'}
+    k = s / 340
+    gap = {0: 0, 1: 10, 2: 22}[mouth] * k
+    eyes = (f'<path d="M {92*k} {125*k} Q {110*k} {112*k} {128*k} {125*k}" stroke="{WHITE}" stroke-width="{12*k}" fill="none" stroke-linecap="round"/>'
+            f'<path d="M {212*k} {125*k} Q {230*k} {112*k} {248*k} {125*k}" stroke="{WHITE}" stroke-width="{12*k}" fill="none" stroke-linecap="round"/>') if blink else (
+            f'<circle cx="{110*k}" cy="{125*k}" r="{18*k}" fill="none" stroke="{WHITE}" stroke-width="{14*k}"/>'
+            f'<circle cx="{230*k}" cy="{125*k}" r="{18*k}" fill="none" stroke="{WHITE}" stroke-width="{14*k}"/>')
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {s} {s}" width="{s}" height="{s}">'
-            f'<circle cx="{s * 0.5}" cy="{s * 0.5}" r="{s * 0.48}" fill="{MIST}"/>'
-            f'<circle cx="{s * 0.5}" cy="{s * 0.5}" r="{s * 0.48}" fill="none" stroke="{ORANGE}" stroke-width="6"/>'
-            f'<path d="M {s * 0.2} {s * 0.98} Q {s * 0.5} {s * 0.6} {s * 0.8} {s * 0.98} Z" fill="{NAVY}"/>'
-            f'<rect x="{s * 0.47}" y="{s * 0.78}" width="{s * 0.06}" height="{s * 0.06}" fill="{ORANGE}" transform="rotate(45 {s * 0.5} {s * 0.81})"/>'
-            f'<circle cx="{s * 0.5}" cy="{s * 0.46}" r="{s * 0.21}" fill="#fbe9d8"/>'
-            f'<path d="M {s * 0.29} {s * 0.42} Q {s * 0.5} {s * 0.16} {s * 0.71} {s * 0.42} L {s * 0.71} {s * 0.38} Q {s * 0.5} {s * 0.22} {s * 0.29} {s * 0.38} Z" fill="{NAVY}"/>'
-            f'{eyes}{mouths[mouth]}</svg>')
+            f'<circle cx="{170*k}" cy="{170*k}" r="{160*k}" fill="{NAVY}"/>'
+            f'<circle cx="{170*k}" cy="{170*k}" r="{160*k}" fill="none" stroke="{ORANGE}" stroke-width="{6*k}"/>'
+            f'{eyes}'
+            f'<path d="M {110*k} {205*k - gap} C {140*k} {235*k + gap}, {200*k} {235*k + gap}, {230*k} {205*k - gap}" fill="none" stroke="{WHITE}" stroke-width="{14*k}" stroke-linecap="round"/>'
+            f'<rect x="{156*k}" y="{252*k}" width="{28*k}" height="{28*k}" fill="{ORANGE}" transform="rotate(45 {170*k} {266*k})"/></svg>')
 
 
 def build_avatar_frames(workdir):
@@ -304,12 +302,25 @@ def split_sentences(say):
     return parts
 
 
+def pick_voice(ctx, vid):
+    """台本の voice（名前か番号）から声を決める。なければ一覧から、動画のidで決まる1つを選ぶ。"""
+    roster = yaml.safe_load((ROOT / "video" / "voices.yaml").read_text(encoding="utf-8"))["voices"]
+    want = ctx.get("voice")
+    if want in (None, "", "random"):
+        import hashlib
+        return roster[int(hashlib.md5(vid.encode()).hexdigest(), 16) % len(roster)]
+    for v in roster:
+        if want == v["name"] or want == v["id"]:
+            return v
+    return {"name": str(want), "id": int(want), "credit": "VOICEVOX", "pitch": 0}
+
+
 def synth(text_, out_wav, ctx):
     vv = os.environ.get("VOICEVOX_PY")
     if vv:
         env = dict(os.environ)
         env["LD_LIBRARY_PATH"] = os.environ.get("VOICEVOX_LIB", "") + ":" + env.get("LD_LIBRARY_PATH", "")
-        r = subprocess.run([vv, str(ROOT / "scripts" / "voicevox_tts.py"), str(ctx.get("voice", 13)), text_, str(out_wav), str(ctx.get("speed", 1.0))],
+        r = subprocess.run([vv, str(ROOT / "scripts" / "voicevox_tts.py"), str(ctx["_voice"]["id"]), text_, str(out_wav), str(ctx.get("speed", 1.0)), str(ctx["_voice"].get("pitch", 0))],
                            capture_output=True, text=True, env=env, timeout=600)
         if out_wav.exists():
             return
@@ -363,6 +374,12 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 def build(vid, slides_only=False):
     vdir = ROOT / "video" / vid
     ctx = yaml.safe_load((vdir / "script.yaml").read_text(encoding="utf-8"))
+    ctx["_voice"] = pick_voice(ctx, vid)
+    print(f"声：{ctx['_voice']['name']}（{ctx['_voice']['credit']}）")
+    for s in ctx["scenes"]:
+        if s["kind"] == "cta":
+            s.setdefault("credits", [])
+            s["credits"] = [c for c in s["credits"] if "VOICEVOX" not in c] + [f"音声：{ctx['_voice']['credit']}　案内役：{ctx['_voice']['name']}"]
     work = vdir / "_work"
     work.mkdir(exist_ok=True)
     scenes = ctx["scenes"]
@@ -379,7 +396,7 @@ def build(vid, slides_only=False):
         sentences = split_sentences(say)
         wavs, times, t = [], [], 0.5
         for j, sent in enumerate(sentences):
-            wv = work / f"s{i:02d}_{j:02d}.wav"
+            wv = work / f"s{i:02d}_{j:02d}_v{ctx['_voice']['id']}.wav"
             if not wv.exists():
                 synth(sent, wv, ctx)
             d = wav_len(wv)
