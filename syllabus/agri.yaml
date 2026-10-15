@@ -101,7 +101,7 @@ parts:
       - 導入の前後で比べる項目を決め、1年後に評価できる
     must_include: [巡回時間, 資材費, 収量と品質, 補助事業の確認方法]
     material: ""
-    status: todo
+    status: done
 
   - id: agri-municipal-spec
     title: 自治体が衛星サービスを導入するときの仕様書

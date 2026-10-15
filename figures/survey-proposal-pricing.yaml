@@ -1,0 +1,102 @@
+# 「提案書、仕様書、見積もりの作り方」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/survey-proposal-pricing/<id>.svg を作る。
+
+figures:
+  - id: flow
+    type: flow
+    alt: 提案から見積もりまでの6つの手順
+    steps:
+      - title: 評価軸を読む
+        text: 方式、必須の要件、評価テーマ
+        who: human
+      - title: 範囲と成果物
+        text: 面で切る。解析できない場所も図に
+        who: satellite
+      - title: 精度を指標で
+        text: 比べる相手と指標。何ミリは約束しない
+        who: satellite
+      - title: 検証の段取り
+        text: 実測を誰がいつ用意するか
+        who: human
+      - title: 変更の条件
+        text: 枚数は目安。干渉不可、緊急時、帰属
+        who: human
+      - title: 内訳を組む
+        text: 人件費、データ、初年度と運用年度
+        who: human
+
+  - id: promise
+    type: split
+    alt: 精度について、約束することと、約束しないこと
+    link: vs
+    left:
+      title: 約束すること
+      role: satellite
+      items:
+        - 比べる相手（水準測量、GNSS）と指標
+        - 解析の方法（時系列解析、両軌道）
+        - 報告する値の単位と区分（mm/年など）
+        - 解析できない場所を先に図で示す
+    right:
+      title: 約束しないこと
+      role: none
+      items:
+        - 「精度何ミリ」の保証
+        - 全箇所の検出（誤検出も見逃しもある）
+        - 前兆のない崩壊の予知
+        - 観測計画に合わない固定の枚数
+    note: 精度は、実測と比べて初めて言える。比べ方を約束する
+
+  - id: breakdown
+    type: cards
+    alt: 見積もりの内訳と、初年度と運用年度の違い
+    columns: 3
+    items:
+      - title: 直接人件費
+        text: 計画、解析、精度検証、成果物、打合せ、照査
+        mark: "1"
+        role: human
+      - title: 直接経費
+        text: 衛星データ（単価と時点）、交通費、成果物作成費
+        mark: "2"
+      - title: その他原価、管理費等
+        text: 積算基準の率で計上する
+        mark: "3"
+        role: human
+      - title: 初年度
+        text: 過去に遡る分のデータ購入と解析の工数が大きい
+        mark: "A"
+      - title: 運用年度
+        text: 新しい画像だけを買い足し、既存のデータに加える
+        mark: "B"
+      - title: 変更の条件
+        text: 干渉不可、緊急観測は契約変更。データは発注者に帰属
+        mark: "C"
+        role: human
+
+  - id: checklist
+    type: cards
+    alt: 提案書と見積もりを出す前に確かめる6つの項目
+    columns: 3
+    items:
+      - title: 評価の軸
+        text: 方式、必須の要件、評価テーマに答えたか
+        mark: "1"
+        role: human
+      - title: 対象範囲
+        text: 面で示し、解析できない場所を図にしたか
+        mark: "2"
+      - title: 成果物
+        text: 一覧と形式、元データの帰属を書いたか
+        mark: "3"
+      - title: 精度の指標
+        text: 比べる相手と指標。何ミリの保証ではない
+        mark: "4"
+      - title: 検証と変更
+        text: 実測を誰がいつ用意。枚数は目安、変更の条件
+        mark: "5"
+        role: human
+      - title: 内訳
+        text: 4つの費目に分け、初年度と運用年度を分けたか
+        mark: "6"
+        role: human

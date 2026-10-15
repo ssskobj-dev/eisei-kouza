@@ -1,0 +1,62 @@
+# note記事「衛星の営農サービス、払った分の価値はあったか」の見出し画像と図。
+# python scripts/figures.py agri-cost-benefit で、このフォルダにSVGとPNGができる。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: course
+    tag: 農業法人の経営者向け
+    title: 衛星の営農サービス、払った分の価値はあったか
+    sub: 1年後に自分の数字で答えるための8つの手順
+
+  - id: fig-1
+    type: flow
+    alt: 導入前から1年後の判断までの6つの手順
+    steps:
+      - title: 目的を絞る
+        text: 巡回か、追肥か、収穫順か
+        who: human
+      - title: 基準を記録
+        text: 導入前の1年を圃場ごとに。比べ方も決める
+        who: human
+      - title: 費用を並べる
+        text: 利用料、農機、研修、見る時間
+        who: human
+      - title: 地図を使う
+        text: 生育のムラを配信。雲の日は届かない
+        who: satellite
+      - title: 欠測を記録
+        text: 届かなかった回数と、回った時間
+        who: human
+      - title: 差引で評価
+        text: 先に決めた基準で、続けるか決める
+        who: human
+
+  - id: fig-2
+    type: cards
+    alt: 導入前に決めておく6つの項目
+    columns: 3
+    items:
+      - title: 目的
+        text: 使う目的を1つに絞り、比べる項目を決めた
+        mark: "1"
+        role: human
+      - title: 基準の記録
+        text: 導入前の巡回時間、資材費、収量を圃場ごとに
+        mark: "2"
+        role: human
+      - title: 費用の全体
+        text: 利用料のほか、農機、研修、通信、見る時間
+        mark: "3"
+        role: human
+      - title: 比べ方
+        text: 前年か、同じ年に使わない圃場と分けるか
+        mark: "4"
+        role: human
+      - title: 欠測の扱い
+        text: 雲で届かない回数と、代わりに回る時間
+        mark: "5"
+        role: human
+      - title: 続ける基準
+        text: 1年後に何がどうなっていたら続けるか
+        mark: "6"
+        role: human
