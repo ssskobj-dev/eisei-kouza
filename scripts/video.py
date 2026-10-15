@@ -136,7 +136,7 @@ def slide_cover(s, ctx):
             f'<circle cx="{W - 100}" cy="{H + 200}" r="900" fill="none" stroke="{LINE}" stroke-width="3"/>',
             logo(200, 150, 0.3),
             f'<rect x="100" y="400" width="26" height="26" fill="{ORANGE}" transform="rotate(45 113 413)"/>',
-            text(150, 424, ctx["series"] + "　" + ctx.get("kicker", ""), 32, SLATE, "bold", family=MONO),
+            text(150, 424, ctx["series"] + "　" + ctx.get("kicker", "") + (f"　{ctx['number']:03d} / {ctx['total']}" if ctx.get("number") else ""), 32, SLATE, "bold", family=MONO),
             text(100, 530, lines, size, WHITE, "900", lh=1.3)]
     if s.get("sub"):
         body.append(text(100, 530 + size * 1.3 * len(lines) + 20, wrap(s["sub"], 34)[:2], 38, SLATE, "bold", lh=1.4))
@@ -254,16 +254,19 @@ def slide_steps(s, ctx):
 
 
 def slide_cta(s, ctx):
+    """締めの画面。呼びかけは1つだけ（action と url）。"""
     lines = wrap(s.get("heading", ""), 20)[:2]
     body = [f'<circle cx="{W - 100}" cy="{H + 200}" r="700" fill="none" stroke="{LINE}" stroke-width="3"/>',
             text(100, 300, lines, 64, WHITE, "900", lh=1.3)]
-    y = 300 + 64 * 1.3 * len(lines) + 40
-    for item in s.get("items", []):
-        body.append(f'<rect x="104" y="{y - 28}" width="18" height="18" fill="{ORANGE}" transform="rotate(45 113 {y - 19})"/>')
-        body.append(text(150, y, wrap(item, 36)[:2], 36, WHITE, lh=1.4))
-        y += 36 * 1.4 * len(wrap(item, 36)[:2]) + 30
+    y = 300 + 64 * 1.3 * len(lines) + 60
+    if s.get("action"):
+        al = wrap(s["action"], 30)[:2]
+        bw = min(1400, int(44 * 0.98 * max(len(x) for x in al)) + 100)
+        body.append(f'<rect x="100" y="{y - 56}" width="{bw}" height="{44 * 1.4 * len(al) + 36:.0f}" rx="18" fill="{ORANGE}"/>')
+        body.append(text(150, y, al, 44, NAVY, "900", lh=1.4))
+        y += 44 * 1.4 * len(al) + 70
     if s.get("url"):
-        body.append(text(100, y + 30, s["url"], 32, ORANGE, "bold", family=MONO))
+        body.append(text(100, y, s["url"], 32, WHITE, "bold", family=MONO))
     if s.get("credits"):
         cy = H - 190 - 30 * len(s["credits"])
         body.append(text(100, cy, s["credits"], 22, SLATE, lh=1.4))
@@ -372,6 +375,18 @@ def synth(text_, out_wav, ctx):
     sw.write(str(out_wav), sr, x.astype(np.int16))
 
 
+def sound_logo(out, sr):
+    """2秒のサウンドロゴ。上がる2音（軌道の線のイメージ）と、短い締めの音（ひし形）。"""
+    t = np.arange(int(sr * 2.0)) / sr
+    def tone(f, start, dur, amp):
+        env = np.clip((t - start) / 0.02, 0, 1) * np.clip((start + dur - t) / (dur * 0.6), 0, 1)
+        return amp * env * (np.sin(2 * np.pi * f * t) + 0.3 * np.sin(2 * np.pi * 2 * f * t))
+    x = tone(523.25, 0.05, 0.5, 0.22) + tone(783.99, 0.38, 0.6, 0.22) + tone(1046.5, 0.78, 0.9, 0.18)
+    x = (x / max(1e-6, np.abs(x).max()) * 0.5 * 32767).astype(np.int16)
+    with wave.open(str(out), "wb") as w:
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr); w.writeframes(x.tobytes())
+
+
 def concat_wavs(wavs, gap, out):
     frames, sr, sw = [], None, None
     for p in wavs:
@@ -437,7 +452,7 @@ def build(vid, slides_only=False):
         return
     # 案内役の顔は、既定では出さない（口が動くだけの顔は学習の助けにならないため。台本に avatar: true で出せる）
     avatars = build_avatar_frames(work) if ctx.get("avatar") or any(sc.get("avatar") for sc in scenes) else None
-    parts = []
+    parts, scene_starts, scene_lengths = [], [], []
     for i, s in enumerate(scenes):
         say = s.get("say", "")
         sentences = split_sentences(say)
@@ -454,9 +469,14 @@ def build(vid, slides_only=False):
         lead = work / "lead.wav"
         with wave.open(str(wavs[0])) as w0:
             sr0, sw0 = w0.getframerate(), w0.getsampwidth()
-        with wave.open(str(lead), "wb") as w:
-            w.setnchannels(1); w.setsampwidth(sw0); w.setframerate(sr0); w.writeframes(b"\x00" * int(sr0 * 0.5) * sw0)
+        if i == 0:
+            sound_logo(lead, sr0)   # 最初の場面だけ、決まった音で始める
+        else:
+            with wave.open(str(lead), "wb") as w:
+                w.setnchannels(1); w.setsampwidth(sw0); w.setframerate(sr0); w.writeframes(b"\x00" * int(sr0 * 0.5) * sw0)
         concat_wavs([lead] + wavs, 0.35, audio)
+        scene_starts.append(sum(scene_lengths))
+        scene_lengths.append(wav_len(audio) + 0.4)
         total = wav_len(audio) + 0.4
         # 字幕
         ass = work / f"sub_{i:02d}.ass"
@@ -494,8 +514,54 @@ def build(vid, slides_only=False):
     final = vdir / f"{vid}.mp4"
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst.name, "-c", "copy", str(final.resolve())],
                    cwd=work, check=True)
-    shutil.copy(work / "slide_00.png", vdir / "thumbnail.png")
+    write_companions(vid, vdir, ctx, scenes, scene_starts, body_idx, agenda, work)
     print(f"できました：{final.relative_to(ROOT)}（{wav_len_mp4(final):.0f}秒）")
+
+
+def hms(t):
+    m, sec = divmod(int(t), 60)
+    h, m = divmod(m, 60)
+    return f"{h}:{m:02d}:{sec:02d}" if h else f"{m}:{sec:02d}"
+
+
+def write_companions(vid, vdir, ctx, scenes, starts, body_idx, agenda, work):
+    """動画と一緒に使うもの：説明欄（章立て、リンク、表記）、全文、サムネイル。"""
+    site = yaml.safe_load((ROOT / "_variables.yml").read_text(encoding="utf-8"))["site"]
+    cta = next((sc for sc in scenes if sc["kind"] == "cta"), {})
+    link = cta.get("url_full") or cta.get("url", "")
+    if link and "utm_" not in link:
+        link = ("https://" if not link.startswith("http") else "") + link + ("&" if "?" in link else "?") + f"utm_source=youtube&utm_medium=video&utm_campaign={vid}"
+    chapters = [f"{hms(starts[i])} {scenes[i].get('heading') or ctx['title']}" for i in range(len(scenes))]
+    desc = [ctx["title"], ""]
+    if ctx.get("summary"):
+        desc += [ctx["summary"], ""]
+    if cta.get("action"):
+        desc += [f"▶ {cta['action']}", link, ""]
+    desc += ["■ 章立て"] + chapters + [""]
+    if cta.get("credits"):
+        desc += ["■ 出典と表記"] + cta["credits"] + [""]
+    desc += ["Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。", "どの衛星会社にも解析会社にも属さない立場で作っています。"]
+    (vdir / "description.txt").write_text("\n".join(desc) + "\n", encoding="utf-8")
+    tr = [f"# {ctx['title']}", "", "動画の全文です。", ""]
+    for sc in scenes:
+        if sc.get("heading") and sc["kind"] not in ("cover",):
+            tr.append(f"## {sc['heading']}\n")
+        tr.append(sc.get("say", "").strip() + "\n")
+    (vdir / "transcript.md").write_text("\n".join(tr), encoding="utf-8")
+    # サムネイル：短い文（4語以内）を大きく
+    thumb = ctx.get("thumb") or ctx["title"]
+    lines = wrap(thumb, 10)[:2]
+    size = 150 if len(lines) == 1 else 120
+    body = [f'<rect width="{W}" height="{H}" fill="{NAVY}"/>',
+            f'<circle cx="{W - 100}" cy="{H + 200}" r="700" fill="none" stroke="{LINE}" stroke-width="4"/>',
+            f'<circle cx="{W - 100}" cy="{H + 200}" r="900" fill="none" stroke="{LINE}" stroke-width="4"/>',
+            logo(1620, 230, 0.42),
+            f'<rect x="100" y="150" width="14" height="{size * 1.25 * len(lines) + 40:.0f}" fill="{ORANGE}" transform="translate(0,{H/2 - size * 1.25 * len(lines) / 2 - 20 - 150})"/>',
+            text(150, H / 2 - size * 1.25 * len(lines) / 2 + size * 0.85, lines, size, WHITE, "900", lh=1.25),
+            text(100, H - 120, ctx["series"] + ("　" + ctx.get("kicker", "")) + (f"　{ctx['number']:03d}" if ctx.get("number") else ""), 36, ORANGE, "bold", family=MONO),
+            text(W - 100, H - 120, "Satellite to Decision", 36, WHITE, "bold", anchor="end")]
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" font-family="{FONT}">{"".join(body)}</svg>')
+    svg_to_png(svg, vdir / "thumbnail.png")
 
 
 def wav_len_mp4(p):

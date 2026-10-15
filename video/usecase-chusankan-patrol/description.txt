@@ -1,0 +1,27 @@
+中山間地の見回りを衛星で減らす
+
+佐賀県伊万里市が、農地の現地確認を衛星で約半分に減らした事例。業務のどこに入れ、何を決める材料になるか、無償衛星でどこまでできるか、有償画像の概算までを6分で解説します。
+
+▶ RFPの作成と相見積もりの相談は、フォームから
+https://ssskobj-dev.github.io/eisei-kouza/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-chusankan-patrol
+
+■ 章立て
+0:00 中山間地の見回りを衛星で減らす
+0:34 どこで、誰が、何のために
+1:08 業務の流れの、どこに入るか
+1:50 衛星に任せることと、人が行うこと
+2:25 何を決める材料になるか
+3:12 2026年時点の限界
+3:49 無償の衛星で、どこまでできるか
+4:31 有償の画像を使うと、いくらか（概算）
+5:26 向いている条件、向いていない条件
+6:08 自分の地域で検討する方へ
+
+■ 出典と表記
+出典：農林水産省「衛星画像活用の動きが広がっています！」 https://www.maff.go.jp/j/kanbo/dx/attach/pdf/eisei-3.pdf
+価格：Apollo Mapping, Product Update（2022年12月6日） https://apollomapping.com/blog/product-update-simplified-ordering-options-for-3-m-planetscope-satellite-imagery
+衛星の仕様：Copernicus SentiWiki「Sentinel-2 Mission」
+音声：VOICEVOX:もち子さん　案内役：もち子
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
