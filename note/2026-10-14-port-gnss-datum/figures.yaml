@@ -1,0 +1,43 @@
+# 時事記事「港湾工事における衛星三次元測位の検討会」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: news
+    tag: 港湾
+    title: 港湾工事で衛星測位の検討会
+    sub: 潮位の補正は、なくせるか
+
+  - id: fig-1
+    type: split
+    alt: 今の手順と、目指す手順
+    link: →
+    left:
+      title: 今の手順
+      role: human
+      items:
+        - 現場に検潮所を設ける
+        - 測量の期間中、潮位を連続して観測する
+        - 最低水面と潮位の差を補正する
+    right:
+      title: 目指す手順
+      role: satellite
+      items:
+        - 衛星測位で船や機械の高さを測る
+        - 水路測量基準面2025との差を取る
+        - 潮位の観測と補正が要らない
+    note: 当面は現行の手法が正。両方を行う期間が続く
+
+  - id: fig-2
+    type: cards
+    alt: 検討会が始まっても変わらないこと
+    columns: 3
+    items:
+      - title: 精度の確かめ
+        role: none
+        text: 従来との差は概ね10cm以内。条件で変わる
+      - title: 地震の直後
+        role: none
+        text: 電子基準点の成果が止まり、使えないことがある
+      - title: 港湾区域
+        role: none
+        text: 公開は港湾区域の外側から。港ごとに調整
