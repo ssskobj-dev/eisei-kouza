@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+"""できた動画をYouTubeに投稿する（既定は限定公開）。GitHub Actions から呼ばれる。
+
+使い方：
+  python scripts/youtube_upload.py <動画のid> [--privacy unlisted|private|public]
+
+必要な環境変数：YT_CLIENT_ID、YT_CLIENT_SECRET、YT_REFRESH_TOKEN
+投稿できたら、video/<id>/youtube.json に動画のidとURLを書く。
+"""
+import json
+import os
+import sys
+from pathlib import Path
+
+import google.oauth2.credentials
+from googleapiclient.discovery import build
+from googleapiclient.http import MediaFileUpload
+
+ROOT = Path(__file__).resolve().parent.parent
+vid = sys.argv[1]
+privacy = sys.argv[sys.argv.index("--privacy") + 1] if "--privacy" in sys.argv else "unlisted"
+vdir = ROOT / "video" / vid
+mp4 = vdir / f"{vid}.mp4"
+if not mp4.exists():
+    sys.exit(f"動画がありません：{mp4}")
+
+creds = google.oauth2.credentials.Credentials(
+    None, refresh_token=os.environ["YT_REFRESH_TOKEN"], token_uri="https://oauth2.googleapis.com/token",
+    client_id=os.environ["YT_CLIENT_ID"], client_secret=os.environ["YT_CLIENT_SECRET"],
+    scopes=["https://www.googleapis.com/auth/youtube.upload", "https://www.googleapis.com/auth/youtube"])
+yt = build("youtube", "v3", credentials=creds)
+
+desc_path = vdir / "description.txt"
+description = desc_path.read_text(encoding="utf-8") if desc_path.exists() else ""
+title = description.splitlines()[0] if description else vid
+body = {"snippet": {"title": title[:100], "description": description[:4900], "defaultLanguage": "ja",
+                    "categoryId": "27"},   # 27 = 教育
+        "status": {"privacyStatus": privacy, "selfDeclaredMadeForKids": False}}
+req = yt.videos().insert(part="snippet,status", body=body,
+                         media_body=MediaFileUpload(str(mp4), chunksize=8 * 1024 * 1024, resumable=True))
+res = None
+while res is None:
+    status, res = req.next_chunk()
+    if status:
+        print(f"  {int(status.progress() * 100)}%")
+yid = res["id"]
+thumb = vdir / "thumbnail.png"
+if thumb.exists():
+    try:
+        yt.thumbnails().set(videoId=yid, media_body=MediaFileUpload(str(thumb))).execute()
+    except Exception as e:  # サムネイルの設定は、電話番号の確認が済んだチャンネルだけで使える
+        print(f"  サムネイルは設定できませんでした（{e.__class__.__name__}）。YouTubeの画面から設定してください")
+out = {"id": yid, "url": f"https://youtu.be/{yid}", "privacy": privacy, "title": title}
+(vdir / "youtube.json").write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+print(f"投稿しました（{privacy}）：{out['url']}")
