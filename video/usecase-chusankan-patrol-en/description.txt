@@ -1,0 +1,27 @@
+Cutting field patrols in half with satellites
+
+How a Japanese municipality cut on-site field checks by about half with satellites. Where it fits in the workflow, what decisions it supports, how far free satellites go, and a cost estimate for paid imagery. 6 minutes.
+
+▶ For an RFP and competitive quotes, contact us from the form
+https://ssskobj-dev.github.io/eisei-kouza/en/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-chusankan-patrol-en
+
+Chapters
+0:00 Cutting field patrols in half with satellites
+0:23 Where, who, and why
+0:48 Where it fits in the workflow
+1:20 Satellite versus people
+1:46 What decisions it supports
+2:17 Limits as of 2026
+2:49 How far do free satellites go?
+3:22 What paid imagery would cost (estimate)
+4:05 When it fits, and when it does not
+4:34 Considering it for your region?
+
+Sources and credits
+Source: MAFF, 'Satellite imagery use is spreading' https://www.maff.go.jp/j/kanbo/dx/attach/pdf/eisei-3.pdf
+Price: Apollo Mapping, Product Update (6 Dec 2022) https://apollomapping.com/blog/product-update-simplified-ordering-options-for-3-m-planetscope-satellite-imagery
+Satellite specs: Copernicus SentiWiki, Sentinel-2 Mission
+Voice: Piper TTS (en_US-ryan, MIT) · Host: Ryan
+
+Satellite to Decision | From Earth observation data to business decisions.
+Made independently of any satellite operator or analytics company.
