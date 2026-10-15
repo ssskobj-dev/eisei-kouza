@@ -1,0 +1,71 @@
+# English market-report video (overseas). Theme: infrastructure & ground monitoring, angle: cases-overseas.
+# Facts verified against the primary sources listed in the closing credits. Numbers not verified were left out.
+lang: en
+voice: Joe
+title: How Europe and the US monitor infrastructure from orbit
+series: MARKET
+kicker: Market report
+thumb: Infra from orbit
+summary: Two documented overseas cases of satellite monitoring for infrastructure and ground motion - Europe's public ground-motion service and a nationwide scan of the US transmission grid. What they measure, how to read the numbers, and what a consultant should take from them. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: How Europe and the US monitor infrastructure from orbit
+    sub: Two documented overseas cases, and how to read them
+    say: Where is satellite monitoring of infrastructure already running overseas, and what does it actually deliver? The clearest answer comes from two documented cases. Europe runs a public, continent-wide ground-motion service. In the United States, a company scanned the entire transmission grid in a single study. In this report we look at what each one measures, what satellite data it uses, how to read the numbers, and what a consultant should take from them.
+
+  - kind: bullets
+    heading: What this report covers
+    items:
+      - "Case 1 - Europe's ground-motion service, a public service in operation"
+      - "Case 2 - a nationwide scan of the US transmission grid"
+      - How to read the numbers, and what does not transfer directly to Japan
+    say: Here is what this report covers. First, Europe's ground-motion service, which is a public service already in operation. Second, a one-time nationwide scan of the United States transmission grid by a private company. Then, how to read the numbers behind both, and what does not transfer directly when you bring these ideas to a client in Japan.
+
+  - kind: bullets
+    heading: Case 1 - Europe's ground-motion service
+    items:
+      - The European Ground Motion Service, part of the Copernicus Land Monitoring Service
+      - Measures ground motion from both natural and human causes, with millimetre accuracy
+      - Built from Sentinel-1 radar interferometry, so it works day or night and through cloud
+      - Covers the participating countries across national borders, and is updated once a year
+    say: Case one is the European Ground Motion Service. It is part of the Copernicus Land Monitoring Service, and it tracks how the ground is moving - from natural causes such as tectonics or volcanism, and human causes such as groundwater extraction or mining. The service states millimetre accuracy. It is built from Sentinel-1 radar interferometry, which works day or night and sees through cloud. It covers the Copernicus participating countries, works across national borders, and is refreshed once a year. This one is in service, not a pilot - anyone can view and download it through the EGMS Explorer.
+
+  - kind: bullets
+    heading: Case 2 - the US transmission grid
+    items:
+      - "In early 2021 the company LiveEO reported analysing every mile of the US transmission grid"
+      - "All 574,000 miles of overhead transmission lines, from more than 15,000 satellite images"
+      - "166,501 miles were found with vegetation encroaching within 30 feet of the lines"
+      - Trees touching lines are a leading cause of outages, so the map ranks where to clear first
+    say: Case two is in the United States. In early 2021, the company LiveEO reported the first analysis of the entire US transmission grid. It covered all five hundred seventy-four thousand miles of overhead transmission lines, built from more than fifteen thousand satellite images. It flagged one hundred sixty-six thousand five hundred one miles where vegetation was encroaching within thirty feet of the lines. Since trees touching lines are a leading cause of outages, the result is a nationwide map of where to send crews to clear vegetation first. This started as a single nationwide study; LiveEO now offers the analysis to utilities as an ongoing service.
+
+  - kind: table
+    heading: How to read the numbers
+    columns: [What the number is, What it does not mean]
+    widths: [0.5, 0.5]
+    rows:
+      - ["EGMS - millimetre accuracy", "Motion along the satellite's line of sight, not the cause of it"]
+      - ["574,000 miles scanned", "A one-time study; not a live feed that updates daily"]
+      - ["166,501 miles flagged", "A screening result; crews still confirm on the ground"]
+      - ["Sentinel-1 data is free", "Turning it into a reliable product still takes analysis and checking"]
+    say: Now, how to read these numbers without overselling them. The European service states millimetre accuracy, but what it measures is motion along the satellite's line of sight - it tells you something is moving, not why. The five hundred seventy-four thousand miles was a one-time nationwide study, not a live feed updating every day. The one hundred sixty-six thousand miles flagged is a screening result, so crews still confirm on the ground. And while the Sentinel-1 data behind the European service is free and open, turning raw radar into a reliable, mapped product still takes real analysis and checking. Free data does not mean a free result.
+
+  - kind: bullets
+    heading: What a consultant should take from this
+    items:
+      - Overseas, the strongest cases monitor wide areas and rank where people should go next
+      - A public service like EGMS exists in Europe; in Japan this is usually commissioned per project
+      - Lead with "what decision does this support", not with the millimetre figure
+      - Satellites do not replace statutory inspection; they set the order and the scope
+    say: So what should a consultant take from this? First, overseas the strongest cases do not replace field work - they monitor wide areas and rank where people should go next. Second, Europe funds this as a public, open service; in Japan the same kind of monitoring is usually commissioned project by project, so who pays, and for what decision, is the first question to settle. Third, when you propose this, lead with the decision it supports, not with the millimetre accuracy figure. And fourth, be clear that satellites do not replace a statutory inspection. They decide the order and the scope of where to look.
+
+  - kind: cta
+    heading: Planning infrastructure monitoring?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Case 1 - Copernicus Land Monitoring Service, European Ground Motion Service https://land.copernicus.eu/pan-european/european-ground-motion-service"
+      - "Case 2 - LiveEO, 'The first ever analysis of the entire US transmission grid' https://www.live-eo.com/article/the-first-ever-analysis-of-the-entire-us-transmission-grid"
+      - "Case 2 figures also reported by T&D World (Jan 2021)"
+    say: If you are planning infrastructure or ground-motion monitoring, here is the next step. We help you write the request for proposal and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.

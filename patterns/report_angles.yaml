@@ -1,8 +1,12 @@
 # 市場レポートの切り口。1つのテーマ（ユースケース）を、この順で1本ずつ書く。
 # 切り口を足すと、全テーマに1本ずつ増える。
+#
+# en_video: true を付けた切り口は、英語の市場レポート動画（海外向け）の対象になる。
+#   候補は `python scripts/build.py enreports` で出る。世界・海外に関わる切り口だけに付ける。
 
 world-market:
   name: 世界の市場
+  en_video: true
   question: 世界では、どれくらいの規模で、誰が買っているか
   include: [市場規模の推計と出どころ, 推計の幅と定義の違い, 主な買い手, 伸びている理由と伸び悩む理由]
   sources: [03-market-overview, 08-usecases-1, 09-usecases-2]
@@ -15,6 +19,7 @@ japan-market:
 
 cases-overseas:
   name: 海外の事例
+  en_video: true
   question: 海外では、誰が、何に、どう使っているか
   include: [事例を3〜5件, 使ったデータと手法, 成果として公表されていること, 日本に持ち込むときの違い]
   sources: [08-usecases-1, 09-usecases-2, 05-players-overseas]
@@ -27,12 +32,14 @@ cases-japan:
 
 players:
   name: 主なプレイヤー
+  en_video: true
   question: 誰がデータを売り、誰が解析し、誰が買っているか
   include: [データを持つ会社, 解析やサービスの会社, 買い手, 役割ごとの関係図]
   sources: [04-value-chain, 05-players-overseas, 06-players-japan]
 
 data-and-methods:
   name: 使うデータと手法
+  en_video: true
   question: どの衛星の、どんなデータを、どう処理しているか
   include: [使われるセンサー, 無償データと商用データの使い分け, 解析の流れ, 費用がかかる所（金額の表は載せない）]
   sources: [04-value-chain, 08-usecases-1, 09-usecases-2]
