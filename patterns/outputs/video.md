@@ -36,3 +36,17 @@ cover、bullets、figure、table、code、prompt、steps、cta。項目は `scri
 - `source_url` を自分で開いて、事例と数字を確かめてから書く
 - 図は日本語の文字が入るので使わない。表・手順・箇条書きで作る（手本：`video/usecase-chusankan-patrol-en/script.yaml`）
 - 投稿は英語チャンネル：Actions の video ワークフローで `channel: en`、`privacy: unlisted`
+
+## 英語の市場レポート動画（海外向け）
+
+英語チャンネルには、事例だけでなく市場レポート（海外の市場・プレイヤー・制度）も動画にする。世界・海外に関わる切り口だけを対象にする。
+
+- 対象の切り口は `patterns/report_angles.yaml` で `en_video: true` を付けたもの（世界の市場、海外の事例、主なプレイヤー、使うデータと手法）
+- 候補は `python scripts/build.py enreports` で出る（テーマ × 海外向けの切り口で、英語動画が未作成のもの）
+- 台本は `video/report-<テーマid>-<切り口>-en/script.yaml`。`lang: en`、`voice` は Ryan か Joe（US発音）。`series: MARKET`、`kicker: Market report`
+- もとにする素材は `data/market-report-2026-10/` の、その切り口の `sources` に挙がった章。**下調べメモの数字をそのまま写さない**。必ず出典の原文を開いて、数字・年・出どころを確かめてから書く。確かめられない数字は台本から外し、`credits` に理由を書く
+- 市場規模や金額は、**誰の推計か・何を含むか・いつの時点か**を必ず言う。推計に幅があるときは幅のまま言う。有料の報告書の中身・価格表・非公開の契約金額は出さない
+- 事例は、発表元の資料で確かめたものだけ。**実証（pilot）か本格運用（in service）か**を区別して言う
+- 特定の事業者を勧めない。会社名は、公表されている事実の範囲で挙げる
+- 締め（`cta`）は、RFPと相見積もりの相談（ユースケース動画と同じ窓口）。`action` は1文、`url` は1つ
+- 図は使わず、表・手順・箇条書きで作る。長さは4〜7分、場面の並びは：表紙（問いと答え）→ 要点3つ → 本文の節（切り口の `include`）→ 数字の読み方 → コンサルへの示唆 → 締め（手本：`video/report-infra-cases-overseas-en/script.yaml`）
