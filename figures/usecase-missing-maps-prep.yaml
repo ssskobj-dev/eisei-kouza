@@ -1,0 +1,90 @@
+# ユースケースの記事「災害の前に、地図の空白を衛星画像で埋める」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星画像とボランティアに任せることと、現地の人が行うこと
+    link: ＋
+    left:
+      title: 遠隔のボランティアが行う
+      items:
+        - 衛星画像を見て道路と建物の形をなぞる
+        - 経験者が形や種別の誤りを検証する
+    right:
+      title: 現地の人が行う
+      role: human
+      items:
+        - 地区名、通り名、避難所を足す
+        - 施設の種別を確かめる
+        - 地図を備えと対応の計画に使う
+    note: 画像から分かるのは形だけ。名前と用途は現地で足す
+
+  - id: stats
+    type: bar
+    alt: 公表されている活動の規模
+    title: Missing Mapsの編集の件数（2026年10月15日時点）
+    unit: 万件
+    source: Missing Maps 公式サイトの集計（#MissingMaps の印が付いたOpenStreetMapの編集、2026年）
+    items:
+      - label: 建物の編集
+        value: 6600
+      - label: 編集の総数
+        value: 10800
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: なぞれるのは見える形だけ
+        text: 名前と用途は現地の人が足す
+        role: none
+      - title: 品質は人によりばらつく
+        text: 初心者の編集を経験者が検証する
+        role: none
+      - title: 画像とのずれが起きる
+        text: 位置を直す作業が要る
+        role: none
+      - title: 画像が古いと集落が抜ける
+        text: 撮影時点の地表しか写らない
+        role: none
+      - title: 現地の参加がない作図には慎重
+        text: 活動の原則に掲げられている
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 活動の前に、基盤地図を整える手順
+    steps:
+      - title: 範囲と期限
+        text: 活動予定地
+        who: human
+      - title: 作図を依頼
+        text: 範囲を区切って登録
+        who: human
+      - title: 画像をなぞる
+        text: 道路と建物
+        who: satellite
+      - title: 検証する
+        text: 形と種別の誤り
+        who: satellite
+      - title: 名前と用途
+        text: 現地の協力者
+        who: human
+      - title: 配置と経路
+        text: 調査班、配布拠点
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 向いている場面から、向いていない場面まで
+    left: 向いている
+    right: 向いていない
+    items:
+      - title: 地図がない地域
+        text: 災害の前に準備できる
+      - title: 現地の協力者がいる
+        text: 名前と用途を足せる
+      - title: 数日以内に地図が要る
+        text: 検証と現地調査が間に合わない
+      - title: 通行可否を知りたい
+        text: 形からは分からない

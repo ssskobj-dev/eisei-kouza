@@ -1,0 +1,47 @@
+# note記事「探究学習に衛星データを使いたい。無償の画像で「見えるもの」と「見えないもの」」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 生活・文化・その他
+    title: 探究学習に衛星データを持ち込む
+    sub: 欧州の学校向けプロジェクトに学ぶ、無償データの見え方
+
+  - id: fig-1
+    type: split
+    alt: 衛星データに任せることと、生徒と先生が行うこと
+    link: ＋
+    left:
+      title: 衛星データが担う
+      items:
+        - 地域の広い範囲の変化を見せる
+        - 何年分も同じ条件で比べられる
+        - 無償で手に入る
+    right:
+      title: 生徒と先生が行う
+      items:
+        - 問いを立てる
+        - 現地で測り、原因を考えて提案する
+        - 先生が進め方を指導する
+    note: 衛星で分かるのは「どこが、いつ、どう変わったか」。なぜ変わったかは現地で補う
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 10mの画素では家は見えない
+        text: 校庭や1軒の家の変化は読めない
+        role: none
+      - title: 雲があると地表が見えない
+        text: 曇りの多い季節は画像が限られる
+        role: none
+      - title: 授業の日に合う画像とは限らない
+        text: 年単位の変化を比べる課題が組みやすい
+        role: none
+      - title: 原因は衛星からは分からない
+        text: 現地の測定や聞き取りで補う
+        role: none
+      - title: 日本の学校は参加の対象外
+        text: 指導書と無償データは使える
+        role: none

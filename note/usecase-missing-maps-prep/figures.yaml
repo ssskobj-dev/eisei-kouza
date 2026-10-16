@@ -1,0 +1,47 @@
+# note記事「地図のない場所に、支援は届かない。衛星画像をなぞって作る「災害前の地図」の仕組み」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 公衆衛生・人道支援
+    title: 災害の前に、地図の空白を埋める
+    sub: 衛星画像をなぞるボランティアと、現地で足す人の分担
+
+  - id: fig-1
+    type: split
+    alt: 衛星画像とボランティアに任せることと、現地の人が行うこと
+    link: ＋
+    left:
+      title: 遠隔のボランティアが行う
+      items:
+        - 衛星画像を見て道路と建物の形をなぞる
+        - 経験者が形や種別の誤りを検証する
+    right:
+      title: 現地の人が行う
+      role: human
+      items:
+        - 地区名、通り名、避難所を足す
+        - 施設の種別を確かめる
+        - 地図を備えと対応の計画に使う
+    note: 画像から分かるのは形だけ。名前と用途は現地で足す
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: なぞれるのは見える形だけ
+        text: 名前と用途は現地の人が足す
+        role: none
+      - title: 品質は人によりばらつく
+        text: 初心者の編集を経験者が検証する
+        role: none
+      - title: 画像とのずれが起きる
+        text: 位置を直す作業が要る
+        role: none
+      - title: 画像が古いと集落が抜ける
+        text: 撮影時点の地表しか写らない
+        role: none
+      - title: 現地の参加がない作図には慎重
+        text: 活動の原則に掲げられている
+        role: none

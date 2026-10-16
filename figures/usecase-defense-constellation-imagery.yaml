@@ -1,0 +1,78 @@
+# ユースケースの記事「防衛向けの画像を、民間の衛星群から高頻度で受け取る」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星群の事業者が行うことと、発注者が行うこと
+    link: ＋
+    left:
+      title: 民間の事業者が行う
+      items:
+        - 衛星と地上施設を保有して運用する
+        - 高頻度に画像を撮って届ける
+        - 衛星の寿命まで維持する
+    right:
+      title: 発注者が行う
+      items:
+        - 撮る場所と頻度を指定する
+        - 届いた画像を判読する
+        - 次の契約を準備する
+    note: 衛星を持たなくても、撮る場所を決める人と画像を読む人は発注者の側に要る
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 衛星の数と頻度は非公表
+        text: 「高頻度」の中身は外からは分からない
+        role: none
+      - title: 2027年度まで構築の途中
+        text: 段階的に打ち上げ、その後に本格運用
+        role: none
+      - title: 光学は雲と夜間に撮れない
+        text: SARを中心に光学を組み合わせる構成
+        role: none
+      - title: 画像の取り扱いに認定が要る
+        text: 分解能3m以下のSAR画像は法律の対象
+        role: none
+      - title: 小型衛星の寿命は5年の見込み
+        text: 続けるには次の契約が要る
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 画像の供給を長期契約で確保する手順
+    steps:
+      - title: 場所と頻度
+        text: どこを、どの間隔で
+        who: human
+      - title: 要件を仕様に
+        text: SARか光学か、届く時間
+        who: human
+      - title: 契約する
+        text: 事業者が衛星を保有
+        who: human
+      - title: 段階的に供給
+        text: 打ち上げの順に
+        who: satellite
+      - title: 判読と指示
+        text: 変化のあった地点
+        who: human
+      - title: 次の契約
+        text: 寿命を見て
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 向いている発注者から、向いていない発注者まで
+    left: 向いている
+    right: 向いていない
+    items:
+      - title: 長期に高頻度で撮る
+        text: 場所と時期を指定したい
+      - title: 5年以上の計画がある
+        text: サービス料として払える
+      - title: たまに1枚でよい
+        text: 都度の購入で足りる
+      - title: 無償データで足りる
+        text: 広い範囲をたまに見る
