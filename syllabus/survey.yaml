@@ -102,7 +102,7 @@ parts:
       - 変位マップから言えることと言えないことを、顧客に説明できる
     must_include: [視線方向の変位, 基準点, ノイズ, 実測との比較, 報告書の書き方]
     material: ""
-    status: todo
+    status: done
 
   - id: survey-proposal-pricing
     title: 提案書、仕様書、見積もりの作り方

@@ -1,0 +1,115 @@
+# 「成果物の品質確認と、顧客への説明」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/survey-quality-explain/<id>.svg を作る。
+
+figures:
+  - id: flow
+    type: flow
+    alt: 検収から説明までの7つの手順
+    steps:
+      - title: 値の前提
+        text: 視線方向か、換算値か
+        who: satellite
+      - title: 基準点
+        text: 変位ゼロにした場所
+        who: satellite
+      - title: ノイズ
+        text: 同じ場所に同じ向きか
+        who: satellite
+      - title: 実測と比較
+        text: 較差の標準偏差
+        who: satellite
+      - title: 抽出とランク
+        text: 基準の数字と単位
+        who: human
+      - title: 報告書
+        text: 前提、精度、限界
+        who: human
+      - title: 顧客に説明
+        text: 判断に効く限界だけ
+        who: human
+
+  - id: noise
+    type: cards
+    alt: 変位ではないのに変位に見える、主なノイズ
+    columns: 3
+    items:
+      - title: 大気（水蒸気）
+        text: 数cm程度。場所はランダム。地形に沿う模様も
+        mark: "1"
+        role: none
+      - title: 電離層
+        text: Lバンドで大きい。時に数十cm
+        mark: "2"
+        role: none
+      - title: 地形データの誤差
+        text: 基線長が長いほど大きい。造成地に出る
+        mark: "3"
+        role: none
+      - title: 非干渉
+        text: 耕作地、積雪、造成地、水面は読めない
+        mark: "4"
+        role: none
+      - title: 地形の陰
+        text: 急斜面や高い山で、欠落が出る
+        mark: "5"
+        role: none
+      - title: 地表の変化
+        text: 工事、積雪、強い反射が変位に見える
+        mark: "6"
+        role: none
+
+  - id: split
+    type: split
+    alt: 変位マップから言えること、言えないこと
+    link: "／"
+    left:
+      title: 言えること
+      items:
+        - 基準点に対する、視線方向の変位
+        - 期間の平均の速度
+        - 複数の画像で同じ傾向が出た範囲
+        - 実測との較差で示した精度
+    right:
+      title: 言えないこと
+      role: none
+      items:
+        - 前兆のない崩壊の予知
+        - 変動がいつ起きたか、今後も続くか
+        - 南北方向の動き
+        - 1軌道だけでの、上下と水平の分離
+        - 原因の特定（現地踏査と地盤調査が要る）
+    note: 要約のページには、顧客の判断に影響する「言えないこと」を絞って書く
+
+  - id: checklist
+    type: cards
+    alt: 検収で確かめる8つの項目
+    columns: 2
+    items:
+      - title: 値の前提
+        text: 視線方向か換算値か。符号。換算の仮定
+        mark: "1"
+      - title: 基準点
+        text: 位置と、選んだ理由
+        mark: "2"
+      - title: ノイズの扱い
+        text: 複数の画像で同じ傾向か。非干渉域の区別
+        mark: "3"
+      - title: 実測との較差
+        text: 標準偏差と割合を、点の数とともに
+        mark: "4"
+      - title: 抽出の基準
+        text: 数字と単位。現地確認を経て判断
+        mark: "5"
+        role: human
+      - title: 成果物の一覧
+        text: 図、表、電子データ、元データ
+        mark: "6"
+        role: human
+      - title: 言えないこと
+        text: 要約のページに、判断に効くものを
+        mark: "7"
+        role: human
+      - title: 注記と許諾
+        text: 速報値、元データの許諾、照査
+        mark: "8"
+        role: human

@@ -1,0 +1,84 @@
+# 「自治体が衛星サービスを導入するときの仕様書」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/agri-municipal-spec/<id>.svg を作る。
+
+figures:
+  - id: flow
+    type: flow
+    alt: 仕様書を組み立てる7つの手順
+    steps:
+      - title: 目的と制度
+        text: どの制度で、共用するか
+        who: human
+      - title: 範囲と区画
+        text: 全筆。ポリゴンの出どころ
+        who: human
+      - title: 精度の扱い
+        text: 区分と、見逃しの割合
+        who: satellite
+      - title: 成果物
+        text: 形式、撮影日、帰属
+        who: satellite
+      - title: 現地との接続
+        text: 区分ごとに何をするか
+        who: human
+      - title: 継続年度
+        text: 実証、毎年の検証
+        who: human
+      - title: 仕様と内訳
+        text: 要求水準と任せる範囲
+        who: satellite
+
+  - id: split
+    type: split
+    alt: 衛星の推定で分かること、現地で確かめること
+    link: "→"
+    left:
+      title: 衛星の推定が受け持つこと
+      items:
+        - 全筆を解析し、4つの区分に分ける
+        - 耕作・管理されている筆を見分ける
+        - 要確認、疑いのある筆を挙げる
+        - 解析できない筆を区分として返す
+    right:
+      title: 人が受け持つこと
+      items:
+        - 疑いと解析不能の筆を、現地で一筆ごとに判定する
+        - 省いた筆も一部を抽出して確かめる
+        - 見逃しの割合を記録し、翌年の運用を決める
+        - 制度に固有の確認項目を見る
+    note: 衛星が決めるのは「見に行かなくてよい筆」の候補。遊休農地の判定は現地で行う
+
+  - id: checklist
+    type: cards
+    alt: 発注前に確かめる8つの項目
+    columns: 2
+    items:
+      - title: 制度と課
+        text: 共用する制度。固有の項目は現地で
+        mark: "1"
+        role: human
+      - title: 区画データ
+        text: ポリゴンの出どころと、ひも付けの担当
+        mark: "2"
+        role: human
+      - title: 判定しにくい農地
+        text: 狭小、果樹園、茶畑の扱い
+        mark: "3"
+      - title: 精度の指標
+        text: 何の割合か。見逃しと空振り
+        mark: "4"
+      - title: 成果物
+        text: 台帳やGISで使える形式。帰属
+        mark: "5"
+      - title: 現地との接続
+        text: 区分ごとの扱い。省く理由と抽出
+        mark: "6"
+        role: human
+      - title: 検証と更新
+        text: 1年目は実証。毎年、結果を渡す
+        mark: "7"
+        role: human
+      - title: 内訳
+        text: 区画、解析、端末、報告に分ける
+        mark: "8"
+        role: human
