@@ -1,0 +1,91 @@
+# English market-report video (overseas). Theme: infrastructure & ground monitoring, angle: world-market.
+# Facts verified against the primary sources listed in the closing credits. Numbers not verified were left out.
+lang: en
+voice: Ryan
+title: How big is the Earth observation market, and who is buying?
+series: MARKET
+kicker: Market report
+thumb: EO market size
+summary: A plain look at the global Earth observation market - how large it is, why the published numbers differ, who the main buyers are, and what pushes the market up or holds it back. Figures are from Novaspace and the EU agency EUSPA, with the year and definition stated for each. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: How big is the Earth observation market, and who is buying?
+    sub: The global numbers, where they come from, and how to read them
+    say: How large is the global market for Earth observation - selling satellite images and the services built from them? The short answer is that it is small compared with the rest of the space economy, on the order of five billion dollars a year, and it is growing steadily. But the published figures differ a lot depending on what each analyst counts. In this report we look at the size of the market, who estimates it and why the numbers differ, who the main buyers are, and what pushes the market up or holds it back.
+
+  - kind: bullets
+    heading: What this report covers
+    items:
+      - How big the market is, and where it sits in the wider space economy
+      - Who estimates it, and why the published numbers differ so much
+      - Who the main buyers are, and where the money is
+      - What drives the market up, and what holds it back
+    say: Here is what this report covers. First, how big the Earth observation market is, and where it sits inside the wider space economy. Second, who publishes these numbers, and why their estimates differ so much. Third, who the main buyers are, and which regions the money comes from. And fourth, what is driving the market up, and what is holding it back.
+
+  - kind: bullets
+    heading: How big is it?
+    items:
+      - "Earth observation data plus services: roughly $5 billion a year"
+      - "Novaspace: EO data $2.2 billion in 2024, value-added services $3.2 billion, each growing about 7% a year"
+      - "EUSPA: EO revenue of 3.5 billion euros in 2024, forecast to reach 7.9 billion euros by 2034"
+      - For scale, Novaspace put the whole space economy at about $626 billion in 2025
+    say: So how big is it? Taken together, selling Earth observation data and the services built from it is worth roughly five billion dollars a year. Novaspace, in a release dated October twenty twenty-five, put the data market at two point two billion dollars in twenty twenty-four, and the value-added services market at three point two billion dollars, each growing at about seven percent a year. The European Union space agency, EUSPA, in its May twenty twenty-six report, gave a figure of three and a half billion euros for twenty twenty-four, rising to seven point nine billion euros by twenty thirty-four. For scale, Novaspace put the entire space economy at about six hundred twenty-six billion dollars in twenty twenty-five - so Earth observation is a small slice of a much larger whole.
+
+  - kind: bullets
+    heading: Why the published numbers differ
+    items:
+      - The biggest driver is what each analyst counts
+      - Data sales only, or data plus the value-added services on top?
+      - Is defense and government demand included, or only civil and commercial?
+      - Always read the number with its year, and with what it includes
+    say: Now, why do the published numbers differ so much? The biggest reason is the boundary each analyst draws. Does the figure count only the sale of data, or data plus the value-added services built on top? Counting services roughly doubles it. Does it include defense and government buyers, or only civil and commercial use? Including defense makes it much larger. This is why a market can look like two billion dollars in one report and five billion in another, without either being wrong. The rule for a consultant is simple - never quote a market size without saying, in one line, who estimated it, for what year, and what it includes.
+
+  - kind: bullets
+    heading: Who is buying
+    items:
+      - "Defense and security are the largest buyers: over 65% of data demand (Novaspace)"
+      - Among civil and commercial users, demand is spread across agriculture, environment, insurance and infrastructure
+      - "By region, North America led with 44% of revenue in 2023, Europe 22% (Novaspace)"
+      - Asia is projected to be the fastest-growing region
+    say: So who is actually buying? The largest buyers are defense and security agencies. Novaspace estimates that defense accounts for over sixty-five percent of demand for Earth observation data. Among civil and commercial users, demand is spread across agriculture, the environment, insurance and infrastructure. By region, North America was the largest market, generating forty-four percent of global revenue in twenty twenty-three, followed by Europe at twenty-two percent. Asia is projected to be the fastest-growing region over the next decade. The headline point - today this market is carried by governments, and defense in particular, more than by commercial use.
+
+  - kind: bullets
+    heading: What drives it up, and what holds it back
+    items:
+      - "Up: security demand, as governments want observation they control"
+      - "Up: AI, which makes turning images into answers faster and cheaper"
+      - "Down: commercial uptake is still slow - buyers want answers, not raw images"
+      - "Down: free public data, such as Europe's Sentinel, competes with mid-range paid data"
+    say: What is pushing this market up, and what is holding it back? On the up side, security demand is rising as governments want observation capacity they control, and artificial intelligence is making the job of turning images into usable answers faster and cheaper. On the down side, commercial uptake is still slow, because businesses want a clear answer, not a raw image, and that integration takes time. And free, open public data - such as Europe's Sentinel satellites - competes with mid-range paid data, which makes it hard to price. These are the forces to weigh when a client asks whether this market will keep growing.
+
+  - kind: table
+    heading: How to read the numbers
+    columns: [What the number is, What it does not mean]
+    widths: [0.5, 0.5]
+    rows:
+      - ["~$5 billion a year", "A narrow definition; counting defense and broader services makes it larger"]
+      - ["Growing about 7% a year", "A market-wide average, not a promise for any one product"]
+      - ["Defense over 65% of data demand", "A share of data buying, not of every service and product"]
+      - ["North America 44% in 2023", "Where revenue is booked, which differs from where images are taken"]
+    say: Let me put the main numbers in context. The roughly five billion dollars a year is a narrow definition - count defense and the broader services, and the figure grows. The seven percent growth is a market-wide average, not a promise for any single product. The defense share of over sixty-five percent is a share of data buying specifically, not of every service and product in the market. And the forty-four percent for North America is where revenue is booked, which is not the same as where the images are taken. Read each number with its boundary, and you will not oversell it.
+
+  - kind: bullets
+    heading: What a consultant should take from this
+    items:
+      - Lead with the decision the data supports, not with a headline market-size number
+      - When you quote a market size, state who estimated it, the year, and what it includes
+      - Today the market is carried by government and defense; commercial is the growth bet, not the base
+      - Free public data lowers the data cost, but turning it into a reliable answer still costs real work
+    say: So what should a consultant take from this? First, lead with the decision the data supports for your client, not with a headline market-size number. Second, whenever you quote a market size, state who estimated it, for what year, and what it includes - that one line protects you when the figure is questioned. Third, remember that today this market is carried by government and defense; commercial use is the growth bet, not the current base. And fourth, free public data lowers the cost of the data itself, but turning it into a reliable, decision-ready answer still takes real analysis - free data does not mean a free result.
+
+  - kind: cta
+    heading: Sizing a satellite data opportunity?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Novaspace, 'Geopolitical Shifts and AI Reshapes EO Market' (30 Oct 2025) - nova.space"
+      - "Novaspace, 'Commercial EO Market Surpasses $8 Billion by 2033' (27 Nov 2024) - nova.space"
+      - "Novaspace, 'Global Space Economy Reaches $626 Billion' (29 Jan 2026) - nova.space"
+      - "EUSPA, EU Space Market Report (27 May 2026) - euspa.europa.eu"
+    say: If you are trying to size a satellite data opportunity, here is the next step. We help you write the request for proposal and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
