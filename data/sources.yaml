@@ -381,3 +381,81 @@
   publisher: 国土交通省 道路局
   url: https://www.mlit.go.jp/road/tech/pdf/catalog-gaiyo.pdf
   tags: [点検支援技術, 性能カタログ, 道路]
+
+- id: maff-field-check-satellite
+  title: 現地確認業務における衛星画像の活用について
+  publisher: 農林水産省 大臣官房デジタル戦略グループ
+  url: https://www.maff.go.jp/j/kanbo/dx/attach/pdf/eisei-1.pdf
+  tags: [農業委員会, 荒廃農地, 自治体, 仕様書, 現地確認]
+
+- id: maff-satellite-services
+  title: 衛星活用サービス集（事業者へのアンケートは2026年1月）
+  publisher: 農林水産省 大臣官房デジタル戦略グループ
+  url: https://www.maff.go.jp/j/kanbo/dx/attach/pdf/eisei-5.pdf
+  tags: [農業委員会, 自治体, サービス比較, 成果物]
+
+- id: maff-satellite-page
+  title: 現地確認業務への衛星画像の活用（案内ページ、農地ポリゴンのひも付けツール）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/kanbo/dx/eisei.html
+  tags: [農業委員会, 自治体, 筆ポリゴン]
+
+- id: maff-emaff-map-dx
+  title: eMAFF地図による農地関連業務のDX（衛星画像による農地判定の実証の精度）
+  publisher: 農林水産省 大臣官房デジタル戦略グループ
+  url: https://www.maff.go.jp/j/kanbo/dx/attach/pdf/nougyou_dxkousou-95.pdf
+  tags: [農業委員会, 自治体, 精度, 現地確認]
+
+- id: nca-patrol-guideline-2021
+  title: 令和3年度 農地パトロール（利用状況調査）実施要領（2021年7月）
+  publisher: 全国農業委員会ネットワーク機構 全国農業会議所
+  url: https://www.sanoukai.jp/wp/wp-content/uploads/2021/08/noutipato.pdf
+  tags: [農業委員会, 荒廃農地, 利用状況調査, 制度]
+
+- id: fukushima-yukyu-manual
+  title: 遊休農地に関する措置マニュアル（実務編）（2017年3月、最終改正2023年7月。国の通知「農地法の運用について」の衛星画像の条件を引用）
+  publisher: 福島県農林水産部農村振興課
+  url: https://www.pref.fukushima.lg.jp/uploaded/attachment/639412.pdf
+  tags: [農業委員会, 利用状況調査, 制度, 衛星画像の条件]
+
+- id: digital-analog-cases-2026
+  title: 地方公共団体におけるアナログ規制見直し事例集（マニュアル第3.1版 参考資料15、2026年3月）
+  publisher: デジタル庁
+  url: https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/488ec589-9c7c-4c19-99b4-9ade193c7f3c/91b788f5/20260327_policies_digital-extraordinary-administrative-research-committee-local-government_outline01.pdf
+  tags: [自治体, 農業委員会, 固定資産, 水道, 事例]
+
+- id: maff-patrol-pwc-r2
+  title: 農地利用状況調査の効率化ソリューションの実証分析調査委託事業（農地パトロール）最終報告書（令和2年度）
+  publisher: 農林水産省（委託先：PwCコンサルティング）
+  url: https://www.maff.go.jp/j/budget/yosan_kansi/sikkou/tokutei_keihi/seika_R2/ippan/attach/pdf/R2_ippan-7.pdf
+  tags: [農業委員会, 荒廃農地, 精度, 費用]
+
+- id: maff-chusankan-manual-r4
+  title: 中山間地域等直接支払制度における衛星画像を用いた現地調査実施マニュアル（令和4年度改訂版、2023年1月）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/nousin/tyusan/siharai_seido/eisei/attach/pdf/eisei-17.pdf
+  tags: [中山間, 現地確認, SAR, 自治体]
+
+- id: digital-farmland-survey-2022
+  title: 農地利用状況の定期調査への衛星写真の活用（事務局報告）（2022年5月）
+  publisher: デジタル庁 行政改革ワーキンググループ
+  url: https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/9ed622da-02ca-466b-a79c-97169b556519/4d5860d5/20220518_meeting_administrative_research_working_group_outline_03.pdf
+  tags: [農業委員会, 利用状況調査, 制度]
+
+- id: maff-nouchi-tuti-page
+  title: 農地法等の三段表・農地制度関係通知（「農地法の運用について」の掲載先）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/keiei/koukai/nouchi_seido/nouchi_sandan.html
+  tags: [農業委員会, 制度, 通知]
+
+- id: gsi-sar-error
+  title: 干渉SARの誤差と補正
+  publisher: 国土地理院
+  url: https://www.gsi.go.jp/uchusokuchi/sar_error.html
+  tags: [干渉SAR, 誤差, 大気, 電離層, DEM]
+
+- id: nilim-dam-sar-manual-2023
+  title: 衛星SARデータを用いたロックフィルダムおよび貯水池周辺斜面の変位計測マニュアル（案）（国総研資料第1233号、2023年1月）
+  publisher: 国土技術政策総合研究所
+  url: https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn1233pdf/ks1233.pdf
+  tags: [ダム, 干渉SAR, 基準点, 精度, 成果物]

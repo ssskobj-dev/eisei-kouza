@@ -1,0 +1,22 @@
+# 案内役の声の一覧。台本の voice に名前を書く。書かなければ、同じ言語の中から動画ごとに選ぶ（idで決まるので再生成しても同じ声）。
+# lang：ja は VOICEVOX、en は Piper（model に声のモデル名）。credit は動画末尾に自動で入る表記。
+voices:
+- name: もち子
+  id: 20
+  pitch: -0.04
+  credit: VOICEVOX:もち子さん
+  note: 女性。親しみのある話し方。少し低くしている
+  lang: ja
+  engine: voicevox
+- name: Ryan
+  lang: en
+  engine: piper
+  model: en_US-ryan-medium
+  credit: Piper TTS (en_US-ryan, MIT)
+  note: US male, clear and standard
+- name: Joe
+  lang: en
+  engine: piper
+  model: en_US-joe-medium
+  credit: Piper TTS (en_US-joe, MIT)
+  note: US male, calm and low

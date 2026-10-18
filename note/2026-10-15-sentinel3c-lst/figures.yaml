@@ -1,0 +1,39 @@
+# 時事記事「Sentinel-3Cの初画像と、地表面温度データの公開」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: news
+    tag: 衛星の運用
+    title: Sentinel-3Cが初画像を送信
+    sub: 無償の地表面温度は、どこまで使えるか
+
+  - id: fig-1
+    type: cards
+    alt: 2つの発表の要点
+    columns: 3
+    items:
+      - title: 初画像が届いた
+        text: 色のセンサーと高度計から。3Cは3機目の衛星
+      - title: 古い衛星と交代
+        text: 3Aと3Bは設計寿命を超えて運用中。3Cが3Aと交代
+      - title: 地表面温度を公開
+        text: ブラウザで見られる。細かさ1km、1日2回の観測
+
+  - id: fig-2
+    type: split
+    alt: 地表面温度のデータでできることと、変わらない限界
+    link: ⇔
+    left:
+      title: できること
+      items:
+        - 市町村の中で暑い所と涼しい所を比べる
+        - 地域の乾き具合の推移を見る
+        - 提案を受ける前に、自分の目で確かめる
+    right:
+      title: 変わらない限界
+      role: none
+      items:
+        - 地表面温度は気温ではない
+        - 雲の下は雲の温度が出る
+        - 観測は10時と22時ごろ。午後は撮らない
+    note: 1画素は1km四方。1枚の田や1本の道路は分からない

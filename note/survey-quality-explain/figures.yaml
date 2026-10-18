@@ -1,0 +1,57 @@
+# note記事「「結局、何ミリ沈んだのか」と聞かれたら」の見出し画像と図。
+# python scripts/figures.py survey-quality-explain で、このフォルダにSVGとPNGができる。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: course
+    tag: 測量・建設コンサル向け
+    title: 変位マップ、検収の4つの前提
+    sub: 「何ミリ沈んだのか」と聞かれる前に確かめること
+
+  - id: fig-1
+    type: flow
+    alt: 検収から説明までの7つの手順
+    steps:
+      - title: 値の前提
+        text: 視線方向か、換算値か
+        who: satellite
+      - title: 基準点
+        text: 変位ゼロにした場所
+        who: satellite
+      - title: ノイズ
+        text: 同じ場所に同じ向きか
+        who: satellite
+      - title: 実測と比較
+        text: 較差の標準偏差
+        who: satellite
+      - title: 抽出とランク
+        text: 基準の数字と単位
+        who: human
+      - title: 報告書
+        text: 前提、精度、限界
+        who: human
+      - title: 顧客に説明
+        text: 判断に効く限界だけ
+        who: human
+
+  - id: fig-2
+    type: split
+    alt: 変位マップから言えること、言えないこと
+    link: "／"
+    left:
+      title: 言えること
+      items:
+        - 基準点に対する、視線方向の変位
+        - 期間の平均の速度
+        - 複数の画像で同じ傾向が出た範囲
+        - 実測との較差で示した精度
+    right:
+      title: 言えないこと
+      role: none
+      items:
+        - 前兆のない崩壊の予知
+        - 変動がいつ起きたか、今後も続くか
+        - 南北方向の動き
+        - 1軌道だけでの、上下と水平の分離
+        - 原因の特定（現地踏査と地盤調査が要る）
+    note: 要約のページには、顧客の判断に影響する「言えないこと」を絞って書く

@@ -1,0 +1,119 @@
+# English use-case video. Same facts as casebook/nature-credit-siting.qmd; English narration & slides.
+# No figures (they carry Japanese text); tables, steps and bullets only.
+lang: en
+voice: Joe
+title: Shortlisting carbon-credit sites with satellites
+series: CASEBOOK
+kicker: Use case
+number: 2
+total: 221
+thumb: Sites first
+summary: How a Japanese company uses satellites to shortlist carbon-credit project sites before the field survey, by studying past forest change and estimating a baseline and deforestation risk. Where it fits, what it decides, its limits, how far free satellites go, and what drives the cost. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: Shortlisting carbon-credit sites with satellites
+    sub: Study past forest and paddy change before the field survey
+    say: Can you compare candidate sites for a carbon-credit project before visiting them? Yes. The answer is to study each site's past land change by satellite first, then shortlist before the field survey. A Japanese company, Archeda, supports nine such projects across five Southeast Asian countries this way. In this video, we look at what it is and who uses it, where it fits in the workflow, what decisions it supports, its limits, how far free satellites go, and what drives the cost.
+
+  - kind: bullets
+    heading: What this is, and who uses it
+    items:
+      - "Nature credits certify CO2 removed or cut by forests and farmland"
+      - "Three types: avoided deforestation, afforestation, paddy methane"
+      - "Buyers: credit project developers and trading companies"
+      - "First decision: which land to run the project on"
+    say: First, what this is. Nature-based carbon credits certify carbon dioxide removed, or emissions cut, by forests and farmland, so it can be traded. There are three main types - preventing deforestation, increasing uptake through afforestation, and reducing methane from paddy fields by managing the water. The buyers are the companies that develop these projects, and the trading houses behind them. Their first decision is which land to run the project on. Traditionally that meant field survey and manual measurement, which is heavy on people and cost, and visiting broad overseas candidate areas one by one is not realistic. So satellites are used to study each site's past change and narrow the field before anyone goes in.
+
+  - kind: bullets
+    heading: "The case: Archeda (Japan, Southeast Asia)"
+    items:
+      - "7th Space Award; Environment Minister prize, Mar 2026"
+      - "Covers site search, PDD analysis, monitoring"
+      - "Optical + SAR; forests, mangroves, paddy AWD"
+      - "9 projects in 5 SE Asian countries"
+      - "Standards: VCS, Gold Standard, Japan JCM"
+    say: This is Archeda, a Japanese company. It won the Environment Minister's prize at Japan's seventh Space Development and Utilization Award; the ceremony was in March 2026. Its service covers the whole chain - searching for candidate sites, the analysis a project design document needs, and monitoring after the project starts - using optical and synthetic aperture radar data together. It targets afforestation, forest conservation, paddy alternate wetting and drying, and mangrove restoration, and supports the V-C-S, Gold Standard, and Japan's J-C-M schemes. It reports nine projects across five Southeast Asian countries - the Philippines, Vietnam, Indonesia, Cambodia, and Laos. One caution - the award material publishes neither precision nor cost figures, and the satellite used is not disclosed. Read it as paid support under way, with the technology still developing.
+
+  - kind: steps
+    heading: Where it fits in the workflow
+    items:
+      - Decide project type, country, and standard
+      - List candidate sites broadly
+      - "Satellite: study past forest-area change"
+      - Compare on one yardstick, shortlist a few
+      - Field-survey the shortlist; check rights and consent
+    say: Here is where it fits. First, decide the project type - forest conservation, afforestation, or paddy - the country, and the certification standard, because the standard decides what you must measure. Second, list candidate sites broadly. Third, study each site's past forest-area change by satellite. Fourth, compare the sites on one yardstick and shortlist a few. Fifth, on the shortlist, run the field survey and confirm land rights and local consent. The field values and the satellite analysis are then combined into the project design document. The company says it works backward from the certification methodology to search for sites, so step one has to come first.
+
+  - kind: table
+    heading: Satellite versus people
+    columns: [The satellite does, The people do]
+    widths: [0.5, 0.5]
+    rows:
+      - [Study past forest-area change, Measure trees on site to set carbon]
+      - [Compare sites on one yardstick, Confirm land rights and consent]
+      - [Watch change after the start, Pass certification review]
+    say: The split of roles looks like this. The satellite studies past forest-area change, compares candidate sites on one yardstick, and watches for change after the project starts. The people measure trees on site to set the carbon amount, confirm land rights and local consent, and take the project through certification review. The satellite does not replace the ground work; it decides which sites are worth that ground work.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.42, 0.58]
+    rows:
+      - [Forest-area change history per site, Which candidates to keep or drop]
+      - [Baseline (no-project outlook) estimate, Project scale; whether to proceed]
+      - [Paddy water presence per plot, Which plots for AWD; which to field-check]
+      - [Field survey results, Final carbon figures for the design document]
+    say: Here is the data you receive and what it lets you decide. The history of forest-area change per site tells you which candidates to keep and which to drop. The baseline - the outlook if no project is run - lets you size the project and decide whether to go on to the next stage. The paddy water record, plot by plot, tells you which plots to enrol in alternate wetting and drying, and which to field-check. And the field survey results fix the carbon figures that go into the project design document. In its 2024 material the company said it delivers these as reports, with an on-screen app still in development.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - "Satellites see area and change on the ground, not carbon itself"
+      - "Gradual degradation and small plots are hard to catch"
+      - "Free satellites (10-30 m) miss fine detail; SAR weak on slopes"
+      - "No precision or cost figures published; satellite undisclosed"
+    say: The limits are worth stating plainly. First, the satellite sees forest area and its change, not the carbon itself - carbon is set on the ground by measuring tree size, height, and species. Second, gradual degradation from selective logging, and small plots, are hard to catch. Third, free satellites at ten to thirty metres miss fine detail, so high-resolution imagery is used for spot verification, and radar, while it sees through cloud, is limited on steep terrain. For paddy, one research study reports eighty percent accuracy for detecting water, but only where plots are at least thirty metres across and the rice is below seventy centimetres - and that is a research figure, not this case's. Finally, this case publishes no precision or cost figures and does not name its satellite, and whether any analysis counts toward a credit is decided by the certification methodology, not by the satellite alone.
+
+  - kind: bullets
+    heading: How far do free satellites go?
+    items:
+      - "Forest-area change can be tracked with free optical data"
+      - "Sentinel-2 at 10 m, Landsat at 30 m; data cost is zero"
+      - "Small features and degradation need paid high-res imagery"
+      - "The case hides its satellites, so free-only is unconfirmed"
+    say: So how far can free satellites take you? Forest-area change can be tracked with free optical data - Europe's Sentinel-2 at ten metres, and Landsat at thirty metres - at zero data cost. On the other hand, small features and gradual degradation need paid high-resolution imagery, and radar fills the gaps on cloudy days. Because this case does not name the satellites it uses, we cannot say the same result comes from free data alone.
+
+  - kind: table
+    heading: What drives the cost
+    columns: [Cost area, What it depends on]
+    widths: [0.3, 0.7]
+    rows:
+      - [Analysis, "Number of sites, years looked back, project type; mostly labor"]
+      - [Satellite data, "Free for area change; paid high-res for verification"]
+      - [Field survey, "Remains even with satellites; needed to set carbon"]
+      - [Certification, "Fees and audit per standard"]
+    say: What drives the cost? This case does not publish any amount - the award material calls the service low cost but gives no figure - so this is only where the cost sits, not a quote. Analysis is mostly labour, and depends on the number of sites, how many years you look back, and the project type. Satellite data is free for tracking area change, but high-resolution imagery for verification is paid. The field survey remains even with satellites, because it is what sets the carbon amount. And certification brings fees and audit costs that differ by standard. To size this, always get a real quote.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.22, 0.39, 0.39]
+    rows:
+      - [Goal, When and where forest was lost, Carbon per area, tree species]
+      - [Change, "Clear-felling, land conversion", Gradual selective logging]
+      - [Paddy, "Plots 30 m or more, rice low", "Small plots, dense rice"]
+      - [Terrain, "Flat, gentle land", Rugged mountains (radar)]
+      - [Stage, Compare sites and monitoring, Pass certification alone]
+    say: Finally, where it fits. It fits when you want to know when and where forest was lost, for clear-felling or land conversion, on flat or gentle terrain, at the stage of comparing candidate sites or monitoring after the start. For paddy, it fits plots of thirty metres or more when the rice is low. It does not fit when you need carbon per area or tree species, for gradual selective logging, on small or densely grown paddy, on rugged mountains when using radar, or if you want certification on satellite analysis alone. When you propose it, three points matter - ask the certification standard and project type first, never say the satellite gives the credit amount, and always pair a precision figure with its conditions.
+
+  - kind: cta
+    heading: Considering it for your projects?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source: Cabinet Office Japan, 7th Space Award (Archeda), 17 Mar 2026  https://www8.cao.go.jp/space/prize/seventh/09.pdf"
+      - "Forest-monitoring limits: FFPRI REDD, '6 points of forest carbon monitoring', Feb 2020"
+      - "Paddy MRV figures: S. Sobue (JAXA), paddy MRV remote sensing, via MAFF 2026"
+      - "Satellite specs: Copernicus Sentinel-2; USGS Landsat"
+    say: To consider this for your own projects, here is the next step. We help you write the request for proposals and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.

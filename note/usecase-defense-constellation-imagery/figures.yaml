@@ -1,0 +1,47 @@
+# note記事「衛星を買わずに画像を確保する。防衛省の「衛星群の長期契約」を発注する側の目で読む」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 安全保障・物流
+    title: 衛星を買わずに画像を確保する
+    sub: 防衛省の衛星群の長期契約を、発注する側の目で読む
+
+  - id: fig-1
+    type: split
+    alt: 衛星群の事業者が行うことと、発注者が行うこと
+    link: ＋
+    left:
+      title: 民間の事業者が行う
+      items:
+        - 衛星と地上施設を保有して運用する
+        - 高頻度に画像を撮って届ける
+        - 衛星の寿命まで維持する
+    right:
+      title: 発注者が行う
+      items:
+        - 撮る場所と頻度を指定する
+        - 届いた画像を判読する
+        - 次の契約を準備する
+    note: 衛星を持たなくても、撮る場所を決める人と画像を読む人は発注者の側に要る
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 衛星の数と頻度は非公表
+        text: 「高頻度」の中身は外からは分からない
+        role: none
+      - title: 2027年度まで構築の途中
+        text: 段階的に打ち上げ、その後に本格運用
+        role: none
+      - title: 光学は雲と夜間に撮れない
+        text: SARを中心に光学を組み合わせる構成
+        role: none
+      - title: 画像の取り扱いに認定が要る
+        text: 分解能3m以下のSAR画像は法律の対象
+        role: none
+      - title: 小型衛星の寿命は5年の見込み
+        text: 続けるには次の契約が要る
+        role: none

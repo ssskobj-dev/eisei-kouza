@@ -1,0 +1,78 @@
+# ユースケースの記事「中高生の探究学習に、衛星データを持ち込む」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星データに任せることと、生徒と先生が行うこと
+    link: ＋
+    left:
+      title: 衛星データが担う
+      items:
+        - 地域の広い範囲の変化を見せる
+        - 何年分も同じ条件で比べられる
+        - 無償で手に入る
+    right:
+      title: 生徒と先生が行う
+      items:
+        - 問いを立てる
+        - 現地で測り、原因を考えて提案する
+        - 先生が進め方を指導する
+    note: 衛星で分かるのは「どこが、いつ、どう変わったか」。なぜ変わったかは現地で補う
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 10mの画素では家は見えない
+        text: 校庭や1軒の家の変化は読めない
+        role: none
+      - title: 雲があると地表が見えない
+        text: 曇りの多い季節は画像が限られる
+        role: none
+      - title: 授業の日に合う画像とは限らない
+        text: 年単位の変化を比べる課題が組みやすい
+        role: none
+      - title: 原因は衛星からは分からない
+        text: 現地の測定や聞き取りで補う
+        role: none
+      - title: 日本の学校は参加の対象外
+        text: 指導書と無償データは使える
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 探究学習に衛星データを組み込む手順
+    steps:
+      - title: 単元を置く
+        text: 年間計画の中に
+        who: human
+      - title: 先生の研修
+        text: 見え方の限界
+        who: human
+      - title: 問いを立てる
+        text: 班ごとに
+        who: human
+      - title: 集めて分析
+        text: 年ごとの変化を地図に
+        who: satellite
+      - title: 現地で補う
+        text: 測る、聞く、調べる
+        who: human
+      - title: 発表と提案
+        text: 地域や学校へ
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 向いている問いから、向いていない問いまで
+    left: 向いている
+    right: 向いていない
+    items:
+      - title: 広い範囲の数年の変化
+        text: 公園、田畑、川辺、市街地
+      - title: 変化の場所と時期
+        text: 地図とグラフで示せる
+      - title: 校庭1つの変化
+        text: 10mの画素より小さい
+      - title: なぜ変わったか
+        text: 現地の測定で補う

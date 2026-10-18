@@ -381,6 +381,42 @@ def paid_start(heads, ratio=None):
     return max(len(heads) // 2, 1)
 
 
+def envideos():
+    """英語の事例動画の、作る候補を出す。公開済みのユースケース（海外・両方）で、まだ英語動画が無いもの。"""
+    cases = [u for u in load_usecases()
+             if u.get("slug") and u.get("region") in ("海外", "両方")
+             and (ROOT / "casebook" / f"{u['slug']}.qmd").exists()]
+    todo = [u for u in cases if not (ROOT / "video" / f"usecase-{u['slug']}-en" / "script.yaml").exists()]
+    print(f"公開済みの海外・両方の事例 {len(cases)} 件、英語動画の未作成 {len(todo)} 件")
+    for u in todo[:12]:
+        print(f"  usecase-{u['slug']}-en　{u['name']}（{u['region']}）")
+    if not todo:
+        print("  未作成はありません")
+
+
+def enreports():
+    """英語の市場レポート動画（海外向け）の、作る候補を出す。
+    report_angles.yaml で en_video: true を付けた切り口 × topics.yaml のテーマで、
+    まだ英語動画（video/report-<テーマid>-<切り口>-en/script.yaml）が無いもの。"""
+    angles = load("patterns/report_angles.yaml")
+    en_angles = [k for k, v in angles.items() if v.get("en_video")]
+    queue = []
+    for topic in load_topics():
+        if not topic.get("id"):
+            continue
+        for key in topic.get("angles") or en_angles:
+            if key not in en_angles:
+                continue
+            folder = f"report-{topic['id']}-{key}-en"
+            if not (ROOT / "video" / folder / "script.yaml").exists():
+                queue.append((topic, key))
+    print(f"海外向けの切り口 {len(en_angles)} 種、英語の市場レポート動画の未作成 {len(queue)} 本")
+    for topic, key in queue[:12]:
+        print(f"  report-{topic['id']}-{key}-en　{topic['name']}：{angles[key]['name']}")
+    if not queue:
+        print("  未作成はありません")
+
+
 def notefull():
     """有料で売る記事（ユースケース集、市場ガイド）の、note用の全文（full.md）を作る。
     サイトでは後半を外して公開するので、noteで売るときは、この全文を貼って有料ラインを置く。"""
@@ -738,6 +774,10 @@ if __name__ == "__main__":
         nav()
     elif cmd == "notefull":
         notefull()
+    elif cmd == "envideos":
+        envideos()
+    elif cmd == "enreports":
+        enreports()
     elif cmd == "usecases":
         usecases(int(sys.argv[2]) if len(sys.argv) > 2 else 3)
     elif cmd == "reports":
