@@ -1,0 +1,25 @@
+The satellite data market: who's who
+
+The main overseas players in the satellite data market, sorted by the three roles - who collects and sells the data, who turns it into answers, and who buys. With named companies in each role, how to read the headline revenue and backlog numbers, and what a consultant should take from it. About 6 minutes.
+
+▶ For an RFP and competitive quotes, contact us from the form
+https://ssskobj-dev.github.io/eisei-kouza/en/register.html?utm_source=youtube&utm_medium=video&utm_campaign=report-infra-players-en
+
+Chapters
+0:00 The satellite data market: who's who
+0:26 What this report covers
+0:48 Who collects and sells the data
+1:32 Who turns the data into answers
+2:11 Who buys
+2:55 How to read the headline numbers
+3:41 What a consultant should take from this
+4:16 Choosing between satellite providers?
+
+Sources and credits
+Planet Labs PBC Q4 & FY2026 results, 19 Mar 2026; ICEYE 2025 financials (unaudited)
+NRO Radar Commercial Augmentation awards, 5 Aug 2026 (nro.gov)
+Maxar became Vantor 2 Oct 2025; HawkEye 360 NYSE IPO 7 May 2026
+Voice: Piper TTS (en_US-ryan, MIT) · Host: Ryan
+
+Satellite to Decision | From Earth observation data to business decisions.
+Made independently of any satellite operator or analytics company.
