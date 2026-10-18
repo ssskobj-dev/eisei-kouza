@@ -1,0 +1,53 @@
+# 「光学とSARの違い、解像度と観測頻度」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/common-optical-sar/<id>.svg を作る。
+
+figures:
+  - id: optical-vs-sar
+    type: split
+    alt: 光学衛星とSAR衛星の違い
+    link: vs
+    left:
+      title: 光学衛星
+      items:
+        - 太陽光の反射を写す
+        - 人の目に近い写真
+        - 雲と夜は撮れない
+        - 見た目の判別に強い
+    right:
+      title: SAR衛星
+      items:
+        - 自分で電波を出す
+        - 雲や夜でも撮れる
+        - 写真とは別物。読み方に慣れが要る
+        - 地面の動きや水の有無に強い
+    note: どちらも、細かく撮るほど一度に撮れる幅は狭く、同じ場所に戻る回数は減る
+
+  - id: wavelength
+    type: cards
+    alt: SARの波長で変わる、向く対象
+    columns: 3
+    items:
+      - title: Lバンド
+        text: 波長約24cm。草木を通り抜け、森林でも使える
+        mark: L
+      - title: Cバンド
+        text: 波長約6cm。無償で観測が多い。草木で落ちる
+        mark: C
+      - title: Xバンド
+        text: 波長約3cm。都市部で細かい。草木では干渉しない
+        mark: X
+
+  - id: tradeoff
+    type: scale
+    alt: 細かさ、幅、頻度の関係
+    left: 細かい・狭い・まれ
+    right: 粗い・広い・頻繁
+    items:
+      - title: スポットライト
+        text: だいち2号。1〜3m、幅25km
+      - title: 高分解能
+        text: だいち2号。3m、幅50km
+      - title: 標準モード
+        text: Sentinel-1。5m×20m、幅250km
+      - title: 広域観測
+        text: だいち2号。100m、幅350km

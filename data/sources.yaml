@@ -311,3 +311,51 @@
   publisher: 国土技術政策総合研究所
   url: https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn1233pdf/ks1233.pdf
   tags: [ダム, 干渉SAR, 基準点, 精度, 成果物]
+
+- id: esa-s1-resolution-swath
+  title: Sentinel-1 SAR Instrument — Resolution and Swath
+  publisher: ESA（Sentinel Online）
+  url: https://sentinel.esa.int/web/sentinel/missions/sentinel-1/instrument-payload/resolution-swath
+  tags: [Sentinel, 仕様, 分解能, 観測幅, 基礎]
+
+- id: esa-s1-revisit-coverage
+  title: Sentinel-1 SAR User Guide — Revisit and Coverage
+  publisher: ESA（Sentinel Online）
+  url: https://sentinel.esa.int/web/sentinel/user-guides/Sentinel-1-sar/revisit-and-coverage
+  tags: [Sentinel, 観測頻度, 観測計画, 基礎]
+
+- id: cdse-sentinel2
+  title: Sentinel-2（Copernicus Data Space Ecosystem のデータ解説ページ）
+  publisher: ESA、Copernicus Data Space Ecosystem
+  url: https://dataspace.copernicus.eu/explore-data/data-collections/sentinel-data/sentinel-2
+  tags: [Sentinel, 光学, 仕様, 観測頻度, 基礎]
+
+- id: jaxa-daichi2-presskit
+  title: 陸域観測技術衛星2号「だいち2号」（ALOS-2）プレスキット
+  publisher: JAXA
+  url: https://fanfun.jaxa.jp/countdown/daichi2/files/daichi2_presskit_jaxa.pdf
+  tags: [ALOS-2, SAR, 仕様, 分解能, 観測幅, 基礎]
+
+- id: nasa-landsat9-brochure
+  title: Landsat 9 brochure（1972年からの観測記録、観測幅、分解能、回帰日数）
+  publisher: NASA（USGSと共同運用）
+  url: https://eospso.gsfc.nasa.gov/sites/default/files/publications/Landsat%209%20brochure%20final%20508%20compliant.pdf
+  tags: [Landsat, 光学, 仕様, 過去履歴, 基礎]
+
+- id: conseo-satellite-guidebook-2022
+  title: CONSEO衛星データガイドブック（2022年12月）
+  publisher: CONSEO事務局（衛星地球観測コンソーシアム）
+  url: https://earth.jaxa.jp/conseo/news/20240131-1/satellite-guidebook.pdf
+  tags: [基礎, 光学, SAR, 分解能, 観測幅, 観測頻度]
+
+- id: gsi-sar-faq2
+  title: 干渉SARのQ&A Q2. 国土地理院のSAR事業についての質問
+  publisher: 国土地理院
+  url: https://www.gsi.go.jp/uchusokuchi/gsi_sar_faq2.html
+  tags: [干渉SAR, 災害, 緊急観測, 火山, 基礎]
+
+- id: env-subsidence-manual-2026
+  title: 地盤沈下観測等における衛星活用マニュアル（令和8年3月改訂）
+  publisher: 環境省
+  url: https://www.env.go.jp/content/000386973.pdf
+  tags: [地盤沈下, 水準測量, 併用, 干渉SAR, 基礎]

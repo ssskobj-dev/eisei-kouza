@@ -1,0 +1,67 @@
+# 「衛星データの5つの強みと、それぞれの限界」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/common-strengths-limits/<id>.svg を作る。
+
+figures:
+  - id: strengths
+    type: cards
+    alt: 衛星データの5つの強み
+    columns: 3
+    items:
+      - title: 広く見られる
+        text: 一度に県をまたぐ広さを同じ条件で
+        mark: "1"
+      - title: 過去に遡れる
+        text: 頼まれなくても撮り続けている
+        mark: "2"
+      - title: 行かずに分かる
+        text: 現地に行く場所と回数を減らせる
+        mark: "3"
+      - title: 見えないものを見る
+        text: 目で分からない沈下や作物の勢い
+        mark: "4"
+      - title: 客観的に示せる
+        text: 誰が撮っても同じ材料になる
+        mark: "5"
+
+  - id: limits
+    type: cards
+    alt: 5つの強みに対になる5つの限界
+    columns: 3
+    items:
+      - title: 広く撮るほど粗い
+        text: 細かく撮ると幅も回数も減る
+        mark: "1"
+        role: none
+      - title: 過去は撮った分だけ
+        text: 遡れるのは撮っていた期間だけ
+        mark: "2"
+        role: none
+      - title: いつでもは撮れない
+        text: 周期がある。光学は雲と夜に弱い
+        mark: "3"
+        role: none
+      - title: 見えるのは指標
+        text: 知りたい値そのものではない
+        mark: "4"
+        role: none
+      - title: 解析で結果が変わる
+        text: 単独では証拠として弱い場面がある
+        mark: "5"
+        role: none
+
+  - id: funnel
+    type: funnel
+    alt: 落とし所：衛星で絞り、現地で確かめる
+    stages:
+      - label: 全体を見る
+        title: 衛星で広い範囲を同じ条件で見る
+        text: 県をまたぐ広さも1回の観測で
+        who: satellite
+      - label: 候補を絞る
+        title: 気になる場所だけを候補にする
+        text: 候補であって、確定ではない
+        who: satellite
+      - label: 現地で確かめる
+        title: 人が現地で判定して確定する
+        text: 拾わなかった場所も「問題なし」ではない
+        who: human

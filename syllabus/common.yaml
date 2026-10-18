@@ -16,7 +16,7 @@ parts:
       - 自分の課題が、どの強みに当たるかを言える
     must_include: [広域, 過去履歴, 遠隔, 可視化, 客観性, 落とし所の考え方]
     material: ""
-    status: todo
+    status: done
 
   - id: common-optical-sar
     title: 光学とSARの違い、解像度と観測頻度
@@ -27,7 +27,7 @@ parts:
       - 解像度、観測幅、観測頻度が両立しない理由を説明できる
     must_include: [雲と夜間, 波長の違い, 解像度と範囲の関係]
     material: ""
-    status: todo
+    status: done
 
   - id: common-data-cost
     title: データの入手方法と費用の考え方
