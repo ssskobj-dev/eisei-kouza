@@ -35,7 +35,7 @@ cover、bullets、figure、table、code、prompt、steps、cta。項目は `scri
 - 中身は日本語版と同じ事実。数字は記事にあるものだけ。費用の概算は「仮定：」で、公開価格の出どころと日付を `credits` に書く
 - `source_url` を自分で開いて、事例と数字を確かめてから書く
 - 図は日本語の文字が入るので使わない。表・手順・箇条書きで作る（手本：`video/usecase-chusankan-patrol-en/script.yaml`）
-- 投稿は英語チャンネル：Actions の video ワークフローで `channel: en`、`privacy: unlisted`
+- 投稿は英語チャンネルに自動。`video/<id>-en/script.yaml` が main にマージされると、`video` ワークフローの push トリガーが動画を生成して英語チャンネルに公開（public）で投稿する。手動で上げたいときだけ Actions から `channel: en` を選んで実行する
 
 ## 英語の市場レポート動画（海外向け）
 
