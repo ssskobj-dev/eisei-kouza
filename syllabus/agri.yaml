@@ -18,7 +18,7 @@ parts:
       - 巡回の優先順位付けに使う手順を組める
     must_include: [指標の意味, 雲の影響, 草丈の低い作物, ドローンとの補完]
     material: ""
-    status: todo
+    status: done
 
   - id: agri-variable-fertilizer
     title: 可変施肥：生育ムラを追肥に反映する

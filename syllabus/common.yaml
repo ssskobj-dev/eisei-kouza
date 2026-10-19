@@ -48,4 +48,4 @@ parts:
       - 課題に対して、衛星が最適でない場合を見分けられる
     must_include: [範囲, 頻度, 精度, 費用, 天候]
     material: ""
-    status: todo
+    status: done

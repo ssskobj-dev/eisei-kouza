@@ -1,0 +1,137 @@
+# 「生育診断：圃場を回る順番を決める」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/agri-growth-patrol/<id>.svg を作る。
+
+figures:
+  - id: conclusion
+    type: split
+    alt: 衛星に任せられることと、人が行うことの分担
+    link: ＋
+    left:
+      title: 衛星に任せられる
+      items:
+        - 管内の全圃場を、同じ日に見る
+        - 生育の濃い薄いで、回る順番を付ける
+        - 晴れた日ごとに更新する
+    right:
+      title: 人が行う
+      items:
+        - 現地で草丈、茎数、葉色を測る
+        - ムラの原因を見分ける
+        - 追肥や水管理を決めて伝える
+    note: 生育マップは「診断の代わり」ではなく「見に行く順番を決める道具」
+
+  - id: strengths
+    type: cards
+    alt: この用途で効く3つの強み
+    columns: 3
+    items:
+      - title: 広く見られる
+        text: 管内の全圃場が、1枚の画像に入る
+      - title: 行かずに分かる
+        text: 圃場に入らずに、全圃場の濃い薄いが地図になる
+      - title: 見えないものが見える
+        text: 葉の反射から、生育量の目安（NDVI）を出せる
+
+  - id: limits
+    type: cards
+    alt: 現在の技術的な5つの限界
+    columns: 2
+    items:
+      - title: 雲があると撮れない
+        text: 晴れた日の画像しか使えない。梅雨は欠けやすい
+        role: none
+      - title: 指標は生育そのものではない
+        text: 茎数に読み替えるには、現地の実測が要る
+        role: none
+      - title: 茂ると差が出なくなる
+        text: 生育の後半は値が頭打ちになる
+        role: none
+      - title: 草丈が低いと土が混ざる
+        text: 生育初期や低い野菜は、画素に土や水面が入る
+        role: none
+      - title: 筆の中の細かいムラは苦手
+        text: 1画素は10m四方。筆と筆の違いを見る
+        role: none
+
+  - id: ndvi-range
+    type: cards
+    alt: 生育の時期と、NDVIで差が読める範囲
+    columns: 3
+    items:
+      - title: 生育初期
+        text: 植被が小さく、土や水面が混ざる。差が読みにくい
+        role: none
+      - title: 中期
+        text: 葉が画素を覆い、差が読める
+      - title: 繁茂期
+        text: 値が頭打ちになり、差が出ない
+        role: none
+
+  - id: funnel
+    type: funnel
+    alt: 管内の全圃場から、見に行く圃場へ絞り込む流れ
+    stages:
+      - label: 管内の全圃場
+        title: 全部を同じ密度では回れない
+        text: 数百から数千の筆
+        who: none
+      - label: 外れた圃場
+        title: 衛星で、平均から外れた圃場を拾う
+        text: 順番であって、診断の確定ではない
+        who: satellite
+      - label: 現地で確かめる
+        title: 指導員が原因を見分け、対策を伝える
+        text: 拾われなかった圃場も「問題なし」ではない
+        who: human
+
+  - id: flow
+    type: flow
+    alt: 巡回の順番を決める5つの手順
+    steps:
+      - title: 画像を選ぶ
+        text: 晴れた日、雲なし
+        who: satellite
+      - title: 筆ごとに平均
+        text: 筆の中は見ない
+        who: satellite
+      - title: 外れた筆を拾う
+        text: 管内の平均と比べる
+        who: satellite
+      - title: 実測して関係式
+        text: 高低から数筆ずつ
+        who: human
+      - title: 順番に回る
+        text: 原因と対策を決める
+        who: human
+
+  - id: cost
+    type: cards
+    alt: 費用を分けて考える3つの項目
+    columns: 3
+    items:
+      - title: データと配信
+        text: 無償の衛星を自分で扱うか、事業者の配信を使うか
+        mark: A
+      - title: 関係式づくり
+        text: 調査圃場を数筆選んで実測する手間
+        mark: B
+        role: human
+      - title: 巡回
+        text: 外れた圃場を何筆見に行くか
+        mark: C
+        role: human
+
+  - id: fit
+    type: scale
+    alt: 作物の状態と、衛星で差が読める度合い
+    left: 差が読みやすい
+    right: 読みにくい
+    items:
+      - title: 中期の水稲、小麦
+        text: 葉が画素を覆う
+      - title: 繁茂した後期
+        text: 値が頭打ち
+      - title: 生育初期
+        text: 土や水面が混ざる
+      - title: 草丈の低い野菜
+        text: 玉ねぎなど

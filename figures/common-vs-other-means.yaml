@@ -1,0 +1,70 @@
+# 「衛星、航空機、ドローン、現地調査の使い分け」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/common-vs-other-means/<id>.svg を作る。
+# 数字は林野庁の手引き（2018年3月）図1-2の読み取り。本文の出典1。
+
+figures:
+  - id: scale
+    type: scale
+    alt: 現地調査から衛星まで、見られる範囲と細かさの並び
+    left: 狭く、細かく
+    right: 広く、粗く
+    items:
+      - title: 現地調査
+        text: 1ha程度、1〜10cm
+      - title: ドローン
+        text: 10〜100ha、5cm〜1m
+      - title: 航空機
+        text: 2,000ha以上、0.1〜5m
+      - title: 衛星
+        text: 10万ha以上、0.5〜50m
+
+  - id: criteria
+    type: cards
+    alt: 比べるときの5つの観点
+    columns: 3
+    items:
+      - title: 範囲
+        text: 一度にどれだけの広さを見られるか
+        mark: "1"
+      - title: 頻度
+        text: 同じ場所をどの間隔で見られるか
+        mark: "2"
+      - title: 精度
+        text: どこまで細かく、正確に測れるか
+        mark: "3"
+      - title: 費用
+        text: 何に、いつ払うか
+        mark: "4"
+      - title: 天候
+        text: 雲、風、雨で使えなくなるか
+        mark: "5"
+
+  - id: cases
+    type: cards
+    alt: 条件別に、どの手段から考えるか
+    columns: 2
+    items:
+      - title: 衛星から
+        text: 広い範囲を、定期的に、同じ条件で見たい
+      - title: 航空機から
+        text: 県や市の単位を、一度に、細かく撮りたい
+      - title: ドローンから
+        text: 圃場や工区を、都合の良い日に、細かく見たい
+        role: human
+      - title: 現地調査から
+        text: 数か所を正確に測りたい、最後に判定したい
+        role: human
+
+  - id: flow
+    type: flow
+    alt: 広い手段で絞り、狭い手段で確かめる3つの手順
+    steps:
+      - title: 衛星で候補を拾う
+        text: 全体から、定期的に
+        who: satellite
+      - title: 細かく見る
+        text: 航空機かドローン
+        who: satellite
+      - title: 現地で判定する
+        text: 対策と報告を決める
+        who: human

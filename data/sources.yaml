@@ -311,3 +311,193 @@
   publisher: 国土技術政策総合研究所
   url: https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn1233pdf/ks1233.pdf
   tags: [ダム, 干渉SAR, 基準点, 精度, 成果物]
+
+# ---- 基礎：衛星、航空機、ドローン、現地調査の使い分け（2026-10-20 追記） ----
+
+- id: rinya-rs-guide-2018
+  title: 高精度な森林情報の整備・活用のためのリモートセンシング技術やその利用方法等に関する手引き（図1-2 プラットフォームの比較）（2018年3月）
+  publisher: 林野庁
+  url: https://www.rinya.maff.go.jp/j/keikaku/smartforest/attach/pdf/smart_forestry-20.pdf
+  tags: [基礎, 比較, 森林, 航空機, ドローン]
+
+- id: sentiwiki-s2-mission
+  title: Sentinel-2 Mission（SentiWiki。分解能10m、2機で5日、観測幅290km）
+  publisher: ESA
+  url: https://sentiwiki.copernicus.eu/web/s2-mission
+  tags: [基礎, Sentinel, 無償データ, 観測頻度]
+
+- id: usgs-landsat8-factsheet
+  title: Landsat 8（Fact Sheet 2012-3072。30m、16日）（2013年5月改訂）
+  publisher: USGS
+  url: https://pubs.usgs.gov/fs/2012/3072/fs2012-3072.pdf
+  tags: [基礎, Landsat, 無償データ, 観測頻度]
+
+- id: jaxa-eo-basic
+  title: 地球観測衛星の基礎知識（光学は雲の下や夜間は観測できない、SARは天候に左右されない）
+  publisher: JAXA 第一宇宙技術部門
+  url: https://earth.jaxa.jp/files/eo/EO_Basic_knowledge.pdf
+  tags: [基礎, センサー, 雲, SAR]
+
+- id: gsi-aerial-photo
+  title: 空中写真（国土の約半分を撮影、晴天の日に撮影、緊急撮影、1930年代からの保管）
+  publisher: 国土地理院
+  url: https://www.gsi.go.jp/gazochosa/gazochosa41006.html
+  tags: [基礎, 航空機, 航空写真]
+
+- id: gsi-fixed-asset-photo-2018
+  title: 固定資産税調査用空中写真撮影の実態に関する調査業務（3年ごとが44.6%、地上画素寸法10〜20cmが64.7%）（2018年2月）
+  publisher: 国土地理院
+  url: https://www.gsi.go.jp/common/000201394.pdf
+  tags: [基礎, 航空機, 航空写真, 自治体]
+
+- id: mlit-river-lidar-guide-2007
+  title: 航空レーザ測量による河道及び流域の三次元電子地図作成指針（案）（標高の標準偏差30cm以内、2m×2mに1点以上）（2007年3月改訂）
+  publisher: 国土交通省 河川局
+  url: https://www.mlit.go.jp/river/shishin_guideline/pdf/3dmap_sakuseishishin.pdf
+  tags: [基礎, 航空機, 航空レーザ, 精度]
+
+- id: gsi-uav-survey-manual-2017
+  title: UAVを用いた公共測量マニュアル（案）（三次元点群の位置精度0.05・0.10・0.20m、地上画素寸法）（2016年3月制定、2017年3月改正）
+  publisher: 国土地理院
+  url: https://www.hrr.mlit.go.jp/gijyutu/i_Construction/youryou_kijun/01uav/01_1_uav_sokuryo_manual.pdf
+  tags: [基礎, ドローン, 精度, 測量]
+
+- id: gsi-uav-safety-2016
+  title: 公共測量におけるUAVの使用に関する安全基準（案）第1.0版（1回の運航範囲は0.3km²以下が望ましい、高度150m未満）（2016年3月、山形県の掲載ページ）
+  publisher: 国土地理院
+  url: https://www300.pref.yamagata.jp/documents/27123/2-02.pdf
+  tags: [基礎, ドローン, 測量, 制度]
+
+- id: mlit-drone-rules
+  title: 無人航空機の飛行禁止空域と飛行の方法（執筆時点の案内ページ）
+  publisher: 国土交通省 航空局
+  url: https://www.mlit.go.jp/koku/koku_fr10_000041.html
+  tags: [基礎, ドローン, 制度]
+
+- id: mlit-hakusho-h28-drone
+  title: 国土交通白書 平成28年版 コラム「無人航空機（ドローン・ラジコン機等）の安全な飛行に向けて」（150m、人口集中地区、日中、目視、30m）
+  publisher: 国土交通省
+  url: https://www.mlit.go.jp/hakusyo/mlit/h27/hakusho/h28/html/n2744c00.html
+  tags: [基礎, ドローン, 制度]
+
+- id: mlit-drone-issues
+  title: 資料5 ドローンに係る技術面・運用面での課題の把握（バッテリーは40分程度が限界、耐風は10〜15m/sが主流）（年月の記載なし。2021年ごろ）
+  publisher: 国土交通省（事務局作成）
+  url: https://www.mlit.go.jp/common/001430305.pdf
+  tags: [基礎, ドローン, 天候]
+
+- id: naro-drone-wide-rs
+  title: ドローンを利用した効率的な広域リモートセンシング技術（分野：水田作）（100haを約2時間、機材の初期投資150万円程度）
+  publisher: 農研機構 九州沖縄農業研究センター
+  url: https://www.naro.go.jp/brain/h27kakushin/keiei/result/files/keiei_2020_result-k007-y01.pdf
+  tags: [基礎, ドローン, 生育診断, 費用]
+
+- id: mlit-road-sar-final-report
+  title: リモートセンシング技術を活用した道路土構造物の維持管理の効率化に関する研究開発 研究終了報告書（現地確認したが変状らしきものが無い場合もある）
+  publisher: 国土交通省 道路局
+  url: https://www.mlit.go.jp/road/tech/jigo/r03/pdf/houkokusyo29-9.pdf
+  tags: [道路, 斜面, 干渉SAR, 現地確認]
+
+- id: naro-sentinel2-paddy-manual-2019
+  title: Sentinel-2衛星データを用いた水田の取水開始時期の把握手法（NDVIの式、晴天時のみ利用可、2か月で24回中8回が晴天）（2019年8月）
+  publisher: 農研機構 農村工学研究部門
+  url: https://www.naro.go.jp/publicity_report/publication/files/Sentinel-2_man_2.pdf
+  tags: [基礎, Sentinel, 無償データ, 雲, 生育診断]
+
+# ---- 農業：生育診断（2026-10-20 追記） ----
+
+- id: toyama-ndvi-2024
+  title: GreenSeekerやドローンで省力的かつ広範囲な生育把握を実現（研究成果 vol.39。普及指導員の生育調査の限界、NDVIの説明）（2024年1月）
+  publisher: 富山県農林水産総合技術センター農業研究所
+  url: https://taffrc.pref.toyama.jp/nsgc/nougyou/wp-content/uploads/sites/10/2024/09/%E8%BE%B2%E7%A0%94%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9Vol.39%E3%80%802024%E5%B9%B41%E6%9C%88.pdf
+  tags: [生育診断, 水稲, NDVI, 普及指導]
+
+- id: chiba-uav-rice-2020
+  title: UAV（ドローン）を用いた水稲の追肥診断技術の開発（試験研究成果普及情報、2018〜2020年度）
+  publisher: 千葉県農林総合研究センター
+  url: https://www.pref.chiba.lg.jp/ninaite/shikenkenkyuu/documents/r3n0103.pdf
+  tags: [生育診断, 水稲, ドローン, NDVI]
+
+- id: maff-rs-taskforce-2025
+  title: 第4回 衛星リモートセンシングデータ利用タスクフォース大臣会合 農林水産省説明資料（見回り時間の削減、可変施肥）（2025年12月）
+  publisher: 農林水産省
+  url: https://www8.cao.go.jp/space/taskforce/rs/dai4/siryou1-4.pdf
+  tags: [生育診断, 政策, 農業]
+
+- id: aomori-seiten-navi
+  title: 「青天ナビ」における生育診断システムの活用方法（津軽13市町村、6月下旬〜8月下旬、雲は欠測、最終判断は圃場で）
+  publisher: 青森県産業技術センター農林総合研究所 スマート農業推進室
+  url: https://www.aomori-itc.or.jp/docs/2025090500023/files/R07jouhou6.pdf
+  tags: [生育診断, 水稲, 自治体, 雲]
+
+- id: hro-tokachi-wheat-satellite-2023
+  title: 衛星画像で省力化！広域的な秋まき小麦の追肥判断（茎数の推定誤差286本/m²・300本/m²、無追肥判定の適合率90%）（2023年）
+  publisher: 北海道立総合研究機構 十勝農業試験場
+  url: https://www.hro.or.jp/upload/18328/10.pdf
+  tags: [生育診断, 小麦, NDVI, 精度]
+
+- id: hro-tokachi-wheat-manual-2023
+  title: 衛星画像を用いた秋まき小麦「きたほなみ」の茎数推定・起生期無追肥判定の実施マニュアル（雲や雪の画像は使えない、調査圃場で実測、標準化NDVI）（2023年3月）
+  publisher: 北海道立総合研究機構 十勝農業試験場
+  url: https://www.hro.or.jp/upload/13983/satellitemanual.pdf
+  tags: [生育診断, 小麦, NDVI, 現地確認]
+
+- id: naro-tarc-ndvi-2016
+  title: 携帯型NDVI測定機により穂肥前の移植水稲の窒素吸収量を推定できる（研究成果情報、2016年度）
+  publisher: 農研機構 東北農業研究センター
+  url: https://www.naro.affrc.go.jp/org/tarc/seika/jyouhou/H28/kankyou/H28kankyou006.pdf
+  tags: [生育診断, 水稲, NDVI, 精度]
+
+- id: iwate-sentinel2-cloud-2022
+  title: 無償衛星データによる水稲の田植え・稲刈りの進捗判断の可能性の検討（東北農業研究75。雲の影響で必要な時期にデータが得られない）（2022年）
+  publisher: 岩手県農業研究センター（横田紀雄）
+  url: https://www.naro.go.jp/org/tarc/to-noken/DB/DATA/075/075-015.pdf
+  tags: [生育診断, 水稲, Sentinel, 雲]
+
+- id: cao-agri-satellite-needs-2021
+  title: 農林水産業における衛星利用の現状と要望（実証小委員会 資料1。天候に左右され希望日の画像を入手できない、愛知の麦の追肥診断）（2021年3月）
+  publisher: 内閣府 宇宙開発戦略推進事務局
+  url: https://www8.cao.go.jp/space/comittee/02-jissyou/jissyou-dai5/siryou1.pdf
+  tags: [生育診断, 政策, 雲, 農業]
+
+- id: naro-brain-rice-growth-manual-2011
+  title: 作物生育情報測定装置による水稲生育診断のための利用マニュアル（NDVIは繁茂すると変化が小さい、6月上旬以前は精度が低い、水面反射）（2011年3月）
+  publisher: 農研機構 生物系特定産業技術研究支援センターほか
+  url: https://www.naro.go.jp/PUBLICITY_REPORT/publication/files/brain_seiiku.pdf
+  tags: [生育診断, 水稲, NDVI, 精度]
+
+- id: miyagi-uav-ndvi-2020
+  title: 水稲の生育診断におけるUAV搭載マルチスペクトルカメラでの測定条件の検討（東北農業研究73。7月中下旬以降はNDVIが0.8〜0.9と飽和）（2020年）
+  publisher: 宮城県古川農業試験場（森谷、佐々木）
+  url: https://www.naro.go.jp/org/tarc/to-noken/DB/DATA/073/073-007.pdf
+  tags: [生育診断, 水稲, ドローン, NDVI]
+
+- id: tochigi-rs-rice-index-2023
+  title: リモートセンシングによる栃木県オリジナル水稲品種の生育診断指標値の策定及び現地ほ場における衛星データ・連動農機の精度評価（委託試験成績、生育診断指標値の策定。移植後30日・45日は相関なし）（2022〜2023年度）
+  publisher: 栃木県農業試験場
+  url: https://www.jataff.or.jp/project/inasaku/pdf/R4_5_03-1.pdf
+  tags: [生育診断, 水稲, ドローン, NDVI]
+
+- id: tochigi-rs-rice-satellite-2023
+  title: 同（現地ほ場における衛星データの精度評価。1筆内のゾーンと現地NDVIに相関なし）（2023年度）
+  publisher: 栃木県農業試験場
+  url: https://www.jataff.or.jp/project/inasaku/pdf/R4_5_03-2.pdf
+  tags: [生育診断, 水稲, 精度, 限界]
+
+- id: aichi-wheat-ndvi-2024
+  title: 小麦品種『きぬあかり』の簡易な生育診断方法（NDVIと生育指標の決定係数0.88、条間20cm未満で誤差大）（2024年）
+  publisher: 愛知県農業総合試験場
+  url: https://www.pref.aichi.jp/uploaded/attachment/542354.pdf
+  tags: [生育診断, 小麦, NDVI, 精度]
+
+- id: aichi-wheat-vrt-2022
+  title: リモートセンシングと可変施肥を組み合わせた小麦の精密追肥の実証（委託試験成績。ドローン空撮が天気に左右、画像解析に手間）（2022年度）
+  publisher: 愛知県農業総合試験場
+  url: https://www.jataff.or.jp/project/inasaku/pdf/R4_5_06-1.pdf
+  tags: [生育診断, 小麦, ドローン, 可変施肥]
+
+- id: naro-smart-niigata-r1
+  title: スマート農業実証プロジェクト 新潟市（有）米八 成果資料（衛星の広域診断レポート、天候で取得できない場合がある）（2019年度採択）
+  publisher: 農研機構
+  url: https://www.naro.go.jp/smart-nogyo/r1/files/r1_suiden_DAI-D08.pdf
+  tags: [生育診断, 水稲, 実証, 雲]
