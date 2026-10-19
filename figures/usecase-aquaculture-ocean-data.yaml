@@ -1,0 +1,76 @@
+# ユースケースの記事「養殖の給餌と出荷を、毎日の海の地図で決める」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星と海洋モデルに任せることと、養殖事業者が行うこと
+    link: ＋
+    left:
+      title: 衛星と海洋モデルが行う
+      items:
+        - 広い範囲の水温やクロロフィルを毎日地図にする
+        - 48時間先までの変化を予測する
+    right:
+      title: 養殖事業者が行う
+      items:
+        - 自分のいけすの水温や溶存酸素を現場で測る
+        - 給餌量と出荷の時期を決める
+        - 日報に記録する
+    note: 地図が決めるのは「注意する日」。給餌と出荷は現場の値と魚を見て決める
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: いけす1基の差は出ない
+        text: 元データの格子は1/12度や1/4度
+        role: none
+      - title: 塩分と溶存酸素は推定値
+        text: 海洋モデルの計算値
+        role: none
+      - title: 雲で海色が欠ける
+        text: クロロフィルの元は光学の観測
+        role: none
+      - title: 分かるのは表層
+        text: 水深ごとの差は現場で測る
+        role: none
+      - title: 効果の数字がない
+        text: 給餌量や被害額の変化は公表されていない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 毎日の判断に、海の地図を入れる手順
+    steps:
+      - title: 朝、地図を見る
+        text: 水温と48時間予測
+        who: satellite
+      - title: いけすで測る
+        text: 水温と溶存酸素
+        who: human
+      - title: ずれを記録
+        text: 地図と現場の差
+        who: human
+      - title: 給餌と出荷を決める
+        text: 減らす、前倒し
+        who: human
+      - title: 補正の目安を作る
+        text: 数か月分の記録
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 海の地図が効く養殖場から、効きにくい養殖場まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 外洋に開けた海域
+        text: 格子の値に近い
+      - title: 湾の入口付近
+        text: 外からの変化が見える
+      - title: 現場の計測と重ねる
+        text: ずれを補正できる
+      - title: 湾の奥、入り組んだ地形
+        text: 格子の値と差が出る
+      - title: 水深ごとの差
+        text: 表層しか分からない
