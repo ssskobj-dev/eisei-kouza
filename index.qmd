@@ -1,6 +1,6 @@
 ---
 title: "Satellite to Decision"
-pagetitle: "衛星データ 市場レポート・活用事例・解析の学習｜Satellite to Decision"
+pagetitle: "衛星データ 市場レポート・活用事例・解析の学習・資格"
 description: "衛星データの市場レポート、活用事例、解析の学習プログラム、資格（衛星データマーケッター・衛星データ解析エンジニア）。遊休農地、地盤変位、災害、インフラ監視など、衛星データを仕事の判断に使う知識。"
 title-block-style: none
 format:
