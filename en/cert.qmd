@@ -26,11 +26,13 @@ These certifications are run independently by {{< var site.operator_en >}}. They
 
 ## Common rules
 
-- **Levels**: each certification has **Level 2** and **Level 1**. Level 2 opens first. Level 1 opens once enough people have passed Level 2 (passing Level 2 is required for Level 1)
+- **Levels**: each certification has **Level 2** and **Level 1**. **Only people who have passed Level 2 can sit Level 1** (no skipping). Level 1 exams open once enough people have passed Level 2
 - **Delivery**: online. Each candidate receives a draw from a question pool
 - **Pass mark**: 70% overall on multiple choice. No per-domain cut-off (domain scores are reported)
 - **Validity**: 2 years from passing, because satellites and rules change. Renewal is by re-examination
-- **Fees and dates**: announced to [paid members](register.qmd). Registration for exams is through the membership page
+- **Fee**: **JPY {{< var cert.fee >}}** per sitting (same for every level and certification)
+- **Exam date**: **{{< var cert.lead_months >}} months after you apply**. Each candidate's exam date is set from their application date; that interval is your study period
+- **Applying**: [paid members](register.qmd) apply through the membership page
 - **Sources**: every question is grounded in articles on this site and their cited sources (public documents, primary sources). Nothing outside the site is tested
 
 ## {{< var cert.business_en >}}
@@ -70,7 +72,7 @@ Intent: the relationship between vegetation and wavelength, and the principle th
 
 ### Level 1
 
-**Prerequisite**: Level 2. For people who write specifications, compare vendor proposals, or are accountable for explaining results.
+**Prerequisite**: a pass in {{< var cert.business_en >}} Level 2 (you cannot apply without it). For people who write specifications, compare vendor proposals, or are accountable for explaining results.
 
 **Format (planned)**: Part 1 - 40 multiple-choice questions, 60 minutes (includes reading results and estimates under stated assumptions). Part 2 - 3 written tasks, 120 minutes, answered from supplied material (proposal excerpts, result figures, public guidance). Pass: 70% on Part 1 and 60% on Part 2 against a published marking scheme.
 
@@ -128,7 +130,7 @@ Intent: apply the scale factor before computing - a viewpoint specific to satell
 
 ### Level 1
 
-**Prerequisite**: Level 2. For people who deliver analysis results into operations, or lead an in-house analysis team.
+**Prerequisite**: a pass in {{< var cert.analysis_en >}} Level 2 (you cannot apply without it). For people who deliver analysis results into operations, or lead an in-house analysis team.
 
 **Format (planned)**: Part 1 - 40 multiple-choice questions, 60 minutes. Part 2 - a practical task, 120 minutes: given a question and open data, have AI write the code, review and fix it, and submit a short report on the validity and limits of the result. Marking scheme published in advance; AI first pass, supervisor check. Pass: 70% on Part 1 and 60% on Part 2.
 
@@ -148,6 +150,9 @@ Intent: apply the scale factor before computing - a viewpoint specific to satell
 
 ## FAQ
 
+**When do I sit the exam?**
+{{< var cert.lead_months >}} months after you apply. Apply on 1 April, for example, and you sit around 1 July. Use the time to work through the training and articles listed under "How to prepare".
+
 **Which should I take first?**
 If your job is to use or commission satellite data, {{< var cert.business_en >}}. If you run analyses yourself, {{< var cert.analysis_en >}}. If unsure: do you look at code at work? If yes, the Engineer track.
 
@@ -161,6 +166,6 @@ A certificate (name, certification, level, pass date, expiry). You can cite it o
 They are built from this site's articles and their sources, and checked by the supervisors. Question quality is managed statistically (difficulty and discrimination); questions that do not work are retired.
 
 ::: {.s2d-paywall-cta}
-Exam registration and dates are announced to paid members.
+The fee is JPY {{< var cert.fee >}} per sitting and the exam date is {{< var cert.lead_months >}} months after application. Paid members apply through the membership page.
 <p><a class="s2d-button" data-s2d-register="cert" href="register.html">Become a paid member</a></p>
 :::

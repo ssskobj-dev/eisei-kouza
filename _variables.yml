@@ -55,6 +55,8 @@ cert:
   business_en: Satellite Data Marketer
   url: "https://ssskobj-dev.github.io/eisei-kouza/cert.html"
   url_en: "https://ssskobj-dev.github.io/eisei-kouza/en/cert.html"
+  fee: "2,980"          # 受験料（1回の受験につき、円）
+  lead_months: "3"      # 試験日は、申し込みから何か月後か
 # 有料登録の条件。変えたら、特定商取引法に基づく表記のページも確かめる
 paid:
   price: "390"
