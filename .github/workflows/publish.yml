@@ -5,6 +5,14 @@ name: publish
 on:
   push:
     branches: [main]
+  # 自動マージ（automerge）は GitHub のトークンで main に書くため、push では発火しない。
+  # そこで automerge が終わるたびに公開する（マージが無かった回も走るが、公開するだけで害はない）。
+  workflow_run:
+    workflows: [automerge]
+    types: [completed]
+  # 念のための見回り（1日1回）
+  schedule:
+    - cron: "41 21 * * *"
   workflow_dispatch:
 
 permissions:
