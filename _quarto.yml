@@ -8,6 +8,7 @@ project:
     - register.qmd
     - privacy.qmd
     - tokushoho.qmd
+    - cert.qmd
     - en/**/*.qmd
     - landscape/**/*.qmd
     - casebook/*.qmd
