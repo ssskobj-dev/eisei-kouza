@@ -106,7 +106,7 @@ categories: [インフラ・建設, 商用, 国内]
 ## 関連する記事
 
 - テーマから探す：[インフラ・建設](../themes/infrastructure.qmd)
-- 市場ガイド：[インフラ・地盤監視：国内の事例](../landscape/infra/cases-japan.qmd)
+- 市場レポート：[インフラ・地盤監視：国内の事例](../landscape/infra/cases-japan.qmd)
 - 講座（準備中）：地盤沈下：水準測量と組み合わせて面で把握する
 
 ## 出典

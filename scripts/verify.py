@@ -83,6 +83,22 @@ ACTION_WORDS = ("示唆", "要点", "手順", "チェック", "次の一歩", "�
 VAGUE_TITLE = re.compile(r"(について|とは|の話|入門|概要|基礎|まとめ)$")
 
 
+
+def seo_words():
+    """data/seo_keywords.yaml の語をすべて平らにして返す（「衛星データ」の後ろに付く語）。"""
+    try:
+        import yaml
+        doc = yaml.safe_load((ROOT / "data" / "seo_keywords.yaml").read_text(encoding="utf-8")) or {}
+    except Exception:
+        return []
+    out = []
+    for k in ("general", "analysis", "market"):
+        out += doc.get(k) or []
+    for v in (doc.get("themes") or {}).values():
+        out += v or []
+    return [w.split()[0] for w in out if w]
+
+
 def marketing(path, sections, body):
     """マーケティング効果の4項目を点検する。1つ以下なら止める、2〜3なら印。"""
     text = path.read_text(encoding="utf-8")
@@ -113,12 +129,30 @@ def marketing(path, sections, body):
     if not title_ok:
         missing.append(f"具体的な題名（いま：「{title or '（題名なし）'}」）")
 
+    # 5. 検索語（SEO）。止めないが印を付ける
+    seo = seo_words()
+    head_text = title + " " + (re.search(r'(?m)^subtitle:\s*["\']?(.+?)["\']?\s*$', text[:2000]) or [None, ""])[1]
+    if "衛星データ" not in head_text and "衛星" not in head_text:
+        seo_mark = "題名か副題に「衛星データ」がない"
+    elif not any(w in head_text for w in seo):
+        seo_mark = "題名か副題に、分野の検索語（data/seo_keywords.yaml の語）がない"
+    else:
+        seo_mark = ""
+    desc = re.search(r'(?m)^description:\s*["\']?(.+?)["\']?\s*$', text[:3000])
+    if not desc:
+        seo_mark = (seo_mark + "。" if seo_mark else "") + "冒頭の設定に description がない"
+    elif sum(1 for w in seo if w in desc.group(1)) < 2:
+        seo_mark = (seo_mark + "。" if seo_mark else "") + "description に検索語が2つ未満"
+
     score = 4 - len(missing)
     if score <= 1:
         return [f"マーケティング効果が見込みにくい（{score}/4）。足りないもの：" + "、".join(missing)], []
+    marks = []
     if missing:
-        return [], [f"マーケティング点検 {score}/4。あると良いもの：" + "、".join(missing)]
-    return [], []
+        marks.append(f"マーケティング点検 {score}/4。あると良いもの：" + "、".join(missing))
+    if seo_mark:
+        marks.append("検索語（SEO）：" + seo_mark)
+    return [], marks
 
 
 def check(path, links=False):

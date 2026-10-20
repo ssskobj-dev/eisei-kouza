@@ -411,7 +411,7 @@ def fig_thumbnail(spec):
     navy, white, orange, slate, line = "#0b1524", "#f2f5f7", "#ff6b2c", "#8ea0b8", "#1c2f4f"
     mono = "'IBM Plex Mono','DejaVu Sans Mono','Noto Sans Mono',monospace"
     kinds = {"news": ("時事解説", "NEWS"), "course": ("学習プログラム", "CODEX"),
-             "guide": ("実務メモ", "CODEX"), "report": ("市場ガイド", "LANDSCAPE"),
+             "guide": ("実務メモ", "CODEX"), "report": ("市場レポート", "LANDSCAPE"),
              "usecase": ("ユースケース", "CASEBOOK")}
     label, series = kinds[spec.get("kind", "news")]
     lines = wrap(spec["title"], 15)[:3]

@@ -663,7 +663,12 @@ def write_companions(vid, vdir, ctx, scenes, starts, body_idx, agenda, work):
         desc += [L[LANG]["src_head"]] + cta["credits"] + [""]
     desc += L[LANG]["foot"]
     (vdir / "description.txt").write_text("\n".join(desc) + "\n", encoding="utf-8")
-    tags = list(dict.fromkeys(list(ctx.get("tags") or []) + L[LANG]["tags"] + [t for t in (ctx.get("kicker"), ctx.get("series")) if t]))
+    try:
+        seo = yaml.safe_load((ROOT / "data" / "seo_keywords.yaml").read_text(encoding="utf-8")) or {}
+        seo_tags = [("衛星データ " + w if LANG == "ja" else "satellite data " + w) for w in ((seo.get("video") or {}).get(LANG) or [])]
+    except Exception:
+        seo_tags = []
+    tags = list(dict.fromkeys(list(ctx.get("tags") or []) + L[LANG]["tags"] + seo_tags + [t for t in (ctx.get("kicker"), ctx.get("series")) if t]))
     (vdir / "meta.json").write_text(json.dumps({"title": yt_title, "tags": tags[:30]}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     tr = [f"# {ctx['title']}", "", L[LANG]["transcript"], ""]
     for sc in scenes:

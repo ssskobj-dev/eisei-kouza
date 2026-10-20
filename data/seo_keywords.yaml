@@ -1,0 +1,131 @@
+# 検索語の台帳。Google で「衛星データ」と一緒に打たれる2語目・3語目。
+# 使い方：
+#   - 記事の題名は「衛星データ」＋この台帳の語を含める（patterns/style.md）
+#   - ページの説明文（description）に、この台帳の語を2つ以上入れる
+#   - テーマページの題名（themes:）、動画のタグ（video:）は、ここから自動で付く
+#   - 検索量は未確認。Search Console の実データが溜まったら、順番と語を入れ替える
+#
+# 書き方：語は「衛星データ」を除いた部分だけ書く。「衛星データ 市場レポート」なら「市場レポート」。
+
+head: 衛星データ
+
+# 全分野で使う語（優先順）
+general:
+  - 市場レポート
+  - 活用事例
+  - 解析
+  - ビジネス
+  - 活用
+  - 市場規模
+  - 価格
+  - 購入
+  - 無料
+  - 使い方
+  - 企業
+  - 資格
+
+# 分野ごとの語（themes.yaml の id ごと。先頭の2〜3語が、テーマページの題名に入る）
+themes:
+  agriculture:
+    - 遊休農地
+    - 農業
+    - 作付け確認
+    - 生育診断
+    - 農地調査
+    - 耕作放棄地
+  forestry-carbon:
+    - 森林
+    - 森林管理
+    - 伐採
+    - カーボンクレジット
+    - 森林減少
+  fisheries-ocean:
+    - 海洋
+    - 漁業
+    - 船舶検知
+    - 赤潮
+    - 油流出
+  infrastructure:
+    - インフラ管理
+    - インフラ監視
+    - 地盤変位
+    - 地盤変化
+    - 地盤沈下
+    - モニタリング
+    - 送電線
+    - 道路
+    - のり面
+    - InSAR
+  city-government:
+    - 自治体
+    - 都市
+    - 建物検出
+    - 土地利用
+    - 太陽光パネル
+  disaster:
+    - 災害データ
+    - 災害
+    - 防災
+    - 浸水
+    - 被害把握
+    - 地震
+    - 土砂災害
+  insurance-finance:
+    - 保険
+    - 損害保険
+    - 金融
+    - 保険金支払い
+  energy-resources:
+    - エネルギー
+    - 再生可能エネルギー
+    - 資源
+    - メタン
+  environment-water:
+    - 環境
+    - 水質
+    - 大気
+    - 温室効果ガス
+  security-logistics:
+    - 安全保障
+    - 物流
+    - 港湾
+  health-humanitarian:
+    - 人道支援
+    - 公衆衛生
+    - 感染症
+  life-culture:
+    - 教育
+    - 探究学習
+
+# 解析の語（学習プログラム、解析エンジニアの資格、解析の動画で使う）
+analysis:
+  - 解析
+  - 解析 方法
+  - 解析 Python
+  - 解析 AI
+  - 画像解析
+  - SAR
+  - SAR 解析
+  - Sentinel
+  - Sentinel-2
+  - Sentinel-1
+  - 無料 ダウンロード
+  - 植生指数
+  - 変化検出
+
+# 市場・ビジネスの語（市場レポート、マーケッターの資格で使う）
+market:
+  - 市場レポート
+  - 市場規模
+  - 市場動向
+  - 企業
+  - ビジネス
+  - 活用事例
+  - 価格
+  - 調達
+  - 海外事例
+
+# 動画のタグに足す語（YouTube。言語ごと）
+video:
+  ja: [市場レポート, 活用事例, 解析, 遊休農地, 地盤変位, 災害, インフラ監視, モニタリング, SAR, Sentinel]
+  en: [market report, use cases, analysis, InSAR, flood mapping, infrastructure monitoring, agriculture, SAR, Sentinel]

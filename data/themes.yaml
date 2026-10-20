@@ -2,7 +2,7 @@
 #   id        ：ページのアドレスになる英字の名前
 #   name      ：テーマ名。data/usecases.yaml の theme と同じ名前にする
 #   lead      ：テーマの説明（1〜2文）
-#   landscape ：対応する市場ガイドのテーマの id（landscape/topics.yaml の id）
+#   landscape ：対応する市場レポートのテーマの id（landscape/topics.yaml の id）
 #   courses   ：対応する学習プログラムの講座の id（courses/ のファイル名）
 
 themes:
