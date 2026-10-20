@@ -417,6 +417,23 @@ def enreports():
         print("  未作成はありません")
 
 
+def javideos():
+    """日本語の動画の、作る候補を出す。
+    講義動画：公開済みの講座の章（learn/<シリーズ>/<id>.qmd）で、video/lecture-<id>/script.yaml が無いもの。
+    事例動画：公開済みのユースケース記事（casebook/<slug>.qmd）で、video/usecase-<slug>/script.yaml が無いもの。"""
+    chapters = [p for p in sorted((ROOT / "learn").glob("*/*.qmd"))
+                if p.parent.name != "quiz" and p.name != "index.qmd" and not p.name.startswith("course-")]
+    lec_todo = [p for p in chapters if not (ROOT / "video" / f"lecture-{p.stem}" / "script.yaml").exists()]
+    cases = [p for p in sorted((ROOT / "casebook").glob("*.qmd")) if p.name != "index.qmd"]
+    case_todo = [p for p in cases if not (ROOT / "video" / f"usecase-{p.stem}" / "script.yaml").exists()]
+    print(f"講義動画：公開済みの章 {len(chapters)} 本、未作成 {len(lec_todo)} 本")
+    for p in lec_todo[:8]:
+        print(f"  lecture-{p.stem}　{full_title(p)}")
+    print(f"事例動画：公開済みの記事 {len(cases)} 本、未作成 {len(case_todo)} 本")
+    for p in case_todo[:8]:
+        print(f"  usecase-{p.stem}　{full_title(p)}")
+
+
 def notefull():
     """有料で売る記事（ユースケース集、市場ガイド）の、note用の全文（full.md）を作る。
     サイトでは後半を外して公開するので、noteで売るときは、この全文を貼って有料ラインを置く。"""
@@ -778,6 +795,8 @@ if __name__ == "__main__":
         envideos()
     elif cmd == "enreports":
         enreports()
+    elif cmd == "javideos":
+        javideos()
     elif cmd == "usecases":
         usecases(int(sys.argv[2]) if len(sys.argv) > 2 else 3)
     elif cmd == "reports":
