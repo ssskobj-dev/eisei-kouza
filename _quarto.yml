@@ -47,6 +47,8 @@ website:
         href: casebook/index.qmd
       - text: 学習プログラム
         href: learn/index.qmd
+      - text: 資格
+        href: cert.qmd
       - text: 時事解説
         href: news/index.qmd
     right:

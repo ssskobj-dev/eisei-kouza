@@ -1,0 +1,166 @@
+---
+title: "Certifications"
+subtitle: "Satellite Data Marketer and Satellite Data Analysis Engineer"
+description: "Two certifications that test whether you can make decisions with satellite data: syllabus, levels, format, sample questions, and how to prepare."
+lang: en
+toc-title: On this page
+format:
+  html:
+    toc: true
+---
+
+Satellite to Decision runs two certifications. Neither tests whether you can *explain* terms. Both test whether, given a situation, you can **make the call**.
+
+| Certification | Who it is for | What it tests |
+|---|---|---|
+| **{{< var cert.business_en >}}** | People who find, propose and procure satellite-data work: consultants, sales and planning staff, officers at municipalities and infrastructure owners | Choosing the right satellite and method. Reading results for what they do and do not say. Structuring procurement and cost. Building a proposal that holds |
+| **{{< var cert.analysis_en >}}** | People who run satellite-data analysis themselves, with AI writing the code: engineers, researchers, in-house analysis teams | Briefing AI correctly. Reviewing AI-written code. Visually reviewing results. Leaving a reproducible record and reporting what can be said |
+
+They are not ranked; they are two roles. Holding both lets you stand on both sides: what to ask for, and how to check what you get.
+
+::: {.callout-note}
+## Who runs this
+
+These certifications are run independently by {{< var site.operator_en >}}. They are not affiliated with any existing examination body, satellite operator or analytics company. The program is supervised by five people with experience at space agencies such as JAXA and ISRO.
+:::
+
+## Common rules
+
+- **Levels**: each certification has **Level 2** and **Level 1**. Level 2 opens first. Level 1 opens once enough people have passed Level 2 (passing Level 2 is required for Level 1)
+- **Delivery**: online. Each candidate receives a draw from a question pool
+- **Pass mark**: 70% overall on multiple choice. No per-domain cut-off (domain scores are reported)
+- **Validity**: 2 years from passing, because satellites and rules change. Renewal is by re-examination
+- **Fees and dates**: announced to [paid members](register.qmd). Registration for exams is through the membership page
+- **Sources**: every question is grounded in articles on this site and their cited sources (public documents, primary sources). Nothing outside the site is tested
+
+## {{< var cert.business_en >}}
+
+### Who it is for, and what you will be able to do
+
+This is the certification for the *using* and *commissioning* side. You do not need to run analyses yourself.
+
+Holders can:
+
+1. Turn a business question into a choice of satellite and method, and name the conditions where it struggles
+2. Separate what a result map or figure says from what it does not
+3. Judge how to obtain data and analysis, and where the cost sits
+4. Choose a proposal line that fits the client, given how each sector actually uses satellite data
+
+### Level 2
+
+**Format (planned)**: 60 multiple-choice questions, 90 minutes, 15 per domain. Five questions per domain are scenario-based.
+
+| Domain | Goal (can judge...) | Covers | Keywords |
+|---|---|---|---|
+| A. Choosing satellite and method | ...which satellite and method fit the goal and conditions, and where they struggle | Sensor choice, limits of resolution and revisit, method mapping, when aircraft/drones/field survey fit better | Optical vs SAR, bands, day/night and cloud, spatial resolution, revisit, change detection, InSAR, vegetation indices, classification, object detection |
+| B. Reading results | ...what a result says and does not say | Reading maps and figures, accuracy conditions, the role of field checks, misleading phrasing | Line-of-sight displacement, false positives and misses, accuracy conditions, reference data, "not detected" vs "no anomaly" |
+| C. Procurement and cost | ...how to obtain data and analysis and where the cost sits | Free vs commercial data, processing levels, licence terms, cost breakdown, public procurement policy | Open data, tasking vs archive, processing level, licence, data cost vs analysis cost, pilot vs in service |
+| D. Market and proposal | ...a proposal line that fits the client | Sector cases, where it fits in the workflow, what decision it supports, market and policy, barriers, phrases to avoid | Screening, combined use, routine monitoring, pilot vs in service, funding source, workflow fit |
+
+**Sample question (Domain A)**
+
+> A prefecture wants to decide the order of road-slope inspections on a mountain route where the slopes are covered in vegetation. Which is the most appropriate approach?
+>
+> 1. Task monthly high-resolution optical imagery and look for change by eye
+> 2. Use L-band InSAR to pick slopes that are moving, then field-check the top of the list
+> 3. Compare C-band SAR intensity before and after a disaster
+> 4. Look for temperature unevenness with thermal imagery
+
+Intent: the relationship between vegetation and wavelength, and the principle that satellites are for screening. Grounded in the course chapter on road slopes and its sources.
+
+### Level 1
+
+**Prerequisite**: Level 2. For people who write specifications, compare vendor proposals, or are accountable for explaining results.
+
+**Format (planned)**: Part 1 - 40 multiple-choice questions, 60 minutes (includes reading results and estimates under stated assumptions). Part 2 - 3 written tasks, 120 minutes, answered from supplied material (proposal excerpts, result figures, public guidance). Pass: 70% on Part 1 and 60% on Part 2 against a published marking scheme.
+
+| Domain | Goal (can evaluate or write...) | Keywords |
+|---|---|---|
+| A. Defining requirements | ...a business question as requirements for target, extent, frequency, accuracy and deadline | Unit of decision, acceptable misses and false positives, update interval, deliverable format |
+| B. Evaluating proposals | ...whether a vendor's observation conditions and accuracy claims fit the goal | Look direction vs slope aspect, unmeasurable areas, season and snow, accuracy conditions, comparison with reference data |
+| C. Specification and acceptance | ...requirement clauses and acceptance methods | Requirements, acceptance criteria, sample checks, conditions for extra cost, data rights |
+| D. Explaining cost and benefit | ...a cost estimate under stated assumptions, and the benefit and limits for the buyer | Stated assumptions, source of unit prices, reduction of field checks, uncertainty, misleading phrasing |
+| E. Building the proposal | ...an adoption path that fits the client, given market and policy | Start small, combined use, funding, pilot to operation, comparison with other means |
+
+**Marking of written tasks**: the scheme is published per question. AI performs first-pass marking against it; supervisors check every borderline script plus a sample of the rest. Candidates can see the marking record and appeal.
+
+### How to prepare
+
+- [Training](learn/index.qmd): strengths and limits of satellite data, optical vs SAR, choosing between means, cost thinking, procurement practice, proposals and specifications, measuring cost-benefit. Each chapter's case questions double as practice
+- [Use cases](casebook/index.qmd): where it fits in the workflow, what decision it supports, how far free satellites go, cost estimates
+- [Market guide](landscape/index.qmd): markets, players, rules and barriers by sector
+
+## {{< var cert.analysis_en >}}
+
+### Who it is for, and what you will be able to do
+
+This is the certification for the side that *runs* the analysis. The premise is today's way of working: AI writes the code, a person checks and corrects it. You do not need to write code from scratch, but you must be able to read the key parts and verify them.
+
+Holders can:
+
+1. Brief AI correctly, with the items every analysis instruction must contain
+2. Find and fix the errors specific to satellite data in AI-written code (bands, scale factors, cloud, coordinates, thresholds)
+3. Visually check result maps and figures and spot wrong results
+4. Leave a reproducible record and report what can and cannot be said
+
+### Level 2
+
+**Format (planned)**: 60 multiple-choice questions, 90 minutes, 12 per domain. Includes scenario questions that show a code excerpt or a result figure and ask you to find the error.
+
+| Domain | Goal (can...) | Covers | Keywords |
+|---|---|---|---|
+| A. Working with AI | ...separate what AI does from what a person decides and checks, and write the required instruction items | Division of roles, the 7 instruction items (goal, place, period, satellite and processing level, steps, output, verification), reading code, reproducible records | Prompt, the 5 blocks (fetch, select, compute, aggregate, output), cross-checking with a second attempt, what to record |
+| B. Before analysis | ...understand what imagery measures and obtain the right images | Pixel values vs physical values, optical vs radar appearance, resolution and revisit, processing levels and corrections, obtaining open data | Bands, reflectance, cloud cover, usable scenes, processing level, licence terms, attribution |
+| C. Optical analysis | ...have AI run and then verify composites, indices, change detection and time series | Colour composites, vegetation index, water and snow indices, burn index, before/after comparison, time series | NIR, SWIR, cloud and shadow masking, thresholds, co-registration, matching seasons, outliers |
+| D. Radar analysis | ...understand what radar brightness means and verify basic flood and displacement readings | Brightness and speckle, flood mapping from before/after, InSAR concepts, reading displacement time series, detecting objects at sea | dB vs linear, polarisation, orbit direction, fringes, line of sight, ascending/descending, coherence, known structures |
+| E. Review viewpoints | ...check code and results against a fixed list, in order | 12 code viewpoints (data, existence, bands, scale factors, cloud and shadow, position and CRS, comparable conditions, thresholds, missing values, area, hidden failures, train/test split); 6 result viewpoints (plausibility, value range, unnatural shapes, overlay on source imagery, counts, cross-checking) | Invented names, mismatched seasons, zero-filling, area in lat/long, silent skipping |
+
+**Sample question (Domains C and E)**
+
+> You are reviewing AI-written code for a vegetation index. Which of the following is the error you should catch?
+>
+> 1. The red and NIR band numbers match the specified satellite
+> 2. Pixel values are divided as-is, without applying the scale factor
+> 3. Cloud and shadow are masked before averaging per parcel
+> 4. Pixels where the denominator is zero are excluded
+
+Intent: apply the scale factor before computing - a viewpoint specific to satellite data. Grounded in the analysis curriculum chapter on vegetation indices and the common review viewpoints.
+
+### Level 1
+
+**Prerequisite**: Level 2. For people who deliver analysis results into operations, or lead an in-house analysis team.
+
+**Format (planned)**: Part 1 - 40 multiple-choice questions, 60 minutes. Part 2 - a practical task, 120 minutes: given a question and open data, have AI write the code, review and fix it, and submit a short report on the validity and limits of the result. Marking scheme published in advance; AI first pass, supervisor check. Pass: 70% on Part 1 and 60% on Part 2.
+
+| Domain | Goal (can...) | Keywords |
+|---|---|---|
+| A. Classification and detection | ...build training data correctly and measure classification accuracy honestly | Spatial train/test split, label leakage, fixed random seed, misses vs false positives, correct denominators |
+| B. Water and atmosphere | ...exclude low-quality observations and respect units and limits in water-colour and atmospheric-gas analysis | Water-only masks, atmospheric correction, quality flags, not reading sub-pixel patterns |
+| C. Using results | ...combine results with field checks, aggregate to register units, and write what can be said | Ranking, random sampling, aggregation per parcel, matching to registers, how to write "not detected", conditions and limits |
+| D. Briefing and reproducibility | ...turn an analysis into a vendor brief and a record others can reproduce | Goal, target, extent, frequency, acceptable error, deliverables, acceptance, data and versions used, the AI prompt |
+| E. Practical | ...take a question through AI-assisted analysis, verification and reporting end to end | The 7 instruction items, applying review viewpoints in order, cross-checking, report format |
+
+### How to prepare
+
+- The analysis curriculum (AI writes, a person checks): Parts 0-6, each chapter in the same shape - what it answers, how it works, steps, how to brief AI, code review viewpoints, visual review viewpoints, when not to use it, case questions. Published progressively under [Training](learn/index.qmd)
+- [Training](learn/index.qmd) chapters "Optical vs SAR, resolution and revisit" and "Five strengths and their limits" are the foundation for Domain B
+- [Sentinel quick reference](learn/sentinel.qmd): which free data for which analysis
+
+## FAQ
+
+**Which should I take first?**
+If your job is to use or commission satellite data, {{< var cert.business_en >}}. If you run analyses yourself, {{< var cert.analysis_en >}}. If unsure: do you look at code at work? If yes, the Engineer track.
+
+**How is this different from existing exams?**
+Introductory exams mostly test whether you can explain terms. These certifications test whether you can make a judgement in a given situation, and whether you can verify code and results. They do not compete with, or rank against, other exams.
+
+**What do I get when I pass?**
+A certificate (name, certification, level, pass date, expiry). You can cite it on business cards and in proposals.
+
+**Who writes the questions?**
+They are built from this site's articles and their sources, and checked by the supervisors. Question quality is managed statistically (difficulty and discrimination); questions that do not work are retired.
+
+::: {.s2d-paywall-cta}
+Exam registration and dates are announced to paid members.
+<p><a class="s2d-button" data-s2d-register="cert" href="register.html">Become a paid member</a></p>
+:::

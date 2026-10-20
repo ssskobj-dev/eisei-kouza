@@ -49,12 +49,12 @@ site:
   supervision: JAXA、ISROなど、世界の宇宙機関で働いた経験を持つ5名が監修しています。
 # 自前の資格（2つ）。動画の最後の案内と、サイトの案内に出る。名前や受付のページが変わったら、ここだけ直す
 cert:
-  analysis: 衛星データ解析
-  business: 衛星データビジネス
-  analysis_en: Satellite Data Analysis
-  business_en: Satellite Data Business
-  url: "https://ssskobj-dev.github.io/eisei-kouza/register.html"
-  url_en: "https://ssskobj-dev.github.io/eisei-kouza/en/register.html"
+  analysis: 衛星データ解析エンジニア
+  business: 衛星データマーケッター
+  analysis_en: Satellite Data Analysis Engineer
+  business_en: Satellite Data Marketer
+  url: "https://ssskobj-dev.github.io/eisei-kouza/cert.html"
+  url_en: "https://ssskobj-dev.github.io/eisei-kouza/en/cert.html"
 # 有料登録の条件。変えたら、特定商取引法に基づく表記のページも確かめる
 paid:
   price: "390"
