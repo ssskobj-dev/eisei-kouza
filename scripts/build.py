@@ -162,10 +162,20 @@ def full_title(path):
     return fm.get("title", path.stem) + (f"：{fm['subtitle']}" if fm.get("subtitle") else "")
 
 
+SERIES_DESC = {
+    "learn/index.qmd": "衛星データの解析と活用を学ぶプログラム。光学とSARの違い、Sentinelの無料データ、植生指数、変化検出、地盤変位、浸水、費用の考え方、調達の実務。講座にはケース問題付き。",
+    "landscape/index.qmd": "衛星データの市場レポート。市場規模の推計と出どころ、主なプレイヤー、海外の活用事例、インフラ監視・農業・防災など分野ごとの市場動向を、コンサルタントと発注する側の目で整理します。",
+    "casebook/index.qmd": "衛星データの活用事例。遊休農地の調査、地盤変位・地盤沈下の監視、災害の被害把握、インフラ管理・モニタリング、海洋、森林など。実証か本格運用か、限界、無料の衛星でどこまでできるか、費用の概算まで。",
+    "news/index.qmd": "衛星データのニュースと時事解説。宇宙機関や省庁の発表、制度や調達の動きを、発注する側の目で読みます。",
+}
+
+
 def write_page(rel, title, subtitle, body, extra=""):
     """自動で作るページを書き出す。extra には、一覧の設定や、古いアドレスからの転送を書く。"""
     if "paywall:" not in extra:
         extra = "paywall: false\n" + extra   # 自動で作るページは、指定がなければ全部を見せる
+    if "description:" not in extra and rel in SERIES_DESC:
+        extra += f'description: "{SERIES_DESC[rel]}"\n'   # 入口ページの説明文（検索結果に出る）
     head = f'---\ntitle: "{title}"\nsubtitle: "{subtitle}"\nformat: html\n{extra}---\n\n'
     path = ROOT / rel
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -534,7 +544,7 @@ def nav():
     n_sentinel, sdoc = sentinel_page(series, cases)
     method_rows = "\n".join(f"| [{m['name']}](sentinel.qmd#{m['id']}) | {m['satellite']} | {m['examples']} |"
                             for m in sdoc["methods"])
-    write_page("learn/index.qmd", series["learn"]["brand"], series["learn"]["ja"],
+    write_page("learn/index.qmd", series["learn"]["ja"], series["learn"]["brand"] + "　" + series["learn"].get("lead", ""),
                "衛星データの解析を、ユースケース別に学べます。浸水、農地、地盤の動き、森林、水質など、"
                "知りたいことから入り、使う衛星、解析の流れ、苦手なことの順で身につけます。\n\n"
                "## ユースケース別に学ぶ\n\n"
@@ -549,7 +559,7 @@ def nav():
                      "contents": ["learn/index.qmd", "learn/sentinel.qmd"]})
 
     # ---- 市場レポート ----
-    write_page("landscape/index.qmd", series["landscape"]["brand"], series["landscape"]["ja"],
+    write_page("landscape/index.qmd", series["landscape"]["ja"], series["landscape"]["brand"] + "　" + series["landscape"].get("lead", ""),
                "衛星データの利活用を、分野ごとに整理しています。1つの分野を、次の8つの切り口で1本ずつ書いています。\n\n"
                + "、".join(a["name"] for a in angles.values()) + "\n\n"
                "市場規模の数字は、出どころ、対象の範囲、年を添えています。調査会社によって推計に幅があるときは、"
@@ -566,7 +576,7 @@ def nav():
     sidebars.append({"id": "landscape", "title": series["landscape"]["short"], "contents": contents})
 
     # ---- ユースケース集 ----
-    write_page("casebook/index.qmd", series["casebook"]["brand"], series["casebook"]["ja"],
+    write_page("casebook/index.qmd", series["casebook"]["ja"], series["casebook"]["brand"] + "　" + series["casebook"].get("lead", ""),
                "衛星データの使い道を、1つずつ取り上げます。研究事例と、企業や官公庁の発表から拾ったものです。"
                "どの記事も、同じ順番で書いています。\n\n"
                "事例、2026年時点の限界、業務に入れるときの想定、意思決定に使えるデータ、費用の考え方、向き不向き\n\n"
@@ -614,7 +624,7 @@ def nav():
 
     # ---- 時事解説：note用の下書きから、サイトのページを作る ----
     news = news_pages()
-    write_page("news/index.qmd", series["news"]["brand"], series["news"]["ja"],
+    write_page("news/index.qmd", series["news"]["ja"], series["news"]["brand"] + "　" + series["news"].get("lead", ""),
                "衛星データに関する発表を取り上げ、発注する側にとっての意味を書きます。"
                "ニュースの要約ではなく、何が変わり、何が変わらないかを整理します。発表元の資料をもとに書いています。",
                LISTING.format(contents="*.qmd"))
