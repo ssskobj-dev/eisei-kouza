@@ -234,6 +234,154 @@
   url: https://www.gsi.go.jp/uchusokuchi/sar_satellite.html
   tags: [SAR衛星, 仕様]
 
+# ---- 費用対効果の測り方（agri-cost-benefit）で追加 ----
+
+- id: naro-smart-economics-2023
+  title: スマート農業導入の経済効果と採算規模（スマート農業推進フォーラム in 近畿 話題提供資料）
+  publisher: 農研機構 本部 みどり戦略・スマート農業推進室
+  url: https://www.maff.go.jp/kinki/seisan/smart/event/attach/pdf/240105-1.pdf
+  tags: [費用対効果, 経営評価, スマート農業実証]
+
+- id: naro-variable-fertilizer-2025
+  title: スマート農業による環境負荷低減の取組（その２）―スマート農業における可変施肥技術について―（Web講演）
+  publisher: 農研機構
+  url: https://www.maff.go.jp/kanto/kikaku/midori_syokuryou/midori_31.pdf
+  tags: [可変施肥, 生育診断, 資材費, 費用対効果]
+
+- id: naro-aomori-satellite-rice
+  title: 寒冷地北部における野菜導入とリモートセンシングの活用による大規模水田作経営体の収益向上技術の実証（革新的技術開発・緊急展開事業 成果）
+  publisher: 寒冷地北部水田コンソーシアム（農研機構東北農業研究センター、青森県産業技術センター）
+  url: https://www.naro.go.jp/brain/h27kakushin/keiei/result/files/keiei_2020_result-k006-y02.pdf
+  tags: [収穫適期, 生育診断, 水稲, 費用対効果, 雲の影響]
+
+- id: hro-tokachi-wheat-vrt-2020
+  title: 秋まき小麦の起生期からの可変追肥体系による収量の安定化効果（令和2年度 成績概要書）
+  publisher: 北海道立総合研究機構 十勝農業試験場
+  url: https://www.hro.or.jp/upload/18247/36.pdf
+  tags: [可変施肥, 小麦, 収量]
+
+- id: maff-space-2022
+  title: 農林水産省における宇宙関係の取組について（宇宙政策委員会 基本政策部会 資料1-6）
+  publisher: 農林水産省
+  url: https://www8.cao.go.jp/space/comittee/01-kihon/kihon-dai24/siryou1_6.pdf
+  tags: [生育診断, 小麦, 可変施肥, 政策]
+
+- id: maff-smart-law-leaflet-2026
+  title: スマート農業技術活用促進法（チラシ、令和8年5月版）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/kanbo/smart/attach/pdf/houritsu-187.pdf
+  tags: [補助事業, 計画認定, スマート農業技術活用促進法]
+
+- id: maff-smart-law-procedure
+  title: 農業の生産性の向上のためのスマート農業技術の活用の促進に関する法律に基づく計画認定等事務取扱要領（令和7年3月改正）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/kanbo/smart/attach/pdf/houritsu-158.pdf
+  tags: [補助事業, 計画認定, 税制]
+
+- id: maff-tohoku-smart-law-2026
+  title: スマート農業技術の活用に取り組むみなさまへ（令和8年1月版）
+  publisher: 農林水産省 東北農政局
+  url: https://www.maff.go.jp/tohoku/seisan/smart/attach/pdf/houritsu-35.pdf
+  tags: [補助事業, 計画認定, 融資]
+
+- id: miyagi-sumaten-2026
+  title: スマート技術体系への包括的転換加速化総合対策事業（スマート技術体系転換加速化支援）の要望調査について
+  publisher: 宮城県
+  url: https://www.pref.miyagi.jp/soshiki/nosin/sumaten.html
+  tags: [補助事業, 補助率, 申請経路]
+
+- id: maff-gyakubiki-manual
+  title: 「逆引き事典」の使い方（令和2年1月更新、栃木県サイト掲載）
+  publisher: 農林水産省 大臣官房広報評価課広報室
+  url: https://www.pref.tochigi.lg.jp/g53/documents/g_biki2_manual.pdf
+  tags: [補助事業, 調べ方]
+
+- id: maff-extension-2025
+  title: 協同農業普及事業をめぐる情勢（令和7年6月）
+  publisher: 農林水産省 農産局 技術普及課
+  url: https://www.maff.go.jp/j/seisan/gizyutu/hukyu/h_about/attach/pdf/index-34.pdf
+  tags: [普及指導センター, 相談窓口]
+
+- id: naro-management-plan-system-2026
+  title: 農業経営計画策定支援システムの公開とプレスリリースについて（2026年1月）
+  publisher: 農研機構 農業経営戦略部
+  url: https://ipcsa.naro.go.jp/report/uploads/2026/03/56d4067743363a92731eb330e7da5d4eb2b1df45.pdf
+  tags: [費用対効果, 経営評価, 試算]
+
+- id: maff-smart-support-program-2026
+  title: スマート農業技術活用促進集中支援プログラム（R8年度当初概算決定）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/kanbo/smart/attach/pdf/index-300.pdf
+  tags: [補助事業, 予算]
+
+- id: maff-extension-case-biei-r5
+  title: びえい農業ＳＤＧｓへの挑戦（普及活動事例集 令和5年度）
+  publisher: 農林水産省（上川農業改良普及センター大雪支所の事例）
+  url: https://www.maff.go.jp/j/seisan/gizyutu/hukyu/h_zirei/r5/pdf/1-2.pdf
+  tags: [可変施肥, 小麦, 普及指導センター]
+
+- id: maff-new-tech-products
+  title: 農業新技術 製品・サービス集（掲載ページ、R7.9.10更新）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/kanbo/smart/products.html
+  tags: [営農支援サービス, 価格の考え方]
+
+# ---- 提案書、仕様書、見積もりの作り方（survey-proposal-pricing）で追加 ----
+
+- id: env-subsidence-manual-2026
+  title: 地盤沈下観測等における衛星活用マニュアル（令和8年3月改訂版）
+  publisher: 環境省 水・大気環境局 環境管理課 環境汚染対策室
+  url: https://www.env.go.jp/content/000386973.pdf
+  tags: [地盤沈下, 干渉SAR, 仕様書, 積算, 精度管理, 成果物]
+
+- id: env-subsidence-manual-2026-press
+  title: 地盤沈下監視の継続・効率化に向けて「地盤沈下観測等における衛星活用マニュアル」を改訂（報道発表、2026年3月26日）
+  publisher: 環境省
+  url: https://www.env.go.jp/press/press_03445.html
+  tags: [地盤沈下, 干渉SAR, 改訂]
+
+- id: nilim-dam-sar-manual-1233
+  title: 衛星SARデータを用いたロックフィルダムおよび貯水池周辺斜面の変位計測マニュアル（案）（国総研資料第1233号、本体）
+  publisher: 国土技術政策総合研究所
+  url: https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn1233pdf/ks1233.pdf
+  tags: [ダム, 干渉SAR, 仕様書, 成果物, 精度評価, 外部委託]
+
+- id: mlit-proposal-guideline-2021
+  title: 建設コンサルタント業務等におけるプロポーザル方式及び総合評価落札方式の運用ガイドライン（平成27年11月、令和3年3月一部改定）
+  publisher: 国土交通省
+  url: https://www.mlit.go.jp/tec/nyuusatu/keiyaku/202103/210326guideline.pdf
+  tags: [提案書, プロポーザル, 総合評価]
+
+- id: mlit-kanto-survey-cost-standard
+  title: 調査設計資料作成業務積算基準
+  publisher: 国土交通省 関東地方整備局
+  url: https://www.ktr.mlit.go.jp/ktr_content/content/000898297.pdf
+  tags: [積算, 見積もり, 内訳]
+
+- id: kawasaki-sar-spec-r7
+  title: 令和7年度 土砂災害警戒区域等の監視における衛星SAR解析業務委託に関する仕様書
+  publisher: 川崎市
+  url: https://www.city.kawasaki.jp/templates/proposal/cmsfiles/contents/0000178/178229/siyousyo.pdf
+  tags: [仕様書, 斜面, 干渉SAR, 成果物, 自治体]
+
+- id: saga-satellite-spec-r7
+  title: 「令和7年度 衛星データの活用可能性実証事業」業務 企画提案仕様書
+  publisher: 佐賀県 政策部さが政策推進チーム
+  url: https://www.pref.saga.lg.jp/kiji003112776/3_112776_352213_up_6l7chcjc.pdf
+  tags: [仕様書, 見積もり, 内訳, 災害, 自治体]
+
+- id: gsi-sar-leveling-manual-page
+  title: 衛星SARによる上下変動測量マニュアル（案内ページ）
+  publisher: 国土地理院
+  url: https://www.gsi.go.jp/KOUKYOU/koukyo0042_sar.html
+  tags: [公共測量, 干渉SAR, 水準測量, マニュアル]
+
+- id: mlit-inspection-catalog-status-2025
+  title: 点検支援技術 性能カタログ（掲載状況、令和7年4月）
+  publisher: 国土交通省 道路局
+  url: https://www.mlit.go.jp/road/tech/pdf/catalog-gaiyo.pdf
+  tags: [点検支援技術, 性能カタログ, 道路]
+
 - id: maff-field-check-satellite
   title: 現地確認業務における衛星画像の活用について
   publisher: 農林水産省 大臣官房デジタル戦略グループ

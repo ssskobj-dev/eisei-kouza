@@ -114,7 +114,7 @@ parts:
       - 衛星を含む業務の提案書と見積もりの骨格を作れる
     must_include: [対象範囲, 精度の約束の仕方, 成果物, 検証方法, 内訳]
     material: ""
-    status: todo
+    status: done
 
   - id: survey-first-project
     title: 最初の1件の始め方
