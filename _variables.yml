@@ -64,25 +64,25 @@ paid:
 series:
   landscape:
     brand: Satellite to Decision Landscape
-    ja: 衛星データ活用 市場ガイド
-    en: Satellite Data Market Guide
-    short: 市場ガイド
+    ja: 衛星データ 市場レポート
+    en: Satellite Data Market Report
+    short: 市場レポート
     lead: 市場の全体像を知る
   casebook:
     brand: Satellite to Decision Casebook
-    ja: 衛星データ活用 ユースケース集
+    ja: 衛星データ 活用事例（ユースケース集）
     en: Satellite Data Use Case Collection
     short: ユースケース集
     lead: 自社に合う使い方を見つける
   learn:
     brand: Satellite to Decision Codex
-    ja: 衛星データ解析 学習プログラム
+    ja: 衛星データ 解析と活用の学習プログラム
     en: Satellite Data Analysis Training Program
     short: 学習プログラム
     lead: 解析の知識を身につける
   news:
     brand: 時事解説
-    ja: 衛星データに関する発表を、発注する側の目で読む
+    ja: 衛星データ ニュース・時事解説（発表を、発注する側の目で読む）
     en: News Commentary
     short: 時事解説
     lead: 動きの意味を読む

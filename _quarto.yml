@@ -27,7 +27,7 @@ lang: ja
 website:
   search: false
   title: "Satellite to Decision"
-  description: "地球観測データを、事業の意思決定へ。市場、ユースケース、解析の知識を、使う側の立場で整理します。"
+  description: "衛星データの市場レポート、活用事例、解析の学習プログラム、資格。遊休農地、地盤変位、災害、インフラ監視など、衛星データを仕事の判断に使うための知識を、使う側の立場で整理します。"
   # 公開先のアドレス。独自ドメインにしたら書き換える（検索エンジン向けのサイトマップに使われる）
   site-url: "https://ssskobj-dev.github.io/eisei-kouza/"
   favicon: design/brand/icon.png
@@ -42,7 +42,7 @@ website:
     logo: design/brand/logo.svg
     logo-alt: "Satellite to Decision"
     left:
-      - text: 市場ガイド
+      - text: 市場レポート
         href: landscape/index.qmd
       - text: ユースケース集
         href: casebook/index.qmd

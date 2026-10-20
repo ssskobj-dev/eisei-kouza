@@ -115,7 +115,7 @@ def check():
     for th in theme_list:
         for tid in th.get("landscape", []):
             if tid not in topic_ids:
-                errors.append(f"data/themes.yaml: 市場ガイドのテーマ '{tid}' が landscape/topics.yaml にありません")
+                errors.append(f"data/themes.yaml: 市場レポートのテーマ '{tid}' が landscape/topics.yaml にありません")
         for cid in th.get("courses", []):
             if cid not in course_ids:
                 errors.append(f"data/themes.yaml: 講座 '{cid}' が courses/ にありません")
@@ -435,7 +435,7 @@ def javideos():
 
 
 def notefull():
-    """有料で売る記事（ユースケース集、市場ガイド）の、note用の全文（full.md）を作る。
+    """有料で売る記事（ユースケース集、市場レポート）の、note用の全文（full.md）を作る。
     サイトでは後半を外して公開するので、noteで売るときは、この全文を貼って有料ラインを置く。"""
     variables = load("_variables.yml")
 
@@ -483,7 +483,7 @@ def notefull():
 THEME_STUB = """::: {.s2d-paywall}
 **「テーマから探す」は、有料版の機能です。**
 
-分野ごとに、市場ガイド、ユースケース、学習プログラムの記事をまとめて見られます。
+分野ごとに、市場レポート、ユースケース、学習プログラムの記事をまとめて見られます。
 
 <p class="s2d-paywall-cta"><a class="s2d-button" data-s2d-register="paywall" href="/register.html">サイトに有料登録する</a></p>
 :::
@@ -548,7 +548,7 @@ def nav():
     sidebars.append({"id": "learn", "title": series["learn"]["short"],
                      "contents": ["learn/index.qmd", "learn/sentinel.qmd"]})
 
-    # ---- 市場ガイド ----
+    # ---- 市場レポート ----
     write_page("landscape/index.qmd", series["landscape"]["brand"], series["landscape"]["ja"],
                "衛星データの利活用を、分野ごとに整理しています。1つの分野を、次の8つの切り口で1本ずつ書いています。\n\n"
                + "、".join(a["name"] for a in angles.values()) + "\n\n"
@@ -600,10 +600,15 @@ def nav():
         body += ["", f"## {series['learn']['short']}", ""]
         mine_courses = [c for c in public_courses if c["id"] in th.get("courses", [])]
         body += [f"- [{c['title']}](../learn/course-{c['id']}.qmd)" for c in mine_courses] or ["準備中です。"]
-        write_page(f"themes/{th['id']}.qmd", th["name"], "テーマから探す", THEME_STUB)
+        kws = seo_theme_words(th["id"])
+        th_title = (f"{SEO_HEAD} " + "・".join(kws[:3]) + f"｜{th['name']}") if kws else th["name"]
+        th_desc = (f"{SEO_HEAD}の{th['name']}分野：" + "、".join(f"{SEO_HEAD} {k}" for k in kws[:5])
+                   + "。市場レポート、活用事例、学習プログラムをまとめて見られます。") if kws else ""
+        write_page(f"themes/{th['id']}.qmd", th_title, f"テーマから探す：{th['name']}", THEME_STUB,
+                   extra=(f'description: "{th_desc}"\n' if th_desc else ""))
         index_lines.append(f"- [{th['name']}]({th['id']}.qmd)　ユースケース {len(mine)} / {planned} 件"
-                           + ("、市場ガイドあり" if rows else "") + ("、講座あり" if mine_courses else ""))
-    write_page("themes/index.qmd", "テーマから探す", "分野ごとに、市場ガイド、ユースケース、学習プログラムをまとめて見る", THEME_STUB)
+                           + ("、市場レポートあり" if rows else "") + ("、講座あり" if mine_courses else ""))
+    write_page("themes/index.qmd", "テーマから探す", "分野ごとに、市場レポート、ユースケース、学習プログラムをまとめて見る", THEME_STUB)
     sidebars.append({"id": "themes", "title": "テーマから探す",
                      "contents": ["themes/index.qmd"] + [f"themes/{th['id']}.qmd" for th in themes]})
 
@@ -623,8 +628,17 @@ def nav():
         "# scripts/build.py nav が作るファイル。手で直さない。\n"
         + yaml.safe_dump(out, allow_unicode=True, sort_keys=False), encoding="utf-8")
     print(f"メニューとページを作りました（講座 {len(public_courses)}、テーマ {len(themes)}、"
-          f"市場ガイド {n_guides} 本、ユースケース {len(cases)} 本、時事解説 {len(news)} 本）")
+          f"市場レポート {n_guides} 本、ユースケース {len(cases)} 本、時事解説 {len(news)} 本）")
 
+
+
+SEO_HEAD = "衛星データ"
+
+
+def seo_theme_words(theme_id):
+    """data/seo_keywords.yaml から、テーマの検索語（衛星データの後ろに付く語）を返す。"""
+    doc = load("data/seo_keywords.yaml") or {}
+    return list((doc.get("themes") or {}).get(theme_id) or [])
 
 def load_topics():
     doc = load("landscape/topics.yaml") or {}

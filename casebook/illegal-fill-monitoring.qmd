@@ -101,7 +101,7 @@ categories: [都市・行政, 商用, 国内]
 ## 関連する記事
 
 - テーマから探す：[都市・行政](../themes/city-government.qmd)
-- 市場ガイド：[インフラ・地盤監視：国内の事例](../landscape/infra/cases-japan.qmd)
+- 市場レポート：[インフラ・地盤監視：国内の事例](../landscape/infra/cases-japan.qmd)
 
 ## 出典
 
