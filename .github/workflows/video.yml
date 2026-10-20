@@ -1,12 +1,24 @@
 # 動画を作ってYouTubeに投稿する。
-# 2つの動かし方：
-#  (1) 自動：英語動画（video/<id>-en/script.yaml）が main にマージされると、その動画を作って
-#      英語チャンネルに「公開（public）」で投稿する。
-#  (2) 手動：Actions → video → Run workflow で、動画のid・公開範囲・チャンネルを選んで実行する。
-# 鍵は Settings → Secrets and variables → Actions に、YT_CLIENT_ID(_EN) などを登録しておく。
+# 考え方：main にある台本（video/<id>/script.yaml）のうち、まだ投稿していないもの（youtube.json が無いもの）を
+#         見つけて、作って、投稿する。マージのされ方（人・自動）に関係なく、取りこぼさない。
+#
+# 3つの動かし方：
+#  (1) 毎時の見回り（schedule）：未投稿の台本を最大4本まで作って投稿する。残りは次の見回りで
+#  (2) main への push：台本が増えたら、すぐ同じ見回りをする
+#  (3) 手動（workflow_dispatch）：動画のid・公開範囲・チャンネルを指定して1本だけ作る（投稿済みでもやり直せる）
+#
+# チャンネルと公開範囲（見回りのとき）：
+#  - フォルダ名が -en で終わる台本 → 英語チャンネル（Secret は YT_*_EN）
+#  - それ以外                     → 日本語チャンネル（Secret は YT_*）
+#  - 公開範囲は public
+#  - 台本に publish: false と書いてあるものは投稿しない（試作など）
+#
+# 投稿が終わるたびに youtube.json 等を main に書き戻すので、途中で落ちても二重投稿にならない。
 name: video
 
 on:
+  schedule:
+    - cron: "23 * * * *"
   push:
     branches: [main]
     paths:
@@ -18,7 +30,7 @@ on:
         required: true
       privacy:
         description: "unlisted（限定公開）、private、public"
-        default: unlisted
+        default: public
       channel:
         description: "投稿先：ja（日本語）または en（英語）"
         default: ja
@@ -26,7 +38,7 @@ on:
 permissions:
   contents: write
 
-# 動画の実行は1つずつ（同時にマージされても順番に処理し、main への push 競合を防ぐ）。
+# 動画の実行は1つずつ（同時に走らせない。見回りと push が重なっても順番に処理）
 concurrency:
   group: video-publish
   cancel-in-progress: false
@@ -34,57 +46,60 @@ concurrency:
 jobs:
   render-and-upload:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pyyaml
       - name: 作る動画を決める
         id: plan
+        shell: bash
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "vids=${{ github.event.inputs.video_id }}" >> "$GITHUB_OUTPUT"
-            echo "ch=${{ github.event.inputs.channel }}" >> "$GITHUB_OUTPUT"
-            echo "priv=${{ github.event.inputs.privacy }}" >> "$GITHUB_OUTPUT"
+            vid="${{ github.event.inputs.video_id }}"
+            echo "pairs=$vid:${{ github.event.inputs.channel }}:${{ github.event.inputs.privacy }}" >> "$GITHUB_OUTPUT"
           else
-            base="${{ github.event.before }}"
-            if ! git cat-file -e "$base^{commit}" 2>/dev/null || [ "$base" = "0000000000000000000000000000000000000000" ]; then
-              base="${{ github.sha }}^"
-            fi
-            changed=$(git diff --name-only "$base" "${{ github.sha }}" -- 'video/*/script.yaml' || true)
-            vids=""
-            for f in $changed; do
-              id=$(basename "$(dirname "$f")")
-              case "$id" in
-                *-en) vids="$vids $id" ;;
-              esac
+            pairs=""
+            n=0
+            for s in video/*/script.yaml; do
+              d=$(dirname "$s"); id=$(basename "$d")
+              [ -f "$d/youtube.json" ] && continue
+              if python - "$s" <<'EOF'
+          import sys, yaml
+          doc = yaml.safe_load(open(sys.argv[1], encoding="utf-8")) or {}
+          sys.exit(0 if doc.get("publish", True) is False else 1)
+          EOF
+              then echo "skip（publish: false）: $id"; continue; fi
+              case "$id" in *-en) ch=en ;; *) ch=ja ;; esac
+              pairs="$pairs $id:$ch:public"
+              n=$((n+1)); [ "$n" -ge 4 ] && break
             done
-            vids=$(echo "$vids" | xargs || true)
-            echo "vids=$vids" >> "$GITHUB_OUTPUT"
-            echo "ch=en" >> "$GITHUB_OUTPUT"
-            echo "priv=public" >> "$GITHUB_OUTPUT"
+            echo "pairs=$(echo $pairs | xargs)" >> "$GITHUB_OUTPUT"
           fi
       - name: 対象があるか確かめる
         id: gate
+        shell: bash
         run: |
-          if [ -z "${{ steps.plan.outputs.vids }}" ]; then
-            echo "作る動画がありません（英語動画の script.yaml の追加・変更なし）。終わります。"
-            echo "go=no" >> "$GITHUB_OUTPUT"
+          pairs="${{ steps.plan.outputs.pairs }}"
+          if [ -z "$pairs" ]; then
+            echo "未投稿の動画はありません。終わります。"
+            echo "go=no" >> "$GITHUB_OUTPUT"; echo "need_en=no" >> "$GITHUB_OUTPUT"
           else
-            echo "作る動画：${{ steps.plan.outputs.vids }}（チャンネル：${{ steps.plan.outputs.ch }}、公開範囲：${{ steps.plan.outputs.priv }}）"
+            echo "作る動画：$pairs"
             echo "go=yes" >> "$GITHUB_OUTPUT"
+            case " $pairs " in *":en:"*) echo "need_en=yes" >> "$GITHUB_OUTPUT" ;; *) echo "need_en=no" >> "$GITHUB_OUTPUT" ;; esac
           fi
       - name: 日本語フォントと ffmpeg を入れる
         if: steps.gate.outputs.go == 'yes'
         run: sudo apt-get update && sudo apt-get install -y fonts-noto-cjk ffmpeg chromium-browser || sudo apt-get install -y chromium
-      - uses: actions/setup-python@v5
-        if: steps.gate.outputs.go == 'yes'
-        with:
-          python-version: "3.11"
       - if: steps.gate.outputs.go == 'yes'
-        run: pip install pyyaml pillow numpy google-api-python-client google-auth google-auth-oauthlib
+        run: pip install pillow numpy google-api-python-client google-auth google-auth-oauthlib
       - name: 英語の音声（Piper）を用意する
-        if: steps.gate.outputs.go == 'yes' && steps.plan.outputs.ch == 'en'
+        if: steps.gate.outputs.go == 'yes' && steps.gate.outputs.need_en == 'yes'
         run: |
           pip install piper-tts
           mkdir -p piper_voices && cd piper_voices
@@ -104,50 +119,43 @@ jobs:
           curl -sSL -o dic.tgz https://github.com/r9y9/open_jtalk/releases/download/v1.11.1/open_jtalk_dic_utf_8-1.11.tar.gz
           unzip -q core.zip && tar xzf dic.tgz && rm core.zip dic.tgz
           python -m venv venv && ./venv/bin/pip install -q "voicevox_core-0.15.7+cpu-cp38-abi3-linux_x86_64.whl" numpy
-      - name: 動画を作る
+      - name: 動画を作って投稿し、1本ごとに書き戻す
         if: steps.gate.outputs.go == 'yes'
+        shell: bash
         env:
           VOICEVOX_PY: ${{ github.workspace }}/vv/venv/bin/python
           VOICEVOX_LIB: ${{ github.workspace }}/vv/voicevox_core-linux-x64-cpu-0.15.7
           OPEN_JTALK_DICT: ${{ github.workspace }}/vv/open_jtalk_dic_utf_8-1.11
           PIPER_VOICE_DIR: ${{ github.workspace }}/piper_voices
-        run: |
-          python scripts/figures.py
-          for vid in ${{ steps.plan.outputs.vids }}; do
-            echo "::group::$vid を作る"
-            python scripts/video.py "$vid"
-            echo "::endgroup::"
-          done
-      - name: YouTubeに投稿する
-        if: steps.gate.outputs.go == 'yes'
-        env:
           YT_CLIENT_ID_EN: ${{ secrets.YT_CLIENT_ID_EN }}
           YT_CLIENT_SECRET_EN: ${{ secrets.YT_CLIENT_SECRET_EN }}
           YT_REFRESH_TOKEN_EN: ${{ secrets.YT_REFRESH_TOKEN_EN }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
-          PIPER_VOICE_DIR: ${{ github.workspace }}/piper_voices
-        run: |
-          for vid in ${{ steps.plan.outputs.vids }}; do
-            echo "::group::$vid を投稿する"
-            python scripts/youtube_upload.py "$vid" --privacy "${{ steps.plan.outputs.priv }}" --channel "${{ steps.plan.outputs.ch }}"
-            echo "::endgroup::"
-          done
-      - name: 動画のURLをリポジトリに書き戻す
-        if: steps.gate.outputs.go == 'yes'
         run: |
           git config user.name "github-actions" && git config user.email "actions@users.noreply.github.com"
-          git add video/*/youtube.json video/*/description.txt video/*/transcript.md video/*/thumbnail.png
-          git commit -m "動画を投稿：${{ steps.plan.outputs.vids }}" || { echo "変更なし"; exit 0; }
-          # main が動いていても確実に書き戻す（最新を取り込んでから push。数回まで再試行）
-          for i in 1 2 3 4 5; do
-            git fetch origin main
-            git rebase origin/main && git push origin HEAD:main && exit 0
-            git rebase --abort || true
-            sleep $((RANDOM % 5 + 3))
+          python scripts/figures.py
+          failed=""
+          for p in ${{ steps.plan.outputs.pairs }}; do
+            vid=${p%%:*}; rest=${p#*:}; ch=${rest%%:*}; priv=${rest#*:}
+            echo "::group::$vid を作って投稿（$ch、$priv）"
+            if python scripts/video.py "$vid" && python scripts/youtube_upload.py "$vid" --privacy "$priv" --channel "$ch"; then
+              git add "video/$vid/youtube.json" "video/$vid/description.txt" "video/$vid/transcript.md" "video/$vid/thumbnail.png" 2>/dev/null || true
+              git commit -m "動画を投稿：$vid" >/dev/null 2>&1 || true
+              for i in 1 2 3 4 5; do
+                git fetch origin main -q
+                git rebase origin/main -q && git push origin HEAD:main -q && break
+                git rebase --abort 2>/dev/null || true
+                sleep $((RANDOM % 5 + 3))
+              done
+            else
+              failed="$failed $vid"
+              echo "::error::$vid の生成または投稿に失敗"
+            fi
+            echo "::endgroup::"
           done
-          echo "書き戻しに失敗しました（投稿そのものは完了しています）"; exit 1
+          [ -z "$failed" ] || { echo "失敗：$failed"; exit 1; }
       - uses: actions/upload-artifact@v4
         if: steps.gate.outputs.go == 'yes'
         with:
