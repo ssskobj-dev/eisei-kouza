@@ -26,6 +26,11 @@ on:
 permissions:
   contents: write
 
+# 動画の実行は1つずつ（同時にマージされても順番に処理し、main への push 競合を防ぐ）。
+concurrency:
+  group: video-publish
+  cancel-in-progress: false
+
 jobs:
   render-and-upload:
     runs-on: ubuntu-latest
@@ -134,8 +139,15 @@ jobs:
         run: |
           git config user.name "github-actions" && git config user.email "actions@users.noreply.github.com"
           git add video/*/youtube.json video/*/description.txt video/*/transcript.md video/*/thumbnail.png
-          git commit -m "動画を投稿：${{ steps.plan.outputs.vids }}" || echo "変更なし"
-          git push
+          git commit -m "動画を投稿：${{ steps.plan.outputs.vids }}" || { echo "変更なし"; exit 0; }
+          # main が動いていても確実に書き戻す（最新を取り込んでから push。数回まで再試行）
+          for i in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main && git push origin HEAD:main && exit 0
+            git rebase --abort || true
+            sleep $((RANDOM % 5 + 3))
+          done
+          echo "書き戻しに失敗しました（投稿そのものは完了しています）"; exit 1
       - uses: actions/upload-artifact@v4
         if: steps.gate.outputs.go == 'yes'
         with:
