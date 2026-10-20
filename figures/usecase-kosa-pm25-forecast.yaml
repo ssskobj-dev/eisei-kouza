@@ -1,0 +1,75 @@
+# ユースケースの記事「黄砂の飛来を、前日に知らせる」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星と予測モデルが行うことと、自治体や事業者が行うこと
+    link: ＋
+    left:
+      title: 衛星と予測モデルが行う
+      items:
+        - 大陸から日本まで高頻度で観測する
+        - 観測で予測の濃度を補正する
+        - 3日先までの分布図を毎朝出す
+    right:
+      title: 自治体や事業者が行う
+      items:
+        - 知らせを出す基準を決める
+        - 屋外の行事や作業を変える
+        - 地上の観測値で振り返る
+    note: 図は数値モデルの計算値。地点の濃度は地上の観測で確かめる
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 雲の下は観測しにくい
+        text: 時系列で一部を補う
+        role: none
+      - title: 夜間は観測できない
+        text: 太陽光の反射を使うため
+        role: none
+      - title: 地上の濃度は計算値
+        text: 衛星が測るのは柱全体の濁り
+        role: none
+      - title: 改善の数字は1事例
+        text: 2016年5月の煙で約29%
+        role: none
+      - title: 濃度の確定は地上の観測
+        text: 目視、ライダー、SPM
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 予測図を注意喚起と作業の判断に組み込む手順
+    steps:
+      - title: 基準を決める
+        text: 通知と作業の目安
+        who: human
+      - title: 毎朝確かめる
+        text: 3日先までの分布図
+        who: satellite
+      - title: 前日に通知
+        text: 住民と現場へ
+        who: human
+      - title: 行事や作業を変える
+        text: 時間帯と内容
+        who: human
+      - title: 観測値で検証
+        text: 基準が合っていたか
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 予測図が効く判断から、効きにくい判断まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 前日の注意喚起
+        text: 地方単位、3日先までの見通し
+      - title: 行事や作業の変更
+        text: 日単位の判断
+      - title: 時間単位の作業の判断
+        text: 図は3〜6時間ごと
+      - title: 地点の濃度の確定
+        text: 地上の観測で行う

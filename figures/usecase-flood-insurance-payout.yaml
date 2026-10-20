@@ -1,0 +1,74 @@
+# ユースケースの記事「水害の保険金を、請求を待たずに払う」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星の解析に任せることと、保険会社が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 雲や夜でも浸水の広がりを観測する
+        - 浸水の範囲と高さを面で推定する
+    right:
+      title: 保険会社が行う
+      items:
+        - 契約者の所在地と照らす
+        - 連絡のない契約者に請求を案内する
+        - 支払いの可否と金額を決める
+    note: 支払い基準の高さの判定は、衛星の推定だけでは難しい
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 高さは衛星だけで決めにくい
+        text: 基準は地盤面から45cm以上か床上
+        role: none
+      - title: 精度と速さは両立しにくい
+        text: 精度を上げると時間がかかる
+        role: none
+      - title: 光学画像は雲で使えない
+        text: SARを主にして補う
+        role: none
+      - title: 水が引く前に撮る
+        text: 数時間で引くことがある
+        role: none
+      - title: 衛星だけでは足りない
+        text: 地形、水位、SNSと組み合わせる
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 水害の直後に衛星の解析を組み込む手順
+    steps:
+      - title: 平時に備える
+        text: 撮影の手配と契約の座標
+        who: human
+      - title: 撮影を要請
+        text: 直後に対象地域を
+        who: human
+      - title: 範囲と高さを推定
+        text: SAR画像とAIで解析
+        who: satellite
+      - title: 契約物件と照合
+        text: 被災の見込みの一覧
+        who: satellite
+      - title: 振り分けと案内
+        text: 立会の要否、未請求の案内
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の推定が効く水害から、効きにくい水害まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 広く長く浸水
+        text: 日単位で水が残る
+      - title: 平野の住宅地
+        text: 範囲は出る、高さは誤差
+      - title: 短時間で引いた浸水
+        text: 撮る時刻に合わない
+      - title: 基準ぎりぎりの高さ
+        text: 現地確認で決める
