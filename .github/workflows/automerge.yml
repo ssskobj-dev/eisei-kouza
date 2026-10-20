@@ -1,6 +1,9 @@
 # 点検が通ったプルリクエストを自動でマージする。
 # マージされると、サイトは自動で公開され、英語動画は自動で YouTube に公開（public）される。
 #
+# 対象（安全策）：このリポジトリ内（フォーク以外）の、毎朝の自動実行のブランチ
+#   （video-en/ ・ note/ ・ landscape/ ・ casebook/ ・ learn/）だけ。
+#   外部や手作りのPRは、点検が通っても自動ではマージ・クローズしない（公開リポジトリのため）。
 # いつ動くか：PRが開いた／更新されたとき、点検（check）が終わった直後、毎時の見回り、手動。
 # 何をするか：
 #   1. 同じファイルを追加するPRが複数あれば、番号の小さい方を残して他を閉じる（重複の始末）
@@ -41,8 +44,12 @@ jobs:
           REPO: ${{ github.repository }}
         shell: bash
         run: |
+          # 自動の対象は、このリポジトリ内（フォーク以外）の、毎朝の自動実行のブランチだけに限る。
+          # 外部や手作りのPRを自動でマージ・クローズしないための安全策。
+          ROUTINE='^(video-en|note|landscape|casebook|learn)/'
           open_prs() {
-            gh api "repos/$REPO/pulls?state=open&per_page=100" --jq '.[] | select(.draft==false) | .number' | sort -n
+            gh api "repos/$REPO/pulls?state=open&per_page=100" \
+              --jq ".[] | select(.draft==false) | select(.head.repo.full_name==\"$REPO\") | select(.head.ref|test(\"$ROUTINE\")) | .number" | sort -n
           }
 
           echo "== 1. 重複の始末 =="
