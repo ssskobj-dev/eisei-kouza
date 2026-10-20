@@ -67,12 +67,27 @@ L = {
            "credit": lambda v: f"音声：{v['credit']}　案内役：{v['name']}",
            "transcript": "動画の全文です。", "chapters": "■ 章立て", "src_head": "■ 出典と表記",
            "foot": ["Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。",
-                    "どの衛星会社にも解析会社にも属さない立場で作っています。"]},
+                    "どの衛星会社にも解析会社にも属さない立場で作っています。"],
+           # 資格の案内（全動画の最後に入る）
+           "cert_heading": "2つの資格が取得できます",
+           "cert_sub": "資格の詳細と受験は、概要欄のリンクから",
+           "cert_say": lambda a, b: (f"最後にお知らせです。Satellite to Decision では、{a}と{b}の2つの資格を取得できます。"
+                                     "学んだことを形にしたい方は、概要欄のリンクから資格のページをご覧ください。ご視聴ありがとうございました。"),
+           "cert_desc": lambda a, b: f"🎓 {a}・{b}の2つの資格を取得できます",
+           "seo_suffix": "【衛星データ活用】", "seo_keys": ("衛星", "SAR", "Sentinel", "リモートセンシング"),
+           "tags": ["衛星データ", "衛星データ活用", "リモートセンシング", "SAR", "Sentinel", "衛星データ解析", "衛星データビジネス", "地球観測"]},
     "en": {"agenda": "In this video", "sources": "Sources", "verify": "To be verified",
            "credit": lambda v: f"Voice: {v['credit']} · Host: {v['name']}",
            "transcript": "Full transcript of the video.", "chapters": "Chapters", "src_head": "Sources and credits",
            "foot": ["Satellite to Decision | From Earth observation data to business decisions.",
-                    "Made independently of any satellite operator or analytics company."]},
+                    "Made independently of any satellite operator or analytics company."],
+           "cert_heading": "Two certifications you can earn",
+           "cert_sub": "Details and exams - see the link in the description",
+           "cert_say": lambda a, b: (f"One last thing. At Satellite to Decision you can earn two certifications - {a}, and {b}. "
+                                     "If you want to turn what you learned into a credential, see the link in the description. Thanks for watching."),
+           "cert_desc": lambda a, b: f"🎓 Earn two certifications: {a} and {b}",
+           "seo_suffix": " | Satellite Data", "seo_keys": ("satellite", "SAR", "Sentinel", "remote sensing", "Earth observation"),
+           "tags": ["satellite data", "earth observation", "remote sensing", "SAR", "Sentinel", "satellite data analysis", "satellite data business", "GIS"]},
 }
 
 W, H = 1920, 1080
@@ -307,8 +322,38 @@ def slide_cta(s, ctx):
     return frame("", "", body, ctx["series"], dark=True)
 
 
+def slide_cert(s, ctx):
+    """資格の案内（全動画の最後）。2つの資格を大きなカードで見せる。"""
+    body = [f'<circle cx="{W - 100}" cy="{H + 200}" r="700" fill="none" stroke="{LINE}" stroke-width="3"/>',
+            text(100, 230, wrap(s["heading"], 22)[:1], 64, WHITE, "900")]
+    cards = s.get("items", [])[:2]
+    cw, ch, gap, y0 = 800, 300, 60, 330
+    for n, name in enumerate(cards):
+        x = 100 + n * (cw + gap)
+        body.append(f'<rect x="{x}" y="{y0}" width="{cw}" height="{ch}" rx="24" fill="{WHITE}"/>')
+        body.append(f'<rect x="{x}" y="{y0}" width="16" height="{ch}" rx="8" fill="{ORANGE}"/>')
+        nl = wrap(name, 14)[:2]
+        body.append(text(x + 60, y0 + ch / 2 - 26 * (len(nl) - 1) + 18, nl, 52, NAVY, "900", lh=1.3))
+    if s.get("sub"):
+        body.append(text(100, y0 + ch + 90, wrap(s["sub"], 34)[:1], 34, SLATE, "bold"))
+    if s.get("url"):
+        body.append(text(100, y0 + ch + 150, s["url"], 30, WHITE, "bold", family=MONO))
+    return frame("", "", body, ctx["series"], dark=True)
+
+
 SLIDES = {"cover": slide_cover, "bullets": slide_bullets, "figure": slide_figure, "table": slide_table,
-          "code": slide_code, "prompt": slide_prompt, "steps": slide_steps, "cta": slide_cta}
+          "code": slide_code, "prompt": slide_prompt, "steps": slide_steps, "cta": slide_cta, "cert": slide_cert}
+
+
+def cert_scene(ctx):
+    """資格の案内の場面を作る。_variables.yml の cert から名前とアドレスを取る。"""
+    v = yaml.safe_load((ROOT / "_variables.yml").read_text(encoding="utf-8")).get("cert", {})
+    en = LANG == "en"
+    a = v.get("analysis_en" if en else "analysis", "Satellite Data Analysis" if en else "衛星データ解析")
+    b = v.get("business_en" if en else "business", "Satellite Data Business" if en else "衛星データビジネス")
+    url = v.get("url_en" if en else "url", "")
+    return {"kind": "cert", "heading": L[LANG]["cert_heading"], "items": [a, b], "sub": L[LANG]["cert_sub"],
+            "url": url.replace("https://", ""), "url_full": url, "say": L[LANG]["cert_say"](a, b), "_names": (a, b)}
 
 
 def svg_to_png(svg, png):
@@ -486,7 +531,13 @@ def build(vid, slides_only=False):
     work = vdir / "_work"
     work.mkdir(exist_ok=True)
     scenes = ctx["scenes"]
-    body_idx = [i for i, sc in enumerate(scenes) if sc["kind"] not in ("cover", "cta")]
+    # 資格の案内を、必ず最後に入れる（台本に無くても自動で足す。cert: false で外せる）
+    if ctx.get("cert", True) and not any(sc["kind"] == "cert" for sc in scenes):
+        for sc in scenes:   # 締めの「ご視聴ありがとうございました」は、資格の案内の側で言う（二重に言わない）
+            if sc["kind"] == "cta" and sc.get("say"):
+                sc["say"] = re.sub(r"\s*(ご視聴ありがとうございました[。！]?|Thanks for watching[.!]?)\s*$", "", sc["say"].strip())
+        scenes.append(cert_scene(ctx))
+    body_idx = [i for i, sc in enumerate(scenes) if sc["kind"] not in ("cover", "cta", "cert")]
     agenda = [sc.get("heading", "") for i, sc in enumerate(scenes) if i in body_idx]
     for i, s in enumerate(scenes):
         CURRENT.clear()
@@ -573,6 +624,19 @@ def hms(t):
     return f"{h}:{m:02d}:{sec:02d}" if h else f"{m}:{sec:02d}"
 
 
+def seo_title(ctx, vid):
+    """YouTube 用の題名。検索されやすいように、キーワード（衛星／satellite など）を必ず含め、長さを抑える。
+    台本の yt_title があればそれを使う。無ければ title を使い、キーワードが無ければ末尾に足す。"""
+    t = (ctx.get("yt_title") or ctx["title"]).strip()
+    keys = L[LANG]["seo_keys"]
+    if not any(k.lower() in t.lower() for k in keys):
+        t = t + L[LANG]["seo_suffix"]
+    limit = 40 if LANG == "ja" else 70
+    if len(t) > limit:
+        print(f"注意：題名が長めです（{len(t)}字、目安 {limit}字以内）。検索結果で切れることがあります：{t}")
+    return t[:100]
+
+
 def write_companions(vid, vdir, ctx, scenes, starts, body_idx, agenda, work):
     """動画と一緒に使うもの：説明欄（章立て、リンク、表記）、全文、サムネイル。"""
     site = yaml.safe_load((ROOT / "_variables.yml").read_text(encoding="utf-8"))["site"]
@@ -581,16 +645,26 @@ def write_companions(vid, vdir, ctx, scenes, starts, body_idx, agenda, work):
     if link and "utm_" not in link:
         link = ("https://" if not link.startswith("http") else "") + link + ("&" if "?" in link else "?") + f"utm_source=youtube&utm_medium=video&utm_campaign={vid}"
     chapters = [f"{hms(starts[i])} {scenes[i].get('heading') or ctx['title']}" for i in range(len(scenes))]
-    desc = [ctx["title"], ""]
+    yt_title = seo_title(ctx, vid)
+    cert = next((sc for sc in scenes if sc["kind"] == "cert"), None)
+    desc = [yt_title, ""]
     if ctx.get("summary"):
         desc += [ctx["summary"], ""]
     if cta.get("action"):
         desc += [f"▶ {cta['action']}", link, ""]
+    if cert:
+        a, b = cert["_names"]
+        cert_link = cert.get("url_full", "")
+        if cert_link and "utm_" not in cert_link:
+            cert_link += ("&" if "?" in cert_link else "?") + f"utm_source=youtube&utm_medium=video&utm_campaign={vid}&utm_content=cert"
+        desc += [L[LANG]["cert_desc"](a, b), cert_link, ""]
     desc += [L[LANG]["chapters"]] + chapters + [""]
     if cta.get("credits"):
         desc += [L[LANG]["src_head"]] + cta["credits"] + [""]
     desc += L[LANG]["foot"]
     (vdir / "description.txt").write_text("\n".join(desc) + "\n", encoding="utf-8")
+    tags = list(dict.fromkeys(list(ctx.get("tags") or []) + L[LANG]["tags"] + [t for t in (ctx.get("kicker"), ctx.get("series")) if t]))
+    (vdir / "meta.json").write_text(json.dumps({"title": yt_title, "tags": tags[:30]}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     tr = [f"# {ctx['title']}", "", L[LANG]["transcript"], ""]
     for sc in scenes:
         if sc.get("heading") and sc["kind"] not in ("cover",):

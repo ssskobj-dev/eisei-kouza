@@ -43,8 +43,15 @@ yt = build("youtube", "v3", credentials=creds)
 desc_path = vdir / "description.txt"
 description = desc_path.read_text(encoding="utf-8") if desc_path.exists() else ""
 title = description.splitlines()[0] if description else vid
+tags = []
+meta_path = vdir / "meta.json"   # video.py が作る。検索向けの題名とタグ
+if meta_path.exists():
+    meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    title = meta.get("title") or title
+    tags = meta.get("tags") or []
 body = {"snippet": {"title": title[:100], "description": description[:4900], "defaultLanguage": ("en" if channel == "en" else "ja"),
                     "defaultAudioLanguage": ("en" if channel == "en" else "ja"),
+                    "tags": tags[:30],
                     "categoryId": "27"},   # 27 = 教育
         "status": {"privacyStatus": privacy, "selfDeclaredMadeForKids": False}}
 req = yt.videos().insert(part="snippet,status", body=body,
