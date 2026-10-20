@@ -1,0 +1,43 @@
+# note記事「交付金の作付け確認を、衛星の「ずれ」で絞る」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 農業・食料
+    title: 作付け確認、行く筆を衛星で絞る
+    sub: 15以上の地域で利用。衛星では決められないこと
+
+  - id: fig-1
+    type: split
+    alt: 衛星の解析に任せることと、職員や協議会が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 申請作物と生育パターンのずれを筆ごとに数字にする
+        - 現地に行く候補を絞る
+    right:
+      title: 職員や協議会が行う
+      items:
+        - 乖離率の高い筆を現地で見る
+        - 作付けを確定する
+        - 確認結果と写真を記録する
+    note: 乖離率は「違っていそうな可能性」。交付の可否は現地と書類で決まる
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の4つの限界
+    columns: 2
+    items:
+      - title: 可能性で、確定ではない
+        text: 乖離率が高くても、申請と違うと決まったわけではない
+        role: none
+      - title: 狭い農地、果樹園、茶畑
+        text: 画像では判別がつきにくい
+        role: none
+      - title: 雲で画像が欠ける
+        text: 天候で最新の画像に更新されないことがある
+        role: none
+      - title: 衛星名と精度は書かれていない
+        text: 導入前に自分の地域で確かめる
+        role: none

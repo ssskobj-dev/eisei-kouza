@@ -1,0 +1,83 @@
+# English market-report video (overseas). Theme: infrastructure & ground monitoring, angle: data & methods.
+# Facts verified against the primary sources listed in the closing credits. Numbers not verified were left out.
+lang: en
+voice: Joe
+title: "Infrastructure from orbit: the data and the methods"
+series: MARKET
+kicker: Market report
+thumb: Data and methods
+summary: Which satellites and which data actually sit behind infrastructure and ground-motion monitoring - radar for movement, optical for change, and a large share of it free and open. The sensors, where paid data begins, how the analysis runs, and where the real cost sits. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: "Infrastructure from orbit: the data and the methods"
+    sub: Which satellites, which data, and how the analysis runs
+    say: Which satellites, and which data, actually sit behind satellite monitoring of infrastructure and ground motion? The short answer is this - radar measures movement, optical spots change, and a large part of the data is free and open. In this report we look at the sensors that do the work, where free data ends and paid data begins, how the analysis actually runs, and where the real cost sits.
+
+  - kind: bullets
+    heading: What this report covers
+    items:
+      - "The sensors - radar for movement, optical for change"
+      - "Free and open data, and where paid data begins"
+      - "How the analysis runs, and where the cost really sits"
+    say: Here is what this report covers. First, the sensors - radar to measure movement, optical to spot change. Second, the data itself - how much of it is free and open, and the point where you start paying. And third, how the analysis actually runs, and where the real cost sits, because it is not where most people expect.
+
+  - kind: bullets
+    heading: The sensors that do the work
+    items:
+      - "Optical reads colour and shape - it spots new, demolished or changed structures"
+      - "SAR, or radar, works day and night and sees through cloud"
+      - "InSAR compares repeat radar passes to measure motion down to millimetres"
+      - "Radar comes in bands - C-band on Sentinel-1, longer L-band, and fine-detail X-band"
+    say: Start with the sensors. There are two families. Optical sensors read colour and shape, like a camera - they spot buildings that are new, demolished or changed. Radar, known as SAR, sends out its own microwaves, so it works day and night and sees straight through cloud. That makes radar the workhorse for movement. The key technique is InSAR, radar interferometry, which compares repeat passes over the same spot and measures how the ground or a structure has moved - down to a few millimetres. Radar also comes in different wavelengths, called bands. The free Sentinel-1 uses C-band. Longer L-band reaches further into vegetation and soil - that reach is also how satellites help flag buried water leaks, and one L-band service reports it has found over one hundred thousand leaks across more than sixty countries. Short X-band, which is commercial, gives the finest detail.
+
+  - kind: table
+    heading: Free data, and where paid data begins
+    columns: [Free and open, Paid and commercial]
+    widths: [0.5, 0.5]
+    rows:
+      - ["Sentinel-1 radar, free and open", "High-resolution optical, under one metre"]
+      - ["Sentinel-2 and US Landsat optical", "Short X-band radar for fine detail"]
+      - ["Europe's ground-motion service, public", "Tasking: a fresh image on demand"]
+      - ["Best for wide-area screening", "Needed when free data is too coarse"]
+    say: Now the data. A surprising share of it is free and open. The European Copernicus programme gives away Sentinel-1 radar and Sentinel-2 optical imagery at no cost, and the United States has offered Landsat optical data free since two thousand eight. Europe even runs a public ground-motion service, built from Sentinel-1, that anyone can view and download. This free data is excellent for watching wide areas and long-term trends. You start paying when you need something free data cannot give you - high-resolution optical imagery finer than one metre, short X-band radar for the finest detail, or tasking, which means ordering a fresh image of a specific place at a specific time. The rule of thumb is simple - free data for screening, paid data for detail.
+
+  - kind: steps
+    heading: How the analysis runs
+    items:
+      - "Pull the archive - years of free radar or optical over the site"
+      - "Process a time series - line up repeat passes, pull out the movement or change"
+      - "Screen - produce a map ranking where to look first"
+      - "Confirm on the ground - crews verify the flagged spots"
+    say: So how does the analysis actually run? It is four steps. First, pull the archive - for a radar study that often means years of past Sentinel-1 passes over the site, already sitting there for free. Second, process a time series - line up those repeat passes and pull out the signal, whether that is millimetres of ground motion or a change in a building footprint. Third, screen - turn the result into a map that ranks where to look first. And fourth, confirm on the ground - crews still visit the flagged locations. The satellite sets the order and the scope; it does not replace the field visit.
+
+  - kind: table
+    heading: How to read it, and where the cost sits
+    columns: [What it is, What it is not]
+    widths: [0.5, 0.5]
+    rows:
+      - ["InSAR millimetre motion", "Motion along the line of sight, not its cause"]
+      - ["Raw Copernicus and Landsat data is free", "A finished product is not - processing and checking cost"]
+      - ["A screening map of where to look", "Not a substitute for statutory inspection"]
+      - ["Radar works through cloud and at night", "It cannot see a small or indoor defect"]
+    say: Here is how to read these methods without overselling them. When a service states millimetre accuracy, what it measures is motion along the satellite's line of sight - it tells you something is moving, not why. The raw Copernicus and Landsat data is free, but a finished, reliable product is not - the cost moves into processing and validation, which is skilled work. The output is a screening map of where to look first, not a replacement for a statutory inspection. And while radar sees through cloud and at night, it still cannot pick out a small defect or anything indoors. Free data does not mean a free answer.
+
+  - kind: bullets
+    heading: What a consultant should take from this
+    items:
+      - "Start from free archive data to test an idea before anyone pays for imagery"
+      - "Match the band and the resolution to the job, not the other way round"
+      - "Budget for the analysis and the validation, not just the data"
+      - "Lead with the decision it supports, not with the millimetre figure"
+    say: So what should a consultant take from this? First, you can start from free archive data - Sentinel or Landsat - to test whether an idea even works, before anyone pays for a single image. Second, match the radar band and the resolution to the job - C-band for wide-area motion, L-band where there is vegetation, high-resolution optical only where you truly need the detail. Third, when you build the budget, the money is in the analysis and the validation, not in the data - so budget for the people, not just the pixels. And fourth, when you propose this, lead with the decision it supports, not with the millimetre accuracy figure.
+
+  - kind: cta
+    heading: Planning infrastructure monitoring?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Sentinel-1 C-band SAR, Copernicus free & open - ESA/Copernicus - https://land.copernicus.eu/en/feature-articles/sentinel-1c-secures-the-future-of-radar-data"
+      - "European Ground Motion Service - Sentinel-1 InSAR, mm, yearly - Copernicus Land - https://land.copernicus.eu/pan-european/european-ground-motion-service"
+      - "Landsat free and open since 2008 - USGS - https://www.usgs.gov/landsat-missions/news/fifteen-years-open-data-allows-advancements-landsat-use-and-research"
+      - "ASTERRA L-band leak detection - 100,000+ leaks, 64+ countries (Sep 2023, company figure) - https://www.wateronline.com/doc/asterra-surpasses-water-leaks-0001"
+    say: If you are planning infrastructure or ground-motion monitoring, here is the next step. We help you write the request for proposal and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.

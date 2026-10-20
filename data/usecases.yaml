@@ -129,6 +129,7 @@ usecases:
   verified: true
 - 'no': 7
   name: 水災の保険金支払いの迅速化
+  slug: flood-insurance-payout
   theme: 保険・金融
   field: 保険
   stage: 商用
@@ -148,6 +149,7 @@ usecases:
   verified: true
 - 'no': 8
   name: 屋根ごとの太陽光の見積もり
+  slug: rooftop-solar-estimate
   theme: エネルギー・資源
   field: エネルギー
   stage: 商用
@@ -167,6 +169,7 @@ usecases:
   verified: true
 - 'no': 9
   name: 黄砂とPM2.5の飛来予測
+  slug: kosa-pm25-forecast
   theme: 環境・水
   field: 環境・気候
   stage: 商用
@@ -246,6 +249,7 @@ usecases:
   verified: true
 - 'no': 13
   name: 交付金の作付け確認
+  slug: sakutsuke-check
   theme: 農業・食料
   field: 農業
   stage: 商用
@@ -265,6 +269,7 @@ usecases:
   verified: true
 - 'no': 14
   name: 無断伐採の把握
+  slug: mudan-bassai-check
   theme: 林業・カーボン
   field: 林業
   stage: 商用
@@ -284,6 +289,7 @@ usecases:
   verified: true
 - 'no': 15
   name: 養殖の給餌と出荷の判断
+  slug: aquaculture-ocean-data
   theme: 水産・海洋
   field: 水産・養殖
   stage: 商用

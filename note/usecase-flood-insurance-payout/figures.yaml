@@ -1,0 +1,46 @@
+# note記事「水害の保険金、請求を待っていては遅い。衛星で被災した契約者をどこまで先に見つけられるか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 保険・金融
+    title: 水害の保険金を、先に払う
+    sub: SAR衛星とAIで浸水を推定し、契約者と照らす
+
+  - id: fig-1
+    type: split
+    alt: 衛星の解析に任せることと、保険会社が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 雲や夜でも浸水の広がりを観測する
+        - 浸水の範囲と高さを面で推定する
+    right:
+      title: 保険会社が行う
+      items:
+        - 契約者の所在地と照らす
+        - 連絡のない契約者に請求を案内する
+        - 支払いの可否と金額を決める
+    note: 支払い基準の高さの判定は、衛星の推定だけでは難しい
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 高さは衛星だけで決めにくい
+        text: 基準は地盤面から45cm以上か床上
+        role: none
+      - title: 精度と速さは両立しにくい
+        text: 精度を上げると時間がかかる
+        role: none
+      - title: 光学画像は雲で使えない
+        text: SARを主にして補う
+        role: none
+      - title: 水が引く前に撮る
+        text: 数時間で引くことがある
+        role: none
+      - title: 衛星だけでは足りない
+        text: 地形、水位、SNSと組み合わせる
+        role: none

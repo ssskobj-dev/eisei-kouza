@@ -1,0 +1,47 @@
+# note記事「太陽光の提案、全部の屋根に上がってはいられない。上空の画像で見積もりをどこまで前倒しできるか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: エネルギー・資源
+    title: 訪問前に屋根の発電量を見積もる
+    sub: 上空画像と表層モデルで、建物ごとの枚数と発電量を出す
+
+  - id: fig-1
+    type: split
+    alt: 自動の推定に任せることと、営業と施工の担当者が行うこと
+    link: ＋
+    left:
+      title: 自動の推定が行う
+      items:
+        - 屋根の区画と向きを読み取る
+        - 影を含めて日射を計算する
+        - 設置枚数と年間発電量を出す
+    right:
+      title: 担当者が行う
+      items:
+        - 訪問する先を選ぶ
+        - 屋根の強度と配線を現地で確かめる
+        - 見積もりを確定する
+    note: 主役は航空写真と表層モデル。衛星画像は最も粗い区分の元データ
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: データのある地域だけ
+        text: 表層モデルのない地域は対象外
+        role: none
+      - title: 画像の品質で精度が変わる
+        text: 1画素0.1mから0.25mまで
+        role: none
+      - title: 撮影後の変化は映らない
+        text: 増改築、隣の建物、木の成長
+        role: none
+      - title: 強度と配線は分からない
+        text: 屋根材、分電盤、系統の空き
+        role: none
+      - title: パネルの条件を変えられない
+        text: 寸法と効率は標準の前提
+        role: none

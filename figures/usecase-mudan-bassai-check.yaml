@@ -1,0 +1,76 @@
+# ユースケースの記事「届出のない伐採を、2時期の衛星画像で見つける」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星の解析に任せることと、市町村が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 2時期の画像から、木がなくなった場所を抜き出す
+        - 面積と位置を図形にする
+    right:
+      title: 市町村が行う
+      items:
+        - 伐採届の台帳と重ねる
+        - 届出のない場所を現地で確かめる
+        - 所有者に照会し、無断かどうかを決める
+    note: 衛星が示すのは「候補」。無断かどうかは照合と照会で決まる
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 小さな伐採は拾えない
+        text: 対象は0.25ha以上。間伐や抜き伐りは現れない
+        role: none
+      - title: 候補で、抽出漏れもある
+        text: 誤検出は少ないが、拾い残しが多い
+        role: none
+      - title: 落葉期と積雪期は誤検出
+        text: 葉のある時期の画像を使う
+        role: none
+      - title: 分かるのは「木がなくなった」まで
+        text: 無断かどうかは決められない
+        role: none
+      - title: 届出が地図にないと照合できない
+        text: 紙の台帳だけでは重ねられない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 伐採届の事務に、衛星の検出を入れる手順
+    steps:
+      - title: 届出を地図に
+        text: 位置と範囲
+        who: human
+      - title: 変化を抜き出す
+        text: 葉のある時期の2時期
+        who: satellite
+      - title: 台帳と重ねる
+        text: GISで照合
+        who: human
+      - title: 画像で確かめて現地へ
+        text: 届出のない場所
+        who: human
+      - title: 照会して台帳に戻す
+        text: 年1回集計
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星で見つけやすい伐採から、見つけにくい伐採まで
+    left: 見つけやすい
+    right: 見つけにくい
+    items:
+      - title: 葉のある時期の皆伐
+        text: まとまった変化
+      - title: 0.7ha以上
+        text: 適合率が良好
+      - title: 0.25haに近い
+        text: 検出の下限
+      - title: 落葉期、積雪期
+        text: 誤検出が増える
+      - title: 間伐、抜き伐り
+        text: 変化として現れない
