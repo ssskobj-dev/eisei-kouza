@@ -1,0 +1,131 @@
+# 毎朝の自動実行で作られた記事・動画のプルリクエストを、点検（check）が通ったら自動でマージする。
+#
+# ■ 何が起きるか
+#  - 対象は、毎朝の自動実行が作るブランチだけ：
+#      video-en/** ・ note/** ・ landscape/** ・ casebook/** ・ learn/**
+#  - そのPRで「check（verify）」が緑（成功）になり、競合もなければ、自動でマージする。
+#  - マージされると、これまでどおり push をきっかけに video と publish のワークフローが動く
+#    （英語動画は英語チャンネルに「公開（public）」で投稿され、サイトも作り直される）。
+#  - 上記以外のブランチ（人が手で作ったPRなど）は対象外。手でマージする。
+#
+# ■ 事前の準備（1回だけ・これをしないと自動マージは動かない）
+#  GitHub の標準トークンでマージすると、マージ後の push では video / publish ワークフローが
+#  起動しない（自動化の無限ループを防ぐ GitHub の仕様）。人がマージしたときと同じ扱いにするため、
+#  専用のトークンを登録する：
+#   1. GitHub → Settings → Developer settings → Personal access tokens →
+#      Fine-grained tokens で新規作成。Repository access はこのリポジトリ、
+#      Permissions は「Contents: Read and write」と「Pull requests: Read and write」。
+#      （従来型トークンなら scope は repo と workflow）
+#   2. リポジトリの Settings → Secrets and variables → Actions →
+#      New repository secret に、名前 AUTOMERGE_TOKEN として登録する。
+#  トークンが未登録のうちは、このワークフローは何もせず終わる（＝これまでどおり手でマージ）。
+#
+# ■ すでに開いているPR（例：#37）をまとめてマージするには
+#  Actions → automerge → Run workflow（workflow_dispatch）を1回実行すると、
+#  条件を満たす open な対象PRをまとめてマージする。
+
+name: automerge
+
+on:
+  workflow_run:
+    workflows: ["check"]
+    types: [completed]
+  workflow_dispatch:
+
+# 既定トークンでは書き込みをしない（マージは AUTOMERGE_TOKEN で行う）。
+permissions:
+  contents: read
+
+concurrency:
+  group: automerge
+  cancel-in-progress: false
+
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    # workflow_run のときは check が成功した場合だけ。手動（workflow_dispatch）のときは常に。
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+    steps:
+      - name: 専用トークンの有無を確かめる
+        id: tok
+        env:
+          T: ${{ secrets.AUTOMERGE_TOKEN }}
+        run: |
+          if [ -z "${T:-}" ]; then
+            echo "AUTOMERGE_TOKEN が未登録のため、自動マージは行いません（これまでどおり手でマージしてください）。" >> "$GITHUB_STEP_SUMMARY"
+            echo "ok=no" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=yes" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 対象PRを自動マージする
+        if: steps.tok.outputs.ok == 'yes'
+        env:
+          GH_TOKEN: ${{ secrets.AUTOMERGE_TOKEN }}
+          REPO: ${{ github.repository }}
+          EVENT: ${{ github.event_name }}
+          HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          HEAD_OWNER: ${{ github.event.workflow_run.head_repository.owner.login }}
+          REPO_OWNER: ${{ github.repository_owner }}
+        run: |
+          set -euo pipefail
+
+          # 毎朝の自動実行が作るブランチだけを対象にする正規表現。
+          ROUTINE='^(video-en|note|landscape|casebook|learn)/'
+
+          # 対象のPR番号を集める。
+          prs=""
+          if [ "$EVENT" = "workflow_run" ]; then
+            # フォークからのPRは対象外（同一リポジトリのブランチだけ）。
+            if [ "$HEAD_OWNER" != "$REPO_OWNER" ]; then
+              echo "フォークのブランチ（$HEAD_OWNER）のため対象外。" >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            if printf '%s' "$HEAD_BRANCH" | grep -Eq "$ROUTINE"; then
+              prs=$(gh pr list --repo "$REPO" --state open --head "$HEAD_BRANCH" \
+                     --json number -q '.[].number' || true)
+            else
+              echo "ブランチ $HEAD_BRANCH は対象外。" >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+          else
+            # 手動実行：open な対象PRを全部さらう。
+            prs=$(gh pr list --repo "$REPO" --state open \
+                   --json number,headRefName,isDraft \
+                   -q ".[] | select(.isDraft==false) | select(.headRefName|test(\"$ROUTINE\")) | .number" || true)
+          fi
+
+          if [ -z "${prs//[[:space:]]/}" ]; then
+            echo "対象のPRはありません。" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          for n in $prs; do
+            # draft はスキップ。
+            draft=$(gh pr view "$n" --repo "$REPO" --json isDraft -q .isDraft)
+            if [ "$draft" = "true" ]; then
+              echo "PR #$n は下書き（draft）。スキップ。" >> "$GITHUB_STEP_SUMMARY"
+              continue
+            fi
+
+            # verify が成功しているか（PR で走る check はこれだけ）。
+            verify_ok=$(gh pr view "$n" --repo "$REPO" --json statusCheckRollup \
+              -q '([.statusCheckRollup[]? | select(.name=="verify")]) as $v | (($v|length)>0) and ($v|all(.conclusion=="SUCCESS"))')
+
+            # 競合がないか（UNKNOWN のときは少し待って見直す）。
+            mergeable="UNKNOWN"
+            for i in 1 2 3 4 5; do
+              mergeable=$(gh pr view "$n" --repo "$REPO" --json mergeable -q .mergeable)
+              [ "$mergeable" != "UNKNOWN" ] && break
+              sleep 4
+            done
+
+            if [ "$verify_ok" = "true" ] && [ "$mergeable" = "MERGEABLE" ]; then
+              echo "PR #$n を自動マージします。" >> "$GITHUB_STEP_SUMMARY"
+              gh pr merge "$n" --repo "$REPO" --merge --delete-branch
+            else
+              echo "PR #$n は条件未達のためスキップ（verify成功=$verify_ok, mergeable=$mergeable）。" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
