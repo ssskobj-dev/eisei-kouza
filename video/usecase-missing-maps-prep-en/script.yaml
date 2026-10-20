@@ -1,0 +1,103 @@
+# English use-case video. Same facts as casebook/missing-maps-prep.qmd; English narration & slides.
+lang: en
+title: Filling map blanks before disaster strikes
+series: CASEBOOK
+kicker: Use case
+voice: Ryan
+number: 11
+total: 221
+thumb: Map the blanks
+summary: How aid groups fill the map blanks before a crisis — volunteers trace roads and buildings from satellite images into a free, shared map. Where it fits, what decisions it supports, its limits, and why the cost is mainly people's time. 6 minutes.
+credits:
+  - "Source: Missing Maps (official site) https://missingmaps.org/"
+  - "Source: MSF UK, 'Missing Maps' https://msf.org.uk/missing-maps"
+  - "Founding: OpenStreetMap Wiki, 'Missing Maps Project'"
+  - "Figures are a running tally on the Missing Maps site (as of Oct 2026); confirm current values"
+scenes:
+  - kind: cover
+    heading: Filling map blanks before disaster strikes
+    sub: Volunteers trace satellite images into the base maps aid teams use
+    say: Can an aid team plan a response where no usable map exists yet? Yes. The answer is to fill the blanks before disaster strikes. Before a crisis, volunteers around the world trace roads and buildings from satellite images into a free, shared map. This is Missing Maps. In this video, we look at who uses it, where it fits, what decisions it supports, its limits, and why the cost is mainly people's time.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "What: Missing Maps, a shared humanitarian mapping effort"
+      - "Who: aid groups — Red Cross societies and Doctors Without Borders"
+      - "Where: crisis-prone areas with few usable maps"
+      - "Why: to plan response before a disaster or outbreak"
+    say: Here is the setting. Missing Maps is a shared effort run by several aid groups, including national Red Cross societies and Doctors Without Borders. It works in crisis-prone areas where there is no usable map, or only a hand-drawn one. The goal is to prepare before a disaster or an outbreak, so that teams know where the roads and the houses are when a response begins.
+
+  - kind: steps
+    heading: How it works
+    items:
+      - Volunteers trace roads and buildings from satellite images
+      - Experienced volunteers validate the edits
+      - Local people add place names, roads, and building use on the ground
+      - Aid teams use the map to plan surveys, supplies, and routes
+    say: The work goes in three stages, before any response is needed. First, volunteers anywhere in the world look at satellite images and trace the shapes of roads and buildings. Second, experienced volunteers validate those edits and fix errors. Third, people on the ground add the local detail — neighbourhood and street names, shelters, and what each building is used for. Only then is the map ready for aid teams to plan with.
+
+  - kind: table
+    heading: Who does what
+    columns: [Remote volunteers, Local people]
+    widths: [0.5, 0.5]
+    rows:
+      - [Trace road and building shapes from satellite images, Add neighbourhood and street names]
+      - [Validate each other's edits, Mark shelters and facility types]
+      - ["", Verify on the ground and use the map]
+    say: The split of roles looks like this. Remote volunteers trace the shapes of roads and buildings, and validate each other's edits. Local people add the names, mark shelters and facility types, verify the detail on the ground, and use the map. Missing Maps was founded in November 2014 by the American and British Red Cross, Doctors Without Borders, and the Humanitarian OpenStreetMap Team. As published on the project site in October 2026, over one hundred eighty-nine thousand people have taken part, with more than sixty-six million building edits and over one point two million kilometres of roads. This is not a pilot. It has run since 2014.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.42, 0.58]
+    rows:
+      - [Road and building map (OpenStreetMap), "Where to place survey teams, supply hubs, and routes"]
+      - [Building density by area, Which areas are populated and what to prioritise]
+      - [Names and types added locally, Candidate shelters and clinics; how to guide residents]
+      - [Which areas are validated or not, How far to trust the map in planning]
+    say: Here is the data you receive and what it lets you decide. The road and building map tells you where to place survey teams, supply hubs, and movement routes. Building density shows which areas are populated and where to focus. The names and types added locally point to candidate shelters and clinics, and help you guide residents. And knowing which areas are validated tells you how far to trust the map when you plan. The map data is open under OpenStreetMap's license, so anyone can use and improve it, under those terms.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - Tracing captures only the shapes you can see from above
+      - Names, road access, and building use need people on the ground
+      - Quality varies by mapper, so edits are validated
+      - If the imagery is old, new settlements can be missing
+      - The sources do not name the imagery provider or its license
+    say: The limits are stated plainly in the source material. First, tracing captures only the shapes visible from above. Whether a road is passable, whether a building is lived in, whether a facility is a hospital or a school — none of that is visible from the sky. Second, names, road access, and building use all need people on the ground. Third, quality varies by mapper, which is why a validation step is built in. Fourth, if the imagery is old, newly built settlements can be missing. And note that the sources do not name the imagery provider or its license.
+
+  - kind: table
+    heading: What it costs
+    columns: [Item, Note]
+    widths: [0.3, 0.7]
+    rows:
+      - [Map data, Free and open on OpenStreetMap]
+      - [Mapping, Done by volunteers; no fee to take part]
+      - [Main cost, "People's time: coordination, mapathons, field survey"]
+      - [Imagery, Provided within the tasking tool; provider not stated in sources]
+    say: Now the cost. In this case the map data is free, and the result is open on OpenStreetMap. Volunteers do the tracing, and the project site lists no fee to take part. So the cost is mainly people's time — the coordinator who sets and tracks the tasks, running the mapping events, and the field survey that adds local detail. The imagery that is traced is provided inside the tasking tool; the sources do not state the provider or its license. We do not put a number on it here, because there is no public price to base one on.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.22, 0.39, 0.39]
+    rows:
+      - [Existing maps, Almost none available, Detailed maps already exist]
+      - [Time, You can prepare before a crisis, You need a finished map in days]
+      - [Local help, People can add names and use, Remote tracing only]
+      - [What you need, Where roads and buildings are, "Road access, use, or population"]
+    say: Finally, where it fits. It fits where there is almost no usable map, where you can prepare before a crisis rather than in days, and where local people can add the names and the building use. It also fits when what you need is simply where the roads and buildings are. It does not fit where detailed maps already exist, where you need a finished map within days, where you can only do remote tracing with no one on the ground, or where you need road access, building use, or population. When you propose this, check first whether there is someone local to add detail, never say the satellite makes the map on its own, and write the open-data terms into the proposal.
+
+  - kind: cta
+    heading: Considering this for your work?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source: Missing Maps (official site) https://missingmaps.org/"
+      - "Source: MSF UK, 'Missing Maps' https://msf.org.uk/missing-maps"
+      - "Founding: OpenStreetMap Wiki, 'Missing Maps Project'"
+      - "Figures are a running tally on the Missing Maps site (as of Oct 2026)"
+    say: To consider this for your own work or client, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
