@@ -1,0 +1,107 @@
+# English use-case video. Same facts as casebook/rooftop-solar-estimate.qmd; English narration & slides.
+lang: en
+title: Estimating rooftop solar before the site visit
+yt_title: Rooftop solar estimates before a site visit | Earth observation
+series: CASEBOOK
+kicker: Use case
+number: 8
+total: 221
+thumb: Solar from above
+summary: How solar sales teams estimate a roof's panel count and yearly output before visiting, using aerial and satellite imagery with a surface model. Where it fits in the workflow, what it decides, the limits in 2026, how far free satellites go, and what the service costs. 5 minutes.
+voice: Ryan
+scenes:
+  - kind: cover
+    heading: Estimating rooftop solar before the site visit
+    sub: Roof shape and sunlight become a panel count and a yearly output
+    say: Can you estimate a roof's solar output before anyone visits it? Yes. The answer is to let aerial and satellite imagery, together with a surface model, give you the roof shape, the usable area, and a yearly production estimate first, and then send a crew only to the buildings worth visiting. In this video we look at who uses it, where it fits in the workflow, what decisions it supports, the limits in 2026, how far free satellites go, and what the service costs.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Where: a commercial service, available in covered regions"
+      - "Who: solar sales and installation companies; also municipalities"
+      - "Why: estimate panel count and output before visiting"
+      - "The problem: every inquiry costs the same site visit, even weak leads"
+    say: First, where and who. This is a commercial service, available in the regions it covers. The users are solar sales and installation companies, and also municipalities planning subsidy areas. Why use it? When you propose panels, you need the roof shape, orientation, tilt, and the shade from nearby buildings and trees, to work out how many panels fit and how much they produce. Traditionally a salesperson drove out, climbed onto the roof or ordered drawings, and calculated by hand. As inquiries pile up, even weak leads cost that same effort. So the idea is to get a rough estimate before the visit, and rank which buildings to approach first.
+
+  - kind: table
+    heading: What the service provides
+    columns: [Product, What it returns]
+    widths: [0.32, 0.68]
+    rows:
+      - [Building Insights, "Roof segments, how many panels fit, output per layout, and existing panels detected"]
+      - [Data Layers, "Surface model (DSM), RGB image, a sunlight map, and hourly shade, as GeoTIFF"]
+    say: Our example is Google's Solar API, part of Google Maps Platform. It is a commercial service with a published price list, not a pilot. It provides two things. Building Insights returns, for each building, the roof segments, how many panels fit, the production potential for each panel layout, and whether panels are already installed. Data Layers returns the raw map data for a location, the surface model, an aerial image, a sunlight map, and hourly shade, as GeoTIFF files. One point to be honest about up front. The main source here is aerial photography. Satellite imagery feeds only the coarsest quality tier. So when you sell this as a satellite project, tell the customer that first.
+
+  - kind: steps
+    heading: Where it fits in the workflow
+    items:
+      - Turn the inquiry address into coordinates, and check it is in a covered area
+      - Pull the building estimate, the panel count and yearly output
+      - Rank which buildings to visit, using the estimate and the customer's electricity use
+      - Visit, and check the roof condition, the panel board, and the wiring
+      - Fix the assumptions with on-site facts, and finalise the quote
+    say: Here is where it fits in a sales process. First, turn the inquiry address into coordinates, and check that it falls inside a covered area. Second, pull the building-level estimate, the panel count and the yearly output. Third, rank which buildings to visit, using that estimate together with the customer's electricity use. Fourth, visit, and check the roof condition, the panel board, and the wiring route. Fifth, fix the assumptions with what you find on site, and finalise the quote. The estimate does not replace the visit. It decides the order and the scope of where to go.
+
+  - kind: table
+    heading: What the data does, and what people do
+    columns: [The data does, The people do]
+    widths: [0.5, 0.5]
+    rows:
+      - ["Read roof segments and orientation", "Choose which buildings to visit"]
+      - ["Compute sunlight, including shade", "Check roof strength and wiring on site"]
+      - ["Output panel count and yearly output", "Finalise the quote after the visit"]
+    say: The split of roles looks like this. The data reads the roof segments and their orientation, computes the sunlight including shade, and outputs the panel count and the yearly output. The people choose which buildings to visit, check the roof strength and the wiring on site, and finalise the quote after the visit. What the imagery shows and what only a visit can confirm are different things, and the proposal should keep them apart.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.42, 0.58]
+    rows:
+      - ["Roof segment orientation, tilt, area", "Which roof faces can hold panels"]
+      - ["Panel count and yearly output", "Proposed capacity, and visit priority"]
+      - ["Whether panels already exist", "Buildings to drop from new proposals"]
+      - ["DSM, RGB, sunlight, shade (GeoTIFF)", "Re-calculate with your own assumptions"]
+    say: Here is the data you receive and what it lets you decide. The orientation, tilt, and area of each roof segment tell you which faces can hold panels. The panel count and yearly output give you a proposed capacity and a visit priority. Whether panels already exist tells you which buildings to drop from new proposals. And the raw GeoTIFF layers let you re-calculate with your own assumptions. At the estimate stage you decide only whether to visit and a rough capacity. The contract amount is fixed after the site visit.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - Only where the data exists; no surface model means no result
+      - "Accuracy varies with image quality: HIGH 0.1 m aerial, MEDIUM 0.25 m aerial, BASE 0.25 m satellite"
+      - It shows the state at capture time; later rebuilds and tree growth are not reflected
+      - Roof strength, the panel board, and grid capacity are not visible from above
+      - Building-level results do not let you change the panel assumptions
+    say: Now the limits, as of 2026. First, it works only where the data exists; with no surface model, no image is returned either. Second, accuracy varies with image quality. The high tier is aerial at ten centimetres per pixel, the medium tier is aerial at twenty-five centimetres, and the base tier is satellite at twenty-five centimetres. The coarser the image, the rougher the reading of small roof features. Third, the image shows the state at the time of capture; later rebuilds, a new neighbour, or tree growth are not reflected, and for continuous use the terms call for refreshing the data every thirty days. Fourth, roof strength, the panel board, and grid capacity are not visible from above, so a site check and a utility check remain. Fifth, the building-level result does not let you change the panel size or efficiency. And the product pages publish no accuracy numbers.
+
+  - kind: bullets
+    heading: How far do free satellites go?
+    items:
+      - Reading roof segments needs 0.25 m pixels or finer, plus a surface model
+      - Free optical satellites are about 10 m per pixel
+      - At 10 m, individual roof segments cannot be read
+      - So free satellite data does not carry this use on its own
+    say: So how far can free satellites take you here? The answer is, not far enough. Reading the segments of a single roof needs pixels of twenty-five centimetres or finer, plus a surface model. Free optical satellites are about ten metres per pixel. At ten metres, a whole house is only a handful of pixels, so individual roof faces cannot be read. Free satellite data does not carry this use on its own; it depends on high-resolution aerial imagery and a surface model.
+
+  - kind: table
+    heading: What the service costs (estimate)
+    columns: [Item, Assumption and calculation]
+    widths: [0.34, 0.66]
+    rows:
+      - [Service, "Google Solar API. No need to buy imagery yourself"]
+      - [Building Insights, "Free to 10,000 a month, then USD 10 per 1,000"]
+      - [Data Layers, "Free to 1,000 a month, then USD 75 per 1,000"]
+      - [Assumption, "A dealer with about 300 inquiries a month stays free"]
+      - [Main cost, "Geocoding the address, and CRM integration work"]
+    say: Here is the cost. This is a calculation with assumptions, not a quote. You do not buy satellite or aerial imagery yourself; you pay to use the service. The published price list has Building Insights free up to ten thousand calls a month, then ten US dollars per thousand above that, stepping down at higher volumes. Data Layers is free up to one thousand a month, then seventy-five US dollars per thousand. So here is the assumption. A dealer with about three hundred inquiries a month stays inside the free tier for the building estimate, and the real cost becomes turning addresses into coordinates and wiring the results into the sales system. Prices change, so confirm the latest price list before you propose.
+
+  - kind: cta
+    heading: Considering it for your business?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source: Google Maps Platform, Solar API product page https://mapsplatform.google.com/intl/en/maps-products/solar/"
+      - "Price: Google Maps Platform core services pricing list (Solar API, updated 14 Oct 2026) https://developers.google.com/maps/billing-and-pricing/pricing"
+      - "Quality tiers: Google for Developers, Solar API coverage (updated 8 Oct 2026) https://developers.google.com/maps/documentation/solar/coverage"
+    say: To consider this for your own business or client, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
