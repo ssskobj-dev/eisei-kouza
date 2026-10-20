@@ -1,0 +1,98 @@
+# 点検が通ったプルリクエストを自動でマージする。
+# マージされると、サイトは自動で公開され、英語動画は自動で YouTube に公開（public）される。
+#
+# いつ動くか：PRが開いた／更新されたとき、点検（check）が終わった直後、毎時の見回り、手動。
+# 何をするか：
+#   1. 同じファイルを追加するPRが複数あれば、番号の小さい方を残して他を閉じる（重複の始末）
+#   2. 開いているPRを番号順に、点検（check）が通っていて競合も無いもの（mergeable_state=clean）だけマージする
+#      - 点検が失敗・実行中、または競合しているPRは、そのまま残す（次の見回りでもう一度見る）
+#      - 下書き（draft）のPRは触らない
+#   3. 英語動画（video/<id>-en/script.yaml）をマージしたら、動画の生成と公開（video ワークフロー）を起動する
+#      （GITHUB_TOKEN によるマージは push の引き金にならないため、ここから明示的に起動する）
+name: automerge
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+  workflow_run:
+    workflows: [check]
+    types: [completed]
+  schedule:
+    - cron: "7 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+concurrency:
+  group: automerge
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: 重複のPRを閉じ、点検が通ったPRをマージする
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          open_prs() {
+            gh api "repos/$REPO/pulls?state=open&per_page=100" --jq '.[] | select(.draft==false) | .number' | sort -n
+          }
+
+          echo "== 1. 重複の始末 =="
+          declare -A seen
+          for n in $(open_prs); do
+            key=$(gh api "repos/$REPO/pulls/$n/files" --jq '.[] | select(.status=="added") | .filename' | sort | tr '\n' ' ')
+            [ -z "$key" ] && continue
+            if [ -n "${seen[$key]:-}" ]; then
+              keep=${seen[$key]}
+              gh api --method PATCH "repos/$REPO/pulls/$n" -f state=closed >/dev/null
+              gh api "repos/$REPO/issues/$n/comments" -f body="#${keep} と同じファイルを追加する内容のため、重複として自動で閉じました。公開は #${keep} 側で行います。" >/dev/null
+              echo "#$n を重複として閉じた（#${keep} を残す）"
+            else
+              seen[$key]=$n
+            fi
+          done
+
+          echo "== 2. マージ =="
+          merged=""; left=""
+          for n in $(open_prs); do
+            state=""
+            for t in $(seq 1 12); do
+              state=$(gh api "repos/$REPO/pulls/$n" --jq '.mergeable_state')
+              if [ "$state" != "unknown" ] && [ -n "$state" ]; then break; fi
+              sleep 5
+            done
+            if [ "$state" != "clean" ]; then
+              left="$left #$n($state)"
+              echo "#$n は見送り（$state）"
+              continue
+            fi
+            en_files=$(gh api "repos/$REPO/pulls/$n/files" --jq '.[].filename' | grep -E '^video/[^/]+-en/script\.yaml$' || true)
+            if gh api --method PUT "repos/$REPO/pulls/$n/merge" -f merge_method=merge >/dev/null; then
+              merged="$merged #$n"
+              echo "#$n をマージした"
+              echo "== 3. 英語動画なら公開を起動 =="
+              for f in $en_files; do
+                vid=$(basename "$(dirname "$f")")
+                gh api "repos/$REPO/actions/workflows/video.yml/dispatches" \
+                  -f ref=main -f "inputs[video_id]=$vid" -f "inputs[privacy]=public" -f "inputs[channel]=en" >/dev/null
+                echo "video ワークフローを起動：$vid（public、英語チャンネル）"
+              done
+            else
+              left="$left #$n(マージ失敗)"
+              echo "#$n のマージに失敗"
+            fi
+          done
+
+          {
+            echo "## 自動マージの結果"
+            echo "- マージ：${merged:-なし}"
+            echo "- 見送り：${left:-なし}（clean 以外＝点検が未完了・失敗、または競合。次の見回りで再確認）"
+          } >> "$GITHUB_STEP_SUMMARY"
