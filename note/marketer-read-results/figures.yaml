@@ -1,0 +1,47 @@
+# note記事「衛星の解析結果が届いた。「検出されなかった」を「異常なし」と言ってはいけない理由」の見出し画像と図。
+# python scripts/figures.py marketer-read-results で、このフォルダにSVGとPNGができる。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: course
+    tag: 衛星データマーケッター 2級
+    title: 解析結果の読み方
+    sub: 「検出されなかった」は「異常なし」ではない
+
+  - id: fig-1
+    type: cards
+    alt: 解析結果を読む4つの問い
+    columns: 2
+    items:
+      - title: 何を測ったか
+        text: 視線方向の値か、換算した推定か
+        mark: "1"
+      - title: 誤検出と見逃し
+        text: 空振りと見逃しの割合を別々に
+        mark: "2"
+      - title: 測れなかった場所
+        text: 「データなし」と「変動なし」を分ける
+        mark: "3"
+      - title: 何と比べたか
+        text: 参照の種類、点の数、較差
+        mark: "4"
+
+  - id: fig-2
+    type: split
+    alt: 解析結果から言えること、言えないこと
+    link: vs
+    left:
+      title: 言えること
+      items:
+        - 視線方向の、周辺に対する相対的な変化
+        - 複数の画像で同じ場所に出た傾向
+        - 参照データと比べた範囲での精度
+        - 見に行く順番を決める材料
+    right:
+      title: 言えないこと
+      items:
+        - 測れなかった場所の状態
+        - 検出されなかった場所が安全かどうか
+        - 変動がいつ、どのように起きたか
+        - 原因の特定と、今後の予測
+    note: 「検出されなかった」は「異常なし」ではない
