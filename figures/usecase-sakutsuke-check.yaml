@@ -1,0 +1,76 @@
+# ユースケースの記事「交付金の作付け確認を、衛星の「ずれ」で絞る」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星の解析に任せることと、職員や協議会が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 申請作物と生育パターンのずれを筆ごとに数字にする
+        - 現地に行く候補を絞る
+    right:
+      title: 職員や協議会が行う
+      items:
+        - 乖離率の高い筆を現地で見る
+        - 作付けを確定する
+        - 確認結果と写真を記録する
+    note: 乖離率は「違っていそうな可能性」。交付の可否は現地と書類で決まる
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 可能性で、確定ではない
+        text: 乖離率が高くても、申請と違うと決まったわけではない
+        role: none
+      - title: 狭い農地、果樹園、茶畑
+        text: 画像では判別がつきにくい
+        role: none
+      - title: 雲で画像が欠ける
+        text: 天候で最新の画像に更新されないことがある
+        role: none
+      - title: 畦畔やかんがい機能
+        text: 直接は判定しにくい
+        role: none
+      - title: 衛星名と精度は書かれていない
+        text: 導入前に自分の地域で確かめる
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 作付け確認の前に、衛星の乖離率を入れる手順
+    steps:
+      - title: 地図を整える
+        text: 農地の区画
+        who: human
+      - title: 申請を結びつける
+        text: 筆ごとの作物
+        who: human
+      - title: 乖離率を出す
+        text: 衛星で解析
+        who: satellite
+      - title: 高い筆を見に行く
+        text: 低い筆も抜き取り
+        who: human
+      - title: 記録して報告
+        text: 結果と写真
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効果が出やすい地域から、出にくい地域まで
+    left: 効果が出やすい
+    right: 効果が出にくい
+    items:
+      - title: 筆数が多く区画が大きい
+        text: 見て回る負担が大きい
+      - title: 地図データが整っている
+        text: 区画と申請が結びつく
+      - title: 複数の制度で使い回す
+        text: 筆あたりの費用が下がる
+      - title: 狭い区画、果樹園や茶畑
+        text: 画像で判別しにくい
+      - title: 紙の台帳だけ
+        text: 解析の前に地図の整備

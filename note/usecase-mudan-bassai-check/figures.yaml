@@ -1,0 +1,43 @@
+# note記事「届出のない伐採を、2時期の衛星画像で見つける」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 林業・カーボン
+    title: 無届の伐採を、衛星で見つける
+    sub: 国が無償で配る仕組み。検出の下限は0.25ha
+
+  - id: fig-1
+    type: split
+    alt: 衛星の解析に任せることと、市町村が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 2時期の画像から、木がなくなった場所を抜き出す
+        - 面積と位置を図形にする
+    right:
+      title: 市町村が行う
+      items:
+        - 伐採届の台帳と重ねる
+        - 届出のない場所を現地で確かめる
+        - 所有者に照会し、無断かどうかを決める
+    note: 衛星が示すのは「候補」。無断かどうかは照合と照会で決まる
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の4つの限界
+    columns: 2
+    items:
+      - title: 小さな伐採は拾えない
+        text: 対象は0.25ha以上。間伐や抜き伐りは現れない
+        role: none
+      - title: 候補で、抽出漏れもある
+        text: 誤検出は少ないが、拾い残しが多い
+        role: none
+      - title: 落葉期と積雪期は誤検出
+        text: 葉のある時期の画像を使う
+        role: none
+      - title: 分かるのは「木がなくなった」まで
+        text: 無断かどうかは決められない
+        role: none

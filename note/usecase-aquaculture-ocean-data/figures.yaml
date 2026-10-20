@@ -1,0 +1,43 @@
+# note記事「養殖の給餌と出荷を、毎日の海の地図で決める」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 水産・海洋
+    title: 養殖の判断に、毎日の海の地図を
+    sub: 元データは無料。いけす1基の差は出ない
+
+  - id: fig-1
+    type: split
+    alt: 衛星と海洋モデルに任せることと、養殖事業者が行うこと
+    link: ＋
+    left:
+      title: 衛星と海洋モデルが行う
+      items:
+        - 広い範囲の水温やクロロフィルを毎日地図にする
+        - 48時間先までの変化を予測する
+    right:
+      title: 養殖事業者が行う
+      items:
+        - 自分のいけすの水温や溶存酸素を現場で測る
+        - 給餌量と出荷の時期を決める
+        - 日報に記録する
+    note: 地図が決めるのは「注意する日」。給餌と出荷は現場の値と魚を見て決める
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の4つの限界
+    columns: 2
+    items:
+      - title: いけす1基の差は出ない
+        text: 元データの格子は1/12度や1/4度
+        role: none
+      - title: 塩分と溶存酸素は推定値
+        text: 海洋モデルの計算値
+        role: none
+      - title: 分かるのは表層
+        text: 水深ごとの差は現場で測る
+        role: none
+      - title: 効果の数字がない
+        text: 給餌量や被害額の変化は公表されていない
+        role: none
