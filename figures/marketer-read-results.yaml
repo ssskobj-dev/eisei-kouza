@@ -1,0 +1,62 @@
+# 「解析結果の読み方：言えることと、言えないこと」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/marketer-read-results/<id>.svg を作る。
+
+figures:
+  - id: questions
+    type: cards
+    alt: 解析結果を読む4つの問い
+    columns: 2
+    items:
+      - title: 何を測ったか
+        text: 視線方向の値か、換算した推定か
+        mark: "1"
+      - title: 誤検出と見逃し
+        text: 空振りと見逃しの割合を別々に
+        mark: "2"
+      - title: 測れなかった場所
+        text: 「データなし」と「変動なし」を分ける
+        mark: "3"
+      - title: 何と比べたか
+        text: 参照の種類、点の数、較差
+        mark: "4"
+
+  - id: unmeasured
+    type: cards
+    alt: 測れなかった場所の例
+    columns: 3
+    items:
+      - title: 草木に覆われた場所
+        text: 枝葉が動き、信号が乱れる
+        role: none
+      - title: 田畑、造成地
+        text: 地表が変わり、色がばらばらに
+        role: none
+      - title: 水面
+        text: 電波が鏡のように反射する
+        role: none
+      - title: 山や柵の陰
+        text: 電波が届かず判読できない
+        role: none
+      - title: 狭い区画、果樹園、茶畑
+        text: 画像で判別しにくい農地
+        role: none
+
+  - id: can-say
+    type: split
+    alt: 解析結果から言えること、言えないこと
+    link: vs
+    left:
+      title: 言えること
+      items:
+        - 視線方向の、周辺に対する相対的な変化
+        - 複数の画像で同じ場所に出た傾向
+        - 参照データと比べた範囲での精度
+        - 見に行く順番を決める材料
+    right:
+      title: 言えないこと
+      items:
+        - 測れなかった場所の状態
+        - 検出されなかった場所が安全かどうか
+        - 変動がいつ、どのように起きたか
+        - 原因の特定と、今後の予測
+    note: 「検出されなかった」は「異常なし」ではない

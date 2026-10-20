@@ -20,7 +20,7 @@ parts:
     must_include: [視線方向の変位, 誤検出と見逃し, 測れない場所, 参照データとの比較, 言えないことの明示]
     tradeoffs: [state_what_cannot_be_said, change_not_absolute]
     material: ""
-    status: todo
+    status: done
 
   - id: marketer-accuracy-field-check
     title: 精度の条件と、現地確認の役割
@@ -32,7 +32,7 @@ parts:
     must_include: [精度の条件（点の密度・期間・参照）, 抜き取りの確認, 法定点検は置き換えない, 順位付けに使う]
     tradeoffs: [screen_then_confirm, combine_with_existing]
     material: ""
-    status: todo
+    status: done
 
   - id: marketer-policy-procurement
     title: 制度と国の調達の方針：公的な資料で確かめられる範囲

@@ -690,3 +690,11 @@
   publisher: 国土地理院
   url: https://www.gsi.go.jp/uchusokuchi/gsi_sar_faq2.html
   tags: [干渉SAR, 災害, 緊急観測, 火山, 基礎]
+
+# ---- 資格の教材：解析結果の読み方、精度の条件と現地確認（2026-10-21 追記） ----
+
+- id: mlit-road-periodic-inspection-2014
+  title: 定期点検の実施について（道路法施行規則の改正に基づく、5年に1回の近接目視による点検の通知）（2014年6月25日）
+  publisher: 国土交通省 道路局
+  url: https://www.mlit.go.jp/road/sign/kijyun/pdf/20140625teikitenken.pdf
+  tags: [道路, 法定点検, 近接目視, 制度]
