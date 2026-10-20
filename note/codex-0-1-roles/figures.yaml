@@ -1,0 +1,44 @@
+# note記事「AIに衛星データの解析コードを書かせたい。どこまで任せて、何を自分で確かめるか」の見出し画像と図。
+# python scripts/figures.py codex-0-1-roles で、このフォルダにSVGとPNGができる。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: course
+    tag: 解析教材
+    title: AIに書かせ、人が確かめる
+    sub: 任せること、決めること、確かめること
+
+  - id: fig-1
+    type: cards
+    alt: AIに任せること、人が決めること、人が確かめることの3つの役割
+    columns: 3
+    items:
+      - title: AIに任せる
+        text: コードを書く。エラーを直す。1行ずつ説明する。別の書き方を示す
+        role: satellite
+      - title: 人が決める
+        text: 問い。衛星とデータ。期間、範囲、雲の条件。何が出れば合格か
+        role: human
+      - title: 人が確かめる
+        text: コードが決めたとおりか。値と地図が妥当か。何が言えて、何が言えないか
+        role: human
+
+  - id: fig-2
+    type: flow
+    alt: 確かめる手順を先に決めてから、AIに書かせる5つの手順
+    steps:
+      - title: 問いと基準を決める
+        text: 問い、データ、条件、合格の基準
+        who: human
+      - title: 確かめ方を先に書く
+        text: 答えの分かる場所、波長帯の番号
+        who: human
+      - title: AIに書かせる
+        text: 条件と確かめ方を渡す
+        who: satellite
+      - title: コードの確認
+        text: 公式資料と突き合わせる
+        who: human
+      - title: 結果の確認
+        text: 地図と数字。言えることを決める
+        who: human

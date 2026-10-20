@@ -1,0 +1,41 @@
+# 「AIへの頼み方：解析の指示に必ず入れる7項目」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-0-2-prompting/<id>.svg を作る。
+
+figures:
+  - id: seven
+    type: cards
+    alt: 指示に必ず入れる7項目
+    columns: 4
+    items:
+      - title: 目的
+        text: 何を決めるための材料か
+      - title: 場所
+        text: 緯度と経度の範囲、区画の境界
+      - title: 期間
+        text: 開始日と終了日、季節の意味
+      - title: 衛星と処理の段階
+        text: 衛星の名前と段階の正式な名前
+      - title: 手順
+        text: 雲の扱い、計算、まとめ方の順番
+      - title: 出力
+        text: 表、図、地図の形と単位
+      - title: 確かめ方
+        text: 表示させる途中の値。答えの分かる場所
+        role: human
+
+  - id: flow
+    type: flow
+    alt: 7項目を書いてから、本番に広げるまでの4つの手順
+    steps:
+      - title: 7項目を埋める
+        text: 空欄があれば書かない
+        who: human
+      - title: 途中の値を頼む
+        text: 画像の日付、波長帯、最小と最大、除いた数
+        who: human
+      - title: 既知の場所で試す
+        text: 湖が高く、森が低いか
+        who: human
+      - title: 本番に広げる
+        text: 通ったコードで全域を出す
+        who: satellite
