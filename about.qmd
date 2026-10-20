@@ -20,6 +20,10 @@ Satellite to Decision は、衛星データを仕事の判断に使いたい人�
 | [{{< var series.casebook.brand >}}](casebook/index.qmd) | {{< var series.casebook.ja >}}。使い道を1つずつ、限界と費用の考え方まで |
 | [{{< var series.learn.brand >}}](learn/index.qmd) | {{< var series.learn.ja >}}。ユースケース別に、使う衛星と解析の流れを学べる。図とケース問題の付いた講座も |
 
+## 2つの資格
+
+[資格](cert.qmd)のページで、**{{< var cert.business >}}**（使う側・頼む側）と**{{< var cert.analysis >}}**（自分で解析する側）の2つの資格を運営しています。どちらも、場面を示されて判断できることを問います。シラバス、級、形式、出題例は資格のページにあります。
+
 ## 立場
 
 どの衛星会社にも解析会社にも属さない立場で書いています。

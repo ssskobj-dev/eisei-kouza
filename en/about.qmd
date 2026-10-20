@@ -24,6 +24,10 @@ Articles are written in Japanese. This page and the entry pages of each series a
 | [{{< var series.casebook.brand >}}](casebook/index.qmd) | {{< var series.casebook.en >}}. One use case at a time, with limits and cost |
 | [{{< var series.learn.brand >}}](learn/index.qmd) | {{< var series.learn.en >}}. Learn by use case which satellite and method to use |
 
+## Two certifications
+
+On the [Certifications](cert.qmd) page we run two certifications: **{{< var cert.business_en >}}** (for those who use and commission satellite data) and **{{< var cert.analysis_en >}}** (for those who run analyses themselves). Both test whether you can make the call in a given situation. Syllabus, levels, format and sample questions are on that page.
+
 ## Our position
 
 We write independently of any satellite operator or analytics company.

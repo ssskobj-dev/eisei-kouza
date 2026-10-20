@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var jaRel = isEn ? rel.slice(3) : rel;
   // 英語版のあるページ。増やしたら、ここにも足す
   var translated = ["index.html", "about.html", "register.html", "privacy.html", "landscape/index.html",
-                    "casebook/index.html", "learn/index.html", "learn/sentinel.html", "news/index.html"];
+                    "casebook/index.html", "learn/index.html", "learn/sentinel.html", "news/index.html", "cert.html"];
   var hasEn = translated.indexOf(jaRel) !== -1;
   function relOf(a) {
     try {
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // 3. 言語の切り替え
   var labels = { "landscape/index.html": "Market Guide", "casebook/index.html": "Use Cases",
                  "learn/index.html": "Training", "news/index.html": "News", "themes/index.html": "Themes (JA)",
-                 "about.html": "About", "register.html": "Membership" };
+                 "about.html": "About", "register.html": "Membership", "cert.html": "Certifications" };
   document.querySelectorAll(".navbar a").forEach(function (a) {
     var raw = a.getAttribute("href") || "";
     if (!raw || raw.charAt(0) === "#" || a.classList.contains("quarto-color-scheme-toggle")) return;

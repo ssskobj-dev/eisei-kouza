@@ -75,7 +75,7 @@ L = {
                                      "学んだことを形にしたい方は、概要欄のリンクから資格のページをご覧ください。ご視聴ありがとうございました。"),
            "cert_desc": lambda a, b: f"🎓 {a}・{b}の2つの資格を取得できます",
            "seo_suffix": "【衛星データ活用】", "seo_keys": ("衛星", "SAR", "Sentinel", "リモートセンシング"),
-           "tags": ["衛星データ", "衛星データ活用", "リモートセンシング", "SAR", "Sentinel", "衛星データ解析", "衛星データビジネス", "地球観測"]},
+           "tags": ["衛星データ", "衛星データ活用", "リモートセンシング", "SAR", "Sentinel", "衛星データ解析", "衛星データ解析エンジニア", "衛星データマーケッター", "地球観測"]},
     "en": {"agenda": "In this video", "sources": "Sources", "verify": "To be verified",
            "credit": lambda v: f"Voice: {v['credit']} · Host: {v['name']}",
            "transcript": "Full transcript of the video.", "chapters": "Chapters", "src_head": "Sources and credits",
@@ -87,7 +87,7 @@ L = {
                                      "If you want to turn what you learned into a credential, see the link in the description. Thanks for watching."),
            "cert_desc": lambda a, b: f"🎓 Earn two certifications: {a} and {b}",
            "seo_suffix": " | Satellite Data", "seo_keys": ("satellite", "SAR", "Sentinel", "remote sensing", "Earth observation"),
-           "tags": ["satellite data", "earth observation", "remote sensing", "SAR", "Sentinel", "satellite data analysis", "satellite data business", "GIS"]},
+           "tags": ["satellite data", "earth observation", "remote sensing", "SAR", "Sentinel", "satellite data analysis", "satellite data analysis engineer", "satellite data marketer", "GIS"]},
 }
 
 W, H = 1920, 1080
