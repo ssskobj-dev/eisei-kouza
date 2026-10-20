@@ -71,8 +71,8 @@ def check():
             need(pid, "tradeoffs", t, tradeoffs)
         for o in p.get("outputs", []):
             need(pid, "outputs", o, OUTPUTS)
-        if p.get("status") not in ("todo", "done"):
-            errors.append(f"{pid}: status は todo か done にしてください")
+        if p.get("status") not in ("todo", "done", "hold"):
+            errors.append(f"{pid}: status は todo、done、hold のどれかにしてください（hold＝順番待ち。作らない）")
         if p.get("status") == "done" and not chapter_path(p).exists():
             errors.append(f"{pid}: status が done ですが原稿がありません")
 
@@ -444,6 +444,49 @@ def javideos():
         print(f"  usecase-{p.stem}　{full_title(p)}")
 
 
+
+def cert():
+    """資格の分野ごとに、教材の章が公開済みか（learn/<domain>/<id>.qmd があるか）を出す。"""
+    parts = load_parts()
+    cmap = load("data/cert_map.yaml") or {}
+    for key, c in cmap.items():
+        print(f"== {c['name']} ==")
+        for lv in c.get("levels", []):
+            done_n = total = 0
+            for d in lv.get("domains", []):
+                rows = []
+                for pid in d.get("parts", []):
+                    p = parts.get(pid)
+                    ok = bool(p) and chapter_path(p).exists()
+                    rows.append(("○" if ok else ("…" if p and p.get("status") == "hold" else "×")) + pid)
+                    total += 1; done_n += ok
+                print(f"  {lv['level']} {d['name']}: " + " ".join(rows))
+            print(f"  {lv['level']} 公開 {done_n} / {total} 章")
+
+
+def cert_map_fragment():
+    """cert.qmd に差し込む「シラバスと教材の対応」（_cert_map.qmd）を作る。nav から呼ぶ。"""
+    parts = load_parts()
+    cmap = load("data/cert_map.yaml") or {}
+    out = []
+    for key, c in cmap.items():
+        out += [f"### {c['name']}", ""]
+        for lv in c.get("levels", []):
+            out += [f"**{lv['level']}**", "", "| 分野 | 教材の章 |", "|---|---|"]
+            for d in lv.get("domains", []):
+                cells = []
+                for pid in d.get("parts", []):
+                    p = parts.get(pid)
+                    if p and chapter_path(p).exists():
+                        rel = chapter_path(p).relative_to(ROOT).as_posix()
+                        cells.append(f"[{p['title'].split('：')[0]}]({rel})")
+                    elif p:
+                        cells.append(f"{p['title'].split('：')[0]}（準備中）")
+                out.append(f"| {d['name']} | " + "、".join(cells) + " |")
+            out.append("")
+    (ROOT / "_cert_map.qmd").write_text("\n".join(out) + "\n", encoding="utf-8")
+
+
 def notefull():
     """有料で売る記事（ユースケース集、市場レポート）の、note用の全文（full.md）を作る。
     サイトでは後半を外して公開するので、noteで売るときは、この全文を貼って有料ラインを置く。"""
@@ -637,6 +680,7 @@ def nav():
     (ROOT / "_sidebar.yml").write_text(
         "# scripts/build.py nav が作るファイル。手で直さない。\n"
         + yaml.safe_dump(out, allow_unicode=True, sort_keys=False), encoding="utf-8")
+    cert_map_fragment()
     print(f"メニューとページを作りました（講座 {len(public_courses)}、テーマ {len(themes)}、"
           f"市場レポート {n_guides} 本、ユースケース {len(cases)} 本、時事解説 {len(news)} 本）")
 
@@ -821,6 +865,8 @@ if __name__ == "__main__":
         enreports()
     elif cmd == "javideos":
         javideos()
+    elif cmd == "cert":
+        cert()
     elif cmd == "usecases":
         usecases(int(sys.argv[2]) if len(sys.argv) > 2 else 3)
     elif cmd == "reports":
