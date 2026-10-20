@@ -20,3 +20,4 @@ __pycache__/
 figures/*/
 
 /.quarto/
+_cert_map.qmd

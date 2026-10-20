@@ -43,17 +43,27 @@ Satellite to Decisionの教材を作るリポジトリ。章立てとパター�
 
 ### 毎朝の自動実行で作る章の順番
 
-1回に2章まで。検定の問題の材料が足りない分野（調達と費用、基礎）を先に作る。次の順で、`status: todo` のものを上から選ぶ。全部終わったら、`python scripts/build.py todo` の順に進む。
+1回に2章まで。**資格の教材を先に揃える**（衛星データマーケッター2級 → その他）。次の順で、`status: todo` のものを上から選ぶ。`codex-*`（解析教材）は別のタスク「解析教材の章の作成」が作るので、このタスクでは飛ばす。`status: hold` の章は作らない（順番待ち）。全部終わったら、`python scripts/build.py todo` の順に進む。
 
-1. `common-data-cost`（データの入手方法と費用の考え方）
-2. `survey-procurement`（衛星データの選び方と調達の実務）
-3. `agri-cost-benefit`（費用対効果の測り方）
-4. `survey-proposal-pricing`（提案書、仕様書、見積もりの作り方）
-5. `agri-municipal-spec`（自治体が衛星サービスを導入するときの仕様書）
-6. `survey-quality-explain`（成果物の品質確認と、顧客への説明）
-7. `common-strengths-limits`、`common-optical-sar`、`common-vs-other-means`（基礎）
+1. `marketer-read-results`（解析結果の読み方）
+2. `marketer-accuracy-field-check`（精度の条件と、現地確認の役割）
+3. `marketer-policy-procurement`（制度と国の調達の方針）
+4. `marketer-workflow-fit`（業務の流れのどこに入れ、何を決める材料にするか）
+5. `marketer-market-proposal`（市場の動きと提案の筋）
+6. 残りの `survey-*`、`agri-*`、`common-*` の todo
+7. マーケッター2級が揃ったら（`python scripts/build.py cert` で 2級 が全部 ○）、`syllabus/marketer.yaml` の1級（`hold`）を `todo` に変えてから続ける
 
-開いたままのプルリクエストに同じ章があれば、その章は飛ばす。`material`（現場のメモ）が空の章は、公的な資料だけで書き、書かれていない事例を作らない。金額や相場は、出典のある公開の数字だけを書く。
+### 「解析教材の章を作って」と頼まれたら（毎朝の自動実行「解析教材の章の作成」も同じ）
+
+衛星データ解析エンジニアの教材（`syllabus/codex.yaml`、章の型 `codex`）。上の「未作成の章を作って」と同じ手順で、次の点だけ違う。
+
+- 対象は `codex-*` の `status: todo` だけ。`courses/codex.yaml` の並び順（第0部から）に作る。1回に2章まで
+- **テキストベース**：コードは「AIへの指示文」と「誤りを仕込んだ抜粋（10行以内、擬似コードでよい）」で示す。実行環境を前提にしない。動くことを保証する文を書かない
+- 衛星の仕様（波長帯の番号、処理の段階の名前）は公式資料で確かめて出典を付ける。確かめられなければ【要確認】
+- 図は `figures/<id>.yaml` に1〜2枚（しくみの図、おかしな結果の例）
+- ケース問題（`learn/quiz/<id>.qmd`）は、誤りを仕込んだコードか結果から問題を見つける形で、四肢択一1問＋短答1問
+- 2級（第0〜3部）が揃ったら（`python scripts/build.py cert`）、`syllabus/codex.yaml` の1級（`hold`）を `todo` に変えてから続ける
+- ブランチは `learn/<日付>-codex`
 
 ## 「今日のnote記事を作って」と頼まれたら（毎朝の自動実行も同じ）
 

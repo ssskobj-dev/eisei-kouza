@@ -1,0 +1,38 @@
+# 資格の分野 → 教材の章（syllabus の部品 id）の対応表。
+# cert.qmd の「シラバスと教材の対応」は、ここから nav が自動で作る（_cert_map.qmd）。
+# 進捗は python scripts/build.py cert で出る。
+
+marketer:
+  name: 衛星データマーケッター
+  levels:
+    - level: 2級
+      domains:
+        - {name: "A. 衛星と手法を選ぶ", parts: [common-strengths-limits, common-optical-sar, common-vs-other-means]}
+        - {name: "B. 結果を読む", parts: [marketer-read-results, marketer-accuracy-field-check, survey-quality-explain]}
+        - {name: "C. 調達と費用", parts: [common-data-cost, survey-procurement, marketer-policy-procurement]}
+        - {name: "D. 市場と提案", parts: [marketer-workflow-fit, marketer-market-proposal, survey-proposal-pricing, agri-cost-benefit]}
+    - level: 1級
+      domains:
+        - {name: "A. 要求の定義", parts: [marketer-requirements, marketer-requirements-cases]}
+        - {name: "B. 提案の評価", parts: [marketer-evaluate-proposals, marketer-evaluate-proposals-cases]}
+        - {name: "C. 仕様書と検収", parts: [marketer-spec-acceptance, marketer-spec-acceptance-cases]}
+        - {name: "D. 費用と効果の説明", parts: [marketer-cost-benefit-explain, marketer-cost-benefit-cases]}
+        - {name: "E. 提案の組み立て", parts: [marketer-adoption-path, marketer-adoption-path-cases]}
+
+codex:
+  name: 衛星データ解析エンジニア
+  levels:
+    - level: 2級
+      domains:
+        - {name: "A. AIと進める解析の型", parts: [codex-0-1-roles, codex-0-2-prompting, codex-0-3-code-review, codex-0-4-reproducible]}
+        - {name: "B. 解析の前に", parts: [codex-1-1-what-pixels-measure, codex-1-2-optical-vs-radar-view, codex-1-3-resolution-revisit, codex-1-4-processing-levels, codex-1-5-open-data-access]}
+        - {name: "C. 光学の解析", parts: [codex-2-6-color-composites, codex-2-7-vegetation-index, codex-2-8-water-snow-index, codex-2-9-burn-index, codex-2-10-change-detection, codex-2-11-time-series]}
+        - {name: "D. レーダーの解析", parts: [codex-3-12-radar-brightness, codex-3-13-flood-mapping, codex-3-14-insar-concepts, codex-3-15-displacement-series, codex-3-16-objects-at-sea]}
+        - {name: "E. レビューの観点", parts: [codex-0-3-code-review]}
+    - level: 1級
+      domains:
+        - {name: "A. 分類と検出", parts: [codex-4-17-training-data, codex-4-18-ml-classification, codex-4-19-accuracy]}
+        - {name: "B. 水と大気", parts: [codex-5-20-water-quality, codex-5-21-atmospheric-gas]}
+        - {name: "C. 結果を使う", parts: [codex-6-22-field-check-combo, codex-6-23-maps-and-tables, codex-6-24-what-can-be-said]}
+        - {name: "D. 依頼と再現", parts: [codex-6-25-briefing-vendors, codex-0-4-reproducible]}
+        - {name: "E. 実技", parts: [codex-6-26-common-failures]}

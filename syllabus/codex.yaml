@@ -1,0 +1,290 @@
+# 衛星データ解析エンジニア（資格）の教材＝解析教材（AIに書かせて、人が確かめる）。章立て案 第3版の30章。
+# 2級＝第0〜3部（20章、status: todo）。1級＝第4〜6部（10章、status: hold。2級が揃ったら todo に変える）。
+# 章の型は codex（patterns/chapter_types/codex.md）。テキストベース（指示文＋レビュー観点＋誤り例）。
+# 有料の線は一旦なし（learn/codex/_metadata.yml で全部無料）。対応表は data/cert_map.yaml。
+
+defaults:
+  audience: analyst
+  depth: standard
+  type: codex
+  outputs: [note, quiz]
+
+parts:
+  # ---------- 第0部 AIと進める解析の型（2級 A） ----------
+  - id: codex-0-1-roles
+    title: 役割の分担：AIに任せることと、人が決めて確かめること
+    tags: [資格, 2級, 第0部]
+    goals:
+      - AIに任せること（書く、直す、説明する）と、人が決めること（問い、データ、条件、合格の基準）と、人が確かめること（コード、結果、言えること）を分けられる
+    must_include: [3つの役割の表, AIは自信のある口調で誤る例, 確かめる手順を先に決める, 任せてはいけない判断]
+    material: ""
+    status: todo
+
+  - id: codex-0-2-prompting
+    title: AIへの頼み方：解析の指示に必ず入れる7項目
+    tags: [資格, 2級, 第0部]
+    goals:
+      - 目的、場所、期間、衛星と処理の段階、手順、出力、確かめ方の7項目を埋めた指示文を書ける
+    must_include: [7項目の表, あいまいな指示と直した指示の比べ読み, 途中の値を表示させる, 既知の場所で試す]
+    material: ""
+    status: todo
+
+  - id: codex-0-3-code-review
+    title: コードの読み方とレビューの基本：書けなくても確かめられる
+    tags: [資格, 2級, 第0部]
+    goals:
+      - コードを「取る、選ぶ、計算する、まとめる、出す」の5つの塊に分けて読み、要所を確かめられる
+    must_include: [5つの塊, AIに1行ずつ説明させる, 別の頼み方でもう一度書かせて突き合わせる, 共通のレビュー観点12項目の一覧]
+    material: ""
+    status: todo
+
+  - id: codex-0-4-reproducible
+    title: 再現できる形で残す：あとから同じ結果を出せる記録
+    tags: [資格, 2級, 第0部]
+    goals:
+      - 使ったデータ、範囲、処理の段階、基準の値、道具の版、AIへの指示文を記録し、他人が確かめられる形で残せる
+    must_include: [記録に残す項目の一覧, 報告に「AIが書き、人が何を確かめたか」を書く, 版の固定, 記録の例]
+    material: ""
+    status: todo
+
+  # ---------- 第1部 解析の前に（2級 B） ----------
+  - id: codex-1-1-what-pixels-measure
+    title: 衛星画像は何を測っているか：画素の値と物理的な値
+    tags: [資格, 2級, 第1部]
+    goals:
+      - 画像を1枚開き、波長帯ごとの値の分布を出して、値がもっともらしいかを確かめられる
+    must_include: [画素の値と反射率, 倍率とずらし, 波長帯の名前の確認, 水面と植物の見え方]
+    material: ""
+    status: todo
+
+  - id: codex-1-2-optical-vs-radar-view
+    title: 光学とレーダーの見え方の違い：同じ場所を並べて見る
+    tags: [資格, 2級, 第1部]
+    goals:
+      - 同じ場所、近い日の光学とレーダーの画像を並べ、日付と範囲がそろっているかと、値の単位を確かめられる
+    must_include: [日付と範囲の一致, レーダーの値の単位（真値と対数）, 雲の日の見え方, 水面の暗さ]
+    material: ""
+    status: todo
+
+  - id: codex-1-3-resolution-revisit
+    title: 分解能と撮影の間隔：使える画像を数える
+    tags: [資格, 2級, 第1部]
+    goals:
+      - 期間内の画像の一覧と雲の量を出し、使える枚数と、対象が何画素分かを確かめられる
+    must_include: [雲の量の基準, 範囲を一部しか覆わない画像, 季節の偏り, 対象の大きさと画素]
+    material: ""
+    status: todo
+
+  - id: codex-1-4-processing-levels
+    title: 処理の段階と補正：補正の前後で値を比べる
+    tags: [資格, 2級, 第1部]
+    goals:
+      - 処理の段階を名前で正しく選び、補正の前後で値がどう変わるかを確かめられる
+    must_include: [処理の段階の名前, 段階ごとの倍率の違い, かすみの除去, 山の斜面の位置ずれ]
+    material: ""
+    status: todo
+
+  - id: codex-1-5-open-data-access
+    title: 無償データの入手：場所と期間で探し、条件を守って保存する
+    tags: [資格, 2級, 第1部]
+    goals:
+      - 場所と期間を指定して雲の少ない画像を探し、利用の条件と出どころの表記を付けて保存できる
+    must_include: [座標の順番（緯度と経度）, 利用の条件, 出どころの表記, 範囲の端の切れ]
+    material: ""
+    status: todo
+
+  # ---------- 第2部 光学の解析（2級 C） ----------
+  - id: codex-2-6-color-composites
+    title: 色の合成で見る：自然な色、近赤外、短波長赤外
+    tags: [資格, 2級, 第2部]
+    goals:
+      - 3種類の合成を作り、波長帯の割り当てと画素の大きさの違いを確かめられる
+    must_include: [割り当ての確認, 画素の大きさをそろえる, 植物が目立つ色, 明るさの飛びとつぶれ]
+    material: ""
+    status: todo
+
+  - id: codex-2-7-vegetation-index
+    title: 植生の指数：雲を除いて、区画ごとに平均する
+    tags: [資格, 2級, 第2部]
+    goals:
+      - 雲を除いたうえで指数を計算し、区画ごとの平均を表にして、値の範囲と雲の影を確かめられる
+    must_include: [赤と近赤外の波長帯, 値を直してから割り算, 分母が0の画素, 値の範囲−1〜1, 雲の影が「生育不良」に見える誤り]
+    material: ""
+    status: todo
+
+  - id: codex-2-8-water-snow-index
+    title: 水と雪の指数：基準を超えた範囲の面積を出す
+    tags: [資格, 2級, 第2部]
+    goals:
+      - 水と雪で使う波長帯の組を守り、基準の根拠を書き、面積の計算の座標を確かめられる
+    must_include: [水と雪で違う波長帯の組, 基準の値の根拠, 面積の座標, 建物の影と濡れた田, 雪と雲の取り違え]
+    material: ""
+    status: todo
+
+  - id: codex-2-9-burn-index
+    title: 焼け跡の指数：火災の前後の差を段階に分ける
+    tags: [資格, 2級, 第2部]
+    goals:
+      - 前後の指数の差を計算し、引き算の向きと段階の区切りの出どころを確かめられる
+    must_include: [近赤外と短波長赤外, 引き算の向き, 段階の区切りの出どころ, 刈り取りと水面の誤検出, 公的な記録との照合]
+    material: ""
+    status: todo
+
+  - id: codex-2-10-change-detection
+    title: 前後の比較：同じ季節の2時期から変化を拾う
+    tags: [資格, 2級, 第2部]
+    goals:
+      - 季節と条件をそろえた2枚から差を出し、位置合わせと雲のない画素の扱いを確かめられる
+    must_include: [季節と条件をそろえる, 位置合わせ, 両方で雲のない画素だけ, 雲の縁の「変化」, 作物の変化と造成の取り違え]
+    material: ""
+    status: todo
+
+  - id: codex-2-11-time-series
+    title: 時系列で見る：1年分の指数の推移をグラフにする
+    tags: [資格, 2級, 第2部]
+    goals:
+      - 区画ごとに指数の推移を出し、雲の日の除去と欠けた日の扱いを確かめられる
+    must_include: [雲の日を除く, 欠けた日を線でつながない, 区画の境目の画素, 作物の暦との照合, 1日だけの飛び値]
+    material: ""
+    status: todo
+
+  # ---------- 第3部 レーダーの解析（2級 D） ----------
+  - id: codex-3-12-radar-brightness
+    title: レーダー画像の明るさの意味：ノイズをならして土地の種類で比べる
+    tags: [資格, 2級, 第3部]
+    goals:
+      - 値の単位と偏波を確かめ、ノイズをならして、土地の種類ごとの明るさを比べられる
+    must_include: [真値と対数を混ぜない, 平均は真値でとる, 偏波の選択, 水面と市街地, 斜面の明るい側と暗い側]
+    material: ""
+    status: todo
+
+  - id: codex-3-13-flood-mapping
+    title: 前後の比較で浸水を見る：候補の範囲と面積
+    tags: [資格, 2級, 第3部]
+    goals:
+      - 災害の前後の画像から浸水の候補を出し、軌道の向き、比と差の使い分け、除外の条件を確かめられる
+    must_include: [同じ向きの軌道, 比と差の使い分け, 普段から水のある場所と傾斜地を除く, 基準の根拠, 市街地が抜けることの読み方]
+    material: ""
+    status: todo
+
+  - id: codex-3-14-insar-concepts
+    title: 干渉SARの考え方：公開された結果の縞と信頼できる場所
+    tags: [資格, 2級, 第3部]
+    goals:
+      - 公開されている干渉の結果を開き、縞の読み方と信頼度の低い画素の除き方を確かめられる
+    must_include: [自前で処理を書かせない, 信頼度の低い画素を除く, 森林と水面の乱れ, 近づくと遠ざかるの向き]
+    material: ""
+    status: todo
+
+  - id: codex-3-15-displacement-series
+    title: 変位の時系列の読み方：速度と1点の推移
+    tags: [資格, 2級, 第3部]
+    goals:
+      - 公開されている変位のデータから、範囲の点の速度と1点の推移を出し、単位と符号と軌道の扱いを確かめられる
+    must_include: [年あたりと累積, 符号の意味, 上りと下りを混ぜない, 基準の点と期間, 測点のない場所を塗りつぶさない]
+    material: ""
+    status: todo
+
+  - id: codex-3-16-objects-at-sea
+    title: 海の上の物の検出：明るい点を拾って数える
+    tags: [資格, 2級, 第3部]
+    goals:
+      - レーダー画像から海上の明るい点を拾い、陸と既知の構造物を除き、基準を周りに合わせて決められる
+    must_include: [陸と既知の構造物を除く, 周りの海の明るさに合わせた基準, 岸の近くと波, 毎回同じ場所に出る点]
+    material: ""
+    status: todo
+
+  # ---------- 第4部 分類と検出（1級 A） ----------
+  - id: codex-4-17-training-data
+    title: 正解データの作り方：数と場所の偏りを見る
+    tags: [資格, 1級, 第4部]
+    goals:
+      - 正解データを読み込み、種類ごとの数と場所の偏りを出し、学習用と確認用を場所で分けられる
+    must_include: [種類の定義とコードの区分, 場所で分ける, 隣の画素の混入, 数の偏り, 地域の偏り]
+    material: ""
+    status: hold
+
+  - id: codex-4-18-ml-classification
+    title: 機械学習による分類：学習して、範囲全体を分類する
+    tags: [資格, 1級, 第4部]
+    goals:
+      - 正解データで学習して範囲全体を分類し、確認用の混入と答えの混入と乱数の固定を確かめられる
+    must_include: [確認用を学習に使わない, 入力に答えが紛れる, 乱数の固定, 区画の境目, 雲の日の帯状の誤り]
+    material: ""
+    status: hold
+
+  - id: codex-4-19-accuracy
+    title: 精度の測り方：当たり、見逃し、誤検出
+    tags: [資格, 1級, 第4部]
+    goals:
+      - 当たり、見逃し、誤検出の表と種類ごとの割合を出し、正しい分母で精度を読める
+    must_include: [見逃しと誤検出を分ける, 対象が少ない種類の分母, 「精度90%」の落とし穴, どの種類同士を取り違えるか]
+    material: ""
+    status: hold
+
+  # ---------- 第5部 水と大気（1級 B） ----------
+  - id: codex-5-20-water-quality
+    title: 水の色から水質を見る：植物プランクトンの目安
+    tags: [資格, 1級, 第5部]
+    goals:
+      - 湖の範囲で植物プランクトンの量の目安を計算し、水面だけの取り出しと大気の影響の除去を確かめられる
+    must_include: [水面だけを取り出す, 岸の画素を除く, 大気の影響を除いたデータ, 計算式の出どころ, 岸に沿った高い帯]
+    material: ""
+    status: hold
+
+  - id: codex-5-21-atmospheric-gas
+    title: 大気のガスを見る：月平均の地図を作る
+    tags: [資格, 1級, 第5部]
+    goals:
+      - 都市の範囲でガスの量の月平均を作り、品質の基準、単位、日数を確かめられる
+    must_include: [品質の低い観測を除く, 単位の明示, 日ごとの枚数, 画素より細かい模様を読まない, 雲の多い月]
+    material: ""
+    status: hold
+
+  # ---------- 第6部 結果を使う（1級 C〜E） ----------
+  - id: codex-6-22-field-check-combo
+    title: 現地確認との組み合わせ：順位を付け、抜き取りで見る
+    tags: [資格, 1級, 第6部]
+    goals:
+      - 候補に順位を付け、現地で見る場所と抜き取りで見る場所の一覧を作り、無作為と偏りを確かめられる
+    must_include: [順位の付け方, 無作為の抜き取り, 行きやすい場所への偏り, 「問題なし」側からも選ぶ]
+    material: ""
+    status: hold
+
+  - id: codex-6-23-maps-and-tables
+    title: 結果を地図と表にする：区画や路線の単位にまとめる
+    tags: [資格, 1級, 第6部]
+    goals:
+      - 画素の結果を区画や路線の単位にまとめ、台帳の番号つきの表にして、落ちた行と色分けの印象を確かめられる
+    must_include: [区画にまたがる画素, 平均・最大・割合の使い分け, 番号の突き合わせ, 色分けの段階]
+    material: ""
+    status: hold
+
+  - id: codex-6-24-what-can-be-said
+    title: 言えることと言えないことの書き方：報告の文の下書き
+    tags: [資格, 1級, 第6部]
+    goals:
+      - 結果から報告の文の下書きを作り、測ったことと推定したことの区別と、AIが書き足した原因を確かめられる
+    must_include: [測ったことと推定したこと, AIが結果にない原因を書き足す, 「異常なし」と「検出されなかった」, 条件と限界]
+    tradeoffs: [state_what_cannot_be_said]
+    material: ""
+    status: hold
+
+  - id: codex-6-25-briefing-vendors
+    title: 解析を頼むときの伝え方：指示文を依頼文に直す
+    tags: [資格, 1級, 第6部]
+    goals:
+      - 自分の指示文を、目的、対象、範囲、頻度、許せる誤り、成果物、検収の方法がそろった依頼文に直せる
+    must_include: [7項目との対応, 依頼文の型, 検収の方法, 抜けの見つけ方]
+    material: ""
+    status: hold
+
+  - id: codex-6-26-common-failures
+    title: よくある失敗：誤りを仕込んだコードと結果を読む（総合問題）
+    type: case
+    tags: [資格, 1級, 第6部]
+    goals:
+      - 共通のレビュー観点を上から順に当て、コードと結果の問題を挙げられる
+    must_include: [共通の観点を順に当てる, 複数の誤りが重なった例, 直し方の優先順位]
+    material: ""
+    status: hold

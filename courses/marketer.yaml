@@ -1,0 +1,56 @@
+# 衛星データマーケッター（資格）の教材。cert.qmd の分野と1対1。
+# 2級は既存の講座の章を流用し、足りない章を syllabus/marketer.yaml で作る。1級は2級が揃ってから。
+id: marketer
+title: 衛星データマーケッター 資格の教材（2級・1級）
+public: true
+sections:
+  - name: 2級 A. 衛星と手法を選ぶ
+    lead: 目的と条件から、使う衛星と解析手法を選び、苦手な条件を先に挙げられるようになります。
+    parts:
+      - common-strengths-limits
+      - common-optical-sar
+      - common-vs-other-means
+  - name: 2級 B. 結果を読む
+    lead: 解析結果の図と数字から、言えることと言えないことを分けて読めるようになります。
+    parts:
+      - marketer-read-results
+      - marketer-accuracy-field-check
+      - survey-quality-explain
+  - name: 2級 C. 調達と費用
+    lead: データと解析をどう手に入れ、どこに費用がかかるかを判断できるようになります。
+    parts:
+      - common-data-cost
+      - survey-procurement
+      - marketer-policy-procurement
+  - name: 2級 D. 市場と提案
+    lead: 分野ごとの使われ方と段階を踏まえ、顧客への提案の筋を選べるようになります。
+    parts:
+      - marketer-workflow-fit
+      - marketer-market-proposal
+      - survey-proposal-pricing
+      - agri-cost-benefit
+  - name: 1級 A. 要求の定義
+    lead: 業務の問いを、対象、範囲、頻度、精度、納期の要求に直せるようになります。
+    parts:
+      - marketer-requirements
+      - marketer-requirements-cases
+  - name: 1級 B. 提案の評価
+    lead: 事業者の提案の観測条件と精度の説明が、目的に合うかを評価できるようになります。
+    parts:
+      - marketer-evaluate-proposals
+      - marketer-evaluate-proposals-cases
+  - name: 1級 C. 仕様書と検収
+    lead: 仕様書の要求事項と、検収の方法を書けるようになります。
+    parts:
+      - marketer-spec-acceptance
+      - marketer-spec-acceptance-cases
+  - name: 1級 D. 費用と効果の説明
+    lead: 前提を置いて費用を概算し、効果と限界を発注者に説明できるようになります。
+    parts:
+      - marketer-cost-benefit-explain
+      - marketer-cost-benefit-cases
+  - name: 1級 E. 提案の組み立て
+    lead: 市場と政策の動きを踏まえ、顧客に合う導入の段取りを組めるようになります。
+    parts:
+      - marketer-adoption-path
+      - marketer-adoption-path-cases

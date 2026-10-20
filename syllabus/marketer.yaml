@@ -1,0 +1,182 @@
+# 衛星データマーケッター（資格）の教材。資格の分野（cert.qmd）と1対1で対応する。
+# 2級の4分野は、既存の講座の章（common-*、survey-*、agri-*）を流用し、足りない5章をここで作る。
+# 1級の5分野は、2級が揃ってから作る（status: hold）。揃ったら hold を todo に変える。
+# 対応表は data/cert_map.yaml。有料の線は一旦なし（learn/marketer/_metadata.yml で全部無料）。
+
+defaults:
+  audience: consultant
+  depth: standard
+  outputs: [note, quiz]
+
+parts:
+  # ---------- 2級 ----------
+  - id: marketer-read-results
+    title: 解析結果の読み方：言えることと、言えないこと
+    type: basics
+    tags: [資格, 2級, 結果を読む]
+    goals:
+      - 解析結果の図と数字から、測ったことと推定したことを分けて読める
+      - 「検出されなかった」と「異常なし」を言い分けられる
+    must_include: [視線方向の変位, 誤検出と見逃し, 測れない場所, 参照データとの比較, 言えないことの明示]
+    tradeoffs: [state_what_cannot_be_said, change_not_absolute]
+    material: ""
+    status: todo
+
+  - id: marketer-accuracy-field-check
+    title: 精度の条件と、現地確認の役割
+    type: basics
+    tags: [資格, 2級, 結果を読む]
+    goals:
+      - 「精度は何ミリか」と聞かれたとき、どの条件での精度かを一緒に示せる
+      - 衛星の結果と現地確認の分担を、二段構えで説明できる
+    must_include: [精度の条件（点の密度・期間・参照）, 抜き取りの確認, 法定点検は置き換えない, 順位付けに使う]
+    tradeoffs: [screen_then_confirm, combine_with_existing]
+    material: ""
+    status: todo
+
+  - id: marketer-policy-procurement
+    title: 制度と国の調達の方針：公的な資料で確かめられる範囲
+    type: basics
+    tags: [資格, 2級, 調達と費用]
+    goals:
+      - 衛星データに関わる国の方針と、公的な調達の動きを、出典付きで説明できる
+      - 制度が変わったときに、どこを見直せばよいかが分かる
+    must_include: [宇宙基本計画の位置づけ, 政府調達の方針, 無償データの提供主体, 利用許諾の基本, 変わりやすい点の扱い]
+    material: ""
+    status: todo
+
+  - id: marketer-workflow-fit
+    title: 業務の流れのどこに入れ、何を決める材料にするか
+    type: practice
+    tags: [資格, 2級, 市場と提案]
+    goals:
+      - 顧客の業務の流れを描き、衛星データが入る工程と、出てくる判断材料を指させる
+      - 受け取るデータと、それで決めることを対で書ける
+    must_include: [業務フローの描き方, 入る工程の見つけ方, 成果物と判断の対応表, 残る人の作業, 小さく試す範囲]
+    tradeoffs: [right_target_first, routine_before_urgent]
+    material: ""
+    status: todo
+
+  - id: marketer-market-proposal
+    title: 市場の動きと提案の筋：分野ごとの段階と、避ける言い方
+    type: comparison
+    tags: [資格, 2級, 市場と提案]
+    goals:
+      - 分野ごとに、実証段階か本格運用かを見分け、提案の筋を選べる
+      - 顧客への説明で避ける言い方と、代わりの言い方を使える
+    must_include: [分野別の段階, 費用の出どころ, 普及の壁, 絞り込み・併用・定期監視の3つの型, 避ける表現と言い換え]
+    tradeoffs: [screen_then_confirm, free_data_first]
+    material: ""
+    status: todo
+
+  # ---------- 1級（2級が揃ってから。hold → todo） ----------
+  - id: marketer-requirements
+    title: 業務の問いを要求に直す：対象、範囲、頻度、精度、納期
+    type: practice
+    depth: deep
+    tags: [資格, 1級, 要求の定義]
+    goals:
+      - 顧客の問いを、対象・範囲・頻度・精度・納期の要求に書き直せる
+    must_include: [判断の単位, 許容できる見逃しと誤検出, 更新の間隔, 成果物の形式, 要求の文の型]
+    material: ""
+    status: hold
+
+  - id: marketer-requirements-cases
+    title: 要求の定義の演習：3つの業務で書いてみる
+    type: case
+    depth: deep
+    tags: [資格, 1級, 要求の定義]
+    goals:
+      - 農地、インフラ、災害の3つの業務で、要求の文を書き、抜けを見つけられる
+    must_include: [3業務の要求の例, よくある抜け, 曖昧な要求の直し方]
+    material: ""
+    status: hold
+
+  - id: marketer-evaluate-proposals
+    title: 事業者の提案を評価する：観測条件と精度の説明を目的と照らす
+    type: practice
+    depth: deep
+    tags: [資格, 1級, 提案の評価]
+    goals:
+      - 提案書の観測条件と精度の記述が、目的に合うかを評価できる
+    must_include: [撮影の向きと斜面の向き, 測れない場所, 季節と積雪, 精度の条件, 参照データとの比較, 確かめる質問の一覧]
+    material: ""
+    status: hold
+
+  - id: marketer-evaluate-proposals-cases
+    title: 提案の評価の演習：誇張を見抜く
+    type: case
+    depth: deep
+    tags: [資格, 1級, 提案の評価]
+    goals:
+      - 提案書の抜粋から、条件を確かめるべき記述を挙げ、理由を書ける
+    must_include: [誇張の型, 確かめる点の挙げ方, 事業者への質問の文]
+    material: ""
+    status: hold
+
+  - id: marketer-spec-acceptance
+    title: 仕様書の要求事項と、検収の方法を書く
+    type: practice
+    depth: deep
+    tags: [資格, 1級, 仕様書と検収]
+    goals:
+      - 要求事項と検収の条件を、仕様書の文として書ける
+    must_include: [要求事項の型, 検収の条件, 抜き取りの確認, 追加費用の条件, データの権利]
+    material: ""
+    status: hold
+
+  - id: marketer-spec-acceptance-cases
+    title: 仕様書と検収の演習：要求を文に直す
+    type: case
+    depth: deep
+    tags: [資格, 1級, 仕様書と検収]
+    goals:
+      - 確かめるべき点を、仕様書の要求事項と検収の方法に直せる
+    must_include: [要求事項の文例, 検収の方法を費用の小さい順に, よくある欠落]
+    material: ""
+    status: hold
+
+  - id: marketer-cost-benefit-explain
+    title: 費用を概算し、効果と限界を発注者に説明する
+    type: practice
+    depth: deep
+    tags: [資格, 1級, 費用と効果の説明]
+    goals:
+      - 前提を置いて費用を概算し、効果と不確かさを発注者に説明できる
+    must_include: [仮定の明示, 単価の出どころと日付, 現地確認の削減の見積もり, 不確かさの示し方, 誤解されやすい表現]
+    material: ""
+    status: hold
+
+  - id: marketer-cost-benefit-cases
+    title: 費用と効果の演習：概算を組み立てる
+    type: case
+    depth: deep
+    tags: [資格, 1級, 費用と効果の説明]
+    goals:
+      - 与えられた条件から、年間の費用と削減できる作業を概算し、前提を書ける
+    must_include: [概算の手順, 前提の書き方, 感度（前提が変わると結果がどう変わるか）]
+    material: ""
+    status: hold
+
+  - id: marketer-adoption-path
+    title: 導入の段取りを組む：小さく試し、併用し、本格運用へ
+    type: practice
+    depth: deep
+    tags: [資格, 1級, 提案の組み立て]
+    goals:
+      - 市場と政策の動きを踏まえ、顧客に合う導入の段取りを組める
+    must_include: [小さく試す設計, 併用の型, 財源の当たり方, 実証から本格運用への条件, 他の手段との比較]
+    tradeoffs: [outsource_then_inhouse, routine_before_urgent]
+    material: ""
+    status: hold
+
+  - id: marketer-adoption-path-cases
+    title: 提案の組み立ての演習：1枚の提案骨子を書く
+    type: case
+    depth: deep
+    tags: [資格, 1級, 提案の組み立て]
+    goals:
+      - 顧客の状況から、提案の骨子（課題、入れる工程、試す範囲、費用、効果、限界）を1枚で書ける
+    must_include: [骨子の型, 3つの状況での例, 避ける表現]
+    material: ""
+    status: hold
