@@ -351,6 +351,69 @@ def slide_cta(s, ctx):
     return frame("", "", body, ctx["series"], dark=True)
 
 
+# 動画の途中に1回入れる短い告知。種類は動画のidで回す（台本の promo: rfp|corporate|cert|market で固定、promo: false で外す）
+PROMOS = {
+    "ja": {
+        "kicker": "お知らせ",
+        "rfp": {"heading": "RFPと相見積もりの支援", "lines": ["衛星データの導入を検討中の方へ", "RFP（提案依頼書）の作成と相見積もりを、どの事業者にも属さない立場で支援します"],
+                "say": "ひとつお知らせです。衛星データの導入を検討中なら、RFPの作成と相見積もりを、どの衛星会社にも解析会社にも属さない立場で支援しています。概要欄のフォームからご相談ください。"},
+        "corporate": {"heading": "法人プランと研修", "lines": ["法人向けに、社内研修と法人プランがあります", "市場レポート・事例・学習プログラムをチームで使えます"],
+                      "say": "ひとつお知らせです。法人向けには、社内研修と法人プランをご用意しています。市場レポート、事例、学習プログラムをチームでお使いいただけます。概要欄のフォームからご相談ください。"},
+        "cert": {"heading": "衛星データの資格", "lines": ["衛星データマーケッター（使う側・頼む側）", "衛星データ解析エンジニア（AIに書かせて、人が確かめる）"],
+                 "say": "ひとつお知らせです。学んだことを形にするなら、衛星データマーケッターと衛星データ解析エンジニア、2つの資格があります。詳しくは動画の最後と、概要欄のリンクへ。"},
+        "market": {"heading": "衛星データ 市場レポート", "lines": ["分野ごとの市場規模、プレイヤー、海外事例、普及の壁", "提案書にそのまま使える材料を、出典付きで"],
+                   "say": "ひとつお知らせです。分野ごとの市場規模やプレイヤー、海外の事例は、衛星データ市場レポートに出典付きでまとめています。概要欄のリンクからどうぞ。"},
+    },
+    "en": {
+        "kicker": "A quick note",
+        "rfp": {"heading": "Help with RFPs and competitive quotes", "lines": ["Considering satellite data for your organisation?", "We help you write the RFP and gather competitive quotes - independent of any vendor"],
+                "say": "A quick note. If you are considering satellite data, we help you write the request for proposal and gather competitive quotes, independent of any satellite operator or analytics company. See the form in the description."},
+        "corporate": {"heading": "Plans and training for organisations", "lines": ["In-house training and a corporate plan", "Market reports, use cases and training for your whole team"],
+                      "say": "A quick note. For organisations we offer in-house training and a corporate plan, so your whole team can use the market reports, use cases and training. See the form in the description."},
+        "cert": {"heading": "Satellite data certifications", "lines": ["Satellite Data Marketer - for those who use and commission", "Satellite Data Analysis Engineer - AI writes, you verify"],
+                 "say": "A quick note. If you want to turn what you learn into a credential, there are two certifications - Satellite Data Marketer, and Satellite Data Analysis Engineer. More at the end of the video and in the description."},
+        "market": {"heading": "Satellite data market reports", "lines": ["Market size, players, overseas cases and barriers by sector", "Material you can use in a proposal, with sources"],
+                   "say": "A quick note. Market size, players and overseas cases by sector are in our satellite data market reports, with sources. See the link in the description."},
+    },
+}
+
+
+def slide_promo(s, ctx):
+    """途中の短い告知。暗い画面に、見出しと2行。"""
+    body = [f'<circle cx="{W - 100}" cy="{H + 200}" r="700" fill="none" stroke="{LINE}" stroke-width="3"/>',
+            text(100, 250, s.get("kicker", ""), 28, ORANGE, "bold", family=MONO),
+            text(100, 350, wrap(s["heading"], 22)[:2], 60, WHITE, "900", lh=1.25)]
+    y = 350 + 60 * 1.25 * len(wrap(s["heading"], 22)[:2]) + 50
+    for ln in s.get("lines", [])[:3]:
+        lines = wrap(ln, 32)[:2]
+        body.append(f'<rect x="100" y="{y - 34}" width="12" height="{38 * 1.35 * len(lines):.0f}" rx="4" fill="{ORANGE}"/>')
+        body.append(text(136, y, lines, 38, WHITE, "bold", lh=1.35))
+        y += 38 * 1.35 * len(lines) + 30
+    if s.get("url"):
+        body.append(text(100, y + 30, s["url"], 30, SLATE, "bold", family=MONO))
+    return frame("", "", body, ctx["series"], dark=True)
+
+
+def promo_scene(ctx, vid):
+    """途中の告知の場面を作る。種類は台本の promo か、動画のidで回す。"""
+    import hashlib
+    kinds = ["rfp", "corporate", "cert", "market"]
+    want = ctx.get("promo")
+    kind = want if want in kinds else kinds[int(hashlib.md5(vid.encode()).hexdigest(), 16) % len(kinds)]
+    v = yaml.safe_load((ROOT / "_variables.yml").read_text(encoding="utf-8"))
+    url = v.get("site", {}).get("url_en" if LANG == "en" else "url", "")
+    if kind == "cert":
+        url = v.get("cert", {}).get("url_en" if LANG == "en" else "url", url)
+    elif kind in ("rfp", "corporate"):
+        url = url.rstrip("/") + ("/en/register.html" if LANG == "en" else "/register.html") if url else ""
+        url = url.replace("/en/en/", "/en/")
+    elif kind == "market":
+        url = url.rstrip("/") + ("/en/landscape/" if LANG == "en" else "/landscape/") if url else ""
+        url = url.replace("/en/en/", "/en/")
+    pr = PROMOS[LANG][kind]
+    return {"kind": "promo", "kicker": PROMOS[LANG]["kicker"], "heading": pr["heading"], "lines": pr["lines"],
+            "url": url.replace("https://", ""), "url_full": url, "say": pr["say"], "_kind": kind}
+
 def qr_data_uri(url, box=10):
     """QRコードを PNG にして data URI で返す（SVG の <image> に埋め込む）。"""
     import base64, io
@@ -404,7 +467,8 @@ def slide_cert(s, ctx):
 
 
 SLIDES = {"cover": slide_cover, "bullets": slide_bullets, "figure": slide_figure, "table": slide_table,
-          "code": slide_code, "prompt": slide_prompt, "steps": slide_steps, "cta": slide_cta, "cert": slide_cert, "intro": slide_intro}
+          "code": slide_code, "prompt": slide_prompt, "steps": slide_steps, "cta": slide_cta, "cert": slide_cert, "intro": slide_intro, "promo": slide_promo}
+
 
 
 def intro_scene(ctx):
@@ -635,12 +699,16 @@ def build(vid, slides_only=False):
     if ctx.get("intro", True) and not any(sc["kind"] == "intro" for sc in scenes):
         pos = 0 if ctx.get("intro_first") else (1 if scenes and scenes[0]["kind"] == "cover" else 0)
         scenes.insert(pos, intro_scene(ctx))
+    if ctx.get("promo", True) is not False and not any(sc["kind"] == "promo" for sc in scenes):
+        mid = [i for i, sc in enumerate(scenes) if sc["kind"] not in ("cover", "cta", "cert", "intro")]
+        if len(mid) >= 4:   # 本編が短い動画には入れない
+            scenes.insert(mid[len(mid) // 2] + 1, promo_scene(ctx, vid))
     if ctx.get("cert", True) and not any(sc["kind"] == "cert" for sc in scenes):
         for sc in scenes:   # 締めの「ご視聴ありがとうございました」は、資格の案内の側で言う（二重に言わない）
             if sc["kind"] == "cta" and sc.get("say"):
                 sc["say"] = re.sub(r"\s*(ご視聴ありがとうございました[。！]?|Thanks for watching[.!]?)\s*$", "", sc["say"].strip())
         scenes.append(cert_scene(ctx))
-    body_idx = [i for i, sc in enumerate(scenes) if sc["kind"] not in ("cover", "cta", "cert", "intro")]
+    body_idx = [i for i, sc in enumerate(scenes) if sc["kind"] not in ("cover", "cta", "cert", "intro", "promo")]
     agenda = [sc.get("heading", "") for i, sc in enumerate(scenes) if i in body_idx]
     for i, s in enumerate(scenes):
         CURRENT.clear()
