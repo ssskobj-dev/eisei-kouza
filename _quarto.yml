@@ -9,6 +9,7 @@ project:
     - privacy.qmd
     - tokushoho.qmd
     - cert.qmd
+    - guide.qmd
     - en/**/*.qmd
     - landscape/**/*.qmd
     - casebook/*.qmd
@@ -42,6 +43,8 @@ website:
     logo: design/brand/logo.svg
     logo-alt: "Satellite to Decision"
     left:
+      - text: 活用ガイド
+        href: guide.qmd
       - text: 市場レポート
         href: landscape/index.qmd
       - text: ユースケース集
