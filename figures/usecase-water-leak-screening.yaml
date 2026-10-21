@@ -1,0 +1,88 @@
+# ユースケースの記事「水道管の漏水調査を、衛星で市内の約3割に絞る」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、調査班が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 市内全域を一度に解析する
+        - 漏水の疑いがある区域を抜き出す
+    right:
+      title: 調査班が行う
+      items:
+        - 絞った区域の弁栓にロガーを置く
+        - 音聴調査で位置を決める
+        - 掘って確かめ、結果を記録する
+    note: 衛星が示すのは「疑い」まで。位置を決めるのは現地の調査
+
+  - id: numbers
+    type: bar
+    alt: 新居浜市の実装検証で公表された数字
+    unit: 件
+    source: 愛媛県デジタル実装加速化プロジェクト広報事務局（2023年4月）
+    items:
+      - label: 衛星で抽出した区域
+        value: 277
+      - label: ロガー調査の対象
+        value: 203
+      - label: 音聴調査の対象
+        value: 74
+      - label: 漏水の疑義箇所
+        value: 22
+      - label: 見つかった漏水
+        value: 3
+
+  - id: limits
+    type: cards
+    alt: この使い方の4つの限界
+    columns: 2
+    items:
+      - title: 示すのは「疑い」まで
+        text: 位置は現地の音聴で決める
+        role: none
+      - title: ずれはセンサーの間隔次第
+        text: 30mと15mのずれはロガーの間隔による
+        role: none
+      - title: 見つかる数は事前に分からない
+        text: 疑義22か所のうち漏水は3か所
+        role: none
+      - title: 管の中の状態は分からない
+        text: 材質、劣化、漏水の量は別のデータで
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 年次の漏水調査に衛星の絞り込みを入れる手順
+    steps:
+      - title: 管路データを渡す
+        text: GISの位置情報
+        who: human
+      - title: 区域を抽出
+        text: 市内全域を解析
+        who: satellite
+      - title: ロガーを置く
+        text: 推奨の間隔で
+        who: human
+      - title: 音聴で決める
+        text: 複数日の検出を確かめる
+        who: human
+      - title: 直して記録
+        text: 的中とずれを翌年の計画へ
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の絞り込みが効く事業体から、効きにくい事業体まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 管路が長い
+        text: 音聴を全部は回れない
+      - title: GISデータがある
+        text: 管路の位置が整っている
+      - title: 管路が短い
+        text: 数年で全部歩ける
+      - title: 夜間の調査体制がない
+        text: 疑いの区域を確かめられない

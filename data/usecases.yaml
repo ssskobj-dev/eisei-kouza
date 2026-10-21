@@ -308,6 +308,7 @@ usecases:
   source_type: 官公庁の資料
   verified: true
 - 'no': 16
+  slug: water-leak-screening
   name: 水道管の漏水疑い箇所の絞り込み
   theme: インフラ・建設
   field: インフラ維持管理
@@ -327,6 +328,7 @@ usecases:
   source_type: 官公庁の資料
   verified: true
 - 'no': 17
+  slug: fixed-asset-ortho
   name: 固定資産の現況確認用の衛星画像
   theme: 都市・行政
   field: 行政の業務
@@ -346,6 +348,7 @@ usecases:
   source_type: 企業の公式サイト
   verified: true
 - 'no': 18
+  slug: flood-depth-roads
   name: 浸水深と冠水道路の推定
   theme: 防災
   field: 防災・災害対応

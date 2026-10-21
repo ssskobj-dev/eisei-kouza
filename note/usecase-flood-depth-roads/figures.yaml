@@ -1,0 +1,41 @@
+# note記事「浸水の「深さ」は衛星で分かるのか。範囲から深さと冠水道路を推定する仕組みと限界」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 防災
+    title: 浸水の範囲から深さと冠水道路を推定する
+    sub: SAR衛星と標高データで。救援の順番には使える
+
+  - id: fig-1
+    type: cards
+    alt: 阿武隈川の解析例で公表された推計
+    columns: 3
+    items:
+      - title: 浸水域 25.7km²
+        text: 観測は2019年10月12日
+      - title: 建物 6,800棟以上
+        text: 深さの仮定にもとづく推計
+      - title: 道路 約1,800km
+        text: 同じ仮定による推計
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 深さは標高データ次第
+        text: 衛星が見せるのは水面の広がり
+        role: none
+      - title: 精度は検証中
+        text: 公表された検証の数値はない
+        role: none
+      - title: 床上か床下かは決められない
+        text: 数十cmの差は推定では出ない
+        role: none
+      - title: 市街地と引いた後は不得手
+        text: 住宅密集地の不検知と乾燥領域
+        role: none
+      - title: 観測は通過待ち
+        text: 無償衛星は観測日を選べない
+        role: none
