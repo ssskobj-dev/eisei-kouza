@@ -1,0 +1,45 @@
+衛星データで中高生が地域の変化を調べる：ESAの探究学習の型
+
+■ この動画の内容
+欧州宇宙機関（ESA）の学校向けプロジェクト「Climate Detectives」をもとに、生徒が無償の衛星データで地域の環境の変化を調べる探究学習の型を解説します。授業のどこに入れ、衛星と生徒で何を分担し、何を決める材料になるか。10mの画素で見えないもの、雲の影響などの限界と、費用の考え方までを6分で見ていきます。
+
+▶ RFPの作成と相見積もりの相談は、フォームから
+https://ssskobj-dev.github.io/eisei-kouza/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-climate-detectives-school
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-climate-detectives-school&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=usecase-climate-detectives-school&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 衛星データで中高生が地域を調べる
+0:33 Satellite to Decision とは
+0:52 どこで、誰が、何のために
+1:41 授業の流れの、どこに入るか
+2:29 衛星と、生徒と先生の分担
+3:13 何を決める材料になるか
+3:54 2026年時点の限界
+4:45 RFPと相見積もりの支援
+4:59 無償の衛星で、どこまでできるか
+5:39 費用は、どこにかかるか
+6:25 向いている条件、向いていない条件
+7:12 自分の学校や地域で検討する方へ
+7:33 2つの資格が取得できます
+
+■ 出典と表記
+出典：ESA「Climate Detectives Teens: Overview」 https://climatedetectives.esa.int/overview-teens/
+出典：ESA「Climate Detectives 2026-2027」 https://www.esa.int/Education/Teachers_Corner/Climate_Detectives_2026_2027_Registration_now_open
+衛星の仕様：ESA「Sentinel-2: Facts and figures」 https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2/Facts_and_figures
+音声：VOICEVOX:もち子さん　案内役：もち子
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
