@@ -1,0 +1,46 @@
+# note記事「航空写真のない年、固定資産の現況をどう確かめるか。衛星画像でできることと残ること」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 都市・行政
+    title: 固定資産の現況確認に衛星画像
+    sub: 約6km²で約6万円。画像を買っただけでは終わらない
+
+  - id: fig-1
+    type: split
+    alt: 衛星の画像が担うことと、資産税の担当者が行うこと
+    link: ＋
+    left:
+      title: 衛星の画像が担う
+      items:
+        - 市域全体を同じ時期に写す
+        - 航空写真のない年を埋める
+    right:
+      title: 担当者が行う
+      items:
+        - 課税の図面と重ねて候補を探す
+        - 現地で確かめる
+        - 台帳を直す
+    note: 画像は候補を拾う材料。異動の抽出と現地確認は残る
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 異動の抽出は別の作業
+        text: 判読か解析を人が委託する
+        role: none
+      - title: 航空写真より粗い
+        text: 増築や小さな構造物は判断しにくい
+        role: none
+      - title: 雲がかかると見えない
+        text: 光学の画像は雲の下を写せない
+        role: none
+      - title: 撮影時期がばらつく
+        text: 95%以上が2020年以降の撮影
+        role: none
+      - title: 内部と用途は分からない
+        text: 構造、用途、所有者は申告と登記で
+        role: none

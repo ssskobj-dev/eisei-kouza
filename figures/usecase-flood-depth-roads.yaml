@@ -1,0 +1,87 @@
+# ユースケースの記事「浸水域25.7km²から、浸水深と冠水道路を衛星データで推定する」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、防災の担当者が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 夜間や雨の中で浸水域を抜き出す
+        - 標高データと重ねて深さを推定する
+        - 深さを道路と建物に当てはめる
+    right:
+      title: 担当者が行う
+      items:
+        - 深い地区と通れない道路から順番を決める
+        - 現地で深さを確かめる
+        - 被害を確定する
+    note: 推定は救援の順番を決める材料。被害の確定は現地で
+
+  - id: numbers
+    type: cards
+    alt: 阿武隈川の解析例で公表された推計
+    columns: 3
+    items:
+      - title: 浸水域 25.7km²
+        text: 観測は2019年10月12日
+      - title: 建物 6,800棟以上
+        text: 深さの仮定にもとづく推計
+      - title: 道路 約1,800km
+        text: 同じ仮定による推計
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 深さは標高データ次第
+        text: 衛星が見せるのは水面の広がり
+        role: none
+      - title: 精度は検証中
+        text: 公表された検証の数値はない
+        role: none
+      - title: 床上か床下かは決められない
+        text: 数十cmの差は推定では出ない
+        role: none
+      - title: 市街地と引いた後は不得手
+        text: 住宅密集地の不検知と乾燥領域
+        role: none
+      - title: 観測は通過待ち
+        text: 無償衛星は観測日を選べない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 水害直後の順番決めに、浸水深の推定を使う手順
+    steps:
+      - title: 平時に整える
+        text: 標高、道路、建物のデータ
+        who: human
+      - title: 観測データを得る
+        text: 無償か撮像要請か
+        who: satellite
+      - title: 深さと道路を推定
+        text: 浸水域に標高を重ねる
+        who: satellite
+      - title: 順番を決める
+        text: 深い地区と通れない道路
+        who: human
+      - title: 現地で確かめる
+        text: 推定と実測の差を記録
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 推定が効く判断から、効きにくい判断まで
+    left: 使える
+    right: 使いにくい
+    items:
+      - title: 救援と調査の順番
+        text: 深い地区から入る
+      - title: 通れない道路の候補
+        text: 経路の選定
+      - title: 被害件数の見込み
+        text: 仮定付きの推計
+      - title: 床上か床下かの判定
+        text: 支払いの確定には使えない

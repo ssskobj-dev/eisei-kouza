@@ -1,0 +1,74 @@
+# ユースケースの記事「固定資産の現況確認に、約6km²で約6万円の衛星オルソ画像」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星の画像が担うことと、資産税の担当者が行うこと
+    link: ＋
+    left:
+      title: 衛星の画像が担う
+      items:
+        - 市域全体を同じ時期に写す
+        - 航空写真のない年を埋める
+    right:
+      title: 担当者が行う
+      items:
+        - 課税の図面と重ねて候補を探す
+        - 現地で確かめる
+        - 台帳を直す
+    note: 画像は候補を拾う材料。異動の抽出と現地確認は残る
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 異動の抽出は別の作業
+        text: 判読か解析を人が委託する
+        role: none
+      - title: 航空写真より粗い
+        text: 増築や小さな構造物は判断しにくい
+        role: none
+      - title: 雲がかかると見えない
+        text: 光学の画像は雲の下を写せない
+        role: none
+      - title: 撮影時期がばらつく
+        text: 95%以上が2020年以降の撮影
+        role: none
+      - title: 内部と用途は分からない
+        text: 構造、用途、所有者は申告と登記で
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 航空写真のない年に、衛星の画像で異動の候補を探す手順
+    steps:
+      - title: 範囲と時期を確かめ注文
+        text: 古い地区は外す
+        who: human
+      - title: 画像を重ねる
+        text: 課税の図面にGISで
+        who: satellite
+      - title: 候補を拾う
+        text: 前回の写真と比べる
+        who: human
+      - title: 現地で確かめる
+        text: 候補の順に回る
+        who: human
+      - title: 台帳を直す
+        text: 翌年の撮影計画へ
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の画像が効く用途から、効きにくい用途まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 全域の変化の把握
+        text: 航空写真のない年に
+      - title: 大きな開発の確認
+        text: 造成、太陽光発電所
+      - title: 家屋の新築と除却
+        text: 判読の委託が要る
+      - title: 増築と用途の変更
+        text: 現地と申告で確かめる
