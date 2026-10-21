@@ -1,0 +1,36 @@
+# YouTube の動画を削除する（重複投稿の始末用）。手動でだけ動く。
+# Actions → yt-delete → Run workflow で、チャンネルと動画IDを入れる。
+# video/*/youtube.json に記録されている（残す）IDは、指定しても削除されない。
+name: yt-delete
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "ja（日本語）または en（英語）"
+        default: ja
+      ids:
+        description: "削除する動画ID（空白区切り）"
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install google-api-python-client google-auth google-auth-oauthlib
+      - name: 削除する
+        env:
+          YT_CLIENT_ID_EN: ${{ secrets.YT_CLIENT_ID_EN }}
+          YT_CLIENT_SECRET_EN: ${{ secrets.YT_CLIENT_SECRET_EN }}
+          YT_REFRESH_TOKEN_EN: ${{ secrets.YT_REFRESH_TOKEN_EN }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: python scripts/youtube_delete.py --channel "${{ github.event.inputs.channel }}" ${{ github.event.inputs.ids }}
