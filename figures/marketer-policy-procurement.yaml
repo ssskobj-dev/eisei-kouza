@@ -1,0 +1,57 @@
+# 「制度と国の調達の方針：公的な資料で確かめられる範囲」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/marketer-policy-procurement/<id>.svg を作る。
+
+figures:
+  - id: layers
+    type: cards
+    alt: 国の方針の3層
+    columns: 3
+    items:
+      - title: 宇宙基本計画
+        text: 10年の基本方針。閣議決定。2023年6月
+        mark: "1"
+      - title: 工程表
+        text: 施策と年次の目標。毎年12月に改訂
+        mark: "2"
+      - title: 各省の取組方針
+        text: タスクフォース、国交省の方針など
+        mark: "3"
+
+  - id: decided
+    type: split
+    alt: 決まっていることと、まだ決まっていないこと
+    link: ／
+    left:
+      title: 決まっていること
+      items:
+        - 民間から可能な限り調達する方向
+        - 2024〜2026年度の活用拡大期間
+        - アンカーテナンシーの強化（成長戦略）
+        - 国交省の分野別の取組方針と段階
+    right:
+      title: まだ決まっていないこと
+      role: none
+      items:
+        - 来年度の予算の額と事業
+        - 国がまとめて買う仕組みと時期
+        - どの業務が対象になるか
+        - 小型SAR衛星の試行の後の調達
+    note: 閣議決定と大臣会合で決まったことと、概算要求（要望）を分けて話す
+
+  - id: licence
+    type: cards
+    alt: 利用許諾で確かめる4点
+    columns: 2
+    items:
+      - title: 出所の表示
+        text: 何と書くか。改変したときの書き方
+        mark: "1"
+      - title: 用途の範囲
+        text: 商用利用を含むか。非商用に限る例もある
+        mark: "2"
+      - title: 再配布
+        text: 顧客に渡せるか。公開できるか
+        mark: "3"
+      - title: 日本の法律
+        text: 衛星リモセン法の対象か。認定が要るか
+        mark: "4"

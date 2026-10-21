@@ -43,7 +43,7 @@ parts:
       - 制度が変わったときに、どこを見直せばよいかが分かる
     must_include: [宇宙基本計画の位置づけ, 政府調達の方針, 無償データの提供主体, 利用許諾の基本, 変わりやすい点の扱い]
     material: ""
-    status: todo
+    status: done
 
   - id: marketer-workflow-fit
     title: 業務の流れのどこに入れ、何を決める材料にするか
@@ -55,7 +55,7 @@ parts:
     must_include: [業務フローの描き方, 入る工程の見つけ方, 成果物と判断の対応表, 残る人の作業, 小さく試す範囲]
     tradeoffs: [right_target_first, routine_before_urgent]
     material: ""
-    status: todo
+    status: done
 
   - id: marketer-market-proposal
     title: 市場の動きと提案の筋：分野ごとの段階と、避ける言い方
