@@ -36,7 +36,7 @@ parts:
       - コードを「取る、選ぶ、計算する、まとめる、出す」の5つの塊に分けて読み、要所を確かめられる
     must_include: [5つの塊, AIに1行ずつ説明させる, 別の頼み方でもう一度書かせて突き合わせる, 共通のレビュー観点12項目の一覧]
     material: ""
-    status: todo
+    status: done
 
   - id: codex-0-4-reproducible
     title: 再現できる形で残す：あとから同じ結果を出せる記録
@@ -45,7 +45,7 @@ parts:
       - 使ったデータ、範囲、処理の段階、基準の値、道具の版、AIへの指示文を記録し、他人が確かめられる形で残せる
     must_include: [記録に残す項目の一覧, 報告に「AIが書き、人が何を確かめたか」を書く, 版の固定, 記録の例]
     material: ""
-    status: todo
+    status: done
 
   # ---------- 第1部 解析の前に（2級 B） ----------
   - id: codex-1-1-what-pixels-measure
