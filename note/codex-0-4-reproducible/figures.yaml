@@ -1,0 +1,56 @@
+# note記事「去年のコードを動かしたら、衛星データの値が違う。再現できる記録の8項目」の見出し画像と図。
+# python scripts/figures.py codex-0-4-reproducible で、このフォルダにSVGとPNGができる。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: course
+    tag: 解析教材
+    title: 再現できる記録、8項目
+    sub: 同じコードでも、結果は変わる
+
+  - id: fig-1
+    type: cards
+    alt: 記録に残す8項目
+    columns: 4
+    items:
+      - title: 製品の名前
+        text: 省略せずに全部。版と軌道と区画が入る
+        role: human
+      - title: 範囲
+        text: 境界のファイルの名前と日付、座標の基準
+        role: human
+      - title: 期間
+        text: 開始日と終了日。「最新」と書かない
+        role: human
+      - title: 処理の段階と版
+        text: 段階の名前と、名前に入った版の番号
+        role: human
+      - title: 基準の値
+        text: しきい値と、その出どころ
+        role: human
+      - title: 道具の版
+        text: 名前と版の番号の一覧。AIの名前と日付
+        role: human
+      - title: AIへの指示文
+        text: 全文と、返ってきたコードそのもの
+        role: human
+      - title: 人が確かめたこと
+        text: 見た観点と結果。見ていない観点
+        role: human
+
+  - id: fig-2
+    type: split
+    alt: 報告に書く2つのこと
+    link: ＋
+    left:
+      title: AIが書いたこと
+      items:
+        - コードそのもの
+        - 指示文の全文
+        - 返ってきた説明
+    right:
+      title: 人が確かめたこと
+      items:
+        - 見た観点と、その結果
+        - 見ていない観点
+        - 答えの分かっている場所の値

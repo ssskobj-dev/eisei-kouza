@@ -1,0 +1,46 @@
+# note記事「AIが書いた衛星データの解析コード、全部は読めない。5つの塊に分けて境目だけ見る」の見出し画像と図。
+# python scripts/figures.py codex-0-3-code-review で、このフォルダにSVGとPNGができる。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: course
+    tag: 解析教材
+    title: コードの読み方、5つの塊
+    sub: 書けなくても、境目は確かめられる
+
+  - id: fig-1
+    type: flow
+    alt: コードを5つの塊に分けて読む
+    steps:
+      - title: 取る
+        text: 衛星、段階、波長帯、倍率とずらし
+        who: satellite
+      - title: 選ぶ
+        text: 雲と影、期間、範囲、座標
+        who: satellite
+      - title: 計算する
+        text: 式の向き、分母、基準の値
+        who: satellite
+      - title: まとめる
+        text: 欠けた値、画素の数と面積
+        who: satellite
+      - title: 出す
+        text: 表の単位と件数、隠れた失敗
+        who: satellite
+
+  - id: fig-2
+    type: flow
+    alt: 全部を読まずに確かめる4つの手順
+    steps:
+      - title: 5つに区切る
+        text: 境目に印を付ける
+        who: human
+      - title: 1行ずつ説明させる
+        text: 何を入れて何を出すか
+        who: satellite
+      - title: 12項目を当てる
+        text: 公式資料と突き合わせる
+        who: human
+      - title: もう一度書かせる
+        text: 違う箇所がAIの補った箇所
+        who: satellite

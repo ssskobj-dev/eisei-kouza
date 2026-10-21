@@ -699,6 +699,44 @@
   url: https://www.mlit.go.jp/road/sign/kijyun/pdf/20140625teikitenken.pdf
   tags: [道路, 法定点検, 近接目視, 制度]
 
+# ---- 資格の教材（解析教材）：コードのレビュー、再現できる記録（2026-10-22 追記） ----
+
+- id: sentiwiki-s2-products
+  title: S2 Products（SentiWiki。製品の名前の形式、Level-2Aの反射率は（画素の値＋BOA_ADD_OFFSET）÷QUANTIFICATION_VALUE、ずらしは処理の版04.00から、区画は110km四方でUTM）
+  publisher: ESA
+  url: https://sentiwiki.copernicus.eu/web/s2-products
+  tags: [基礎, Sentinel, 処理の段階, 倍率, 解析教材]
+
+- id: sentiwiki-s2-processing
+  title: S2 Processing（SentiWiki。QUANTIFICATION_VALUEは10000、ずらしは処理の版04.00から2022年1月25日に導入、シーン分類の表）
+  publisher: ESA
+  url: https://sentiwiki.copernicus.eu/web/s2-processing
+  tags: [基礎, Sentinel, 処理の段階, 雲, 解析教材]
+
+- id: esa-s2-naming-convention
+  title: Sentinel-2 MSI User Guide：Naming Convention（製品の名前の形式。Nxxyyが処理の版、ROOOが軌道の番号、Txxxxxが区画）
+  publisher: ESA
+  url: https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/naming-convention
+  tags: [基礎, Sentinel, 再現, 解析教材]
+
+- id: usgs-landsat-l2-scale-factor
+  title: How do I use a scale factor with Landsat Level-2 science products?（Collection 2の地表反射率は画素の値×0.0000275−0.2）
+  publisher: 米国地質調査所（USGS）
+  url: https://www.usgs.gov/faqs/how-do-i-use-scale-factor-landsat-level-2-science-products
+  tags: [基礎, Landsat, 倍率, 解析教材]
+
+- id: usgs-landsat-c2-surface-reflectance
+  title: Landsat Collection 2 Surface Reflectance（欠けを示す値と倍率はCollection 1と異なる。欠けを示す値は0）
+  publisher: 米国地質調査所（USGS）
+  url: https://www.usgs.gov/landsat-missions/landsat-collection-2-surface-reflectance
+  tags: [基礎, Landsat, 倍率, 再現, 解析教材]
+
+- id: usgs-landsat-c1-removal-2022
+  title: Landsat Collection 1 datasets to be removed December 30, 2022（Collection 1は2022年12月30日に利用不可。1と2を混ぜて使わない）
+  publisher: 米国地質調査所（USGS）
+  url: https://www.usgs.gov/landsat-missions/news/landsat-collection-1-datasets-be-removed-december-30-2022
+  tags: [基礎, Landsat, 再現, 解析教材]
+
 # ---- 資格の教材：制度と国の調達の方針、業務の流れのどこに入れるか（2026-10-22 追記） ----
 
 - id: cao-space-plan-2023
