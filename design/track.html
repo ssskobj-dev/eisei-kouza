@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // 3. 言語の切り替え
   var labels = { "landscape/index.html": "Market Report", "casebook/index.html": "Use Cases",
                  "learn/index.html": "Training", "news/index.html": "News", "themes/index.html": "Themes (JA)",
-                 "about.html": "About", "register.html": "Membership", "cert.html": "Certifications" };
+                 "about.html": "About", "register.html": "Membership", "cert.html": "Certifications", "guide.html": "Guide (JA)" };
   document.querySelectorAll(".navbar a").forEach(function (a) {
     var raw = a.getAttribute("href") || "";
     if (!raw || raw.charAt(0) === "#" || a.classList.contains("quarto-color-scheme-toggle")) return;
