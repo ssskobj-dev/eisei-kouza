@@ -698,3 +698,101 @@
   publisher: 国土交通省 道路局
   url: https://www.mlit.go.jp/road/sign/kijyun/pdf/20140625teikitenken.pdf
   tags: [道路, 法定点検, 近接目視, 制度]
+
+# ---- 資格の教材：制度と国の調達の方針、業務の流れのどこに入れるか（2026-10-22 追記） ----
+
+- id: cao-space-plan-2023
+  title: 宇宙基本計画（本文。今後20年を見据えた10年間の基本方針。可能な限り民間事業者からサービス・財を調達）（2023年6月13日閣議決定）
+  publisher: 内閣府
+  url: https://www8.cao.go.jp/space/plan/plan2/kaitei_fy05/honbun_fy05.pdf
+  tags: [政策, 制度, 政府調達]
+
+- id: cao-space-plan-2023-gaiyou
+  title: 宇宙基本計画（概要。「衛星データ利用拡大とサービス調達推進」の位置づけ）（2023年6月13日閣議決定）
+  publisher: 内閣府
+  url: https://www8.cao.go.jp/space/plan/plan2/kaitei_fy05/honbun_fy05_gaiyou.pdf
+  tags: [政策, 制度]
+
+- id: cao-space-plan-page
+  title: 宇宙基本計画（計画の決定日と、工程表の改訂（毎年12月）の一覧の掲載ページ）
+  publisher: 内閣府 宇宙政策
+  url: https://www8.cao.go.jp/space/plan/keikaku.html
+  tags: [政策, 制度, 工程表]
+
+- id: cao-roadmap-2025-12-gaiyou
+  title: 宇宙基本計画工程表（令和7年12月23日改訂）概要（政府による調達（アンカーテナンシー）を確保し商業化を加速）
+  publisher: 内閣府 宇宙開発戦略推進事務局
+  url: https://www8.cao.go.jp/space/plan/plan2/kaitei_fy07/kaitei_fy0712_gaiyou.pdf
+  tags: [政策, 工程表, 政府調達]
+
+- id: cao-plan-revision-schedule-2026
+  title: 宇宙基本計画改定のスケジュール（案）（宇宙政策委員会 第124回会合 資料3-2。2027年5月ごろに次期計画案の了承の予定）（2026年9月28日）
+  publisher: 内閣府 宇宙開発戦略推進事務局
+  url: https://www8.cao.go.jp/space/comittee/dai124/siryou3-2.pdf
+  tags: [政策, 制度]
+
+- id: cao-dai124-agenda
+  title: 宇宙政策委員会 第124回会合 議事次第（2026年9月28日。令和9年度の概算要求の各省説明）
+  publisher: 内閣府 宇宙政策委員会
+  url: https://www8.cao.go.jp/space/comittee/dai124/gijisidai.html
+  tags: [政策, 予算]
+
+- id: cao-dai124-budget
+  title: 令和9年度概算要求における宇宙関係予算（資料1-1。小型SAR衛星コンステレーションの利用拡大に向けた政府調達支援（新規、3か年程度））
+  publisher: 内閣府 宇宙開発戦略推進事務局
+  url: https://www8.cao.go.jp/space/comittee/dai124/siryou1-1.pdf
+  tags: [政策, 予算, 政府調達]
+
+- id: maff-cao-dai124
+  title: 宇宙政策委員会 第124回会合 農林水産省説明資料（資料1-7。個別に調達している現状、アンカーテナンシーの強化、日本成長戦略（2026年7月21日閣議決定）の引用）（2026年9月）
+  publisher: 農林水産省
+  url: https://www8.cao.go.jp/space/comittee/dai124/siryou1-7.pdf
+  tags: [政策, 予算, 政府調達, 農業委員会, 現地確認]
+
+- id: cao-rs-taskforce-charter
+  title: 衛星リモートセンシングデータ利用タスクフォースの開催について（関係大臣申合せ、2020年12月8日、2025年3月13日一部変更。第4回大臣会合 参考資料3）
+  publisher: 内閣府 宇宙開発戦略推進事務局
+  url: https://www8.cao.go.jp/space/taskforce/rs/dai4/sankou3.pdf
+  tags: [政策, 制度]
+
+- id: cao-rs-taskforce-dai4-siryou2
+  title: 第4回 衛星リモートセンシングデータ利用タスクフォース大臣会合 資料2（民間衛星の活用拡大期間（令和6〜8年度）の中間報告、コンビネーション利用、政府調達の例）（2025年12月2日）
+  publisher: 内閣府 宇宙開発戦略推進事務局
+  url: https://www8.cao.go.jp/space/taskforce/rs/dai4/siryou2.pdf
+  tags: [政策, 政府調達, 災害]
+
+- id: cao-onoda-kaiken-2025-12
+  title: 小野田内閣府特命担当大臣記者会見要旨（第4回大臣会合の開催と、取組方針の改訂の了承）（2025年12月5日）
+  publisher: 内閣府
+  url: https://www.cao.go.jp/minister/2510_k_onoda/kaiken/20251205kaiken.html
+  tags: [政策]
+
+- id: mlit-satellite-policy-2026
+  title: 国土交通省インフラ分野の衛星データ利用に関する取組方針（3分野、研究・実証・実装の段階、年次目標、活用拡大期間とアンカーテナンシーの引用、撮影機会の制約）（2026年8月）
+  publisher: 国土交通省
+  url: https://www.mlit.go.jp/tec/content/002020391.pdf
+  tags: [政策, 制度, インフラ, 災害, 政府調達]
+
+- id: mlit-satellite-policy-press-2026
+  title: 「国土交通省インフラ分野の衛星データ利用に関する取組方針」の策定について（報道発表。2026年8月26日の第13回インフラ分野のDX推進本部で策定）（2026年9月2日）
+  publisher: 国土交通省
+  url: https://www.mlit.go.jp/report/press/kanbo08_hh_001360.html
+  tags: [政策, インフラ]
+
+- id: jaxa-alos-open-free-en
+  title: ALOS Series Open and Free Datasets（英語ページ。PALSAR-2 ScanSAR L2.2 の公開（2022年11月7日）、災害データの非商用の条件）
+  publisher: JAXA 地球観測研究センター
+  url: https://www.eorc.jaxa.jp/ALOS/en/dataset/alos_open_and_free_e.htm
+  tags: [無償データ, 利用条件, ALOS-2]
+
+- id: cao-rs-law-faq-2025
+  title: 衛星リモートセンシング記録の適正な取扱いの確保に関するFAQ（SAR 3m以下のモードが記録、提供先の認定の確認、紙は対象外、標準データは撮像から5年以内）（2025年6月30日）
+  publisher: 内閣府 宇宙開発戦略推進事務局
+  url: https://www8.cao.go.jp/space/application/rs/documents/faqr.pdf
+  tags: [利用条件, 衛星リモセン法, 制度]
+
+- id: maff-field-check-satellite-2026
+  title: 現地確認業務における衛星画像の活用について（伊万里市の4区分と約4,000筆・約50%削減、年50万円前後、数%の抜き取り、玖珠町の2年実証と隔年、判定しにくい農地は見回りに残す）（2026年8月）
+  publisher: 農林水産省 大臣官房デジタル戦略グループ
+  url: https://www.maff.go.jp/j/kanbo/dx/attach/pdf/eisei-1.pdf
+  tags: [農業委員会, 荒廃農地, 自治体, 現地確認, 業務フロー]
