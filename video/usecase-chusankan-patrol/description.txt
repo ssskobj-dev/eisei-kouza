@@ -1,21 +1,38 @@
 中山間地の見回りを衛星で減らす
 
+■ この動画の内容
 佐賀県伊万里市が、農地の現地確認を衛星で約半分に減らした事例。業務のどこに入れ、何を決める材料になるか、無償衛星でどこまでできるか、有償画像の概算までを6分で解説します。
 
 ▶ RFPの作成と相見積もりの相談は、フォームから
 https://ssskobj-dev.github.io/eisei-kouza/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-chusankan-patrol
 
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-chusankan-patrol&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=usecase-chusankan-patrol&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
 ■ 章立て
 0:00 中山間地の見回りを衛星で減らす
-0:33 どこで、誰が、何のために
-1:06 業務の流れの、どこに入るか
-1:48 衛星に任せることと、人が行うこと
-2:24 何を決める材料になるか
-3:10 2026年時点の限界
-3:48 無償の衛星で、どこまでできるか
-4:30 有償の画像を使うと、いくらか（概算）
-5:25 向いている条件、向いていない条件
-6:07 自分の地域で検討する方へ
+0:28 Satellite to Decision とは
+0:46 どこで、誰が、何のために
+1:14 業務の流れの、どこに入るか
+1:50 衛星に任せることと、人が行うこと
+2:19 何を決める材料になるか
+2:58 2026年時点の限界
+3:30 無償の衛星で、どこまでできるか
+4:04 有償の画像を使うと、いくらか（概算）
+4:50 向いている条件、向いていない条件
+5:25 自分の地域で検討する方へ
+5:44 2つの資格が取得できます
 
 ■ 出典と表記
 出典：農林水産省「衛星画像活用の動きが広がっています！」 https://www.maff.go.jp/j/kanbo/dx/attach/pdf/eisei-3.pdf

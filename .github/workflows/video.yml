@@ -97,7 +97,7 @@ jobs:
         if: steps.gate.outputs.go == 'yes'
         run: sudo apt-get update && sudo apt-get install -y fonts-noto-cjk ffmpeg chromium-browser || sudo apt-get install -y chromium
       - if: steps.gate.outputs.go == 'yes'
-        run: pip install pillow numpy google-api-python-client google-auth google-auth-oauthlib
+        run: pip install pillow numpy qrcode google-api-python-client google-auth google-auth-oauthlib
       - name: 英語の音声（Piper）を用意する
         if: steps.gate.outputs.go == 'yes' && steps.gate.outputs.need_en == 'yes'
         run: |
