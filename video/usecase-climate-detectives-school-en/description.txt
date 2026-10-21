@@ -1,0 +1,45 @@
+Satellite data in the classroom: ESA Climate Detectives for teens
+
+What this video covers
+How schools let students study a local environmental problem with free satellite data, using Europe's Climate Detectives project as the model. Where it fits in a class, what it can and cannot show, how far free satellites go, and what it costs. About 6 minutes.
+
+▶ For an RFP and competitive quotes, contact us from the form
+https://ssskobj-dev.github.io/eisei-kouza/en/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-climate-detectives-school-en
+
+🎓 Earn two certifications: Satellite Data Analysis Engineer and Satellite Data Marketer
+https://ssskobj-dev.github.io/eisei-kouza/en/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-climate-detectives-school-en&utm_content=cert
+
+About Satellite to Decision
+Satellite to Decision organises what you need to know to use satellite data in business decisions, from the buyer's side. Independent of any satellite operator or analytics company.
+What we offer:
+- Satellite data market reports (market size, players, overseas cases, barriers by sector)
+- Satellite data use cases (where it fits in the workflow, what decision it supports, cost estimates)
+- Training in satellite data analysis and use (courses, analysis curriculum, case questions)
+- Certifications: Satellite Data Marketer / Satellite Data Analysis Engineer
+- For organisations: help writing RFPs and gathering competitive quotes, training
+Website: https://ssskobj-dev.github.io/eisei-kouza/en/?utm_source=youtube&utm_medium=video&utm_campaign=usecase-climate-detectives-school-en&utm_content=about
+Certifications: https://ssskobj-dev.github.io/eisei-kouza/en/cert.html
+
+Chapters
+0:00 Satellites in the classroom
+0:21 About Satellite to Decision
+0:35 Where, who, and why
+1:01 How a project runs
+1:30 Satellite versus people
+1:55 What it supports a school to decide
+2:21 Limits as of 2026
+2:56 Satellite data market reports
+3:06 How far do free satellites go?
+3:35 What it costs
+4:08 When it fits, and when it does not
+4:42 Bringing this to your schools?
+4:56 Two certifications you can earn
+
+Sources and credits
+Source: ESA, Climate Detectives Teens: Overview https://climatedetectives.esa.int/overview-teens/
+Source: ESA, Climate Detectives 2026-2027: Registration now open https://www.esa.int/Education/Teachers_Corner/Climate_Detectives_2026_2027_Registration_now_open
+Satellite specs: ESA, Sentinel-2 Facts and figures https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2/Facts_and_figures
+Voice: Piper TTS (en_US-ryan, MIT) · Host: Ryan
+
+Satellite to Decision | From Earth observation data to business decisions.
+Made independently of any satellite operator or analytics company.
