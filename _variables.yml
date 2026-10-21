@@ -28,6 +28,16 @@ alos4:
   revisit: 14日
   since: 2024年
 
+# 国の方針の日付。計画や工程表が改定されたら、ここを直す（marketer-policy-procurement が参照）。
+policy:
+  space_plan: 2023年6月13日            # 現行の宇宙基本計画の閣議決定日
+  roadmap_revised: 2025年12月23日      # 工程表の最新の改訂日
+  expansion_period: 2024〜2026年度      # 民間衛星の活用拡大期間（令和6〜8年度）
+  taskforce_latest: 2025年12月2日       # 衛星リモートセンシングデータ利用タスクフォース大臣会合の最新の開催日（第4回）
+  next_plan: 2027年5月ごろ              # 次期の宇宙基本計画（案）の了承の予定（2026年9月の案）
+  growth_strategy: 2026年7月21日        # 日本成長戦略の閣議決定日（アンカーテナンシーの強化）
+  mlit_policy: 2026年8月               # 国土交通省インフラ分野の衛星データ利用に関する取組方針の策定
+
 # サイトとシリーズの名前。変えるときは、ここを直すだけでよい（メニューの文字は _quarto.yml）。
 site:
   name: Satellite to Decision
