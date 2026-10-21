@@ -31,6 +31,8 @@ alos4:
 # サイトとシリーズの名前。変えるときは、ここを直すだけでよい（メニューの文字は _quarto.yml）。
 site:
   name: Satellite to Decision
+  url: "https://ssskobj-dev.github.io/eisei-kouza/"
+  url_en: "https://ssskobj-dev.github.io/eisei-kouza/en/"
   tagline: 地球観測データを、事業の意思決定へ。
   # noteのアカウント（有料の記事を売る場所）。design/paywall.lua にも同じアドレスがある
   note: "https://note.com/s_to_decision"

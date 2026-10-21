@@ -37,6 +37,15 @@
 **資格の案内は全動画の最後に必ず入る**（`video.py` が自動で足す。台本に書かなくてよい）。
 「衛星データ解析」「衛星データビジネス」の2つの資格が取得できる、という場面で、名前とリンクは `_variables.yml` の `cert` から取る。概要欄にも案内とリンク（utm 付き）が入る。外したいとき（試作など）だけ台本に `cert: false`。
 
+## 音声、冒頭の紹介、概要欄（自動で入る）
+
+- **話す速さ**は標準 1.2 倍（`video.py` の `SPEED_DEFAULT`）。台本に `speed:` を書かない（書くと上書きされる）
+- **日本語の声**（VOICEVOX）：抑揚 1.15、文の前後に短い間。英字（SAR、InSAR、Sentinel-1、AI、GIS など）は `video.py` の `READINGS_JA` で読みに直してから合成する（字幕は元のまま）。読みが変な語を見つけたら `READINGS_JA` に足す
+- **英語の声**（Piper）：声の揺らぎを少し上げて平板さを減らしている（`voices.yaml` の `noise`、`noise_w` で声ごとに調整できる）
+- **冒頭の紹介**：表紙（問いと答え）の直後に「Satellite to Decision とは」の場面が自動で入る（市場レポート、資格試験、活用事例・学習・RFP相談、サイトのURLとQRコード）。表紙より前に出したいときは台本に `intro_first: true`、外すときは `intro: false`。文言は `video.py` の `L` の `intro_*`
+- **資格の案内**（最後）にも、資格ページのQRコードが入る
+- **概要欄**（description.txt）は、題名 → この動画の内容（summary）→ 呼びかけ → 資格の案内 → Satellite to Decision について（概要と提供しているもの、サイトと資格のリンク）→ 章立て → 出典と表記、の順で自動生成される。summary は概要欄の「この動画の内容」にそのまま出るので、2〜3文で動画の要点を書く
+
 ## 場面の種類
 
 cover、bullets、figure、table、code、prompt、steps、cta。項目は `scripts/video.py` の各関数を参照。

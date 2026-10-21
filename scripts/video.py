@@ -15,7 +15,7 @@
   series: CASEBOOK | CODEX
   kicker: 画面の上に出す短い文字（例：ユースケース解説）
   voice: 13            # VOICEVOXの話者のid
-  speed: 1.0
+  speed: 1.2            # 話す速さ（標準 1.2）
   credits: [ ... ]     # 末尾に出す出典と表記
   scenes:
     - kind: cover | bullets | figure | table | code | prompt | steps | cta
@@ -69,6 +69,21 @@ L = {
            "foot": ["Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。",
                     "どの衛星会社にも解析会社にも属さない立場で作っています。"],
            # 資格の案内（全動画の最後に入る）
+           "intro_heading": "Satellite to Decision とは",
+           "intro_items": ["衛星データ 利活用市場レポート", "衛星データの資格試験：衛星データマーケッター／衛星データ解析エンジニア", "活用事例・学習プログラム・RFPと相見積もりの相談"],
+           "intro_sub": "サイトはこちら（QRコードでも開けます）",
+           "intro_say": ("この動画を作っている Satellite to Decision は、衛星データの利活用市場レポートと、"
+                         "衛星データの資格試験、衛星データマーケッターと衛星データ解析エンジニアを運営しています。"
+                         "サイトのアドレスとQRコードは、画面のとおりです。"),
+           "about_head": "■ Satellite to Decision について",
+           "about_body": ["Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。",
+                          "提供しているもの：",
+                          "・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）",
+                          "・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）",
+                          "・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）",
+                          "・資格試験：衛星データマーケッター／衛星データ解析エンジニア",
+                          "・法人向け：RFPの作成と相見積もりの支援、研修"],
+           "about_site": "サイト：", "about_cert": "資格：", "summary_head": "■ この動画の内容",
            "cert_heading": "2つの資格が取得できます",
            "cert_sub": "資格の詳細と受験は、概要欄のリンクから",
            "cert_say": lambda a, b: (f"最後にお知らせです。Satellite to Decision では、{a}と{b}の2つの資格を取得できます。"
@@ -81,6 +96,20 @@ L = {
            "transcript": "Full transcript of the video.", "chapters": "Chapters", "src_head": "Sources and credits",
            "foot": ["Satellite to Decision | From Earth observation data to business decisions.",
                     "Made independently of any satellite operator or analytics company."],
+           "intro_heading": "About Satellite to Decision",
+           "intro_items": ["Satellite data market reports", "Two certifications: Satellite Data Marketer / Satellite Data Analysis Engineer", "Use cases, training, and help with RFPs and competitive quotes"],
+           "intro_sub": "Website (scan the QR code to open)",
+           "intro_say": ("Satellite to Decision, which makes this video, publishes satellite data market reports and runs two certifications - "
+                         "Satellite Data Marketer, and Satellite Data Analysis Engineer. The website address and QR code are on screen."),
+           "about_head": "About Satellite to Decision",
+           "about_body": ["Satellite to Decision organises what you need to know to use satellite data in business decisions, from the buyer's side. Independent of any satellite operator or analytics company.",
+                          "What we offer:",
+                          "- Satellite data market reports (market size, players, overseas cases, barriers by sector)",
+                          "- Satellite data use cases (where it fits in the workflow, what decision it supports, cost estimates)",
+                          "- Training in satellite data analysis and use (courses, analysis curriculum, case questions)",
+                          "- Certifications: Satellite Data Marketer / Satellite Data Analysis Engineer",
+                          "- For organisations: help writing RFPs and gathering competitive quotes, training"],
+           "about_site": "Website: ", "about_cert": "Certifications: ", "summary_head": "What this video covers",
            "cert_heading": "Two certifications you can earn",
            "cert_sub": "Details and exams - see the link in the description",
            "cert_say": lambda a, b: (f"One last thing. At Satellite to Decision you can earn two certifications - {a}, and {b}. "
@@ -322,6 +351,36 @@ def slide_cta(s, ctx):
     return frame("", "", body, ctx["series"], dark=True)
 
 
+def qr_data_uri(url, box=10):
+    """QRコードを PNG にして data URI で返す（SVG の <image> に埋め込む）。"""
+    import base64, io
+    import qrcode
+    img = qrcode.make(url, box_size=box, border=2)
+    buf = io.BytesIO(); img.save(buf, format="PNG")
+    return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
+
+
+def slide_intro(s, ctx):
+    """Satellite to Decision の紹介（冒頭）。提供しているものと、サイトのQRコードとアドレス。"""
+    body = [f'<circle cx="{W - 100}" cy="{H + 200}" r="700" fill="none" stroke="{LINE}" stroke-width="3"/>',
+            logo(1640, 150, 0.26),
+            text(100, 300, wrap(s["heading"], 22)[:1], 60, WHITE, "900")]
+    y = 400
+    for it in s.get("items", [])[:3]:
+        lines = wrap(it, 30)[:2]
+        body.append(f'<rect x="100" y="{y - 36}" width="14" height="{40 * 1.35 * len(lines):.0f}" rx="4" fill="{ORANGE}"/>')
+        body.append(text(140, y, lines, 40, WHITE, "bold", lh=1.35))
+        y += 40 * 1.35 * len(lines) + 34
+    if s.get("qr"):
+        body.append(f'<rect x="1440" y="400" width="380" height="380" rx="20" fill="{WHITE}"/>')
+        body.append(f'<image href="{s["qr"]}" x="1460" y="420" width="340" height="340"/>')
+    if s.get("sub"):
+        body.append(text(100, y + 20, wrap(s["sub"], 34)[:1], 30, SLATE, "bold"))
+    if s.get("url"):
+        body.append(text(100, y + 74, s["url"], 32, WHITE, "bold", family=MONO))
+    return frame("", "", body, ctx["series"], dark=True)
+
+
 def slide_cert(s, ctx):
     """資格の案内（全動画の最後）。2つの資格を大きなカードで見せる。"""
     body = [f'<circle cx="{W - 100}" cy="{H + 200}" r="700" fill="none" stroke="{LINE}" stroke-width="3"/>',
@@ -338,11 +397,23 @@ def slide_cert(s, ctx):
         body.append(text(100, y0 + ch + 90, wrap(s["sub"], 34)[:1], 34, SLATE, "bold"))
     if s.get("url"):
         body.append(text(100, y0 + ch + 150, s["url"], 30, WHITE, "bold", family=MONO))
+    if s.get("qr"):
+        body.append(f'<rect x="1500" y="{y0 + ch + 40}" width="260" height="260" rx="16" fill="{WHITE}"/>')
+        body.append(f'<image href="{s["qr"]}" x="1515" y="{y0 + ch + 55}" width="230" height="230"/>')
     return frame("", "", body, ctx["series"], dark=True)
 
 
 SLIDES = {"cover": slide_cover, "bullets": slide_bullets, "figure": slide_figure, "table": slide_table,
-          "code": slide_code, "prompt": slide_prompt, "steps": slide_steps, "cta": slide_cta, "cert": slide_cert}
+          "code": slide_code, "prompt": slide_prompt, "steps": slide_steps, "cta": slide_cta, "cert": slide_cert, "intro": slide_intro}
+
+
+def intro_scene(ctx):
+    """Satellite to Decision の紹介の場面。_variables.yml の site から URL を取る。"""
+    v = yaml.safe_load((ROOT / "_variables.yml").read_text(encoding="utf-8"))
+    url = v.get("site", {}).get("url_en" if LANG == "en" else "url", "")
+    return {"kind": "intro", "heading": L[LANG]["intro_heading"], "items": L[LANG]["intro_items"], "sub": L[LANG]["intro_sub"],
+            "url": url.replace("https://", "").rstrip("/"), "url_full": url, "qr": qr_data_uri(url) if url else "",
+            "say": L[LANG]["intro_say"]}
 
 
 def cert_scene(ctx):
@@ -353,7 +424,8 @@ def cert_scene(ctx):
     b = v.get("business_en" if en else "business", "Satellite Data Business" if en else "衛星データビジネス")
     url = v.get("url_en" if en else "url", "")
     return {"kind": "cert", "heading": L[LANG]["cert_heading"], "items": [a, b], "sub": L[LANG]["cert_sub"],
-            "url": url.replace("https://", ""), "url_full": url, "say": L[LANG]["cert_say"](a, b), "_names": (a, b)}
+            "url": url.replace("https://", ""), "url_full": url, "qr": qr_data_uri(url, 8) if url else "",
+            "say": L[LANG]["cert_say"](a, b), "_names": (a, b)}
 
 
 def svg_to_png(svg, png):
@@ -442,11 +514,38 @@ def pick_voice(ctx, vid):
     return same[int(hashlib.md5(vid.encode()).hexdigest(), 16) % len(same)]
 
 
+# 話す速さの標準（利用者の指定で 1.2 倍）。台本の speed で上書きできる
+SPEED_DEFAULT = 1.2
+# 日本語の読み替え（合成音声が英字をうまく読めないので、読みに直してから渡す。字幕は元のまま）
+READINGS_JA = [
+    ("InSAR", "インサー"), ("SAR", "サー"), ("Sentinel-1", "センチネルワン"), ("Sentinel-2", "センチネルツー"),
+    ("Sentinel", "センチネル"), ("Landsat", "ランドサット"), ("NDVI", "エヌディーブイアイ"), ("NDWI", "エヌディーダブリューアイ"),
+    ("GIS", "ジーアイエス"), ("GNSS", "ジーエヌエスエス"), ("RFP", "アールエフピー"), ("QR", "キューアール"),
+    ("AI", "エーアイ"), ("API", "エーピーアイ"), ("CSV", "シーエスブイ"), ("PDF", "ピーディーエフ"),
+    ("JAXA", "ジャクサ"), ("ESA", "イーサ"), ("NASA", "ナサ"), ("USGS", "ユーエスジーエス"), ("EU", "イーユー"),
+    ("Satellite to Decision", "サテライト トゥ ディシジョン"), ("YouTube", "ユーチューブ"), ("Python", "パイソン"),
+    ("Lバンド", "エルバンド"), ("Cバンド", "シーバンド"), ("Xバンド", "エックスバンド"), ("km", "キロメートル"), ("m級", "メートル級"),
+]
+
+
+def speakable(text_):
+    """合成音声に渡す文。日本語は英字を読みに直す。英語はそのまま。"""
+    if LANG != "ja":
+        return text_
+    out = text_
+    for a, b in READINGS_JA:
+        out = out.replace(a, b)
+    return out
+
+
 def synth(text_, out_wav, ctx):
     voice = ctx["_voice"]
+    speed = ctx.get("speed", SPEED_DEFAULT)
+    text_ = speakable(text_)
     if voice.get("engine") == "piper":
         model = Path(os.environ.get("PIPER_VOICE_DIR", str(ROOT / "piper_voices"))) / (voice["model"] + ".onnx")
-        subprocess.run([sys.executable, str(ROOT / "scripts" / "piper_tts.py"), str(model), text_, str(out_wav), str(ctx.get("speed", 1.0))],
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "piper_tts.py"), str(model), text_, str(out_wav), str(speed),
+                        str(voice.get("noise", 0.75)), str(voice.get("noise_w", 0.9))],
                        capture_output=True, text=True, timeout=600)
         if out_wav.exists():
             return
@@ -454,14 +553,15 @@ def synth(text_, out_wav, ctx):
     if vv:
         env = dict(os.environ)
         env["LD_LIBRARY_PATH"] = os.environ.get("VOICEVOX_LIB", "") + ":" + env.get("LD_LIBRARY_PATH", "")
-        r = subprocess.run([vv, str(ROOT / "scripts" / "voicevox_tts.py"), str(ctx["_voice"]["id"]), text_, str(out_wav), str(ctx.get("speed", 1.0)), str(ctx["_voice"].get("pitch", 0))],
+        r = subprocess.run([vv, str(ROOT / "scripts" / "voicevox_tts.py"), str(voice["id"]), text_, str(out_wav), str(speed),
+                            str(voice.get("pitch", 0)), str(voice.get("intonation", 1.15)), str(voice.get("pre", 0.08)), str(voice.get("post", 0.12))],
                            capture_output=True, text=True, env=env, timeout=600)
         if out_wav.exists():
             return
         print(r.stderr[-500:])
     import pyopenjtalk
     import scipy.io.wavfile as sw
-    x, sr = pyopenjtalk.tts(text_, speed=ctx.get("speed", 1.0))
+    x, sr = pyopenjtalk.tts(text_, speed=speed)
     sw.write(str(out_wav), sr, x.astype(np.int16))
 
 
@@ -532,12 +632,15 @@ def build(vid, slides_only=False):
     work.mkdir(exist_ok=True)
     scenes = ctx["scenes"]
     # 資格の案内を、必ず最後に入れる（台本に無くても自動で足す。cert: false で外せる）
+    if ctx.get("intro", True) and not any(sc["kind"] == "intro" for sc in scenes):
+        pos = 0 if ctx.get("intro_first") else (1 if scenes and scenes[0]["kind"] == "cover" else 0)
+        scenes.insert(pos, intro_scene(ctx))
     if ctx.get("cert", True) and not any(sc["kind"] == "cert" for sc in scenes):
         for sc in scenes:   # 締めの「ご視聴ありがとうございました」は、資格の案内の側で言う（二重に言わない）
             if sc["kind"] == "cta" and sc.get("say"):
                 sc["say"] = re.sub(r"\s*(ご視聴ありがとうございました[。！]?|Thanks for watching[.!]?)\s*$", "", sc["say"].strip())
         scenes.append(cert_scene(ctx))
-    body_idx = [i for i, sc in enumerate(scenes) if sc["kind"] not in ("cover", "cta", "cert")]
+    body_idx = [i for i, sc in enumerate(scenes) if sc["kind"] not in ("cover", "cta", "cert", "intro")]
     agenda = [sc.get("heading", "") for i, sc in enumerate(scenes) if i in body_idx]
     for i, s in enumerate(scenes):
         CURRENT.clear()
@@ -649,7 +752,7 @@ def write_companions(vid, vdir, ctx, scenes, starts, body_idx, agenda, work):
     cert = next((sc for sc in scenes if sc["kind"] == "cert"), None)
     desc = [yt_title, ""]
     if ctx.get("summary"):
-        desc += [ctx["summary"], ""]
+        desc += [L[LANG]["summary_head"], ctx["summary"], ""]
     if cta.get("action"):
         desc += [f"▶ {cta['action']}", link, ""]
     if cert:
@@ -658,6 +761,12 @@ def write_companions(vid, vdir, ctx, scenes, starts, body_idx, agenda, work):
         if cert_link and "utm_" not in cert_link:
             cert_link += ("&" if "?" in cert_link else "?") + f"utm_source=youtube&utm_medium=video&utm_campaign={vid}&utm_content=cert"
         desc += [L[LANG]["cert_desc"](a, b), cert_link, ""]
+    site_url = site.get("url_en" if LANG == "en" else "url", "")
+    desc += [L[LANG]["about_head"]] + L[LANG]["about_body"]
+    desc += [L[LANG]["about_site"] + site_url + ("&" if "?" in site_url else "?") + f"utm_source=youtube&utm_medium=video&utm_campaign={vid}&utm_content=about"]
+    if cert:
+        desc += [L[LANG]["about_cert"] + cert.get("url_full", "")]
+    desc += [""]
     desc += [L[LANG]["chapters"]] + chapters + [""]
     if cta.get("credits"):
         desc += [L[LANG]["src_head"]] + cta["credits"] + [""]

@@ -8,7 +8,6 @@ thumb: AIへの頼み方
 summary: 衛星データの解析をAIに頼むときに、指示に必ず入れる7項目。あいまいな指示と良い指示の違い、AIが書いたコードを3つの観点で確かめて直すところまでを、一緒にやってみます。宿題つき。
 publish: false   # 解析教材（Codex）の試作。章の原稿ができるまで投稿しない
 voice: もち子
-speed: 1.0
 scenes:
   - kind: cover
     heading: AIへの頼み方
