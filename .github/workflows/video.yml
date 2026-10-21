@@ -143,12 +143,17 @@ jobs:
             if python scripts/video.py "$vid" && python scripts/youtube_upload.py "$vid" --privacy "$priv" --channel "$ch"; then
               git add "video/$vid/youtube.json" "video/$vid/description.txt" "video/$vid/transcript.md" "video/$vid/thumbnail.png" 2>/dev/null || true
               git commit -m "動画を投稿：$vid" >/dev/null 2>&1 || true
+              pushed=no
               for i in 1 2 3 4 5; do
                 git fetch origin main -q
-                git rebase origin/main -q && git push origin HEAD:main -q && break
+                git rebase --autostash origin/main -q && git push origin HEAD:main -q && { pushed=yes; break; }
                 git rebase --abort 2>/dev/null || true
                 sleep $((RANDOM % 5 + 3))
               done
+              if [ "$pushed" != "yes" ]; then
+                echo "::error::$vid は投稿できましたが、投稿済みの記録を main に書き戻せませんでした。重複を防ぐため、ここで止めます。youtube.json を手で入れてください：$(cat video/$vid/youtube.json 2>/dev/null)"
+                exit 1
+              fi
             else
               failed="$failed $vid"
               echo "::error::$vid の生成または投稿に失敗"
