@@ -1,0 +1,69 @@
+# 「業務の問いを要求に直す：対象、範囲、頻度、精度、納期」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/marketer-requirements/<id>.svg を作る。
+
+figures:
+  - id: flow
+    type: flow
+    alt: 問いを要求に直す7つの手順
+    steps:
+      - title: 問いと単位
+        text: 1文にして判断の単位を決める
+        who: human
+      - title: 対象と範囲
+        text: 台帳の一覧と図面
+        who: human
+      - title: 頻度と精度
+        text: 更新の間隔、見逃しと誤検出
+        who: human
+      - title: 成果物と納期
+        text: 読める形式、観測の期限
+        who: human
+      - title: 型にまとめる
+        text: 7項目と費用の上限
+        who: human
+
+  - id: accuracy
+    type: split
+    alt: 精度の要求は2つの数字で書く
+    link: ＋
+    left:
+      title: 見逃し
+      items:
+        - 実際にあるのに拾えなかった割合
+        - 省いた側（不要判定）の抜き取りで数える
+        - 見逃すと損失が出る業務で重く見る
+    right:
+      title: 誤検出
+      items:
+        - 拾ったが実際にはなかった割合
+        - 候補（要確認）の現地確認で数える
+        - 誤報で現場の手間が増える業務で重く見る
+    note: どちらを重く見るかは業務で決める。地域・季節・対象・比べた相手を必ず添える
+
+  - id: template
+    type: cards
+    alt: 要求の文の型：7つの項目
+    columns: 2
+    items:
+      - title: 用途
+        text: 誰が何を決めるか。確定は誰が行うか
+        mark: "1"
+      - title: 対象
+        text: 判断の単位の一覧。台帳から出す
+        mark: "2"
+      - title: 範囲
+        text: 図面で示す広がりと、切り出しの範囲
+        mark: "3"
+      - title: 頻度
+        text: 更新の間隔と、観測の期間・回数
+        mark: "4"
+      - title: 精度
+        text: 見逃しと誤検出の許容と、比べる相手
+        mark: "5"
+      - title: 納期
+        text: 観測の期限と納品日。データ数が変わる時の扱い
+        mark: "6"
+      - title: 検証
+        text: 抜き取りの割合と、誰が行うか
+        mark: "7"
+        role: human

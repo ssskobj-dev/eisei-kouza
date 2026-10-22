@@ -884,3 +884,20 @@
   publisher: ESA
   url: https://sentinel.esa.int/documents/247904/685163/S1-Radiometric-Calibration-V1.0.pdf
   tags: [基礎, Sentinel, SAR, 倍率, 解析教材]
+- id: cao-rs-policy-2025-12
+  title: 衛星データ利用に関する今後の取組方針について（改訂）（民間衛星の活用拡大期間、コンビネーション利用、負担可能なコストを含む要求仕様の明確化、国による調達・自治体等への支援・技術研究開発の3つの促進）（2025年12月2日）
+  publisher: 衛星リモートセンシングデータ利用タスクフォース（内閣府）
+  url: https://www8.cao.go.jp/space/taskforce/rs/r7_kettei.pdf
+  tags: [政策, 政府調達, 制度, 自治体]
+
+- id: meti-satellite-biz-2024
+  title: 経済産業省における衛星データ利用ビジネスの促進に関する取組について（地域実証事業は2022年度13件・2023年度18件。固定資産の変化抽出の再現率90%以上、森林材積量の再現率80%以上、赤潮予測の正解率90%）（第3回タスクフォース大臣会合 資料1-7、2024年3月）
+  publisher: 経済産業省
+  url: https://www8.cao.go.jp/space/taskforce/rs/dai3/siryou1_7.pdf
+  tags: [政策, 精度, 実証, 固定資産, 森林, 赤潮]
+
+- id: gsi-sar-manual-2025
+  title: 衛星SARによる上下変動測量マニュアル（公共測量で干渉SAR時系列解析を使う標準の作業方法。2級水準測量相当以上の地上測量を併用、点検計算の許容範囲は差の標準偏差3mm以内、水準路線は10km四方で概ね40km以上）（2024年6月制定、2025年9月改正）
+  publisher: 国土交通省 国土地理院
+  url: https://www.gsi.go.jp/common/000259158.pdf
+  tags: [干渉SAR, 地盤沈下, 精度, 公共測量, 仕様書]

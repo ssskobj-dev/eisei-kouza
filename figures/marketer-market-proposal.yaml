@@ -1,0 +1,57 @@
+# 「市場の動きと提案の筋：分野ごとの段階と、避ける言い方」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/marketer-market-proposal/<id>.svg を作る。
+
+figures:
+  - id: stages
+    type: scale
+    alt: 分野ごとの段階：本格運用から技術開発まで
+    left: 本格運用（約束できる）
+    right: 技術開発（約束しない）
+    items:
+      - title: 農地の現地確認
+        text: 205自治体が活用。漏水の絞り込み、地盤沈下も
+      - title: 被災状況の把握
+        text: 国の施策集で「実証」。ダムの変位も
+      - title: 固定資産、森林
+        text: 経産省の地域実証の段階
+      - title: 河川水位、火災、海岸線
+        text: 国の施策集で「技術開発」
+
+  - id: choose
+    type: cards
+    alt: 3つの型の選び方
+    columns: 2
+    items:
+      - title: 絞り込み型
+        text: 全部を見回る業務がある、本格運用の分野
+        mark: "1"
+      - title: 併用型
+        text: 測量や点検がすでにあり、費用か範囲に困っている
+        mark: "2"
+      - title: 定期監視型
+        text: 定期的に見る必要があり、撮影の時期を待てる
+        mark: "3"
+      - title: 本番の提案はしない
+        text: 国の資料で「技術開発」の段階の分野
+        mark: "×"
+        role: none
+
+  - id: wording
+    type: split
+    alt: 避ける言い方と、代わりの言い方
+    link: →
+    left:
+      title: 避ける言い方
+      items:
+        - 現地確認が不要になります
+        - 精度は90%です
+        - リアルタイムで監視できます
+        - ここが地盤沈下しています
+    right:
+      title: 代わりの言い方
+      items:
+        - 見回る農地を絞り込めます
+        - 〇地区の〇年の検証で再現率90%でした
+        - 概ね毎月1シーンで変動を追います
+        - 沈下の傾向が見られます。測量で確かめます
+    note: 候補として伝える、条件を付ける、確定は人が行うと言う
