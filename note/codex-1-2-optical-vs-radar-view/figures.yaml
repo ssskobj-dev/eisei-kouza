@@ -1,0 +1,47 @@
+# note記事「光学では湖が暗いのに、レーダーでは明るい。衛星データ解析で光学とレーダーを並べる前にそろえる3つのこと」の見出し画像と図。
+# python scripts/figures.py codex-1-2-optical-vs-radar-view で、このフォルダにSVGとPNGができる。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: course
+    tag: 解析教材
+    title: 光学とレーダー、並べる前に
+    sub: 日付・範囲・単位をそろえる3つの確認
+
+  - id: fig-1
+    type: split
+    alt: 光学とレーダーの違い
+    link: ⇔
+    left:
+      title: 光学（Sentinel-2）
+      role: satellite
+      items:
+        - 太陽の光の反射を測る
+        - 雲があると地表が見えない
+        - 水面は近赤外で暗い
+        - 値は反射率（0〜1）
+    right:
+      title: レーダー（Sentinel-1）
+      role: satellite
+      items:
+        - 自分で電波を出し、跳ね返りを測る
+        - 雲を通す。昼も夜も観測
+        - 静かな水面は黒い。風で明るくなる
+        - 値は真値か、デシベル（dB）
+
+  - id: fig-2
+    type: flow
+    alt: 並べる前の3つの確認
+    steps:
+      - title: 日付と時刻
+        text: 製品の名前から読む。差を表に
+        who: human
+      - title: 範囲と座標
+        text: 地形の補正。同じ地図と画素に
+        who: human
+      - title: 値の単位
+        text: σ0の真値に直し、平均してからdB
+        who: human
+      - title: 並べて見る
+        text: 湖、森、市街地で確かめる
+        who: human

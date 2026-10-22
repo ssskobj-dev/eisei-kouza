@@ -55,7 +55,7 @@ parts:
       - 画像を1枚開き、波長帯ごとの値の分布を出して、値がもっともらしいかを確かめられる
     must_include: [画素の値と反射率, 倍率とずらし, 波長帯の名前の確認, 水面と植物の見え方]
     material: ""
-    status: todo
+    status: done
 
   - id: codex-1-2-optical-vs-radar-view
     title: 光学とレーダーの見え方の違い：同じ場所を並べて見る
@@ -64,7 +64,7 @@ parts:
       - 同じ場所、近い日の光学とレーダーの画像を並べ、日付と範囲がそろっているかと、値の単位を確かめられる
     must_include: [日付と範囲の一致, レーダーの値の単位（真値と対数）, 雲の日の見え方, 水面の暗さ]
     material: ""
-    status: todo
+    status: done
 
   - id: codex-1-3-resolution-revisit
     title: 分解能と撮影の間隔：使える画像を数える
