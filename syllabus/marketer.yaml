@@ -1,6 +1,6 @@
 # 衛星データマーケッター（資格）の教材。資格の分野（cert.qmd）と1対1で対応する。
 # 2級の4分野は、既存の講座の章（common-*、survey-*、agri-*）を流用し、足りない5章をここで作る。
-# 1級の5分野は、2級が揃ってから作る（status: hold）。揃ったら hold を todo に変える。
+# 1級の5分野は、2級が揃ってから作る（status: todo）。揃ったら hold を todo に変える。
 # 対応表は data/cert_map.yaml。有料の線は一旦なし（learn/marketer/_metadata.yml で全部無料）。
 
 defaults:
@@ -67,9 +67,9 @@ parts:
     must_include: [分野別の段階, 費用の出どころ, 普及の壁, 絞り込み・併用・定期監視の3つの型, 避ける表現と言い換え]
     tradeoffs: [screen_then_confirm, free_data_first]
     material: ""
-    status: todo
+    status: done
 
-  # ---------- 1級（2級が揃ってから。hold → todo） ----------
+  # ---------- 1級（2級が揃ったので todo） ----------
   - id: marketer-requirements
     title: 業務の問いを要求に直す：対象、範囲、頻度、精度、納期
     type: practice
@@ -79,7 +79,7 @@ parts:
       - 顧客の問いを、対象・範囲・頻度・精度・納期の要求に書き直せる
     must_include: [判断の単位, 許容できる見逃しと誤検出, 更新の間隔, 成果物の形式, 要求の文の型]
     material: ""
-    status: hold
+    status: todo
 
   - id: marketer-requirements-cases
     title: 要求の定義の演習：3つの業務で書いてみる
@@ -90,7 +90,7 @@ parts:
       - 農地、インフラ、災害の3つの業務で、要求の文を書き、抜けを見つけられる
     must_include: [3業務の要求の例, よくある抜け, 曖昧な要求の直し方]
     material: ""
-    status: hold
+    status: todo
 
   - id: marketer-evaluate-proposals
     title: 事業者の提案を評価する：観測条件と精度の説明を目的と照らす
@@ -101,7 +101,7 @@ parts:
       - 提案書の観測条件と精度の記述が、目的に合うかを評価できる
     must_include: [撮影の向きと斜面の向き, 測れない場所, 季節と積雪, 精度の条件, 参照データとの比較, 確かめる質問の一覧]
     material: ""
-    status: hold
+    status: todo
 
   - id: marketer-evaluate-proposals-cases
     title: 提案の評価の演習：誇張を見抜く
@@ -112,7 +112,7 @@ parts:
       - 提案書の抜粋から、条件を確かめるべき記述を挙げ、理由を書ける
     must_include: [誇張の型, 確かめる点の挙げ方, 事業者への質問の文]
     material: ""
-    status: hold
+    status: todo
 
   - id: marketer-spec-acceptance
     title: 仕様書の要求事項と、検収の方法を書く
@@ -123,7 +123,7 @@ parts:
       - 要求事項と検収の条件を、仕様書の文として書ける
     must_include: [要求事項の型, 検収の条件, 抜き取りの確認, 追加費用の条件, データの権利]
     material: ""
-    status: hold
+    status: todo
 
   - id: marketer-spec-acceptance-cases
     title: 仕様書と検収の演習：要求を文に直す
@@ -134,7 +134,7 @@ parts:
       - 確かめるべき点を、仕様書の要求事項と検収の方法に直せる
     must_include: [要求事項の文例, 検収の方法を費用の小さい順に, よくある欠落]
     material: ""
-    status: hold
+    status: todo
 
   - id: marketer-cost-benefit-explain
     title: 費用を概算し、効果と限界を発注者に説明する
@@ -145,7 +145,7 @@ parts:
       - 前提を置いて費用を概算し、効果と不確かさを発注者に説明できる
     must_include: [仮定の明示, 単価の出どころと日付, 現地確認の削減の見積もり, 不確かさの示し方, 誤解されやすい表現]
     material: ""
-    status: hold
+    status: todo
 
   - id: marketer-cost-benefit-cases
     title: 費用と効果の演習：概算を組み立てる
@@ -156,7 +156,7 @@ parts:
       - 与えられた条件から、年間の費用と削減できる作業を概算し、前提を書ける
     must_include: [概算の手順, 前提の書き方, 感度（前提が変わると結果がどう変わるか）]
     material: ""
-    status: hold
+    status: todo
 
   - id: marketer-adoption-path
     title: 導入の段取りを組む：小さく試し、併用し、本格運用へ
@@ -168,7 +168,7 @@ parts:
     must_include: [小さく試す設計, 併用の型, 財源の当たり方, 実証から本格運用への条件, 他の手段との比較]
     tradeoffs: [outsource_then_inhouse, routine_before_urgent]
     material: ""
-    status: hold
+    status: todo
 
   - id: marketer-adoption-path-cases
     title: 提案の組み立ての演習：1枚の提案骨子を書く
@@ -179,4 +179,4 @@ parts:
       - 顧客の状況から、提案の骨子（課題、入れる工程、試す範囲、費用、効果、限界）を1枚で書ける
     must_include: [骨子の型, 3つの状況での例, 避ける表現]
     material: ""
-    status: hold
+    status: todo

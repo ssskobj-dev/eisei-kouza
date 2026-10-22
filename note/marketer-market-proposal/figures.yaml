@@ -1,0 +1,44 @@
+# note記事「衛星データの提案が通らない。分野の「段階」を見誤っていないか」の見出し画像と図。
+# python scripts/figures.py marketer-market-proposal で、このフォルダにSVGとPNGができる。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: course
+    tag: 衛星データマーケッター 2級
+    title: 提案が通らないのは、段階の見誤り
+    sub: 分野ごとの段階と、3つの提案の型
+
+  - id: fig-1
+    type: scale
+    alt: 分野ごとの段階：本格運用から技術開発まで
+    left: 本格運用（約束できる）
+    right: 技術開発（約束しない）
+    items:
+      - title: 農地の現地確認
+        text: 205自治体が活用。漏水の絞り込み、地盤沈下も
+      - title: 被災状況の把握
+        text: 国の施策集で「実証」。ダムの変位も
+      - title: 固定資産、森林
+        text: 経産省の地域実証の段階
+      - title: 河川水位、火災、海岸線
+        text: 国の施策集で「技術開発」
+
+  - id: fig-2
+    type: split
+    alt: 避ける言い方と、代わりの言い方
+    link: →
+    left:
+      title: 避ける言い方
+      items:
+        - 現地確認が不要になります
+        - 精度は90%です
+        - リアルタイムで監視できます
+        - ここが地盤沈下しています
+    right:
+      title: 代わりの言い方
+      items:
+        - 見回る農地を絞り込めます
+        - 〇地区の〇年の検証で再現率90%でした
+        - 概ね毎月1シーンで変動を追います
+        - 沈下の傾向が見られます。測量で確かめます
+    note: 候補として伝える、条件を付ける、確定は人が行うと言う
