@@ -1,0 +1,108 @@
+# English use-case video. Same facts as casebook/aquaculture-ocean-data.qmd; English narration & slides.
+lang: en
+voice: Ryan
+title: Daily satellite ocean data maps for aquaculture feeding decisions
+series: CASEBOOK
+kicker: Use case
+number: 15
+total: 221
+thumb: Daily ocean map
+summary: How fish, shellfish and seaweed farmers use daily satellite and ocean-model maps of water temperature, salinity, dissolved oxygen, chlorophyll and wave height to decide feeding and harvest timing. Where it fits, what it decides, its limits, and how the free base data and paid service split. 6 minutes.
+scenes:
+  - kind: cover
+    heading: Daily satellite ocean maps for aquaculture
+    sub: Deciding feeding and harvest from water temperature and chlorophyll
+    say: Can a fish or shellfish farm see what the sea is bringing before it arrives? Yes. The answer is to read a daily map of water temperature and chlorophyll built from satellites and ocean models, and compare it with your own measurements. Farmers use this to decide when to feed, when to harvest, and when to act. In this video we look at who uses it, where it fits, what it decides, its limits, and how the free base data and the paid service split.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Scope: worldwide. Example users in Japan and South Australia"
+      - "Who: fish, shellfish and seaweed farmers (the buyer)"
+      - "Why: high water temperature and red tides hit production directly"
+      - "The gap: on-site gear measures only around your own cages"
+    say: The use is worldwide, with example users in Japan and in South Australia. The buyer is the farm itself - fish, shellfish and seaweed operators. The reason is simple - the sea decides production. When high water temperature lasts, fish weaken; when a red tide approaches, you must decide whether to harvest early or stop feeding. On-site gear lowered into the water measures only around your own cages. It cannot tell you what is approaching from outside the bay. A daily satellite and ocean-model map fills that gap.
+
+  - kind: steps
+    heading: Where it fits in the daily workflow
+    items:
+      - In the morning, read the wide-area map and the 48-hour forecast
+      - Measure your own cages, at the surface and near the bottom
+      - Record the gap between the map value and your measured value
+      - Decide feeding amount and whether to bring harvest forward
+      - Over months, build a correction rule for your own farm
+    say: Here is where it fits - inside the daily feeding and harvest decision. First, in the morning, read the wide-area map of water temperature and chlorophyll and the forecast up to forty-eight hours ahead. Second, measure your own cages, both at the surface and near the bottom. Third, record the gap between the map value and your own measured value in the daily log. Fourth, if high water temperature or rising chlorophyll is approaching, cut feeding or bring the harvest forward. And over a few months, turn that record of gaps into a correction rule - when the map reads one value, you learn what your cage reads. The map does not replace the sensor. It tells you which days to watch.
+
+  - kind: table
+    heading: Satellite and model versus the farmer
+    columns: [The satellite and model do, The farmer does]
+    widths: [0.5, 0.5]
+    rows:
+      - [Map the wide-area sea daily, Measure temperature and oxygen at the cage]
+      - [Forecast up to 48 hours ahead, Decide feeding and harvest timing]
+      - [Show the direction of change, Record the gap and log it]
+    say: The split of roles looks like this. The satellite and ocean model map the wide-area sea every day, forecast up to forty-eight hours ahead, and show the direction of change. The farmer measures temperature and oxygen at the cage, decides the feeding amount and the harvest timing, and records the gap between map and reality. The example service, UMITRON PULSE, is not a trial. It launched in July twenty twenty and is used as a commercial product in more than twenty countries. One example user, a sea bream farm in Ehime, Japan, now reads values off the screen into the daily log instead of lowering a meter for each one.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.44, 0.56]
+    rows:
+      - ["Daily map of temperature, oxygen, chlorophyll, wave", "The days to watch and the direction of change"]
+      - ["Forecast up to 48 hours ahead", "Feeding amount, early harvest, the day to send a boat"]
+      - ["Past trend, up to two years back", "Compare with last year; seeding and harvest timing"]
+      - ["Your own record of map-versus-field gaps", "A correction rule, and whether to keep the service"]
+    say: Here is what you receive and what it lets you decide. The daily map of temperature, oxygen, chlorophyll and wave height tells you which days to watch and which way conditions are moving. The forecast up to forty-eight hours ahead lets you set the feeding amount, bring a harvest forward, or pick the day to send a work boat. The past trend, up to two years back, lets you compare with the same season last year and plan seeding and harvest. And your own record of the gap between the map and your field readings builds a correction rule, and tells you whether the service is worth keeping. The map decides the watch days and the direction. Feeding and harvest are still decided by the farmer, looking at the fish.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - The model grid is 1/12 and 1/4 degree; the bay interior and a single cage are not resolved
+      - Salinity and dissolved oxygen are model estimates, not direct measurements
+      - Chlorophyll comes from optical ocean colour, which is blocked under cloud
+      - It reads the surface sea only; depth-by-depth differences need field gear
+      - No published figures on how much feed or loss changed
+    say: The limits are set out plainly in the source. First, the ocean-model grid is one-twelfth and one-quarter of a degree - roughly nine and twenty-eight kilometres - so the inner bay and a single cage are not resolved; several farms in one grid cell share the same value. Second, salinity and dissolved oxygen are model estimates, not direct satellite measurements, so they will not always match your gear. Third, chlorophyll comes from optical ocean-colour observation, which is blocked under cloud. Fourth, the satellite sees the surface; differences by depth need field measurement. And fifth, the case reports no figures on how much feed or loss actually changed - what users describe is less manual measuring and transcribing. Note too that the source does not pin down a single satellite; it draws on many data sources.
+
+  - kind: bullets
+    heading: The free base data underneath
+    items:
+      - The base is Copernicus Marine, Europe's open ocean-monitoring service
+      - It is free for any use, commercial included, with attribution
+      - Free provision is planned at least through 30 June 2028
+      - Because the base is open, several services can be built on the same data
+    say: It helps to see what sits underneath. The base data is Copernicus Marine, Europe's ocean-monitoring service. It is free to use, for commercial purposes too, as long as you credit the source, and that free provision is planned at least through the thirtieth of June twenty twenty-eight. Because the base layer is open, more than one service can be built on the same ocean data. So when you compare services, the thing to weigh is not the raw data - it is free - but how well a service lets you overlay your own field measurements and how far back and forward the forecast and history reach.
+
+  - kind: table
+    heading: What it costs (how to read it)
+    columns: [Item, How to read it]
+    widths: [0.34, 0.66]
+    rows:
+      - [Base ocean data, "Free. Copernicus Marine, used under its attribution terms"]
+      - [The service itself, "Basic use free; forecast and past data are a paid subscription"]
+      - [Subscription price, "Not published. No public figure, so no estimate is given here"]
+      - [On-site sensors, "Still needed; the map value is calibrated against them"]
+      - [Reading time, "A morning check and logging the gap, folded into the daily report"]
+    say: Here is how to read the cost, rather than a quote. The base ocean data is free - it is Copernicus Marine, used under its attribution terms. The service itself was launched with basic use free and the forecast and past-data features as a paid subscription. The subscription price is not published anywhere, so unlike some cases we will not put a number on it; confirm it directly with the provider. On-site sensors do not go away - they are what you calibrate the map against. And the real recurring cost is time - a morning check and logging the gap, folded into the daily report. In one regional programme in Ehime, Japan, the prefecture made the service free to local farms, so who pays can differ by region.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.24, 0.38, 0.38]
+    rows:
+      - ["Farm location", "Open sea or bay mouth", "Deep inner bay, complex coastline"]
+      - ["What you need", "Direction and timing of heat or red tide", "One cage's value, or depth profile"]
+      - ["Field measuring", "Continued, so map and field compare", "Dropped, to trust the map alone"]
+      - ["Use of the number", "Feeding and harvest judgment", "Basis for insurance or compensation"]
+    say: Finally, where it fits. It fits farms on the open sea or near the bay mouth, where the grid value is close to reality. It fits when what you need is the direction and timing of approaching heat or a red tide, rather than the exact value at one cage. It fits when you keep measuring in the field, so the map and your readings can be compared. And it fits feeding and harvest judgments. It does not fit the deep inner bay or a complex coastline, cases where you need one cage's value or the profile by depth, farms that want to drop field measuring and trust the map alone, or any number meant as the basis for insurance or compensation. When you propose it, three points matter - ask about the farm's location and bay shape first, never say field sensors become unnecessary, and separate the free base data from the paid service when you explain who pays for what.
+
+  - kind: cta
+    heading: Considering it for your farm or client?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source: Copernicus Marine Service, 'UMITRON PULSE: high-resolution ocean data map for aquaculture farmers' (use case, Sep 2020) https://marine.copernicus.eu/services/use-cases/umitron-pulse-high-resolution-ocean-data-map-aquaculture-farmers"
+      - "Service: UMITRON, 'UMITRON launches PULSE' (press release, Jul 2020) https://pr-en.umitron.com/post/624833147494940672/pulse"
+      - "Free-data policy: Copernicus Marine Service Help Centre, 'will it still be free in 2, 3 or 5 years?' (free at least through 30 Jun 2028) https://help.marine.copernicus.eu/en/articles/4220312-i-just-opened-my-account-but-will-it-still-be-free-in-2-3-or-5-years"
+    say: To consider this for your own farm or client, here is the next step. We help you write the RFP and gather competitive quotes, independent of any data provider or analytics company. Use the form in the description to get in touch. Thanks for watching.
