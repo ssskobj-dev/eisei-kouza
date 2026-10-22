@@ -1,0 +1,75 @@
+# ユースケースの記事「ひまわりの画像で、太陽光の発電量を2.5分ごとに推定する」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星の解析が行うことと、事業者が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 雲の分布から日射量を面で推定する
+        - 雲の動きから数時間先を予測する
+        - 地点と電力エリアの値を配信する
+    right:
+      title: 事業者が行う
+      items:
+        - 設備の情報で発電量に換算する
+        - 計画値と調達量を直す
+        - 日射計で推定を検証する
+    note: 衛星が示すのは日射量。発電量への換算と検証は事業者の仕事
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 3
+    items:
+      - title: 予測は3時間半まで
+        text: 翌日の計画は数値予報が主役
+        role: none
+      - title: 積雪地で過小推定
+        text: 改善は最大10%程度
+        role: none
+      - title: 対象は4時〜20時
+        text: 夜間の推定はない
+        role: none
+      - title: 急な雲は追いにくい
+        text: 観測の間に湧く雲は捉えにくい
+        role: none
+      - title: 精度の数字がない
+        text: 日射計で自分の条件を確かめる
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 発電計画と需給調整に、衛星の日射量を入れる手順
+    steps:
+      - title: 設備を登録
+        text: 位置、容量、向きと傾き
+        who: human
+      - title: 推定と予測
+        text: 地点と電力エリアの日射量
+        who: satellite
+      - title: 発電量に換算
+        text: 計画値と見比べる
+        who: human
+      - title: 計画を直す
+        text: 計画値の修正、調達量
+        who: human
+      - title: 誤差を記録
+        text: 日射計と実績で季節ごとに
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の日射量が効く用途から、効きにくい用途まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 多数の発電所
+        text: 日射計のない所の現在値
+      - title: 数時間先の調整
+        text: 直近の需給、1時間前市場
+      - title: 翌日以降の計画
+        text: 予測は3時間半先まで
+      - title: 積雪地の冬
+        text: 過小推定の例があった

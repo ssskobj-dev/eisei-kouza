@@ -369,6 +369,7 @@ usecases:
   verified: true
 - 'no': 19
   name: 洪水解析サービスの導入
+  slug: flood-analysis-service
   theme: 保険・金融
   field: 保険
   stage: 商用
@@ -388,6 +389,7 @@ usecases:
   verified: true
 - 'no': 20
   name: 日射量の推定と太陽光の出力予測
+  slug: solar-irradiance-himawari
   theme: エネルギー・資源
   field: エネルギー
   stage: 商用
@@ -407,6 +409,7 @@ usecases:
   verified: true
 - 'no': 21
   name: 土地被覆図による自然資本の把握
+  slug: landcover-natural-capital
   theme: 環境・水
   field: 環境・気候
   stage: 商用

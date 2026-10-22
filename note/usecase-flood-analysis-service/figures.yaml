@@ -1,0 +1,47 @@
+# note記事「水害の初動、契約者の連絡を待てない。衛星の浸水解析を「買う」とどうなるか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 保険・金融
+    title: 水害の初動を衛星の解析で組む
+    sub: 損保ジャパンとICEYEの契約と、衛星では決められないこと
+
+  - id: fig-1
+    type: split
+    alt: 衛星事業者に任せることと、保険会社が行うこと
+    link: ＋
+    left:
+      title: 衛星事業者の解析が行う
+      items:
+        - 自社の衛星で被災地を観測する
+        - 浸水の範囲と深さを推定する
+        - 地図データで届ける
+    right:
+      title: 保険会社が行う
+      items:
+        - 契約物件の所在地と重ねる
+        - 応援要員の派遣先と人数を決める
+        - 支払いの可否は現地と書類で確かめる
+    note: 衛星が助けるのは「体制を決める」工程。支払いの判断は残る
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 3
+    items:
+      - title: 都市部は判読が困難
+        text: 建物が全部浸からないと抽出できない
+        role: none
+      - title: 小さな浸水は出ない
+        text: 手引きでは約50m四方以上が目安
+        role: none
+      - title: 時刻は軌道次第
+        text: 浸水のピークに合うとは限らない
+        role: none
+      - title: 深さは推定値
+        text: 支払いの可否は別に確かめる
+        role: none
+      - title: 精度の数字がない
+        text: 当たり外れは自分で記録する
+        role: none

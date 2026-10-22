@@ -1,0 +1,40 @@
+# note記事「森林と農地の変化、全域を同じ基準で見たい。無償の衛星データの地図でどこまで分かるか」の見出し画像と図。
+figures:
+- id: thumbnail
+  type: thumbnail
+  kind: usecase
+  tag: 環境・水
+  title: 土地被覆図で自然資本を追う
+  sub: JAXAの10m・3時点の地図と、15分類で分からないこと
+- id: fig-1
+  type: bar
+  alt: JAXAの土地被覆図 v25.04 の全体精度（時点ごと）
+  unit: '%'
+  source: JAXA 地球観測研究センター「高解像度土地利用土地被覆図 日本域 v25.04」（2025年4月）
+  items:
+  - label: 2020年（検証点2,016）
+    value: 94.49
+  - label: 2022年（検証点2,438）
+    value: 95.53
+  - label: 2024年（検証点1,041）
+    value: 92.99
+- id: fig-2
+  type: cards
+  alt: この使い方の5つの限界
+  columns: 3
+  items:
+  - title: 10m未満は出ない
+    text: 細い水路、小さな緑地、庭木
+    role: none
+  - title: 15分類にない用途
+    text: 果樹園、茶畑は実情と違うことがある
+    role: none
+  - title: 検証は無作為でない
+    text: 対象地域の精度は別に確かめる
+    role: none
+  - title: 版ごとに分類が違う
+    text: 10、12、15分類をそろえ直す
+    role: none
+  - title: 質と生物は見えない
+    text: 樹種、健全さ、生息は別の資料で
+    role: none
