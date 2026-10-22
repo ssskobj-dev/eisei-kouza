@@ -1,0 +1,38 @@
+# 「衛星画像は何を測っているか：画素の値と物理的な値」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-1-1-what-pixels-measure/<id>.svg を作る。
+
+figures:
+  - id: pipeline
+    type: flow
+    alt: 画素の値から反射率へ
+    steps:
+      - title: 明るさを測る
+        text: 波長帯ごとに、地表からの反射
+        who: satellite
+      - title: 整数で保存
+        text: 画素の値。0は欠けた値
+        who: satellite
+      - title: ずらしと倍率
+        text: 付属情報から読む。足してから割る
+        who: satellite
+      - title: 反射率
+        text: 0〜1の小数。比べられる値
+        who: satellite
+      - title: 分布を見る
+        text: 森と湖で、もっともらしいか
+        who: human
+
+  - id: signature
+    type: cards
+    alt: 植物と水の見え方
+    columns: 3
+    items:
+      - title: 植物
+        text: 赤は低く、近赤外は高い
+        role: satellite
+      - title: 水
+        text: 近赤外と短波赤外で暗い
+        role: satellite
+      - title: 裸の土
+        text: 短波赤外で明るい
+        role: satellite
