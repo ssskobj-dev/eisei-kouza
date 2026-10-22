@@ -1,0 +1,88 @@
+# ユースケースの記事「10mの土地被覆図で、自然資本の変化を2年ごとに追う」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星の地図に任せることと、担当者が行うこと
+    link: ＋
+    left:
+      title: 衛星の地図が示す
+      items:
+        - 全域を同じ基準で15種類に分ける
+        - 3時点の分布を10mでそろえる
+        - 変化の大きい場所を面で示す
+    right:
+      title: 担当者が行う
+      items:
+        - 目的に合わせて分類をまとめ直す
+        - 変化の場所を現地と航空写真で確かめる
+        - 保全の重点と調査の対象を決める
+    note: 地図は無償。仕事の中心は、分類の設計と変化の確認
+
+  - id: numbers
+    type: bar
+    alt: JAXAの土地被覆図 v25.04 の全体精度（時点ごと）
+    unit: "%"
+    source: JAXA 地球観測研究センター「高解像度土地利用土地被覆図 日本域 v25.04」（2025年4月）
+    items:
+      - label: 2020年（検証点2,016）
+        value: 94.49
+      - label: 2022年（検証点2,438）
+        value: 95.53
+      - label: 2024年（検証点1,041）
+        value: 92.99
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 3
+    items:
+      - title: 10m未満は出ない
+        text: 細い水路、小さな緑地、庭木
+        role: none
+      - title: 15分類にない用途
+        text: 果樹園、茶畑は実情と違うことがある
+        role: none
+      - title: 検証は無作為でない
+        text: 対象地域の精度は別に確かめる
+        role: none
+      - title: 版ごとに分類が違う
+        text: 10、12、15分類をそろえ直す
+        role: none
+      - title: 質と生物は見えない
+        text: 樹種、健全さ、生息は別の資料で
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 環境の計画と開示の下調べに、土地被覆図を入れる手順
+    steps:
+      - title: 目的を決める
+        text: 対象地域と知りたい変化
+        who: human
+      - title: 地図を入手
+        text: 登録して3時点のタイル
+        who: satellite
+      - title: 分類を直す
+        text: 15分類を目的に合わせる
+        who: human
+      - title: 変化を出す
+        text: 2時点の差と面積
+        who: satellite
+      - title: 確かめる
+        text: 現地と航空写真、保全の重点
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 土地被覆図が効く用途から、効きにくい用途まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 広い範囲の分布
+        text: 自治体の全域、流域
+      - title: 2年ごとの大きな変化
+        text: 森林の減少、農地の転用
+      - title: 小さな緑地や水路
+        text: 10mの画素に混ざる
+      - title: 樹種や生物の評価
+        text: 分類は森林の種類まで

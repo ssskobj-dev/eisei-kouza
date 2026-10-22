@@ -1,0 +1,75 @@
+# ユースケースの記事「水害の初動を、衛星の浸水解析サービスで組む」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星事業者に任せることと、保険会社が行うこと
+    link: ＋
+    left:
+      title: 衛星事業者の解析が行う
+      items:
+        - 自社の衛星で被災地を観測する
+        - 浸水の範囲と深さを推定する
+        - 地図データで届ける
+    right:
+      title: 保険会社が行う
+      items:
+        - 契約物件の所在地と重ねる
+        - 応援要員の派遣先と人数を決める
+        - 支払いの可否は現地と書類で確かめる
+    note: 衛星が助けるのは「体制を決める」工程。支払いの判断は残る
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 3
+    items:
+      - title: 都市部は判読が困難
+        text: 建物が全部浸からないと抽出できない
+        role: none
+      - title: 小さな浸水は出ない
+        text: 手引きでは約50m四方以上が目安
+        role: none
+      - title: 時刻は軌道次第
+        text: 浸水のピークに合うとは限らない
+        role: none
+      - title: 深さは推定値
+        text: 支払いの可否は別に確かめる
+        role: none
+      - title: 精度の数字がない
+        text: 当たり外れは自分で記録する
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 水害の直後に、浸水解析のデータを初動に入れる手順
+    steps:
+      - title: 平時に整える
+        text: 所在地データと受け取りの仕組み
+        who: human
+      - title: データが届く
+        text: 浸水の範囲と深さの推定
+        who: satellite
+      - title: 物件と重ねる
+        text: 地区ごとの見込み件数
+        who: human
+      - title: 体制を決める
+        text: 派遣先、人数、準備金の初期値
+        who: human
+      - title: 確かめて記録
+        text: 支払いの判断と当たり外れ
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の浸水解析が効く状況から、効きにくい状況まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 広い範囲の水害
+        text: 平らな土地が長く浸かる
+      - title: 位置データがある
+        text: 物件を地図に重ねられる
+      - title: 密集した市街地
+        text: 建物の間の浅い浸水
+      - title: 支払いまで衛星で
+        text: 深さは推定値のまま

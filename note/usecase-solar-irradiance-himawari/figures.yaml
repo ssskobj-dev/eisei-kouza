@@ -1,0 +1,45 @@
+# note記事「太陽光の出力、日射計のない所はどう読むか。ひまわりの衛星データは再生可能エネルギーの需給にどこまで効くか」の見出し画像と図。
+figures:
+- id: thumbnail
+  type: thumbnail
+  kind: usecase
+  tag: エネルギー・資源
+  title: ひまわりで太陽光の出力を読む
+  sub: 500m・2.5分ごとの推定と、3時間半先までという限界
+- id: fig-1
+  type: split
+  alt: 衛星の解析が行うことと、事業者が行うこと
+  link: ＋
+  left:
+    title: 衛星の解析が行う
+    items:
+    - 雲の分布から日射量を面で推定する
+    - 雲の動きから数時間先を予測する
+    - 地点と電力エリアの値を配信する
+  right:
+    title: 事業者が行う
+    items:
+    - 設備の情報で発電量に換算する
+    - 計画値と調達量を直す
+    - 日射計で推定を検証する
+  note: 衛星が示すのは日射量。発電量への換算と検証は事業者の仕事
+- id: fig-2
+  type: cards
+  alt: この使い方の5つの限界
+  columns: 3
+  items:
+  - title: 予測は3時間半まで
+    text: 翌日の計画は数値予報が主役
+    role: none
+  - title: 積雪地で過小推定
+    text: 改善は最大10%程度
+    role: none
+  - title: 対象は4時〜20時
+    text: 夜間の推定はない
+    role: none
+  - title: 急な雲は追いにくい
+    text: 観測の間に湧く雲は捉えにくい
+    role: none
+  - title: 精度の数字がない
+    text: 日射計で自分の条件を確かめる
+    role: none
