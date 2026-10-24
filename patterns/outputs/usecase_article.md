@@ -31,7 +31,7 @@
 - 無料の範囲だけを読んでも、事例と限界が分かるように書く。費用の金額と、判断に使えるデータの中身は、有料の範囲（6、7）に書く
 - `description`（一覧に出る要約）に、有料の範囲の数字を書かない
 - 「要確認」の節はサイトに残る。有料の範囲の中身を、ここに詳しく書かない
-- 記事を書いたら `python scripts/build.py notefull` を実行する。noteで売るための全文（`note/usecase-<slug>/full.md`、有料ラインの位置入り）ができる
+- 記事を書いたら `python scripts/build.py notefull` を実行する。noteに貼る全文（`note/usecase-<slug>/full.md`）ができる。ユースケース集は**全文を無料で公開**する（サイトも note も有料ラインなし）
 
 ## 費用の書き方
 

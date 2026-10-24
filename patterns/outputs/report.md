@@ -23,7 +23,7 @@
 
 ## 無料の範囲と、有料の範囲
 
-サイトでは、本文の節の前半が無料、後半が有料（`design/paywall.lua` が自動で切り分ける）。有料にしたい最初の節の見出しに `{.paid}` を付けると、そこから有料になる。記事は全文を書き、`python scripts/build.py notefull` でnote用の全文（`note/report-<テーマ>-<切り口>/full.md`）も作る。
+サイトでは、本文の節の前半が無料、後半が有料（`design/paywall.lua` が自動で切り分ける）。有料にしたい最初の節の見出しに `{.paid}` を付けると、そこから有料になる。記事は全文を書き、`python scripts/build.py notefull` を実行する。noteには**前半だけ**が出て、「ここから先は有料です」とサイトへの誘導が自動で付く（`note/report-<テーマ>-<切り口>/full.md`）。
 
 ## 数字と事例の決まり
 

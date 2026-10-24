@@ -17,8 +17,12 @@ Satellite to Decisionの教材を作るリポジトリ。章立てとパター�
 - 「Sentinelで見られるユースケースと解析手法」（`learn/sentinel.qmd`）も `nav` が作る。もとは `data/sentinel_methods.yaml`（手法の説明と、`data/usecases.yaml` の番号）。手法やユースケースを足すときは、この yaml を直す。数字と仕様には出典の番号を付ける
 - 英語版は固定ページだけ（`en/` の下）。`en/index.qmd`、`en/about.qmd`、`en/register.qmd` は手で書く。各シリーズの入口とSentinelの早見表の英語版は `nav` が作る（英語の文は `data/sentinel_methods_en.yaml` と `scripts/build.py` の `english_pages`）。日本語の固定ページを直したら、英語版も合わせて直す。記事は英語にしない
 - メニューの英語化、言語の切り替え、有料登録のボタン、押下の記録は `design/track.html`。訪問者数の計測は `design/analytics.html`（Google Analytics 4、同意した人だけ）
-- **無料と有料の線**：ユースケース集と市場レポートは前半が無料、後半が有料。講座の章は最初の3分の1が無料。Sentinelの早見表は最初の節だけ無料。ケース問題と時事解説は全部無料。切り分けは `design/paywall.lua` が行い、有料の範囲は公開するサイトに出ない（各フォルダの `_metadata.yml` で指定）。記事は全文を書く。PDF、サイト内の検索、一覧の絞り込み、「テーマから探す」は有料版の機能なので、公開するサイトでは作らない
-- 有料の範囲がある記事を書いたら、`python scripts/build.py notefull` を実行し、できた `note/<フォルダ>/full.md`（noteで売るための全文）も一緒にコミットする
+- **無料と有料の線**：ユースケース集は全文無料。市場レポートは前半が無料、後半が有料。講座の章は最初の3分の1が無料。Sentinelの早見表は最初の節だけ無料。ケース問題と時事解説は全部無料。切り分けは `design/paywall.lua` が行い、有料の範囲は公開するサイトに出ない（各フォルダの `_metadata.yml` で指定）。記事は全文を書く。PDF、サイト内の検索、一覧の絞り込み、「テーマから探す」は有料版の機能なので、公開するサイトでは作らない
+- **noteへの出し方**（シリーズごとに違う。`notefull` が自動で作り分ける）
+  - ユースケース集：**全文を公開**（`note/usecase-<slug>/full.md`）
+  - 市場レポート：**前半だけ**出し、「ここから先は有料です」とサイトへの誘導を付ける（`note/report-<テーマ>-<切り口>/full.md`）
+  - 講座の章：**noteには出さない**（サイトだけ。note用のフォルダも作らない）
+  - ユースケース集か市場レポートを書いたら、`python scripts/build.py notefull` を実行し、できた `full.md` も一緒にコミットする
 - `news/`（時事解説）も `nav` が `note/<日付>-<話題>/article.md` から作る
 
 ## 「未作成の章を作って」と頼まれたら
@@ -38,7 +42,7 @@ Satellite to Decisionの教材を作るリポジトリ。章立てとパター�
 7. `outputs` に指定された出力を、`patterns/outputs/` の型に従って作る
 8. 章立ての `status` を `done` にする
 9. `python scripts/build.py check` と `nav` を実行し、通ることを確かめる
-9-2. 「公開前の点検」の手順を行う（`python scripts/verify.py`、note用フォルダの `sns.md` の作成）。続けて `python scripts/build.py notefull` を実行し、できた `note/<id>/full.md` も一緒にコミットする
+9-2. 「公開前の点検」の手順を行う（`python scripts/verify.py`）。**講座の章は note に出さないので、note用のフォルダ（`note/<id>/`）は作らない。`notefull` も実行しない**
 10. ブランチ（毎朝の自動実行では `learn/<日付>`）を作ってプルリクエストを出す。説明欄に、章ごとの「要確認」の件数と内容、点検の「印」の一覧を書く
 
 ### 毎朝の自動実行で作る章の順番
@@ -152,7 +156,7 @@ noteへの投稿は人が行う。Claudeは投稿しない。プルリクエス�
 3. 「マーケティング点検 n/4」の印が出たら、足りない項目を直して 4/4 にする（冒頭の結論、具体的な数字、持ち帰れる行動、具体的な題名）
 4. 残った「印」（出典の形の崩れ、出典の番号がない数字など）は、気づいた範囲で直す。直せなくても公開は止めない
 5. 「印」の一覧を、プルリクエストの説明欄に貼る
-6. note用のフォルダには、`patterns/outputs/sns.md` の型で `sns.md` も作る
+6. note に出す記事（ユースケース集、市場レポート、時事解説）は、note用のフォルダに `patterns/outputs/sns.md` の型で `sns.md` も作る。**講座の章は note に出さないので不要**
 
 プルリクエストでは、同じ点検が自動で動く（`.github/workflows/check.yml`）。失敗していたら直す。
 

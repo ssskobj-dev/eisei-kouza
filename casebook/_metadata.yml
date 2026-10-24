@@ -1,4 +1,3 @@
-# このフォルダの記事は、後半を有料にする（design/paywall.lua が、公開するサイトとPDFから外す）
-paywall: true
-filters:
-  - ../design/paywall.lua
+# ユースケース集は全文を無料で公開する（利用者の方針、2026-10-24）。
+# noteにも全文を出すため、サイトだけ後半を隠す意味がない。
+paywall: false
