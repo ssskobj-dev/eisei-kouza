@@ -487,6 +487,44 @@ def cert_map_fragment():
     (ROOT / "_cert_map.qmd").write_text("\n".join(out) + "\n", encoding="utf-8")
 
 
+
+def noteready():
+    """noteに貼れる形（post.md）を作る。編集用のメモ、未記入のリンク、「要確認」の節を外し、
+    図の位置を「<<IMG: ファイル名>>」にして、どこで画像を挿入するかが分かるようにする。
+    対象：時事解説（note/<日付>-<話題>/article.md）と、記事の note 版（full.md があるフォルダ）。"""
+    made = []
+    for folder in sorted((ROOT / "note").iterdir()):
+        if not folder.is_dir():
+            continue
+        src = folder / "full.md" if (folder / "full.md").exists() else folder / "article.md"
+        if not src.exists():
+            continue
+        lines = src.read_text(encoding="utf-8").splitlines()
+        title = next((l[2:].strip() for l in lines if l.startswith("# ")), folder.name)
+        body, skip = [], False
+        for l in lines:
+            if l.startswith("# ") or l.startswith("（note用の下書き") or l.startswith("（noteに貼る") \
+               or "（リンクを入れる）" in l:
+                continue
+            if l.startswith("## "):
+                skip = l[3:].strip().startswith("要確認")
+            if skip:
+                continue
+            fig = re.fullmatch(r"（ここに (fig-\d+)\.png）", l.strip())
+            if fig:
+                body.append(f"<<IMG: {fig.group(1)}.png>>")
+                continue
+            fig2 = re.fullmatch(r"（ここに図：([\w.-]+)[ 　]+(.*)）", l.strip())
+            if fig2:
+                body.append(f"<<IMG: {fig2.group(1)}.png>>")
+                continue
+            body.append(l)
+        text = re.sub(r"\n{3,}", "\n\n", "\n".join(body)).strip()
+        (folder / "post.md").write_text(f"{title}\n\n{text}\n", encoding="utf-8")
+        made.append(folder.name)
+    print(f"noteに貼れる形を {len(made)} 本作りました（各フォルダの post.md。1行目が題名）")
+
+
 def notefull():
     """note に貼る本文（full.md）を作る。シリーズごとに出し方が違う（利用者の方針、2026-10-24）。
 
@@ -881,6 +919,8 @@ if __name__ == "__main__":
         todo()
     elif cmd == "nav":
         nav()
+    elif cmd == "noteready":
+        noteready()
     elif cmd == "notefull":
         notefull()
     elif cmd == "envideos":
