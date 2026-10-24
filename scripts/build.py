@@ -488,8 +488,12 @@ def cert_map_fragment():
 
 
 def notefull():
-    """有料で売る記事（ユースケース集、市場レポート）の、note用の全文（full.md）を作る。
-    サイトでは後半を外して公開するので、noteで売るときは、この全文を貼って有料ラインを置く。"""
+    """note に貼る本文（full.md）を作る。シリーズごとに出し方が違う（利用者の方針、2026-10-24）。
+
+    ユースケース集：全文を公開する（有料ラインなし）
+    市場レポート  ：前半だけを出し、以下は有料であることとサイトへの誘導を付ける
+    講座          ：noteには出さない（サイトだけ）
+    """
     variables = load("_variables.yml")
 
     def var(m):
@@ -499,11 +503,12 @@ def notefull():
         return str(v)
 
     made = []
-    targets = [(p, f"usecase-{p.stem}", None) for p in sorted((ROOT / "casebook").glob("*.qmd")) if p.name != "index.qmd"]
-    targets += [(p, f"report-{p.parent.name}-{p.stem}", None) for p in sorted((ROOT / "landscape").glob("*/*.qmd"))]
-    # 講座の章は、最初の3分の1までが無料（learn/_metadata.yml の paywall-free と同じ値にする）
-    targets += [(p, p.stem, 0.34) for p in sorted((ROOT / "learn").glob("*/*.qmd")) if p.parent.name != "quiz"]
-    for path, folder, ratio in targets:
+    # (記事, noteのフォルダ名, 出し方)  mode: "full"＝全文、"teaser"＝前半＋サイトへ誘導
+    targets = [(p, f"usecase-{p.stem}", "full") for p in sorted((ROOT / "casebook").glob("*.qmd")) if p.name != "index.qmd"]
+    targets += [(p, f"report-{p.parent.name}-{p.stem}", "teaser") for p in sorted((ROOT / "landscape").glob("*/*.qmd"))]
+    # 講座の章は note に出さない
+    for path, folder, mode in targets:
+        ratio = None
         fm = front_matter(path)
         text = path.read_text(encoding="utf-8")
         body = text[text.find("\n---", 3) + 4:]
@@ -511,14 +516,33 @@ def notefull():
         intro, sections = parts[0], [x for x in parts[1:]]
         content = [x for x in sections if not x.split("\n", 1)[0].strip().startswith(PAID_TAIL)]
         tail = [x for x in sections if x.split("\n", 1)[0].strip().startswith(("関連する記事", "出典"))]
-        start = paid_start([x.split("\n", 1)[0].strip() for x in content], ratio)
-        out = [f"# {full_title(path)}", "", "（note用の全文。「ここから有料」の行より下が有料の範囲。図は、サイトの記事の図を使う）", ""]
-        if intro.strip():
-            out.append(intro.strip() + "\n")
-        for n, sec in enumerate(content + tail):
-            if n == start:
-                out += [PAID_MARK, ""]
-            out.append("## " + sec.rstrip() + "\n")
+        site = variables["site"]
+        if mode == "full":
+            out = [f"# {full_title(path)}", "",
+                   "（noteに貼る全文。全部を公開する。図は、サイトの記事の図を使う）", ""]
+            if intro.strip():
+                out.append(intro.strip() + "\n")
+            for sec in content + tail:
+                out.append("## " + sec.rstrip() + "\n")
+        else:   # teaser：前半だけ出して、続きはサイトへ
+            start = paid_start([x.split("\n", 1)[0].strip() for x in content], ratio)
+            page = site["url"].rstrip("/") + "/" + path.relative_to(ROOT).with_suffix(".html").as_posix()
+            out = [f"# {full_title(path)}", "",
+                   "（noteに貼る前半。続きはサイトの有料版。図は、サイトの記事の図を使う）", ""]
+            if intro.strip():
+                out.append(intro.strip() + "\n")
+            for sec in content[:start]:
+                out.append("## " + sec.rstrip() + "\n")
+            out += ["---", "",
+                    "## ここから先は有料です", "",
+                    f"この記事の続き（{'、'.join(x.split(chr(10), 1)[0].strip() for x in content[start:]) or '後半'}）は、"
+                    f"{site['name']} の有料版でお読みいただけます。",
+                    "",
+                    f"▶ 続きを読む：{page}", "",
+                    f"月額{variables['paid']['price']}円で、市場レポートの全文、ユースケース集、学習プログラム、"
+                    "テーマ別の絞り込みがすべて読めます。", ""]
+            for sec in tail:
+                out.append("## " + sec.rstrip() + "\n")
         doc = "\n".join(out)
         doc = re.sub(r"\{\{<\s*var\s+([\w.]+)\s*>\}\}", var, doc)
         doc = re.sub(r"!\[([^\]]*)\]\(([^)]*)\)(\{[^}]*\})?", lambda m: f"（ここに図：{Path(m.group(2)).stem}　{m.group(1)}）", doc)
