@@ -1,0 +1,105 @@
+# English use-case video. Same facts as casebook/water-leak-screening.qmd; English narration & slides.
+# No figures (they carry Japanese text); tables, steps and bullets only.
+lang: en
+voice: Ryan
+title: Narrowing water-leak surveys to a third with satellites
+series: CASEBOOK
+kicker: Use case
+number: 16
+total: 221
+thumb: A third of the city
+summary: How a Japanese city narrowed its water-pipe leak survey to about a third of the network with satellite analysis, then confirmed the leaks on the ground. Where it fits in the workflow, what decisions it supports, its limits as of 2026, and what drives the cost. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: Narrowing water-leak surveys to a third with satellites
+    sub: A pilot in Niihama City, Japan
+    say: Water pipes leak underground, out of sight. The old way is to send crews out at night to listen for the sound of a leak along every street. Can that search be made smaller? Yes. The idea is to use a satellite first to pick out the areas where a leak is likely, and send the crews only there. A city in Japan narrowed its survey to about a third of the network this way. In this video we look at who uses it, where it fits in the workflow, what decisions it supports, its limits, and what drives the cost.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Country: Japan. Niihama City, Ehime Prefecture"
+      - "Who: the city water utility (the buyer), with a communications contractor and a satellite analysis firm"
+      - "When: fiscal year 2022, a prefecture-funded pilot - not full operation"
+      - "Why: walking the whole network with acoustic survey takes people, time and skill"
+    say: The case is set in Niihama City, in Ehime Prefecture, Japan. The buyer is the city water utility. The work was done with a communications contractor and a satellite analysis firm, under a prefecture digital-adoption project in fiscal year 2022. This is a pilot, not full operation. The reason to try it is simple. A leak happens underground, so the traditional survey means crews walking the streets at night, pressing a listening rod to valves and hydrants. Walking the whole network takes people, time and a trained ear.
+
+  - kind: steps
+    heading: Where it fits in the workflow
+    items:
+      - The satellite analysis picks out areas where a leak is likely across the whole network
+      - Crews place vibration loggers on valves and hydrants in those areas
+      - Loggers record overnight; a source heard on several nights becomes a suspect point
+      - Acoustic survey pins down the position; the crew digs to confirm
+      - A combined analysis layers utility and open data to rank pipes for renewal
+    say: Here is where it fits. It changes the order of the survey. First, the satellite analysis looks at the whole network at once and picks out the areas where a leak is likely. Then crews place vibration loggers on valves and hydrants in those areas. The loggers record overnight, and a point heard on several nights is marked as a suspect. Acoustic survey then pins down the position, and the crew digs to confirm. Separately, a combined analysis layers the utility's own data and open data to help rank which pipes to renew. So the satellite decides where to look. The position of each leak is still decided on the ground.
+
+  - kind: table
+    heading: Satellite versus people
+    columns: [The satellite does, The crews do]
+    widths: [0.5, 0.5]
+    rows:
+      - [Analyse the whole network at once, Place loggers in the narrowed areas]
+      - [Pick out areas where a leak is likely, Pin down the position by acoustic survey]
+      - ["", Dig and confirm the leak]
+    say: The split of roles looks like this. The satellite analysis covers the whole network at once and picks out the areas where a leak is likely. The crews place loggers in the narrowed areas, pin down the position by acoustic survey, and dig to confirm. In the pilot, the satellite narrowed the survey target to about twenty-nine percent of the distribution network. It flagged two hundred seventy-seven areas, each a circle of one hundred metre radius.
+
+  - kind: bullets
+    heading: What the pilot reported
+    items:
+      - "277 suspect areas from the satellite; 203 went to logger survey, 74 to acoustic survey"
+      - "Loggers were grouped into 21 areas, 20 loggers each"
+      - "22 suspect points; on the ground, 3 actual leaks were found"
+      - "Versus the old acoustic survey: cost per distance down about 45%, time down about 50%"
+    say: Here is what the pilot reported, as published by the prefecture project in April 2023. The satellite flagged two hundred seventy-seven areas. Two hundred three of them went to logger survey and seventy-four to acoustic survey. The loggers were grouped into twenty-one areas, with twenty loggers each. That produced twenty-two suspect points, and on the ground, three actual leaks were found. Against the old acoustic survey, the cost per distance surveyed fell by about forty-five percent, and the time by about fifty percent. The report notes three leaks may feel like few. The effect figures are the provider's own, from a prefecture publicity article, without third-party verification.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.42, 0.58]
+    rows:
+      - [List of likely-leak areas with a map, Which areas to send crews and loggers to first]
+      - [Priority or strength of suspicion, The survey order, and which areas wait until next year]
+      - [Logger detection records, Which points to pass to acoustic survey]
+      - [Hit rate and position error you record, Whether to keep the method, or change logger spacing]
+    say: Here is the data you receive and what it lets you decide. The list of likely-leak areas, with a map, tells you where to send crews and loggers first. A priority or strength of suspicion, where the provider gives it, sets the survey order and which areas wait until next year. The logger records tell you which points to pass to acoustic survey. And the hit rate and position error you record yourself tell you whether to keep the method next year, or change the logger spacing. In the pilot, the count shrank at each step, from two hundred seventy-seven areas, to twenty-two suspect points, to three leaks. Recording that drop gives you material to size cost and benefit next year.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - The satellite shows suspicion only; the position is decided by the ground survey
+      - Position error comes from logger spacing, not the satellite
+      - How many leaks you find cannot be known in advance
+      - The state inside the pipe - material, decay, flow - is not seen from space
+    say: The limits matter, and the pilot states them plainly. First, the satellite shows a suspicion, within a radius of about one hundred metres. It does not fix the position; the loggers and acoustic survey do that. Second, where two logger points showed a gap of thirty and fifteen metres between the suspect and the real leak, that error came from logger spacing, not the satellite. The loggers there sat about six hundred and three hundred fifty metres apart, against a recommended spacing within two hundred metres, where the error is said to be about one metre. Third, how many leaks you find cannot be known before you start. Twenty-two suspect points gave three leaks, and the comparable technology publishes no hit rate. Fourth, the state inside the pipe is not seen from space. Note also that the published material does not name the satellite used.
+
+  - kind: bullets
+    heading: What drives the cost
+    items:
+      - "Analysis fee: covering the whole network; a comparable technology cites about two months for a wide-area analysis"
+      - "Loggers and crews: the pilot used 21 areas, 20 loggers each"
+      - "Map data: digitising pipe locations, if they are on paper only"
+      - "Digging and repair: still needed whether the suspicion is right or wrong"
+    say: Now the cost. The figures for this pilot are not public, and the satellite-analysis vendor provides its service on a fixed subscription, not a published per-item price. So this is where the money goes, not a quote. First, the analysis fee to cover the whole network; a comparable technology cites about two months for a wide-area analysis. Second, the loggers and the crews to place and collect them. Third, digitising the pipe map, if your records are on paper only. Fourth, digging and repair, which you still pay whether the suspicion is right or wrong. Whether free satellite data could do this cannot be confirmed, because the published material does not name the satellite, and the analysis method is the vendor's own. Always confirm with a real quote.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.24, 0.38, 0.38]
+    rows:
+      - [Network length, Long; cannot walk it all, Short; walkable in a few years]
+      - [Map data, Pipe locations already digitised, Paper drawings only]
+      - [Crews, Can place loggers and confirm by sound, Want to dig on the satellite alone]
+      - [What you need, The order and scope of the survey, The leak position to a few metres]
+    say: Finally, where it fits. It fits where the network is long and cannot all be walked, where the pipe locations are already digitised, and where you have crews to place loggers at night and confirm leaks by sound. It fits when what you need is the order and scope of the survey. It does not fit where the network is short enough to walk in a few years, where you have only paper drawings, where you want to dig on the satellite result alone, or where you need the leak position to within a few metres. When you propose this, three points matter. Ask first whether the pipe map is digitised and whether there is a night crew. Never say leaks will be found; the satellite shows areas of suspicion. And put the hit rate into the contract, so next year's decision rests on your own numbers.
+
+  - kind: cta
+    heading: Considering it for your utility?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source: TRY ANGLE EHIME (Ehime Prefecture project), results report, 24 Apr 2023 https://note.com/tryangle_ehime/n/n04c9470f6143"
+      - "Source: TRY ANGLE EHIME, Niihama water-leak survey, 28 Dec 2022 https://note.com/tryangle_ehime/n/nb6ef82aae167"
+      - "Tech & spec: MLIT Water DX technology catalogue, satellite wide-area leak detection https://www.mlit.go.jp/mizukokudo/watersupply_sewerage/jyouge_dx/pdf/suidou11.pdf"
+    say: To consider this for your own utility, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch.
