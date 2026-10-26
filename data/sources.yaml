@@ -901,3 +901,9 @@
   publisher: 国土交通省 国土地理院
   url: https://www.gsi.go.jp/common/000259158.pdf
   tags: [干渉SAR, 地盤沈下, 精度, 公共測量, 仕様書]
+
+- id: mlit-jaxa-flood-guidebook-2023
+  title: 災害時の人工衛星活用ガイドブック 水害版・浸水編（観測要請は撮影時刻の約3.5時間前まで、概ね50m四方以上で判読可能、観測角度U2〜U3が最適、1年以内の同じ季節のアーカイブで判読精度が上がる、都市部・田植え時期の水田・急傾斜地は判読が難しい）（2018年3月作成、2023年9月更新）
+  publisher: 宇宙航空研究開発機構 衛星利用運用センター・国土交通省 水管理・国土保全局 河川計画課
+  url: https://www.mlit.go.jp/river/shishin_guideline/bousai/jinkoueisei/guidebook_suigai_r509.pdf
+  tags: [災害, 浸水, SAR, 緊急観測, アーカイブ, 季節, 要求の定義, 提案の評価]
