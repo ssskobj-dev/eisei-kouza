@@ -1,0 +1,41 @@
+# 「処理の段階と補正：補正の前後で値を比べる」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-1-4-processing-levels/<id>.svg を作る。
+
+figures:
+  - id: levels
+    type: flow
+    alt: 処理の段階と、どの補正が済んでいるか
+    steps:
+      - title: Level-1B
+        text: センサーの幾何の放射輝度。専門家向け
+        who: satellite
+      - title: Level-1C
+        text: 大気上端の反射率。地図に投影済み
+        who: satellite
+      - title: Level-2A
+        text: 地表の反射率。雲の分類とかすみの量
+        who: satellite
+      - title: 前後を比べる
+        text: 差が波長帯とかすみの量に合うか
+        who: human
+
+  - id: corrections
+    type: split
+    alt: 2種類の補正
+    link: ⇔
+    left:
+      title: 大気の補正（かすみ）
+      role: satellite
+      items:
+        - かすみと薄い雲の影響を除く
+        - 値を変える。場所は変えない
+        - 青の差が大きいのが自然
+        - Level-1C → Level-2A
+    right:
+      title: 地形の補正（斜面）
+      role: satellite
+      items:
+        - 山の斜面の位置ずれを直す
+        - 場所を変える
+        - 標高のデータ（DEM）が要る
+        - レーダーのGRDは未補正
