@@ -1,0 +1,74 @@
+# ユースケースの記事「3つの交付金の現地確認を、衛星データの解析1つでまとめる」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、職員が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 筆ごとに耕作か不耕作かを判定する
+        - 耕作地は作物の一致率、不耕作地は保全管理の状況を解析する
+    right:
+      title: 職員が行う
+      items:
+        - 荒廃の可能性がある農地を中心に見回る
+        - 不要と判定された農地の一部も見回る
+        - 結果をGISに反映し、制度をまたいで共有する
+    note: 3制度の合計で、見回りは約23,000筆減った。見回りはなくならない
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 狭い農地は解析できない
+        text: 見回りが残り、中山間では効果が小さい
+        role: none
+      - title: 果樹園や茶畑は判別しにくい
+        text: 画像で耕作の有無が分かりにくい
+        role: none
+      - title: 畦畔やかんがいは直接見えない
+        text: 水張りで田とみなす運用が多い
+        role: none
+      - title: 精度はサービスで異なる
+        text: 90%超は福島市の例。注記つき
+        role: none
+      - title: 台帳と地図の整備が先
+        text: 地名地番の表記をそろえてから
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 3制度の現地確認を、1つの解析でまとめる手順
+    steps:
+      - title: 確認項目をそろえる
+        text: 3制度の担当で
+        who: human
+      - title: 台帳と地図を整える
+        text: 過去の結果も渡す
+        who: human
+      - title: 耕作・不耕作を判定
+        text: 衛星で筆ごとに
+        who: satellite
+      - title: 荒廃の可能性を見回る
+        text: 不要判定も一部
+        who: human
+      - title: GISで共有する
+        text: 3制度と他分野
+        who: human
+
+  - id: scale
+    type: scale
+    alt: この使い方が効く条件の目安
+    left: 向いている
+    right: 向いていない
+    items:
+      - title: 3制度の対象が重なる
+        text: 利用料を分け合える
+      - title: 筆数が多い
+        text: 台帳と地図がそろう
+      - title: 狭い農地が多い
+        text: 見回りが多く残る
+      - title: 1制度だけ
+        text: 費用に見合いにくい
