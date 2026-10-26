@@ -73,7 +73,7 @@ parts:
       - 期間内の画像の一覧と雲の量を出し、使える枚数と、対象が何画素分かを確かめられる
     must_include: [雲の量の基準, 範囲を一部しか覆わない画像, 季節の偏り, 対象の大きさと画素]
     material: ""
-    status: todo
+    status: done
 
   - id: codex-1-4-processing-levels
     title: 処理の段階と補正：補正の前後で値を比べる
@@ -82,7 +82,7 @@ parts:
       - 処理の段階を名前で正しく選び、補正の前後で値がどう変わるかを確かめられる
     must_include: [処理の段階の名前, 段階ごとの倍率の違い, かすみの除去, 山の斜面の位置ずれ]
     material: ""
-    status: todo
+    status: done
 
   - id: codex-1-5-open-data-access
     title: 無償データの入手：場所と期間で探し、条件を守って保存する

@@ -1,0 +1,51 @@
+# 「分解能と撮影の間隔：使える画像を数える」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-1-3-resolution-revisit/<id>.svg を作る。
+
+figures:
+  - id: count
+    type: flow
+    alt: 画像を数える手順
+    steps:
+      - title: 一覧を出す
+        text: 期間と範囲で製品を検索
+        who: satellite
+      - title: 日付でまとめる
+        text: 同じ日の製品は1枚に
+        who: satellite
+      - title: 範囲を覆うか
+        text: 範囲の中の欠けた値の割合
+        who: satellite
+      - title: 範囲の中の雲
+        text: 雲、薄い雲、影の画素の割合
+        who: satellite
+      - title: 月ごとに数える
+        text: 0枚の月を先に見つける
+        who: human
+      - title: 対象の画素数
+        text: 幅と長さを画素で割る
+        who: human
+
+  - id: funnel
+    type: funnel
+    alt: 使える画像の絞り込み
+    stages:
+      - label: 製品の数
+        title: 期間内の製品
+        text: つなぎ目の区画は同じ日に2つ
+        who: satellite
+      - label: 日付の数
+        title: 日付でまとめた枚数
+        text: 同じ日は1枚に
+        who: satellite
+      - label: 全部覆う
+        title: 範囲を全部覆う枚数
+        text: 帯の端の区画を除く
+        who: satellite
+      - label: 雲が基準以下
+        title: 範囲の中の雲が基準以下
+        text: 区画全体の値ではなく範囲で
+        who: satellite
+      - label: 肝心の月
+        title: 肝心の月に残る枚数
+        text: 0枚なら、その月は解析しない
+        who: human

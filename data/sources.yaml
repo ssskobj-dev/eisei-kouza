@@ -902,6 +902,44 @@
   url: https://www.gsi.go.jp/common/000259158.pdf
   tags: [干渉SAR, 地盤沈下, 精度, 公共測量, 仕様書]
 
+# ---- 資格の教材（解析教材）：分解能と撮影の間隔、処理の段階と補正（2026-10-27 追記） ----
+
+- id: usgs-landsat-9
+  title: Landsat 9（16日の回帰、Landsat 8と8日ずれ、OLIは30m・白黒15m、TIRSは100m、2021年9月27日打ち上げ）
+  publisher: 米国地質調査所（USGS）
+  url: https://www.usgs.gov/landsat-missions/landsat-9
+  tags: [基礎, Landsat, 仕様, 分解能, 観測頻度, 解析教材]
+
+- id: usgs-landsat-land-cloud-cover
+  title: Landsat Collections：Land Cloud Cover（CLOUD_COVERはシーン全体、CLOUD_COVER_LANDは陸の画素だけの雲の割合。MTL.txtに記載）
+  publisher: 米国地質調査所（USGS）
+  url: https://www.usgs.gov/landsat-missions/landsat-collections-land-cloud-cover
+  tags: [基礎, Landsat, 雲, 解析教材]
+
+- id: cdse-odata-basics
+  title: OData basics（Copernicus Data Space Ecosystem Documentation。製品の検索を属性cloudCover、期間、範囲で絞る例）
+  publisher: ESA、Copernicus Data Space Ecosystem
+  url: https://documentation.dataspace.copernicus.eu/notebook-samples/geo/odata_basics.html
+  tags: [基礎, Sentinel, 雲, 無償データ, 解析教材]
+
+- id: usgs-landsat-levels-processing
+  title: Landsat Levels of Processing（L1TPはGCPとDEMで補正、L1GTはDEMで地形のずれを補正、L1GSは地形の補正なし。DEMなしに地形の影響は補正できない）
+  publisher: 米国地質調査所（USGS）
+  url: https://www.usgs.gov/landsat-missions/landsat-levels-processing
+  tags: [基礎, Landsat, 処理の段階, 解析教材]
+
+- id: usgs-landsat-using-level-1
+  title: Using the USGS Landsat Level-1 Data Product（MTLのREFLECTANCE_MULT_BAND_xとREFLECTANCE_ADD_BAND_xで大気上端の反射率に直す。太陽の高度の正弦で割る）
+  publisher: 米国地質調査所（USGS）
+  url: https://www.usgs.gov/landsat-missions/using-usgs-landsat-level-1-data-product
+  tags: [基礎, Landsat, 処理の段階, 倍率, 解析教材]
+
+- id: nasa-eo-light-scattering
+  title: Crepuscular Rays and Light Scattering（大気は短い青の波長を、長い橙や赤の波長より多く散乱する）
+  publisher: NASA Earth Observatory
+  url: https://science.nasa.gov/earth/earth-observatory/crepuscular-rays-and-light-scattering-150090/
+  tags: [基礎, 大気, 解析教材]
+
 - id: mlit-jaxa-flood-guidebook-2023
   title: 災害時の人工衛星活用ガイドブック 水害版・浸水編（観測要請は撮影時刻の約3.5時間前まで、概ね50m四方以上で判読可能、観測角度U2〜U3が最適、1年以内の同じ季節のアーカイブで判読精度が上がる、都市部・田植え時期の水田・急傾斜地は判読が難しい）（2018年3月作成、2023年9月更新）
   publisher: 宇宙航空研究開発機構 衛星利用運用センター・国土交通省 水管理・国土保全局 河川計画課
