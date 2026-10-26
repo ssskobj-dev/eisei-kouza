@@ -1,0 +1,106 @@
+# English use-case video. Same facts as casebook/conflict-damage-verification.qmd; English narration & slides.
+lang: en
+voice: Ryan
+title: Verifying conflict damage with satellite data and AI
+series: CASEBOOK
+kicker: Use case
+number: 22
+total: 221
+thumb: Conflict damage
+summary: How a broadcaster used satellite data and AI to verify conflict damage in Myanmar, where reporters could not go. Where it fits in the reporting workflow, what decisions it supports, how far free satellites go, and why imagery alone cannot tell you the cause. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: Verifying conflict damage with satellite data
+    sub: Cheap wide-area imagery and targeted high-resolution, used together for news verification
+    say: Can you verify damage in a conflict zone that reporters cannot enter? Yes, up to a point. The answer is to compare satellite images from two dates and let AI pick out where buildings and roads have disappeared. A Japanese broadcaster did this for a program on Myanmar. In this video, we look at who uses it, where it fits in the reporting workflow, what decisions it supports, how far free satellites go, and the hard limit - imagery shows change, not its cause.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Country: Myanmar, after the February 2021 coup"
+      - "Who: a broadcaster (the user), and a company doing the satellite analysis"
+      - "Why: reporters could not fly in, so claims had to be checked another way"
+      - "What they had: residents' smartphone videos and photos from social media"
+    say: The case is set in Myanmar after the February 2021 coup. Under the military's state of emergency, international flights could not land, so the broadcaster could not send reporters or directors in. What reached them were videos and photos that residents had filmed on smartphones and posted to social media. To put that on air, they had to confirm, by some other means, whether the footage was real and how far the damage reached. Satellite data is one way to check what changed on the ground without going there.
+
+  - kind: steps
+    heading: Where it fits in the workflow
+    items:
+      - From testimony and video, fix the target village and the time window
+      - Use free or cheap imagery to pick out change across the whole area
+      - Buy high-resolution imagery only where change is concentrated
+      - Match the map of changed buildings and roads against the testimony
+      - Confirm the cause by reporting, then decide what to broadcast
+    say: Here is where it fits. It comes before the program is made. First, from the testimony and the videos, the team fixes which village and which time window to look at. Then free or cheap imagery is used to pick out change across the whole area. Only where change is concentrated do they buy high-resolution imagery to look closely. They match the map of changed buildings and roads against the location of the testimony and the videos. Finally, they confirm the cause and the background through reporting, and decide the scope and the wording for broadcast. The satellite narrows down where to look; it does not finish the verification.
+
+  - kind: table
+    heading: Satellite and AI versus people
+    columns: [The satellite and AI do, The team does]
+    widths: [0.5, 0.5]
+    rows:
+      - [Pick out building and road change over a wide area, Match the change against testimony and video]
+      - [Confirm key spots with high-resolution imagery, Confirm the cause of the change by reporting]
+      - ["", Decide the scope shown on air]
+    say: The split of roles looks like this. The satellite analysis compares two dates, picks out where buildings and roads changed across a wide area, and confirms key spots with high-resolution imagery. The team matches that change against the testimony and the videos, confirms the cause through reporting, and decides what to show on air. This was a real broadcast, not a trial. The work was done with NHK and aired in 2022 on an NHK Special about Myanmar's civil war, and the award case book credits it as analysis of house burning in Myanmar.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.42, 0.58]
+    rows:
+      - ["Map of changed buildings and roads", "How far the damage reaches, and which village to cover"]
+      - ["Before-and-after images with dates", "Whether they match the testimony, and can be shown on screen"]
+      - ["List of spots where change is concentrated", "Where to buy high-resolution, and where to send reporting"]
+      - ["The analysis conditions used", "How to footnote it on air"]
+    say: Here is the data you receive and what it lets you decide. The map of changed buildings and roads tells you how far the damage reaches and which village to cover. The before-and-after images, with their dates, tell you whether they match the testimony and whether you can show them on screen. The list of spots where change is concentrated tells you where to buy high-resolution imagery and where to direct reporting. And the record of analysis conditions matters most for broadcast - which dates were compared, and how large a change could be detected. Without that footnote, viewers may hear "the satellite proved the damage", which it did not.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - Low resolution cannot catch the change of a single house
+      - Imagery alone cannot decide the cause - attack, fire, or demolition
+      - In cloudy seasons there can be weeks with no usable image
+      - The date of change is only narrowed to between the two acquisitions
+    say: The limits matter here more than usual. First, low-resolution imagery cannot catch the change of a single house; the case material itself says low-resolution images often had to be re-taken at high resolution. Second, and this is the key one, imagery shows that a building disappeared, not why. Whether it was an attack, a fire, or a demolition cannot be decided from the picture alone. Third, optical satellites cannot see through cloud, so in a rainy season there can be weeks with no usable image. Fourth, comparing two images tells you change happened between those two dates, not exactly when. And some things satellites simply cannot show at all - whether people inside were safe, who did it, or whether residents returned. Those come only from reporting on the ground.
+
+  - kind: bullets
+    heading: How far do free satellites go?
+    items:
+      - "Europe's Sentinel-2 is free: 10 m pixels, revisit every 5 days near the equator with two satellites"
+      - Free or cheap imagery is enough to show a wide area changed, at the village level
+      - Counting damage house by house needs paid high-resolution imagery
+      - The case source does not name which satellite was used
+    say: So how far can free satellites take you? Europe's Sentinel-2 is free, with ten-metre pixels, and with two satellites it revisits every five days near the equator. If all you need to show is that a wide area changed, at the level of a village, free or cheap imagery can be enough. But to count damage house by house, you need paid high-resolution imagery. That two-tier idea, wide and cheap first, high-resolution only where it matters, is exactly how this case kept costs down. Note that the case source does not name the satellite used, so we cannot say the broadcast result came from free data alone.
+
+  - kind: table
+    heading: What it costs
+    columns: [Where cost falls, What drives it]
+    widths: [0.34, 0.66]
+    rows:
+      - ["Imagery", "High-resolution is paid; wide area cheap, key spots high-resolution"]
+      - ["Analysis", "AI analysis plus mapping; short deadlines add cost"]
+      - ["Verification", "Matching the change map to testimony stays with the newsroom"]
+      - ["Rights", "Checking the provider's terms for broadcast use"]
+    say: Now cost. The amount for this project is not public. The only public figure is business-wide - the company's satellite image analysis revenue was about eighty million yen in fiscal 2022, which covers far more than this one job. So treat the breakdown here as where cost falls, not a quote. Imagery is the first - high-resolution is paid, which is why the wide-and-cheap-plus-targeted approach exists. Then the analysis and mapping, where a short deadline pushes cost up; reportedly this job was delivered in about two weeks. Then the verification labour, which stays with the newsroom. And the rights check, since using imagery on air needs the provider's terms confirmed. Always confirm with a real quote.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.22, 0.39, 0.39]
+    rows:
+      - ["Site", "Reporters cannot enter, or too dangerous", "You can check directly on the ground"]
+      - ["What you confirm", "How far buildings and roads changed", "The cause, or whether people are safe"]
+      - ["Scale", "A village or area with concentrated change", "A single house or small facility"]
+      - ["Material and timing", "Testimony and video fix place and time", "Place or time unknown, or results needed in days in a rainy season"]
+    say: Finally, where it fits. It fits where reporters cannot enter, or where it is too dangerous, and where what you need is how far buildings and roads changed across a village or area with concentrated change. It also fits when testimony and video already fix the place and the time, and the season lets images be taken. It does not fit where you can check directly on the ground, where you need the cause or whether people are safe, where the target is a single house, or where you need results in days during a rainy season. When you propose this, three points matter - ask first for the location and time of the testimony, never say the satellite proves the damage, and quote imagery in two tiers with a cap on the high-resolution spend.
+
+  - kind: cta
+    heading: Verifying something you cannot reach?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source: Cabinet Office, 6th Space Development & Utilization Awards (Ridge-i, 2024) https://www8.cao.go.jp/space/prize/sixth/space_award_06.pdf"
+      - "Broadcast date and turnaround: SPACE CONNECT (5 May 2023) https://space-connect.jp/ridge-i-growth/"
+      - "Satellite specs: Copernicus SentiWiki, Sentinel-2 Mission"
+    say: To verify a site you cannot reach, for your own reporting or your client's, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.

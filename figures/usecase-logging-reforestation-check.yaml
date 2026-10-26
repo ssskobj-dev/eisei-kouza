@@ -1,0 +1,74 @@
+# ユースケースの記事「伐採跡地と再造林を、1.5mの衛星画像の変化通知で確かめる」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、林務担当が行うこと
+    link: ＋
+    left:
+      title: 衛星とAIが行う
+      items:
+        - 2時期の画像から伐採跡地と再造林地の変化を拾う
+        - 変化した場所を通知し、ブラウザで見られる形にする
+    right:
+      title: 林務担当が行う
+      items:
+        - 届出の範囲と重ねて照らす
+        - 合わない場所だけ現地に行く
+        - 指導や勧告の要否を決める
+    note: 出てくるのは「候補」。無届かどうかは届出と現地で決める
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 更新は不定期
+        text: 数か月ごとの確認には向かない
+        role: none
+      - title: 誤検出がある
+        text: 太陽光用地や崩壊地も混じる
+        role: none
+      - title: 面積は実測と一致しない
+        text: 届出との差は幅を見込む
+        role: none
+      - title: 日付は2時期の間まで
+        text: いつ伐られたかは分からない
+        role: none
+      - title: 再造林の精度は検証がない
+        text: 国の事業は伐採のみが対象
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 届出の確認業務に、衛星の変化通知を入れる手順
+    steps:
+      - title: 届出を図形にする
+        text: 範囲の地図データ
+        who: human
+      - title: 変化を受け取る
+        text: 伐採跡地、再造林地
+        who: satellite
+      - title: 届出と重ねる
+        text: 保安林や許可区域も
+        who: human
+      - title: 合わない場所へ
+        text: 現地で確かめる
+        who: human
+      - title: 要否を決める
+        text: 指導、翌年の対象
+        who: human
+
+  - id: scale
+    type: scale
+    alt: この使い方が効く条件の目安
+    left: 向いている
+    right: 向いていない
+    items:
+      - title: 届出が多い
+        text: 専門の職員が少ない
+      - title: 小さな伐採も拾う
+        text: 0.1haから
+      - title: 数か月ごとに確認
+        text: 更新が不定期
+      - title: 再造林の成否を確定
+        text: 現地でしか分からない

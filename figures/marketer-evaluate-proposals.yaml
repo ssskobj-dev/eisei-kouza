@@ -1,0 +1,58 @@
+# 「事業者の提案を評価する：観測条件と精度の説明を目的と照らす」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/marketer-evaluate-proposals/<id>.svg を作る。
+
+figures:
+  - id: flow
+    type: flow
+    alt: 提案を評価する流れ（8つの手順を5つにまとめた）
+    steps:
+      - title: 要求を並べる
+        text: 7項目と提案書を結ぶ
+        who: human
+      - title: 観測条件
+        text: 向き、測れない場所、季節と積雪
+        who: human
+      - title: 精度の条件
+        text: 何と比べ、どこで出た数字か
+        who: human
+      - title: 参照データ
+        text: 比較の計画と、貸与
+        who: human
+      - title: 採点と質問
+        text: 回答を要求の横に記録
+        who: human
+
+  - id: sightline
+    type: sightline
+    alt: 干渉SARが測れる向き
+    note: 測れるのは、衛星に近づく動きと遠ざかる動きだけ。手前側の斜面では動きが打ち消されることがある
+
+  - id: checks
+    type: cards
+    alt: 提案書で確かめる6つの点
+    columns: 2
+    items:
+      - title: 撮影の向きと対象の向き
+        text: 片軌道なら南北と手前側の扱い
+        mark: "1"
+        role: human
+      - title: 測れない場所の扱い
+        text: 稜線の裏、急斜面、水面、造成地
+        mark: "2"
+        role: none
+      - title: 季節と積雪の扱い
+        text: 同じ季節のペア、積雪期は除く
+        mark: "3"
+        role: none
+      - title: 精度の条件
+        text: 何と比べ、どこで、どの広さと量か
+        mark: "4"
+        role: human
+      - title: 参照データとの比較
+        text: 発注者が貸与し、指標で示す
+        mark: "5"
+        role: human
+      - title: できないことの記述
+        text: 自分から書いていれば実現性が高い
+        mark: "6"
+        role: human

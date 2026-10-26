@@ -79,7 +79,7 @@ parts:
       - 顧客の問いを、対象・範囲・頻度・精度・納期の要求に書き直せる
     must_include: [判断の単位, 許容できる見逃しと誤検出, 更新の間隔, 成果物の形式, 要求の文の型]
     material: ""
-    status: todo
+    status: done
 
   - id: marketer-requirements-cases
     title: 要求の定義の演習：3つの業務で書いてみる
@@ -90,7 +90,7 @@ parts:
       - 農地、インフラ、災害の3つの業務で、要求の文を書き、抜けを見つけられる
     must_include: [3業務の要求の例, よくある抜け, 曖昧な要求の直し方]
     material: ""
-    status: todo
+    status: done
 
   - id: marketer-evaluate-proposals
     title: 事業者の提案を評価する：観測条件と精度の説明を目的と照らす
@@ -101,7 +101,7 @@ parts:
       - 提案書の観測条件と精度の記述が、目的に合うかを評価できる
     must_include: [撮影の向きと斜面の向き, 測れない場所, 季節と積雪, 精度の条件, 参照データとの比較, 確かめる質問の一覧]
     material: ""
-    status: todo
+    status: done
 
   - id: marketer-evaluate-proposals-cases
     title: 提案の評価の演習：誇張を見抜く
