@@ -1,0 +1,72 @@
+# 「要求の定義の演習：3つの業務で書いてみる」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/marketer-requirements-cases/<id>.svg を作る。
+
+figures:
+  - id: flow
+    type: flow
+    alt: 演習の進め方：4つの段階を3つの業務で繰り返す
+    steps:
+      - title: 問いを読む
+        text: 誰が何に困っているか
+        who: human
+      - title: 曖昧な1文
+        text: まず要求を1文で書く
+        who: human
+      - title: 抜けを探す
+        text: 7つの抜けと照らす
+        who: human
+      - title: 7項目に直す
+        text: 用途から検証まで
+        who: human
+      - title: 3回繰り返す
+        text: 農地、斜面、浸水の順に
+        who: human
+
+  - id: flood
+    type: scale
+    alt: 浸水の判読のしやすさは、平時の準備で決まる
+    left: 判読しやすい
+    right: 判読しにくい
+    items:
+      - title: 角度が適し、1年以内の同季節の画像
+        text: 2時期の比較ができる
+      - title: 角度は適すが、画像が古いか季節違い
+        text: 誤判読の可能性
+      - title: 角度にノイズ、災害前の画像なし
+        text: 1時期だけで推定
+      - title: 都市部、田植え時期、急傾斜地
+        text: 判読が難しい区域
+
+  - id: gaps
+    type: cards
+    alt: 曖昧な要求に共通する7つの抜け
+    columns: 2
+    items:
+      - title: 判断の単位がない
+        text: 筆、計測点、50m四方
+        mark: "1"
+        role: none
+      - title: 向かない対象を書かない
+        text: 狭小な筆、稜線の裏、田植え時期
+        mark: "2"
+        role: none
+      - title: 精度に条件がない
+        text: 比べる相手と、見逃し・誤検出
+        mark: "3"
+        role: none
+      - title: 観測の期間と回数がない
+        text: 何年分、何シーン、締切
+        mark: "4"
+        role: none
+      - title: 成果物の形式がない
+        text: Shapefileと属性、kmz
+        mark: "5"
+        role: none
+      - title: 検証の担当がない
+        text: 抜き取りは発注者が選ぶ
+        mark: "6"
+        role: none
+      - title: 平時と災害時を混ぜる
+        text: アーカイブと締切は平時に
+        mark: "7"
+        role: none
