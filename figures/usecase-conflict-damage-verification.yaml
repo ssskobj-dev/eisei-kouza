@@ -1,0 +1,71 @@
+# ユースケースの記事「紛争地の被害を、衛星データのAI解析で裏付ける」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、取材班が行うこと
+    link: ＋
+    left:
+      title: 衛星とAIが行う
+      items:
+        - 2時期の画像から建物や道路の変化を広く拾う
+        - 変化の集中する場所を高分解能で確かめる
+    right:
+      title: 取材班が行う
+      items:
+        - 証言や動画の位置と時期を照らす
+        - 変化の原因を取材で確かめる
+        - 放送で示す範囲と注記を決める
+    note: 衛星が示すのは「変化」まで。原因と被害の有無は取材で決める
+
+  - id: limits
+    type: cards
+    alt: この使い方の4つの限界
+    columns: 2
+    items:
+      - title: 家1軒の変化は拾えない
+        text: 低分解能は広く見る用。要所は高分解能で
+        role: none
+      - title: 原因は画像で決められない
+        text: 攻撃か火災か取り壊しかは分からない
+        role: none
+      - title: 雲の季節は撮れない
+        text: 雨季は使える画像が途切れる
+        role: none
+      - title: 日付は2時期の間まで
+        text: いつ起きたかは画像の間隔で決まる
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 番組にする前の検証に、衛星の解析を入れる手順
+    steps:
+      - title: 村と時期を決める
+        text: 証言と動画から
+        who: human
+      - title: 広く変化を拾う
+        text: 安価な画像で
+        who: satellite
+      - title: 要所を詳しく見る
+        text: 高分解能の画像で
+        who: satellite
+      - title: 証言と照らす
+        text: 位置と時期
+        who: human
+      - title: 原因を取材で確かめる
+        text: 放送範囲を決める
+        who: human
+
+  - id: scale
+    type: scale
+    alt: この使い方が効く条件の目安
+    left: 向いている
+    right: 向いていない
+    items:
+      - title: 現地に入れない
+        text: 記者を派遣できない
+      - title: 村単位の変化
+        text: 証言と動画がある
+      - title: 家1軒の確認
+        text: 高分解能の購入が要る
+      - title: 原因だけ知りたい
+        text: 画像では決められない

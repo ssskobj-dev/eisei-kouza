@@ -429,6 +429,7 @@ usecases:
   verified: true
 - 'no': 22
   name: 紛争地の被害の報道検証
+  slug: conflict-damage-verification
   theme: 生活・文化・その他
   field: 報道・調査
   stage: 商用
@@ -448,6 +449,7 @@ usecases:
   verified: true
 - 'no': 23
   name: 3制度横断の現地確認
+  slug: three-program-field-check
   theme: 農業・食料
   field: 農業
   stage: 商用
@@ -467,6 +469,7 @@ usecases:
   verified: true
 - 'no': 24
   name: 伐採跡地と再造林の確認
+  slug: logging-reforestation-check
   theme: 林業・カーボン
   field: 林業
   stage: 商用
