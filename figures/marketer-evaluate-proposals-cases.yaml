@@ -1,0 +1,77 @@
+# 「提案の評価の演習：誇張を見抜く」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/marketer-evaluate-proposals-cases/<id>.svg を作る。
+
+figures:
+  - id: flow
+    type: flow
+    alt: 演習の進め方：4つの段階を3つの提案書で繰り返す
+    steps:
+      - title: 目的を1文で
+        text: 顧客が何を決めるか
+        who: human
+      - title: 抜粋を読む
+        text: 提案書の言葉をそのまま
+        who: human
+      - title: 印を付ける
+        text: 条件が省かれた記述に
+        who: human
+      - title: 質問に直す
+        text: 条件と数字で答える形に
+        who: human
+      - title: 3回繰り返す
+        text: 地盤沈下、遊休農地、浸水
+        who: human
+
+  - id: types
+    type: cards
+    alt: 提案書の誇張の6つの型
+    columns: 2
+    items:
+      - title: 範囲の誇張
+        text: 全域、全地点、全方向
+        mark: "1"
+        role: none
+      - title: 精度の誇張
+        text: 条件のないミリ単位、95%
+        mark: "2"
+        role: none
+      - title: 代替の誇張
+        text: 水準測量や現地確認が不要
+        mark: "3"
+        role: none
+      - title: 頻度の誇張
+        text: 毎月、24時間以内、無制限
+        mark: "4"
+        role: none
+      - title: 用途の誇張
+        text: 判定をそのまま、家屋単位
+        mark: "5"
+        role: none
+      - title: 実績の誇張
+        text: 多数の実績、初年度から効果
+        mark: "6"
+        role: none
+
+  - id: marks
+    type: split
+    alt: 提案書の記述に印を付ける3つの問い
+    link: "→"
+    left:
+      title: 提案書に書かれていること
+      role: none
+      items:
+        - 県全域、全地点
+        - ミリ単位、精度95%
+        - 水準測量や現地確認は不要
+        - 毎月更新、24時間以内
+        - 多数の実績
+    right:
+      title: 確かめること
+      role: human
+      items:
+        - 欠ける場所の一覧
+        - 比べた相手と条件
+        - 残す検証の量
+        - 機会がないときの扱い
+        - 対象と条件を添えた実績
+    note: 3つの問い：何と比べたか、どこが欠けるか、できないときどうなるか

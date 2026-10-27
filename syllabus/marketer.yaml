@@ -112,7 +112,7 @@ parts:
       - 提案書の抜粋から、条件を確かめるべき記述を挙げ、理由を書ける
     must_include: [誇張の型, 確かめる点の挙げ方, 事業者への質問の文]
     material: ""
-    status: todo
+    status: done
 
   - id: marketer-spec-acceptance
     title: 仕様書の要求事項と、検収の方法を書く
@@ -123,7 +123,7 @@ parts:
       - 要求事項と検収の条件を、仕様書の文として書ける
     must_include: [要求事項の型, 検収の条件, 抜き取りの確認, 追加費用の条件, データの権利]
     material: ""
-    status: todo
+    status: done
 
   - id: marketer-spec-acceptance-cases
     title: 仕様書と検収の演習：要求を文に直す

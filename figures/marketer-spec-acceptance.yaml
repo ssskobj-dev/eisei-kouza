@@ -1,0 +1,78 @@
+# 「仕様書の要求事項と、検収の方法を書く」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/marketer-spec-acceptance/<id>.svg を作る。
+
+figures:
+  - id: split
+    type: split
+    alt: 仕様書に書くことと、事業者に任せること
+    link: "と"
+    left:
+      title: 発注者が仕様書に書くこと
+      role: human
+      items:
+        - 用途と判断の単位
+        - 精度の条件と、比べる相手
+        - 検収の条件と期限
+        - 抜き取りの件数と担当
+        - 追加費用の条件
+        - データの権利
+    right:
+      title: 事業者に任せること
+      role: satellite
+      items:
+        - 解析の手法の詳細
+        - 使う衛星（提案項目にする場合）
+        - 干渉ペアの選び方
+        - 精度管理の手順
+        - 計画書
+    note: 要求水準を書き、やり方は任せる。確認は計画書、成果物、精度管理の結果で行う
+
+  - id: flow
+    type: flow
+    alt: 仕様書を書く流れ（8つの手順を5つにまとめた）
+    steps:
+      - title: 要求事項の文
+        text: 対象、条件、数値、確かめ方
+        who: human
+      - title: 観測と成果物
+        text: 期間、枚数、形式、属性
+        who: human
+      - title: 検収の条件
+        text: 10日で確かめ、抜き取りは別に
+        who: human
+      - title: 追加費用
+        text: 4つの場面の単価と上限
+        who: human
+      - title: 権利と協議
+        text: 帰属、利用条件、別紙
+        who: human
+
+  - id: acceptance
+    type: cards
+    alt: 検収の条件：10日で確かめられる5つ
+    columns: 2
+    items:
+      - title: 納品物の整合
+        text: 発注書・納品書、別表の形式と属性
+        mark: "1"
+        role: human
+      - title: 品質の数値
+        text: 雲量、位置精度、期間とシーン数
+        mark: "2"
+        role: human
+      - title: 精度の検証の表
+        text: 水準測量や現地確認との比較
+        mark: "3"
+        role: human
+      - title: 欠ける場所の一覧
+        text: 計測点のない区域、解析対象外
+        mark: "4"
+        role: none
+      - title: 報告書の形式
+        text: 編集できる文書で
+        mark: "5"
+        role: human
+      - title: 抜き取りは別に
+        text: 納品後に発注者が選んで見る
+        mark: "＋"
+        role: human
