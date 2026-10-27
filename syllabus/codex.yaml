@@ -91,7 +91,7 @@ parts:
       - 場所と期間を指定して雲の少ない画像を探し、利用の条件と出どころの表記を付けて保存できる
     must_include: [座標の順番（緯度と経度）, 利用の条件, 出どころの表記, 範囲の端の切れ]
     material: ""
-    status: todo
+    status: done
 
   # ---------- 第2部 光学の解析（2級 C） ----------
   - id: codex-2-6-color-composites
@@ -101,7 +101,7 @@ parts:
       - 3種類の合成を作り、波長帯の割り当てと画素の大きさの違いを確かめられる
     must_include: [割り当ての確認, 画素の大きさをそろえる, 植物が目立つ色, 明るさの飛びとつぶれ]
     material: ""
-    status: todo
+    status: done
 
   - id: codex-2-7-vegetation-index
     title: 植生の指数：雲を除いて、区画ごとに平均する
