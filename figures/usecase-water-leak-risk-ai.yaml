@@ -1,0 +1,85 @@
+# ユースケースの記事「水道管の漏水リスクを衛星データとAIで点数化、約14.8万kmの管路で20万件を特定」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、事業体が行うこと
+    link: ＋
+    left:
+      title: 衛星データとAIが行う
+      items:
+        - 区域ごとの漏水リスクを5段階で点数化する
+        - 重要度と組み合わせて更新の優先シナリオを作る
+    right:
+      title: 事業体が行う
+      items:
+        - 管路の台帳と漏水の履歴を整える
+        - リスクの高い区域から音聴調査を行う
+        - 見つけた漏水を登録し、再評価させる
+    note: 出るのは「漏れやすさ」。漏水の位置を決めるのは音聴調査
+
+  - id: numbers
+    type: bar
+    alt: 事業者が公表した導入後の漏水の発見効率
+    unit: か所（10kmあたり）
+    source: 株式会社天地人のnote記事（2025年5月、人口10万〜20万人規模の自治体の例、事業者の公表値）
+    items:
+      - label: 従来の音聴調査
+        value: 0.7
+      - label: リスク診断の併用後
+        value: 4.2
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 出るのは「漏れやすさ」
+        text: いまの漏水の位置は音聴調査で決める
+        role: none
+      - title: 見るのは地表と地盤
+        text: 管の材質や劣化は台帳と履歴で補う
+        role: none
+      - title: 管路データの整い方次第
+        text: 電子化された台帳と配水管図が前提
+        role: none
+      - title: 精度の数字は非公表
+        text: 適合率や再現率は発表にない
+        role: none
+      - title: 使う衛星は非公表
+        text: 無償データで再現できるかは不明
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 漏水調査の計画にリスク診断を入れる手順
+    steps:
+      - title: 台帳と履歴を渡す
+        text: 電子化して連携
+        who: human
+      - title: リスクの地図
+        text: 100m四方、5段階
+        who: satellite
+      - title: 高い区域を音聴
+        text: 位置を決める
+        who: human
+      - title: 漏水を登録
+        text: AIが再評価
+        who: human
+      - title: 発見率を記録
+        text: 翌年の計画と更新計画へ
+        who: human
+
+  - id: scale
+    type: scale
+    alt: リスク診断が効く事業体から、効きにくい事業体まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 管路が長い
+        text: 音聴を全部は回れない
+      - title: 台帳が電子データ
+        text: 漏水の履歴も残っている
+      - title: 管路が短い
+        text: 数年で全部歩ける
+      - title: 紙の図面だけ
+        text: 先にデータ整備が要る

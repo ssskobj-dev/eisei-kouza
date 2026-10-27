@@ -1,0 +1,40 @@
+# note記事「水道管の漏水調査、どこから歩くか。衛星データとAIの「漏れやすさの点数」で何が決まるか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: インフラ・建設
+    title: 水道管の漏水リスクを衛星データとAIで点数化
+    sub: 約14.8万kmで20万件を特定、出るのは「漏れやすさ」
+
+  - id: fig-1
+    type: bar
+    alt: 事業者が公表した導入後の漏水の発見効率
+    unit: か所（10kmあたり）
+    source: 株式会社天地人のnote記事（2025年5月、人口10万〜20万人規模の自治体の例、事業者の公表値）
+    items:
+      - label: 従来の音聴調査
+        value: 0.7
+      - label: リスク診断の併用後
+        value: 4.2
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 出るのは「漏れやすさ」
+        text: いまの漏水の位置は音聴調査で決める
+        role: none
+      - title: 見るのは地表と地盤
+        text: 管の材質や劣化は台帳と履歴で補う
+        role: none
+      - title: 管路データの整い方次第
+        text: 電子化された台帳と配水管図が前提
+        role: none
+      - title: 精度の数字は非公表
+        text: 適合率や再現率は発表にない
+        role: none
+      - title: 使う衛星は非公表
+        text: 無償データで再現できるかは不明
+        role: none
