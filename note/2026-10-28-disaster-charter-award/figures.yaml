@@ -1,0 +1,50 @@
+# 時事記事「国際災害チャータがIAFアワードを受賞。熊本地震では当日に発動」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: news
+    tag: 災害データ
+    title: 災害の衛星データ、当日発動
+    sub: 自治体と建設コンサルは、災害データをどう受け取るか
+
+  - id: fig-1
+    type: flow
+    alt: 2026年7月の熊本地震で、国際災害チャータが発動されてから図が届くまでの流れ
+    steps:
+      - title: 発生
+        text: 7月28日、熊本で震度7
+        who: human
+      - title: 要請
+        text: 防災センターが同じ日に
+        who: human
+      - title: 発動
+        text: 同じ日。海外の衛星も
+        who: satellite
+      - title: 翌日に図
+        text: 29日、被害の推定図
+        who: satellite
+      - title: 変位の図
+        text: 30日〜8月5日に順次
+        who: satellite
+      - title: 現場へ
+        text: 国の防災機関を経て
+        who: human
+
+  - id: fig-2
+    type: split
+    alt: 国際災害チャータに期待してよいことと、発動されても変わらないこと
+    link: ⇔
+    left:
+      title: 期待してよいこと
+      items:
+        - 発動中は海外や民間の衛星データも無償
+        - 翌日に広い被害の推定図、数日後に変位の図
+        - 誰が、何日目に何を出したかが公開される
+    right:
+      title: 変わらないこと
+      role: none
+      items:
+        - 市町村や企業は直接要請できない
+        - 撮れる時刻は衛星の軌道で決まる
+        - 図の精度や仕様は、受け取る側が決められない
+    note: 平時に、自分の町の図を「誰から、どの経路で」受け取るかを確かめておく
