@@ -981,3 +981,27 @@
   publisher: NASA Earth Observatory
   url: https://science.nasa.gov/earth/earth-observatory/how-to-interpret-a-false-color-satellite-image/
   tags: [基礎, 光学, 色の合成, 雪, 雲, 解析教材]
+
+- id: chiba-abandoned-rs-qa-r8
+  title: 令和8年度遊休農地リモートセンシング導入モデル事業業務委託 企画提案の募集に係る質問・回答（判別の指標と解像度の指定はなく、「農地法の運用について」の「十分な水準を有すると認められる技術」「十分な解像度」の規定を引用。解析結果は地番ごと。地番図と農地台帳は農業委員会から提供）
+  publisher: 千葉県 農林水産部
+  url: https://www.pref.chiba.lg.jp/noushin/nyuu-kei/buppin-itaku/nyuusatsukoukoku/documents/r8rimoto-situmonnkaitou.pdf
+  tags: [遊休農地, 仕様書, 精度, 自治体, 提案の評価, 検収]
+
+- id: law-payment-delay-prevention-1949
+  title: 政府契約の支払遅延防止等に関する法律（昭和24年法律第256号。第4条：給付の内容、対価、完了の時期、検査の時期、支払の時期などを書面で明らかにする。第5条：検査は給付終了の通知から工事14日・その他10日以内。第6条：支払は請求書の受理から工事40日・その他30日以内。第14条：地方公共団体に準用）
+  publisher: 衆議院（制定法律のページ）
+  url: https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/houritsu/00619491212256.htm
+  tags: [制度, 検収, 契約, 仕様書]
+
+- id: mlit-proposal-guideline-2021-full
+  title: 建設コンサルタント業務等におけるプロポーザル方式及び総合評価落札方式の運用ガイドライン（本文。技術的要件は必須と任意に分け、定量的に表せるものは数値で示す（8ページ）。技術提案は的確性・実現性・独創性で評価（9ページ）。類似業務の定義（11ページ））（2015年11月、2021年3月一部改定）
+  publisher: 国土交通省
+  url: https://www.mlit.go.jp/common/001399636.pdf
+  tags: [制度, 提案の評価, 仕様書, 調達]
+
+- id: kawasaki-sar-spec-r7-acceptance
+  title: 令和7年度 土砂災害警戒区域等の監視における衛星SAR解析業務委託に関する仕様書（検収と権利の条文：第8条 引渡し後の不一致は監督員の指示で補足修正し経費は受託者の負担、第11条 成果品は市の許可なく公表・貸与・使用不可、第13条 納入時期は監督員と協議、資料は編集可能なワード・エクセルで）
+  publisher: 川崎市
+  url: https://www.city.kawasaki.jp/templates/proposal/cmsfiles/contents/0000178/178229/siyousyo.pdf
+  tags: [仕様書, 検収, 権利, 斜面, 干渉SAR, 自治体]
