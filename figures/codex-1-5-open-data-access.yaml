@@ -1,0 +1,38 @@
+# 「無償データの入手：場所と期間で探し、条件を守って保存する」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-1-5-open-data-access/<id>.svg を作る。
+
+figures:
+  - id: flow
+    type: flow
+    alt: 入手の流れと、人が確かめる3点
+    steps:
+      - title: 場所と期間で探す
+        text: 経度、緯度の順の多角形と期間
+        who: satellite
+      - title: 雲の割合で絞る
+        text: 範囲で指定。0と−1は不明
+        who: satellite
+      - title: 範囲を覆うか
+        text: 輪郭が境界を全部含むか地図で見る
+        who: human
+      - title: 表記を付けて保存
+        text: 利用の条件の文言と製品の名前
+        who: human
+
+  - id: traps
+    type: cards
+    alt: 入手のときに落ちやすい4つの穴
+    columns: 2
+    items:
+      - title: 座標の順番
+        text: 検索の多角形は経度が先。地図アプリの表示は緯度が先
+        role: none
+      - title: 雲の割合
+        text: 区画1枚の値。0は「不明」を含む。見たい場所の雲は別
+        role: none
+      - title: 区画の端
+        text: 帯の端は途中まで。境界をまたげば2枚。値0は欠け
+        role: none
+      - title: 出どころの表記
+        text: 利用の条件の文言どおりに。製品の名前と取得日も記録
+        role: none

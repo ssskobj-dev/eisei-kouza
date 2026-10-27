@@ -946,6 +946,42 @@
   url: https://www.mlit.go.jp/river/shishin_guideline/bousai/jinkoueisei/guidebook_suigai_r509.pdf
   tags: [災害, 浸水, SAR, 緊急観測, アーカイブ, 季節, 要求の定義, 提案の評価]
 
+- id: cdse-odata-api
+  title: OData（Copernicus Data Space Ecosystem Documentation。範囲の検索はOData.CSC.IntersectsにSRID=4326のPOLYGONを「経度 緯度」の組で与える。例の多角形は最初と最後の点が同じ。観測の日時はContentDate/Startで絞る）
+  publisher: ESA、Copernicus Data Space Ecosystem
+  url: https://documentation.dataspace.copernicus.eu/APIs/OData.html
+  tags: [基礎, Sentinel, 座標, 無償データ, 解析教材]
+
+- id: cdse-opensearch-api
+  title: OpenSearch（Copernicus Data Space Ecosystem Documentation。cloudCoverは光学の製品の多くに付き、[最小,最大]の範囲で絞れる。雲の割合が分からない製品は0か−1で、cloudCover=0はあいまい。範囲はbox=西,南,東,北、またはgeometryにWKT）
+  publisher: ESA、Copernicus Data Space Ecosystem
+  url: https://documentation.dataspace.copernicus.eu/APIs/OpenSearch.html
+  tags: [基礎, Sentinel, 雲, 座標, 無償データ, 解析教材]
+
+- id: ietf-rfc7946-geojson
+  title: RFC 7946 The GeoJSON Format（位置の最初の2つの要素は経度と緯度、または東距と北距で、この順。座標系はWGS 84で10進の度）（2016年8月）
+  publisher: IETF
+  url: https://www.rfc-editor.org/rfc/rfc7946
+  tags: [基礎, 座標, 解析教材]
+
+- id: nasa-landsat-wrs
+  title: The Worldwide Reference System（Landsat 4〜9の1枚はパスとロウの番号で決まる。233本のパスと248のロウ）
+  publisher: NASA Landsat Science
+  url: https://landsat.gsfc.nasa.gov/about/worldwide-reference-system
+  tags: [基礎, Landsat, 無償データ, 解析教材]
+
+- id: cdse-browser-features-2023
+  title: New and improved features available in the Copernicus Browser（雲の割合の上限を決めて、期間の検索でも絞れる。製品の中の個別のファイルだけを選んで取得できる）（2023年7月18日）
+  publisher: ESA、Copernicus Data Space Ecosystem
+  url: https://dataspace.copernicus.eu/node/619
+  tags: [基礎, Sentinel, 雲, 無償データ, 解析教材]
+
+- id: nasa-eo-false-color-swir
+  title: Why is that Forest Red and that Cloud Blue?（3つの波長帯を赤、緑、青に割り当てて色の画像を作る。近赤外を赤に割り当てると植物は濃い赤、澄んだ水は黒、濁った水は青、都市と裸地は灰色か黄褐色。短波赤外の組み合わせでは焼け跡が赤、氷の雲と雪と氷が明るい青。青と2つの短波赤外の組み合わせは雪、氷、雲の区別に向く）
+  publisher: NASA Earth Observatory
+  url: https://science.nasa.gov/earth/earth-observatory/how-to-interpret-a-false-color-satellite-image/
+  tags: [基礎, 光学, 色の合成, 雪, 雲, 解析教材]
+
 - id: chiba-abandoned-rs-qa-r8
   title: 令和8年度遊休農地リモートセンシング導入モデル事業業務委託 企画提案の募集に係る質問・回答（判別の指標と解像度の指定はなく、「農地法の運用について」の「十分な水準を有すると認められる技術」「十分な解像度」の規定を引用。解析結果は地番ごと。地番図と農地台帳は農業委員会から提供）
   publisher: 千葉県 農林水産部

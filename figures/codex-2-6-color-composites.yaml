@@ -1,0 +1,39 @@
+# 「色の合成で見る：自然な色、近赤外、短波長赤外」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-2-6-color-composites/<id>.svg を作る。
+
+figures:
+  - id: composites
+    type: cards
+    alt: 3種類の合成と、波長帯の割り当て
+    columns: 3
+    items:
+      - title: 自然な色
+        text: 赤B4、緑B3、青B2。目で見た色に近い。雲も雪も白。10m
+        role: satellite
+      - title: 近赤外
+        text: 赤にB8、緑にB4、青にB3。植物が濃い赤、水が黒。10m
+        role: satellite
+      - title: 短波赤外
+        text: 赤にB12、緑にB8A、青にB3。焼け跡が赤、雪と氷が青。20m
+        role: satellite
+
+  - id: stretch
+    type: split
+    alt: 明るさの飛びとつぶれ
+    link: ⇔
+    left:
+      title: 飛び（上限が低い）
+      role: none
+      items:
+        - 雲も屋根も裸地も真っ白
+        - 明るい場所の区別がつかない
+        - 白い画素の割合が雲より多い
+        - 固定の上限を黙って当てた
+    right:
+      title: つぶれ（上限が高い）
+      role: none
+      items:
+        - 森も湖も市街地も暗い
+        - 暗い場所の区別がつかない
+        - 画像の最大値に合わせた
+        - 雲の値に引きずられた
