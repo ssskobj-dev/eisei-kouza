@@ -1,0 +1,44 @@
+# note記事「地図の更新、どこが変わったかを探すのが一番重い。衛星とAIでどこまで絞れるか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 都市・行政
+    title: 衛星データとAIで地図の更新箇所を洗い出す
+    sub: 国土地理院の建物検出は適合率75.8%、道路は46.4%
+
+  - id: fig-1
+    type: bar
+    alt: テストデータでのAIの精度（2025年の国土地理院報告会）
+    unit: "%"
+    source: 国土地理院「衛星画像を活用した効率的な電子国土基本図の整備・更新」（第54回国土地理院報告会、2025年）
+    items:
+      - label: 建物の変化の適合率
+        value: 75.8
+      - label: 建物の変化の再現率
+        value: 70.9
+      - label: 道路の変化の適合率
+        value: 46.4
+      - label: 道路の変化の再現率
+        value: 48.0
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 分かるのは「候補」まで
+        text: 図化に使うには精度の向上が必要
+        role: none
+      - title: 道路は拾いにくい
+        text: 適合率46.4%、特殊な色の道路は検出できず
+        role: none
+      - title: 小さな変化は対象外
+        text: 建物200m²以上、道路は幅員6m以上
+        role: none
+      - title: 写り方が誤抽出を生む
+        text: 入射角のずれ、高層建物の側面
+        role: none
+      - title: 雲があれば写らない
+        text: 合成画像は複数日の寄せ集め
+        role: none

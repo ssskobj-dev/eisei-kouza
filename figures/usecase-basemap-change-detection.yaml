@@ -1,0 +1,90 @@
+# ユースケースの記事「衛星データとAIで地図の更新箇所を洗い出す、国土地理院の建物検出は適合率75.8%」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、地図を作る人が行うこと
+    link: ＋
+    left:
+      title: 衛星画像とAIが行う
+      items:
+        - 2時期の画像を区画ごとに比べる
+        - 建物と道路の新設と滅失を確信度付きで示す
+        - 全国の変化の多い場所を一覧にする
+    right:
+      title: 地図を作る人が行う
+      items:
+        - 確信度の高い場所から確かめる
+        - 空中写真や現地の資料で図化する
+        - 誤抽出と抽出漏れを学習データに戻す
+    note: 衛星とAIが出すのは「変化の候補」。図化は人の工程
+
+  - id: accuracy
+    type: bar
+    alt: テストデータでのAIの精度（2025年の国土地理院報告会）
+    unit: "%"
+    source: 国土地理院「衛星画像を活用した効率的な電子国土基本図の整備・更新」（第54回国土地理院報告会、2025年）
+    items:
+      - label: 建物の変化の適合率
+        value: 75.8
+      - label: 建物の変化の再現率
+        value: 70.9
+      - label: 道路の変化の適合率
+        value: 46.4
+      - label: 道路の変化の再現率
+        value: 48.0
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 分かるのは「候補」まで
+        text: 図化に使うには精度の向上が必要
+        role: none
+      - title: 道路は拾いにくい
+        text: 適合率46.4%、特殊な色の道路は検出できず
+        role: none
+      - title: 小さな変化は対象外
+        text: 建物200m²以上、道路は幅員6m以上
+        role: none
+      - title: 写り方が誤抽出を生む
+        text: 入射角のずれ、高層建物の側面
+        role: none
+      - title: 雲があれば写らない
+        text: 合成画像は複数日の寄せ集め
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 地図の更新計画に変化抽出を入れる手順
+    steps:
+      - title: 対象と規模
+        text: 地物と最小の大きさ
+        who: human
+      - title: 2時期の画像
+        text: 分解能と季節をそろえる
+        who: satellite
+      - title: 確信度を出す
+        text: 区画ごとに、しきい値を決める
+        who: satellite
+      - title: 確かめて図化
+        text: 高い区画から順に
+        who: human
+      - title: 記録して学習へ
+        text: 誤抽出と漏れを戻す
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 変化抽出が効く対象から、効きにくい対象まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: どこから更新するか
+        text: 広い範囲の選別
+      - title: 一定規模の建物
+        text: 200m²以上の新設と滅失
+      - title: 道路の変化
+        text: 適合率は半分以下
+      - title: 1戸の建て替え
+        text: 細い道も対象外

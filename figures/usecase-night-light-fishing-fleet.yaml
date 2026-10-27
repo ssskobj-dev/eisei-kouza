@@ -1,0 +1,74 @@
+# ユースケースの記事「夜の衛星データで漁船の集まりを捉える、水産庁の取締り資料に見る使い方」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、取締りの現場が行うこと
+    link: ＋
+    left:
+      title: 衛星の夜間画像が行う
+      items:
+        - 広い海域の光点を毎晩拾う
+        - 明るさの階級で船の種類を推測する
+    right:
+      title: 取締りの現場が行う
+      items:
+        - 光点の海域に取締船を向ける
+        - 船を目で確かめ、退去警告と放水を行う
+        - 放棄された漁具を回収する
+    note: 光点には航行中の船も混じる。違法かどうかを決めるのは現場
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 光点は漁船とは限らない
+        text: 航行中の船や一般船舶も含まれる
+        role: none
+      - title: 雲と月明かりで変わる
+        text: 雲は欠損と「偽の灯り」を作る
+        role: none
+      - title: 灯火を使わない船は写らない
+        text: 捉えるのは光だけ
+        role: none
+      - title: 1日1回、数百m
+        text: 深夜の1時点、分解能は750m
+        role: none
+      - title: 国籍や違法かは決まらない
+        text: 色と船種の対応は「推測」
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 取締りの配船計画に夜間光の分布を入れる手順
+    steps:
+      - title: 前夜のデータ
+        text: 無償の確定版か有償の最新版
+        who: satellite
+      - title: 光点と階級
+        text: 明るさを5段階に
+        who: satellite
+      - title: 偽の光を除く
+        text: 雲の情報で
+        who: human
+      - title: 配船を決める
+        text: 朝の会議で海域を選ぶ
+        who: human
+      - title: 確認結果を記録
+        text: 階級の見方を直す
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 夜間光の船舶検知が効く対象から、効きにくい対象まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 集魚灯の漁船の集まり
+        text: 強い光が海域に集まる
+      - title: 広い海域の傾向
+        text: 漁期の中の推移
+      - title: 個々の船の特定
+        text: 国籍や違法かは光で決まらない
+      - title: 灯火のない船
+        text: 光を使わない漁法、消灯した船

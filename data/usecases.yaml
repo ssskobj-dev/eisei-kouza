@@ -489,6 +489,7 @@ usecases:
   verified: true
 - 'no': 25
   name: 夜間光で漁船の集まりを把握
+  slug: night-light-fishing-fleet
   theme: 水産・海洋
   field: 海洋・船舶
   stage: 商用
@@ -508,6 +509,7 @@ usecases:
   verified: true
 - 'no': 26
   name: 水道管の漏水リスク診断
+  slug: water-leak-risk-ai
   theme: インフラ・建設
   field: インフラ維持管理
   stage: 商用
@@ -527,6 +529,7 @@ usecases:
   verified: true
 - 'no': 27
   name: 電子国土基本図の更新箇所の抽出
+  slug: basemap-change-detection
   theme: 都市・行政
   field: 行政の業務
   stage: 商用
