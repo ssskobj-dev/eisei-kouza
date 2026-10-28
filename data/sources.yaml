@@ -1005,3 +1005,59 @@
   publisher: 川崎市
   url: https://www.city.kawasaki.jp/templates/proposal/cmsfiles/contents/0000178/178229/siyousyo.pdf
   tags: [仕様書, 検収, 権利, 斜面, 干渉SAR, 自治体]
+
+# ---- 解析教材：植生、水、雪の指数（2026-10-29 追記） ----
+
+- id: usgs-landsat-ndvi
+  title: Landsat Normalized Difference Vegetation Index（（近赤外−赤）÷（近赤外＋赤）。Landsat 8-9はBand 5とBand 4、Landsat 4-7はBand 4とBand 3。製品の値は−10,000〜10,000で倍率0.0001）
+  publisher: 米国地質調査所（USGS）
+  url: https://www.usgs.gov/land-resources/nli/landsat/landsat-normalized-difference-vegetation-index-ndvi
+  tags: [基礎, Landsat, 植生, NDVI, 解析教材]
+
+- id: esa-s2-l2a-atbd-2-10
+  title: Sentinel-2 Level-2A Algorithm Theoretical Basis Document V2.10.0（S2-PDGS-MPC-L2A-ATBD。分類の表：0欠け、1飽和か欠陥、2地形の影、3雲の影、4植物、5植物以外、6水、7未分類、8雲（中）、9雲（高）、10薄い雲、11雪。雪の指数は（B3−B11）÷（B3＋B11）、閾値は版2.9.0で0.35と0.50。分類の中の植生の指数はB8AとB4。雲の影は基準より暗い画素を候補に、太陽の位置と雲の高さで絞る。水面の上では影の判定は使えない）
+  publisher: ESA
+  url: https://step.esa.int/thirdparties/sen2cor/2.10.0/docs/S2-PDGS-MPC-L2A-ATBD-V2.10.0.pdf
+  tags: [基礎, Sentinel, 雲, 雪, 水, 処理の段階, 解析教材]
+
+- id: mcfeeters-1996-ndwi
+  title: The use of the Normalized Difference Water Index (NDWI) in the delineation of open water features（International Journal of Remote Sensing 17(7) 1425–1432。近赤外と目に見える緑で、土と陸の植物を消し、開いた水面を取り出す）（1996年）
+  publisher: McFeeters, S. K.（Taylor & Francis）
+  url: https://doi.org/10.1080/01431169608948714
+  tags: [基礎, 水, 浸水, NDWI, 解析教材]
+
+- id: xu-2006-mndwi
+  title: Modification of normalised difference water index (NDWI) to enhance open water features in remotely sensed imagery（International Journal of Remote Sensing 27(14) 3025–3033。1996年の水の指数は市街地の建物が混ざり水の面積を多めに数える。近赤外の代わりに中間赤外（短波赤外）を使うと建物の混ざりを抑える）（2006年）
+  publisher: Xu, H.（Taylor & Francis）
+  url: https://doi.org/10.1080/01431160600589179
+  tags: [基礎, 水, 浸水, MNDWI, 解析教材]
+
+- id: cesbio-two-ndwi
+  title: Two NDWI（同じNDWIの名前で2つの式。McFeeters 1996は（緑−近赤外）÷（緑＋近赤外）で水面向け。Gao 1996（Remote Sensing of Environment 58(3) 257–266）は（近赤外−短波赤外）÷（近赤外＋短波赤外）で植物の中の水分向け。後者はNDMIとも呼ばれ、混同に注意）
+  publisher: CESBIO（フランス国立科学研究センターほか）
+  url: https://www.cesbio.cnrs.fr/multitemp/?p=10413
+  tags: [基礎, 水, NDWI, 解析教材]
+
+- id: usgs-landsat-ndsi
+  title: Normalized Difference Snow Index（Landsat。（緑−短波赤外1）÷（緑＋短波赤外1）。Landsat 8-9はBand 3とBand 6、Landsat 4-7はBand 2とBand 5。雪の確からしさは値が1に近いほど高く、範囲は−1〜1）
+  publisher: 米国地質調査所（USGS）
+  url: https://www.usgs.gov/landsat-missions/normalized-difference-snow-index
+  tags: [基礎, Landsat, 雪, NDSI, 解析教材]
+
+- id: nasa-modis-snow-atbd
+  title: MODIS Snow and Sea Ice Mapping Algorithms：Algorithm Theoretical Basis Document（Landsat TMはBand 2とBand 5、MODISはバンド4と6で雪の指数。0.4以上かつバンド2の反射率が11%より大きい画素を雪とし、バンド4が10%未満なら雪にしない。多くの雲は短波赤外でも明るいので雪と分けられる。薄い巻雲は必ずしも区別できない）
+  publisher: NASA（MODIS Snow and Sea Ice Global Mapping Project）
+  url: https://modis-snow-ice.gsfc.nasa.gov/?c=atbd
+  tags: [基礎, 雪, 雲, NDSI, 解析教材]
+
+- id: nsidc-ndsi-snow-cover
+  title: What is NDSI snow cover and how does it compare to FSC?（雪は目に見える光で反射が高く短波赤外で低い。0より大きければ雪が少しはあり、0以下は雪のない地表。雪の理論上の範囲は0.0〜1.0）
+  publisher: NSIDC（米国雪氷データセンター）
+  url: https://nsidc.org/ru/node/32071
+  tags: [基礎, 雪, NDSI, 解析教材]
+
+- id: naro-nire-paddy-mndwi-manual
+  title: Sentinel-2衛星データを用いた水田の取水開始時期の把握手法マニュアル（普及成果情報。短波長赤外バンドと緑バンドから算出する修正正規化水指数（MNDWI）で湛水の有無を判定。短波長赤外の解像度は20m。茨城県稲敷市内で2018年5月15日の判定を同日の航空写真の目視判読と照合し、面積ベースで98%の正答率）（2019年8月20日公開）
+  publisher: 農研機構 農村工学研究部門
+  url: https://www.naro.go.jp/project/results/4th_laboratory/nire/2019/sentinel-2.html
+  tags: [水田, 湛水, MNDWI, Sentinel, 精度, 解析教材]

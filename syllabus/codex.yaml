@@ -110,7 +110,7 @@ parts:
       - 雲を除いたうえで指数を計算し、区画ごとの平均を表にして、値の範囲と雲の影を確かめられる
     must_include: [赤と近赤外の波長帯, 値を直してから割り算, 分母が0の画素, 値の範囲−1〜1, 雲の影が「生育不良」に見える誤り]
     material: ""
-    status: todo
+    status: done
 
   - id: codex-2-8-water-snow-index
     title: 水と雪の指数：基準を超えた範囲の面積を出す
@@ -119,7 +119,7 @@ parts:
       - 水と雪で使う波長帯の組を守り、基準の根拠を書き、面積の計算の座標を確かめられる
     must_include: [水と雪で違う波長帯の組, 基準の値の根拠, 面積の座標, 建物の影と濡れた田, 雪と雲の取り違え]
     material: ""
-    status: todo
+    status: done
 
   - id: codex-2-9-burn-index
     title: 焼け跡の指数：火災の前後の差を段階に分ける
