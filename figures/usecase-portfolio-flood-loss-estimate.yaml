@@ -1,0 +1,78 @@
+# ユースケースの記事「大規模水害の翌日に、保有契約全体の損害見込みを衛星データで速報する」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、保険会社が行うこと
+    link: ＋
+    left:
+      title: 衛星データの解析が行う
+      items:
+        - 浸水の範囲と深さを広域で推定する
+        - 建物データと重ねて浸水した建物を数える
+        - ピークから数時間〜24時間以内に更新する
+    right:
+      title: 保険会社が行う
+      items:
+        - 保有契約の所在地と照らす
+        - 損害率を当てて損害額の見込みにする
+        - 支払備金と再保険の通知を決める
+    note: 出るのは浸水の範囲と深さまで。損害額は自社の損害率の仮定で決まる
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 24時間は目安
+        text: 日本での実績は公表されていない
+        role: none
+      - title: 損害率の仮定に左右
+        text: 同じ浸水でも損害額は変わる
+        role: none
+      - title: 深さの精度は非公表
+        text: 数十cmの誤差で損害率が変わる
+        role: none
+      - title: 建物データの質が決める
+        text: 位置・階数・構造が古いと外れる
+        role: none
+      - title: 撮れる時刻は軌道次第
+        text: ピークを逃すと小さく見積もる
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 支払備金の初期計上に衛星の浸水データを入れる手順
+    steps:
+      - title: 契約の整備
+        text: 所在地と属性
+        who: human
+      - title: 浸水を受領
+        text: 範囲と深さ
+        who: satellite
+      - title: 契約と照合
+        text: 浸水した数と深さ
+        who: satellite
+      - title: 損害率を適用
+        text: 見込みの幅
+        who: human
+      - title: 備金を決定
+        text: 再保険へ通知
+        who: human
+      - title: 実績で補正
+        text: 差を記録
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 保有契約全体の速報が効く会社から、効きにくい会社まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 水災の契約が多い
+        text: 1災害の支払いが大きい
+      - title: 契約データが整う
+        text: 所在地と建物の属性がある
+      - title: 契約が少ない
+        text: 請求を待って集計できる
+      - title: 所在地が住所の文字列
+        text: 浸水データと照らせない

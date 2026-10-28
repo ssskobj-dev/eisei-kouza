@@ -1,0 +1,47 @@
+# note記事「探鉱の候補地、どこから歩くか。無償の衛星データ（ASTER）の変質帯の地図で何が決まるか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: エネルギー・資源
+    title: 探鉱の候補地を変質帯図で絞る
+    sub: JOGMECの実務に見る、無償のASTERデータの効き目と限界
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、探鉱の担当者が行うこと
+    link: ＋
+    left:
+      title: 衛星データの解析が行う
+      items:
+        - 鉄酸化物と変質鉱物の分布を地図にする
+        - 地形とリニアメントを抽出する
+        - 広い範囲を一度に見る
+    right:
+      title: 探鉱の担当者が行う
+      items:
+        - 既知の鉱床の周りで解析を検証する
+        - 地質調査と物理探査の範囲を決める
+        - ボーリングで鉱化を確かめる
+    note: 変質帯の地図は「ここに鉱床がある」という情報ではない（JOGMECの報告）
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 短波長赤外は2008年まで
+        text: 2008年4月以降の観測は使えない
+        role: none
+      - title: 希土類は見分けられない
+        text: ハイパースペクトルが要る
+        role: none
+      - title: 新しい有望地は難しい
+        text: 誰でも同じ解析ができる
+        role: none
+      - title: 露岩がないと効かない
+        text: 植生や土壌の下は見えない
+        role: none
+      - title: Terraの運用は終盤
+        text: 保存画像を使う前提
+        role: none
