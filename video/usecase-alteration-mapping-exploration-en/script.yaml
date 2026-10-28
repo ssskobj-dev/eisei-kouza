@@ -1,0 +1,108 @@
+# English use-case video. Same facts as casebook/alteration-mapping-exploration.qmd; English narration & slides.
+lang: en
+title: "Satellite data for mineral exploration: ASTER alteration mapping"
+series: CASEBOOK
+kicker: Use case
+number: 30
+total: 221
+voice: Ryan
+thumb: Narrow the search
+summary: How resource companies narrow metal-exploration targets by mapping hydrothermal alteration zones from free ASTER multispectral data, as reported by Japan's national resource agency JOGMEC in Chile. Where it fits, what it decides, how far free data goes, and the limits as of 2026. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: Narrowing exploration targets with free satellite data
+    sub: Mapping hydrothermal alteration zones with ASTER
+    say: Can you narrow a vast exploration area before you set foot on the ground? Yes. The answer is to map where rock has been altered by hot fluids, using free satellite data first. Japan's national resource agency, JOGMEC, reported using this to screen porphyry copper targets in Chile. In this video, we look at who uses it, where it fits in the workflow, what decisions it supports, how far free satellites go, and the limits as of 2026.
+
+  - kind: bullets
+    heading: Field, who, and why
+    items:
+      - "Field: energy and mineral resources. Metal exploration"
+      - "Who: resource companies and national agencies, as the buyer"
+      - "Why: narrow a wide region to promising ground before acquiring rights"
+      - "The problem: you cannot walk a whole region on foot"
+    say: The setting is metal exploration, in the energy and resources field. The users are resource companies, trading houses, and national resource agencies. The goal is to narrow a wide region down to promising ground before spending money to acquire rights or to send crews into the field. Because you cannot walk a whole region on foot, the first screening is done from space.
+
+  - kind: steps
+    heading: Where it fits in the workflow
+    items:
+      - Satellite screening comes first, over a wide area
+      - Map iron oxides and alteration minerals from multispectral data
+      - Add lineaments and terrain from a digital elevation model
+      - Choose districts for geological and geophysical survey
+      - Confirm mineralisation on the ground, finally by drilling
+    say: Exploration runs in stages. First a wide reconnaissance to pick promising districts, then geological, geochemical and geophysical survey, and finally drilling to confirm the ore directly. Satellite analysis sits at that first screening step. A porphyry copper deposit is ringed by zones where hot fluids altered the rock. Different alteration minerals, such as kaolinite, sericite, alunite, chlorite and epidote, each absorb specific shortwave-infrared wavelengths. Multispectral data captures those differences, so you can map where, and what kind of, alteration appears on exposed rock.
+
+  - kind: bullets
+    heading: What ASTER measures
+    items:
+      - "ASTER: a Japanese sensor on NASA's Terra satellite. Swath 60 km"
+      - "Visible-near infrared 15 m, shortwave infrared 30 m, thermal 90 m"
+      - Band ratio in the visible-near infrared flags iron oxides
+      - Shortwave-infrared bands separate the alteration-mineral types
+    say: The sensor behind the reported case is ASTER, a Japanese instrument on NASA's Terra satellite, with a sixty kilometre swath. Its visible and near-infrared bands resolve fifteen metres, the shortwave infrared thirty metres, and the thermal infrared ninety metres. A band ratio in the visible and near infrared flags iron oxides, while the shortwave-infrared bands separate the types of alteration minerals. Terrain and lineaments from a digital elevation model are read at the same step.
+
+  - kind: table
+    heading: Satellite versus the exploration team
+    columns: [The satellite does, The team does]
+    widths: [0.5, 0.5]
+    rows:
+      - [Map iron oxides and alteration minerals, Verify the map against known deposits]
+      - [Extract lineaments over a wide area, Choose where to survey on the ground]
+      - ["", Confirm mineralisation by drilling]
+    say: The split of roles looks like this. The satellite analysis maps iron oxides and alteration minerals and extracts lineaments across a wide area. The team verifies the map against known deposits, chooses where to survey on the ground, and confirms mineralisation by drilling. In JOGMEC's report, shortwave-infrared band ratios over Chile, including around the Escondida mine, show the alteration zones as colour differences. This was described as exploration in service, not a one-off pilot.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.44, 0.56]
+    rows:
+      - ["Iron-oxide map, by band ratio", "Extent of oxidation; first candidate districts"]
+      - ["Alteration-mineral map", "Type and centre of alteration; where to survey"]
+      - ["Lineament and terrain map", "Structural intersections; survey line direction"]
+      - ["Verification at known deposits", "How far to trust the map in this area"]
+    say: Here is what you receive and what it lets you decide. The iron-oxide map shows the extent of oxidation and the first candidate districts. The alteration-mineral map shows the type and the centre of each alteration zone, and where to put a ground survey. The lineament and terrain map shows structural intersections and the direction of geophysical survey lines. And the verification result at known deposits tells you how far to trust the map in this area. Remember, an alteration map says there is alteration here. It does not say there is ore here.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - Usable shortwave infrared is limited to before April 2008, a detector fault, never recovered
+      - Rare-earth minerals cannot be told apart; that needs hyperspectral data
+      - Hard to find new ground; the free data lets everyone run the same analysis
+      - No good where rock is hidden by vegetation, soil or snow
+      - Terra, the satellite, is near the end of its planned life, around 2027
+    say: The limits are stated plainly in the sources. First, the shortwave-infrared bands that separate alteration minerals became unusable with data from April two thousand eight, after a detector fault that recovery attempts never fixed. So the usable archive is the imagery from two thousand to two thousand eight; recent surface change cannot be followed this way. Second, rare-earth minerals cannot be told apart by ASTER; that needs hyperspectral data. Third, the data is free, so everyone can run the same analysis, and finding genuinely new ground this way is hard. Fourth, it fails where rock is hidden under vegetation, soil or snow. And fifth, Terra is near the end of its planned life, around two thousand twenty-seven, so plan on using the archive, not new scenes.
+
+  - kind: bullets
+    heading: How the cost works
+    items:
+      - "ASTER data has been free since April 2016; over 2.95 million scenes. Data cost is near zero"
+      - Main cost is the analysis labour, atmospheric correction, band ratios, interpretation
+      - Field verification, survey, assays and geophysics, costs far more; screening aims to cut it
+      - JOGMEC's own analysis cost is not public, so no figure is quoted here
+    say: The cost picture is unusual, because the data is free. ASTER has been open at no charge since April two thousand sixteen, with more than two point nine five million scenes, so the data cost is near zero. The main cost is the analysis labour, the atmospheric correction, the band ratios, and reading the alteration minerals, which needs geological knowledge. Field verification, the ground survey, sample assays and geophysics, costs far more, and the whole point of the screening is to cut that bill. JOGMEC's own analysis cost is not public, so no figure is quoted here.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.22, 0.39, 0.39]
+    rows:
+      - ["Deposit type", "Hydrothermal, e.g. porphyry copper", "Rare earths or lithium"]
+      - ["Ground surface", "Dry, with exposed rock", "Hidden by plants, soil or snow"]
+      - ["Verification", "A known deposit is nearby", "No known deposit to check against"]
+      - ["Timing", "A pre-2008 surface is enough", "You need recent change"]
+      - ["Stage", "Wide screening before rights", "Grade or reserve estimation"]
+    say: Finally, where it fits. It fits hydrothermal deposits such as porphyry copper, where the surface is dry and rock is exposed, where a known deposit nearby lets you check the analysis, where a pre-two-thousand-eight surface is enough, and at the wide screening stage before you acquire rights. It does not fit rare earths or lithium, ground hidden by vegetation, soil or snow, areas with no known deposit to verify against, cases needing recent change, or grade and reserve estimation. When you propose this, ask first about vegetation cover and whether a known deposit exists, and never say satellites will find the ore.
+
+  - kind: cta
+    heading: Considering it for your project?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Case: Taro Yajima (JOGMEC), 'Use of optical sensor data in mineral resource exploration', JAXA ALOS-3 workshop, 13 Dec 2012 https://www.eorc.jaxa.jp/ALOS/conf/workshop/alos2-3ws4/ALOS3_3_5_YajimaTaro.pdf"
+      - "SWIR anomaly: NASA Earthdata, 'ASTER SWIR Anomaly' (updated 17 Dec 2025) https://www.earthdata.nasa.gov/data/alerts-outages/aster-swir-anomaly"
+      - "Free data: NASA / JPL, 'NASA, Japan Make ASTER Earth Data Available at No Cost' (1 Apr 2016) https://www.jpl.nasa.gov/news/nasa-japan-make-aster-earth-data-available-at-no-cost/"
+      - "Sensor specs: AIST ASTER Science Project, 'Characteristics of ASTER' (accessed Oct 2026) https://unit.aist.go.jp/igg/rs-rg/ASTERSciWeb_AIST/en/about_aster/sensor/tokutyou.html"
+      - "Terra timeline: NASA, 'Terra Timeline if Maximally Extended' (Sep 2022) https://terra.nasa.gov/wp-content/uploads/2022/09/TerraLifetimeSummary.pdf"
+    say: To consider this for your own project or client, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
