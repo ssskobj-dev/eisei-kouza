@@ -1,0 +1,75 @@
+# 「仕様書と検収の演習：要求を文に直す」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/marketer-spec-acceptance-cases/<id>.svg を作る。
+
+figures:
+  - id: flow
+    type: flow
+    alt: 演習の進め方：確かめるべき点を、要求事項と検収の方法に直す
+    steps:
+      - title: 目的を1文で
+        text: 顧客が何を決めるか
+        who: human
+      - title: 確かめる点
+        text: 提案の評価の印を並べる
+        who: human
+      - title: 要求事項の文
+        text: 対象、条件、数値、確かめ方
+        who: human
+      - title: 検収の方法
+        text: 費用の小さい順に選ぶ
+        who: human
+      - title: 3回繰り返す
+        text: 地盤沈下、遊休農地、森林
+        who: human
+
+  - id: methods
+    type: cards
+    alt: 検収の方法：費用の小さい順に5段階
+    columns: 2
+    items:
+      - title: 納品物を見る
+        text: 形式、件数、一覧の有無
+        mark: "1"
+        role: human
+      - title: 検証の表を読む
+        text: 較差の表、判定の根拠
+        mark: "2"
+        role: human
+      - title: 机上で突き合わせる
+        text: 過年度の成果、前年の記録
+        mark: "3"
+        role: human
+      - title: 抜き取りで測る・見る
+        text: 発注者が選び、発注者が行う
+        mark: "4"
+        role: human
+      - title: 再測・再解析
+        text: 受注者の負担で手順を決める
+        mark: "5"
+        role: none
+      - title: 条文の分け方
+        text: 1〜3は検収、4と5は別の条文
+        mark: "※"
+        role: none
+
+  - id: gaps
+    type: split
+    alt: 仕様書のよくある欠落と、埋める条文
+    link: "→"
+    left:
+      title: よくある欠落
+      role: none
+      items:
+        - 欠ける場所の一覧がない
+        - 精度の母数がない
+        - 観測できないときは協議だけ
+        - 元データの権利がない
+    right:
+      title: 埋める条文
+      role: human
+      items:
+        - 対象外と要確認の一覧を成果物に
+        - 母数と数えるものを発注者が定義
+        - 代わりの手段と減額の有無を単価で
+        - 帰属と利用条件を別表で
+    note: 3つの業務（地盤沈下、遊休農地、森林）に共通する4つ
