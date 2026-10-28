@@ -1,0 +1,42 @@
+# 「植生の指数：雲を除いて、区画ごとに平均する」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-2-7-vegetation-index/<id>.svg を作る。
+# 値の目安は NASA Earth Observatory「Measuring Vegetation (NDVI & EVI)」による。
+
+figures:
+  - id: scale
+    type: scale
+    alt: 植生の指数の値の目安
+    left: +1に近い（密な葉）
+    right: 0以下（葉がない）
+    items:
+      - title: 0.8〜0.9
+        text: 最も密な緑の葉
+      - title: 0.6〜0.8
+        text: 温帯と熱帯の森
+      - title: 0.2〜0.3
+        text: 低木と草地
+      - title: 0.1以下
+        text: 岩、砂、雪
+      - title: 0
+        text: 緑の葉がない
+
+  - id: shadow
+    type: split
+    alt: 雲の影と生育不良の見分け方
+    link: ⇔
+    left:
+      title: 雲の影
+      role: none
+      items:
+        - 低い値が区画の境界と無関係
+        - 雲の横にずれた帯の形
+        - 同じ日の別の区画も同じ向き
+        - 別の日には消える
+    right:
+      title: 生育不良
+      role: human
+      items:
+        - 低い値が区画の形に沿う
+        - 別の日にも同じ区画が低い
+        - 除いた割合が低い
+        - 現地で確かめて初めて言える

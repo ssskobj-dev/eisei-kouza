@@ -1,0 +1,40 @@
+# 「水と雪の指数：基準を超えた範囲の面積を出す」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-2-8-water-snow-index/<id>.svg を作る。
+# 帯の組の出典：McFeeters 1996、Xu 2006、USGS NDSI、ESA S2 Mission（SentiWiki）。
+
+figures:
+  - id: pairs
+    type: cards
+    alt: 水と雪の指数で使う波長帯の組
+    columns: 3
+    items:
+      - title: 水の指数 NDWI
+        text: 緑B3と近赤外B8。開いた水面。市街地で多め。10m
+        role: satellite
+      - title: 修正水指数 MNDWI
+        text: 緑B3と短波赤外B11。建物の混ざりを抑える。20m
+        role: satellite
+      - title: 雪の指数 NDSI
+        text: 緑B3と短波赤外B11で、修正水指数と同じ組。20m
+        role: satellite
+
+  - id: confusions
+    type: split
+    alt: 水と雪の取り違えが起きる場所
+    link: ⇔
+    left:
+      title: 水に見えてしまうもの
+      role: none
+      items:
+        - 市街地の建物（緑と近赤外の式）
+        - 高い建物の北側の影
+        - 水の入った田
+        - 雲の影
+    right:
+      title: 雪に見えてしまうもの
+      role: none
+      items:
+        - 短波赤外で暗い湖と川
+        - 薄い巻雲
+        - 凍った湖
+        - 明るさの条件がない判定
