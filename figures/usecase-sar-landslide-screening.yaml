@@ -1,0 +1,86 @@
+# ユースケースの記事「災害直後の崩壊斜面を、衛星データのSAR判読で15災害から絞り込む」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、砂防部局が行うこと
+    link: ＋
+    left:
+      title: 衛星のSAR判読が行う
+      items:
+        - 夜間や悪天候でも地表の変化を捉える
+        - 崩壊の疑い箇所を位置図にする
+        - 広い範囲を一度に見る
+    right:
+      title: 砂防部局が行う
+      items:
+        - ヘリや現地調査の行き先を決める
+        - 河道閉塞の恐れがある場所を先に確かめる
+        - 見逃しを前提に別の手段で補う
+    note: 拾った箇所は当たりやすいが、拾えない箇所が多い（砂防学会2024年度の発表）
+
+  - id: recall
+    type: bar
+    alt: 2つの災害での判読の再現率
+    unit: "%（実際の崩壊のうち判読で拾えた割合）"
+    source: 砂防学会2024年度研究発表会の発表（パスコ・国交省近畿地整・国総研、2023年度の判読）
+    items:
+      - label: 2023年7月 九州北部の大雨
+        value: 30
+      - label: 2024年1月 能登半島地震
+        value: 6
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 小さな崩壊は対象外
+        text: 5,000m²未満は判読しない
+        role: none
+      - title: 電波の角度で見逃す
+        text: 局所入射角が約60度以上で増える
+        role: none
+      - title: 倒木が残ると見逃す
+        text: 裸地なら拾いやすい
+        role: none
+      - title: 古い災害前画像は空振り
+        text: 約5年前だと非常に多い
+        role: none
+      - title: 大規模崩壊でも見逃し
+        text: 能登では再現率6%
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 災害初動にSAR判読を入れる手順
+    steps:
+      - title: 緊急観測を受領
+        text: JAXAが観測し提供
+        who: satellite
+      - title: 前画像を確認
+        text: 観測日と軌道
+        who: human
+      - title: 差分画像を判読
+        text: 疑い箇所の位置図
+        who: satellite
+      - title: 調査の順番を決定
+        text: 河道閉塞の恐れから
+        who: human
+      - title: 現地で確認し記録
+        text: 正解・見逃し・空振り
+        who: human
+
+  - id: scale
+    type: scale
+    alt: SAR判読が効く災害から、効きにくい災害まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 大きな崩壊が多数
+        text: 広域の大雨や地震
+      - title: 前画像が1年以内
+        text: 空振りが少ない
+      - title: 斜面の向きが合わない
+        text: 電波に正対する斜面
+      - title: 小さな崩壊が点在
+        text: 5,000m²未満は対象外

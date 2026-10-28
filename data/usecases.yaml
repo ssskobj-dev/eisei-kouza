@@ -549,6 +549,7 @@ usecases:
   verified: true
 - 'no': 28
   name: 土砂移動箇所の広域スクリーニング
+  slug: sar-landslide-screening
   theme: 防災
   field: 防災・災害対応
   stage: 商用
@@ -568,6 +569,7 @@ usecases:
   verified: true
 - 'no': 29
   name: 保有契約全体の水害損害の速報
+  slug: portfolio-flood-loss-estimate
   theme: 保険・金融
   field: 保険
   stage: 商用
@@ -587,6 +589,7 @@ usecases:
   verified: true
 - 'no': 30
   name: 変質帯の地図による探鉱の絞り込み
+  slug: alteration-mapping-exploration
   theme: エネルギー・資源
   field: 鉱業・資源
   stage: 商用

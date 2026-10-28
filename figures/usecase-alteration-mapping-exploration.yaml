@@ -1,0 +1,88 @@
+# ユースケースの記事「探鉱の候補地を、無償の衛星データ（ASTER）の変質帯の地図で絞る」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、探鉱の担当者が行うこと
+    link: ＋
+    left:
+      title: 衛星データの解析が行う
+      items:
+        - 鉄酸化物と変質鉱物の分布を地図にする
+        - 地形とリニアメントを抽出する
+        - 広い範囲を一度に見る
+    right:
+      title: 探鉱の担当者が行う
+      items:
+        - 既知の鉱床の周りで解析を検証する
+        - 地質調査と物理探査の範囲を決める
+        - ボーリングで鉱化を確かめる
+    note: 変質帯の地図は「ここに鉱床がある」という情報ではない（JOGMECの報告）
+
+  - id: resolution
+    type: bar
+    alt: ASTERのセンサの分解能
+    unit: m（1画素の大きさ）
+    source: 産業技術総合研究所 ASTER Science Project（2026年10月閲覧）
+    items:
+      - label: 可視近赤外（バンド1〜3）
+        value: 15
+      - label: 短波長赤外（バンド4〜9）
+        value: 30
+      - label: 熱赤外（バンド10〜14）
+        value: 90
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 短波長赤外は2008年まで
+        text: 2008年4月以降の観測は使えない
+        role: none
+      - title: 希土類は見分けられない
+        text: ハイパースペクトルが要る
+        role: none
+      - title: 新しい有望地は難しい
+        text: 誰でも同じ解析ができる
+        role: none
+      - title: 露岩がないと効かない
+        text: 植生や土壌の下は見えない
+        role: none
+      - title: Terraの運用は終盤
+        text: 保存画像を使う前提
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 探鉱の初期に変質帯の地図を入れる手順
+    steps:
+      - title: 保存画像を探す
+        text: 2008年4月以前
+        who: satellite
+      - title: 既知の鉱床で検証
+        text: 手法が合うか
+        who: human
+      - title: 分布図を作る
+        text: 変質鉱物の分布
+        who: satellite
+      - title: 調査地区を決める
+        text: 地質調査と物理探査
+        who: human
+      - title: 現地で確かめる
+        text: 露頭と試料を見る
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 変質帯の解析が効く地域から、効きにくい地域まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 乾燥した露岩の地域
+        text: 熱水性の鉱床
+      - title: 既知の鉱床がある
+        text: 解析を検証できる
+      - title: 植生や土壌に覆われる
+        text: 岩石の反射が届かない
+      - title: 希土類やリチウム
+        text: 変質帯で捉えにくい

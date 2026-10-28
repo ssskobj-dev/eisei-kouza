@@ -1,0 +1,47 @@
+# note記事「水害の翌日、保有契約全体でいくら払うことになるか。衛星データで何が決まり、何が決まらないか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 保険・金融
+    title: 水害の損害見込みを衛星で速報
+    sub: 再保険ブローカーと衛星事業者の日本向けの仕組み
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、保険会社が行うこと
+    link: ＋
+    left:
+      title: 衛星データの解析が行う
+      items:
+        - 浸水の範囲と深さを広域で推定する
+        - 建物データと重ねて浸水した建物を数える
+        - ピークから数時間〜24時間以内に更新する
+    right:
+      title: 保険会社が行う
+      items:
+        - 保有契約の所在地と照らす
+        - 損害率を当てて損害額の見込みにする
+        - 支払備金と再保険の通知を決める
+    note: 出るのは浸水の範囲と深さまで。損害額は自社の損害率の仮定で決まる
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 24時間は目安
+        text: 日本での実績は公表されていない
+        role: none
+      - title: 損害率の仮定に左右
+        text: 同じ浸水でも損害額は変わる
+        role: none
+      - title: 深さの精度は非公表
+        text: 数十cmの誤差で損害率が変わる
+        role: none
+      - title: 建物データの質が決める
+        text: 位置・階数・構造が古いと外れる
+        role: none
+      - title: 撮れる時刻は軌道次第
+        text: ピークを逃すと小さく見積もる
+        role: none
