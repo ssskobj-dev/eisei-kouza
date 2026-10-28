@@ -1,0 +1,104 @@
+# 「費用を概算し、効果と限界を発注者に説明する」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/marketer-cost-benefit-explain/<id>.svg を作る。
+
+figures:
+  - id: split
+    type: split
+    alt: 費用の概算で、発注者に見せるものと、見せないもの
+    link: "と"
+    left:
+      title: 発注者に見せるもの
+      role: human
+      items:
+        - 仮定の一覧
+        - 単価の出どころと日付
+        - 初年度と運用年度の内訳
+        - 削減の幅と残る作業
+        - 感度（前提が動くとどう変わるか）
+    right:
+      title: 見せないもの
+      role: none
+      items:
+        - 前提のない合計の1行
+        - 年度の違う単価の合計
+        - 「不要になる」の言い切り
+        - 非公開の見積もりの転記
+    note: 数字より前提を見せる。前提が質問に耐えるかが、概算の信頼を決める
+
+  - id: flow
+    type: flow
+    alt: 費用の概算から説明までの流れ（7つの手順を5つにまとめた）
+    steps:
+      - title: 問いと仮定
+        text: 何と比べ、何を前提に
+        who: human
+      - title: 単価の日付
+        text: 出どころと時点を揃える
+        who: human
+      - title: 年度で積む
+        text: 初年度と運用年度
+        who: human
+      - title: 削減と残り
+        text: 事例の幅で見積もる
+        who: human
+      - title: 幅と言い換え
+        text: 不確かさと説明の文
+        who: human
+
+  - id: sources
+    type: cards
+    alt: 単価の出どころ：3種類と、それぞれに添える日付
+    columns: 3
+    items:
+      - title: 公表価格
+        text: 衛星データの1シーンの価格。公表の時点を添える。買う人で違う
+        mark: "1"
+        role: satellite
+      - title: 公表された事業費
+        text: 自治体の事業費や委託の費用。年度と範囲を添える
+        mark: "2"
+        role: human
+      - title: 事例集の年間の費用
+        text: 発行年、制度、補助金の有無、筆数を添える
+        mark: "3"
+        role: human
+
+  - id: range
+    type: range
+    alt: 環境省の試算での削減の幅
+    title: 水準測量の費用に対する削減率（5年間の合計、7県の試算）
+    unit: "%"
+    source: 環境省「地盤沈下観測等における衛星活用マニュアル」（令和8年3月改訂版）表2-4。平成28年度の単価。比率を100から引いて算出
+    items:
+      - label: 案1 支線は5年に1回
+        low: 4
+        high: 37
+      - label: 案2 支線と衛星を交互
+        low: 7
+        high: 28
+
+  - id: wording
+    type: split
+    alt: 誤解されやすい表現と、言い換え
+    link: "→"
+    left:
+      title: 誤解されやすい表現
+      role: none
+      items:
+        - 無償データなので費用はかからない
+        - 現地確認が不要になる
+        - 水準測量が不要になる
+        - 5割削減できる
+        - 精度95%なので見逃しはない
+        - 初年度から効果が出る
+    right:
+      title: 言い換え
+      role: human
+      items:
+        - データ代は0。解析と発注者の作業は残る
+        - 見回る筆を絞り込み、数%は抜き取る
+        - 幹線は毎年残し、支線の頻度を減らす
+        - 事例では約4〜37%。前提で違う
+        - 見逃しを数%と見込み、初年度に確かめる
+        - 初年度は実証。削減は2年目から
+    note: 条件を添えた言い方に変える

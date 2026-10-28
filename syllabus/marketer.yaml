@@ -134,7 +134,7 @@ parts:
       - 確かめるべき点を、仕様書の要求事項と検収の方法に直せる
     must_include: [要求事項の文例, 検収の方法を費用の小さい順に, よくある欠落]
     material: ""
-    status: todo
+    status: done
 
   - id: marketer-cost-benefit-explain
     title: 費用を概算し、効果と限界を発注者に説明する
@@ -145,7 +145,7 @@ parts:
       - 前提を置いて費用を概算し、効果と不確かさを発注者に説明できる
     must_include: [仮定の明示, 単価の出どころと日付, 現地確認の削減の見積もり, 不確かさの示し方, 誤解されやすい表現]
     material: ""
-    status: todo
+    status: done
 
   - id: marketer-cost-benefit-cases
     title: 費用と効果の演習：概算を組み立てる
