@@ -1,0 +1,118 @@
+# English use-case video. Same facts as casebook/coral-bleaching-alert.qmd; English narration & slides.
+lang: en
+voice: Ryan
+title: Daily coral bleaching alerts from free satellite data
+yt_title: "Satellite data for daily coral bleaching alerts, free from NOAA"
+series: CASEBOOK
+kicker: Use case
+number: 31
+total: 221
+thumb: Daily reef alert
+summary: NOAA's Coral Reef Watch turns satellite sea-surface temperature into a daily heat-stress alert for 95% of the world's coral reefs, on a 5 km grid, for free. We cover how the alert is built, where it fits in a reef manager's workflow, what decisions it supports, its limits as of 2026, and why the data is free but dive surveys remain. 6 minutes.
+scenes:
+  - kind: cover
+    heading: Daily coral bleaching alerts from free satellite data
+    sub: NOAA Coral Reef Watch monitors 95% of the world's reefs on a 5 km grid
+    say: Can you know every day where coral reefs are at risk of bleaching, without a research ship? Yes. The answer is to read the heat stress from satellite sea-surface temperature, and NOAA publishes it for free. Its Coral Reef Watch covers about ninety-five percent of the world's coral reefs on a five kilometre grid, updated daily. In this video, we look at who uses it, how the alert is built, where it fits in the workflow, what decisions it supports, the limits as of 2026, and what it costs.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Coverage: global. NOAA Coral Reef Watch, a US product in real operation"
+      - "Who: reef conservation authorities, and diving and tourism operators"
+      - "Why: to see early where heat stress is rising, so surveys and use limits can be prepared"
+      - "The problem: in-water sensors and dive surveys only cover a few points"
+    say: The product is global, run by the US National Oceanic and Atmospheric Administration. It is in real operation, not a trial. The users are reef conservation authorities, such as environment departments and marine park managers, and diving and tourism operators. The goal is to see early where heat stress is rising, so that surveys and use limits can be prepared in time. Until now, you only knew the temperature at the points where you had an in-water sensor or a diver. A satellite lets you watch every reef, every day, on the same scale across countries.
+
+  - kind: steps
+    heading: How the alert is built
+    items:
+      - "CoralTemp: nighttime sea-surface temperature, calibrated to 0.2 m depth"
+      - "HotSpot: how far today's temperature is above the site's hottest-month average; 1 degree is the bleaching threshold"
+      - "Degree Heating Week: adds up HotSpots of 1 degree or more over the last 12 weeks, divided by 7"
+      - "Alert level: set from HotSpot and Degree Heating Week, from No Stress up to Alert Level 5"
+    say: Here is how the daily alert is built. First, CoralTemp is a sea-surface temperature made only from nighttime satellite observations, calibrated to twenty centimetres depth, to avoid daytime solar warming and glare. Second, the HotSpot is how far today's temperature sits above that site's hottest-month average. One degree above is the bleaching threshold. Third, the Degree Heating Week adds up the HotSpots of one degree or more over the most recent twelve weeks, each divided by seven. Its unit is degree-Celsius-weeks. Finally, the alert level is set from the HotSpot and the Degree Heating Week.
+
+  - kind: table
+    heading: Heat stress and alert level
+    columns: [Degree Heating Week, Alert level and meaning]
+    widths: [0.4, 0.6]
+    rows:
+      - ["Below 4", "Warning"]
+      - ["4 to under 8", "Alert Level 1: reef-wide bleaching expected"]
+      - ["8 to under 12", "Alert Level 2: heat-sensitive corals die"]
+      - ["12 to under 20", "Alert Level 3 and 4"]
+      - ["20 or more", "Alert Level 5: most severe"]
+    say: The alert levels follow the Degree Heating Week like this. Below four is a warning. Four to under eight is Alert Level One, where reef-wide bleaching is expected. Eight to under twelve is Alert Level Two, where heat-sensitive corals start to die. Twelve to twenty covers Levels Three and Four. Twenty or more is Alert Level Five, the most severe. To smooth out day-to-day swings, the alert map is shown as the highest level reached over the most recent seven days. As a measure of scale, NOAA reported that the fourth global bleaching event, from early 2023 to mid 2025, brought bleaching-level heat stress to eighty-four percent of the world's reef area, with mass bleaching recorded in at least eighty-three countries and territories.
+
+  - kind: steps
+    heading: Where it fits in the workflow
+    items:
+      - Pick the target reef, and find its 5 km grid cell and nearest virtual station
+      - Subscribe to the free bleaching alert email and review the level each week
+      - At Alert Level 1, schedule a dive survey with people and dates
+      - From the survey, decide on use limits or moving farmed coral
+      - Compare with in-water sensors to tune next season's thresholds
+    say: Here is where it fits. It goes in before any survey or use limit is decided. First, pick the target reef, and find which five kilometre grid cell and nearest virtual station it falls in. Second, subscribe to the free bleaching alert email and review the level in a weekly meeting. Third, when the reef reaches Alert Level One, schedule a dive survey with people and dates. Fourth, from the survey results, decide on access or diving limits, moving farmed coral, and guidance for visitors. Fifth, compare the satellite value with your own in-water sensors, and tune next season's thresholds. In short, the satellite is the trigger. People decide the action.
+
+  - kind: table
+    heading: Satellite versus people
+    columns: [The satellite does, The people do]
+    widths: [0.5, 0.5]
+    rows:
+      - [Estimate daily sea-surface temperature on a 5 km grid, Send dive surveys to reefs where the alert has risen]
+      - [Compute heat stress and the alert level, Decide use limits or move farmed coral]
+      - ["", Fill in reef-interior temperature with in-water sensors]
+    say: The split of roles looks like this. The satellite estimates the daily sea-surface temperature on a five kilometre grid, and computes the heat stress and the alert level. The people send dive surveys to the reefs where the alert has risen, decide on use limits or moving farmed coral, and fill in the temperature inside the reef with their own in-water sensors. The satellite does not confirm bleaching. It tells you where, and when, to go and look.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.42, 0.58]
+    rows:
+      - ["Degree Heating Week map and time series", "Which reefs to survey, and in what order"]
+      - ["Alert level, shown as a 7-day maximum", "When to start considering use limits or guidance"]
+      - ["Per-area virtual-station gauge", "A shared indicator to brief partners by sea area"]
+      - ["Four-month bleaching outlook", "Whether to secure survey budget and staff before the season"]
+    say: Here is the data you receive and what it lets you decide. The Degree Heating Week map and time series tell you which reefs to survey, and in what order. The alert level, shown as a seven-day maximum, tells you when to start considering use limits or changed guidance. The per-area virtual-station gauge gives you a shared indicator to brief partners by sea area. And the four-month outlook tells you whether to secure survey budget and staff before the season begins. The basic pattern is two-stage. Use the alert level as the trigger to survey, and decide the limits and measures from the survey.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - The grid is 5 km; temperature differences inside a lagoon or bay do not show
+      - It measures nighttime temperature near the surface, not the water around deep corals
+      - At high latitudes with persistent cloud, accuracy drops
+      - It shows heat stress, not actual bleaching; a dive survey is still needed
+      - Disease, storm damage, and runoff are not covered
+    say: The limits are stated in NOAA's own notes. First, the grid is five kilometres, so temperature differences inside a lagoon or a bay, finer than the grid, do not appear. Second, it measures nighttime temperature near the surface, around twenty centimetres, not the water around corals growing deeper. Third, at high latitudes where clouds persist, the accuracy of the temperature anomaly drops. Fourth, it shows heat stress, which is the condition for bleaching, not whether bleaching actually happened. Confirming that still needs a dive survey. Fifth, causes other than heat, such as disease, storm damage, and runoff, are outside this product.
+
+  - kind: bullets
+    heading: What it costs
+    items:
+      - "Data: NOAA's products and alert emails are free. This use case runs on free data alone"
+      - "Analysis: none needed just to read the level; a GIS person's time if you overlay it on your own map"
+      - "Field work: dive survey labour and boat costs. These figures are not public"
+      - "Measures: lost revenue from limits, moving farmed coral, briefing partners. Not public"
+    say: Now the cost. The data is the striking part. NOAA's products and the alert emails are free, so this use case can run on free data alone. There is nothing to buy. If you only read the alert level, you need no analysis. Overlaying it on your own map, or aggregating by reef, takes a GIS person's time. The real cost sits in the field work, the labour for dive surveys and the boat. And in the measures that follow, the lost revenue from use limits, moving farmed coral, and briefing the community. Those figures are not public, because they depend on your own operation. So free data does not mean zero cost. The cost lives in the surveys and the response.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.24, 0.38, 0.38]
+    rows:
+      - [Reef location, Open-ocean reef the 5 km grid represents well, Deep inside a lagoon or bay]
+      - ["What you need", "Rising heat stress and its timing", "Actual bleaching, species, or non-heat causes"]
+      - [Capacity, Can act on an alert with surveys or limits, Want to decide from the satellite alone]
+      - [Time scale, Following the situation week by week, Changes within a single day]
+    say: Finally, where it fits. It fits an open-ocean reef that the five kilometre grid represents well, where what you need is the rising heat stress and its timing, where you can act on an alert with surveys or limits, and where you follow the situation week by week. It does not fit a reef deep inside a lagoon or bay where temperatures vary within the grid, a case where you need to know the actual bleaching, the species affected, or a non-heat cause, a team that wants to decide from the satellite alone, or a need to track changes within a single day. When you propose this, three points matter. Check the reef's position against the grid first. Never say it detects bleaching. And never call free data zero cost.
+
+  - kind: cta
+    heading: Considering it for your reefs?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source: NOAA Coral Reef Watch, Daily Global 5km Satellite Coral Bleaching Heat Stress Monitoring (v3.1) https://coralreefwatch.noaa.gov/product/5km/"
+      - "Method: NOAA Coral Reef Watch, Methodology and Product Description https://coralreefwatch.noaa.gov/product/5km/methodology.php"
+      - "Fourth global bleaching event: NOAA NESDIS (2 June 2026) https://www.nesdis.noaa.gov/news/worlds-fourth-mass-coral-bleaching-event-likely-ended-2025"
+    say: To consider this for your own reefs or client, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
