@@ -1,0 +1,90 @@
+# ユースケースの記事「林野火災の延焼を、無料の衛星データ（NASA FIRMS）で追う」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星が行う
+      items:
+        - 燃えている画素を1日数回検知する
+        - 火点の位置と時刻を3時間以内に公開する
+    right:
+      title: 人が行う
+      items:
+        - 火点を自社の地図と契約者の所在地に重ねる
+        - 延焼の方向から調査と避難の範囲を決める
+        - 焼損面積と建物の被害は画像と現地で確かめる
+    note: 火点は「どこが、いつ、熱かったか」。被害の確定は画像と現地で
+
+  - id: bar
+    type: bar
+    alt: 大船渡市の林野火災の焼損面積の推移（時点と出典が異なる値）
+    unit: ha（各時点の公表値。基準は同じではない）
+    source: 消防庁第5報（2025年2月27日）、東京海上ディーアールのコラム（3月5日時点の推定）、令和7年版防災白書（4月17日時点）
+    items:
+      - label: 2月27日15時（消防庁第5報）
+        value: 600
+        note: 以上、調査中
+      - label: 3月5日14時（コラムの推定）
+        value: 2900
+        note: 前後（推定）
+      - label: 4月17日時点（防災白書）
+        value: 3370
+        note: 前後
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 画素は375m〜1km
+        text: 建物1棟の被害は分からない
+        role: none
+      - title: 位置は画素の中心
+        text: 火の正確な場所ではない
+        role: none
+      - title: 雲、煙、樹冠の下
+        text: 林床の火の検知率はとても低い
+        role: none
+      - title: 通過時刻の間は拾えない
+        text: 中緯度で1日3〜4回の観測
+        role: none
+      - title: 焼損面積は出せない
+        text: 高分解能画像と現地で確定する
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 火点の地図を、初動の判断に入れる手順
+    steps:
+      - title: 平時に準備
+        text: 通知と取り込み
+        who: human
+      - title: 火点を重ねる
+        text: 直近24〜48時間
+        who: satellite
+      - title: 優先順位を決める
+        text: 避難と連絡の順
+        who: human
+      - title: 画像で範囲を確認
+        text: 高分解能の光学
+        who: satellite
+      - title: 現地で確定
+        text: 建物と森林の被害
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 延焼の方向
+        text: 数kmに広がる林野火災
+      - title: 立ち入れない初動
+        text: 発災から数日
+      - title: 建物1棟の被害
+        text: 画素より小さい
+      - title: 焼損面積の確定
+        text: 火点からは出せない

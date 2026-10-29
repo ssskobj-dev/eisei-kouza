@@ -1,0 +1,93 @@
+# ユースケースの記事「流氷の分布を毎日17時に速報する、海上保安庁の衛星データ活用事例」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星が行う
+      items:
+        - 広い範囲の海氷の分布を毎日とらえる
+        - 雲の下の海面をSARで補う
+    right:
+      title: 人が行う
+      items:
+        - 航空機、巡視船、沿岸の目視で確かめる
+        - 写らない氷を照合し、速報を17時ごろに出す
+        - 出航するか、どの航路を取るかを決める
+    note: 速報は観測の統合。出航の可否は、現場で照合して決める
+
+  - id: bar
+    type: bar
+    alt: 2025〜26年の冬に、センターが受け取った衛星の情報の件数
+    unit: 件（2025年12月19日〜2026年4月21日）
+    source: 第一管区海上保安本部「海氷情報センターの閉所について」（2026年4月22日）
+    items:
+      - label: しずく（JAXA）
+        value: 496
+      - label: Suomi NPP・JPSS-1
+        value: 292
+      - label: しきさい（JAXA）
+        value: 248
+      - label: だいち2号（JAXA）
+        value: 48
+      - label: AQUA（東海大学）
+        value: 46
+      - label: 気象庁の海氷解析図
+        value: 33
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 光学は雲で見えない
+        text: 雲の日は航空機の観測で補う
+        role: none
+      - title: SARは週3〜4回
+        text: 毎日の衛星とは役割が違う
+        role: none
+      - title: 写らない氷がある
+        text: 種類や大きさにより目視と照合
+        role: none
+      - title: 更新は1日1回
+        text: 数時間単位の動きは追えない
+        role: none
+      - title: 厚さや強度は不明
+        text: 分かるのは分布と密接度
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 前日夕方の速報を、翌日の運航の判断に入れる手順
+    steps:
+      - title: 速報を見る
+        text: 17時すぎ、警報も
+        who: satellite
+      - title: 航路と重ねる
+        text: 氷縁の距離、密接度
+        who: human
+      - title: 出航の案を決める
+        text: 自社の基準で
+        who: human
+      - title: 翌朝に照合
+        text: 目視と沿岸カメラ
+        who: human
+      - title: 記録して直す
+        text: 来季の基準
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 前日に決める運航
+        text: 翌日の案を作る
+      - title: 沿岸の広い分布
+        text: 氷縁と密接度
+      - title: 数時間単位の動き
+        text: 更新は1日1回
+      - title: 氷の厚さや強度
+        text: 速報では分からない

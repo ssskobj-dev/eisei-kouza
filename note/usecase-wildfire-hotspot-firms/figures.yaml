@@ -1,0 +1,46 @@
+# note記事「林野火災の延焼を、無料の衛星データ（NASA FIRMS）で追う」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 林業・カーボン
+    title: 林野火災の延焼を衛星の火点で追う
+    sub: 大船渡市3,370haの火点の地図と、その限界
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星が行う
+      items:
+        - 燃えている画素を1日数回検知する
+        - 火点の位置と時刻を3時間以内に公開する
+    right:
+      title: 人が行う
+      items:
+        - 火点を自社の地図と契約者の所在地に重ねる
+        - 延焼の方向から調査と避難の範囲を決める
+        - 焼損面積と建物の被害は画像と現地で確かめる
+    note: 火点は「どこが、いつ、熱かったか」。被害の確定は画像と現地で
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 画素は375m〜1km
+        text: 建物1棟の被害は分からない
+        role: none
+      - title: 位置は画素の中心
+        text: 火の正確な場所ではない
+        role: none
+      - title: 雲、煙、樹冠の下
+        text: 林床の火の検知率はとても低い
+        role: none
+      - title: 通過時刻の間は拾えない
+        text: 中緯度で1日3〜4回の観測
+        role: none
+      - title: 焼損面積は出せない
+        text: 高分解能画像と現地で確定する
+        role: none

@@ -609,6 +609,7 @@ usecases:
   verified: true
 - 'no': 31
   name: サンゴ白化の熱ストレス警報
+  slug: coral-bleaching-alert
   theme: 環境・水
   field: 生物多様性
   stage: 商用
@@ -628,6 +629,7 @@ usecases:
   verified: true
 - 'no': 32
   name: 流氷の分布の毎日の速報
+  slug: ryuhyo-daily-bulletin
   theme: 生活・文化・その他
   field: 観光・レジャー
   stage: 商用
@@ -667,6 +669,7 @@ usecases:
   verified: true
 - 'no': 34
   name: 林野火災の火点と延焼の把握
+  slug: wildfire-hotspot-firms
   theme: 林業・カーボン
   field: 林業
   stage: 商用
