@@ -1,0 +1,99 @@
+# 「導入の段取りを組む：小さく試し、併用し、本格運用へ」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/marketer-adoption-path/<id>.svg を作る。
+
+figures:
+  - id: flow
+    type: flow
+    alt: 導入の段取り：段階の見極めから本格運用の条件まで
+    steps:
+      - title: 段階を確かめる
+        text: 国の資料と手順書の有無
+        who: human
+      - title: 小さく試す
+        text: 対象の一部、1〜2年、成功の条件
+        who: human
+      - title: 併用の型を選ぶ
+        text: 減らす作業と続ける作業
+        who: human
+      - title: 財源と比較
+        text: 交付金、地方財政措置、他の手段
+        who: human
+      - title: 本格運用の条件
+        text: 実証の前に文で書く
+        who: human
+
+  - id: types
+    type: cards
+    alt: 併用の5つの型
+    columns: 3
+    items:
+      - title: 頻度を減らす型
+        text: 幹線は毎年、支線は5年に1回、衛星は毎年（環境省）
+        mark: "1"
+        role: satellite
+      - title: 交互型
+        text: 支線の測量と衛星を隔年で交互に（環境省）
+        mark: "2"
+        role: satellite
+      - title: 絞り込み型
+        text: 衛星で候補を絞り、判定は人が行う（農林水産省、川崎市）
+        mark: "3"
+        role: human
+      - title: 平時の蓄積型
+        text: 重要な箇所の画像を平時に取得し、災害時に比べる（内閣府）
+        mark: "4"
+        role: satellite
+      - title: 制度横断型
+        text: 複数の制度の現地確認を1つの解析で（農林水産省）
+        mark: "5"
+        role: human
+      - title: 共通の決まり
+        text: 精度検証に要る手段（測量、抜き取り）は減らさない
+        mark: "※"
+        role: none
+
+  - id: funding
+    type: cards
+    alt: 財源の当たり先：公的な資料で確かめられる4つ
+    columns: 2
+    items:
+      - title: 制度の交付金
+        text: 推進交付金で外部委託（農林水産省の事例集、2026年8月）
+        mark: "1"
+        role: human
+      - title: 地方財政措置
+        text: DX技術を使った点検・調査の委託経費（国土交通省、上下水道）
+        mark: "2"
+        role: human
+      - title: 国の実証事業と政府調達
+        text: 活用拡大期間、小型SAR衛星の実証、アンカーテナンシー
+        mark: "3"
+        role: human
+      - title: 一般財源の委託
+        text: 検討の年度を経て通常の委託に（川崎市の仕様書）
+        mark: "4"
+        role: human
+
+  - id: gate
+    type: split
+    alt: 実証の後の分かれ道：先に文で書く3つ
+    link: "⇄"
+    left:
+      title: 本格運用に進む条件
+      role: human
+      items:
+        - 成功の条件（精度の指標、一致率）を満たした
+        - 削減を実測した（人日、筆数、費用）
+        - 残る作業を数えた
+        - 手順書か実施要領に根拠がある
+        - 財源の年度が続く
+        - 関係者の合意がある
+    right:
+      title: 試し直す・止める条件
+      role: none
+      items:
+        - 精度の指標を満たさない
+        - 削減がほとんど出ない
+        - 財源が単年度で終わる
+        - 観測できない期間が長い
+    note: どちらも、実証を始める前に文で書く

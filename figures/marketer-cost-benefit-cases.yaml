@@ -1,0 +1,63 @@
+# 「費用と効果の演習：概算を組み立てる」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/marketer-cost-benefit-cases/<id>.svg を作る。
+
+figures:
+  - id: flow
+    type: flow
+    alt: 概算の5つの手順
+    steps:
+      - title: 条件を読む
+        text: 対象、現状の費用、衛星
+        who: human
+      - title: 前提を書く
+        text: 仮定：で始まる8項目
+        who: human
+      - title: 費用を積む
+        text: 初年度と運用年度に分けて
+        who: human
+      - title: 削減と残る作業
+        text: 事例の幅で見積もる
+        who: human
+      - title: 感度を書く
+        text: 1つ動かして2つ並べる
+        who: human
+
+  - id: saving
+    type: bar
+    alt: 環境省の試算での、1年あたりの削減額（メニュー案1、7県）
+    title: 水準測量に干渉SARを併用した場合の削減額（1年あたり、7県）
+    unit: 百万円/年
+    source: 環境省「地盤沈下観測等における衛星活用マニュアル」（令和8年3月改訂版）表2-4。平成22〜26年度の5年間の合計を1年あたりにした値。平成28年度の単価
+    items:
+      - label: A県 305km²
+        value: 0.2
+      - label: B県 598km²
+        value: 3
+      - label: C県 315km²
+        value: 5
+      - label: D県 2,844km²
+        value: 10
+      - label: E県 3,208km²
+        value: 14
+      - label: F県 1,020km²
+        value: 18
+      - label: G県 308km²
+        value: 24
+
+  - id: sensitive
+    type: cards
+    alt: 3つの演習で最も効いた前提
+    columns: 3
+    items:
+      - title: 地盤沈下
+        text: 現状の費用の大きさと、解析の人件費。現状が小さい県では削減が出ない
+        mark: "1"
+        role: human
+      - title: 遊休農地
+        text: 判定しにくい筆の割合と、初年度の実証。1年目の削減はゼロ
+        mark: "2"
+        role: human
+      - title: 道路
+        text: 比べる相手の頻度と、単価の買い手。頻度で結論が逆になる
+        mark: "3"
+        role: human
