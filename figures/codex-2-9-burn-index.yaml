@@ -1,0 +1,45 @@
+# 「焼け跡の指数：火災の前後の差を段階に分ける」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-2-9-burn-index/<id>.svg を作る。
+# 出典：USGS Landsat NBR、Key & Benson 2006（FIREMON）、UN-SPIDER NBR。
+
+figures:
+  - id: dnbr
+    type: flow
+    alt: 焼け跡の指数と、前後の差の向き
+    steps:
+      - title: 火災前の指数
+        text: 森は正の大きな値
+        who: satellite
+      - title: 火災後の指数
+        text: 焼けた場所は下がる
+        who: satellite
+      - title: 前から後を引く
+        text: 焼けた場所が正の大きな値
+        who: satellite
+      - title: 段階に分ける
+        text: 区切りの出どころを書く
+        who: human
+      - title: 記録と照らす
+        text: 発表の日付と速報か確定か
+        who: human
+
+  - id: confusions
+    type: split
+    alt: 焼け跡に見えてしまうものと、焼け跡が見えない条件
+    link: ⇔
+    left:
+      title: 焼け跡に見えてしまうもの
+      role: none
+      items:
+        - 刈り取った畑
+        - 水位や波が変わった水面
+        - 後の画像の煙と雲の縁
+        - 伐採や造成で土が出た場所
+    right:
+      title: 焼け跡が見えない条件
+      role: none
+      items:
+        - 雲と煙の下
+        - 前後で季節が違う
+        - 前後で衛星や段階が違う
+        - 時間がたち草が生えた
