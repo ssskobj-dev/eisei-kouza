@@ -128,7 +128,7 @@ parts:
       - 前後の指数の差を計算し、引き算の向きと段階の区切りの出どころを確かめられる
     must_include: [近赤外と短波長赤外, 引き算の向き, 段階の区切りの出どころ, 刈り取りと水面の誤検出, 公的な記録との照合]
     material: ""
-    status: todo
+    status: done
 
   - id: codex-2-10-change-detection
     title: 前後の比較：同じ季節の2時期から変化を拾う
@@ -137,7 +137,7 @@ parts:
       - 季節と条件をそろえた2枚から差を出し、位置合わせと雲のない画素の扱いを確かめられる
     must_include: [季節と条件をそろえる, 位置合わせ, 両方で雲のない画素だけ, 雲の縁の「変化」, 作物の変化と造成の取り違え]
     material: ""
-    status: todo
+    status: done
 
   - id: codex-2-11-time-series
     title: 時系列で見る：1年分の指数の推移をグラフにする

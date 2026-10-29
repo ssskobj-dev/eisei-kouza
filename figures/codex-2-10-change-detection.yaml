@@ -1,0 +1,43 @@
+# 「前後の比較：同じ季節の2時期から変化を拾う」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-2-10-change-detection/<id>.svg を作る。
+# 位置の仕様の出典：ESA Sentinel-2 Collection 1 L1C（5m）、USGS Landsat Collection 2 Level-1（12m）。
+
+figures:
+  - id: conditions
+    type: cards
+    alt: 2枚の画像でそろえる4つの条件
+    columns: 4
+    items:
+      - title: 季節
+        text: 同じ月か前後数週間。葉と土の湿り
+        role: human
+      - title: 衛星と段階
+        text: 同じ衛星、同じ段階、同じ区画
+        role: human
+      - title: 位置
+        text: ずれの仕様は数m。道路の縁で確かめる
+        role: satellite
+      - title: 雲と影
+        text: 前と後の両方で晴れの画素だけ
+        role: satellite
+
+  - id: confusions
+    type: split
+    alt: 変化に見えてしまうものと、本当の変化が埋もれる条件
+    link: ⇔
+    left:
+      title: 変化に見えてしまうもの
+      role: none
+      items:
+        - 季節の違い（落葉、刈り取り）
+        - 位置のずれによる縁の細い線
+        - 片方の画像の雲と雲の縁
+        - 入射角の違いによる屋根のずれ
+    right:
+      title: 本当の変化が埋もれる条件
+      role: none
+      items:
+        - 基準が高すぎる
+        - 雲で両方とも見えない
+        - 画素より小さい変化
+        - 絶対値で増減が混ざる

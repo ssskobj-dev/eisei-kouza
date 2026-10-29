@@ -1061,3 +1061,95 @@
   publisher: 農研機構 農村工学研究部門
   url: https://www.naro.go.jp/project/results/4th_laboratory/nire/2019/sentinel-2.html
   tags: [水田, 湛水, MNDWI, Sentinel, 精度, 解析教材]
+
+# ---- 解析教材：焼け跡の指数、前後の比較（2026-10-30 追記） ----
+
+- id: usgs-landsat-nbr
+  title: Landsat Normalized Burn Ratio（NBR＝（近赤外−短波赤外）÷（近赤外＋短波赤外）。Landsat 8-9はBand 5とBand 7、Landsat 4-7はBand 4とBand 7。製品の値は−10,000〜10,000で倍率0.0001）
+  publisher: 米国地質調査所（USGS）
+  url: https://www.usgs.gov/landsat-missions/landsat-normalized-burn-ratio
+  tags: [基礎, Landsat, 火災, NBR, 解析教材]
+
+- id: usgs-landsat-nbr2
+  title: Landsat Normalized Burn Ratio 2（NBR2＝（短波赤外1−短波赤外2）÷（短波赤外1＋短波赤外2）。Landsat 8-9はBand 6とBand 7。植物の水分への感度を強め、火災後の回復の研究に使える）
+  publisher: 米国地質調査所（USGS）
+  url: https://www.usgs.gov/landsat-missions/landsat-normalized-burn-ratio-2
+  tags: [基礎, Landsat, 火災, NBR, 解析教材]
+
+- id: key-benson-2006-firemon-la
+  title: Landscape Assessment：Ground measure of severity, the Composite Burn Index; and Remote sensing of severity, the Normalized Burn Ratio（FIREMON、RMRS-GTR-164-CD。NBR＝（R4−R7）÷（R4＋R7）。火災の前から後へ近赤外は下がり短波赤外は上がる。dNBR＝火災前のNBR−火災後のNBR。前後の画像は水分と季節の状態をそろえ、撮影の時期が最大の落とし穴になりうる。鎮火直後の評価と次の生育期の評価は別）（2006年）
+  publisher: Key, C. H.、Benson, N. C.（米国農務省森林局）
+  url: https://pubs.usgs.gov/publication/2002085
+  tags: [基礎, 火災, NBR, 比べる条件, 解析教材]
+
+- id: unspider-nbr
+  title: Normalized Burn Ratio (NBR)（Knowledge Portal。火災前と後のNBRの差でdNBR。値が大きいほど被害が重い。USGSが段階の分類表を提案。dNBRの値は場所ごとに変わり、可能なら現地の調査で確かめる。負の値は火災後の植物の増加、焼けていない場所は0の近く）
+  publisher: UN-SPIDER（国連宇宙部）
+  url: https://un-spider.org/node/10959
+  tags: [基礎, 火災, NBR, 基準の値, 解析教材]
+
+- id: unspider-burn-severity-github
+  title: burn-severity（GitHub。Sentinel-2ではB8AとB12でNBR＝（B8A−B12）÷（B8A＋B12）。dNBR＝火災前のNBR−火災後のNBR。段階はUSGSの区切りで分ける）
+  publisher: UN-SPIDER（国連宇宙部）
+  url: https://github.com/UN-SPIDER/burn-severity
+  tags: [基礎, 火災, NBR, Sentinel, 解析教材]
+
+- id: humboldt-gsp216-nbr
+  title: Normalized Burn Ratio（GSP 216 Introduction to Remote Sensing。USGS FireMonの表：dNBRが−0.25未満は火災後の増加（高）、−0.25〜−0.1は増加（低）、−0.1〜0.1は焼けていない、0.1〜0.27は軽度、0.27〜0.44は中程度の低、0.44〜0.66は中程度の高、0.66より大きい値は重度。最初の目安として使う）
+  publisher: Humboldt State University
+  url: https://gsp.humboldt.edu/olm/Courses/GSP_216/lessons/Spectral-Enhancements/NBR.html
+  tags: [基礎, 火災, NBR, 基準の値, 解析教材]
+
+- id: usgs-eros-sentinel2
+  title: USGS EROS Archive - Sentinel-2（帯の表：Band 4は665nm・10m、Band 8は842nm・幅115nm・10m、Band 8Aは865nm・幅20nm・20m、Band 11は1610nm・20m、Band 12は2190nm・20m）
+  publisher: 米国地質調査所（USGS）EROS
+  url: https://www.usgs.gov/centers/eros/science/usgs-eros-archive-sentinel-2
+  tags: [基礎, Sentinel, 波長帯, 解析教材]
+
+- id: usgs-eros-sentinel2-landsat-comparison
+  title: Comparison of Sentinel-2 and Landsat（Sentinel-2AのLevel-1CはLandsat 8と同程度の幾何の精度。絶対の位置の誤差は地上基準点なしで20m、ありで12.5m（2σ）。別の日の画像どうしのずれは地形の補正を含めて0.3画素（2σ））
+  publisher: 米国地質調査所（USGS）EROS
+  url: https://www.usgs.gov/centers/eros/science/usgs-eros-archive-sentinel-2-comparison-sentinel-2-and-landsat
+  tags: [基礎, Sentinel, Landsat, 位置, 解析教材]
+
+- id: rinya-yamakaji-status
+  title: 林野火災の発生状況（令和5年は1,299件・844ha、令和6年は831件・1,073ha。令和2〜6年の平均は年約1,167件・約752ha。長期には減少傾向だが令和7年の岩手県大船渡市のような大規模な火災も発生）
+  publisher: 林野庁
+  url: https://www.rinya.maff.go.jp/j/hogo/yamakaji/con_1.htm
+  tags: [火災, 災害, 統計, 解析教材]
+
+- id: fdma-hakusho-r7-yamakaji
+  title: 令和7年版 消防白書 第1章第4節（令和7年2月の岩手県大船渡市の林野火災は焼損面積約3,370ha。令和7年の数値は速報値で今後変更の可能性がある。令和6年の林野火災は831件・1,073ha）
+  publisher: 消防庁
+  url: https://www.fdma.go.jp/publication/hakusho/r7/chapter1/section4/para1/69303.html
+  tags: [火災, 災害, 統計, 解析教材]
+
+- id: rinya-ofunato-6
+  title: 岩手県大船渡市の林野火災に起因する農林水産関係の被害状況（第6報）（令和7年3月7日12時現在。焼損面積は2,900ha（6時現在）。鎮火後に上空からの現地調査を行えるよう調整）
+  publisher: 林野庁
+  url: https://www.rinya.maff.go.jp/j/hogo/yamakaji/attach/pdf/iwateoofunato-6.pdf
+  tags: [火災, 災害, 速報, 解析教材]
+
+- id: esa-s2-collection1-l1c
+  title: Copernicus Sentinel-2 Collection 1 MSI Level-1C (L1C)（Sentinel Online。絶対の位置の誤差は12m未満、別の日の画像どうしの位置のずれは5m未満（いずれも95.5%）、帯どうしのずれは0.3画素未満（99.7%）。区画は100km四方でUTM/WGS84。1機の回帰は10日、2機で5日）
+  publisher: ESA
+  url: https://sentinels.copernicus.eu/sentinel-data-access/sentinel-products/sentinel-2-data-products/collection-1-level-1c
+  tags: [基礎, Sentinel, 位置, 解析教材]
+
+- id: usgs-landsat-c2-level1
+  title: Landsat Collection 2 Level-1 Data（Tier 1は画像どうしのずれが12m以下（二乗平均平方根）で時系列の解析に向く。Tier 2は幾何の仕様を満たさない。L1TPは地上基準点と標高のデータで補正）
+  publisher: 米国地質調査所（USGS）
+  url: https://www.usgs.gov/landsat-missions/landsat-collection-2-level-1-data
+  tags: [基礎, Landsat, 位置, 解析教材]
+
+- id: usgs-landsat-c2-qa-bands
+  title: Landsat Collection 2 Quality Assessment Bands（Landsat 8-9のQA_PIXEL：ビット1が雲を広げた範囲、ビット3が雲、ビット4が雲の影、ビット5が雪、ビット7が水。ビット6の「晴れ」は雲と広げた範囲の両方が無いときだけ立つ）
+  publisher: 米国地質調査所（USGS）
+  url: https://www.usgs.gov/Landsat-missions/Landsat-collection-2-quality-assessment-bands
+  tags: [基礎, Landsat, 雲, 解析教材]
+
+- id: gsi-noguchi-2025-satellite-basemap
+  title: 衛星画像を活用した効率的な電子国土基本図の整備・更新（第44回測量技術講演会・関西G空間フォーラム2025。中分解能の衛星画像の検証でテストデータは季節変化の影響を考慮して選定。適合率は74.8、75.8、46.4。入射角の違いにより屋根の位置が異なり誤抽出）（2025年10月9日）
+  publisher: 国土地理院（野口真弓）
+  url: https://www.gsi.go.jp/common/000273389.pdf
+  tags: [変化検出, 建物検出, 自治体, 位置, 解析教材]
