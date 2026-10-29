@@ -1,0 +1,91 @@
+# ユースケースの記事「サンゴ白化の熱ストレス警報を、無料の衛星データで毎日受け取る」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 海面水温を毎日5km格子で推定する
+        - 熱ストレスの積算値と警報の段階を出す
+    right:
+      title: 人が行う
+      items:
+        - 警報の上がった礁に潜水調査を出す
+        - 利用制限や養殖サンゴの移動を決める
+        - 礁の中の水温を水温計で補う
+    note: 衛星が出すのは熱ストレス。白化したかは潜水調査で確かめる
+
+  - id: levels
+    type: scale
+    alt: 熱ストレスの積算値と警報の段階（NOAAの基準）
+    left: ストレス小
+    right: ストレス大
+    items:
+      - title: 警戒
+        text: DHW 4未満
+      - title: 警報レベル1
+        text: 4以上8未満、礁全体の白化
+      - title: 警報レベル2
+        text: 8以上12未満、弱い種の死亡
+      - title: レベル3〜4
+        text: 12以上20未満、複数種の死亡
+      - title: レベル5
+        text: 20以上、8割超の死亡
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 格子は5km
+        text: 礁池や湾の中の水温差は出ない
+        role: none
+      - title: 夜間の水深0.2m相当
+        text: 深い場所の水温は分からない
+        role: none
+      - title: 高緯度は精度が落ちる
+        text: 雲が多い海域は偏差の信頼性が低い
+        role: none
+      - title: 分かるのは熱ストレス
+        text: 白化の有無は潜水調査で確かめる
+        role: none
+      - title: 熱以外の原因は対象外
+        text: 病気、台風、濁りは別の手段で
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 警報を、調査と利用制限の判断につなぐ手順
+    steps:
+      - title: 格子と観測点を決める
+        text: 対象の礁
+        who: human
+      - title: 警報を受信
+        text: 毎週、段階を確認
+        who: satellite
+      - title: 調査を手配
+        text: 警報レベル1で
+        who: human
+      - title: 制限や移動を決める
+        text: 調査の結果で
+        who: human
+      - title: 水温計と照合
+        text: 来季の基準を直す
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 外洋に面した広い礁
+        text: 5km格子で代表できる
+      - title: 調査を出せる体制
+        text: 警報を引き金にできる
+      - title: 礁池や湾の中の礁
+        text: 格子の中の水温差が大きい
+      - title: 熱以外の原因
+        text: 病気や濁りは分からない

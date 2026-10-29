@@ -1,0 +1,46 @@
+# note記事「サンゴ白化の熱ストレス警報を、無料の衛星データで毎日受け取る」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 環境・水
+    title: サンゴ白化の警報を無料で毎日
+    sub: 世界の礁の95%を5km格子で監視。限界も
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 海面水温を毎日5km格子で推定する
+        - 熱ストレスの積算値と警報の段階を出す
+    right:
+      title: 人が行う
+      items:
+        - 警報の上がった礁に潜水調査を出す
+        - 利用制限や養殖サンゴの移動を決める
+        - 礁の中の水温を水温計で補う
+    note: 衛星が出すのは熱ストレス。白化したかは潜水調査で確かめる
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 格子は5km
+        text: 礁池や湾の中の水温差は出ない
+        role: none
+      - title: 夜間の水深0.2m相当
+        text: 深い場所の水温は分からない
+        role: none
+      - title: 高緯度は精度が落ちる
+        text: 雲が多い海域は偏差の信頼性が低い
+        role: none
+      - title: 分かるのは熱ストレス
+        text: 白化の有無は潜水調査で確かめる
+        role: none
+      - title: 熱以外の原因は対象外
+        text: 病気、台風、濁りは別の手段で
+        role: none

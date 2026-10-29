@@ -1,0 +1,44 @@
+# note記事「流氷の分布を毎日17時に速報する、海上保安庁の衛星データ活用事例」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 生活・文化・その他
+    title: 流氷の分布を毎日17時に速報
+    sub: 海上保安庁の仕組みと、写らない氷の限界
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星が行う
+      items:
+        - 広い範囲の海氷の分布を毎日とらえる
+        - 雲の下の海面をSARで補う
+    right:
+      title: 人が行う
+      items:
+        - 航空機、巡視船、沿岸の目視で確かめる
+        - 写らない氷を照合し、速報を17時ごろに出す
+        - 出航するか、どの航路を取るかを決める
+    note: 速報は観測の統合。出航の可否は、現場で照合して決める
+
+  - id: fig-2
+    type: bar
+    alt: 2025〜26年の冬に、センターが受け取った衛星の情報の件数
+    unit: 件（2025年12月19日〜2026年4月21日）
+    source: 第一管区海上保安本部「海氷情報センターの閉所について」（2026年4月22日）
+    items:
+      - label: しずく（JAXA）
+        value: 496
+      - label: Suomi NPP・JPSS-1
+        value: 292
+      - label: しきさい（JAXA）
+        value: 248
+      - label: だいち2号（JAXA）
+        value: 48
+      - label: AQUA（東海大学）
+        value: 46
+      - label: 気象庁の海氷解析図
+        value: 33
