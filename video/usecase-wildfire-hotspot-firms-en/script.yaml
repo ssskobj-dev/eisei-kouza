@@ -1,0 +1,96 @@
+# English use-case video. Same facts as casebook/wildfire-hotspot-firms.qmd; English narration & slides.
+lang: en
+title: Tracking wildfire spread with free NASA satellite data
+series: CASEBOOK
+kicker: Use case
+number: 34
+total: 221
+voice: Ryan
+thumb: Free fire maps
+summary: How free NASA satellite fire detections (FIRMS) were used to follow a wildfire you cannot enter. A 3,370-hectare forest fire in Japan, what the data lets you decide in the first days, how far the free data goes, and its limits as of 2026. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: Tracking wildfire spread with free NASA satellite data
+    sub: Following a fire you cannot enter, using heat detected from orbit
+    say: When a wildfire spreads, many people need to know where it is going at once, but no one can walk into a burning mountain. There is a free answer. NASA publishes the heat that satellites detect, as fire points, within three hours, for the whole world. In a 2025 forest fire in Japan, an insurance-group research firm used these free fire points in the first days. In this video, we look at who uses it, where it fits, what it lets you decide, how far the free data goes, and its limits.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Country: Japan. Ofunato City, Iwate Prefecture. Forest fire, February 2025"
+      - "Who: local governments, fire services, and insurers' survey teams"
+      - "Why: to read the direction and rough extent of a fire no one can enter"
+      - "The data: NASA FIRMS, free fire points from satellite heat sensors"
+    say: The case is set in Ofunato City, in Iwate Prefecture, Japan, during a large forest fire in February 2025. The people who need the information are local governments deciding on evacuation, fire services placing crews, insurers checking where policyholders are, and the staff who watch for landslides afterwards. The mountain is on fire and cannot be entered, and smoke blocks the view from helicopters. So they turn to NASA's FIRMS, which turns satellite heat observations into free fire points.
+
+  - kind: steps
+    heading: How FIRMS works
+    items:
+      - A satellite's thermal sensor flags pixels that are burning, a few times a day
+      - NASA publishes the fire points, with time and confidence, within about 3 hours
+      - You receive them as a map and a file, or as an email alert for your area
+      - You overlay the points on your own map to read the spread
+    say: Here is how FIRMS works. A satellite's thermal infrared sensor picks out the pixels that are burning, a few times a day. NASA's Fire Information for Resource Management System publishes those fire points, with the observation time and a confidence level, within about three hours, for the whole world. You receive them as a map and a data file, or as an email alert for a region you have registered. Then you overlay the points on your own map to read where the fire is heading. FIRMS is not a trial. NASA has run it operationally since 2012.
+
+  - kind: table
+    heading: The 2025 Ofunato forest fire
+    columns: [Item, Figure]
+    widths: [0.5, 0.5]
+    rows:
+      - [Burned area (as of Apr 17), "About 3,370 ha. Largest in Japan in the Heisei era onward"]
+      - [Houses destroyed, "54 fully, 33 partly (as of Apr 15). 1 death"]
+      - [Evacuation, "Up to 12 shelters, about 1,249 people"]
+      - [FIRMS used, "A research firm's column (Mar 6) showed the FIRMS map as the spread as of Mar 5, 14:00"]
+    say: Here are the key figures. The burned area reached about three thousand three hundred seventy hectares as of April seventeenth, the largest forest fire in Japan from the Heisei era onward. Fifty-four houses were fully destroyed and thirty-three partly, as of April fifteenth, and one person died. Up to twelve shelters held about one thousand two hundred forty-nine people. During the fire, on March sixth, the research firm Tokio Marine dR published a column that showed NASA's FIRMS map as the spread range as of March fifth, two in the afternoon. At that point it estimated about two thousand nine hundred hectares, at least eighty-four buildings burned, and evacuation orders to one thousand eight hundred ninety-six households, four thousand five hundred ninety-six people. A daily maximum instantaneous wind of eighteen point one metres per second, cedar and cypress plantations, and steep slopes were noted as factors that spread the fire.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.44, 0.56]
+    rows:
+      - ["Fire-point map, with time and confidence", "Direction of spread; where to evacuate or survey"]
+      - ["24h / 48h / 7-day summaries", "Daily record of spread; figures for reports"]
+      - ["Email alert for your region", "The trigger to start the first response"]
+      - ["High-resolution imagery (bought later)", "The confirmed burned extent, as later evidence"]
+    say: Here is what you receive and what it lets you decide. The fire-point map, with the observation time and confidence, lets you read the direction of spread and set the range to evacuate or survey, and the order in which to contact people. The twenty-four hour, forty-eight hour, and seven-day summaries give the daily record of the spread and the figures for reports. An email alert for a region you registered is the trigger to start the first response. And high-resolution imagery, bought separately later, confirms the burned extent. Note the split clearly. The free fire points guide the first days. The confirmed extent and damage come from imagery and the field.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - "Fire pixels are 375 m to 1 km: VIIRS is 375 m, MODIS is 1 km. One building cannot be seen"
+      - The point is the pixel centre, not the exact fire, and can be off by kilometres
+      - Clouds, thick smoke, and the forest canopy hide fire. Fires between passes are missed
+      - Burned area cannot be derived from fire points; NASA asks you not to
+    say: The limits are stated plainly in NASA's own documents. First, a fire pixel is three hundred seventy-five metres to one kilometre across. VIIRS is three hundred seventy-five metres, MODIS is one kilometre. A single building cannot be seen. Second, the point is the centre of the pixel, not the exact spot of the fire. The error is usually under a hundred metres, but can reach several kilometres after a satellite changes its attitude. Third, clouds, thick smoke, and the canopy hide fire, and a polar-orbit satellite observes only three or four times a day at mid-latitudes, so a fire that starts and ends between passes is missed. Fourth, reflective metal roofs, deserts, gas flares, and volcanoes can appear as false fire points. And finally, burned area cannot be derived from fire points. NASA asks you not to, because of the gaps in observation. The confirmed area needs high-resolution imagery or a field survey.
+
+  - kind: bullets
+    heading: What it costs
+    items:
+      - The fire points are free. NASA-led earth-observation data is released as CC0, no rights reserved
+      - The first response can run on free data alone, with no imagery purchase
+      - "Remaining costs: map ingestion, imagery bought later, field survey — not public"
+      - "Assumption: set up the map and alert once in advance, and the data cost at a fire is zero"
+    say: Now the cost. The fire points are free. NASA-led earth-observation data is released as CC zero, with no rights reserved, so the first response can run on the free data alone, with no imagery to buy. What still costs money is ingesting the points into your own map, any high-resolution imagery you buy later to confirm the extent, and the field survey. The amounts for those are not publicly disclosed, so we do not put a price on them. As an assumption, if an insurer sets up the map overlay and the email alert once, in advance, then at the time of a fire the data cost is zero, and the cost sits in that preparation and the staff time. One more note for 2026. Delivery of new Suomi NPP data ends on November second, twenty twenty-six, so if you rely on it, move to another satellite and check your ingestion settings.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.24, 0.38, 0.38]
+    rows:
+      - [Fire size, Wildfire spreading over kilometres, A single building or small burn]
+      - [What you need, Direction and rough extent, Per-building damage or final area]
+      - [Timing, "The first days, when you cannot enter", "After the fire, to confirm damage"]
+      - [Team, Someone who overlays and judges, Looking at the map and stopping there]
+    say: Finally, where it fits. It fits a wildfire spreading over kilometres, when you need the direction and rough extent in the first days and cannot enter the area, and when you have someone who overlays the points on a map and acts. It does not fit a single-building fire, a case where you need per-building damage or the final burned area, or the period after the fire when damage is confirmed. When you propose this, three points matter. Ask first whether policyholder or facility locations are already on the map. Never say the satellite shows the damage. And set the rule, how many kilometres a fire point must be within to act, with the pixel size and position error in mind.
+
+  - kind: cta
+    heading: Considering it for your region?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Case: Tokio Marine dR, column on the Ofunato forest fire (6 Mar 2025) https://www.tokio-dr.jp/publication/column/182.html"
+      - "Damage figures: Cabinet Office, White Paper on Disaster Management 2025 https://www.bousai.go.jp/kaigirep/hakusho/r07/honbun/1b_3s_03_01.html"
+      - "FIRMS & specs: NASA Earthdata, Active Fire Data Attributes https://www.earthdata.nasa.gov/data/tools/firms/active-fire-data-attributes-modis-viirs"
+      - "Data policy: NASA Earthdata, Data Use Policy https://www.earthdata.nasa.gov/earth-observation-data/data-use-policy"
+    say: To consider this for your own region, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
