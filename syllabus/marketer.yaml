@@ -179,4 +179,4 @@ parts:
       - 顧客の状況から、提案の骨子（課題、入れる工程、試す範囲、費用、効果、限界）を1枚で書ける
     must_include: [骨子の型, 3つの状況での例, 避ける表現]
     material: ""
-    status: todo
+    status: done

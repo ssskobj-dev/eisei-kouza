@@ -1,0 +1,124 @@
+# 「可変施肥：生育ムラを追肥に反映する」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/agri-variable-fertilizer/<id>.svg を作る。
+
+figures:
+  - id: conclusion
+    type: split
+    alt: 衛星に任せられることと、人と農機が行うことの分担
+    link: ＋
+    left:
+      title: 衛星に任せられる
+      items:
+        - 圃場の中と間の、生育の濃い薄いを地図にする
+        - 前年までのムラの傾向を見る
+        - 晴れた日ごとに更新する
+    right:
+      title: 人と農機が行う
+      items:
+        - ムラの原因を見分ける
+        - 基準の量と、増減の幅を決める
+        - マップを農機に入れて撒く
+        - 散布後に画像と収量で確かめる
+    note: 衛星が出すのはムラの地図。施肥量を決めるのも撒くのも、人と農機
+
+  - id: strengths
+    type: cards
+    alt: この用途で効く2つの強み
+    columns: 2
+    items:
+      - title: 見えないものが見える
+        text: 葉の反射から、圃場の中のムラが地図になる
+      - title: 広く見られる
+        text: 地域の全圃場を、同じ基準で比べられる
+
+  - id: limits
+    type: cards
+    alt: 現在の技術的な5つの限界
+    columns: 2
+    items:
+      - title: 施肥量は衛星からは出ない
+        text: 基準の量と増減の幅は、人が決める
+        role: none
+      - title: 対応農機がないと撒けない
+        text: マップを読める農機か、委託先が要る
+        role: none
+      - title: 撮影日と作業日がずれる
+        text: 晴れた日だけ撮れ、配信に数日かかる
+        role: none
+      - title: 筆の中の細かいムラは苦手
+        text: 1画素は10m四方。数mの違いは見えない
+        role: none
+      - title: 効果は年と圃場で違う
+        text: 試験は数圃場、数年。年で増収の幅が変わる
+        role: none
+
+  - id: timeline
+    type: flow
+    alt: 撮影から散布までの時間の流れ
+    steps:
+      - title: 晴れた日に撮る
+        text: 雲や雪の日は撮れない
+        who: satellite
+      - title: 配信される
+        text: 翌日から数日後
+        who: satellite
+      - title: マップを作る
+        text: 農機の形式に変換
+        who: human
+      - title: 適期に撒く
+        text: 日数が適期に収まるか
+        who: human
+
+  - id: flow
+    type: flow
+    alt: 可変施肥の5つの手順と、誰が行うか
+    steps:
+      - title: 前年のマップ
+        text: ムラが毎年同じか
+        who: satellite
+      - title: 原因を見分ける
+        text: 地力か、水や病害虫か
+        who: human
+      - title: 量と幅を決める
+        text: 基準は慣行、幅は小さく
+        who: human
+      - title: 農機に入れて撒く
+        text: 持たなければ委託
+        who: human
+      - title: 散布後に確かめる
+        text: 画像と収量で
+        who: satellite
+
+  - id: cost
+    type: cards
+    alt: 費用を分けて考える3つの項目
+    columns: 3
+    items:
+      - title: データと配信
+        text: 無償の衛星を自分で扱うか、事業者の配信を使うか
+        mark: A
+      - title: 対応農機
+        text: 持つか、委託するか。買うなら何年で割るか
+        mark: B
+        role: human
+      - title: 作成と設定の時間
+        text: ソフトの選定、形式の変換、現地の確認
+        mark: C
+        role: human
+
+  - id: fit
+    type: scale
+    alt: 圃場と農機の条件と、衛星の可変施肥の向き不向き
+    left: 向いている
+    right: 向いていない
+    items:
+      - title: 毎年同じムラ、大区画、農機あり
+        text: 前年のマップで試せる
+      - title: 農機はないが委託できる
+        text: 散布を頼む
+      - title: 筆が小さい
+        text: 数mの違いは見えない
+      - title: 適期に晴れない
+        text: 当年の画像が間に合わない
+      - title: ムラが毎年変わる
+        text: 地力ではない原因

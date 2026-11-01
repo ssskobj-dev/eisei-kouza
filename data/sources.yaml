@@ -1197,3 +1197,15 @@
   publisher: ESA
   url: https://sentiwiki.copernicus.eu/web/s1-mission
   tags: [基礎, Sentinel, SAR, 偏波, ノイズ, 解析教材]
+
+- id: naro-tohoku-yield-map-vrt-2017
+  title: 水田輪作体系乾田直播栽培における収量マップを利用した基肥可変施肥の増収効果（普及成果情報。施肥マップを実行ファイルに変換し可変施肥対応ブロードキャスタへ、GNSSと連動、増収7〜17%、追加費用3,440円/10a・2016年）（2017年度）
+  publisher: 農研機構 東北農業研究センター
+  url: https://www.naro.go.jp/org/tarc/seika/jyouhou/H29/sakumotsu/H29sakumotsu012.pdf
+  tags: [可変施肥, 水稲, 農機連携, 費用対効果]
+
+- id: naro-isobus-catalog
+  title: スマート農業を促進する制御通信の国際標準に対応した農業機械（アジアモンスーン地域農林水産技術カタログ。ISOBUS、国産の汎用ECUが2022年4月から市販）
+  publisher: 農研機構
+  url: https://www.jircas.go.jp/sites/default/files/greenasia/J25_NARO_techcatalog_v4.0.pdf
+  tags: [可変施肥, 農機連携, ISOBUS]
