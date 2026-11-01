@@ -146,7 +146,7 @@ parts:
       - 区画ごとに指数の推移を出し、雲の日の除去と欠けた日の扱いを確かめられる
     must_include: [雲の日を除く, 欠けた日を線でつながない, 区画の境目の画素, 作物の暦との照合, 1日だけの飛び値]
     material: ""
-    status: todo
+    status: done
 
   # ---------- 第3部 レーダーの解析（2級 D） ----------
   - id: codex-3-12-radar-brightness
@@ -156,7 +156,7 @@ parts:
       - 値の単位と偏波を確かめ、ノイズをならして、土地の種類ごとの明るさを比べられる
     must_include: [真値と対数を混ぜない, 平均は真値でとる, 偏波の選択, 水面と市街地, 斜面の明るい側と暗い側]
     material: ""
-    status: todo
+    status: done
 
   - id: codex-3-13-flood-mapping
     title: 前後の比較で浸水を見る：候補の範囲と面積

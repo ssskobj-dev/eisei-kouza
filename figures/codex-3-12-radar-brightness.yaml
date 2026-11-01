@@ -1,0 +1,43 @@
+# 「レーダー画像の明るさの意味：ノイズをならして土地の種類で比べる」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-3-12-radar-brightness/<id>.svg を作る。
+# 出典：NASA Earthdata「SAR Image Interpretation」、NASA SERVIR「SAR & Google Earth Engine」、ASF「Sentinel-1 RTC Product Guide」。
+
+figures:
+  - id: factors
+    type: cards
+    alt: レーダー画像の明るさを決める4つのこと
+    columns: 2
+    items:
+      - title: 面の滑らかさ
+        text: 静かな水面は暗く、ざらつくと明るい
+        role: satellite
+      - title: 角
+        text: 壁と地面の角が衛星に返し、明るい点
+        role: satellite
+      - title: 偏波
+        text: 値が違う。森はVHが、面と角はVVが強い
+        role: satellite
+      - title: 斜面の向き
+        text: 衛星に向く側は明るく、反対側は暗い
+        role: none
+
+  - id: dark-bright
+    type: split
+    alt: 暗く写るものと明るく写るもの
+    link: ⇔
+    left:
+      title: 暗く写るもの
+      role: none
+      items:
+        - 静かな水面
+        - 滑らかな舗装、乾いた裸地
+        - 斜面の衛星と反対の側（影）
+        - ノイズを引いて0にした画素
+    right:
+      title: 明るく写るもの
+      role: satellite
+      items:
+        - 建物の角（市街地）
+        - 風で波立った水面
+        - 濡れたざらついた面
+        - 斜面の衛星に向いた側

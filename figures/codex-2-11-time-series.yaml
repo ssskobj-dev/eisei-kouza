@@ -1,0 +1,42 @@
+# 「時系列で見る：1年分の指数の推移をグラフにする」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-2-11-time-series/<id>.svg を作る。
+# 画素の大きさの出典：ESA S2 Mission（SentiWiki、B4とB8は10m）。筆ポリゴン：農林水産省。
+
+figures:
+  - id: flow
+    type: flow
+    alt: 時系列のグラフを作る5つの手順
+    steps:
+      - title: 区画を決める
+        text: 筆の形。境目を外す
+        who: human
+      - title: 雲と影を除く
+        text: 日ごとに分類で除く
+        who: satellite
+      - title: 筆の中で平均
+        text: 残った画素の数も出す
+        who: satellite
+      - title: 点だけで並べる
+        text: 空白はつながない
+        who: satellite
+      - title: 暦と照らす
+        text: 山と谷の時期を見る
+        who: human
+
+  - id: traps
+    type: cards
+    alt: 時系列のグラフで、生育に見えてしまうもの
+    columns: 2
+    items:
+      - title: 1日だけの飛び値
+        text: 拾えなかった雲か影。前後の点と比べる
+        role: none
+      - title: 直線でつないだ形
+        text: 空白の中の田植えが、なだらかな線に化ける
+        role: none
+      - title: 境目の画素
+        text: 畦道が混ざり、小さい筆ほど山が低い
+        role: none
+      - title: 別の衛星の点
+        text: 帯と画素が違い、段差が出る
+        role: none
