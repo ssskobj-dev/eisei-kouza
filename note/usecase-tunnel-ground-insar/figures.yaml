@@ -1,0 +1,47 @@
+# note記事「トンネル工事周辺の地盤変位を、衛星データの干渉SARで面的に追う」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: インフラ・建設
+    title: トンネル工事の地盤を面で追う
+    sub: 衛星の干渉SARと測量を併用。ミリ単位の条件と限界
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 沿線の地表の動きを面で求める
+        - 変動の範囲と時系列を出す
+        - 緊急時に現地へ行かず変動の有無を見る
+    right:
+      title: 人が行う
+      items:
+        - 水準測量とGNSSで絶対量を測る
+        - 衛星の結果を地上の値で確かめる
+        - 計測点の追加と施工の見直しを決める
+    note: ミリ単位の精度は、地上測量との組み合わせが前提
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: ミリ単位は併用が前提
+        text: 水準測量との較差の標準偏差0.5cmが目安
+        role: none
+      - title: 画像を多数ためる
+        text: 各軌道4シーン、合計8シーンが基本
+        role: none
+      - title: 植生と雨で精度が落ちる
+        text: 同じ季節を組み、降雨日は外す
+        role: none
+      - title: 速い動きは読みにくい
+        text: 変動の最中と短い期間は不正確
+        role: none
+      - title: 地下の原因は分からない
+        text: 測るのは地表の動きだけ
+        role: none
