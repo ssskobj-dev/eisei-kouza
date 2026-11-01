@@ -1,0 +1,76 @@
+# ユースケースの記事「自治体の緑被率調査に、衛星データと空中写真をどう使い分けるか」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と自動分類が行う
+      items:
+        - 広い範囲を同じ条件で撮る
+        - 植生の指標で緑を自動で抜き出す
+        - 同じ手法で経年の変化を追う
+    right:
+      title: 人が行う
+      items:
+        - 樹林と草地を分ける
+        - 影や屋根の誤分類を直す
+        - 前回と比べられるかを判断する
+        - 重点地区と保全する樹林地を決める
+    note: 分解能で拾える緑の大きさが決まる。無償の10m級では庭木や生垣は拾えない
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 分解能で拾える緑が決まる
+        text: 生垣なら1m²、大きな樹木なら10m²が目安
+        role: none
+      - title: 季節で緑の量が変わる
+        text: 5〜10月の画像が必要。落葉期は不適
+        role: none
+      - title: 樹林と草地を分けにくい
+        text: 自動分類は目視の補完が要る
+        role: none
+      - title: 手法を変えると比べられない
+        text: 定義、単位、画像、判読方法
+        role: none
+      - title: 緑の質や高さは分からない
+        text: 緑被率は平面の量
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 計画の改定に合わせた調査の手順
+    steps:
+      - title: 前回の仕様
+        text: 定義と最小単位
+        who: human
+      - title: レベルを選ぶ
+        text: 目的と予算で
+        who: human
+      - title: 自動で抽出
+        text: 夏の画像で
+        who: satellite
+      - title: 目視で補正
+        text: 精度を確かめる
+        who: human
+      - title: 地区別に集計
+        text: 重点地区を決める
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の自動分類が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 広い市域を初めて測る
+        text: 同じ条件で一度に撮れる
+      - title: 同じ手法で続ける
+        text: 経年の変化を追える
+      - title: 市街地の庭木や生垣
+        text: 高分解能が要る
+      - title: 前回値と厳密に比べる
+        text: 単位が違えば比べられない

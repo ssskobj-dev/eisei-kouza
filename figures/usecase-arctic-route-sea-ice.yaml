@@ -1,0 +1,71 @@
+# ユースケースの記事「北極海航路の開通時期を、衛星データの海氷分布から読む」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の観測が行う
+      items:
+        - 海氷の分布を広く毎日捉える
+        - 航路ごとの開通の見通しを出す
+    right:
+      title: 人が行う
+      items:
+        - 北極経由かスエズ経由かを決める
+        - 出航の時期と船を決める
+        - 航行許可と砕氷支援を確かめる
+    note: 見通しは週の単位で幅がある。2019年は「8月中旬」の見通しに対し8月20日に開通
+
+  - id: limits
+    type: cards
+    alt: この使い方の4つの限界
+    columns: 2
+    items:
+      - title: 見通しには幅がある
+        text: 開通日は週の単位、面積は1割程度ずれる
+        role: none
+      - title: 放射計の格子は粗い
+        text: 海氷密接度の標準は概略15km
+        role: none
+      - title: 航行の可否は氷況だけで決まらない
+        text: 許可、船の氷海船級、砕氷支援の要否
+        role: none
+      - title: 厚さと流動は画像だけで読みにくい
+        text: 海域ごとの読み取りに知識が要る
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 春の見通しから、出航の判断までの手順
+    steps:
+      - title: 見通しを受信
+        text: 6〜7月の発表
+        who: satellite
+      - title: 候補を仮置き
+        text: 戻す期限も決める
+        who: human
+      - title: 許可と支援
+        text: 船級と海域で確認
+        who: human
+      - title: 最新の分布
+        text: 出航の直前に判断
+        who: satellite
+      - title: 氷況の更新
+        text: 航海中の迂回や待機
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の見通しが効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 夏に繰り返す荷物
+        text: 時期をずらせる
+      - title: 週の幅を許せる計画
+        text: 期限を決めて待てる
+      - title: 到着日が固定の荷物
+        text: 1日単位の当てにならない
+      - title: 氷海船級のない船
+        text: 許可と氷況の制約が大きい

@@ -689,6 +689,7 @@ usecases:
   verified: true
 - 'no': 35
   name: 北極海航路の開通時期の予測
+  slug: arctic-route-sea-ice
   theme: 水産・海洋
   field: 海洋・船舶
   stage: 商用
@@ -708,6 +709,7 @@ usecases:
   verified: true
 - 'no': 36
   name: トンネル工事周辺の地表面変位監視
+  slug: tunnel-ground-insar
   theme: インフラ・建設
   field: 建設・土木
   stage: 商用
@@ -727,6 +729,7 @@ usecases:
   verified: true
 - 'no': 37
   name: 緑被率の調査（緑の基本計画）
+  slug: green-cover-survey
   theme: 都市・行政
   field: 都市・不動産
   stage: 商用
