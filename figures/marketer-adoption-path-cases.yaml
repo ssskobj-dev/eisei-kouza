@@ -1,0 +1,82 @@
+# 「提案の組み立ての演習：1枚の提案骨子を書く」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/marketer-adoption-path-cases/<id>.svg を作る。
+
+figures:
+  - id: flow
+    type: flow
+    alt: 骨子を書く5つの手順
+    steps:
+      - title: 状況を3行で
+        text: 誰が、何に困り、何を続けるか
+        who: human
+      - title: 段階を確かめる
+        text: 手順書、実施要領、取組方針
+        who: human
+      - title: 6つの枠を埋める
+        text: 各枠2〜5行、合計1枚
+        who: human
+      - title: 表現を言い換える
+        text: 避ける8つと照らす
+        who: human
+      - title: 出どころを添える
+        text: 資料名、年度、条件
+        who: human
+
+  - id: frames
+    type: cards
+    alt: 骨子の6つの枠
+    columns: 3
+    items:
+      - title: 課題
+        text: 顧客の言葉と数字。何に困り、何を続けるか
+        mark: "1"
+        role: human
+      - title: 入れる工程
+        text: 流れのどこに入れるか。代わりではなく、間に
+        mark: "2"
+        role: human
+      - title: 試す範囲
+        text: 一部、期間、比べる相手、成功の条件、記録する数字
+        mark: "3"
+        role: human
+      - title: 費用
+        text: 初年度と運用年度。出どころと年度。見積もりは記号
+        mark: "4"
+        role: human
+      - title: 効果
+        text: 減る作業を数で、幅で、境目で。時間と予算を分ける
+        mark: "5"
+        role: human
+      - title: 限界
+        text: 向かない対象、観測できない期間、続ける手段、進む条件
+        mark: "6"
+        role: none
+
+  - id: rewrite
+    type: split
+    alt: 避ける表現と、言い換え
+    link: →
+    left:
+      title: 避ける表現
+      role: none
+      items:
+        - 効率化できます
+        - 精度は〇mmです
+        - 実証の結果を踏まえて判断
+        - 国の支援を活用します
+        - 災害時にも即時に使えます
+        - 点検や測量を置き換えます
+        - 実績多数
+        - 相場は年〇万円程度
+    right:
+      title: 言い換え
+      items:
+        - 減らす作業と続ける作業を数で
+        - 条件つきの精度と、満たす年の扱い
+        - 本格運用に進む条件を実証の前に
+        - 制度名、年度、条件
+        - 平時の定期監視から。緊急は別途
+        - 見に行く順番を決める材料
+        - 手順書と実施要領の段階
+        - 出典・年度・条件つき。見積もりは記号
+    note: 数字に出どころを、減らすものに続けるものを、判断に条件を

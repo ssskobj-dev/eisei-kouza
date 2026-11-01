@@ -30,7 +30,7 @@ parts:
       - 可変施肥に必要な機械とデータの条件を挙げられる
     must_include: [施肥マップ, 対応農機, 撮影時期と作業時期のずれ]
     material: ""
-    status: todo
+    status: done
 
   - id: agri-harvest-order
     title: 収穫適期：刈り取りの順番を決める
