@@ -1,0 +1,118 @@
+# 「収穫適期：刈り取りの順番を決める」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/agri-harvest-order/<id>.svg を作る。
+
+figures:
+  - id: conclusion
+    type: split
+    alt: 衛星に任せられることと、人が行うことの分担
+    link: ＋
+    left:
+      title: 衛星に任せられる
+      items:
+        - 管内の全圃場を、同じ日に見る
+        - 成熟の早い遅いで、圃場を並べる
+        - 穂水分やタンパクの目安を出す
+    right:
+      title: 人が行う
+      items:
+        - 早い群と遅い群から、数筆を実測する
+        - 乾燥施設の能力と照らし、順番を決める
+        - 倒伏や病害の圃場を、並びから外す
+    note: 成熟期マップは「水分計の代わり」ではなく「実測する圃場と順番を決める道具」
+
+  - id: strengths
+    type: cards
+    alt: この用途で効く2つの強み
+    columns: 2
+    items:
+      - title: 広く見られる
+        text: 管内の全圃場が同じ日の1枚に入り、同じ物差しで並べられる
+      - title: 見えないものが見える
+        text: 稲や麦の色の変化から、成熟期の早い遅いを圃場ごとに出せる
+
+  - id: limits
+    type: cards
+    alt: 現在の技術的な5つの限界
+    columns: 2
+    items:
+      - title: 雲があると欠測になる
+        text: 晴れた日の画像しか使えない。年により遅れる
+        role: none
+      - title: 色の変化であって水分ではない
+        text: 籾水分そのものの推定は難しい。基準圃場が要る
+        role: none
+      - title: 小さい圃場は欠測か精度が落ちる
+        text: 20a未満は欠測の場合がある
+        role: none
+      - title: 倒伏、病害、雑草で誤差が増える
+        text: 画像は稲と雑草を区別できない
+        role: none
+      - title: 画像の時期が決まっている
+        text: 刈り取り直前に撮り直す使い方ではない
+        role: none
+
+  - id: signal
+    type: cards
+    alt: 衛星が出す値と、現場が知りたい値の対応
+    columns: 3
+    items:
+      - title: 成熟期の早い遅い
+        text: 色の変化から読み替えやすい。並びに使う
+      - title: 穂水分、青味籾
+        text: 基準圃場の実測との関係式が要る
+        role: human
+      - title: 籾水分の値
+        text: NDVIからの推定は難しい
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 収穫順を決める5つの手順
+    steps:
+      - title: 早い順に並べる
+        text: 欠測は別に書き出す
+        who: satellite
+      - title: 仮の順番
+        text: 施設の能力と照らす
+        who: human
+      - title: 数筆を実測
+        text: 穂水分、青味籾
+        who: human
+      - title: 並びを直す
+        text: 実測とのずれの分
+        who: human
+      - title: 農家に伝える
+        text: 倒伏や病害は外す
+        who: human
+
+  - id: cost
+    type: cards
+    alt: 費用を分けて考える3つの項目
+    columns: 3
+    items:
+      - title: データと配信
+        text: 県の仕組みか、無償の衛星か、事業者の配信か
+        mark: A
+      - title: 実測
+        text: 基準の圃場で穂水分や青味籾を測る手間
+        mark: B
+        role: human
+      - title: 乾燥と出荷の調整
+        text: 順番を施設の計画に落とす作業は残る
+        mark: C
+        role: human
+
+  - id: fit
+    type: scale
+    alt: 圃場と作物の条件と、衛星の成熟期マップが使える度合い
+    left: 使いやすい
+    right: 使いにくい
+    items:
+      - title: 大きな圃場、多い筆数
+        text: 県や産地の仕組みがある
+      - title: 中くらいの圃場
+        text: 実測の記録で照合する
+      - title: 小さな田、倒伏や雑草
+        text: 欠測と誤差が増える
+      - title: 収穫期に雲が多い
+        text: マップが出ない年がある
