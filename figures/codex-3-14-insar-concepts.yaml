@@ -1,0 +1,31 @@
+# 「干渉SARの考え方：公開された結果の縞と信頼できる場所」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-3-14-insar-concepts/<id>.svg を作る。
+# 出典：国土地理院「干渉SARのQ&A Q3・Q4」、ESA「InSAR Principles（TM-19）」、COMET「LiCSAR File Structure and Products Details」。
+
+figures:
+  - id: sightline
+    type: sightline
+    alt: 干渉SARが測れる向き
+    note: 測れるのは、衛星に近づく動きと遠ざかる動きだけ。南北の動きは捉えにくく、斜面の横の動きも視線方向に混ざる
+
+  - id: reliable
+    type: split
+    alt: 信頼できる場所と、できない場所
+    link: ⇔
+    left:
+      title: 信頼できる場所
+      role: satellite
+      items:
+        - むき出しの岩盤
+        - 古い市街地と建物
+        - 舗装と構造物
+        - 干渉性の高い画素
+    right:
+      title: 信頼できない場所
+      role: none
+      items:
+        - 森林（Cバンドは枝葉で変わる）
+        - 川、湖、海の水面
+        - 耕作地、積雪地、造成地
+        - 影とレイオーバーで欠けた画素
+        - 大域的にぼんやりした色の変化

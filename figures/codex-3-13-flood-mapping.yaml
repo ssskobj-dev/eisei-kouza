@@ -1,0 +1,45 @@
+# 「前後の比較で浸水を見る：候補の範囲と面積」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-3-13-flood-mapping/<id>.svg を作る。
+# 出典：国土交通省・JAXA「災害時の人工衛星活用ガイドブック 水害版・浸水編」、UN-SPIDER「Recommended Practice: Flood Mapping」、Copernicus EMS「GFM Product Definition Document」、NASA Earthdata「SAR Image Interpretation」。
+
+figures:
+  - id: flow
+    type: flow
+    alt: 前後の比較で浸水の候補を出す5つの手順
+    steps:
+      - title: 同じ軌道の2枚
+        text: 番号と向きをそろえる
+        who: human
+      - title: 真値に直す
+        text: 較正し、ならす
+        who: satellite
+      - title: 後÷前で候補
+        text: 暗くなった場所
+        who: satellite
+      - title: 除外
+        text: 普段の水面と斜面
+        who: satellite
+      - title: 面積と確認
+        text: 知っている場所、現地
+        who: human
+
+  - id: miss-confuse
+    type: split
+    alt: 抜けるものと、紛れるもの
+    link: ⇔
+    left:
+      title: 浸水なのに抜ける
+      role: none
+      items:
+        - 市街地（角で明るく返す）
+        - 木の下の浸水
+        - 風で波立った浸水面
+        - 50m四方より小さい浸水
+    right:
+      title: 浸水でないのに紛れる
+      role: none
+      items:
+        - 普段の湖と川（風で変わる）
+        - 田植えの時期の水田
+        - 斜面の影とレイオーバー
+        - 軌道の向きが違う斜面と建物

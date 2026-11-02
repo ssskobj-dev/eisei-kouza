@@ -165,7 +165,7 @@ parts:
       - 災害の前後の画像から浸水の候補を出し、軌道の向き、比と差の使い分け、除外の条件を確かめられる
     must_include: [同じ向きの軌道, 比と差の使い分け, 普段から水のある場所と傾斜地を除く, 基準の根拠, 市街地が抜けることの読み方]
     material: ""
-    status: todo
+    status: done
 
   - id: codex-3-14-insar-concepts
     title: 干渉SARの考え方：公開された結果の縞と信頼できる場所
@@ -174,7 +174,7 @@ parts:
       - 公開されている干渉の結果を開き、縞の読み方と信頼度の低い画素の除き方を確かめられる
     must_include: [自前で処理を書かせない, 信頼度の低い画素を除く, 森林と水面の乱れ, 近づくと遠ざかるの向き]
     material: ""
-    status: todo
+    status: done
 
   - id: codex-3-15-displacement-series
     title: 変位の時系列の読み方：速度と1点の推移

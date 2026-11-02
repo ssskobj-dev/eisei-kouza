@@ -1193,7 +1193,7 @@
   tags: [基礎, Sentinel, SAR, 倍率, 地形の補正, 解析教材]
 
 - id: sentiwiki-s1-mission-nesz
-  title: S1 Mission（SentiWiki。陸上の主なモードはIWでVV+VH。IWは幅250km、分解能5m×20m（単一ルック）、入射角29.1〜46.0度。ノイズと同じ大きさの明るさ（NESZ）は−22dB以下。放射の精度は1.0dB（3σ）、安定性は0.5dB（3σ）。中心周波数5.405GHz、波長およそ5.55cm。1機で12日、2機で6日の回帰）
+  title: S1 Mission（SentiWiki。陸上の主なモードはIWでVV+VH。IWは幅250km、分解能5m×20m（単一ルック）、入射角29.1〜46.0度。ノイズと同じ大きさの明るさ（NESZ）は−22dB以下。放射の精度は1.0dB（3σ）、安定性は0.5dB（3σ）。中心周波数5.405GHz、波長およそ5.55cm。高度693kmの太陽同期軌道、12日の繰り返しで1機で1周期175本の軌道。干渉のため位置と向きと時刻の同期を正確に保ち、基準の軌道を直径120m（RMS）の筒に保つ。2機は180°離れ、1機で12日、2機で6日の回帰）
   publisher: ESA
   url: https://sentiwiki.copernicus.eu/web/s1-mission
   tags: [基礎, Sentinel, SAR, 偏波, ノイズ, 解析教材]
@@ -1209,6 +1209,38 @@
   publisher: 農研機構
   url: https://www.jircas.go.jp/sites/default/files/greenasia/J25_NARO_techcatalog_v4.0.pdf
   tags: [可変施肥, 農機連携, ISOBUS]
+
+# ---- 解析教材：浸水の前後比較、干渉SARの考え方（2026-11-03 追記） ----
+
+- id: unspider-gee-flood-mapping-step-by-step
+  title: "Step-by-Step: Recommended Practice: Flood Mapping and Damage Assessment Using Sentinel-1 SAR Data in Google Earth Engine（前後の画像は同じ軌道の向き（昇交か降交）でそろえる。VHが浸水の抽出に広く勧められ、VVは開いた水面の縁に向く。災害後を災害前で割り1.25を基準にする（試行錯誤で選んだ値）。年に10か月より長く水のある場所（JRCの地表水、30m）と傾斜5%超（HydroSHEDS）を除く。孤立した小さな画素を除く。画素ごとの面積を投影を考えて計算しhaに直す。市街地の被害はかなり過小に見積もられる）"
+  publisher: UN-SPIDER（国連宇宙局）
+  url: https://un-spider.org/advisory-support/recommended-practices/recommended-practice-google-earth-engine-flood-mapping/step-by-step
+  tags: [災害, 浸水, SAR, Sentinel, 変化検出, 基準の値, 解析教材]
+
+- id: cems-gfm-pdd-v4-2025
+  title: Global Flood Monitoring (GFM) Product Definition Document（Issue 1、Version 4.0、2025年10月14日。Sentinel-1のIW GRDHのVVだけを使い出力は20m。3つの方法の組み合わせ。変化の検出では同じ軌道の前の重なる画像（およそ6日前）と比べる。出力は浸水の範囲、水面の範囲、普段の水面（過去5年）、除外の印、確からしさ、注意の印など10層。除外の印は都市と密な植生（感度が無い）、水に見える場所（HAND）、地形のゆがみ、影、観測の少ない場所。都市の浸水の検出はおそらくできない。注意の印は風で荒れた水面、雪、乾いた土など。傾斜は0〜18度で水らしさを下げる。代替の基準は−18、−19、−17dB）
+  publisher: Copernicus Emergency Management Service（EODC公開wiki）
+  url: https://extwiki.eodc.eu/gfm_assets/gfm_pdd_v4_0.pdf
+  tags: [災害, 浸水, SAR, Sentinel, 除外, 基準の値, 解析教材]
+
+- id: esa-tm19-insar-principles-2007
+  title: "InSAR Principles: Guidelines for SAR Interferometry Processing and Interpretation（ESA TM-19、2007年。Part A。視線方向に2.8cmの動きで位相が2π変わる（ERS、Cバンド）。干渉性（コヒーレンス）は2枚の画像の相関で0（ノイズ）〜1。水面と密な植生は数ミリ秒で散らばりが変わり、岩と市街地は何年も安定。測れるのは視線方向だけ。アンラップは一意に解けない。大気の影響は数百m〜数kmの滑らかな広がり。DEMで地形の寄与を引く）"
+  publisher: ESA
+  url: https://www.esa.int/About_Us/ESA_Publications/InSAR_Principles_Guidelines_for_SAR_Interferometry_Processing_and_Interpretation_br_ESA_TM-19
+  tags: [基礎, 干渉SAR, 原理, 干渉性, 解析教材]
+
+- id: comet-licsar-products
+  title: LiCSAR File Structure and Products Details（Sentinel-1の自動処理の結果。1周期175本の軌道ごとのフォルダ。枠の名前に軌道の番号と向き（A/D）。折り返した位相はラジアンで−3.14〜3.14。解いた位相はラジアン。干渉性は0〜255の整数。視線の向きの東・北・上の成分。地形の寄与は1秒角のSRTMで除去済み。5×20のマルチルックでおよそ100m×100mの画素。解いた位相の0は干渉性が低く除いた画素の印）
+  publisher: COMET（英国の地震・火山・地殻変動の観測センター、リーズ大学）
+  url: https://comet.nerc.ac.uk/comet-lics-portal-product-details/
+  tags: [干渉SAR, Sentinel, 公開データ, 干渉性, 単位, 解析教材]
+
+- id: gsi-sar-faq-top
+  title: 干渉SARのQ&A（2回の観測を干渉させて差をとり、波の山と谷の数を数えて移動量が分かる。計測できるのは衛星と地表を結ぶ視線方向の1次元。原理的にmmの桁まで可能だが一般には数cm程度の精度。だいち2号はLバンドで波長約24cm、Xバンドは約3cm、Cバンドは約6cm）
+  publisher: 国土地理院
+  url: https://www.gsi.go.jp/uchusokuchi/sar_faq.html
+  tags: [干渉SAR, 原理, 観測方向, 精度, 解析教材]
 
 - id: aomori-harvest-navi-r6
   title: あおもり米収穫支援システム「はれナビ」「まっしナビ」の使い方（令和6年度 普及に移す研究成果。成熟期の推定誤差は平均2.7日・2.5日、従来法は5.8日・7.2日。雲で覆われた圃場と20a未満の圃場は欠測の場合あり。雑草・病害虫・欠株・倒伏で誤差大）
