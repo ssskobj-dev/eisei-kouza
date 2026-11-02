@@ -1,0 +1,48 @@
+# note記事「地震の隆起と海岸線の変化を衛星データで面的に測る」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 防災
+    title: 地震の隆起と陸化を、現地に入る前に面で測る
+    sub: 能登半島地震、だいち2号で約4mの隆起と幅約200mの陸化
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 地震の前後の画像を比べ、陸化した場所を抜き出す
+        - 面的な隆起と水平の動きを推定する
+        - 現地に入れない段階で全体像を示す
+    right:
+      title: 人が行う
+      items:
+        - 現地測量で隆起量を確かめる
+        - 基準点の成果を改定する
+        - 漁港の段差と航路の埋そくを確かめる
+        - 復旧の調査の順番を決める
+    note: 能登では衛星の約4mの隆起に対し、現地測量は4.10m。結果は速報で更新されうる
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 地震前の画像が要る
+        text: 同じ軌道とモードで撮った画像と比べる
+        role: none
+      - title: 結果は速報
+        text: 詳細な分析で後から更新される
+        role: none
+      - title: 大気と電離層の誤差
+        text: 数cm〜時に数十cmが乗る
+        role: none
+      - title: 大きな動きは干渉しにくい
+        text: 画像のずれから求める解析で補う
+        role: none
+      - title: 港が使えるかは分からない
+        text: 段差と水深は現地で測る
+        role: none
