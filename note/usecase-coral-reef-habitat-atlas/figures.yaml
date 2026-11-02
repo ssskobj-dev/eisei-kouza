@@ -1,0 +1,46 @@
+# note記事「海洋保護区の候補を、無料の衛星データ地図で絞る」の見出し画像と図。
+figures:
+- id: thumbnail
+  type: thumbnail
+  kind: usecase
+  tag: 環境・水
+  title: サンゴ礁の分布を、潜る前に無料の衛星地図で把握する
+  sub: Allen Coral Atlas、水深10mまで、精度は60〜90%
+- id: fig-1
+  type: split
+  alt: 衛星に任せることと、人が行うこと
+  link: ＋
+  left:
+    title: 衛星と解析が行う
+    items:
+    - 浅い海の底質を5mの画素で6つに分ける
+    - 礁の地形を区分する
+    - 世界の海域を同じ方法で比べられるようにする
+  right:
+    title: 人が行う
+    items:
+    - 地域の検証データで精度を確かめる
+    - 潜水調査の地点を選ぶ
+    - サンゴの健康と種を現地で調べる
+    - 保護区の境界を決める
+  note: 地図は無償。精度は地域で60〜90%と幅があり、現地の検証は省けない
+- id: fig-2
+  type: cards
+  alt: この使い方の5つの限界
+  columns: 2
+  items:
+  - title: 水深10mまで
+    text: 底質は10m、地形は15mまで
+    role: none
+  - title: 精度は60〜90%
+    text: 地域で違う。20〜67%の検証例も
+    role: none
+  - title: サンゴと藻類は同じ区分
+    text: 健康や種は分からない
+    role: none
+  - title: 濁った海は対象外
+    text: 緯度30度より極側も対象外
+    role: none
+  - title: 画像は2018〜2020年
+    text: その後の白化や台風は未反映
+    role: none

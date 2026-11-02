@@ -749,6 +749,7 @@ usecases:
   verified: true
 - 'no': 38
   name: 地震による隆起と海岸線変化
+  slug: noto-uplift-coastline
   theme: 防災
   field: 防災・災害対応
   stage: 商用
@@ -768,6 +769,7 @@ usecases:
   verified: true
 - 'no': 39
   name: サンゴ礁の底質と地形の地図
+  slug: coral-reef-habitat-atlas
   theme: 環境・水
   field: 生物多様性
   stage: 商用
@@ -787,6 +789,7 @@ usecases:
   verified: true
 - 'no': 40
   name: 5G基地局の置局設計用3D地図
+  slug: telecom-5g-3d-map
   theme: 生活・文化・その他
   field: 通信・モビリティ
   stage: 商用

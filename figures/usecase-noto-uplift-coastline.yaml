@@ -1,0 +1,76 @@
+# ユースケースの記事「地震の隆起と海岸線の変化を衛星データで面的に測る」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 地震の前後の画像を比べ、陸化した場所を抜き出す
+        - 面的な隆起と水平の動きを推定する
+        - 現地に入れない段階で全体像を示す
+    right:
+      title: 人が行う
+      items:
+        - 現地測量で隆起量を確かめる
+        - 基準点の成果を改定する
+        - 漁港の段差と航路の埋そくを確かめる
+        - 復旧の調査の順番を決める
+    note: 能登では衛星の約4mの隆起に対し、現地測量は4.10m。結果は速報で更新されうる
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 地震前の画像が要る
+        text: 同じ軌道とモードで撮った画像と比べる
+        role: none
+      - title: 結果は速報
+        text: 詳細な分析で後から更新される
+        role: none
+      - title: 大気と電離層の誤差
+        text: 数cm〜時に数十cmが乗る
+        role: none
+      - title: 大きな動きは干渉しにくい
+        text: 画像のずれから求める解析で補う
+        role: none
+      - title: 港が使えるかは分からない
+        text: 段差と水深は現地で測る
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 地震直後の調査の順番を決める手順
+    steps:
+      - title: 公開結果を使う
+        text: 変動分布と陸化域
+        who: satellite
+      - title: 漁港を重ねる
+        text: 隆起と陸化の区間
+        who: human
+      - title: 調査の順番
+        text: 隆起量と漁船の数で
+        who: human
+      - title: 現地で測る
+        text: 段差と水深
+        who: human
+      - title: 復旧を分ける
+        text: 仮復旧と本復旧
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の面的な解析が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 数十cm以上の広い動き
+        text: 半島や沿岸の数十km
+      - title: 現地に入れない直後
+        text: 10日あまりで公開
+      - title: 段差や水深を決める
+        text: 現地測量が要る
+      - title: 地震前の画像がない
+        text: 比較できない

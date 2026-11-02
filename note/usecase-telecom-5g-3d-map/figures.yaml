@@ -1,0 +1,46 @@
+# note記事「5G基地局の置局設計に、衛星データから作った3D地図を購入する」の見出し画像と図。
+figures:
+- id: thumbnail
+  type: thumbnail
+  kind: usecase
+  tag: 生活・文化・その他
+  title: 5Gの基地局の設計に、衛星の3D地図はどこまで使えるか
+  sub: 公開例は25km²で55万円・7日間。精度は水平2m、高さ1〜2m
+- id: fig-1
+  type: split
+  alt: 衛星に任せることと、人が行うこと
+  link: ＋
+  left:
+    title: 衛星と解析が行う
+    items:
+    - 建物・樹木・橋の高さと形を面で揃える
+    - 地形と土地利用を同じ基準で整備する
+    - 世界のどこでも同じ方法で作る
+  right:
+    title: 人が行う
+    items:
+    - 伝搬計算のソフトで候補を比べる
+    - 現地測定で計算との差を確かめる
+    - 看板や窓など地図にない要素を見る
+    - 基地局の位置と向きを決める
+  note: 精度は水平2m、高さ1〜2m。公開例は25km²で55万円、7日間（整備済みの範囲）
+- id: fig-2
+  type: cards
+  alt: この使い方の5つの限界
+  columns: 2
+  items:
+  - title: 精度は水平2m、高さ1〜2m
+    text: ミリ波の小さなセルでは誤差が効く
+    role: none
+  - title: 看板、窓、材質は入らない
+    text: 建物・植生・橋の形と高さだけ
+    role: none
+  - title: 撮影後の建物は入らない
+    text: 更新の間隔は非公開
+    role: none
+  - title: 葉の季節変化は表せない
+    text: 樹木は形と高さだけ
+    role: none
+  - title: 効果の数字は未検証
+    text: 提供元の定性的な記述
+    role: none

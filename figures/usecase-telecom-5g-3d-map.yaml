@@ -1,0 +1,87 @@
+# ユースケースの記事「5G基地局の置局設計に、衛星データから作った3D地図を購入する」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 建物・樹木・橋の高さと形を面で揃える
+        - 地形と土地利用を同じ基準で整備する
+        - 世界のどこでも同じ方法で作る
+    right:
+      title: 人が行う
+      items:
+        - 伝搬計算のソフトで候補を比べる
+        - 現地測定で計算との差を確かめる
+        - 看板や窓など地図にない要素を見る
+        - 基地局の位置と向きを決める
+    note: 精度は水平2m、高さ1〜2m。公開例は25km²で55万円、7日間（整備済みの範囲）
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 精度は水平2m、高さ1〜2m
+        text: ミリ波の小さなセルでは誤差が効く
+        role: none
+      - title: 看板、窓、材質は入らない
+        text: 建物・植生・橋の形と高さだけ
+        role: none
+      - title: 撮影後の建物は入らない
+        text: 更新の間隔は非公開
+        role: none
+      - title: 葉の季節変化は表せない
+        text: 樹木は形と高さだけ
+        role: none
+      - title: 効果の数字は未検証
+        text: 提供元の定性的な記述
+        role: none
+
+  - id: flow
+    type: flow
+    alt: エリア設計に3D地図を入れる手順
+    steps:
+      - title: 地区と周波数
+        text: 求める精度を決める
+        who: human
+      - title: 地図を発注
+        text: 整備済みか新規か
+        who: satellite
+      - title: 候補を比べる
+        text: 伝搬計算のソフトで
+        who: human
+      - title: 現地で測る
+        text: 計算との差を見る
+        who: human
+      - title: 位置と向き
+        text: 免許の資料を作る
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の3D地図が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 地図のない海外や郊外
+        text: 同じ方法で広く作れる
+      - title: 整備済みを短期で使う
+        text: 25km²を7日間の例
+      - title: ミリ波の小さなセル
+        text: 現地測定が要る
+      - title: 再開発中の地区
+        text: 撮影時期の確認が要る
+
+  - id: cost
+    type: bar
+    alt: 公開されている3D地図の購入例
+    unit: 万円（税の扱いは資料に記載なし）
+    source: NTTデータ・RESTEC「AW3D 国内テレコム3Dデータ」（2021年以降の資料の事例）
+    items:
+      - label: 新規作成、30km²、工期1か月
+        value: 120
+      - label: 整備済み、25km²、工期7日間
+        value: 55
