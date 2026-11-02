@@ -1,0 +1,134 @@
+# 「農地利用状況調査：荒廃農地の候補を先に絞る」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/agri-abandoned-farmland/<id>.svg を作る。
+
+figures:
+  - id: conclusion
+    type: split
+    alt: 衛星に任せられることと、人が行うことの分担
+    link: ＋
+    left:
+      title: 衛星に任せられる
+      items:
+        - 区域の全筆を、同じ時期に見る
+        - おそれのない筆と、ある筆に分ける
+        - 見回る筆の候補を出す
+    right:
+      title: 人が行う
+      items:
+        - おそれのある筆を、現地で一筆ごとに判定する
+        - 判別しにくい農地を、見回りに残す
+        - 省いた筆の理由を、台帳に残す
+    note: 衛星は「おそれの推定」、遊休農地の「判定」は現地で一筆ごとに行う
+
+  - id: strengths
+    type: cards
+    alt: この用途で効く2つの強み
+    columns: 2
+    items:
+      - title: 広く見られる
+        text: 区域の全筆が、同じ時期の画像に入る。無償の写真もある
+      - title: 客観的に示せる
+        text: 筆ごとの区分が残り、省いた理由を説明できる
+
+  - id: limits
+    type: cards
+    alt: 現在の技術的な5つの限界
+    columns: 2
+    items:
+      - title: 推定であって判定ではない
+        text: おそれのある筆は、現地で一筆ごとに判定する
+        role: none
+      - title: 判別しにくい農地がある
+        text: 果樹園、茶畑、狭小な筆、畦畔の有無
+        role: none
+      - title: 画像の時期と細かさに条件
+        text: 調査の時期に撮った、十分な解像度の画像に限る
+        role: none
+      - title: 筆の区画データが要る
+        text: 地番と位置のひも付けは全国平均81%
+        role: none
+      - title: 小さい筆が多いと効果が小さい
+        text: 中山間では現地に残る筆が多い
+        role: none
+
+  - id: judge
+    type: cards
+    alt: 衛星で分けられる農地と、現地に残す農地
+    columns: 3
+    items:
+      - title: 衛星で分けやすい
+        text: 水稲や畑作で、作付けや水張りが見える筆
+      - title: 要確認に回る
+        text: 草地や、管理の程度が分かりにくい筆
+        role: human
+      - title: 現地に残す
+        text: 果樹園、茶畑、狭小な筆、畦畔の有無
+        role: none
+
+  - id: funnel
+    type: funnel
+    alt: 区域の全筆から、現地で判定する筆へ絞り込む流れ
+    stages:
+      - label: 区域の全筆
+        title: 毎年1回、全ての農地が対象
+        text: 従来は道路から全筆を目視
+        who: none
+      - label: おそれのある筆
+        title: 衛星で、おそれのない筆を外す
+        text: 候補であって、判定ではない
+        who: satellite
+      - label: 現地で判定
+        title: 一筆ごとに判定し、台帳に残す
+        text: 省いた筆も数%を抜き取って確かめる
+        who: human
+
+  - id: flow
+    type: flow
+    alt: 衛星で絞り込む調査の5つの手順
+    steps:
+      - title: 区画データ
+        text: 地番と位置をひも付け
+        who: satellite
+      - title: 衛星で分ける
+        text: おそれの有無と要確認
+        who: satellite
+      - title: 筆を割り当て
+        text: 委員の担当区域ごと
+        who: human
+      - title: 端末で記録
+        text: 判定と写真を一筆ごと
+        who: human
+      - title: 台帳に反映
+        text: 省いた理由を残す
+        who: human
+
+  - id: cost
+    type: cards
+    alt: 費用を分けて考える3つの項目
+    columns: 3
+    items:
+      - title: 衛星の解析
+        text: 無償のツールで目視するか、解析を委託するか
+        mark: A
+      - title: 区画データの整備
+        text: 地番と位置のひも付けを、誰が行うか
+        mark: B
+      - title: 端末と現地
+        text: タブレットと通信費、残る見回りの人手
+        mark: C
+        role: human
+
+  - id: fit
+    type: scale
+    alt: 区域の条件と、衛星で絞り込む効果の大きさ
+    left: 効果が大きい
+    right: 効果が小さい
+    items:
+      - title: 平地の田と畑
+        text: 筆が大きく、数が多い
+      - title: 区画データが未整備
+        text: ひも付けから始める
+      - title: 果樹園や茶畑が多い
+        text: 衛星で判別しにくい
+      - title: 狭小な筆の中山間
+        text: 現地に残る筆が多い

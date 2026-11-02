@@ -42,7 +42,7 @@ parts:
       - 収穫順の判断に衛星を使う場合の精度と限界を説明できる
     must_include: [水分やタンパクの推定, 現地の実測との組み合わせ]
     material: ""
-    status: todo
+    status: done
 
   - id: agri-abandoned-farmland
     title: 農地利用状況調査：荒廃農地の候補を先に絞る
@@ -55,7 +55,7 @@ parts:
       - 衛星による推定と現地判定の役割分担を設計できる
     must_include: [推定と判定の違い, 導入費用の公開事例, 調査員の端末運用]
     material: ""
-    status: todo
+    status: done
 
   - id: agri-carbon-credit
     title: カーボンクレジット：取り組みの証拠として使う

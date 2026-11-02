@@ -1241,3 +1241,105 @@
   publisher: 国土地理院
   url: https://www.gsi.go.jp/uchusokuchi/sar_faq.html
   tags: [干渉SAR, 原理, 観測方向, 精度, 解析教材]
+
+- id: aomori-harvest-navi-r6
+  title: あおもり米収穫支援システム「はれナビ」「まっしナビ」の使い方（令和6年度 普及に移す研究成果。成熟期の推定誤差は平均2.7日・2.5日、従来法は5.8日・7.2日。雲で覆われた圃場と20a未満の圃場は欠測の場合あり。雑草・病害虫・欠株・倒伏で誤差大）
+  publisher: 青森県産業技術センター 農林総合研究所 スマート農業推進室
+  url: https://www.pref.aomori.lg.jp/soshiki/nourin/nosui/files/R6-sf1.pdf
+  tags: [収穫適期, 水稲, 精度, 雲, 生育診断]
+
+- id: aomori-seiten-navi-poster
+  title: 衛星データで、おいしいお米を作る「青天ナビ」（ポスター。8月下旬の画像から収穫時期を予測、誤差は従来法4日→衛星2日、撮影範囲3,000km²、利用者500名以上、タンパクと収量は翌年2月に判定）
+  publisher: 青森県産業技術センター
+  url: https://www.aomori-itc.or.jp/docs/2024030800025/files/seiten_navi_poster.pdf
+  tags: [収穫適期, 水稲, タンパク, 自治体]
+
+- id: aomori-seiten-rs-summary
+  title: 研究部門連携の技術開発 研究成果概要（「青天の霹靂」生産指導での衛星画像の活用。収穫時期は8月下旬の画像の稲の色、タンパクと収量はサンプル地点の実測と衛星画像から全水田を推定、H30年に500名以上が利用）
+  publisher: 青森県産業技術センター
+  url: https://www.aomori-itc.or.jp/_files/00145992/R2_ippin2_1-4.pdf
+  tags: [収穫適期, 水稲, タンパク]
+
+- id: maff-smart-jirei-shinshinotsu
+  title: スマート農業技術の導入事例「衛星リモートセンシングの利用による収穫作業の効率化（水田作・畑作）」（北海道新篠津村の乾燥施設利用組合、構成員4戸、小麦30ha・32筆、水稲41ha・72筆。NDVIと穂水分・整粒割合に関係、燃料は従来と同等、筆数が多いほど省力化の効果が大きい。令和2年導入）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/kanbo/smart/jirei/attach/pdf/smajirei_2019-435.pdf
+  tags: [収穫適期, 小麦, 水稲, 事例]
+
+- id: okayama-rs-harvest-r3
+  title: 米麦栽培体系におけるリモートセンシングデータによる収穫適期判断技術と小麦における可変施肥によるタンパク含量向上のための施肥管理の実証（委託試験成績、令和3年度。NDVIで籾水分を推定するのは難しい、NDVIと青味籾率の相関係数0.84・0.85、基準ほを設ける方法、二条大麦はNDVI0.1〜0.2で横ばいなら成熟期）
+  publisher: 岡山県 備前広域農業普及指導センター
+  url: https://www.jataff.or.jp/project/inasaku/pdf/R3_5_08-1.pdf
+  tags: [収穫適期, 水稲, 小麦, NDVI, 精度, 限界]
+
+- id: fukui-suisen-barley
+  title: 宇宙からモニタリングする 〜Part3〜（県民衛星「すいせん」のNDVIと大麦の水分含有量に直線的な相関。収穫時期の予測を目指す研究途中。撮影は2022年）
+  publisher: 福井県農業試験場、園芸振興課、福井米戦略課、福井県民衛星技術研究組合
+  url: https://www.pref.fukui.lg.jp/doc/chisangi/fukusat/suisen_syokai_d/fil/03_mugisyukakujikiyosoku.pdf
+  tags: [収穫適期, 小麦, NDVI, 自治体]
+
+- id: hro-rice-protein-map-2004
+  title: 衛星リモートセンシングによる米粒タンパクマップの高度化と利活用技術（成績概要書、2004年1月。観測期間は成熟期の20日前まで、地上分解能20mでは0.4ha以下で精度低下、いもち病の地点は使えない、成熟期が7日以上遅れる地点は0.5〜1.0%高く表示）
+  publisher: 北海道立中央農業試験場、上川農業試験場
+  url: https://www.hro.or.jp/upload/50043/2004507v3.pdf
+  tags: [収穫適期, 水稲, タンパク, 精度, 限界]
+
+- id: iwate-drone-maturity-r7
+  title: ほ場でも容易に実施できる無人航空機（ドローン）を利用した水稲成熟期推定技術（令和7年度 試験研究成果書。ドローンの可視光指標VARIと黄化籾割合に相関、衛星は天候で適期に情報が得られない場合がある、画像は稲と雑草を区別できない）
+  publisher: 岩手県農業研究センター
+  url: https://www.pref.iwate.jp/agri/_res/projects/project_agri/_page_/002/012/405/4.pdf
+  tags: [収穫適期, 水稲, ドローン]
+
+- id: hro-wheat-ear-moisture
+  title: 小麦の穂水分測定による成熟期予測（普及トピック。穂水分40%を成熟期、1日1.5%の減少で日数を予測、±1日以内の的中が十勝82%・檜山83%。調査は1999〜2001年）
+  publisher: 北海道立中央農業試験場 技術普及部
+  url: https://www.hro.or.jp/upload/19708/20501p.pdf
+  tags: [収穫適期, 小麦, 現地確認]
+
+- id: maff-satellite-spread-r7
+  title: 衛星画像活用の動きが広がっています！（令和7年度 衛星活用等の調査・検討事業のアンケート結果。回答1,264件、知っていた73%、活用205自治体。野木町は担当2名→1名・2週間→1週間、取手市は年2回全筆、伊万里市は年50万円前後で約4,000筆削減・1年間の実証、玖珠町は2年間の実証、福島市は年約267万円で約23,000筆削減・AI不要判定の精度90%超）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/kanbo/dx/attach/pdf/eisei-3.pdf
+  tags: [農業委員会, 荒廃農地, 自治体, 現地確認, 費用, 精度]
+
+- id: maff-satellite-qa-2026
+  title: 衛星画像の活用にあたって、自治体のみなさまから寄せられたさまざまな不安や疑問にQ&Aでお答えします（令和8年8月。交付金の実施要領の根拠、eMAFF農地ナビ、現地見回りをなくせない理由、果樹園・茶畑・狭小農地・畦畔は見回り、数%の抜き取り検証）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/kanbo/dx/attach/pdf/eisei-4.pdf
+  tags: [農業委員会, 荒廃農地, 自治体, 現地確認, 制度]
+
+- id: maff-satellite-seminar-2026
+  title: 衛星活用による現地確認業務効率化の取組事例を紹介するオンラインセミナーを開催します（プレスリリース、令和8年9月28日。衛星解析には農地のデジタル地図化が必要、ひも付けツール、事例自治体は伊万里市・豊田市・福島市）
+  publisher: 農林水産省 大臣官房デジタル戦略グループ
+  url: https://www.maff.go.jp/j/press/kanbo/joho/260928.html
+  tags: [農業委員会, 自治体, 筆ポリゴン, 現地確認]
+
+- id: maff-emaff-map-overview
+  title: 地理情報共通管理システム（eMAFF地図）説明資料（eMAFF農地ナビの衛星写真は原則年1回更新、現地確認アプリはタブレット1台で台帳に自動連携・オフライン可、地番と緯度経度のひも付け率は全国平均81%、農業委員会の事例で農地パトロールが2か月→2週間程度・75%削減。令和7年4月の基本計画に言及）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/kanbo/dx/attach/pdf/map-5.pdf
+  tags: [農業委員会, 自治体, 筆ポリゴン, 端末, 現地確認]
+
+- id: cao-taskforce-dai3-maff-2024
+  title: 衛星リモートセンシングデータ利用タスクフォース大臣会合 施策概要（第3回 資料1-2、令和6年3月。2022年7月に農地法の運用通知と農地パトロール実施要領を改正、画像は十分な解像度で調査時期に撮影、一筆ごとにおそれの有無を区別し、おそれのある農地は現地で一筆ごと）
+  publisher: 農林水産省
+  url: https://www8.cao.go.jp/space/taskforce/rs/dai3/siryou1_2.pdf
+  tags: [農業委員会, 制度, 通知, 現地確認]
+
+- id: cao-taskforce-dai2-env-2021
+  title: 衛星データの更なる利用拡大に向けた環境整備について（タスクフォース大臣会合 第2回 資料2、令和3年ごろ。利用状況調査は原則すべての農地を道路から目視、運用通知の改正で令和4年度から衛星やドローンを調査に利用可能に）
+  publisher: 内閣府 宇宙開発戦略推進事務局ほか
+  url: https://www8.cao.go.jp/space/taskforce/rs/dai2/siryou2.pdf
+  tags: [農業委員会, 制度, 政策]
+
+- id: fukushima-yukyu-manual-2023
+  title: 遊休農地に関する措置マニュアル（実務編）（平成29年3月、最終改正 令和5年7月。利用状況調査の手順に、衛星や無人航空機の画像を使う場合の条件：調査の実施時期に撮影された十分な解像度の画像、一筆ごとに調査、おそれのある農地は一筆ごとに現地調査。掲載先が変わった版）
+  publisher: 福島県農林水産部農村振興課
+  url: https://www.pref.fukushima.lg.jp/uploaded/attachment/585087.pdf
+  tags: [農業委員会, 利用状況調査, 制度, 衛星画像の条件]
+
+- id: onomichi-digital-farmland-2022
+  title: 衛星データ×AIとドローンによるデジタル農地台帳（夏のDigi田甲子園 アイデア部門 推薦調書、令和4年。農業委員が酷暑の中で紙の地図を使い8〜9月に一筆ごと確認、1日4時間の調査を1時間程度に短縮・年間経費45%削減の見込み）
+  publisher: 広島県尾道市
+  url: https://www.cas.go.jp/jp/seisaku/digitaldenen/archives/koushien/chiiki/pdf/34-4.pdf
+  tags: [農業委員会, 荒廃農地, 自治体, 端末, 費用]
