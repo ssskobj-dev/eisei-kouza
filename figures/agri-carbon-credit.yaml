@@ -1,0 +1,122 @@
+# 「カーボンクレジット：取り組みの証拠として使う」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/agri-carbon-credit/<id>.svg を作る。
+
+figures:
+  - id: conclusion
+    type: split
+    alt: 衛星に任せられることと、人が行うことの分担
+    link: ＋
+    left:
+      title: 衛星でできる
+      items:
+        - 全水田を同じ日に見る
+        - 水が張られているかの目安を出す
+        - 過去の画像で自分の記録を確かめる
+    right:
+      title: 人が行う
+      items:
+        - 開始日と終了日の写真を撮る
+        - 直近2か年の記録を揃える
+        - 事業者と証拠の形を決める
+    note: 衛星は「審査の証跡」ではなく「自分の記録の確かめ」に置く
+
+  - id: strengths
+    type: cards
+    alt: この用途で効く2つの強み
+    columns: 2
+    items:
+      - title: 客観的に示せる
+        text: 水面は暗く、乾いた面は明るく写る。誰が見ても同じ条件
+      - title: 過去に遡れる
+        text: 過去の画像で、2か年の中干しの記憶と記録を確かめる
+
+  - id: limits
+    type: cards
+    alt: 現在の技術的な5つの限界
+    columns: 2
+    items:
+      - title: 制度で認められていない
+        text: 審査の証跡は記録と写真。衛星はまだ対象外
+        role: none
+      - title: 判定は研究の途中
+        text: 湛水か中干しかの分類は、現地と比べている段階
+        role: none
+      - title: 観測の間隔が粗い
+        text: 中干しは1〜2週間。開始日と終了日を日で示せない
+        role: none
+      - title: 稲の下の水面
+        text: 茂った稲の下をどこまで見られるかは確かめ中
+        role: none
+      - title: 差し水と減収の判断
+        text: 延ばすか止めるかは、稲を見て人が決める
+        role: none
+
+  - id: sar
+    type: split
+    alt: レーダ衛星が水田をどう見るか
+    link: 対
+    left:
+      title: 湛水の水田
+      items:
+        - 水面は滑らか
+        - 電波は衛星に戻らない
+        - 画像では暗く写る
+    right:
+      title: 中干し中の水田
+      items:
+        - 乾いた面は粗い
+        - 電波が散って衛星に戻る
+        - 画像では明るく写る
+    note: 判定はまだ研究の途中。観測日の間の状態は分からない
+
+  - id: flow
+    type: flow
+    alt: 中干しのクレジットに取り組む5つの手順
+    steps:
+      - title: 記録を揃える
+        text: 直近2か年の日付
+        who: human
+      - title: 事業者を決める
+        text: 証拠の形を合わせる
+        who: human
+      - title: 写真の運用
+        text: 開始日と終了日
+        who: human
+      - title: 記録の照合
+        text: 衛星や水位センサー
+        who: satellite
+      - title: 切り替え検討
+        text: 制度が認めたら
+        who: human
+
+  - id: cost
+    type: cards
+    alt: 費用と収入を分けて考える3つの項目
+    columns: 3
+    items:
+      - title: 人の手間
+        text: 写真、記録、日減水深の実測（開始年に1回）
+        mark: A
+        role: human
+      - title: 事業者との契約
+        text: 取りまとめ、配分、申請。単価は相対取引
+        mark: B
+        role: human
+      - title: クレジットの収入
+        text: 量は地域、排水性、有機物で変わる
+        mark: C
+
+  - id: fit
+    type: scale
+    alt: 法人の条件と、中干しのクレジットに取り組みやすい度合い
+    left: 取り組みやすい
+    right: 取り組みにくい
+    items:
+      - title: 記録があり水田が大きい
+        text: 排水を閉め開けで管理できる
+      - title: 記録はあるが分散
+        text: 写真の点数と手間が増える
+      - title: 2か年の記録がない
+        text: 今年から貯めて来年以降に
+      - title: 減収の心配で延ばせない
+        text: 差し水をするとクレジットは出ない

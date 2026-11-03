@@ -1,0 +1,74 @@
+# ユースケースの記事「火山の山体膨張を衛星データの干渉SARで監視する」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の干渉SARが行う
+      items:
+        - 火口周辺の隆起と沈降をcm単位で面的に測る
+        - 変動の広がりと時間の変化を示す
+    right:
+      title: 人と地上観測が行う
+      items:
+        - GNSSと傾斜計で連続して測る
+        - 地震と噴気の観測と合わせて解釈する
+        - 噴火警戒レベルと規制の範囲を決める
+    note: 衛星の解析は、噴火警報の判断材料の1つ
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 3
+    items:
+      - title: 精度は数cm
+        text: それより小さい動きは分からない
+        role: none
+      - title: 噴火後は非干渉
+        text: 降灰や溶岩の範囲は測れない
+        role: none
+      - title: 観測は連続ではない
+        text: 定常は年6回以上、緊急は最高1日2回
+        role: none
+      - title: 急な地形
+        text: 見かけの変動が出ることがある
+        role: none
+      - title: 時期は決まらない
+        text: 噴火の時期は地上観測と合わせて評価
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 公表される干渉SARの結果を、防災の判断に入れる手順
+    steps:
+      - title: 平時の準備
+        text: 公表先と基準
+        who: human
+      - title: 干渉画像
+        text: 場所と広がり
+        who: satellite
+      - title: 地上と照合
+        text: GNSSと地震
+        who: human
+      - title: 規制を検討
+        text: 立入と避難
+        who: human
+      - title: 噴火後
+        text: 別の手段へ
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 干渉SARで測りやすい火山から、測りにくい火山まで
+    left: 測りやすい
+    right: 測りにくい
+    items:
+      - title: 裸地の火口周辺
+        text: 干渉しやすい
+      - title: 植生のある山体
+        text: Lバンドなら透過
+      - title: 降灰や溶岩の範囲
+        text: 非干渉になる
+      - title: cm未満の動き
+        text: 精度より小さい

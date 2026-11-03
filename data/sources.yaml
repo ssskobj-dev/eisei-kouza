@@ -1405,3 +1405,102 @@
   publisher: デューク大学 Nicholas School of the Environment
   url: https://nicholas.duke.edu/news/new-map-casts-light-massive-scope-hidden-human-activity-oceans
   tags: [海洋, 船舶検知, 漁業, 洋上風力, Sentinel, 解析教材]
+# ---- カーボンクレジット（中干し期間の延長）----
+
+- id: maff-nakaboshi-jcredit-r8
+  title: 「水稲栽培における中干し期間の延長」のJ－クレジット制度について（令和8年7月。直近2か年以上の平均より7日間以上延長、中干しの定義（取水口「閉」・排水口「開」が続く最も長い期間、差し水で終了）、開始日と終了日の写真を同一管理の水田ごとに1点以上、日減水深の実測はプロジェクト開始年に1か所1回、認証対象期間は最大8年、記録は終了後2年保存、排水良好・稲わら全量すき込みで約3.7 tCO2/ha/年、5,000円/tで約1.85万円/ha）
+  publisher: 農林水産省 農産局農業環境対策課
+  url: https://www.maff.go.jp/j/seisan/kankyo/ondanka/attach/pdf/index-175.pdf
+  tags: [カーボンクレジット, 中干し, 制度, モニタリング]
+
+- id: maff-nakaboshi-guide-r7
+  title: J－クレジット制度を活用して稲作の「中干し期間延長」に取り組んでみませんか？（令和7年12月版。現行の中干し期間が証明できないとクレジット化できない、直近2か年分の記録、差し水をするとクレジットは発行されない）
+  publisher: 農林水産省（大臣官房みどりの食料システム戦略グループ、農産局農業環境対策課）
+  url: https://www.maff.go.jp/j/seisan/kankyo/ondanka/pdf/nakaboshi-5.pdf
+  tags: [カーボンクレジット, 中干し, 制度]
+
+- id: maff-press-nakaboshi-methodology-2023
+  title: J－クレジットにおいて「水稲栽培による中干し期間の延長」が新たな方法論として承認されました！（令和5年3月1日。直近2か年以上の実施日数の平均より7日間以上延長、メタン3割削減、水田は国内メタン排出の約4割）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/press/kanbo/b_kankyo/230301.html
+  tags: [カーボンクレジット, 中干し, 制度]
+
+- id: maff-press-jcredit-agri-2023-11
+  title: J－クレジット制度において農業分野の取組が新たに4件承認されました！（令和5年11月16日。プログラム型、中干し3件、農業分野のプロジェクト17件から21件に）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/press/kanbo/b_kankyo/231116.html
+  tags: [カーボンクレジット, 中干し, プログラム型]
+
+- id: maff-tohoku-carbon-credit-2026
+  title: 農林水産分野におけるカーボン・クレジットの推進について（東北農政局 みどりセミナー資料、2026年3月。2025年11月現在：中干し期間の延長の認証量は累計307,323 t-CO2、プロジェクト26件、令和7年度は40道府県・約79,700ha、2025年11月に農業区分（中干し）が5,374円/t-CO2で取引）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/tohoku/seisan/midori_seminar/attach/pdf/260318-26.pdf
+  tags: [カーボンクレジット, 中干し, 認証量, 取引価格]
+
+- id: maff-kanto-nakaboshi-r6
+  title: 「水稲栽培における中干し期間の延長」のJ－クレジット制度について（関東農政局 掲載資料、R6.9現在。過去の記録（中干し期間2か年分、稲わら持ち出し量、堆肥の施肥量）、単価は相対取引、1,100〜4,000円/10a程度の収益を想定（10,000円/tCO2で販売できた場合）、取りまとめ事業者11者）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/kanto/nouson/shigen/attach/pdf/250310-4.pdf
+  tags: [カーボンクレジット, 中干し, 収益の例]
+
+- id: cao-taskforce-dai4-list-2025
+  title: 衛星リモートセンシングデータ利用タスクフォース 案件整理リスト（第4回大臣会合 資料1-1、R7.11月現在。「水稲栽培における中干し実施状況のモニタリング」：J-クレジット制度では衛星を用いたモニタリングは認められていない、JAXAが民間企業と連携して実証、課題は立地や規模などの条件下での精度と頻度の向上、主な衛星はALOS-4など）
+  publisher: 内閣府 宇宙開発戦略推進事務局
+  url: https://www8.cao.go.jp/space/taskforce/rs/dai4/siryou1-1.pdf
+  tags: [カーボンクレジット, 中干し, 制度, 実証, 政策]
+
+- id: jaxa-nakaboshi-alos-2025
+  title: 地球にやさしいお米作り〜「だいち2号」、「だいち4号」によるカーボンクレジットへの貢献に向けた実証〜（2025年7月14日。クレジットには全水田の中干しの開始日と終了日の証跡が必要、SARで湛水と非湛水を判定できる可能性、2025年6月に大潟村と登米市で水位センサを設置、分類はまだ研究の途中）
+  publisher: JAXA 第一宇宙技術部門
+  url: https://www.satnavi.jaxa.jp/ja/news/2025/07/14/11212/index.html
+  tags: [カーボンクレジット, 中干し, SAR, 実証]
+
+- id: smartagri-jaxa-alos2-credit-2023
+  title: JAXA衛星データを活用したJ-クレジット創出の事業化実証を開始（2023年8月3日。だいち2号の事業化実証、衛星の水位の推定と現地の水位センサの比較、過去2年の中干し日数の推定、宮城県登米市・栗原市など）
+  publisher: SMART AGRI（事業者の発表の報道）
+  url: https://smartagri-jp.com/news/7084
+  tags: [カーボンクレジット, 中干し, 実証, 事業者]
+
+- id: meti-agri-carbon-credit-2024
+  title: 農林水産分野におけるカーボン・クレジットの拡大に向けて（カーボン・クレジットに関する検討の資料5、令和6年3月。プログラム型の運営・管理者が会員のモニタリングデータ等を取りまとめる、営農支援アプリや水管理システム、水位センサーからの申請の例）
+  publisher: 農林水産省（経済産業省の審議会に提出）
+  url: https://www.meti.go.jp/shingikai/energy_environment/carbon_credit/pdf/006_05_00.pdf
+  tags: [カーボンクレジット, 中干し, プログラム型, モニタリング]
+
+# ---- 営農支援サービスの比べ方 ----
+
+- id: maff-ai-data-contract-page
+  title: 農業分野におけるAI・データに関する契約ガイドライン（掲載ページ。令和2年3月12日策定、令和6年3月正誤表。補助事業で導入する場合は令和3年度からシステムサービス契約のガイドライン準拠が要件、契約ひな形・チェックリスト・Q&Aあり）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/kanbo/tizai/brand/keiyaku.html
+  tags: [営農支援サービス, 契約, データ, 解約]
+
+- id: maff-ai-data-contract-qa-2024
+  title: 「農業分野におけるAI・データに関する契約ガイドライン」に関するQ&A（改訂版）（令和6年3月。契約期間は当事者間で決める、補助事業の契約期間に合わせる考え方、自己資金での導入は要件化の対象外だが準拠が望ましい、INPITの知財総合支援窓口で無料相談）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/kanbo/tizai/brand/attach/pdf/keiyaku-19.pdf
+  tags: [営農支援サービス, 契約, 解約, 補助事業]
+
+- id: maff-ai-data-contract-data-2020
+  title: 農業分野におけるAI・データに関する契約ガイドライン データ利活用編（令和2年3月。提供データの利用権限、目的外利用と第三者提供の禁止、契約終了後の提供データ等の削除等（第14節）、対象データの範囲と利用目的を平易に特定）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/kanbo/tizai/brand/attach/pdf/keiyaku-10.pdf
+  tags: [営農支援サービス, 契約, データ, 解約]
+
+- id: maff-data-utilization-2026
+  title: 農業データの利活用の推進について（2026年7月。WAGRIは2026年3月時点で223のAPI、会員126の民間事業者等、農機OpenAPIのガイドラインでは農機メーカーはAPI接続を希望するICTベンダーを差別的に排除しない、農業者は自身のデータを活用する範囲で加工可、農業者と農機メーカー、農機メーカーとICTベンダーの間でそれぞれ契約）
+  publisher: 農林水産省 技術政策室
+  url: https://www.maff.go.jp/j/kanbo/smart/attach/pdf/index-311.pdf
+  tags: [営農支援サービス, データ連携, WAGRI, 農機連携]
+
+- id: maff-hakusho-r6-smart
+  title: 令和6年度 食料・農業・農村白書 特集3 スマート農業技術の活用と今後の展望（令和7年5月。課題は導入コストの高さと人材不足、農業支援サービスを利用する担い手2,914人・希望5,077人（令和6年度）、スマート農業技術活用促進法は令和6年10月1日施行）
+  publisher: 農林水産省
+  url: https://www.maff.go.jp/j/wpaper/w_maff/r6/r6_h/trend/part1/chap0/c0_1_03.html
+  tags: [営農支援サービス, 政策, 費用]
+
+- id: maff-smart-direction-2024
+  title: スマート農業実証プロジェクトの成果等を踏まえた今後の技術開発等の方向性（案）（令和6年1月。機器の低廉化やサービス事業体の活用、中山間地や狭隘な圃場では効果を発揮しにくい、データの標準化・規格化）
+  publisher: 農林水産省
+  url: https://www.affrc.maff.go.jp/docs/smart_agri_pro/kobo/r6-1/attach/pdf/index-2.pdf
+  tags: [営農支援サービス, 実証, 費用]
