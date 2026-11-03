@@ -68,7 +68,7 @@ parts:
       - 衛星データが証拠として使われ始めている場面と、まだ実証段階の点を区別できる
     must_include: [中干し期間の確認, 実証段階であること, 制度側の要件の確認]
     material: ""
-    status: todo
+    status: done
 
   # ---- 実務 ----
   - id: agri-service-selection
@@ -79,7 +79,7 @@ parts:
       - 自分の作物と機械に合うサービスを選ぶ基準を持てる
     must_include: [対応作物, 料金体系, 更新頻度, 農機や営農アプリとの連携, 解約条件]
     material: ""
-    status: todo
+    status: done
 
   - id: agri-satellite-vs-drone
     title: 衛星、ドローン、見回りの使い分け

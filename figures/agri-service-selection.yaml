@@ -1,0 +1,102 @@
+# 「営農支援サービスの比べ方と選び方」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/agri-service-selection/<id>.svg を作る。
+
+figures:
+  - id: overview
+    type: split
+    alt: 4つの入口と、比べる7つの観点
+    link: ×
+    left:
+      title: 4つの入口
+      items:
+        - 事業者の配信サービス
+        - 営農管理アプリ
+        - 県や産地の仕組み
+        - 無償の衛星データを自分で
+    right:
+      title: 7つの観点
+      items:
+        - 対応作物と草丈、料金の形
+        - 更新頻度、細かさと最小の圃場
+        - 農機や営農アプリとの連携
+        - データと解約、現地の裏付け
+    note: 一覧の価格と作物名では選べない。観点ごとに自分の圃場に当てはめる
+
+  - id: criteria
+    type: cards
+    alt: 比べるときの7つの観点
+    columns: 3
+    items:
+      - title: 対応作物と草丈
+        text: 名前の一致ではなく、自分の作物で判定が効くか
+        mark: "1"
+      - title: 料金の形
+        text: 面積の年額か、範囲の面積か。金額は時点で変わる
+        mark: "2"
+      - title: 更新頻度と配信
+        text: 適期の前に何回届くか。雲のときの扱い
+        mark: "3"
+      - title: 細かさと最小の圃場
+        text: 筆ごとの差か、筆の中のムラか。小さな田の欠測
+        mark: "4"
+      - title: 連携
+        text: 農機の形式に出せるか。農機のデータが入るか
+        mark: "5"
+      - title: データと解約
+        text: 持ち出し、削除、期間。ガイドラインへの準拠
+        mark: "6"
+      - title: 現地の裏付け
+        text: 基準の圃場を誰が測るか。最終判断は圃場で
+        mark: "7"
+        role: human
+
+  - id: scale
+    type: scale
+    alt: 圃場の大きさと、衛星の地図が使える度合い
+    left: 使いやすい
+    right: 使いにくい
+    items:
+      - title: 大きな圃場
+        text: 筆ごとの差を同じ物差しで並べる
+      - title: 中くらいの圃場
+        text: 基準の圃場で照らして使う
+      - title: 小さな圃場
+        text: 20a未満は欠測の場合がある
+      - title: 1筆の中のムラ
+        text: 10mの画素では見えない
+
+  - id: cases
+    type: cards
+    alt: 条件別に、どの入口から考えるか
+    columns: 2
+    items:
+      - title: 県や産地の仕組みから
+        text: 対象の品種と地域なら、個別契約より先に確かめる
+      - title: 農機に出せる配信から
+        text: 可変施肥まで使う。対応機に自分の農機があるか
+      - title: 営農管理アプリから
+        text: 記録と農機のデータが散らばっているなら先に一元化
+        role: human
+      - title: 無償データから
+        text: 1年目は雲の欠測と現地との合い方を記録する
+        role: human
+
+  - id: roles
+    type: flow
+    alt: 4つの入口の役割分担
+    steps:
+      - title: 地図の受取
+        text: 県の仕組みか配信
+        who: satellite
+      - title: 欠測を補う
+        text: 無償データで
+        who: satellite
+      - title: 記録を置く
+        text: 営農管理アプリ
+        who: human
+      - title: 圃場で実測
+        text: 合わない筆は原因を
+        who: human
+      - title: 契約の確認
+        text: 持ち出し、削除、解約
+        who: human
