@@ -1,0 +1,46 @@
+# note記事「農地パトロールの現地調査を衛星データの自動判別で98%減らす」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 農業・食料
+    title: 農地パトロールの現地を98%減らす
+    sub: 舞鶴市の約67,000筆→約1,500筆。残る3割の目視
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 耕作されている農地を自動で判別する
+        - 現地に行く候補を絞る
+    right:
+      title: 人が行う
+      items:
+        - 残りの農地を光学画像で目視する
+        - 要調査の筆に現地で行く
+        - 遊休農地かを判断し、台帳に戻す
+    note: 舞鶴市の例では、自動判別は約7割。残りは人の目視
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 3
+    items:
+      - title: 自動判別は約7割
+        text: 残りは光学画像を人が目視する
+        role: none
+      - title: 目視には細かい画像
+        text: 宇部市は分解能約1mの画像
+        role: none
+      - title: 狭い農地や果樹園
+        text: 茶畑も判定しにくく、見回りが残る
+        role: none
+      - title: 畦畔や水路の機能
+        text: 画像では直接判定しにくい
+        role: none
+      - title: 98%は1市の数字
+        text: 年度も条件も書かれていない
+        role: none

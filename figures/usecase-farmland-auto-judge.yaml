@@ -1,0 +1,74 @@
+# ユースケースの記事「農地パトロールの現地調査を衛星データの自動判別で98%減らす」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 耕作されている農地を自動で判別する
+        - 現地に行く候補を絞る
+    right:
+      title: 人が行う
+      items:
+        - 残りの農地を光学画像で目視する
+        - 要調査の筆に現地で行く
+        - 遊休農地かを判断し、台帳に戻す
+    note: 舞鶴市の例では、自動判別は約7割。残りは人の目視
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 3
+    items:
+      - title: 自動判別は約7割
+        text: 残りは光学画像を人が目視する
+        role: none
+      - title: 目視には細かい画像
+        text: 宇部市は分解能約1mの画像
+        role: none
+      - title: 狭い農地や果樹園
+        text: 茶畑も判定しにくく、見回りが残る
+        role: none
+      - title: 畦畔や水路の機能
+        text: 画像では直接判定しにくい
+        role: none
+      - title: 98%は1市の数字
+        text: 年度も条件も書かれていない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 農地パトロールを3段階に分ける手順
+    steps:
+      - title: 区画データ
+        text: 地番とそろえる
+        who: human
+      - title: 自動判別
+        text: 衛星で解析
+        who: satellite
+      - title: 画面で目視
+        text: 残りの農地
+        who: human
+      - title: 現地で見る
+        text: 要調査の筆だけ
+        who: human
+      - title: 台帳に戻す
+        text: 翌年の重点へ
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の自動判別に向く農地から、向かない農地まで
+    left: 自動判別しやすい
+    right: 目視と現地が残る
+    items:
+      - title: 広い田畑
+        text: まとまった区画
+      - title: 小さめの田畑
+        text: 見回りが残りやすい
+      - title: 果樹園、茶畑
+        text: 見分けにくい
+      - title: ごく小さな区画
+        text: 解析対象外
