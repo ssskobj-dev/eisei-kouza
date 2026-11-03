@@ -1,0 +1,108 @@
+# English use-case video. Same facts as casebook/coral-reef-habitat-atlas.qmd; English narration & slides.
+lang: en
+voice: Ryan
+title: Mapping coral reef habitats with free satellite data
+series: CASEBOOK
+kicker: Use case
+number: 39
+total: 221
+thumb: Free reef maps
+summary: How governments and NGOs narrow marine protected area work using the free, satellite-built Allen Coral Atlas. Where it fits in the workflow, what decisions it supports, what the free maps cover, where the cost falls, and the limits as of 2026. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: Mapping coral reef habitats with free satellite data
+    sub: Narrowing marine protected area work before the dive survey
+    say: Can you map where coral reefs lie in a sea no one has surveyed? Yes, to a point. The answer is to start from a free satellite map of the seafloor, then send divers only where it matters. In this video we look at who uses the Allen Coral Atlas, where it fits in the workflow, what decisions it supports, what the free maps cover, where the money goes, and the limits as of 2026.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Where: tropical shallow reefs, from 30 degrees north to 30 degrees south"
+      - "Who: environment agencies, NGOs, and coastal developers"
+      - "Why: to see where reef habitat lies before planning a protected area"
+      - "The problem: dive and boat surveys are slow and costly, and many seas have no map at all"
+    say: The setting is tropical shallow water, roughly thirty degrees north to thirty degrees south. The users are national environment agencies, conservation groups, and developers who must assess coastal impact. They need to know where reef habitat lies, and how much of it. The traditional way is diving, boat observation, and reading aerial photos. That is slow and expensive, and in poorly surveyed seas there is simply no map. When each country measures differently, you also cannot compare one sea with the next.
+
+  - kind: steps
+    heading: Where it fits in the workflow
+    items:
+      - Register for free and download the benthic and geomorphic maps for your sea
+      - Tally the area of each habitat and reef-zone class
+      - Check the map against any local field data to see which classes to trust
+      - Choose dive survey sites by habitat and zone, then confirm coral cover and species
+      - Draw several boundary options and compare the share of habitat each protects
+    say: Here is where it fits. It goes in before you draw any boundary. You register for a free login and download two maps for your sea, in a format a geographic information system can open. You tally the area of each seafloor class and each reef zone. You compare the map against any local field data you have, to learn which classes are reliable. Then you pick dive sites by class and zone, and confirm coral cover and species in the water. Finally you draw several boundary options and show how much habitat each one protects. The satellite does not replace the dive. It decides where the dive should go.
+
+  - kind: table
+    heading: Satellite versus people
+    columns: [The satellite does, The people do]
+    widths: [0.5, 0.5]
+    rows:
+      - ["Classify the shallow seafloor into 5 m pixels", "Check accuracy with local field data"]
+      - ["Map six benthic classes and eleven reef zones", "Pick and run the dive survey sites"]
+      - ["Let distant seas be compared the same way", "Judge coral health, cover and species"]
+      - ["", "Decide the protected-area boundary"]
+    say: The split of roles looks like this. The Allen Coral Atlas classifies the shallow seafloor into five metre pixels. It maps six benthic classes, such as coral and algae, seagrass, sand, and rock, and eleven reef zones, such as reef slope, reef crest, and lagoon. Because every region is mapped the same way, distant seas can be compared. The people verify accuracy with local field data, run the dive surveys, judge coral health and species, and decide the boundary. The maps are a public, satellite-built product, already used in national plans, not a one-off pilot.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.44, 0.56]
+    rows:
+      - ["Benthic map, six classes at 5 m", "Where coral-algae and seagrass spread, and survey layers"]
+      - ["Geomorphic map, eleven reef zones", "Which zones to prioritise for protection"]
+      - ["Depth and turbidity estimate to 10 m", "The map's reliable range, and dive planning"]
+      - ["Habitat area per boundary option", "Where to draw the boundary, and what to avoid"]
+    say: Here is the data you receive and what it lets you decide. The benthic map, six classes at five metres, shows how coral and algae and seagrass spread, and sets your survey layers. The geomorphic map, eleven reef zones, shows which zones matter most to protect, like reef slopes and crests. The depth and turbidity estimate, to about ten metres, tells you how far to trust the map and helps plan the dives. And once you tally habitat for each boundary option, you can show stakeholders where to draw the line and what to keep clear of development.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - Benthic map to 10 m depth, geomorphic to 15 m; deeper coral is missed
+      - Overall accuracy is 60 to 90 percent and varies by region
+      - Coral and algae are one class; health, cover and species are not shown
+      - Turbid seas and anything beyond 30 degrees latitude are out of scope
+      - Imagery is from 2018 to 2020, so recent change is not reflected
+    say: The limits are stated plainly by the Atlas too. First, the benthic map covers water shallower than ten metres and the geomorphic map shallower than fifteen, so deeper coral is missed and the area may be understated. Second, overall accuracy runs sixty to ninety percent and varies by region. One 2024 study in New Caledonia found benthic accuracy of just twenty to sixty-seven percent locally, mainly from a shortage of local training data. Third, coral and algae sit in a single class, so health, cover, and species are not shown. Fourth, turbid seas and waters beyond thirty degrees latitude are out of scope, which excludes much of mainland Japan. Fifth, the imagery is from 2018 to 2020, so later bleaching, storms, and reclamation do not appear.
+
+  - kind: bullets
+    heading: What the free maps are built from
+    items:
+      - Primary imagery is Planet's PlanetScope; depth and turbidity use Europe's Sentinel-2, with Landsat-8 filling gaps
+      - The global shallow-reef map was completed in September 2021 and improved in late 2022
+      - A 2024 study using it put global shallow reefs at 348,361 square kilometres, coral habitat at 80,213
+      - The finished maps are published free; you do not buy imagery to use them
+    say: So what are the maps built from? The main imagery is Planet's PlanetScope, while depth and turbidity come from Europe's free Sentinel-2, with the United States' Landsat-8 filling gaps. The global shallow-reef map was completed in September 2021 and updated to a more accurate version in late 2022. A 2024 study built on it estimated the world's shallow reefs at three hundred forty-eight thousand square kilometres, with coral habitat at about eighty thousand. The key point for a buyer is simple. The finished maps are free, so you do not purchase satellite imagery to use them.
+
+  - kind: table
+    heading: Where the cost actually falls
+    columns: [Item, Note]
+    widths: [0.34, 0.66]
+    rows:
+      - ["The maps", "Free. Register for a login and download; downloads stay available for 30 days"]
+      - ["Main cost", "Field verification, dive surveys, and the staff time to tally and draw boundaries"]
+      - ["Licence check", "Maps and statistics are CC BY 4.0; the Planet mosaic is CC BY-NC-SA 4.0 (non-commercial)"]
+      - ["For commercial work", "Reproducing the whole global dataset needs prior written consent; confirm terms with the operator"]
+    say: Here is where the cost actually falls. The maps themselves are free. You register for a login and download any area you like, and downloads stay available for thirty days. The real spend is field verification and dive surveys, plus the staff time to tally habitat and draw boundary options. Those field costs depend on the sea and the scale, and are not published, so we do not estimate a figure here. One more thing to watch is licensing. The maps and statistics are released under Creative Commons BY four point zero, but the Planet image mosaic is non-commercial, and reproducing the entire global dataset needs prior written consent. For client deliverables, confirm which terms apply with the operator.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.22, 0.39, 0.39]
+    rows:
+      - ["Sea", "Clear, shallow tropical water", "Turbid coasts; reefs deeper than 15 m; beyond 30 degrees"]
+      - ["Goal", "Overview, boundary options, survey sites", "Coral cover, health, or species"]
+      - ["Time", "The 2018 to 2020 state is fine", "You need recent bleaching or storm damage"]
+      - ["Accuracy", "You can check with local field data", "Treating the map as the final truth"]
+    say: Finally, where it fits. It fits clear, shallow, tropical water, when your goal is an overview, comparing boundary options, or choosing survey sites, when the 2018 to 2020 state is good enough, and when you can check the map against local field data. It does not fit turbid coasts, reefs deeper than fifteen metres, or waters beyond thirty degrees latitude. It does not fit when you need live coral cover, health, or species, when you need recent damage, or when you would treat the map as final truth. When you propose this, three points matter. First, check whether the target sea is even in range. Second, never say satellites reveal coral health; they show the spread of a coral-algae class. Third, give accuracy as a range, and write into the proposal how local verification will be done.
+
+  - kind: cta
+    heading: Planning a protected area or coastal assessment?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Sources: Allen Coral Atlas Resources/FAQ (allencoralatlas.org/resources); GEE ACA reef habitat v2.0"
+      - "Area estimates: Lyons et al. 2024, Cell Reports Sustainability"
+      - "Government uses: ICRI / ASU Allen Coral Atlas overview, Sept 2021"
+    say: To consider this for your own sea or client, here is the next step. We help you write the request for proposals and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
