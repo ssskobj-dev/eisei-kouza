@@ -1343,3 +1343,65 @@
   publisher: 広島県尾道市
   url: https://www.cas.go.jp/jp/seisaku/digitaldenen/archives/koushien/chiiki/pdf/34-4.pdf
   tags: [農業委員会, 荒廃農地, 自治体, 端末, 費用]
+
+# ---- 解析教材：変位の時系列の読み方、海の上の物の検出（2026-11-04 追記） ----
+
+- id: egms-product-user-manual-2022
+  title: "European Ground Motion Service (EGMS) Product User Manual（EGMS-D4-PUM-SC1-2.0-007、版1.6、2022年5月17日。Basicは仮想の基準の点に対する相対の値で、隣り合う区画の別の結果と比べられない。CalibratedはGNSSのモデルに結ぶ。Orthoは上りと下りの両方から作る100mの格子の上下と東西。速度が正なら衛星に近づく（例：隆起）、負なら遠ざかる（例：沈下）。季節の振幅は5〜10mmが現実的。干渉性0.5未満で信頼性が下がる。測点が無い場所でも地盤は動きうる。森林と水面は測れない。非線形の強い動きは不正確になりうる。予測は対象外。斜面の動きは軌道の向きで逆の符号。上りと下りは別のデータ。速度の標準偏差0.7mm/年、変位の標準偏差4mm（Basic）、8mm（Calibrated、Ortho））"
+  publisher: Copernicus Land Monitoring Service（欧州環境機関）
+  url: https://land.copernicus.eu/en/technical-library/egms-product-user-manual/@@download/file
+  tags: [干渉SAR, 時系列, 公開データ, 符号, 基準点, 解析教材]
+
+- id: egms-product-description-v3-2025
+  title: "European Ground Motion Service (EGMS) Product Description and Format Specification（版3、2025年8月7日。mean_velocityはmm/年で1次の直線と季節の項の当てはめの傾き。速度の標準偏差、加速度（mm/年²）、季節の振幅、残差（rmse）。観測日ごとの変位の列はyyyymmddでmm。観測の間隔は2016年10月まで12日、以後6日。PS（5m×20m）とDS（100m未満）。年1回の更新。欠けた観測がありうる。BasicとCalibratedは上りと下りの別のデータ。Orthoは100mの格子の上下と東西、南北は測れない。起伏の強い場所はOrthoが無い）"
+  publisher: Copernicus Land Monitoring Service（欧州環境機関）
+  url: https://library.land.copernicus.eu/products/European_Ground_Motion_Service_Product_Description_v3.html
+  tags: [干渉SAR, 時系列, 公開データ, 単位, 解析教材]
+
+- id: gsi-sar-tsa
+  title: 干渉SAR時系列解析（多数の干渉画像を統計的に処理して大気や軌道の誤差を低減し、各観測日の変位量と観測期間の変位速度を推定。SBAS法。GNSSの長波長補正。水部マスク。全国時系列解析は地盤沈下や斜面変動など局所的で長期の微小な変動を検出。成果はGeoTIFFでダウンロード）
+  publisher: 国土地理院
+  url: https://www.gsi.go.jp/uchusokuchi/sar_tsa.html
+  tags: [干渉SAR, 時系列, 公開データ, 解析教材]
+
+- id: gsi-iwate-tsa-2025-10
+  title: 「だいち2号」及び「だいち4号」観測データによる岩手山の干渉SAR時系列解析結果（北行）（令和7年10月7日。観測期間2015-04-07〜2025-10-01。SBAS法、データ数32、干渉ペア数231。参照点は電子基準点「岩手松尾」付近。変位速度の計算期間2023-11-21〜2025-10-01と全解析期間の図。地点A〜Dの視線方向の変位の時系列。「衛星に近づく」「衛星から遠ざかる」の表記。対流圏遅延補正に気象庁数値予報格子点データ）
+  publisher: 国土地理院
+  url: https://www.gsi.go.jp/common/000273273.pdf
+  tags: [干渉SAR, 時系列, 火山, 基準点, 軌道, 解析教材]
+
+- id: gsi-sar-3d
+  title: 3次元的な変動把握（干渉SARは視線方向の距離の変化しかとらえられない。南行の西向き観測と北行の東向き観測を合成すると準東西と準上下に分離でき、2.5次元解析と呼ぶ）
+  publisher: 国土地理院
+  url: https://www.gsi.go.jp/uchusokuchi/sar_3d.html
+  tags: [干渉SAR, 観測方向, 2.5次元, 解析教材]
+
+- id: esa-snap-object-detection-help
+  title: "SNAP Help：Object Detection（Sentinel-1 Toolbox 9.0.0。海上の物の検出は較正、陸と海のマスク、適応的なしきい値（2つの母数のCFAR）、識別の4段階。対象・保護・背景の3つの窓。対象の窓の平均が背景の平均＋標準偏差×定数より大きければ検出。定数は誤警報率（10のマイナスx乗）から。対象の窓は最小の物、保護の窓は最大の物の大きさ、背景の窓はずっと大きく。識別では最小と最大の大きさの外を除く）"
+  publisher: ESA（STEP）
+  url: https://step.esa.int/main/wp-content/help/versions/9.0.0/snap-toolboxes/org.esa.s1tbx.s1tbx.op.feature.extraction.ui/operators/ObjectDetection.html
+  tags: [SAR, 船舶検知, 基準の値, 解析教材]
+
+- id: jrc-sumo-ship-detector-2017
+  title: "The SUMO Ship Detector Algorithm for Satellite Radar Images（Greidanus ほか、Remote Sensing 9(3) 246、2017年。欧州委員会共同研究センター（JRC）。陸のマスクと海側およそ100mの余白。海岸線はGSHHGやOpenStreetMap。港の近くでは陸の明るい物がアジマス方向の虚像を作る。海の明るさはK分布で平均は風と入射角で決まる。200×200画素の区画ごとに統計、画像全体で1つのしきい値は意味がない。アジマス方向の虚像は決まった距離（典型的に5〜10km）でずっと弱く繰り返し、両側にそれより明るい物があるかを調べる。レンジ方向の虚像は約150km。前の検出を重ねて同じ場所に出続けているかを見る。誤りの源は小さな島、岩礁、雨の雲、風の前線、砕ける波、桟橋と港の構造物。VHとHHの組み合わせが最も良く、VVはHHよりコントラストが低い。信頼度4段階）"
+  publisher: 欧州委員会共同研究センター（JRC）／MDPI
+  url: https://www.mdpi.com/2072-4292/9/3/246
+  tags: [SAR, 船舶検知, 虚像, 陸のマスク, 基準の値, 解析教材]
+
+- id: esa-s1-instrument-payload
+  title: Sentinel-1 Instrument Payload（Sentinel Online。SMは5m×5m・幅80km。IWは幅250km・5m×20mで陸上の標準。EWは5つのサブスワスで20m×40m、海・氷・極域の運用向け。WVは20km×20kmの小画像で外洋の波。2つの偏波（HH+HV、VV+VH）。競合しない標準はIWが陸上、WVが外洋）
+  publisher: ESA（Sentinel Online）
+  url: https://sentinel.esa.int/web/sentinel/missions/sentinel-1/instrument-payload
+  tags: [基礎, Sentinel, SAR, 観測モード, 分解能, 解析教材]
+
+- id: cao-mda-survey-2017
+  title: 「海洋状況把握に関する調査」について（宇宙政策委員会 宇宙安全保障部会 資料3、平成29年2月16日。SAR画像とAIS情報を照合し不審な船舶（Dark Target）を抽出。VH偏波では比較的クリアに船舶が見え、VV偏波では航跡がクリア。多数の船舶の海域では混信で衛星のAIS受信が困難。カナダではSAR衛星で航空機のみの監視より大幅な効率アップ）
+  publisher: 内閣府 宇宙政策委員会 宇宙安全保障部会
+  url: https://www8.cao.go.jp/space/comittee/27-anpo/anpo-dai20/siryou3.pdf
+  tags: [海洋, 船舶検知, AIS, 安全保障, 偏波, 解析教材]
+
+- id: duke-ocean-industrial-activity-2024
+  title: New Map Casts Light on Massive Scope of Hidden Human Activity in Oceans（2024年1月4日。Paolo ほか「Satellite mapping reveals extensive industrial activity at sea」Nature、DOI 10.1038/s41586-023-06825-8 の発表資料。2017〜2021年の約200万GBの衛星画像。工業的な漁船のおよそ75%は公開の位置の発信で追跡されていない。輸送とエネルギーの船の活動の25%超も漏れている。沿岸の石油のやぐらは16%増、洋上の風車は2倍以上で2021年までにやぐらより多い）
+  publisher: デューク大学 Nicholas School of the Environment
+  url: https://nicholas.duke.edu/news/new-map-casts-light-massive-scope-hidden-human-activity-oceans
+  tags: [海洋, 船舶検知, 漁業, 洋上風力, Sentinel, 解析教材]
