@@ -1,0 +1,74 @@
+# ユースケースの記事「EUDRの調達地の森林減少を衛星データで確かめる」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星データの照合が行う
+      items:
+        - 区画ごとに、基準日の後の森林減少の有無を判定する
+        - リスクの高い区画を拾い出す
+    right:
+      title: 人が行う
+      items:
+        - 仕入先から区画の位置情報を集める
+        - 疑わしい区画を現地や書類で確かめる
+        - デューデリジェンス声明を提出する
+    note: 位置情報がなければ、照合は始まらない
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 3
+    items:
+      - title: 日陰栽培は森林に
+        text: コーヒーやカカオの農園が森林に見える
+        role: none
+      - title: 地図の定義のずれ
+        text: 21種類のうち、合うのは2つ
+        role: none
+      - title: 基準日の取り違え
+        text: 古い伐採が最近の減少に見える
+        role: none
+      - title: 位置情報が出発点
+        text: 小農からの収集が最大の壁
+        role: none
+      - title: 合法性は分からない
+        text: 土地の権利や法令は画像の外
+        role: none
+
+  - id: flow
+    type: flow
+    alt: EUDRのデューデリジェンスに、衛星の照合を入れる手順
+    steps:
+      - title: 対象の整理
+        text: 品目と仕入先
+        who: human
+      - title: 位置情報
+        text: 仕入先から集める
+        who: human
+      - title: 照合する
+        text: 森林減少の地図
+        who: satellite
+      - title: 疑わしい区画
+        text: 書類と現地
+        who: human
+      - title: 声明を提出
+        text: EUのシステム
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の照合が効く調達から、効きにくい調達まで
+    left: 照合で決めやすい
+    right: 現地と書類が要る
+    items:
+      - title: 大規模な農園
+        text: 区画がはっきり
+      - title: 中規模の仕入先
+        text: 位置情報がある
+      - title: 小農の小さな区画
+        text: 画素と合わない
+      - title: 日陰栽培の農園
+        text: 森林に見える

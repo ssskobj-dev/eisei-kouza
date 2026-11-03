@@ -1,0 +1,46 @@
+# note記事「EUDRの調達地の森林減少を衛星データで確かめる」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 環境・水
+    title: EUDRの調達地を衛星で確かめる
+    sub: 2026年12月30日適用。日陰栽培の農園は森林に見える
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星データの照合が行う
+      items:
+        - 区画ごとに、基準日の後の森林減少の有無を判定する
+        - リスクの高い区画を拾い出す
+    right:
+      title: 人が行う
+      items:
+        - 仕入先から区画の位置情報を集める
+        - 疑わしい区画を現地や書類で確かめる
+        - デューデリジェンス声明を提出する
+    note: 位置情報がなければ、照合は始まらない
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 3
+    items:
+      - title: 日陰栽培は森林に
+        text: コーヒーやカカオの農園が森林に見える
+        role: none
+      - title: 地図の定義のずれ
+        text: 21種類のうち、合うのは2つ
+        role: none
+      - title: 基準日の取り違え
+        text: 古い伐採が最近の減少に見える
+        role: none
+      - title: 位置情報が出発点
+        text: 小農からの収集が最大の壁
+        role: none
+      - title: 合法性は分からない
+        text: 土地の権利や法令は画像の外
+        role: none

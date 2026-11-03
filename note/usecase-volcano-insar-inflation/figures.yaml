@@ -1,0 +1,46 @@
+# note記事「火山の山体膨張を衛星データの干渉SARで監視する」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 防災
+    title: 噴火前の山の膨らみを衛星で測る
+    sub: 硫黄山で約15cmの隆起。精度は数cm、噴火後は測れない
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の干渉SARが行う
+      items:
+        - 火口周辺の隆起と沈降をcm単位で面的に測る
+        - 変動の広がりと時間の変化を示す
+    right:
+      title: 人と地上観測が行う
+      items:
+        - GNSSと傾斜計で連続して測る
+        - 地震と噴気の観測と合わせて解釈する
+        - 噴火警戒レベルと規制の範囲を決める
+    note: 衛星の解析は、噴火警報の判断材料の1つ
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 3
+    items:
+      - title: 精度は数cm
+        text: それより小さい動きは分からない
+        role: none
+      - title: 噴火後は非干渉
+        text: 降灰や溶岩の範囲は測れない
+        role: none
+      - title: 観測は連続ではない
+        text: 定常は年6回以上、緊急は最高1日2回
+        role: none
+      - title: 急な地形
+        text: 見かけの変動が出ることがある
+        role: none
+      - title: 時期は決まらない
+        text: 噴火の時期は地上観測と合わせて評価
+        role: none

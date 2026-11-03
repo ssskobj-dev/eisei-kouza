@@ -809,6 +809,7 @@ usecases:
   verified: true
 - 'no': 41
   name: SAR併用の農地自動判別
+  slug: farmland-auto-judge
   theme: 農業・食料
   field: 農業
   stage: 商用
@@ -828,6 +829,7 @@ usecases:
   verified: true
 - 'no': 42
   name: 火山の山体膨張の監視
+  slug: volcano-insar-inflation
   theme: 防災
   field: 防災・災害対応
   stage: 商用
@@ -847,6 +849,7 @@ usecases:
   verified: true
 - 'no': 43
   name: EUDRの調達地の確認
+  slug: eudr-plot-check
   theme: 環境・水
   field: 規制対応・開示
   stage: 商用
