@@ -1,0 +1,44 @@
+# 「変位の時系列の読み方：速度と1点の推移」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-3-15-displacement-series/<id>.svg を作る。
+# 出典：Copernicus「EGMS Product User Manual」「EGMS Product Description v3」、国土地理院「干渉SAR時系列解析」「岩手山の干渉SAR時系列解析結果（北行）」。
+
+figures:
+  - id: velocity-cumulative
+    type: split
+    alt: 速度と累積は別の量
+    link: ⇔
+    left:
+      title: 速度（年あたり）
+      role: satellite
+      items:
+        - 時系列に直線を当てはめた傾き
+        - 単位はmm/年（出どころでcm/年）
+        - 計算期間で値が変わる
+        - 途中で速さが変わると見落とす
+    right:
+      title: 累積（期間の最初から）
+      role: human
+      items:
+        - 期間の最初の観測を0とした各観測日の変位
+        - 単位はmm
+        - 1点の推移のグラフで読む
+        - 季節の上下と急な変化が見える
+    note: どちらも基準の点と期間に対する相対の値。軌道の向きごとに別のデータ
+
+  - id: traps
+    type: cards
+    alt: 塗りつぶしてはいけない4つ
+    columns: 2
+    items:
+      - title: 上りと下りを混ぜる
+        role: none
+        text: 別の側から見た値。斜面は逆の符号になる
+      - title: 符号を決めつける
+        role: none
+        text: 負は「遠ざかる」向き。沈下はその一例
+      - title: 速度に年数を掛ける
+        role: none
+        text: 累積は観測日ごとの変位の列から読む
+      - title: 測点の無い場所を塗る
+        role: none
+        text: 空白は「測れていない」。0は変位なしと区別できない

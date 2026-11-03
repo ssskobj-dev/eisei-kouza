@@ -1,0 +1,42 @@
+# 「海の上の物の検出：明るい点を拾って数える」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-3-16-objects-at-sea/<id>.svg を作る。
+# 出典：NASA Earthdata「SAR Image Interpretation」、ESA「SNAP Help：Object Detection」、JRC「The SUMO Ship Detector Algorithm」。
+
+figures:
+  - id: steps
+    type: flow
+    alt: 海の上の明るい点を拾う手順
+    steps:
+      - title: 陸を広めに除く
+        who: satellite
+        text: 海岸線に海側の余白を足す
+      - title: 海の明るさを推定
+        who: satellite
+        text: 背景の窓の平均と標準偏差
+      - title: 明るい点を拾う
+        who: satellite
+        text: 周りの平均＋標準偏差の定数倍を超える点
+      - title: 固定と虚像を除く
+        who: satellite
+        text: 大きさ、毎回同じ場所、明るい物の近くの弱い像
+      - title: AISで確かめる
+        who: human
+        text: 一致しない候補、岸の近く、風と雨
+
+  - id: not-ships
+    type: cards
+    alt: 船ではない明るい点
+    columns: 2
+    items:
+      - title: 陸の際と岸壁
+        role: none
+        text: 海岸線の誤差と桟橋。海側に余白を足して除く
+      - title: 波、雨、風の前線
+        role: none
+        text: 風で波立った海は明るい。しきい値を周りの海から決める
+      - title: 虚像（ゴースト）
+        role: none
+        text: 明るい物の進行方向の決まった距離に出る弱い像
+      - title: 固定の構造物
+        role: none
+        text: 風車、やぐら、ブイ、岩礁。毎回同じ場所に出る
