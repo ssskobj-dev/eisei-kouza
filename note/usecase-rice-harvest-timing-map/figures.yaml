@@ -1,0 +1,47 @@
+# note記事「ブランド米の刈り遅れを、衛星データの収穫適期マップで防ぐ」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 農業・食料
+    title: 刈り遅れを衛星で防ぐ
+    sub: 水田ごとの収穫適期。誤差2日、従来法の半分
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、指導員と農家が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 出穂後の画像から水田ごとの収穫適期を推定
+        - 玄米タンパクの目安を地図にする
+    right:
+      title: 指導員と農家が行う
+      items:
+        - 推定式のもとになる成熟期を現地で測る
+        - マップを見て刈り取りの順番を決める
+        - 欠測や倒伏の水田を現地で見る
+        - 翌年の施肥を助言する
+    note: 衛星が出すのは色から推定した成熟の日。刈れるかは人手と施設で決まる
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 雲のない画像が要る
+        text: 出穂後の限られた時期。雲の圃場は欠測
+        role: none
+      - title: 20a未満は欠測も
+        text: 小さな田が多い産地は穴が開く
+        role: none
+      - title: 雑草・倒伏で誤差増
+        text: 稲と雑草の色は区別できない
+        role: none
+      - title: 推定式は産地ごと
+        text: 品種と地域ごとに現地の実測で作る
+        role: none
+      - title: 分かるのは成熟の時期
+        text: 刈れるかは施設と人手と天候で決まる
+        role: none

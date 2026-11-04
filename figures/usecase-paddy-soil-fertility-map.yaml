@@ -1,0 +1,106 @@
+# ユースケースの記事「水田の土壌の肥沃度を、田植え直後の衛星データで12万筆いちどに地図にする」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 田植え直後の画像の土の色から腐植含量を推定
+        - 産地全体を同じ日に地図にする
+    right:
+      title: 人が行う
+      items:
+        - 推定式のもとになる土を採って分析する
+        - 地図を見て施肥設計と作付けの田を決める
+        - 境目と低い田だけ化学分析に出す
+        - 雲で撮れない年は翌年に回す
+    note: 衛星が出すのは腐植の目安。1筆の施肥量を確定する値ではない
+
+  - id: cost-compare
+    type: bar
+    alt: 約12万筆の水田の腐植含量を調べる費用の比較
+    unit: 万円
+    source: 青森県産業技術センター 日欧宇宙ビジネスウィークでの発表（2017年）。化学分析は1サンプル1,000円で試算
+    items:
+      - label: 化学分析（1筆ずつ）
+        value: 12000
+      - label: 衛星画像（3,000km²分）
+        value: 92
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 画像は田植え直後だけ
+        text: 稲が育つと葉が土を隠す。年1回の窓
+        role: none
+      - title: 雲があると1年待つ
+        text: 次の機会は翌年の田植え
+        role: none
+      - title: 誤差2.1ポイント
+        text: 1ポイント刻みの区分が隣とずれる
+        role: none
+      - title: 推定式は地域ごと
+        text: 土壌の種類が違えば作り直す
+        role: none
+      - title: 分かるのは腐植の目安
+        text: 排水、作土の深さ、リン酸は別
+        role: none
+
+  - id: flow
+    type: flow
+    alt: マップを、施肥指導と作付けの選定につなぐ手順
+    steps:
+      - title: 分析の田を選ぶ
+        text: 土壌の種類ごと
+        who: human
+      - title: 画像を手に入れる
+        text: 田植え直後の晴れ
+        who: satellite
+      - title: 腐植を推定
+        text: 6段階の地図に
+        who: satellite
+      - title: 基肥指導を分ける
+        text: 地力の高低で
+        who: human
+      - title: 境目だけ分析
+        text: 低い田も
+        who: human
+      - title: 作付けの田を選ぶ
+        text: 腐植の高い田を避ける
+        who: human
+
+  - id: cost
+    type: cards
+    alt: 費用がかかる3つの所
+    columns: 3
+    items:
+      - title: 衛星画像の購入
+        text: 公表例は3,000km²分で92万円
+        role: satellite
+      - title: 推定式の土壌分析
+        text: 土を採って分析。1サンプル1,000円で試算
+        role: human
+      - title: 解析と地図の仕組み
+        text: 推定の作業、GISの整備と閲覧
+        role: human
+
+  - id: scale
+    type: scale
+    alt: 最も効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 産地全体の分布
+        text: 地力の高低を一度に
+      - title: 分析の絞り込み
+        text: 境目と低い田だけ
+      - title: 土壌がまとまる地域
+        text: 推定式が合いやすい
+      - title: 1筆の施肥量の確定
+        text: 誤差が区分を越える
+      - title: 田植え時に雲が多い
+        text: 画像が取れない年がある

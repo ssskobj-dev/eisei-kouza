@@ -869,6 +869,7 @@ usecases:
   verified: true
 - 'no': 44
   name: 水稲の収穫適期マップ
+  slug: rice-harvest-timing-map
   theme: 農業・食料
   field: 農業
   stage: 商用
@@ -907,6 +908,7 @@ usecases:
   verified: true
 - 'no': 46
   name: 排出源の独立した推計
+  slug: emissions-independent-estimate
   theme: 環境・水
   field: 規制対応・開示
   stage: 商用
@@ -926,6 +928,7 @@ usecases:
   verified: true
 - 'no': 47
   name: 水田土壌の肥沃度マップ
+  slug: paddy-soil-fertility-map
   theme: 農業・食料
   field: 農業
   stage: 商用
