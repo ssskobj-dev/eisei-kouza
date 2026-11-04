@@ -1,0 +1,110 @@
+# 「地盤沈下：水準測量と組み合わせて面で把握する」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/survey-subsidence/<id>.svg を作る。
+
+figures:
+  - id: conclusion
+    type: split
+    alt: 衛星に任せられることと、人と水準測量が行うことの分担
+    link: ＋
+    left:
+      title: 衛星に任せられる
+      items:
+        - 水準点のない場所も、面で沈下を把握する
+        - 沈下の分布図と、沈下量別の面積を出す
+        - いつから沈んでいたかを過去に遡る
+    right:
+      title: 人と水準測量が行う
+      items:
+        - 幹線の水準測量を毎年続ける
+        - 較差で衛星の精度を確かめる
+        - 翌年の路線と頻度を決める
+    note: 衛星は「水準測量の代わり」ではなく「点を面に広げ、翌年の路線を決める材料」
+
+  - id: strengths
+    type: cards
+    alt: この用途で効く3つの強み
+    columns: 3
+    items:
+      - title: 広く見られる
+        text: 1シーンが50km四方。水準点のない場所も面で捉える
+      - title: 過去に遡れる
+        text: 観測データは蓄積され、2014年以降を追える
+      - title: 見えないものが見える
+        text: 年間1cm程度の沈下を面の分布として示せる
+
+  - id: limits
+    type: cards
+    alt: 現在の技術的な5つの限界
+    columns: 2
+    items:
+      - title: 視線方向しか測れない
+        text: 上下と水平を分けるには2つの軌道が要る
+        role: none
+      - title: 精度は比べて初めて言える
+        text: 水準測量との較差の標準偏差で示す
+        role: none
+      - title: 小さな変動は誤差に埋もれる
+        text: 大気や電離層の誤差はゼロにならない
+        role: none
+      - title: 干渉しない場所がある
+        text: 水面、季節で変わる植生や水田
+        role: none
+      - title: 観測日を選べない
+        text: 基準日とずれた期間を年換算して比べる
+        role: none
+
+  - id: sightline
+    type: sightline
+    alt: 衛星SARが捉えやすい動きと、捉えにくい動き（上から見た図）
+    note: 測れるのは衛星に近づく・遠ざかる動きだけ。上下は2つの軌道で分ける
+
+  - id: flow
+    type: flow
+    alt: 併用の5つの手順と、誰が行うか
+    steps:
+      - title: 目的と範囲
+        text: 効率化か、新たな範囲か
+        who: human
+      - title: データと解析
+        text: 各軌道4シーンが基本
+        who: satellite
+      - title: 精度を確かめる
+        text: 水準測量との較差
+        who: human
+      - title: 翌年の路線
+        text: 残す線、減らす線
+        who: human
+      - title: 幹線は毎年
+        text: 水準測量を続ける
+        who: human
+
+  - id: cost
+    type: cards
+    alt: 費用を分けて考える3つの項目
+    columns: 3
+    items:
+      - title: データ
+        text: 何シーン買うか。各軌道4シーンが基本
+        mark: A
+      - title: 解析
+        text: 1ペア、スタッキング、2.5次元、照査
+        mark: B
+      - title: 水準測量
+        text: 別業務。幹線は毎年続ける
+        mark: C
+        role: human
+
+  - id: fit
+    type: scale
+    alt: 衛星の併用が効きやすい地域の条件から、効きにくい条件まで
+    left: 併用が効きやすい
+    right: 効きにくい
+    items:
+      - title: 路線が長い平野
+        text: 沈下が続き、水準点が多い
+      - title: 水準点のない範囲
+        text: 懸念はあるが検証点が少ない
+      - title: 変動の小さい地域
+        text: 誤差と区別しにくい
+      - title: 水田、植生が多い
+        text: 干渉しにくい

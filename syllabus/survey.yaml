@@ -30,7 +30,7 @@ parts:
       - 衛星による観測が水準測量の代替ではなく併用とされる理由を説明できる
     must_include: [環境省のマニュアル, 水準測量との比較, 路線の選定への活用]
     material: ""
-    status: todo
+    status: done
 
   - id: survey-reclaimed-land
     title: 埋立地、造成地、空港、港湾：沈下の経年変化を追う
