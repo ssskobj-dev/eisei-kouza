@@ -1,0 +1,109 @@
+# English use-case video. Same facts as casebook/telecom-5g-3d-map.qmd; English narration & slides.
+lang: en
+title: "Satellite data for 5G network planning: buying a 3D city map"
+series: CASEBOOK
+kicker: Use case
+number: 40
+total: 221
+voice: Ryan
+thumb: 3D map for 5G
+summary: How telecom carriers buy a 3D map of buildings and trees, built from satellite data, to plan where 5G base stations go. Where it fits in the design workflow, what it lets you decide, published price examples, and its limits as of 2026. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: "Satellite data for 5G network planning: buying a 3D city map"
+    sub: A 3D map of buildings and trees, to plan where base stations go
+    say: Before a 5G base station is built, engineers calculate how far its signal will reach. That calculation needs a 3D map of the buildings and trees in the way. One way to get that map, anywhere in the world, is to build it from satellite imagery. In this video, we look at who uses it, where it fits in the design workflow, what it lets you decide, what the published examples cost, and its limits as of 2026.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Where: any 5G deployment area, including cities with no good 3D map"
+      - "Who: telecom carriers and the firms that design their radio networks"
+      - "Why: to calculate how far a signal reaches before building the station"
+      - "Why 5G: higher frequencies are blocked and weakened more by buildings and trees"
+    say: The users are telecom carriers and the companies that design radio networks for them. Their job is to work out, before building a base station, how far its signal will reach. This is radio propagation simulation, and it needs a 3D map with the heights and positions of buildings and trees. Three G and four G used 3D maps too, but 5G uses higher frequency bands for its large capacity, so buildings and trees block and weaken the signal more. That calls for a map that describes the shapes of structures and the kinds of trees in more detail.
+
+  - kind: steps
+    heading: Where it fits in the workflow
+    items:
+      - Decide the target area and frequency band, and the accuracy the design needs
+      - Buy a prepared map for the area, or order a new one; match your software's format
+      - Load it into the propagation software and compare candidate sites and directions
+      - Measure the real signal on site and check where it differs from the calculation
+      - Decide the position and direction of each base station, and prepare licence documents
+    say: Here is where it fits. First, decide the target area and the frequency band, and confirm how precise the design must be, which depends on the cell size. Second, if a prepared map already covers the area, buy it by specifying the area; if not, order a new one, in the format your software reads. Third, load it into the propagation software and compare the coverage for each candidate position and direction. Fourth, measure the real received signal on site, and check the causes where it differs from the calculation, such as a new building, a signboard, or a wall material. Finally, decide the position and direction of each base station, and prepare the documents for the licence application. The map does not finish the design. It is the material the calculation and the field work build on.
+
+  - kind: table
+    heading: What the satellite does, and what people do
+    columns: [The satellite and analysis do, The people do]
+    widths: [0.5, 0.5]
+    rows:
+      - ["Map building, tree and bridge heights as an area", "Load the map into the propagation software"]
+      - ["Prepare terrain and land use on one basis", "Compare candidate sites and directions"]
+      - ["Build it the same way anywhere in the world", "Measure on site to check the calculation"]
+      - ["", "See signboards and windows the map cannot"]
+    say: The split of roles looks like this. The satellite imagery and the analysis give the shape and height of buildings, trees and bridges across the whole area, with the terrain and land use prepared on one consistent basis, and they can do it the same way anywhere in the world, even where no map exists. The people load that map into the propagation software, compare the candidate sites and directions, measure the real signal on site to check the calculation, and look for the things the map cannot show, like a signboard or a window. The product that started this, AW3D Telecom for 5G, was launched by NTT DATA with RESTEC on the twenty-first of February, twenty nineteen.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.46, 0.54]
+    rows:
+      - ["3D shapes of buildings, trees and bridges", "Where structures block the signal; compare candidates"]
+      - ["Land-use classification map", "The attenuation setting for each type of area"]
+      - ["Building-height and ground-height maps", "Line-of-sight analysis; fixed wireless paths"]
+      - ["The propagation result you compute", "How many stations, where, and facing which way"]
+    say: Here is what you receive and what it lets you decide. The 3D shapes of buildings, trees and bridges tell you where structures block the signal, so you can compare candidate sites. The land-use classification map lets you set the attenuation for each kind of area. The building-height and ground-height maps support line-of-sight analysis and fixed wireless paths. And the propagation result, which you compute from all of this, is what tells you how many base stations to place, where, and facing which way, and where to measure on site. What the map decides directly is only where the signal is likely to be blocked. The number and position of stations come after the calculation and the field measurement.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - Accuracy is 2 m horizontal and 1 to 2 m in height; fine detail is not in it
+      - For millimetre-wave small cells, that margin can affect the calculation
+      - Signboards, windows and wall materials are not included, so field checks remain
+      - Buildings built after the imagery are not shown; the update interval is not public
+      - The reported benefits are qualitative, with no third-party verification
+    say: Now the limits, and some of these are our own reading, not statements in the source. First, the accuracy is two metres horizontally and one to two metres in height. That is enough for a cell covering hundreds of metres, but for a millimetre-wave small cell, which travels in straight lines and is easily blocked, that margin can affect the calculation. The source does not say this; it is general reasoning. Second, the map holds the shape and height of buildings, trees and bridges, but not signboards, windows, or wall materials, which matter at high frequencies, so a step of checking against on-site measurement remains. Third, because the map is built from imagery, buildings put up after the imagery are not in it, and the update interval is not disclosed, so in a redevelopment area you must check when the imagery was taken. Fourth, trees are included as shapes, but the seasonal change as leaves come and go is not. And finally, the published benefits are described only in qualitative terms in the provider's own materials, with no third-party figures for how much work was saved. The provider's materials also cite a voice from the UK carrier Vodafone, but we have not confirmed that from a primary source.
+
+  - kind: bullets
+    heading: How far do free satellites go?
+    items:
+      - The free global elevation data is a 90 m and 30 m grid from a 2000 mission
+      - It shows the shape of the terrain, the rise and fall of the land
+      - It cannot give the height of each individual building, which 5G siting needs
+      - So for urban 5G, a paid 3D map, or municipal or aerial maps, is the premise
+    say: So how far can free satellites take you here? The free global elevation data is a ninety metre and thirty metre grid, from an observation made in the year two thousand. It shows the shape of the terrain, the rise and fall of the land. What it cannot give is the height of each individual building, which is exactly what 5G base-station siting in a city needs. So unlike some other use cases, free data does not stand on its own here. For urban 5G design, the premise is a paid 3D map, or a municipal or aerial-survey map.
+
+  - kind: table
+    heading: What it costs (published examples)
+    columns: [Case, Price and terms]
+    widths: [0.4, 0.6]
+    rows:
+      - ["Local 5G licence (archive data)", "25 sq km, 7 days, 550,000 yen (about 3,700 USD)"]
+      - ["IoT factory (detail built new)", "30 sq km, 1 month, 1,200,000 yen (about 8,000 USD)"]
+      - ["On top of that", "Propagation software, designer time, field measurement"]
+      - ["Note", "Minimum order 25 sq km. No public price list"]
+    say: Here are the costs. Unlike many use cases, these are published prices, not an assumption. The provider's domestic material gives two case figures. One, a local 5G licence application, used prepared archive data for twenty-five square kilometres, delivered in seven days, at five hundred fifty thousand yen, about three thousand seven hundred US dollars. Two, an IoT factory, where rooftop detail was built new on request, for thirty square kilometres, delivered in one month, at one point two million yen, about eight thousand dollars. The dollar figures are an assumption at a hundred fifty yen to the dollar. On top of the map come the propagation software, the designer's time, and the field measurement. The minimum order is twenty-five square kilometres, and there is no public price list. These figures are from material dated around twenty twenty-one, so always confirm with a real quote.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.24, 0.38, 0.38]
+    rows:
+      - ["Area", "Overseas with no maps; wide suburbs", "A city centre with a precise 3D map"]
+      - ["Frequency", "Cells covering hundreds of metres", "Blockage-sensitive mmWave small cells"]
+      - ["Timing", "Using prepared archive, short-term", "Redevelopment where buildings change"]
+      - ["Accuracy", "2 m and 1 to 2 m is enough", "Windows and materials needed"]
+    say: Finally, where it fits. It fits an area with no existing maps, such as overseas or a wide suburb, where a cell covers hundreds of metres, where you can use prepared archive data for a short-term job, and where two metres horizontal and one to two metres in height is accurate enough. It does not fit a city centre that already has a precise municipal 3D map, a blockage-sensitive millimetre-wave small cell, a redevelopment area where buildings are changing, or a case where you need windows and wall materials. When you propose this, three points matter. Ask about the frequency band and cell size first, because that decides whether this accuracy is enough. Never say the satellite map removes the need for field checks. And confirm whether the area is already prepared, and when the imagery was taken, since a new build costs more and takes longer.
+
+  - kind: cta
+    heading: Considering it for your network?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Case & product: NTT DATA, 'AW3D Telecom for 5G' launch (21 Feb 2019) https://www.nttdata.com/jp/ja/news/release/2019/022101/"
+      - "Specs (2 m / 1-2 m / 25 sq km min): NTT DATA, English press release (21 Feb 2019) https://www.nttdata.com/global/en/news/press-release/2019/february/ntt-data-launches-advanced-3d-digital-map-package-for-5g-network-planning"
+      - "Prices: AW3D domestic telecom material (2021) https://www.aw3d.jp/wp/wp-content/uploads/2021/12/Library_telecom.pdf"
+      - "Price example in USD assumes 150 yen/USD (conversion by us)"
+    say: To consider this for your own network, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
