@@ -1504,3 +1504,21 @@
   publisher: 農林水産省
   url: https://www.affrc.maff.go.jp/docs/smart_agri_pro/kobo/r6-1/attach/pdf/index-2.pdf
   tags: [営農支援サービス, 実証, 費用]
+
+- id: gsi-uav-safety-2016-hrr
+  title: 公共測量におけるUAVの使用に関する安全基準（案）第1.0版（2016年3月。6-1 運航計画の立案：1回の運航範囲は0.3km²（30ha）以下が望ましい。北陸地方整備局の掲載ファイル、UAVを用いた公共測量マニュアル（案）と合冊。山形県の掲載ファイルが開けないときの代わり）
+  publisher: 国土地理院
+  url: https://www.hrr.mlit.go.jp/gijyutu/i_Construction/youryou_kijun/01uav/01_1uav_kokyosokuryo.pdf
+  tags: [基礎, ドローン, 測量, 制度, 農業]
+
+- id: env-subsidence-overview-r6
+  title: 令和6年度 全国の地盤沈下地域の概況（令和6年度に測量が実施された地域は20都道府県27地域。新潟平野の単年最大沈下量8.84cm、1cm/年以上の面積42.5km²、2cm/年以上17.6km²）（2026年3月）
+  publisher: 環境省 水・大気環境局
+  url: https://www.env.go.jp/content/000388917.pdf
+  tags: [地盤沈下, 水準測量, 統計]
+
+- id: gsi-sar-leveling-manual-release-2024
+  title: 衛星SARを用いた上下変動測量のマニュアルを公開（だいち2号の干渉SAR時系列解析と水準測量を組み合わせ、地盤沈下調査の水準測量の作業量を減らす）（2024年6月6日）
+  publisher: 国土地理院
+  url: https://www.gsi.go.jp/uchusokuchi/uchusokuchi20240606.html
+  tags: [干渉SAR, 公共測量, 水準測量, 地盤沈下]

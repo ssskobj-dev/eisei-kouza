@@ -19,6 +19,9 @@ alos2:
   wavelength: 約24cm
   revisit: 14日
   since: 2014年
+  # だいち2号・4号の公表価格（1シーン50km四方、税抜）。出典：環境省「地盤沈下観測等における衛星活用マニュアル」令和8年3月改訂版 表2-11。価格は変わるので、配布事業者で確かめてから直す
+  scene_price: 税抜8万円
+  scene_price_checked: 2026年3月
 
 alos4:
   name: だいち4号（ALOS-4）

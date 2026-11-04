@@ -1,0 +1,87 @@
+# 「衛星データ、ドローン、見回りの使い分け」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/agri-satellite-vs-drone/<id>.svg を作る。
+# 数字の出典は本文と同じ（290kmと10m：ESA、30ha：国土地理院の安全基準（案）、20a：青森県）。
+
+figures:
+  - id: scale
+    type: scale
+    alt: 見回りから衛星まで、一度に見られる範囲と分かる細かさの並び
+    left: 狭く、細かく
+    right: 広く、粗く
+    items:
+      - title: 見回り
+        text: 歩ける範囲、株ごと
+      - title: ドローン
+        text: 1回30ha以下の目安、数cm
+      - title: 衛星
+        text: 幅290km、10mの画素
+
+  - id: criteria
+    type: cards
+    alt: 比べるときの5つの観点
+    columns: 3
+    items:
+      - title: 面積
+        text: 管内の枚数と合計、1筆の大きさ
+        mark: "1"
+      - title: 草丈と時期
+        text: 地面が見える時期か、茂りすぎか
+        mark: "2"
+      - title: 天候
+        text: 雲で撮れないか、風で飛べないか
+        mark: "3"
+      - title: 手間
+        text: 人の時間か、操縦と処理か、技能か
+        mark: "4"
+      - title: 費用
+        text: 無償か、利用料か、機材と人か
+        mark: "5"
+
+  - id: cases
+    type: cards
+    alt: 管内の規模と作物で、どの手段を軸にするか
+    columns: 2
+    items:
+      - title: 衛星を軸に
+        text: 20a以上の水稲や小麦が数百枚ある
+      - title: 見回りを軸に
+        text: 小さな田が集落ごとに点在する
+        role: human
+      - title: ドローンと見回り
+        text: 生育初期や、草丈の低い作物を見たい
+        role: human
+      - title: 見回りの日程を先に
+        text: 適期が短く、雲の多い時期にあたる
+        role: human
+
+  - id: flow
+    type: flow
+    alt: 衛星で順番、ドローンで細部、見回りで確定の3つの手順
+    steps:
+      - title: 衛星で順番
+        text: 全圃場を同じ日に並べる
+        who: satellite
+      - title: ドローンで細部
+        text: 外れた圃場の中のムラ
+        who: satellite
+      - title: 見回りで確定
+        text: 基準の圃場を測り判断
+        who: human
+
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人とドローンが行うこと
+    link: ＋
+    left:
+      title: 衛星に任せる
+      items:
+        - 管内の全圃場を同じ日に見る
+        - 周りと比べて外れた圃場を拾う
+        - 見回りの順番を決める
+    right:
+      title: 人とドローンが行う
+      items:
+        - 基準の圃場を実測する
+        - 筆の中のムラを見る
+        - 追肥や収穫を判断する
+    note: 雲で欠けた圃場は「問題なし」ではなく、見回りに回す

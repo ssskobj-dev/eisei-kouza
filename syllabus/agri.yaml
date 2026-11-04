@@ -90,7 +90,7 @@ parts:
       - 圃場の規模と作物から、手段の組み合わせを決められる
     must_include: [面積, 作物の草丈, 天候, 手間, 費用]
     material: ""
-    status: todo
+    status: done
 
   - id: agri-cost-benefit
     title: 費用対効果の測り方
