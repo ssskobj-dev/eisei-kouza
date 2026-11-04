@@ -1,0 +1,47 @@
+# note記事「水田の土壌の肥沃度を、田植え直後の衛星データで12万筆いちどに地図にする」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 農業・食料
+    title: 水田の地力を衛星で地図に
+    sub: 12万筆を一度に。化学分析1.2億円に対し画像92万円
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 田植え直後の画像の土の色から腐植含量を推定
+        - 産地全体を同じ日に地図にする
+    right:
+      title: 人が行う
+      items:
+        - 推定式のもとになる土を採って分析する
+        - 地図を見て施肥設計と作付けの田を決める
+        - 境目と低い田だけ化学分析に出す
+        - 雲で撮れない年は翌年に回す
+    note: 衛星が出すのは腐植の目安。1筆の施肥量を確定する値ではない
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 画像は田植え直後だけ
+        text: 稲が育つと葉が土を隠す。年1回の窓
+        role: none
+      - title: 雲があると1年待つ
+        text: 次の機会は翌年の田植え
+        role: none
+      - title: 誤差2.1ポイント
+        text: 1ポイント刻みの区分が隣とずれる
+        role: none
+      - title: 推定式は地域ごと
+        text: 土壌の種類が違えば作り直す
+        role: none
+      - title: 分かるのは腐植の目安
+        text: 排水、作土の深さ、リン酸は別
+        role: none

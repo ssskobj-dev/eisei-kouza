@@ -1,0 +1,106 @@
+# ユースケースの記事「ブランド米の刈り遅れを、衛星データの収穫適期マップで防ぐ」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、指導員と農家が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 出穂後の画像から水田ごとの収穫適期を推定
+        - 玄米タンパクの目安を地図にする
+    right:
+      title: 指導員と農家が行う
+      items:
+        - 推定式のもとになる成熟期を現地で測る
+        - マップを見て刈り取りの順番を決める
+        - 欠測や倒伏の水田を現地で見る
+        - 翌年の施肥を助言する
+    note: 衛星が出すのは色から推定した成熟の日。刈れるかは人手と施設で決まる
+
+  - id: accuracy
+    type: bar
+    alt: 予測した日の誤差（2017〜2019年の3年平均）
+    unit: 日
+    source: 農研機構 東北農業研究センター、青森県産業技術センター 成果資料（実証は2017〜2019年）
+    items:
+      - label: 収穫適期マップ（水田ごと）
+        value: 2.0
+      - label: 従来法（市町村ごとの積算気温）
+        value: 4.0
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 雲のない画像が要る
+        text: 出穂後の限られた時期。雲の圃場は欠測
+        role: none
+      - title: 20a未満は欠測も
+        text: 小さな田が多い産地は穴が開く
+        role: none
+      - title: 雑草・倒伏で誤差増
+        text: 稲と雑草の色は区別できない
+        role: none
+      - title: 推定式は産地ごと
+        text: 品種と地域ごとに現地の実測で作る
+        role: none
+      - title: 分かるのは成熟の時期
+        text: 刈れるかは施設と人手と天候で決まる
+        role: none
+
+  - id: flow
+    type: flow
+    alt: マップを、刈り取りの順番と翌年の施肥につなぐ手順
+    steps:
+      - title: 実測の田を決める
+        text: 品種・地域ごと
+        who: human
+      - title: 収穫適期を推定
+        text: 出穂後の画像から
+        who: satellite
+      - title: マップを配る
+        text: スマートフォンで
+        who: satellite
+      - title: 刈取り順を決める
+        text: 乾燥施設の荷受けも
+        who: human
+      - title: 欠測を現地で見る
+        text: 雲・倒伏の圃場
+        who: human
+      - title: 翌年の施肥を助言
+        text: タンパクの地図から
+        who: human
+
+  - id: cost
+    type: cards
+    alt: 費用がかかる3つの所
+    columns: 3
+    items:
+      - title: 衛星画像の購入
+        text: 商用の光学衛星。無償で同じ精度かは不明
+        role: satellite
+      - title: 推定式の現地調査
+        text: 品種と地域ごとの実測。毎年残る
+        role: human
+      - title: 配信と運用
+        text: Webアプリ、区画の地図データの整備
+        role: human
+
+  - id: scale
+    type: scale
+    alt: 最も効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: ブランド米
+        text: 刈り遅れが価格に直結
+      - title: まとまった水田
+        text: 20a以上が多い産地
+      - title: 実測を続ける体制
+        text: 推定式を毎年直せる
+      - title: 小さな田の中山間
+        text: 欠測が多く穴が開く
+      - title: 収穫期に雲が多い
+        text: 画像が取れない年がある

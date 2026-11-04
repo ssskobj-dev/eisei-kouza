@@ -1,0 +1,48 @@
+# note記事「工場や発電所ごとの温室効果ガスを、衛星データで自己申告とは別に推計する」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 環境・水
+    title: 排出量を衛星で独立推計
+    sub: 276万か所の施設ごとの推計。限界と使い方
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 稼働の兆候を衛星画像から捉える
+        - 実測で学習したAIで施設ごとに推計する
+        - 月ごとに更新する
+    right:
+      title: 人が行う
+      items:
+        - 投融資先の施設と名寄せする
+        - 開示値と並べて差の大きい施設を選ぶ
+        - 企業に理由を聞く
+        - 対策と対話の優先順位を決める
+    note: 推計は対話の入口。企業の排出量として評価に書き込まない
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: CO2を直接測っていない
+        text: 稼働の兆候から実測で学習したAIが推計
+        role: none
+      - title: 施設の推計は75%の部門
+        text: 鉄道などは国の単位だけ
+        role: none
+      - title: 60日遅れ、改訂あり
+        text: バージョンを記録して比べる
+        role: none
+      - title: 外部研究と食い違う例
+        text: 都市の自動車CO2で平均約70%低い報告
+        role: none
+      - title: 実測の少ない地域は弱い
+        text: グローバルサウスで学習データが乏しい
+        role: none

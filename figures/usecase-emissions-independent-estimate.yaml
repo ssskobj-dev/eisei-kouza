@@ -1,0 +1,114 @@
+# ユースケースの記事「工場や発電所ごとの温室効果ガスを、衛星データで自己申告とは別に推計する」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 稼働の兆候を衛星画像から捉える
+        - 実測で学習したAIで施設ごとに推計する
+        - 月ごとに更新する
+    right:
+      title: 人が行う
+      items:
+        - 投融資先の施設と名寄せする
+        - 開示値と並べて差の大きい施設を選ぶ
+        - 企業に理由を聞く
+        - 対策と対話の優先順位を決める
+    note: 推計は対話の入口。企業の排出量として評価に書き込まない
+
+  - id: numbers
+    type: cards
+    alt: 公開されている規模（2026年10月時点）
+    columns: 2
+    items:
+      - title: 約276万か所
+        text: 施設ごとの推計を公開する排出源の数
+        role: satellite
+      - title: 衛星300基超
+        text: センサー1万1千超のデータをAIで解析
+        role: satellite
+      - title: 月ごとに更新
+        text: 公開の遅れは60日。後から改訂もある
+        role: satellite
+      - title: 排出量の75%の部門
+        text: 施設ごとの推計がある範囲。残りは国単位
+        role: satellite
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: CO2を直接測っていない
+        text: 稼働の兆候から実測で学習したAIが推計
+        role: none
+      - title: 施設の推計は75%の部門
+        text: 鉄道などは国の単位だけ
+        role: none
+      - title: 60日遅れ、改訂あり
+        text: バージョンを記録して比べる
+        role: none
+      - title: 外部研究と食い違う例
+        text: 都市の自動車CO2で平均約70%低い報告
+        role: none
+      - title: 実測の少ない地域は弱い
+        text: グローバルサウスで学習データが乏しい
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 独立推計を、企業との対話につなぐ手順
+    steps:
+      - title: 施設の一覧を作る
+        text: 投融資先ごと
+        who: human
+      - title: 名寄せする
+        text: 所有者と所在地で
+        who: human
+      - title: 差を出す
+        text: 開示値と推計
+        who: satellite
+      - title: 質問先を選ぶ
+        text: 差と信頼度で
+        who: human
+      - title: 企業に聞く
+        text: 差の理由
+        who: human
+      - title: 評価に反映
+        text: 答えを記録
+        who: human
+
+  - id: cost
+    type: cards
+    alt: 費用がかかる3つの所
+    columns: 3
+    items:
+      - title: データは無料
+        text: CC BY 4.0。衛星データの購入は不要
+        role: satellite
+      - title: 名寄せと分析
+        text: 施設の一覧づくりと開示値との突き合わせ
+        role: human
+      - title: 更新と改訂に追従
+        text: 月ごとの更新、過去の値の改訂、版の記録
+        role: human
+
+  - id: scale
+    type: scale
+    alt: 最も効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 施設の推計がある
+        text: 発電、製鉄、油ガスなど
+      - title: 対話の入口に使う
+        text: 差の大きい施設に質問
+      - title: 海外の未開示の施設
+        text: 目安として使う
+      - title: 確定値として使う
+        text: 改訂と反論に耐えない
+      - title: 実測の少ない地域
+        text: 小さな施設ほど弱い
