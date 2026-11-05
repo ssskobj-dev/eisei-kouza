@@ -42,7 +42,7 @@ parts:
       - 構造物の多い平坦地が衛星に向く理由を説明できる
     must_include: [反射の安定した対象, 過去データの活用, 測量値との検証]
     material: ""
-    status: todo
+    status: done
 
   - id: survey-dam-levee
     title: ダムと河川堤防：計器のない場所の変位を補う
@@ -54,7 +54,7 @@ parts:
       - 既存の計測と衛星の役割分担を提案できる
     must_include: [複数施設の同時観測, 他の計測との組み合わせ, 万能ではない点]
     material: ""
-    status: todo
+    status: done
 
   - id: survey-disaster-damage
     title: 災害時の被災状況：平時から備えておくこと
