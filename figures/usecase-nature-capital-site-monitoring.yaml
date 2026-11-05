@@ -1,0 +1,74 @@
+# ユースケースの記事「工場や社有林の周りの植生と生物を、衛星データとAIで推定する」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星とAIに任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星とAIが行う
+      items:
+        - 衛星画像から、植生の分布を推定する
+        - 観察記録と組み合わせ、生物の生息しやすさを地図にする
+    right:
+      title: 人が行う
+      items:
+        - 対象の範囲と、見たい種を決める
+        - 重要な拠点は、現地調査で確かめる
+        - 開示の内容と、保全の対策を決める
+    note: 推定の地図は、どこを詳しく調べるかを決める材料
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 精度の数字がない
+        text: 正解率や誤差は公表されていない
+        role: none
+      - title: 衛星の名前と分解能
+        text: 提供開始の発表に書かれていない
+        role: none
+      - title: 生物は推定
+        text: 「いる」確認でなく、生息しやすさ
+        role: none
+      - title: 現地調査は残る
+        text: 人が歩く調査を補う位置づけ
+        role: none
+      - title: 上から見えない場所
+        text: 林の下、土の中、水の中は写らない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 拠点の絞り込みから、開示までの手順
+    steps:
+      - title: 拠点を絞る
+        text: 無償の地図で
+        who: human
+      - title: 範囲と種を決める
+        text: 重要な拠点だけ
+        who: human
+      - title: 植生と生物の推定
+        text: 衛星とAIで
+        who: satellite
+      - title: 現地で確認
+        text: 重要な場所
+        who: human
+      - title: 開示と対策の決定
+        text: 推定と調査を並べる
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 広い範囲の植生
+        text: 上から見える森林や緑地
+      - title: 調査先の絞り込み
+        text: 現地に行く場所を選ぶ
+      - title: 種がいることの証明
+        text: 推定は確率まで
+      - title: 水中や林の下
+        text: 画像には写らない

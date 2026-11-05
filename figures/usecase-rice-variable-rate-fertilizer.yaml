@@ -1,0 +1,85 @@
+# ユースケースの記事「水稲の可変施肥を、衛星データの施肥マップと田植機の連携で行う」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 衛星画像から、圃場の中の地力と生育のムラを推定する
+        - 場所ごとの施肥量を指定した、可変施肥マップを作る
+    right:
+      title: 人と農機が行う
+      items:
+        - 基準の施肥量と、増減の幅を決める
+        - 対応する田植機で、マップどおりに施肥する
+        - 収量を測り、翌年の設計を見直す
+    note: 実証は4〜5%の増収。県の試験では差が出なかった例もある
+
+  - id: bar
+    type: bar
+    alt: 長野県の試験での収量（10aあたり）
+    unit: kg（10aあたりの収量）
+    source: 長野県農業試験場 現地実証展示圃成績（令和5年度）
+    items:
+      - label: 可変施肥区
+        value: 563
+      - label: 慣行区（均一に施肥）
+        value: 561
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 対応する田植機が要る
+        text: 方式はメーカーごとに違う
+        role: none
+      - title: 増収は条件しだい
+        text: 収量の高い圃場では差が出なかった
+        role: none
+      - title: 雲があると撮れない
+        text: 梅雨の時期は取れない日が多い
+        role: none
+      - title: 土を測った地図ではない
+        text: 過去の生育の傾向からの区分け
+        role: none
+      - title: 肥料で直らないムラ
+        text: 水の管理、雑草、苗の量が原因のもの
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 基肥の設計に、可変施肥マップを入れる手順
+    steps:
+      - title: 圃場の形を登録
+        text: システムに
+        who: human
+      - title: 施肥マップを作る
+        text: 衛星画像で
+        who: satellite
+      - title: 量と幅を決める
+        text: 基準と増減
+        who: human
+      - title: 可変で施肥
+        text: 対応する田植機
+        who: human
+      - title: 収量を測り見直す
+        text: 均一な圃場と比べる
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 地力のムラが大きい
+        text: 力の弱い場所がある圃場
+      - title: 対応する田植機
+        text: 更新の時期が近い経営
+      - title: 収量の高い圃場
+        text: 増収の余地が少ない
+      - title: 水や雑草のムラ
+        text: 肥料を変えても直らない

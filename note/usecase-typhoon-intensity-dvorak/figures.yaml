@@ -1,0 +1,46 @@
+# note記事「台風の強度を、気象衛星ひまわりの雲の形から推定する」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 防災
+    title: 台風の強さは雲の形から推定
+    sub: 速報920hPa、確定910hPa。解析値の読み方
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - ひまわりが10分ごと、日本域は2.5分ごとに雲を撮る
+        - 雲の形から、中心気圧と最大風速を推定する
+    right:
+      title: 人が行う
+      items:
+        - 解析者が雲の型を判定し、地上の観測も見て決める
+        - 利用者は、解析値を幅のある値として読む
+        - 通過後に、確定値で記録を直す
+    note: 2020年台風10号の最盛期は、速報値920hPa、確定値910hPa
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 10hPa程度以上の幅
+        text: 同じ判定でも、実際の気圧はばらつく
+        role: none
+      - title: 速報値は後で変わる
+        text: 消えた後の再解析で確定値になる
+        role: none
+      - title: 典型から外れた台風
+        text: 眼が小さい、陸地に近いと誤差が大きい
+        role: none
+      - title: 解析者の判断が入る
+        text: 主観のばらつきは完全には除けない
+        role: none
+      - title: 測っているのは雲
+        text: 海面の気圧や風を直接は測っていない
+        role: none
