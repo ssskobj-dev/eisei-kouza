@@ -1522,3 +1522,71 @@
   publisher: 国土地理院
   url: https://www.gsi.go.jp/uchusokuchi/uchusokuchi20240606.html
   tags: [干渉SAR, 公共測量, 水準測量, 地盤沈下]
+
+# ---- 埋立地・空港・港湾の沈下、ダムと河川堤防の変位（2026-11-06 追記） ----
+
+- id: ktr-haneda-sar-survey-2026
+  title: 衛星SARを活用した羽田空港路面測量のDX化と実装可能性に関する一提案（令和8年度スキルアップセミナー関東 インフラDX部門。路面測量は延長約50km・約5か月・深夜5〜6時間、勾配の管理は3年に1回で要求はRMSE4mm以内、地盤沈下の管理は毎年。Xバンドの時系列解析を10mメッシュにし、測量との差はC滑走路0.944cm、エプロン1.037cm。勾配の管理には使えず、間の2年の沈下の管理を置き換える提案。Lバンドは平滑な舗装で感度が低く、Cバンドは解像度不足）
+  publisher: 国土交通省 関東地方整備局 東京空港整備事務所
+  url: https://www.ktr.mlit.go.jp/ktr_content/content/000948272.pdf
+  tags: [空港, 埋立地, 干渉SAR, 精度, 測量, 併用]
+
+- id: jaxa-port-airport-insar-2018
+  title: 港湾・空港を対象とした干渉SAR時系列解析技術によるインフラモニタ技術（第8回技術交流会、2018年12月10日。消波ブロックの検証でRMSE0.23cm、滑走路の測量値との比較で年0.4cmと年0.47cm、初期の解析に15データ程度以上、埋立・工事・水位変化のある場所は計測不可、位置の精度は数m、一次スクリーニングの位置付け）
+  publisher: JAXA 地球観測研究センター（関東地方整備局 横浜港湾空港技術調査事務所の掲載）
+  url: https://www.pa.ktr.mlit.go.jp/yokohamagicho/works/pdf/no_8/slide20181210i-s.pdf
+  tags: [埋立地, 港湾, 空港, 干渉SAR, 精度]
+
+- id: gsi-sar-nationwide-map-2023
+  title: 宇宙から国土をくまなくスキャンします！ だいち2号による全国の変動分布図が完成（8年に及ぶ観測データの干渉SAR時系列解析。地理院地図で公開）（2023年3月28日）
+  publisher: 国土地理院
+  url: https://www.gsi.go.jp/uchusokuchi/uchusokuchi20230328.html
+  tags: [干渉SAR, 時系列, 公開データ, 地盤沈下, 埋立地]
+
+- id: gsi-sar-nationwide-map-alos4-2026
+  title: 「だいち4号」を活用した全国の変動分布図（衛星SAR地盤変動測量成果）の公開（2025年11月23日までのデータを解析。地理院地図で閲覧、ダウンロードサービスで数値データ）（2026年3月31日）
+  publisher: 国土地理院
+  url: https://www.gsi.go.jp/uchusokuchi/uchusokuchi20260331.html
+  tags: [干渉SAR, 時系列, 公開データ, 地盤沈下, 埋立地]
+
+- id: gsi-alos-advanced-use-r4
+  title: 先進レーダ衛星の高度利用に関する研究開発（第2年次）（令和4年度。全国の干渉SAR時系列解析はピクセルの間隔90m、ALOS-2の約8年分。千葉県の地盤沈下地域で水準測量との相関係数0.96、回帰直線の傾き1.05）
+  publisher: 国土地理院 測地部 宇宙測地課
+  url: https://www.gsi.go.jp/common/000254431.pdf
+  tags: [干渉SAR, 時系列, 公開データ, 精度, 地盤沈下]
+
+- id: nilim-dam-sar-report-2018
+  title: 衛星SARを活用したダムの変位モニタリング技術の開発（国総研レポート2018。平成26〜30年度。ロックフィルダム19基で、半数以上は既存の測量との相違が5mm以下、8割以上で10mm以下。熊本地震の前後の堤体の沈下量の分布。相違の要因は電波の入射方向と堤体の傾斜、表面の材料と植生）
+  publisher: 国土技術政策総合研究所
+  url: https://www.nilim.go.jp/lab/bcg/siryou/2018report/ar2018hp063.pdf
+  tags: [ダム, 干渉SAR, 精度, 併用]
+
+- id: pwrc-dam-sar-19-2017
+  title: 衛星SARによる19基のロックフィルダムの外部変形計測（土木技術資料 59-9、2017年。ALOS-2、ダムごとに5〜15シーン。19基中12基でRMSE5mm以下。誤差の要因は洪水吐の導流壁のサイドローブ、植生、貯水面の近く、残雪、入射角の大きい斜面。熊本地震で最大約3cmの沈下を観測）
+  publisher: 土木研究センター（国土技術政策総合研究所 佐藤ほか）
+  url: https://pwrc.or.jp/thesis_shouroku/thesis_pdf/1709-P036-041_sato.pdf
+  tags: [ダム, 干渉SAR, 精度, 誤差]
+
+- id: kkr-kakogawa-sar-library
+  title: SAR衛星画像を河川管理に用いるための解析・ライブラリ作成技術（資料8。日付と会議名の記載なし。加古川でALOS-2の5年分の上下変動を解析。年30枚程度で1mm/年、実際の運用は10mm単位。上下変位が表す現象は要検証。巡視の絞り込みと補修の優先順位に使う案。解析の費用は従来の堤防点検と同程度）
+  publisher: 応用地質（国土交通省 近畿地方整備局の掲載）
+  url: https://www-2.kkr.mlit.go.jp/plan/i-construction/ol9a8v000001jzwu-att/siryou-8_SARgazou.pdf
+  tags: [堤防, 河川, 干渉SAR, 精度, 絞り込み]
+
+- id: mlit-levee-inspection-guideline-2019
+  title: 堤防等河川管理施設及び河道の点検・評価要領（平成31年4月。定期点検は出水期前と台風期の年2回、目視が基本。土堤の変状は亀裂、陥没、法崩れ、沈下、はらみ出し、漏水・噴砂など12種類。沈下など進行を評価できる変状は計測による定点観測）
+  publisher: 国土交通省 水管理・国土保全局 河川環境課
+  url: https://www.mlit.go.jp/river/shishin_guideline/kasen/pdf/01_teibou_tenkenhyouka_youryou.pdf
+  tags: [堤防, 河川, 点検, 制度]
+
+- id: mlit-river-dx-satellite
+  title: インフラDX 取組事例：衛星活用（浸水範囲と土砂移動の早期把握に活用。平常時の管理では海岸線モニタリングとダム堤体の変位監視を検討中）
+  publisher: 国土交通省 水管理・国土保全局
+  url: https://www.mlit.go.jp/river/gijutsu/dx/example/satellite.html
+  tags: [ダム, 河川, 災害, 政策]
+
+- id: mlit-river-rd-midterm-h31
+  title: 河川砂防技術研究開発公募 河川・水防災技術分野 中間評価結果（平成31年度採択テーマ。衛星SAR等リモートセンシング技術を用いた堤防・河道の状態推定や河道の流下能力評価に関する技術研究開発ほか）
+  publisher: 国土交通省 水管理・国土保全局
+  url: https://www.mlit.go.jp/river/gijutsu/kasenmizubousai/pdf/r2_theme_mid_h31.pdf
+  tags: [堤防, 河川, 干渉SAR, 研究開発]

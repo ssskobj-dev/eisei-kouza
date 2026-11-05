@@ -1,0 +1,113 @@
+# 「埋立地、造成地、空港、港湾：沈下の経年変化を追う」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/survey-reclaimed-land/<id>.svg を作る。
+
+figures:
+  - id: conclusion
+    type: split
+    alt: 衛星に任せられることと、人と測量が行うことの分担
+    link: ＋
+    left:
+      title: 衛星に任せられる
+      items:
+        - 舗装や岸壁の沈下の傾向を、面で追う
+        - 2014年以降の経年変化を遡る
+        - 沈下の速い区画を拾う
+    right:
+      title: 人と測量が行う
+      items:
+        - 精度の要る項目の実測を続ける
+        - 測量値で衛星の結果を検証する
+        - 工事中の区画は測量で追う
+    note: 衛星は「測量をなくす手段」ではなく「測量を置く場所を決める材料」
+
+  - id: strengths
+    type: cards
+    alt: この用途で効く3つの強み
+    columns: 3
+    items:
+      - title: 過去に遡れる
+        text: 2014年以降の蓄積を遡って使える
+      - title: 見えないものが見える
+        text: 測線の間の沈下の偏りを地図で示せる
+      - title: 客観的に示せる
+        text: 測量値との差を数字で出せる
+
+  - id: limits
+    type: cards
+    alt: 現在の技術的な6つの限界
+    columns: 2
+    items:
+      - title: 工事中は測れない
+        text: 盛土や埋立で表面が変わると干渉しない
+        role: none
+      - title: 速い沈下は読み違える
+        text: 観測の間の動きが波長の半分を超える場合
+        role: none
+      - title: 勾配の管理には届かない
+        text: 測量との差は約1cm。要求は4mm以内
+        role: none
+      - title: 波長ごとに一長一短
+        text: 感度、解像度、調達費のどれかが課題
+        role: none
+      - title: 値は相対、位置は数m
+        text: 標高は測れず、測量と同じ点で比べにくい
+        role: none
+      - title: 枚数がそろうまで待つ
+        text: 最初の解析に15回分程度以上が要る
+        role: none
+
+  - id: sightline
+    type: sightline
+    alt: 衛星SARが捉えやすい動きと、捉えにくい動き（上から見た図）
+    note: 測れるのは衛星に近づく・遠ざかる動きだけ。埋立地は上下の動きとして読む
+
+  - id: flow
+    type: flow
+    alt: 分担を決める5つの手順と、誰が行うか
+    steps:
+      - title: 区画と目的
+        text: 舗装、工事中、植生に分ける
+        who: human
+      - title: 過去データ
+        text: 有無を確かめて解析
+        who: satellite
+      - title: 測量値と比べる
+        text: 沈下速度の差を出す
+        who: human
+      - title: 残す測量
+        text: 精度の要る項目は実測
+        who: human
+      - title: 毎年の検証
+        text: 残した測量で確かめる
+        who: human
+
+  - id: cost
+    type: cards
+    alt: 費用を分けて考える3つの項目
+    columns: 3
+    items:
+      - title: データ
+        text: 波長と枚数で変わる。無償のものもある
+        mark: A
+      - title: 解析
+        text: 時系列解析と、測量値との比較
+        mark: B
+      - title: 測量
+        text: 別業務。残す範囲を先に決める
+        mark: C
+        role: human
+
+  - id: fit
+    type: scale
+    alt: 衛星が効きやすい区画の条件から、効きにくい条件まで
+    left: 衛星が効きやすい
+    right: 効きにくい
+    items:
+      - title: 舗装、岸壁
+        text: 表面が変わらない
+      - title: 建物の多い造成地
+        text: 反射は安定。測量値が要る
+      - title: 植生のある区画
+        text: 波長によって干渉しにくい
+      - title: 工事中、埋立中
+        text: 表面が変わり、測れない

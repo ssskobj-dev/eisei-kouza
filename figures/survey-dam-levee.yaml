@@ -1,0 +1,113 @@
+# 「ダムと河川堤防：計器のない場所の変位を補う」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/survey-dam-levee/<id>.svg を作る。
+
+figures:
+  - id: conclusion
+    type: split
+    alt: 衛星に任せられることと、人と既存の計測が行うことの分担
+    link: ＋
+    left:
+      title: 衛星に任せられる
+      items:
+        - 標点の間の変位を、面で補う
+        - 複数の施設を、同じ観測で見る
+        - 地震の後、行けない場所を見る
+    right:
+      title: 人と既存の計測が行う
+      items:
+        - 測量とGNSSの計測を続ける
+        - 実測値で衛星の結果を検証する
+        - 巡視と点検で状態を判定する
+    note: 衛星は「計器の代わり」ではなく「計器の間を埋め、次に見る場所を決める材料」
+
+  - id: strengths
+    type: cards
+    alt: この用途で効く3つの強み
+    columns: 3
+    items:
+      - title: 広く見られる
+        text: 1つのデータに複数のダムや斜面が入る
+      - title: 行かずに分かる
+        text: 地上の設備が要らず、災害時も観測できる
+      - title: 見えないものが見える
+        text: 標点の間の局所的な変形を面で拾える
+
+  - id: limits
+    type: cards
+    alt: 現在の技術的な6つの限界
+    columns: 2
+    items:
+      - title: 対象が限られる
+        text: 精度を確かめたのはロックフィルダムの堤体
+        role: none
+      - title: 誤差の出やすい場所
+        text: 導流壁、植生、水面の近く、残雪
+        role: none
+      - title: 堤防では精度が落ちる
+        text: 実際の運用は10mm単位とされた
+        role: none
+      - title: 表面の動きしか見えない
+        text: 亀裂、穴、漏水は対象にならない
+        role: none
+      - title: 斜面の向きで読み違える
+        text: 測れるのは視線方向の相対的な変化
+        role: none
+      - title: 撮りたい時に撮れない
+        text: 観測の日時は選べず、積雪期は除く
+        role: none
+
+  - id: sightline
+    type: sightline
+    alt: 衛星SARが捉えやすい動きと、捉えにくい動き（上から見た図）
+    note: 測れるのは衛星に近づく・遠ざかる動きだけ。斜面の向きで見え方が変わる
+
+  - id: flow
+    type: flow
+    alt: 役割分担の5つの手順と、誰が行うか
+    steps:
+      - title: 対象と期間
+        text: ダム、斜面、解析の期間
+        who: human
+      - title: 資料をそろえる
+        text: 実測値、座標、工事の履歴
+        who: human
+      - title: 解析する
+        text: 両方向のデータを使う
+        who: satellite
+      - title: 実測値と比べる
+        text: 差の大きい点の原因を見る
+        who: human
+      - title: 現地で確かめる
+        text: 誤差か、実際の変形か
+        who: human
+
+  - id: cost
+    type: cards
+    alt: 費用を分けて考える3つの項目
+    columns: 3
+    items:
+      - title: データ
+        text: 両方向を使うので枚数が増える
+        mark: A
+      - title: 解析
+        text: 外部への委託と、実測値との比較
+        mark: B
+      - title: 既存の計測
+        text: 測量、GNSS、巡視は続ける
+        mark: C
+        role: human
+
+  - id: fit
+    type: scale
+    alt: 衛星が効きやすい施設の条件から、効きにくい条件まで
+    left: 衛星が効きやすい
+    right: 効きにくい
+    items:
+      - title: ロックフィルの堤体
+        text: 測量の記録で検証できる
+      - title: 貯水池の斜面
+        text: 範囲は分かる。精度は未確認
+      - title: 河川堤防
+        text: 研究段階。10mm単位
+      - title: ほかの形式のダム
+        text: 適用は示されていない
