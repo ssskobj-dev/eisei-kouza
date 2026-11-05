@@ -1,0 +1,119 @@
+# English use-case video. Same facts as casebook/eudr-plot-check.qmd; English narration & slides.
+lang: en
+voice: Ryan
+title: Checking EUDR sourcing plots for deforestation with satellite data
+series: CASEBOOK
+kicker: Use case
+number: 43
+total: 221
+thumb: EUDR plot check
+summary: How satellite-based deforestation maps help companies meet the EU Deforestation Regulation, which applies from 30 December 2026. Where it fits in due diligence, what it decides, a published software price, and why shade-grown farms and missing coordinates keep field checks in the loop. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: Checking EUDR sourcing plots with satellite data
+    sub: Matching supplier plots against public deforestation maps
+    say: Can a company prove its coffee, cocoa or soy did not come from newly cleared forest? Not with satellites alone, but satellites can flag the risky plots first. The EU Deforestation Regulation applies from the thirtieth of December, 2026. In this video, we look at what companies must show, where satellite matching fits, what it decides, how far free data goes, a published software price, and the limits that keep field checks in the loop.
+
+  - kind: bullets
+    heading: What the rule asks, and who it is for
+    items:
+      - "The rule: the EU Deforestation Regulation, Regulation (EU) 2023/1115"
+      - "Commodities: cattle, cocoa, coffee, palm oil, rubber, soy and wood"
+      - "The test: not produced on land deforested after 31 December 2020"
+      - "Who: traders and food, rubber and timber exporters selling into the EU"
+    say: First, the rule. The EU Deforestation Regulation covers cattle, cocoa, coffee, palm oil, rubber, soy and wood, and products made from them. To sell them in the EU, or export them from it, a company must show the raw material was not produced on land that was deforested after the thirty-first of December, 2020. It applies from the thirtieth of December, 2026, for larger operators, and from the thirtieth of June, 2027, for micro and small enterprises. The buyers here are traders and exporters of food, rubber and timber.
+
+  - kind: steps
+    heading: Where satellite matching fits
+    items:
+      - Identify the commodities and the suppliers of EU-bound goods
+      - Collect each plot's coordinates from suppliers (polygons above 4 ha)
+      - Match the plots against satellite deforestation maps
+      - Pick out plots flagged with loss after the cutoff date
+      - Check flagged plots with documents and field visits, then file the statement
+    say: Here is where the satellite part fits. A company first identifies the commodities and the suppliers behind its EU-bound products. It then collects the coordinates of every plot where the material was produced. For commodities other than cattle, plots larger than four hectares are given as polygons, not single points. The plots are matched against a deforestation map built from satellite imagery, and the plots flagged with forest loss after the cutoff are pulled out. Those flagged plots are then checked with documents and field visits, and finally the due diligence statement is filed to the EU information system. When plots run into the thousands, looking at images one by one is not feasible, which is why the matching is automated.
+
+  - kind: table
+    heading: The satellite part, and the human part
+    columns: [The matching does, The people do]
+    widths: [0.5, 0.5]
+    rows:
+      - [Score each plot's deforestation risk, Collect plot coordinates from suppliers]
+      - [Flag plots with loss after the cutoff, Check flagged plots on paper and on site]
+      - ["", File the due diligence statement]
+    say: The split of roles looks like this. The matching scores each plot against public deforestation data and flags the plots with loss after the cutoff date. The people collect the plot coordinates from suppliers, check the flagged plots with documents and field visits, and file the due diligence statement. We will look at one commercial example of the matching software next. Note that naming it is not a recommendation, only an example of what is published.
+
+  - kind: bullets
+    heading: Example - LiveEO's TradeAware
+    items:
+      - German firm LiveEO offers EUDR software called TradeAware
+      - Suppliers register coordinates; each plot gets a risk score from public data
+      - A free trial, TradeAware Lite, was announced in March 2024
+      - Higher tiers run AI on high-resolution imagery; experts review unclear plots
+    say: The German satellite-analytics firm LiveEO offers EUDR compliance software called TradeAware. Suppliers register plot coordinates, and each plot is given a risk score by matching it against public, open-source deforestation data. In March 2024 the company announced a free trial version, TradeAware Lite, which takes an unlimited number of plot coordinates and returns a risk indicator from forest-cover data. On higher tiers, high-resolution imagery is analysed with AI, which the company says cuts deforestation misclassification by up to ninety-eight percent, and an expert team reviews unclear plots. Those accuracy figures are the company's own; no third-party verification is published, and the company itself notes that forest-cover data can be inaccurate in some regions of the world.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.42, 0.58]
+    rows:
+      - ["Risk score per plot", "Which suppliers to buy from, which plots to check"]
+      - ["Before-and-after images of flagged plots", "Shade-grown or cleared; before or after the cutoff"]
+      - ["Supplier document status", "Which suppliers to chase, whether to keep trading"]
+      - ["Record of filed statements", "Replies to authorities, basis for audits"]
+    say: Here is the data you receive and what it lets you decide. A risk score for each plot tells you which suppliers to buy from and which plots to ask more questions about. Two-date images of a flagged plot help you judge whether it is a shade-grown farm or a real clearing, and whether the loss came before or after the cutoff. A view of each supplier's document status tells you whom to chase and whether to keep trading. And the record of filed statements is your basis for answering the authorities and for audits. The company says risk scores, document status and statement progress can be synced into a procurement system.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - Shade-grown coffee and cocoa look like forest from above
+      - A 2025 study - of 21 global forest maps, only 2 matched the EUDR definition
+      - Many maps over-count past forest, so pre-cutoff clearings get flagged
+      - Public deforestation data is coarse, so small plots are hard to judge
+      - No coordinates, no check; and legality cannot be seen from imagery
+    say: Now the limits, as of 2026. Coffee, cocoa and rubber grown under shade look like forest from above, so the map cannot tell them apart. A 2025 study checked twenty-one global forest maps and found only two met every indicator matching the regulation's forest definition. In Mexico, about three-quarters of six hundred small coffee plots, decades old, were flagged as non-compliant on the maps. Many maps also over-count past forest, so a plot opened before the cutoff can be flagged as recent loss. Public deforestation data is coarse, often around ten to thirty metres, so small smallholder plots are hard to judge. And the matching only checks the coordinates suppliers provide. If those are missing, wrong, or point to the wrong plot, the result means nothing. Legality, such as land rights and labour law, cannot be seen from imagery at all. The final judgment stays with the company.
+
+  - kind: bullets
+    heading: How far do free satellites go?
+    items:
+      - The public deforestation maps are built from free satellite data
+      - LiveEO's Professional tier uses open-source data, with no imagery purchase
+      - Free maps are enough to flag risk, not to confirm compliance
+      - High-resolution precision analysis is a paid, higher-tier add-on
+    say: So how far do free satellites take you? The public deforestation maps themselves are built from free satellite data, and LiveEO says its Professional tier runs on open-source data, so there is no imagery purchase in that plan. That is enough to flag which plots carry risk. It is not enough to confirm compliance, because of the shade-grown and resolution limits we just saw. Confirming an unclear plot needs high-resolution precision analysis, which is a paid, higher-tier add-on, plus documents and a field visit. In short, free data narrows the list; it does not close the case.
+
+  - kind: table
+    heading: What the software costs
+    columns: [Item, Published figure and conditions]
+    widths: [0.34, 0.66]
+    rows:
+      - [Professional plan, "3,990 EUR per year, billed by invoice (LiveEO pricing page)"]
+      - [Suppliers included, "Risk scoring for 5 suppliers; more at 15 EUR per supplier per month, up to 20"]
+      - [Statements, "Up to 50 per year; note statements are per shipment, not per supplier"]
+      - [Plots, "Unlimited coordinates; 1 user, email support"]
+      - [Outside the fee, "Collecting coordinates from suppliers, and document and field checks"]
+    say: Here is the cost, using the company's published price, not an estimate. The Professional plan is three thousand nine hundred ninety euros a year, billed by invoice, from LiveEO's pricing page. It includes risk scoring for five suppliers; more suppliers are fifteen euros each per month, up to twenty. It covers up to fifty statements a year, and note that statements are counted per shipment, not per supplier. The number of plots and coordinates is unlimited, with one user and email support. The Enterprise plan, with more suppliers, API links, precision analytics and expert and legal review, is not priced publicly. The biggest costs often sit outside the fee, namely collecting coordinates from suppliers, which is hardest where many smallholders are involved, and the people who do the document and field checks. Prices change, so confirm current figures and compare like with like.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.22, 0.39, 0.39]
+    rows:
+      - ["Suppliers", "Large farms that can give coordinates", "Many smallholders, no collection system"]
+      - ["Crop", "Soy, palm oil, open cattle pasture", "Shade-grown coffee, cocoa, rubber"]
+      - ["Plot size", "Above 4 ha, with polygons", "Under 1 ha"]
+      - ["What you check", "Loss after the cutoff date", "Legality and land rights"]
+    say: Finally, where it fits. The matching works best with large farms that can supply coordinates, with open-land crops like soy, palm oil and cattle pasture, and with plots above four hectares that come with polygons. It fits when the question is simply whether forest was lost after the cutoff. It does not fit when suppliers are many smallholders with no way to collect coordinates, when the crop is shade-grown coffee, cocoa or rubber, when plots are under one hectare, or when you need to judge legality and land rights. When you advise a client, three points matter. Ask first how far they have collected supplier coordinates, never say satellites prove compliance, and warn in shade-grown regions that auto-blocking flagged plots can shut out smallholders.
+
+  - kind: cta
+    heading: Facing EUDR in your supply chain?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "EUDR: Regulation (EU) 2023/1115 https://eur-lex.europa.eu/eli/reg/2023/1115/oj"
+      - "Application date: EU Commission https://green-forum.ec.europa.eu/deforestation-regulation-implementation_en"
+      - "Example & price: LiveEO TradeAware pricing, accessed 2026-11 https://www.live-eo.com/tradeaware-pricing"
+      - "TradeAware Lite, 13 Mar 2024 https://www.live-eo.com/company/press/liveeo-launches-free-eudr-compliance-tool-tradeaware-lite"
+      - "Map limits: Mongabay, 19 Dec 2025 https://news.mongabay.com/2025/12/researchers-find-concerning-gaps-in-global-maps-used-for-eudr-compliance/"
+    say: To work through EUDR in your own supply chain, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
