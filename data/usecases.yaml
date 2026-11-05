@@ -948,6 +948,7 @@ usecases:
   verified: true
 - 'no': 48
   name: 台風の強度の推定
+  slug: typhoon-intensity-dvorak
   theme: 防災
   field: 防災・災害対応
   stage: 商用
@@ -967,6 +968,7 @@ usecases:
   verified: true
 - 'no': 49
   name: 拠点周辺の植生と生物の推定
+  slug: nature-capital-site-monitoring
   theme: 環境・水
   field: 規制対応・開示
   stage: 商用
@@ -986,6 +988,7 @@ usecases:
   verified: true
 - 'no': 50
   name: 水稲の可変施肥
+  slug: rice-variable-rate-fertilizer
   theme: 農業・食料
   field: 農業
   stage: 商用

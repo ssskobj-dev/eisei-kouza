@@ -1,0 +1,74 @@
+# ユースケースの記事「台風の強度を、気象衛星ひまわりの雲の形から推定する」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - ひまわりが10分ごと、日本域は2.5分ごとに雲を撮る
+        - 雲の形から、中心気圧と最大風速を推定する
+    right:
+      title: 人が行う
+      items:
+        - 解析者が雲の型を判定し、地上の観測も見て決める
+        - 利用者は、解析値を幅のある値として読む
+        - 通過後に、確定値で記録を直す
+    note: 2020年台風10号の最盛期は、速報値920hPa、確定値910hPa
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 10hPa程度以上の幅
+        text: 同じ判定でも、実際の気圧はばらつく
+        role: none
+      - title: 速報値は後で変わる
+        text: 消えた後の再解析で確定値になる
+        role: none
+      - title: 典型から外れた台風
+        text: 眼が小さい、陸地に近いと誤差が大きい
+        role: none
+      - title: 解析者の判断が入る
+        text: 主観のばらつきは完全には除けない
+        role: none
+      - title: 測っているのは雲
+        text: 海面の気圧や風を直接は測っていない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 台風の解析値を、接近前後の判断に入れる手順
+    steps:
+      - title: 基準を幅で決める
+        text: 平時に準備
+        who: human
+      - title: 解析値を取り込む
+        text: 数日前から
+        who: satellite
+      - title: 更新ごとに見直す
+        text: 段階を分ける
+        who: human
+      - title: 速報値で見込み
+        text: 通過後の被害
+        who: satellite
+      - title: 確定値で直す
+        text: 記録と式の入力
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 接近前の体制
+        text: 強さの段階で決める
+      - title: 通過後の記録
+        text: 確定値で直せる
+      - title: 10hPa刻みの基準
+        text: 速報と確定の差で変わる
+      - title: 拠点ごとの風速
+        text: 解析値からは出ない
