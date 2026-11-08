@@ -1,0 +1,123 @@
+# English use-case video. Same facts as casebook/emissions-independent-estimate.qmd; English narration & slides.
+lang: en
+voice: Ryan
+title: "Independent emissions estimates from satellites: Climate TRACE"
+series: CASEBOOK
+kicker: Use case
+number: 46
+total: 221
+thumb: Independent estimates
+summary: How investors and local governments check a company's reported greenhouse gas emissions against an independent, satellite-based estimate. Climate TRACE publishes free facility-level estimates for about 2.76 million sources. Where it fits, what it decides, the limits in 2026, and how to think about cost. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: "Independent emissions estimates from satellites"
+    sub: Checking a company's reported emissions against Climate TRACE
+    say: Can you check a factory's or a power plant's reported greenhouse gas emissions without taking the company's word for it? To a useful degree, yes. A non-profit coalition called Climate TRACE publishes an independent, satellite-based estimate for about two point seven six million emissions sources around the world, for free. In this video, we look at who uses it, where it fits, what it decides, the limits as of 2026, and how to think about the cost.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Scope: global. Facility-level estimates, published for free"
+      - "Who: investors, banks, local governments, and NGOs"
+      - "Why: to check reported emissions against an independent estimate"
+      - "The problem: companies self-report, and you cannot see inside their numbers"
+    say: Company greenhouse gas emissions are, as a rule, calculated and disclosed by the company itself. When an investor, a bank, or a local government wants to verify those numbers, the inner workings are not visible. For undisclosed sites, or overseas sites that report under different rules, there is not even a common yardstick. So they place an independent, satellite-based estimate next to the reported figure, and look for the sites where the two differ the most.
+
+  - kind: bullets
+    heading: What the satellite actually does
+    items:
+      - It does not measure CO2 directly
+      - It spots signs of activity, like steam plumes from cooling towers and stacks
+      - An AI trained on real measured data turns that activity into an emissions estimate
+      - Sources are updated monthly
+    say: It is important to be precise about what the satellite does. It does not measure carbon dioxide directly. Instead, it captures signs of activity, such as the steam plume from a power plant's cooling towers and stacks, or the heat of a steel mill or cement plant. An AI, trained on real measured values, converts how long and how large that activity is into an emissions estimate. So this is an estimate from activity, not a reading of the gas itself.
+
+  - kind: bullets
+    heading: "The case: Climate TRACE"
+    items:
+      - A non-profit coalition, launched in July 2020
+      - Over 100 non-profits, tech companies, universities, and researchers
+      - More than 300 satellites and over 11,000 sensors, analysed with AI
+      - About 2.76 million emissions sources; CO2, methane, and nitrous oxide
+    say: The case is Climate TRACE, a non-profit coalition launched in July 2020. By 2026 it has gathered over one hundred non-profits, technology companies, universities, and researchers. It analyses data from more than three hundred satellites and over eleven thousand sensors with AI and machine learning, and publishes facility-level estimates for about two point seven six million emissions sources. The gases covered are carbon dioxide, methane, and nitrous oxide, and since November 2024 it also reports non-greenhouse-gas air pollutants that harm human health.
+
+  - kind: table
+    heading: How the data is published
+    columns: [What is published, Where you get it]
+    widths: [0.55, 0.45]
+    rows:
+      - ["Facility-level yearly and monthly estimates", "Web map, downloads, API (beta)"]
+      - ["Confidence by facility, by gas, by month", "Included in the facility data"]
+      - ["Country, sector, state, county, and city totals (9,000+ cities)", "Downloads, Google BigQuery"]
+    say: Here is how you get the data. There are facility-level estimates, both yearly and monthly, available through a web map, downloads, and a beta API. Each facility carries a confidence measure by gas and by month. And there are totals by country, by sector, by state and county, and for more than nine thousand cities, available as downloads and through Google BigQuery. The data is published under a Creative Commons license and can be used, including commercially, as long as you credit the source.
+
+  - kind: steps
+    heading: How it fits a dialogue with a company
+    items:
+      - Build a list of your portfolio's sites and their locations
+      - Match them to Climate TRACE facilities by owner name and location
+      - Put the reported figure and the estimate side by side, and take the difference
+      - Pick the sites with a large difference and high confidence
+      - Ask the company why the two differ
+      - Feed the answer into your engagement record, not into the score
+    say: Here is where it fits, for a bank or an asset manager putting it into climate-risk assessment and engagement. First, build a list of your portfolio's sites and their locations. Second, match them to Climate TRACE facilities by owner name and location. Third, put the company's reported figure and the estimate side by side and take the difference. Fourth, pick the sites where the difference is large and the confidence is high. Fifth, ask the company why they differ, whether it is the operating rate, the fuel, or the scope of disclosure. And sixth, feed the answer into your engagement record. The estimate is the entry point to a question, not a replacement for the company's reported number.
+
+  - kind: bullets
+    heading: Limits as of 2026 (part 1)
+    items:
+      - The satellite does not measure CO2 directly; it is an estimate from activity
+      - Facility-level estimates cover only the sectors making up 75% of global emissions
+      - Rail and fluorinated gases, for example, stay at the country level
+      - Publication runs about 60 days behind, and past estimates are often revised
+    say: Now the limits, and they matter. First, as we said, the satellite does not measure carbon dioxide directly; the accuracy depends on how well the training data covers similar facilities. Second, facility-level estimates exist only for the sectors that make up seventy-five percent of global emissions; sectors like rail and fluorinated gases stay at the country level, so check first whether your portfolio's sector is covered. Third, publication runs about sixty days behind, and past estimates are commonly revised in later monthly updates, so record the data version whenever you cite it.
+
+  - kind: bullets
+    heading: Limits as of 2026 (part 2)
+    items:
+      - Facility-level values can differ sharply from other research
+      - "A 2026 study: Climate TRACE's city vehicle CO2 averaged 70% below another estimate"
+      - "Two cities differed by more than 90%; Climate TRACE disputes the conclusion"
+      - Accuracy drops where little measured data exists, often in the Global South
+    say: Fourth, facility and city-level values can differ sharply from other research. A 2026 study from Northern Arizona University, published in Environmental Research Letters, reported that for on-road vehicle carbon dioxide across two hundred sixty U.S. cities, Climate TRACE's values were on average about seventy percent lower than another government-funded estimate called Vulcan, and more than ninety percent lower for two cities. Climate TRACE disputes the conclusion, saying its national road total is close to official figures. We do not judge who is right here; the point is that you cannot treat a single facility or city value as a settled number. Fifth, accuracy falls where little measured data exists, often in the Global South, which is exactly where you most want to check.
+
+  - kind: table
+    heading: What you can decide
+    columns: [What you receive, What you can decide]
+    widths: [0.45, 0.55]
+    rows:
+      - ["Facility estimate vs. the reported figure", "Which sites to raise with the company"]
+      - ["Confidence by facility and gas", "Whether to raise a site now, or hold it"]
+      - ["Country, sector, and city totals", "Which sector a local government tackles first"]
+    say: So what does it let you decide? The difference between the estimate and the reported figure tells you which sites to raise with the company. The confidence measure tells you whether to raise a site now or hold it. And the country, sector, and city totals let a local government decide which sector to tackle first in its area. What you decide is who to ask, and what to ask, not a final emissions number to write into a score.
+
+  - kind: table
+    heading: Cost of this use (estimate)
+    columns: [Item, What it costs]
+    widths: [0.34, 0.66]
+    rows:
+      - [Data, "Free under a Creative Commons license. BigQuery charges apply only above the free tier of 1 TiB per month"]
+      - [People, "Building the site list and matching it to facilities, and comparing with reported figures. This is the main cost"]
+      - [Keeping up, "Re-running comparisons as monthly updates and revisions come in"]
+    say: Here is how to think about the cost. The data itself is free, and you do not need to buy any satellite imagery. If you use Google BigQuery, charges apply only above the free tier of one tebibyte per month. The main cost is people — building the list of your portfolio's sites, matching them to facilities, and comparing them with reported figures. On top of that is keeping up, re-running your comparisons as the monthly updates and revisions come in. No price is published for this kind of use. As an assumption, a financial institution that already has a clean site list might treat the first round of matching and analysis as a few weeks of analyst work, with monthly ingestion after that. That is this video's assumption, not a published figure.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.22, 0.39, 0.39]
+    rows:
+      - ["Sector", "Power, steel, cement, oil and gas, shipping", "Rail, fluorinated gases (country level only)"]
+      - ["Use", "Side by side with reported figures, as an entry to dialogue", "Writing the estimate in as the company's emissions"]
+      - ["Target", "A rough guide for undisclosed overseas sites", "A substitute for a measured value at the stack"]
+      - ["Data you hold", "A site list, with versions recorded", "Only the company name"]
+    say: Finally, where it fits. It fits for sectors with facility-level estimates, like power, steel, cement, oil and gas, and shipping; it does not fit for country-level-only sectors like rail. It fits as a figure placed beside the reported number, as the entry to a dialogue; it does not fit written in as the company's emissions. It is a rough guide for undisclosed overseas sites, not a substitute for a measured value at the stack. And it needs a site list with versions recorded; if you hold only the company name, matching is the first wall you hit. Three points when you propose this - ask first whether the client has a site list, never call it a measured emissions figure, and keep the estimate out of the score itself.
+
+  - kind: cta
+    heading: Considering this for your portfolio?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source & license: Climate TRACE, About / Data (CC BY 4.0), accessed Nov 2026 — climatetrace.org/about, /data"
+      - "Monthly updates & 60-day lag: Climate TRACE, 27 Mar 2025 — climatetrace.org/news"
+      - "Discrepancy study: Gurney, Northern Arizona University, Environmental Research Letters 2026 — in.nau.edu/news/gurney-2026"
+    say: To consider this for your own portfolio or client, here is the next step. We help you write the RFP and gather competitive quotes, independent of any data provider or analytics company. Use the form in the description to get in touch. Thanks for watching.
