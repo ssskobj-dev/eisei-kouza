@@ -1,0 +1,129 @@
+# 「災害時の被災状況：平時から備えておくこと」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/survey-disaster-damage/<id>.svg を作る。
+
+figures:
+  - id: conclusion
+    type: split
+    alt: 衛星に任せられることと、人が平時に決めておくこと
+    link: ＋
+    left:
+      title: 衛星に任せられる
+      items:
+        - 夜間や雨天でも、広域の概況を撮る
+        - ヘリや地上の調査の範囲を絞る
+        - 行けない場所の変化を、翌日に見る
+    right:
+      title: 人が平時に決めておく
+      items:
+        - 要請の経路と、結果を受け取る連絡先
+        - 同じ条件、同じ季節のアーカイブ
+        - 協定と契約の中の、衛星の役割
+        - 現地調査の順番の決め方
+    note: 衛星は「災害になってから使う道具」ではなく「平時に用意し、発災後は調査の順番を決める材料」
+
+  - id: strengths
+    type: cards
+    alt: この用途で効く2つの強み
+    columns: 2
+    items:
+      - title: 広く見られる
+        text: 1回の観測で広域を撮り、調査の範囲を絞る
+      - title: 行かずに分かる
+        text: 夜間や雨天でも撮れ、発生の翌日に面で示せる
+
+  - id: limits
+    type: cards
+    alt: 現在の技術的な6つの限界
+    columns: 2
+    items:
+      - title: 要請できるのは防災関係機関
+        text: 測量会社が直接要請する経路はない
+        role: none
+      - title: 撮れるのは1日2回
+        text: 飛来の時期で、数日待つ可能性がある
+        role: none
+      - title: 要請は撮影の約3.5時間前まで
+        text: 12時の撮影なら8時30分まで
+        role: none
+      - title: 小さい被害は拾えない
+        text: 浸水は50m四方、崩壊は1,000㎡が目安
+        role: none
+      - title: 判読が難しい場所がある
+        text: 都市部、田植えの水田、急傾斜地
+        role: none
+      - title: 前の画像がないと精度が落ちる
+        text: 同じ条件、1年以内の同じ季節が望ましい
+        role: none
+
+  - id: timeline
+    type: flow
+    alt: 発災後の時間の流れと、人が動く場面
+    steps:
+      - title: 要請
+        text: 約3.5時間前まで
+        who: human
+      - title: 観測
+        text: 夜間や雨天でも撮る
+        who: satellite
+      - title: 速報図
+        text: 観測の約2時間後
+        who: satellite
+      - title: 判読図
+        text: 速報の約1時間後
+        who: satellite
+      - title: 順番を決める
+        text: 現地調査の範囲を絞る
+        who: human
+
+  - id: flow
+    type: flow
+    alt: 平時に決めておく5つのことと、誰が行うか
+    steps:
+      - title: 経路の確認
+        text: 誰が要請し、どこから届くか
+        who: human
+      - title: アーカイブ
+        text: 同じ条件の災害前の画像
+        who: satellite
+      - title: 協定に書く
+        text: 衛星の役割と費用の扱い
+        who: human
+      - title: 分担を決める
+        text: 判読を誰が行うか
+        who: human
+      - title: 訓練で試す
+        text: 結果から順番を決める
+        who: human
+
+  - id: cost
+    type: cards
+    alt: 費用を分けて考える3つの項目
+    columns: 3
+    items:
+      - title: アーカイブ
+        text: 平時に買う、災害前の画像
+        mark: A
+      - title: 緊急観測
+        text: 国の経路なら負担なし。民間は都度契約
+        mark: B
+      - title: 判読と現地
+        text: 自社で見るか頼むか。現地は続ける
+        mark: C
+        role: human
+
+  - id: fit
+    type: scale
+    alt: 衛星が効きやすい被害から、効きにくい被害まで
+    left: 衛星が効きやすい
+    right: 効きにくい
+    items:
+      - title: 広い範囲の浸水
+        text: 平地で50m四方以上
+      - title: 大規模な崩壊
+        text: 幅40m以上が目安
+      - title: 中規模の土砂移動
+        text: 伐採と区別が要る
+      - title: 都市部の浸水
+        text: 建物の間は出ない
+      - title: 小さい被害
+        text: 1,000㎡未満の崩壊
