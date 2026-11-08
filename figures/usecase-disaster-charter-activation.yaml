@@ -1,0 +1,92 @@
+# ユースケースの記事「大災害の衛星データを無償で集める「国際災害チャータ」」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星と宇宙機関に任せることと、受け取る側が行うこと
+    link: ＋
+    left:
+      title: 宇宙機関側が行う
+      items:
+        - 加盟機関の衛星で被災地を優先して観測する
+        - 画像と被害の地図を無償で届ける
+        - 担当のプロジェクトマネージャが成果物を調整する
+    right:
+      title: 受け取る側が行う
+      items:
+        - 平時に登録し、窓口と手順を決めておく
+        - 届いた図を地図に重ね、救助と調査の範囲を決める
+        - 復旧の設計と被害の確定は別の調達と現地で
+    note: 無償は緊急対応の段階だけ。受け取る体制は自前で
+
+  - id: flow-timeline
+    type: flow
+    alt: 2026年熊本地震で、発生から成果物が出るまで
+    steps:
+      - title: 7月28日
+        text: 地震、同日に発動
+        who: human
+      - title: 7月29日
+        text: Sentinel-1の被害推定図
+        who: satellite
+      - title: 7月30〜31日
+        text: だいち2号の変化、RCMの変位
+        who: satellite
+      - title: 8月3〜5日
+        text: 被害の全体図、地盤の変位
+        who: satellite
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 要請は国の防災機関
+        text: 市町村や企業は直接頼めない
+        role: none
+      - title: 緊急対応の段階だけ
+        text: 復旧の設計と平時の監視は対象外
+        role: none
+      - title: 最初の図は翌日以降
+        text: 変位の図は8日後だった
+        role: none
+      - title: 仕様は受け手が決めない
+        text: 急いで作った図で版が上がる
+        role: none
+      - title: 被害の確定には使えない
+        text: 建物1棟の被害は現地で
+        role: none
+
+  - id: flow
+    type: flow
+    alt: チャータの成果物を、災害対応に入れる手順
+    steps:
+      - title: 平時に登録と演習
+        text: 窓口と経路を決める
+        who: human
+      - title: 要請する
+        text: 国の防災機関が
+        who: human
+      - title: 図を地図に重ねる
+        text: 成果物の一覧を追う
+        who: satellite
+      - title: 優先順位を決める
+        text: 救助、啓開、調査
+        who: human
+      - title: 復旧は別に調達
+        text: 測量と現地調査
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 数日の広域把握
+        text: 大規模災害の発生直後
+      - title: 観測機会の不足
+        text: 他国の衛星で補う
+      - title: 復旧期の設計
+        text: 対象外、通常の調達
+      - title: 平時の監視
+        text: 対象外

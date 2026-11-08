@@ -1,0 +1,86 @@
+# ユースケースの記事「産地まるごとの生育診断を、衛星データで面積単位に買う」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星が行う
+      items:
+        - 産地全体を同じ日に写す
+        - 圃場ごとの生育と品質の分布を図にする
+    right:
+      title: 人が行う
+      items:
+        - 診断の時期と範囲を決め、1週間前に申し込む
+        - 図から追肥や収穫の順番、指導に回る圃場を決める
+        - 生育の遅れの原因は現地で確かめる
+    note: 図が示すのは産地の中のばらつき。原因と対処は現地で
+
+  - id: cards-price
+    type: cards
+    alt: 公開されている料金と条件の変化
+    columns: 2
+    items:
+      - title: 2020年5月（JA全農の資料）
+        text: 1,000haから。1作物1項目5万円から
+        role: satellite
+      - title: 2026年11月（事業者のFAQ）
+        text: 10km²ごとに計算。10km²あたり6万円から
+        role: satellite
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 雲が多い時期
+        text: 適した画像がなければ注文しない選択に
+        role: none
+      - title: 分解能は3〜5m
+        text: より細かく見るならドローンが別に要る
+        role: none
+      - title: 申し込みは1週間前
+        text: 直前の依頼は適した画像が得にくい
+        role: none
+      - title: 料金は外接四角形
+        text: 点在する圃場は割高になる
+        role: none
+      - title: 原因は図に出ない
+        text: 肥料、水、病害虫は現地で確かめる
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 産地単位の生育診断を、営農指導に入れる手順
+    steps:
+      - title: 平時に地図を整える
+        text: 圃場の区画と作物
+        who: human
+      - title: 2週間前に申し込む
+        text: 項目と範囲を決める
+        who: human
+      - title: 画像を確かめて注文
+        text: 雲が多ければ見送る
+        who: satellite
+      - title: 順番を決める
+        text: 指導、収穫、乾燥
+        who: human
+      - title: 原因を現地で確かめる
+        text: 実績と照らして記録
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 収穫の順番決め
+        text: まとまった産地
+      - title: 遅れた圃場の抜き出し
+        text: 追肥の時期
+      - title: 点在する小規模な圃場
+        text: 外接四角形で割高
+      - title: ばらつきの原因
+        text: 図からは出ない

@@ -1,0 +1,46 @@
+# note記事「大災害の衛星データを無償で集める「国際災害チャータ」」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 防災
+    title: 国際災害チャータの仕組みと限界
+    sub: 発動1,000回。衛星データは無償だが、市町村は直接頼めない
+
+  - id: fig-1
+    type: flow
+    alt: 2026年熊本地震で、発生から成果物が出るまで
+    steps:
+      - title: 7月28日
+        text: 地震、同日に発動
+        who: human
+      - title: 7月29日
+        text: Sentinel-1の被害推定図
+        who: satellite
+      - title: 7月30〜31日
+        text: だいち2号の変化、RCMの変位
+        who: satellite
+      - title: 8月3〜5日
+        text: 被害の全体図、地盤の変位
+        who: satellite
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 要請は国の防災機関
+        text: 市町村や企業は直接頼めない
+        role: none
+      - title: 緊急対応の段階だけ
+        text: 復旧の設計と平時の監視は対象外
+        role: none
+      - title: 最初の図は翌日以降
+        text: 変位の図は8日後だった
+        role: none
+      - title: 仕様は受け手が決めない
+        text: 急いで作った図で版が上がる
+        role: none
+      - title: 被害の確定には使えない
+        text: 建物1棟の被害は現地で
+        role: none
