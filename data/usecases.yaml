@@ -1008,6 +1008,7 @@ usecases:
   verified: true
 - 'no': 51
   name: 津波の湛水域と排水の追跡
+  slug: tsunami-inundation-tracking
   theme: 防災
   field: 防災・災害対応
   stage: 商用
@@ -1027,6 +1028,7 @@ usecases:
   verified: true
 - 'no': 52
   name: 産地単位の生育診断
+  slug: regional-growth-diagnosis
   theme: 農業・食料
   field: 農業
   stage: 商用
@@ -1046,6 +1048,7 @@ usecases:
   verified: true
 - 'no': 53
   name: 国際災害チャータの発動
+  slug: disaster-charter-activation
   theme: 防災
   field: 防災・災害対応
   stage: 商用

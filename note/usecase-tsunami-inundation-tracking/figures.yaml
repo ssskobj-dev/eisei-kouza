@@ -1,0 +1,48 @@
+# note記事「津波の後に残った水を、衛星データで日ごとに測る」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 防災
+    title: 津波の湛水面積を衛星で日ごとに測る
+    sub: 宮城県109km²が5週間で4km²に。排水と復旧の計画に使う
+
+  - id: fig-1
+    type: bar
+    alt: 宮城県の湛水面積の推移（だいちAVNIR-2による算出）
+    unit: km²（県単位の算出値）
+    source: JAXA「東日本大震災対応報告書」2.1.3.5 冠水・湛水（2011年）
+    items:
+      - label: 3月14日
+        value: 109.09
+      - label: 3月19日
+        value: 64.68
+      - label: 4月5日
+        value: 22.28
+      - label: 4月12日
+        value: 14.21
+      - label: 4月17日
+        value: 7.61
+      - label: 4月18日
+        value: 4.28
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 雲の日は「0」と同じ
+        text: 水が引いたのか見えないのか区別がつかない
+        role: none
+      - title: 最初の光学は3日後
+        text: 沿岸の全域がそろったのは3月14日
+        role: none
+      - title: 2時期の比較に補正
+        text: レーダーの入射角が違うと地形補正が要る
+        role: none
+      - title: 面積は観測日の値
+        text: 日ごとに減るので観測の日付で変わる
+        role: none
+      - title: 水深と損傷は不明
+        text: 塩分、がれき、土砂は現地で確かめる
+        role: none

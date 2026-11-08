@@ -1,0 +1,46 @@
+# note記事「産地まるごとの生育診断を、衛星データで面積単位に買う」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 農業・食料
+    title: 産地まるごとの生育診断を衛星で買う
+    sub: 10km²あたり6万円から。分解能3〜5m、1週間前の申し込み
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星が行う
+      items:
+        - 産地全体を同じ日に写す
+        - 圃場ごとの生育と品質の分布を図にする
+    right:
+      title: 人が行う
+      items:
+        - 診断の時期と範囲を決め、1週間前に申し込む
+        - 図から追肥や収穫の順番、指導に回る圃場を決める
+        - 生育の遅れの原因は現地で確かめる
+    note: 図が示すのは産地の中のばらつき。原因と対処は現地で
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 雲が多い時期
+        text: 適した画像がなければ注文しない選択に
+        role: none
+      - title: 分解能は3〜5m
+        text: より細かく見るならドローンが別に要る
+        role: none
+      - title: 申し込みは1週間前
+        text: 直前の依頼は適した画像が得にくい
+        role: none
+      - title: 料金は外接四角形
+        text: 点在する圃場は割高になる
+        role: none
+      - title: 原因は図に出ない
+        text: 肥料、水、病害虫は現地で確かめる
+        role: none
