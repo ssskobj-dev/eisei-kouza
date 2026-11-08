@@ -66,7 +66,7 @@ parts:
       - 災害時に衛星を使うために、平時に決めておくことを挙げられる
     must_include: [緊急観測の要請, 撮影までの時間, 平時の手順と契約]
     material: ""
-    status: todo
+    status: done
 
   # ---- 実務 ----
   - id: survey-make-or-buy
@@ -79,7 +79,7 @@ parts:
       - 自社の件数と体制に合う進め方を選べる
     must_include: [解析ツール, 解析会社への発注, 必要な人員, 責任の所在]
     material: ""
-    status: todo
+    status: done
 
   - id: survey-procurement
     title: 衛星データの選び方と調達の実務

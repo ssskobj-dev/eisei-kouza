@@ -1,0 +1,94 @@
+# 「解析を内製するか、外注するか」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/survey-make-or-buy/<id>.svg を作る。
+
+figures:
+  - id: conclusion
+    type: split
+    alt: 段階で変えられることと、どの段階でも自社に残ること
+    link: ＋
+    left:
+      title: 段階で変えられる
+      items:
+        - 干渉SARの計算を、誰が行うか
+        - 解析ソフトと計算機を持つか
+        - 解析の技術者を採用し育てるか
+    right:
+      title: どの段階でも自社に残る
+      items:
+        - データの選定と、条件の設定
+        - 実測値での精度の検証
+        - 顧客への説明と、成果の責任
+    note: 内製か外注かは、年間の件数と、照査できる技術者の数で決める
+
+  - id: criteria
+    type: cards
+    alt: 比べるときの7つの観点
+    columns: 2
+    items:
+      - title: 年間の件数
+        text: 毎年続く案件が何本あるか
+      - title: 初期投資
+        text: 解析ソフト、計算機、学習の時間
+      - title: 必要な人員
+        text: 管理、照査、担当。経験者1名以上
+      - title: 立ち上がりの時間
+        text: 最初の案件から、1年の試行まで
+      - title: 品質の担保
+        text: 誰が結果を照査できるか
+      - title: 責任の所在
+        text: 発注者から見た相手は変わらない
+      - title: 知見の蓄積
+        text: 失敗の条件がどこに残るか
+
+  - id: cases
+    type: cards
+    alt: 自社の件数と体制で、どの段階を選ぶか
+    columns: 2
+    items:
+      - title: 単発の1件、経験者なし
+        text: 外注。発注と説明を覚える
+        mark: 1
+      - title: 続く路線、実測値がある
+        text: 部分内製。選定と検証を自社で
+        mark: 2
+        role: human
+      - title: 毎年数本、照査できる人2名
+        text: 内製。計算まで自社で
+        mark: 3
+        role: human
+      - title: 災害や緊急の案件
+        text: どの段階でも解析会社と組む
+        mark: 4
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 外注から部分内製、内製へ進む3つの段階
+    steps:
+      - title: 外注
+        text: 発注と結果の説明を覚える
+        who: satellite
+      - title: 部分内製
+        text: データ選定と検証を自社で
+        who: human
+      - title: 内製
+        text: 計算まで自社で行う
+        who: human
+
+  - id: keep
+    type: cards
+    alt: どの段階でも自社が持つ3つのこと
+    columns: 3
+    items:
+      - title: データの選定
+        text: 何枚、どの軌道、どの期間か
+        mark: A
+        role: human
+      - title: 精度の検証
+        text: 実測値と比べる。再解析の条件
+        mark: B
+        role: human
+      - title: 説明と責任
+        text: 顧客に説明し、成果に責任を持つ
+        mark: C
+        role: human

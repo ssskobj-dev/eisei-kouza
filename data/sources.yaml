@@ -1590,3 +1590,51 @@
   publisher: 国土交通省 水管理・国土保全局
   url: https://www.mlit.go.jp/river/gijutsu/kasenmizubousai/pdf/r2_theme_mid_h31.pdf
   tags: [堤防, 河川, 干渉SAR, 研究開発]
+
+- id: mlit-jaxa-landslide-guidebook-2018
+  title: 災害時の人工衛星活用ガイドブック 土砂災害版（平成30年3月。初動期はSARで概況を把握しヘリ調査の範囲を絞る。平成28年台風10号は依頼19時・観測22時40分・判読結果の提供が翌5時で約10時間。災害対応に適した角度で観測できるのは3日に3〜4回程度。面積1,000㎡未満の崩壊は抽出が困難、幅40m以上または長さ100m以上が検出しやすい。二時期比較には同じ条件の前時期画像が必要）
+  publisher: 宇宙航空研究開発機構 衛星利用運用センター・国土交通省 水管理・国土保全局 砂防部 砂防計画課
+  url: https://www.mlit.go.jp/common/001227722.pdf
+  tags: [災害, 土砂災害, SAR, 緊急観測, アーカイブ, 被災把握]
+
+- id: mlit-press-satellite-guidebook-2018
+  title: 災害時における衛星画像等の活用を促進～災害時の衛星画像活用のためのガイドブックを作成～（報道発表、平成30年3月27日。対象は防災担当職員。水害版・衛星基礎編、浸水編、土砂災害版の3冊）
+  publisher: 国土交通省 水管理・国土保全局
+  url: https://www.mlit.go.jp/report/press/mizukokudo03_hh_000944.html
+  tags: [災害, 被災把握, 制度]
+
+- id: jaxa-disaster-page
+  title: 災害対策（JAXA 地球観測のページ。内閣府等の指定行政機関、地方公共機関などの防災関係機関と連携し、要請を受けてだいち2号等で緊急観測。要求の受付とプロダクトの提供は防災インタフェースシステムで一元化（2020年10月運用開始）。国際災害チャータとセンチネルアジアに加盟。平時は防災関係機関と定期的に会合）
+  publisher: JAXA
+  url: https://earth.jaxa.jp/ja/application/disaster/index.html
+  tags: [災害, 緊急観測, 被災把握, 制度]
+
+- id: nied-jdc
+  title: 日本版災害チャータ（防災科研の公式ページ。発災直後に複数の衛星コンステレーションと連携して観測を指揮する枠組み。事務局は防災科研ほか4者（2026年2月現在）。2023〜2024年度に内閣府BRIDGEで構築と実証、2025年度は内閣府防災の実証事業。発動回数は計25回（随時更新）。解析結果を府省庁等に共有）
+  publisher: 防災科学技術研究所
+  url: https://risk.bosai.go.jp/hp/JDC
+  tags: [災害, 緊急観測, 被災把握, 制度, 民間衛星]
+
+- id: gsi-noto-insar-2024
+  title: 「だいち2号」観測データの解析による令和6年能登半島地震に伴う地殻変動（2024年1月1日発生。1月1日と2日の観測から2.5次元解析、1月2日に初回の結果を発表。輪島市西部で最大約4mの隆起、珠洲市北部で最大約2mの隆起。値は現地調査で確認していない暫定値。最終更新2024年1月19日）
+  publisher: 国土地理院
+  url: https://www.gsi.go.jp/uchusokuchi/20240101noto_insar.html
+  tags: [災害, 地震, 干渉SAR, 緊急観測, 被災把握]
+
+- id: ktr-dam-disaster-agreement-r7
+  title: 災害時におけるダム管理施設等災害応急復旧業務に関する協定書（測量、地質調査、調査・検討・設計、被災状況調査）【案】（関東地方整備局 相模川水系広域ダム管理事務所。有効期間は令和7年4月1日〜令和10年3月31日。業務は地形測量・路線測量、空中写真測量、地質調査、調査・検討・設計、無人航空機による被災状況調査等。書面か電話で出動を要請し、遅滞なく随意契約。連絡先の確保と訓練への参加を平時に求める）
+  publisher: 国土交通省 関東地方整備局
+  url: https://www.ktr.mlit.go.jp/ktr_content/content/000903365.pdf
+  tags: [災害, 協定, 測量, 契約, 被災把握]
+
+- id: esa-step-snap-300k-2018
+  title: ESA SNAP toolbox surpasses 300,000 downloads（2018年12月21日。SNAPは「fully free and open-source」の解析ツールで、Copernicus Sentinel-1/2/3と多くの第三者ミッションの画像を処理できる）
+  publisher: ESA（STEP）
+  url: https://step.esa.int/main/esa-snap-toolbox-surpasses-300000-downloads/
+  tags: [解析ツール, 無償, Sentinel, 内製]
+
+- id: cao-space-skill-manual-2026
+  title: 宇宙スキル標準取扱説明書（令和8年2月27日。日本の宇宙開発分野で求められるスキルを整理した公式のスキルブック。「衛星データ利活用」の業務としてユースケース企画、データ解析、インサイト抽出など。職種59種類、スキルは5段階。採用の募集要項や育成プログラムの設計に参照する方法を示す）
+  publisher: 内閣府 宇宙開発戦略推進事務局
+  url: https://www8.cao.go.jp/space/skill/manual_final.pdf
+  tags: [人材, 体制, 内製, 政策]
