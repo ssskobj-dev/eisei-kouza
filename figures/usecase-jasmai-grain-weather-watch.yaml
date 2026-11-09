@@ -1,0 +1,90 @@
+# ユースケースの記事「輸入穀物の産地の干ばつを衛星データで見る」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星と国に任せることと、使う側が行うこと
+    link: ＋
+    left:
+      title: 衛星と国が行う
+      items:
+        - 降水量・土壌水分・植生指標を全球で観測
+        - 国・区域ごとに半月単位で集計し平年差を出す
+        - 地図とグラフとCSVで無料で公開
+    right:
+      title: 使う側が行う
+      items:
+        - 平年より乾いた区域を見つけ、推移を追う
+        - 作物の暦と重ね、影響の出る時期を読む
+        - 収量と品質は海外機関の発表と現地で
+    note: 出るのは気象の偏り。収量と価格の判断は人が行う
+
+  - id: cards-data
+    type: cards
+    alt: JASMAIが配るデータと、その出どころ
+    columns: 2
+    items:
+      - title: 土壌水分
+        text: 「しずく」GCOM-Wなど。格子0.1度、約11km
+      - title: 降水量
+        text: 全球降水マップGSMaP。格子0.1度。日・週の地図も
+      - title: 植生指標・温度・日射
+        text: 「しきさい」GCOM-C。格子0.05度、約5.5km
+      - title: 単収・作付面積
+        text: USDAの統計。国別と米国の州別
+        role: human
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 収量と品質は出ない
+        text: 出るのは気象と植生の平年差
+        role: none
+      - title: 格子は5.5〜11km
+        text: 区域の平均。農場1つは見えない
+        role: none
+      - title: 更新は半月遅れ
+        text: 前半は18日、後半は翌月3日から
+        role: none
+      - title: 雲と電波の干渉で欠ける
+        text: 欠けが増えるほど値の確かさが下がる
+        role: none
+      - title: 土壌水分の癖
+        text: 乾燥地で過大、密林で過小に出る
+        role: none
+
+  - id: flow
+    type: flow
+    alt: JASMAIを、調達リスクの点検に入れる手順
+    steps:
+      - title: 区域を対応づける
+        text: 自社の産地を公開の区域に
+        who: human
+      - title: 半月ごとに点検
+        text: 降水量と土壌水分の平年差
+        who: satellite
+      - title: 推移と暦を重ねる
+        text: 植生指標と作物の暦
+        who: satellite
+      - title: 発表と照らす
+        text: 海外機関、現地、価格
+        who: human
+      - title: 調達を見直す
+        text: 時期、産地の分散、在庫
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 産地の干ばつの兆候
+        text: 広い区域の平年差
+      - title: 発表の確かめ
+        text: 海外機関の情報と照らす
+      - title: 収穫量と品質の予測
+        text: 統計と現地が要る
+      - title: 農場1つの状態
+        text: 格子より小さい

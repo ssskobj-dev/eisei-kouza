@@ -1,0 +1,47 @@
+# note記事「小麦の収穫順、全部の圃場を回って決めている」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 農業・食料
+    title: 小麦の収穫順を衛星で決める
+    sub: 32筆の順番決め。精度は従来と同等、効果は手間の削減
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星が行う
+      items:
+        - 圃場ごとのNDVIを一度に出す
+        - 成熟の早い圃場と遅い圃場を並べる
+        - 現地を回らずに順番の案を出す
+    right:
+      title: 人が行う
+      items:
+        - 基準の圃場で穂水分や目視を確かめる
+        - 乾燥機の能力と予報に合わせて順番を組む
+        - 雨と倒伏の圃場は現地で判断する
+    note: 衛星が出すのは「順位」。「何日に刈るか」は実測と予報で
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 精度は従来と同等
+        text: 効果は手間の削減。燃料は減らない
+        role: none
+      - title: 相対的な値
+        text: 基準の圃場で実測と照らす
+        role: none
+      - title: 雲と雪の画像は不可
+        text: 収穫直前に晴れるかは天候次第
+        role: none
+      - title: 倒伏と雨で狂う
+        text: 水分の低下が遅れ、判断が難しい
+        role: none
+      - title: 水分そのものは測れない
+        text: NDVIは色と葉の量の指標
+        role: none
