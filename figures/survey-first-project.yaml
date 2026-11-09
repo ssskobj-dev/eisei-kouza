@@ -1,0 +1,89 @@
+# 「最初の1件の始め方」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/survey-first-project/<id>.svg を作る。
+
+figures:
+  - id: flow
+    type: flow
+    alt: 最初の1件を始める6つの手順
+    steps:
+      - title: 顧客選び
+        text: 既存顧客1社、問いは1つ
+        who: human
+      - title: 無償確認
+        text: 分布図で地域を見る
+        who: satellite
+      - title: 試行計画
+        text: 半年。除外も決める
+        who: human
+      - title: 人材育成
+        text: 計画届を先に出す
+        who: human
+      - title: 提案
+        text: 既存業務に1項目足す
+        who: human
+      - title: 次の判断
+        text: 続ける、変える、やめる
+        who: human
+
+  - id: split
+    type: split
+    alt: 無償でできることと、費用がかかること
+    link: →
+    left:
+      title: 無償でできる
+      items:
+        - 国土地理院の変動分布図で地域を見る
+        - 公開データで干渉が残るか試す
+        - 無償の解析ツールで手順を覚える
+    right:
+      title: 費用がかかる
+      items:
+        - Lバンドの商用データの購入
+        - 解析会社への委託
+        - 技術者の訓練の時間
+    note: 無償で分かるのは、干渉が残るかと、大きな動きが実測と合うかまで
+
+  - id: checklist
+    type: cards
+    alt: 最初の1件を始める前に確かめる10の項目
+    columns: 2
+    items:
+      - title: 既存顧客で実測値
+        text: 毎年の業務があり、実測値がある
+        mark: "1"
+        role: human
+      - title: 問いは1つ
+        text: 顧客の業務の言葉で書く
+        mark: "2"
+        role: human
+      - title: 分布図を見た
+        text: 出どころの表示も確かめた
+        mark: "3"
+      - title: 効かない場所
+        text: 森林、耕作地、水面を把握した
+        mark: "4"
+        role: none
+      - title: 期間と除外
+        text: 納品物と精度の約束はしない
+        mark: "5"
+        role: human
+      - title: 分担
+        text: 承認、比較、説明は自社に残す
+        mark: "6"
+        role: human
+      - title: 計画届の日程
+        text: 訓練開始の1か月前まで
+        mark: "7"
+        role: human
+      - title: 訓練の中身
+        text: 業務に直結。概論は対象外
+        mark: "8"
+        role: human
+      - title: 地元の制度
+        text: 今年度の補助と育成を確かめた
+        mark: "9"
+        role: human
+      - title: 追加の1項目
+        text: 水準測量との併用を明記
+        mark: "10"
+        role: human
