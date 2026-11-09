@@ -126,4 +126,4 @@ parts:
       - 小さな案件で試す計画を立てられる
     must_include: [既存顧客への提案, 無償データでの試行, 人材育成の助成制度]
     material: ""
-    status: todo
+    status: done
