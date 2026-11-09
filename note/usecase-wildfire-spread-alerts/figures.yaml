@@ -1,0 +1,48 @@
+# note記事「山火事の全体が見えない。衛星の火点情報は、消防の初動でどこまで使えるか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 防災
+    title: 林野火災の延焼を衛星で追う
+    sub: 1日3〜4回、無料の火点情報。小さい火と樹冠の下は見逃す
+
+  - id: fig-1
+    type: bar
+    alt: 火点が地図に出るまでの時間：従来、FIRMS、米国内の直接受信
+    unit: 分（観測からの遅れ、上限）
+    source: NASA FIRMS FAQ、NASA Earthdata「FIRMS Ultra Real-Time Data」（2022年）
+    items:
+      - label: NRT（世界、FIRMS）
+        value: 180
+        note: 3時間以内
+      - label: RT（FIRMS）
+        value: 60
+        note: 30分〜1時間以内
+      - label: 従来の処理
+        value: 20
+        note: 15〜20分後
+      - label: URT（米国内）
+        value: 1
+        note: 約25〜50秒
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 位置と大きさは不明
+        text: 画素は375m〜1km。火は画素より小さい
+        role: none
+      - title: 雲・煙・樹冠の下
+        text: 完全に隠れる。見えなかった印も出ない
+        role: none
+      - title: 観測の合間は写らない
+        text: 始まって消えた火は記録に残らない
+        role: none
+      - title: 夜間は煙と区別できない
+        text: 検知点が火線の外にずれることがある
+        role: none
+      - title: 日本は3時間以内が基本
+        text: 1分以内の仕組みは米国内だけ
+        role: none

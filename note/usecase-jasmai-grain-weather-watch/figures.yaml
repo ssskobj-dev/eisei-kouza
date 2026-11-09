@@ -1,0 +1,44 @@
+# note記事「輸入穀物の産地の天候、海外の発表待ちになっていないか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 農業・食料
+    title: 穀物産地の干ばつを衛星で見る
+    sub: 農林水産省が無料で公開。半月ごとの平年差、収量は出ない
+
+  - id: fig-1
+    type: cards
+    alt: JASMAIが配るデータと、その出どころ
+    columns: 2
+    items:
+      - title: 土壌水分
+        text: 「しずく」GCOM-Wなど。格子0.1度、約11km
+      - title: 降水量
+        text: 全球降水マップGSMaP。格子0.1度。日・週の地図も
+      - title: 植生指標・温度・日射
+        text: 「しきさい」GCOM-C。格子0.05度、約5.5km
+      - title: 単収・作付面積
+        text: USDAの統計。国別と米国の州別
+        role: human
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 収量と品質は出ない
+        text: 出るのは気象と植生の平年差
+        role: none
+      - title: 格子は5.5〜11km
+        text: 区域の平均。農場1つは見えない
+        role: none
+      - title: 更新は半月遅れ
+        text: 前半は18日、後半は翌月3日から
+        role: none
+      - title: 雲と電波の干渉で欠ける
+        text: 欠けが増えるほど値の確かさが下がる
+        role: none
+      - title: 土壌水分の癖
+        text: 乾燥地で過大、密林で過小に出る
+        role: none

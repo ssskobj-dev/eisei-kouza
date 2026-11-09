@@ -1,0 +1,94 @@
+# ユースケースの記事「林野火災の延焼を衛星データで1日3〜4回追う」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星が行う
+      items:
+        - 地表の熱い場所を広域で一度に写す
+        - 中緯度で1日3〜4回、3時間以内に火点を公開
+        - 検知の時刻と確からしさを一覧で出す
+    right:
+      title: 人が行う
+      items:
+        - 火点を地図に重ね、延焼の方向を読む
+        - 偵察の行き先と避難の区域を決める
+        - 小さい火と樹冠の下の火は現地とヘリで
+    note: 衛星は「延焼を追う」道具。出火の覚知と被害の確定は別
+
+  - id: bar
+    type: bar
+    alt: 火点が地図に出るまでの時間：従来、FIRMS、米国内の直接受信
+    unit: 分（観測からの遅れ、上限）
+    source: NASA FIRMS FAQ、NASA Earthdata「FIRMS Ultra Real-Time Data」（2022年）
+    items:
+      - label: NRT（世界、FIRMS）
+        value: 180
+        note: 3時間以内
+      - label: RT（FIRMS）
+        value: 60
+        note: 30分〜1時間以内
+      - label: 従来の処理
+        value: 20
+        note: 15〜20分後
+      - label: URT（米国内）
+        value: 1
+        note: 約25〜50秒
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 位置と大きさは不明
+        text: 画素は375m〜1km。火は画素より小さい
+        role: none
+      - title: 雲・煙・樹冠の下
+        text: 完全に隠れる。見えなかった印も出ない
+        role: none
+      - title: 観測の合間は写らない
+        text: 始まって消えた火は記録に残らない
+        role: none
+      - title: 夜間は煙と区別できない
+        text: 検知点が火線の外にずれることがある
+        role: none
+      - title: 日本は3時間以内が基本
+        text: 1分以内の仕組みは米国内だけ
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 火点情報を、林野火災の初動に入れる手順
+    steps:
+      - title: 平時に取り込む
+        text: 地図に重ね、演習で意味を共有
+        who: human
+      - title: 覚知後に重ねる
+        text: 直近の検知点と時刻
+        who: satellite
+      - title: 方向と範囲を読む
+        text: 偵察と避難の区域を決める
+        who: human
+      - title: 偵察で補う
+        text: 小さい火と樹冠の下
+        who: human
+      - title: 鎮火後に確定
+        text: 焼損面積は光学画像と現地
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 大規模な延焼
+        text: 数日続く火の広域把握
+      - title: 偵察できない時間
+        text: 夜間と煙の中の方向推定
+      - title: 小さい火の覚知
+        text: 観測の合間と樹冠の下
+      - title: 被害の確定
+        text: 建物1棟の判定

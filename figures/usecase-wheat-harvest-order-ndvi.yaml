@@ -1,0 +1,75 @@
+# ユースケースの記事「小麦32筆の収穫順を衛星データのNDVIで決める」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星が行う
+      items:
+        - 圃場ごとのNDVIを一度に出す
+        - 成熟の早い圃場と遅い圃場を並べる
+        - 現地を回らずに順番の案を出す
+    right:
+      title: 人が行う
+      items:
+        - 基準の圃場で穂水分や目視を確かめる
+        - 乾燥機の能力と予報に合わせて順番を組む
+        - 雨と倒伏の圃場は現地で判断する
+    note: 衛星が出すのは「順位」。「何日に刈るか」は実測と予報で
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 精度は従来と同等
+        text: 効果は手間の削減。燃料は減らない
+        role: none
+      - title: 相対的な値
+        text: 基準の圃場で実測と照らす
+        role: none
+      - title: 雲と雪の画像は不可
+        text: 収穫直前に晴れるかは天候次第
+        role: none
+      - title: 倒伏と雨で狂う
+        text: 水分の低下が遅れ、判断が難しい
+        role: none
+      - title: 水分そのものは測れない
+        text: NDVIは色と葉の量の指標
+        role: none
+
+  - id: flow
+    type: flow
+    alt: NDVIを、収穫と乾燥の順番決めに入れる手順
+    steps:
+      - title: 区画を整える
+        text: 前年に筆の地図と一覧
+        who: human
+      - title: NDVIを受け取る
+        text: 収穫の1〜2週前から
+        who: satellite
+      - title: 基準の圃場で実測
+        text: 穂水分か目視で対応を押さえる
+        who: human
+      - title: 刈取り順を組む
+        text: 乾燥機の能力と予報
+        who: human
+      - title: 記録して翌年へ
+        text: 順番、水分、品質
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 筆数の多い施設
+        text: 数十筆を1つの乾燥機で
+      - title: 大きな圃場
+        text: 区画がはっきりしている
+      - title: 数筆だけの経営
+        text: 目視のほうが早い
+      - title: 倒伏と雲の多い年
+        text: 判断が狂う、画像が欠ける
