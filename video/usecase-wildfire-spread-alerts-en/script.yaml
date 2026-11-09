@@ -1,0 +1,116 @@
+# English use-case video. Same facts as casebook/wildfire-spread-alerts.qmd; English narration & slides.
+lang: en
+title: Tracking wildfire spread with free satellite data (NASA FIRMS)
+series: CASEBOOK
+kicker: Use case
+number: 45
+total: 221
+voice: Ryan
+thumb: Track the spread
+summary: How fire and forestry agencies track where a wildfire is spreading using NASA's free satellite fire data (FIRMS), plus where the new fire-only FireSat constellation stands in 2026. What decisions it supports, its 2026 limits, and the cost picture. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: Tracking wildfire spread with free satellite data
+    sub: NASA FIRMS, and the new fire-only FireSat constellation
+    say: Once a wildfire breaks out, can you see where it is spreading across a whole mountain range? Yes, in part. The answer is to put the fire points that satellites detect onto your own map. NASA publishes those fire points for the whole world, for free. In this video we look at who uses it, where it fits in the response, what decisions it supports, its limits in 2026, and where the new fire-only satellite constellation, FireSat, stands today.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Where: anywhere on Earth. The lead example is the United States"
+      - "Who: fire services and forestry authorities. Power and insurance firms also watch"
+      - "Why: to read the direction and extent of the spread across a wide area"
+      - "The problem: from the ground, at night, and through smoke, you cannot see the whole fire"
+    say: This use is not tied to one country. NASA's fire data covers the whole world, and the clearest example comes from the United States. The users are fire services and forestry authorities; power utilities and insurers watch the same data. The goal is to read where a fire is spreading, and how far, over an area too large to see from the ground. On a mountainside, at night, or through heavy smoke, crews and helicopters cannot take in the whole fire at once. A thermal satellite can image the hot areas across a wide region in a single pass.
+
+  - kind: steps
+    heading: Where it fits in the response
+    items:
+      - In calm times, pull FIRMS fire points into your own map system
+      - After a fire is reported, overlay the latest detections and their times
+      - Read the direction and extent of spread; set where to send scouts and which areas to consider for evacuation
+      - Confirm with helicopters, drones, and crews on the ground
+      - After the fire is out, measure the burned area from optical imagery and field survey, not from fire points
+    say: Here is where it fits. Before any fire, you build a way to pull the fire points into your own map system, and you rehearse what the data does and does not mean. When a fire is reported, you overlay the most recent detections and their observation times, and check when the next pass will come. From the pattern of points you read the direction and extent of the spread, and decide where to send scouts and which areas to consider for evacuation. Helicopters, drones, and ground crews then confirm. After the fire is out, the burned area is measured from optical imagery and field survey, not from the fire points. The satellite narrows where to look; it does not replace the scouting.
+
+  - kind: table
+    heading: Satellite versus people
+    columns: [The satellite does, The people do]
+    widths: [0.5, 0.5]
+    rows:
+      - [Image hot areas across a wide region, Read spread direction from the points on the map]
+      - [Publish fire point locations and times, Set scout routes and evacuation areas]
+      - [Repeat several times a day, Confirm small and under-canopy fires on the ground]
+    say: The split of roles looks like this. The satellite images the hot areas across a wide region, publishes the location and time of each fire point, and repeats this several times a day. The people read the spread direction from the points, set scout routes and the areas to consider for evacuation, and confirm on the ground the small fires and the fires under the tree canopy that the satellite misses. The satellite is an input to the response, not the response itself.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.42, 0.58]
+    rows:
+      - [Fire point locations and times, The estimated direction and extent of spread; where to scout]
+      - ["Detection confidence: low, nominal, high", Which detections to confirm first]
+      - [Day-by-day overlay of points, Whether to widen or narrow the evacuation review area]
+      - [Post-fire optical imagery and field survey, "The final burned area (a separate job)"]
+    say: Here is the data you receive and what it lets you decide. The fire point locations and times give you the estimated direction and extent of the spread, and where to send scouts. A confidence flag on each detection, low, nominal, or high, tells you which to confirm first. A day-by-day overlay of the points shows whether to widen or narrow the area under evacuation review. And the final burned area comes from post-fire optical imagery and field survey, as a separate job, not from the fire points.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - Pixels are 375 m to 1 km, so the exact size and position of a fire are unknown
+      - Clouds, heavy smoke, and the tree canopy can hide a fire; under-canopy detection is very low
+      - A fire that starts and dies between passes is never imaged
+      - At night, hot smoke can be mistaken for fire on the ground
+      - Outside the US, points arrive within about 3 hours of the observation
+    say: The limits are stated plainly in NASA's own material. First, the pixels are 375 metres to 1 kilometre, so a detection means a fire is somewhere in that pixel; you cannot read the exact size or position, and you should not estimate burned area from the points. Second, clouds, heavy smoke, and the tree canopy can hide a fire completely, and the under-canopy detection rate is considered very low. Third, a fire that starts and burns out between two passes is never imaged. Fourth, at night, hot smoke columns can be mistaken for fire on the ground. And fifth, outside the United States, points arrive within about three hours of the observation.
+
+  - kind: table
+    heading: How fast do fire points appear?
+    columns: [Service, Latency from observation]
+    widths: [0.55, 0.45]
+    rows:
+      - ["NRT, global (FIRMS)", Within about 3 hours]
+      - [US direct readout (URT), Under a minute]
+    say: How fast the points appear depends on where you are. NASA's near real time service, which covers the whole world, publishes points within about three hours of the observation. In the United States, ground stations receive the satellite signal directly, and publish fire points in under a minute. That faster path exists only for the United States; most of the world, including Japan, works from the three hour service. So when you propose this, put the arrival time next to the response timeline, and be clear that scouting and ground crews fill the gap in between.
+
+  - kind: bullets
+    heading: The new FireSat constellation
+    items:
+      - A constellation built only to detect fire; led by the nonprofit Earth Fire Alliance, satellites by Muon Space
+      - A prototype launched in March 2025 and has detected fires on five continents
+      - The first three operational satellites launched 7 July 2026 (SpaceX Transporter-17)
+      - Early users are set to receive data at least twice a day in late 2026
+      - "Goals for later years: detect fires as small as 5 by 5 m; revisit every hour by 2029"
+    say: Alongside the free data, a new constellation is starting up, built only to detect fire. It is led by the nonprofit Earth Fire Alliance, with the satellites built by Muon Space, and supported by Google and the Bezos Earth Fund among others. A prototype launched in March 2025 and has since detected fires across five continents. The first three operational satellites launched on the seventh of July, 2026, and early-adopter agencies are set to receive data at least twice a day in late 2026. The headline figures, detecting a fire as small as five by five metres and revisiting every hour, are targets for the years ahead, not today's service. In a proposal, state the number of satellites and the revisit rate in service now, separately from the plan.
+
+  - kind: bullets
+    heading: The cost picture
+    items:
+      - "Data: NASA FIRMS fire points are free. Japan's agency also runs a free fire monitor"
+      - "FireSat: pledged free to fire agencies and researchers; commercial terms are not public"
+      - "What you pay for: ingesting the points into your map, and overlaying weather and terrain"
+      - "Operations: staff time in fire season to read the points and brief the field"
+    say: The cost picture is unusual, because the core data is free. NASA's FIRMS fire points cost nothing, and Japan's space agency runs a free wildfire monitor of its own. FireSat has pledged to deliver its data free to fire agencies and researchers, while its commercial terms are not public. What you actually pay for is the work of pulling the points into your map system, overlaying weather and terrain, and the staff time in fire season to read the points and brief the field. This is an assumption. A prefectural disaster office that starts with FIRMS email alerts and a map overlay pays nothing for the data, and spends only on that setup and that staff time. High-resolution imagery to fix the final burned area is a separate purchase.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.24, 0.38, 0.38]
+    rows:
+      - [Fire scale, Large spread over several days, Small fire out within hours]
+      - [What you need, Spread direction and extent, First detection; exact size and spot]
+      - [Conditions, Clear of thick cloud and smoke, "Thick cloud, heavy smoke, or canopy"]
+      - [Timing, A few hours of lag is acceptable, Minute-by-minute calls outside the US]
+    say: Finally, where it fits. It fits a large fire spreading over several days, when what you need is the direction and extent of the spread, when the sky is reasonably clear of thick cloud and smoke, and when a few hours of lag is acceptable. It does not fit a small fire that is out within hours, the job of first detection, reading the exact size and spot of a fire, or minute-by-minute decisions outside the United States, where the one-minute path does not exist. Two things matter when you propose it. Show the customer when the next pass arrives, and never say the satellite will find the fire for you. It follows the spread; it does not replace the alarm.
+
+  - kind: cta
+    heading: Considering it for your region?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source: NASA FIRMS, Fire Alerts Important Notes https://firms.modaps.eosdis.nasa.gov/alerts/notes.php"
+      - "Source: NASA Earthdata, Wildfire detection within a minute https://www.earthdata.nasa.gov/news/blog/wildfire-detection-us-canada-within-minute-satellite-observation"
+      - "FireSat: Google Research, FireSat https://sites.research.google/gr/wildfires/firesat/"
+      - "FireSat operations: Muon Space, first three operational satellites (7 Jul 2026) https://www.muonspace.com/"
+    say: To consider this for your own region or client, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
