@@ -1,0 +1,75 @@
+# ユースケースの記事「藻場の分布と炭素量を衛星データで推定する」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が担う
+      items:
+        - 沿岸全域の藻場の候補を地図にする
+        - 蓄積量と生育に向く場所を推定する
+        - 潜水する地点を絞る材料を出す
+    right:
+      title: 人が行う
+      items:
+        - 学習と検証のための潜水調査
+        - 被度の計測
+        - 実勢面積の算定と申請の資料づくり
+    note: 申請の面積は「面積×被度」。被度は人が測る
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 精度は未公表
+        text: 的中率や面積の誤差は書かれていない
+        role: none
+      - title: 手引きでは確実性が低い
+        text: 衛星からの境界推察はレベル1〜2
+        role: none
+      - title: 被度は決まらない
+        text: コドラート法などで人が測る
+        role: none
+      - title: 現地調査が要る
+        text: 学習にも検証にも潜水の結果が要る
+        role: none
+      - title: 小さな藻場は費用が重い
+        text: 発行量に対して検証の費用が大きい
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 申請の資料づくりに、衛星の推定を入れる手順
+    steps:
+      - title: 海域と種類を決める
+        text: アマモ、アントクメなど
+        who: human
+      - title: 学習用の調査
+        text: 生育の有無の地点
+        who: human
+      - title: 全域の推定図
+        text: 衛星画像と水深で
+        who: satellite
+      - title: 潜水の地点を絞る
+        text: 被度を測る
+        who: human
+      - title: 実勢面積を出す
+        text: 面積×被度で申請
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の推定が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 全域の候補地探し
+        text: 潜水では回れない広さ
+      - title: 事業の規模の見込み
+        text: 費用に見合うか
+      - title: 濁りや深い海域
+        text: 光学では海底が見えにくい
+      - title: 申請の面積の確定
+        text: 被度は現地で測る

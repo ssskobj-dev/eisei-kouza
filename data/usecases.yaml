@@ -1109,6 +1109,7 @@ usecases:
   verified: true
 - 'no': 56
   name: 中干しの実施確認
+  slug: nakaboshi-flooding-check
   theme: 農業・食料
   field: 農業
   stage: 実証
@@ -1128,6 +1129,7 @@ usecases:
   verified: true
 - 'no': 57
   name: 小規模森林のJ-クレジット算定
+  slug: small-forest-jcredit-satellite
   theme: 林業・カーボン
   field: カーボン
   stage: 実証
@@ -1147,6 +1149,7 @@ usecases:
   verified: true
 - 'no': 58
   name: 藻場の分布と炭素量の推定
+  slug: seagrass-blue-carbon-map
   theme: 水産・海洋
   field: 水産・養殖
   stage: 実証

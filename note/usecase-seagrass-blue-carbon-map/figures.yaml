@@ -1,0 +1,47 @@
+# note記事「藻場の面積、全部は潜れない。海洋の衛星データで沿岸全域の候補をどこまで絞れるか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 水産・海洋
+    title: 藻場の分布を衛星で推定
+    sub: 候補地は衛星で、被度は現地で。ブルーカーボンの申請に
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が担う
+      items:
+        - 沿岸全域の藻場の候補を地図にする
+        - 蓄積量と生育に向く場所を推定する
+        - 潜水する地点を絞る材料を出す
+    right:
+      title: 人が行う
+      items:
+        - 学習と検証のための潜水調査
+        - 被度の計測
+        - 実勢面積の算定と申請の資料づくり
+    note: 申請の面積は「面積×被度」。被度は人が測る
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 精度は未公表
+        text: 的中率や面積の誤差は書かれていない
+        role: none
+      - title: 手引きでは確実性が低い
+        text: 衛星からの境界推察はレベル1〜2
+        role: none
+      - title: 被度は決まらない
+        text: コドラート法などで人が測る
+        role: none
+      - title: 現地調査が要る
+        text: 学習にも検証にも潜水の結果が要る
+        role: none
+      - title: 小さな藻場は費用が重い
+        text: 発行量に対して検証の費用が大きい
+        role: none
