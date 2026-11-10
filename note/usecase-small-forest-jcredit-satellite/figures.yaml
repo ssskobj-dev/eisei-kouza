@@ -1,0 +1,47 @@
+# note記事「小さな森林のJ-クレジット、審査だけで約210万円。衛星データで計測の費用を下げられるか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 林業・カーボン
+    title: 森林のJ-クレジットに衛星
+    sub: 制度が認める計測は地上と航空レーザ。衛星は実証中
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せたいことと、人と制度が決めること
+    link: ＋
+    left:
+      title: 衛星データとAI補正で目指す
+      items:
+        - 森林の成長量を低コストで推定する
+        - 航空レーザの間の年を埋める
+        - 次の計測の時期を決める材料にする
+    right:
+      title: 人と制度が決める
+      items:
+        - 制度が認める計測で地位を確定する
+        - 森林簿と計画図を現況に直す
+        - 登録と審査の手続き
+    note: 申請量を決めるのは制度が認める計測。衛星は見込みと計測の時期を決める材料
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 制度が認めていない
+        text: 樹高の計測は地上か航空レーザ
+        role: none
+      - title: 精度は目標の段階
+        text: 「航空レーザ並み」の達成報告はない
+        role: none
+      - title: 台帳が現況と合わない
+        text: 森林簿と計画図のずれが最初の壁
+        role: none
+      - title: 林齢と樹種は分からない
+        text: 計画の資料と航空写真が要る
+        role: none
+      - title: 審査の費用は下がらない
+        text: 妥当性確認と検証は計測と別
+        role: none

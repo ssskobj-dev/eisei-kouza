@@ -1,0 +1,75 @@
+# ユースケースの記事「水田の中干しの延長を衛星データで裏づける」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、事業者が行うこと
+    link: ＋
+    left:
+      title: 衛星が担う
+      items:
+        - 広い範囲の水田の水張りを繰り返し見る
+        - 申告と合わない圃場を拾う
+        - 過去の落水の時期を遡って推定する
+    right:
+      title: 事業者と農家が行う
+      items:
+        - 記録と写真を揃えて審査に出す
+        - 拾われた圃場に追加の確認を求める
+        - 差し水や減収の判断をする
+    note: 衛星は「証明」ではなく「点検」。制度の証跡は記録と写真
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 証跡は記録と写真
+        text: 制度は衛星データを証跡に挙げていない
+        role: none
+      - title: 観測の間隔が粗い
+        text: 連続7日の要件に対し、観測は12〜14日おき
+        role: none
+      - title: 稲の下の水面は期待の段階
+        text: 茂った稲の下の落水は確かめている途中
+        role: none
+      - title: 精度は未公表
+        text: 現地センサとの比較は2025年に始まった
+        role: none
+      - title: 差し水と減収は分からない
+        text: 延ばすか止めるかは人が決める
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 申請前の点検に、衛星の判定を入れる手順
+    steps:
+      - title: 区画データを揃える
+        text: 水田の位置と形
+        who: human
+      - title: 時系列を作る
+        text: 水張りと落水
+        who: satellite
+      - title: 申告と照らす
+        text: 合わない圃場を抜く
+        who: satellite
+      - title: 追加の確認
+        text: 写真や記録を求める
+        who: human
+      - title: 審査に出す
+        text: 記録と写真で
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の点検が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 数百筆の絞り込み
+        text: 合わない圃場を拾う
+      - title: 過去の落水の推定
+        text: 記録のない農家の確認
+      - title: 日単位の開始と終了
+        text: 観測の間は言えない
+      - title: 審査の証跡
+        text: 記録と写真が要る
