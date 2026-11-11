@@ -1,0 +1,47 @@
+# note記事「家屋の異動調査、全件の目視はきつい。自治体の衛星データとAIの建物検出で、現地に行く候補をどこまで絞れるか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 都市・行政
+    title: 家屋の異動を衛星とAIで判読
+    sub: 長野市の実証で検出精度88.3%。人の修正が前提
+
+  - id: fig-1
+    type: split
+    alt: 衛星とAIに任せることと、資産税課が行うこと
+    link: ＋
+    left:
+      title: 衛星とAIが行う
+      items:
+        - 市内全域の高解像度画像を揃える
+        - 家形図と比べて変化の候補を拾う
+        - 候補の所在地を一覧にする
+    right:
+      title: 資産税課が行う
+      items:
+        - 候補を目視で確かめ、修正する
+        - 現地調査で課税対象かを判断する
+        - 課税台帳を更新する
+    note: AIの一覧は「候補」。課税の判断は人が現地で行う
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 88.3%は修正が前提
+        text: 残りは見逃しか誤検出。目視と現地調査は続く
+        role: none
+      - title: 撮影角度で誤認
+        text: 斜めの撮影で家形がずれ、精度が下がった
+        role: none
+      - title: 高い解像度が要る
+        text: 国の整理では建物の把握に30cm以下が要る
+        role: none
+      - title: 課税対象かは分からない
+        text: カーポートも拾う。床面積や用途は現地で
+        role: none
+      - title: 精度の条件は未公表
+        text: 件数、衛星、季節は公表されていない
+        role: none

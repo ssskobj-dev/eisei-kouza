@@ -1,0 +1,90 @@
+# ユースケースの記事「山地災害の被害把握に衛星データ」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、林野行政が行うこと
+    link: ＋
+    left:
+      title: 衛星が行う
+      items:
+        - 災害直後にSARで被災地を大まかに特定する
+        - 光学画像で崩壊地と林道の被害を判読する
+        - 被害延長から被害額の規模を推定する
+    right:
+      title: 林野行政が行う
+      items:
+        - 地域ごとの推定式を平時に用意する
+        - 要対応箇所の現地調査を計画する
+        - 災害査定と激甚指定の判断に使う
+    note: 衛星の数字は「概算」。被害額の確定は現地調査と査定で
+
+  - id: recall
+    type: bar
+    alt: 判読の方法ごとの再現率（2018年7月豪雨、広島県の4町）
+    unit: "%（再現率）"
+    source: 林野庁 令和4年度 陸域観測技術衛星を活用した災害対応手法等検討調査 報告書（2023年）表3-10
+    items:
+      - label: 地形図＋SAR（全崩壊地）
+        value: 26
+      - label: ＋災害前後の光学（全崩壊地）
+        value: 39
+      - label: 地形図＋SAR（1ha以上）
+        value: 65
+      - label: ＋災害前後の光学（1ha以上）
+        value: 88
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: SARだけでは見逃す
+        text: 再現率はいずれの災害でも30%未満
+        role: none
+      - title: 光学は雲と夜間に撮れない
+        text: 災害後すぐには手に入らないことがある
+        role: none
+      - title: 伐採跡地と誤読する
+        text: 技術者でも崩壊と見分けにくい
+        role: none
+      - title: 推定式は地域ごと
+        text: 回帰式の傾きと切片が地域で大きく違う
+        role: none
+      - title: 小さな崩壊地は見逃す
+        text: 木の陰で途切れ、別々に判読される
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 災害査定の前に、衛星の判読を入れる手順
+    steps:
+      - title: 推定式を作る
+        text: 平時に、地域ごとに
+        who: human
+      - title: SARで概略
+        text: 発災直後、被災地を特定
+        who: satellite
+      - title: 光学で判読
+        text: 天候回復後、崩壊地と林道
+        who: satellite
+      - title: 被害額の概算
+        text: 推定延長に式を当てる
+        who: human
+      - title: 現地調査
+        text: 要対応箇所から順に
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の判読が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 推定式のある広域災害
+        text: 被害額の規模を早く出す
+      - title: 1ha以上の崩壊地
+        text: 再現率が上がる
+      - title: 小さな崩壊の点在
+        text: 見逃しが増える
+      - title: 被害額の確定
+        text: 現地調査と査定が要る

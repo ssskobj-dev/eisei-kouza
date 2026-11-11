@@ -1169,6 +1169,7 @@ usecases:
   verified: true
 - 'no': 59
   name: 道路のり面・盛土の変位スクリーニング
+  slug: road-slope-insar-screening
   theme: インフラ・建設
   field: インフラ維持管理
   stage: 実証
@@ -1188,6 +1189,7 @@ usecases:
   verified: true
 - 'no': 60
   name: 固定資産税の家屋異動の判読
+  slug: fixed-asset-change-ai-nagano
   theme: 都市・行政
   field: 行政の業務
   stage: 実証
@@ -1207,6 +1209,7 @@ usecases:
   verified: true
 - 'no': 61
   name: 山地災害と林道被害額の推定
+  slug: forest-road-damage-estimate
   theme: 防災
   field: 防災・災害対応
   stage: 実証

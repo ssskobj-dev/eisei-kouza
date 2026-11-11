@@ -1,0 +1,90 @@
+# ユースケースの記事「道路のり面と盛土の地盤変位を衛星データのInSARで洗い出す」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、道路管理者が行うこと
+    link: ＋
+    left:
+      title: 衛星の干渉SARが行う
+      items:
+        - 路線全体の地盤の動きを過去に遡って並べる
+        - 動きの大きさで箇所を4段階に区分する
+        - 管理外の斜面の動きも拾う
+    right:
+      title: 道路管理者が行う
+      items:
+        - 区分の高い箇所を現地踏査する
+        - 詳細調査と対策の優先順位を決める
+        - 動態観測の計器を置く場所を決める
+    note: 衛星は「動いている場所」を示す。崩れる時期は分からない
+
+  - id: ranks
+    type: bar
+    alt: 尾道松江道の防災カルテ94か所の変動区分
+    unit: か所
+    source: 国土交通省 道路政策の質の向上に資する技術研究開発 成果報告レポート No.29-9（2021年）
+    items:
+      - label: 変動A（10mm/月以上）
+        value: 0
+      - label: 変動B（2〜10mm/月）
+        value: 0
+      - label: 変動C（0.5〜2mm/月）
+        value: 65
+      - label: 変動D（なし、局部的）
+        value: 29
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 観測は年3〜4回
+        text: 同じ条件のLバンドの観測は約3〜4か月に1回
+        role: none
+      - title: 南北向きは苦手
+        text: 主側線が南北の構造物は解析が難しい
+        role: none
+      - title: 大きな変位は小さく出る
+        text: 50mmを超えると実測より小さく解析された
+        role: none
+      - title: 誤差で「変状あり」
+        text: 電離層や大気の影響。時系列で傾向を見る
+        role: none
+      - title: 前兆のない崩壊は予知できない
+        text: 豪雨や地震で一気に崩れる斜面は分からない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 点検の前に、衛星の区分を入れる手順
+    steps:
+      - title: 画像を数える
+        text: 路線と期間、蓄積の枚数
+        who: human
+      - title: 時系列解析
+        text: 月平均の変位を4段階に
+        who: satellite
+      - title: 地質と重ねる
+        text: 対応方針を決める
+        who: human
+      - title: 現地踏査
+        text: AとBはすぐ、Cは継続監視
+        who: human
+      - title: 翌年は追加分
+        text: 新しい画像だけ足して解析
+        who: satellite
+
+  - id: scale
+    type: scale
+    alt: 衛星の洗い出しが効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 東西の山地路線
+        text: ゆっくりした動きを数年追う
+      - title: 平野部の盛土の沈下
+        text: Cバンドも使える
+      - title: 南北の路線
+        text: 水平の動きが見えにくい
+      - title: 崩壊の時期の予知
+        text: 前兆がなければ分からない

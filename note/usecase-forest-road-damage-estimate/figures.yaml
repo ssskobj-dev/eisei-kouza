@@ -1,0 +1,44 @@
+# note記事「山地災害の被害額、現地に入れない間にどう出すか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 防災
+    title: 山地災害の被害額を衛星で概算
+    sub: SARで先に、光学で後から。SARだけでは再現率30%未満
+
+  - id: fig-1
+    type: bar
+    alt: 判読の方法ごとの再現率（2018年7月豪雨、広島県の4町）
+    unit: "%（再現率）"
+    source: 林野庁 令和4年度 陸域観測技術衛星を活用した災害対応手法等検討調査 報告書（2023年）表3-10
+    items:
+      - label: 地形図＋SAR（全崩壊地）
+        value: 26
+      - label: ＋災害前後の光学（全崩壊地）
+        value: 39
+      - label: 地形図＋SAR（1ha以上）
+        value: 65
+      - label: ＋災害前後の光学（1ha以上）
+        value: 88
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: SARだけでは見逃す
+        text: 再現率はいずれの災害でも30%未満
+        role: none
+      - title: 光学は雲と夜間に撮れない
+        text: 災害後すぐには手に入らないことがある
+        role: none
+      - title: 伐採跡地と誤読する
+        text: 技術者でも崩壊と見分けにくい
+        role: none
+      - title: 推定式は地域ごと
+        text: 回帰式の傾きと切片が地域で大きく違う
+        role: none
+      - title: 小さな崩壊地は見逃す
+        text: 木の陰で途切れ、別々に判読される
+        role: none
