@@ -1,0 +1,75 @@
+# ユースケースの記事「固定資産税の家屋の異動を衛星データとAIで判読する」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星とAIに任せることと、資産税課が行うこと
+    link: ＋
+    left:
+      title: 衛星とAIが行う
+      items:
+        - 市内全域の高解像度画像を揃える
+        - 家形図と比べて変化の候補を拾う
+        - 候補の所在地を一覧にする
+    right:
+      title: 資産税課が行う
+      items:
+        - 候補を目視で確かめ、修正する
+        - 現地調査で課税対象かを判断する
+        - 課税台帳を更新する
+    note: AIの一覧は「候補」。課税の判断は人が現地で行う
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 88.3%は修正が前提
+        text: 残りは見逃しか誤検出。目視と現地調査は続く
+        role: none
+      - title: 撮影角度で誤認
+        text: 斜めの撮影で家形がずれ、精度が下がった
+        role: none
+      - title: 高い解像度が要る
+        text: 国の整理では建物の把握に30cm以下が要る
+        role: none
+      - title: 課税対象かは分からない
+        text: カーポートも拾う。床面積や用途は現地で
+        role: none
+      - title: 精度の条件は未公表
+        text: 件数、衛星、季節は公表されていない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 家屋調査の前に、衛星とAIの候補出しを入れる手順
+    steps:
+      - title: 家形図を揃える
+        text: 前回の画像も
+        who: human
+      - title: 全域を撮る
+        text: 高解像度の衛星画像
+        who: satellite
+      - title: 候補を出す
+        text: 変化検出AIで一覧に
+        who: satellite
+      - title: 目視で修正
+        text: 誤検出を外し見逃しを足す
+        who: human
+      - title: 現地調査
+        text: 課税対象かを判断し台帳へ
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星とAIの候補出しが効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 家形図が整った市
+        text: 数万棟の候補を絞る
+      - title: 修正を記録する体制
+        text: 翌年の精度を見積もる
+      - title: 一覧をそのまま課税
+        text: 人の修正が前提
+      - title: 課税の判断
+        text: 床面積と用途は現地で

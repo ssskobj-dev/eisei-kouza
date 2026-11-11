@@ -1,0 +1,44 @@
+# note記事「のり面の点検、路線全部は回れない。衛星データの干渉SARで、動いている斜面をどこまで洗い出せるか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: インフラ・建設
+    title: 道路のり面の動きを衛星で洗い出す
+    sub: 尾道松江道約70km、94か所を4段階に区分
+
+  - id: fig-1
+    type: bar
+    alt: 尾道松江道の防災カルテ94か所の変動区分
+    unit: か所
+    source: 国土交通省 道路政策の質の向上に資する技術研究開発 成果報告レポート No.29-9（2021年）
+    items:
+      - label: 変動A（10mm/月以上）
+        value: 0
+      - label: 変動B（2〜10mm/月）
+        value: 0
+      - label: 変動C（0.5〜2mm/月）
+        value: 65
+      - label: 変動D（なし、局部的）
+        value: 29
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 観測は年3〜4回
+        text: 同じ条件のLバンドの観測は約3〜4か月に1回
+        role: none
+      - title: 南北向きは苦手
+        text: 主側線が南北の構造物は解析が難しい
+        role: none
+      - title: 大きな変位は小さく出る
+        text: 50mmを超えると実測より小さく解析された
+        role: none
+      - title: 誤差で「変状あり」
+        text: 電離層や大気の影響。時系列で傾向を見る
+        role: none
+      - title: 前兆のない崩壊は予知できない
+        text: 豪雨や地震で一気に崩れる斜面は分からない
+        role: none
