@@ -1,0 +1,104 @@
+# English use-case video. Same facts as casebook/jasmai-grain-weather-watch.qmd; English narration & slides.
+lang: en
+voice: Ryan
+title: "Watching grain-growing regions with free government satellite maps (JASMAI)"
+series: CASEBOOK
+kicker: Use case
+number: 55
+total: 221
+thumb: Watch the harvest
+summary: How a Japanese government system turns JAXA and NASA satellite data into free maps of weather and vegetation over the world's grain-growing regions. Who uses it, where it fits in procurement, what it does not show, and the cost. 6 minutes.
+scenes:
+  - kind: cover
+    heading: Watching grain regions with free satellite maps
+    sub: Japan's JASMAI, for grain buyers and food-security analysts
+    say: Can a grain buyer see a drought building in a distant growing region before it moves the price? To a point, yes. Japan's agriculture ministry runs a free public system called JASMAI that turns satellite data into maps of weather and vegetation over the world's main grain regions. In this video, we look at what it is, who uses it, where it fits in procurement, how far it goes, what it does not show, and what it costs.
+
+  - kind: bullets
+    heading: What JASMAI is
+    items:
+      - A free public website from Japan's Ministry of Agriculture, open since 2021
+      - Built from JAXA and NASA satellite observations
+      - Covers the overseas main regions for wheat, maize, soybeans, and rice
+      - Shows precipitation, soil moisture, and a vegetation index, plus their difference from the normal year
+    say: First, what it is. JASMAI is a free public website run by Japan's Ministry of Agriculture, Forestry and Fisheries, open to anyone since 2021. It is built from satellite observations by Japan's space agency, JAXA, and the United States agency, NASA. It covers the overseas main growing regions for wheat, maize, soybeans, and rice. For each region it shows precipitation, soil moisture, land surface temperature, and a vegetation index, along with how far each one sits from the normal year. You can view maps and graphs, and download the numbers as CSV.
+
+  - kind: bullets
+    heading: Who uses it, and why
+    items:
+      - "Who: the agriculture ministry, trading houses, and flour and feed mills"
+      - "Why: to catch drought or heavy rain in a source region before it hits price and supply"
+      - "The gap it fills: overseas agency reports can pause, and may not cover the region you need in time"
+      - "How it is used: to double-check reports from bodies such as the US agriculture department"
+    say: Who uses it, and why. The buyers are the ministry itself, grain trading houses, and flour and feed mills. Japan imports most of its food, so a drought or heavy rain in a source region matters before it reaches the price. The traditional sources were overseas agencies, such as the United States Department of Agriculture, and reports from the ground. But those reports can pause for budget reasons, and may not cover the exact region Japan needs in time. The ministry has used JASMAI mainly to double-check such reports. In 2018, when the US department flagged drought in Australia, JASMAI showed the eastern region under strain while the western wheat that Japan imports was growing well.
+
+  - kind: steps
+    heading: Where it fits in procurement
+    items:
+      - Map your sourcing countries and regions onto JASMAI's regions
+      - Every half-month, check the precipitation and soil-moisture anomaly maps
+      - For flagged regions, follow the vegetation index against the crop calendar
+      - Confirm with overseas-agency reports, local word, and the price
+      - Revisit your buying timing, spread of sources, and stock
+    say: Here is where it fits. It goes in before the buying decision, as a screening step. First, map your sourcing countries and regions onto JASMAI's regions. Every half-month, check the maps of how precipitation and soil moisture differ from normal, and mark the regions that look dry or too wet. For the flagged regions, follow the vegetation index over time and lay the crop calendar over it, to see at which growth stage the anomaly appears. Then confirm against overseas-agency reports, local word, and the price. Finally, revisit your buying timing, how you spread your sources, and your stock. The satellite does not make the call. It narrows down where to look closely.
+
+  - kind: table
+    heading: The system versus the user
+    columns: [JASMAI and the satellites do, The user does]
+    widths: [0.5, 0.5]
+    rows:
+      - ["Observe weather and vegetation worldwide", "Find regions that differ from normal"]
+      - ["Aggregate by region, half-monthly, with anomalies", "Overlay the crop calendar to read the timing"]
+      - ["Publish maps, graphs, and CSV for free", "Confirm yield and quality from agencies and the ground"]
+    say: The split of roles looks like this. JASMAI and the satellites observe precipitation, soil moisture, and vegetation worldwide, aggregate them by region every half-month with the difference from normal, and publish maps, graphs, and CSV for free. The user finds the regions that differ from normal, overlays the crop calendar to read the timing, and confirms yield and quality from the agencies and from the ground. It is a screening tool, not a verdict.
+
+  - kind: table
+    heading: What the data comes from
+    columns: [Data, Source and grid]
+    widths: [0.4, 0.6]
+    rows:
+      - ["Soil moisture", "JAXA GCOM-W (AMSR2) microwave radiometer, 0.1 deg (about 11 km)"]
+      - ["Precipitation", "JAXA global rainfall map GSMaP, 0.1 deg (about 11 km)"]
+      - ["Vegetation index and temperature", "JAXA GCOM-C (SGLI); MODIS before Aug 2022; 0.05 deg (about 5.5 km)"]
+      - ["Yield, area, production", "USDA statistics, by country and US state (not from satellites)"]
+    say: Here is what the data comes from. Soil moisture comes from a microwave radiometer on JAXA's GCOM-W satellite, on a grid of about eleven kilometres. Precipitation comes from JAXA's global rainfall map, GSMaP, on the same grid. The vegetation index and temperature come from JAXA's GCOM-C satellite, and from NASA's MODIS before August 2022, on a finer grid of about five and a half kilometres. And the yield, area, and production figures are not from satellites at all. They come from United States agriculture statistics, by country and by state. The normal year is the average over 2013 to 2019.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - It shows the weather-and-vegetation anomaly only, not yield or quality
+      - The grid is 5.5 to 11 km, so you read it as a regional average, not a single farm
+      - Updates run about half a month behind, so it is not for day-to-day calls
+      - Cloud and radio interference leave gaps; soil moisture reads high in deserts and low in dense tropics
+    say: The limits are stated plainly in the source material. First, it shows only how weather and vegetation differ from normal. It does not give yield or quality, and the yield graph is United States statistics, not a satellite estimate. Second, the grid is five and a half to eleven kilometres, so you read a region's average, not a single farm. Third, updates run about half a month behind, so it is not for day-to-day calls. Fourth, cloud and radio interference leave gaps, and soil moisture tends to read high in deserts and too dry in dense tropical rain. So this is a tool for the trend across a region, confirmed elsewhere.
+
+  - kind: bullets
+    heading: What it costs
+    items:
+      - "Data: the site is free to view, and the CSV is free to download; no price is listed"
+      - "The satellites are flown by JAXA and NASA, and the ministry does the aggregation"
+      - "Assumption: a buyer starting with a half-monthly check pays only for internal work"
+      - "Internal cost: building the region-mapping table, and a person's time every half-month"
+    say: What does it cost? The data is the easy part. JASMAI is a government site, free to view, and the CSV is free to download, with no price listed. The satellites are flown by JAXA and NASA, and the ministry does the aggregation, so there is no data fee for the user. Assume a flour mill's procurement team starts with a simple half-monthly check of the maps and CSV. Then the cost is not the data, but the internal work. That means building a table that maps your sourcing regions onto JASMAI's, and a person's time every half-month to run the check. Yield forecasting or farm-level monitoring is not included, and would need separate paid data.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.24, 0.38, 0.38]
+    rows:
+      - ["What you need", "Weather and vegetation anomaly", "Yield, quality, stock, export rules"]
+      - ["Area", "National or regional trend", "A single farm, a small region"]
+      - ["Timing", "Half-month to month changes", "Day-to-day, just before harvest"]
+      - ["Crop", "Main zones of wheat, maize, soy, rice", "Other crops, regions not listed"]
+    say: Finally, where it fits. It fits when you need the weather-and-vegetation anomaly across a region, when you are working at a national or regional scale, when half-month to month changes are enough, and when your crop is one of the four main grains in a listed region. It does not fit when you need yield, quality, stock, or export rules, when you are watching a single farm, when you need a day-to-day call, or when your crop is not covered. When you propose this, three points matter. Ask first what the client compares against today. Never say the satellite tells you the yield. And set, in advance, which anomaly is large enough to act on.
+
+  - kind: cta
+    heading: Watching your own sourcing regions?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source: MAFF JASMAI, user guide (English) https://jasmai.maff.go.jp/en/user_guide_en/"
+      - "Source: MAFF JASMAI overview (PDF) https://www.maff.go.jp/j/zyukyu/jki/jasmai/attach/pdf/index-1.pdf"
+      - "Satellite specs: JAXA GCOM-W (AMSR2), GCOM-C (SGLI), GSMaP"
+    say: To watch your own sourcing regions, or your client's, here is the next step. We help you write the request for proposal and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
