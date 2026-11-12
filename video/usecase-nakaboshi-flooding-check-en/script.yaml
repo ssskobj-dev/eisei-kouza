@@ -1,0 +1,111 @@
+# English use-case video. Same facts as casebook/nakaboshi-flooding-check.qmd; English narration & slides.
+lang: en
+title: Checking rice-paddy carbon credits with satellite SAR
+series: CASEBOOK
+kicker: Use case
+number: 56
+total: 221
+voice: Ryan
+thumb: Paddy credit check
+summary: How Japanese demonstrations use satellite SAR to cross-check rice-paddy carbon credits from extending mid-season drainage. Where it fits as a screening step, what it can and cannot decide, how far free satellites go, and a cost estimate for paid imagery. Records and photos stay the official evidence. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: Paddy carbon credits, checked by satellite
+    sub: Flagging the paddies whose satellite record does not match the report
+    say: Can a satellite prove that a rice farmer extended mid-season drainage for a carbon credit? Not on its own. The answer is to use satellites as a screening check, flagging the paddies whose satellite record does not match the farmer's report, while records and photos stay the official evidence. In Japan, this is being tested by the space agency and private companies. In this video, we look at who uses it, where it fits in the workflow, what it can decide, how far free satellites go, and what paid imagery would cost.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Country: Japan. A national carbon-credit scheme for rice paddies"
+      - "Who: credit aggregators and verifiers (the buyers), the space agency and companies (the analysis)"
+      - "Why: to cross-check that farmers really extended their mid-season drainage"
+      - "The problem: as member farmers grow, checking every record and photo gets heavy"
+    say: Here is the setting. Mid-season drainage means draining a rice paddy for one to two weeks mid-growth to dry the field. Japan's carbon-credit methodology rewards extending that drainage by at least seven days beyond the farmer's own two-year average, because it cuts methane, and rice paddies are Japan's largest source of methane. The methodology credits the extension with a thirty percent cut. The buyers here are the aggregators and verifiers who bundle many farmers and get audited together. As the number of member farmers grows, confirming every record and photo becomes a heavy load. So satellites are tested to screen the declarations.
+
+  - kind: steps
+    heading: Where it fits in the workflow
+    items:
+      - Collect the plot boundary data for each member paddy
+      - Read a time series of flooding and draining from satellite SAR across the drainage window
+      - Compare it against each farmer's declared start and end dates
+      - Ask only the paddies that do not match for extra photos or records
+      - Submit records and photos to the audit, as the scheme requires
+    say: Here is where it fits. It goes in before the audit, as an internal check. First, you collect the plot boundary data, because without it you cannot tell which satellite pixel belongs to which paddy. Then, across the drainage window, you line up each SAR observation and build a time series of when water was present and when it drained. You compare that against the farmer's declared start and end dates, and pull out the paddies that do not match. Only those paddies are asked for extra photos or records. The audit itself still runs on records and photos, exactly as the scheme requires. The satellite does not replace the evidence. It decides where to look harder.
+
+  - kind: table
+    heading: Satellite versus people
+    columns: [The satellite does, The people do]
+    widths: [0.5, 0.5]
+    rows:
+      - [Build a flooding time series per paddy, Gather the records and photos the scheme requires]
+      - [Flag paddies that do not match the report, Ask the flagged paddies for extra proof]
+      - ["", "Decide on re-flooding and yield, farmer by farmer"]
+    say: The split of roles looks like this. The satellite builds a flooding and draining time series for each paddy and flags the ones that do not match the farmer's report. The people gather the records and photos the scheme requires, ask the flagged paddies for extra proof, and decide, farmer by farmer, whether to keep draining or to re-flood to protect the yield. That last call is a human one, looking at the state of the crop. Note the scale here. This is still a demonstration stage. The space agency and several companies have run field trials, one covering about one hundred hectares. The accuracy and the match rate have not been published.
+
+  - kind: table
+    heading: What it can decide
+    columns: [What you receive, What you can decide]
+    widths: [0.42, 0.58]
+    rows:
+      - [Flooding time series per paddy, Which declarations match and which to question]
+      - [List of paddies that do not match, Which paddies to ask for extra proof]
+      - [Estimated past draining dates, How to check a farmer's baseline where records are thin]
+      - [List of observation gaps, How many days the satellite simply cannot speak to]
+    say: Here is the data you receive and what it lets you decide. The flooding time series tells you which declarations match and which to question. The list of paddies that do not match tells you which ones to ask for extra proof. An estimate of past draining dates helps you check a farmer's baseline where records are thin. And the list of observation gaps tells you how many days the satellite cannot speak to at all. That last one is the real boundary of this method. Sizing that gap first, on a small area, lets you judge how much the check is worth.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - The official evidence is records and photos, not the satellite judgment
+      - Revisit is 12 to 14 days, coarser than the 7-day rule, so re-flooding between passes is invisible
+      - Seeing water under the rice canopy is still only expected, not proven
+      - Accuracy is not published; ground-sensor comparison only started in 2025
+      - Whether to extend or re-flood, and the yield risk, are human calls
+    say: The limits are stated plainly in the sources too. First, the official evidence is records and photos. The satellite judgment does not stand in for them at audit. Second, free SAR revisits every twelve to fourteen days, which is coarser than the seven-day rule, so a day of re-flooding between two passes is invisible. Third, the hope that longer-wave radar can see water under a full rice canopy is still being verified, not proven. Fourth, the accuracy has not been published. Comparison with ground water-level sensors only began in twenty twenty-five. And fifth, whether to extend the drainage or re-flood to save the yield is a human decision, looking at the crop, not something the satellite makes.
+
+  - kind: bullets
+    heading: How far do free satellites go?
+    items:
+      - "Europe's Sentinel-1 is free: C-band radar, revisit about every 12 days per satellite"
+      - Flooding and draining read from how the radar brightness changes over the season. Data cost is zero
+      - A flooded paddy looks dark to radar; a dry or harvested field looks bright
+      - But 12-day gaps cannot pin a 7-day window, and C-band sees under the canopy less than longer waves
+    say: So how far can free satellites take you? Europe's Sentinel-1 is free, a C-band radar that revisits about every twelve days with one satellite. Whether a paddy is flooded or drained can be read from how the radar brightness changes through the season, at zero data cost. A flooded paddy is smooth, so the radar bounces away and the paddy looks dark; a dry or harvested field is rough and looks bright. On the other hand, a twelve-day gap cannot pin down a seven-day drainage window, and shorter C-band radar sees under a thick rice canopy less well than the longer-wave radar the demonstrations use. So free data is enough to try the screening, not to settle a borderline case.
+
+  - kind: table
+    heading: What paid imagery would cost (estimate)
+    columns: [Item, Assumption and figure]
+    widths: [0.32, 0.68]
+    rows:
+      - [Free option, "Sentinel-1 SAR, C-band, about 12-day revisit. 0 yen. Good to screen, weaker under canopy"]
+      - [Paid option, "ALOS-2 SAR, L-band, sees under canopy better. About 80,000 yen ex-tax per 50 km scene; one scene covers a huge area (MoE manual, Mar 2026)"]
+      - [Observations, "Assumption: a few passes across the drainage window"]
+      - [Bigger costs, "Plot boundary data, ground verification, analysis and operation. This is where the real effort goes"]
+      - [Compare against, "Credit revenue. A model example: about 1,850 yen per 10 ares at 5,000 yen per tonne (a model figure, not an actual result)"]
+    say: Here is an estimate, a calculation with assumptions, not a quote. For free, Sentinel-1 radar costs nothing and is enough to screen, though it is weaker under the canopy. For paid imagery, the space agency's longer-wave radar satellite sees under the canopy better; its public price is about eighty thousand yen before tax for a fifty kilometre scene, from the Ministry of the Environment manual revised in March twenty twenty-six, and one scene covers a very large area. Assume a few passes across the drainage window. The bigger costs are not the imagery. They are preparing the plot boundary data, verifying the judgment against the ground, and running the analysis each season. Weigh all of that against the credit revenue. A model example in the methodology earns about one thousand eight hundred fifty yen per ten ares, at five thousand yen a tonne. That is a model figure, not an actual result, and prices change, so always confirm with a real quote.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.24, 0.38, 0.38]
+    rows:
+      - [Scale, "Hundreds of paddies, record checks are heavy", "A few dozen, you can review by hand"]
+      - [Paddy size, Large plots the pixel fits inside, "Small, fragmented plots"]
+      - [What you need, Flag declarations that do not match, Day-level proof of start and end]
+      - [Plot data, Boundaries already digitised, Boundary location unknown]
+      - [Role in the scheme, An internal screening check, Evidence to submit at audit]
+    say: Finally, where it fits. It fits where hundreds of paddies make record-checking heavy, where plots are large enough for the pixel to sit inside, where you need to flag declarations that do not match, and where the plot boundaries are already digitised. And it fits as an internal screening check, not as evidence. It does not fit where there are only a few dozen paddies you could review by hand, where plots are small and fragmented, where you need day-level proof of the start and end dates, where you do not know the boundaries, or where you hoped the satellite could be the audit evidence itself. When you propose this, three points matter. Ask about the plot boundary data and the paddy count first. Never say the satellite proves the credit. And put a number on the observation gaps before you promise anything.
+
+  - kind: cta
+    heading: Considering it for your scheme?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source: JAXA CONSEO, 'The strength of satellite data: Earth observation in carbon credits' (poster) https://earth.jaxa.jp/conseo/img/poster/poster_04_document.pdf"
+      - "Source: MAFF, 'J-Credit methodology: extending the mid-season drainage period in rice cultivation' (Jul 2026) https://www.maff.go.jp/j/seisan/kankyo/ondanka/attach/pdf/index-175.pdf"
+      - "Demonstration: JAXA, 'ALOS-2 and ALOS-4 toward carbon credits' (14 Jul 2025) https://www.satnavi.jaxa.jp/ja/news/2025/07/14/11212/index.html"
+      - "Price: Ministry of the Environment, manual for satellite use (Mar 2026 revision), ALOS-2 scene price"
+      - "Satellite specs: Copernicus SentiWiki, Sentinel-1 Mission"
+    say: To consider this for your own scheme or client, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
