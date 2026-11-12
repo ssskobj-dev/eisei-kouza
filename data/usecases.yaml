@@ -1229,6 +1229,7 @@ usecases:
   verified: true
 - 'no': 62
   name: 洪水予測の自治体向け配信
+  slug: flood-forecast-nagano-cmap
   theme: 保険・金融
   field: 保険
   stage: 実証
@@ -1248,6 +1249,7 @@ usecases:
   verified: true
 - 'no': 63
   name: LNG供給網のメタン排出の検証
+  slug: lng-methane-tip-cue
   theme: エネルギー・資源
   field: エネルギー
   stage: 実証
@@ -1267,6 +1269,7 @@ usecases:
   verified: true
 - 'no': 64
   name: 国別排出量の衛星による検証
+  slug: national-inventory-gosat
   theme: 環境・水
   field: 環境・気候
   stage: 実証

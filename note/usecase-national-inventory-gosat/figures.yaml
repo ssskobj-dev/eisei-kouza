@@ -1,0 +1,47 @@
+# note記事「国の温室効果ガスの報告値、積み上げだけで足りるのか。モンゴルが衛星データの推計を国連への報告書に載せた話」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 環境・水
+    title: 国の排出量の報告値を衛星で検証
+    sub: モンゴルの報告値とGOSATの推計の差は約1.5%
+
+  - id: fig-1
+    type: split
+    alt: 衛星と解析に任せることと、環境当局が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 大気中の二酸化炭素の濃度を測る
+        - 大気のモデルと逆解析で排出量を逆算する
+        - 積み上げの報告値との差を出す
+    right:
+      title: 環境当局が行う
+      items:
+        - 活動量と排出係数で報告値を積み上げる
+        - 差の大きい部門の統計を見直す
+        - 国連への報告書に併記するか決める
+    note: 衛星は報告値の「検証」。報告値に代わるものではない
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 観測は14地点・23日分
+        text: 冬に偏り、観測のない月がある
+        role: none
+      - title: エネルギー部門の合計まで
+        text: 家畜のメタンは対象外。施設は分けられない
+        role: none
+      - title: 全国の約31%は外挿
+        text: 首都の割合が一定という前提
+        role: none
+      - title: 雲の多い国は観測が少ない
+        text: マレーシアでは年30点程度
+        role: none
+      - title: いぶきGWの検証はこれから
+        text: 2025年打ち上げ。面で観測できる
+        role: none

@@ -1,0 +1,47 @@
+# note記事「洪水の30時間前に、どの施設を先に見るか。損害保険会社が長野県の職員に配信する衛星データの洪水予測」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 保険・金融
+    title: 洪水予測を自治体の職員に配信
+    sub: 約1km格子・最大30時間以上先。長野県の共同研究
+
+  - id: fig-1
+    type: split
+    alt: 衛星と予測に任せることと、職員が行うこと
+    link: ＋
+    left:
+      title: 衛星と予測が行う
+      items:
+        - 衛星の観測と気象の予報から流量を計算
+        - 約1km格子で洪水の危険度を出す
+        - 危険度が上がったらメールで知らせる
+    right:
+      title: 職員が行う
+      items:
+        - 危険度の上がった川の近くの施設を確かめる
+        - 点検と人員の配置を前倒しする
+        - 予測が外れたときの対応を決めておく
+    note: 予測は「参考情報」。空振りを前提に動く決め方が要る
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 配信は職員だけ
+        text: 気象業務法に沿い、共同研究の参加者に限る
+        role: none
+      - title: 予測は空振りする
+        text: 2019年の台風で空振り率は約60〜90%
+        role: none
+      - title: 家ごとの浸水は出ない
+        text: 約1km格子。川の区間の危険度まで
+        role: none
+      - title: 参考情報として使う
+        text: 法的な根拠がなく、防災部門は使いにくい
+        role: none
+      - title: 長野の精度は未公表
+        text: 運用後の当たり外れの数字はない
+        role: none

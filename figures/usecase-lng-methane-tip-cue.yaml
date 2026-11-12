@@ -1,0 +1,75 @@
+# ユースケースの記事「LNG供給網のメタン排出を衛星データで裏づける」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星が行う
+      items:
+        - 広域観測で排出が疑われる場所を見つける
+        - 高解像度の衛星でその場所を詳しく観測する
+        - 排出源の位置と量を推定する
+    right:
+      title: 人が行う
+      items:
+        - 観測の対象と時期を決める
+        - 推定値を売り手の申告値と突き合わせる
+        - 調達や融資の条件に反映する
+    note: 衛星の数字は「説明を求めるきっかけ」。確定値ではない
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 性能は検証中
+        text: 検出と定量の結果は未公表。対象施設も未定
+        role: none
+      - title: 施設は分けられない
+        text: 10kmと3kmの画素。施設の特定は商用衛星で
+        role: none
+      - title: 小さな漏れは見えない
+        text: 検出限界は風速3m/sで毎時100kg
+        role: none
+      - title: 見えるのは瞬間だけ
+        text: 断続的な漏れや夜間は記録に残らない
+        role: none
+      - title: 衛星だけでは測定にならない
+        text: OGMP 2.0のレベル5は施設単位の測定が要る
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 調達先の排出の申告値を、衛星で確かめる手順
+    steps:
+      - title: 一覧を作る
+        text: 調達先の施設と申告値
+        who: human
+      - title: 広域で拾う
+        text: いぶきGWで濃度の高い地域
+        who: satellite
+      - title: 詳しく観測
+        text: 高解像度の商用衛星で
+        who: satellite
+      - title: 差を整理する
+        text: 検出限界と回数も記録
+        who: human
+      - title: 説明を求める
+        text: 条件と評価に反映
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星によるメタン排出の確認が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 調達先が多い買い手
+        text: 申告値を確かめる手段がない
+      - title: 説明を求めるきっかけ
+        text: 大きなずれを見つける
+      - title: 小さな漏れの検出
+        text: 検出限界の下は見えない
+      - title: レベル5の測定の代わり
+        text: 衛星だけでは不十分

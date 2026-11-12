@@ -1,0 +1,75 @@
+# ユースケースの記事「国の温室効果ガスの報告値を衛星データで検証する」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星と解析に任せることと、環境当局が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 大気中の二酸化炭素の濃度を測る
+        - 大気のモデルと逆解析で排出量を逆算する
+        - 積み上げの報告値との差を出す
+    right:
+      title: 環境当局が行う
+      items:
+        - 活動量と排出係数で報告値を積み上げる
+        - 差の大きい部門の統計を見直す
+        - 国連への報告書に併記するか決める
+    note: 衛星は報告値の「検証」。報告値に代わるものではない
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 観測は14地点・23日分
+        text: 冬に偏り、観測のない月がある
+        role: none
+      - title: エネルギー部門の合計まで
+        text: 家畜のメタンは対象外。施設は分けられない
+        role: none
+      - title: 全国の約31%は外挿
+        text: 首都の割合が一定という前提
+        role: none
+      - title: 雲の多い国は観測が少ない
+        text: マレーシアでは年30点程度
+        role: none
+      - title: いぶきGWの検証はこれから
+        text: 2025年打ち上げ。面で観測できる
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 温室効果ガスの目録の作成に、衛星からの推計を入れる手順
+    steps:
+      - title: 積み上げる
+        text: 活動量と係数で
+        who: human
+      - title: 逆算する
+        text: 衛星とモデルで
+        who: satellite
+      - title: 並べる
+        text: 同じ年・同じ部門で
+        who: satellite
+      - title: 統計を見直す
+        text: 差の大きい部門
+        who: human
+      - title: 併記して報告
+        text: QA/QCの節に書く
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星による報告値の検証が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 排出が首都に集中
+        text: 晴れの日が多い国
+      - title: 部門の合計の確認
+        text: CO2の部門の合計
+      - title: 雲の多い国
+        text: 観測点が年に数十点
+      - title: 施設ごとの特定
+        text: 分解能が足りない
