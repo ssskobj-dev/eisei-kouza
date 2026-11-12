@@ -1,0 +1,75 @@
+# ユースケースの記事「損害保険会社が長野県の職員向けに洪水予測を配信する」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星と予測に任せることと、職員が行うこと
+    link: ＋
+    left:
+      title: 衛星と予測が行う
+      items:
+        - 衛星の観測と気象の予報から流量を計算
+        - 約1km格子で洪水の危険度を出す
+        - 危険度が上がったらメールで知らせる
+    right:
+      title: 職員が行う
+      items:
+        - 危険度の上がった川の近くの施設を確かめる
+        - 点検と人員の配置を前倒しする
+        - 予測が外れたときの対応を決めておく
+    note: 予測は「参考情報」。空振りを前提に動く決め方が要る
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 配信は職員だけ
+        text: 気象業務法に沿い、共同研究の参加者に限る
+        role: none
+      - title: 予測は空振りする
+        text: 2019年の台風で空振り率は約60〜90%
+        role: none
+      - title: 家ごとの浸水は出ない
+        text: 約1km格子。川の区間の危険度まで
+        role: none
+      - title: 参考情報として使う
+        text: 法的な根拠がなく、防災部門は使いにくい
+        role: none
+      - title: 長野の精度は未公表
+        text: 運用後の当たり外れの数字はない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 自治体向けの洪水予測の配信を組む手順
+    steps:
+      - title: 契約を結ぶ
+        text: 利用者を職員に限る
+        who: human
+      - title: 役割を分ける
+        text: 予測は研究機関が作る
+        who: human
+      - title: 地図に載せる
+        text: 予測と施設を重ねる
+        who: satellite
+      - title: 配信する
+        text: 使い方を職員と決める
+        who: satellite
+      - title: 記録し見直す
+        text: 当たり外れを数える
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 洪水予測の配信が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 施設の多い県や市
+        text: 先に見る順番を決める
+      - title: 空振りを前提に動く
+        text: 施設管理や人員配置
+      - title: 契約者への配信
+        text: 法の許可と事前説明が要る
+      - title: 家ごとの浸水
+        text: 1km格子では分からない
