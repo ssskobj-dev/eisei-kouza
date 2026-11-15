@@ -1,0 +1,47 @@
+# note記事「3Dの街がない国で、浸水をどう住民に見せるか。衛星データとAIで自動生成した街に模擬を重ねる防災デジタルツイン」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 生活・文化・その他
+    title: 衛星とAIで3Dの街を自動生成
+    sub: トンガ・ガーナの浸水の模擬。精度は未公表
+
+  - id: fig-1
+    type: split
+    alt: 衛星とAIに任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星とAIが行う
+      items:
+        - 高分解能の画像と標高データを取る
+        - 建物の高さ、被覆、材質を推定する
+        - 写実的な3Dの街を生成する
+    right:
+      title: 人が行う
+      items:
+        - 浸水の条件を決めて模擬を重ねる
+        - 避難経路と訓練の内容を見直す
+        - 測量や排水の情報で確かめる
+    note: 3Dは「想定の街」。精度の数字は公表されていない
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 精度は未公表
+        text: 誤差や一致率、検証の数字がない
+        role: none
+      - title: 側面と材質は推定
+        text: 真上の画像からAIが補う。看板は除外
+        role: none
+      - title: 高分解能が前提
+        text: トンガは15cm・30cmの有償画像
+        role: none
+      - title: 模擬は見せる映像
+        text: 海面上昇の値や排水の扱いは不明
+        role: none
+      - title: 地下と構造は写らない
+        text: 排水路、基礎、堤防の差は現地で
+        role: none

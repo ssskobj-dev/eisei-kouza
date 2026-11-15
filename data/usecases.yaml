@@ -1289,6 +1289,7 @@ usecases:
   verified: true
 - 'no': 65
   name: 衛星画像からの3D都市の自動生成
+  slug: ai-3d-city-digital-twin
   theme: 生活・文化・その他
   field: その他
   stage: 実証
@@ -1327,6 +1328,7 @@ usecases:
   verified: true
 - 'no': 67
   name: 衛星画像からの浅海の水深推定
+  slug: satellite-derived-bathymetry
   theme: 水産・海洋
   field: 海洋・船舶
   stage: 実証
@@ -1346,6 +1348,7 @@ usecases:
   verified: true
 - 'no': 68
   name: ロックフィルダム堤体の変位計測
+  slug: rockfill-dam-insar
   theme: インフラ・建設
   field: インフラ維持管理
   stage: 実証

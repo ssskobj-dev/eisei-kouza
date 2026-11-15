@@ -1,0 +1,75 @@
+# ユースケースの記事「衛星データから浅い海の水深を推定する」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星が行う
+      items:
+        - 浅海域の水深を面で推定する
+        - 海底地形の変化を広く捉える
+        - 災害直後に現地に行かず概略を出す
+    right:
+      title: 人が行う
+      items:
+        - 学習用の実測水深を数測線取る
+        - 本測量の範囲と順番を決める
+        - 海図に載せるかを基準で判断する
+    note: 水深約10mまで平均誤差±2m程度。測量の代わりにはならない
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 深さは約20mまで
+        text: 透明度の良い所で。多くは5〜15m
+        role: none
+      - title: 誤差は±2m程度
+        text: 海図の測量基準（S-44）に届かない
+        role: none
+      - title: 濁ると解析できない
+        text: 河口、出水や被災の直後
+        role: none
+      - title: 実測の学習データが要る
+        text: 海図か数測線の測深を与える
+        role: none
+      - title: 小さな障害物は見えない
+        text: 一辺2mの検出は困難
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 推定水深を測量計画の前工程に入れる手順
+    steps:
+      - title: 範囲を決める
+        text: 知りたい深さは15m以浅か
+        who: human
+      - title: 画像を選ぶ
+        text: 濁りのない時期
+        who: satellite
+      - title: 実測を取る
+        text: 学習用に数測線
+        who: human
+      - title: 面を作る
+        text: 誤差の幅も納品に
+        who: satellite
+      - title: 本測量を絞る
+        text: 範囲と順番を決める
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星画像推定水深が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 透明度の高い浅海
+        text: 浅所の分布を概略で
+      - title: 災害後の港の確認
+        text: 見に行く順番を決める
+      - title: 濁った海域
+        text: 10m以深が欠ける
+      - title: 海図の確定値
+        text: ±0.5mの基準に届かない
