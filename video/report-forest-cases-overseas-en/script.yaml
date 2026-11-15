@@ -1,0 +1,92 @@
+# English market-report video (overseas). Theme: forest & carbon, angle: cases-overseas.
+# Facts verified against the primary sources listed in the closing credits. Numbers not verified were left out.
+lang: en
+voice: Ryan
+title: How the world monitors forests and carbon from orbit
+series: MARKET
+kicker: Market report
+thumb: Forests from orbit
+summary: Three documented overseas cases of satellite monitoring for forests and carbon - a free global forest-loss service, the EU regulation now driving demand, and a methane-detection satellite in operation. What they measure, how to read the numbers, and what a consultant should take from them. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: How the world monitors forests and carbon from orbit
+    sub: Three documented overseas cases, and how to read them
+    say: Where is satellite monitoring of forests and carbon already running overseas, and what does it actually deliver? The clearest answer comes from three documented cases. A free, global forest-loss service that anyone can open today. A European regulation that is now the biggest single driver of demand. And a methane-detection satellite that is in operation and publishing its results. In this report we look at what each one measures, what satellite data it uses, how to read the numbers, and what a consultant should take from them.
+
+  - kind: bullets
+    heading: What this report covers
+    items:
+      - "Case 1 - Global Forest Watch, a free global forest-loss service in operation"
+      - "Case 2 - the EU Deforestation Regulation, the demand driver behind compliance services"
+      - "Case 3 - Carbon Mapper's Tanager-1, a methane-detection satellite in operation"
+      - How to read the numbers, and what does not transfer directly to Japan
+    say: Here is what this report covers. First, Global Forest Watch, a free global service for tracking forest loss that is already in operation. Second, the European Union's Deforestation Regulation, which is the single biggest driver of commercial demand right now. Third, Carbon Mapper's Tanager-1 satellite, which detects methane and carbon dioxide from space and publishes what it finds. Then, how to read the numbers behind all three, and what does not transfer directly when you bring these ideas to a client in Japan.
+
+  - kind: bullets
+    heading: Case 1 - Global Forest Watch
+    items:
+      - A free, public service that maps tropical forest loss worldwide
+      - Data produced by the University of Maryland's GLAD Lab, published by the World Resources Institute
+      - In 2025, tropical primary forest loss was 4.3 million hectares - down 36% from the 2024 record
+      - Built mainly on free medium-resolution optical data, with radar added where clouds block the view
+    say: Case one is Global Forest Watch. It is a free, public service that maps where tropical forests are being cleared, anywhere in the world. The underlying data is produced by the University of Maryland's GLAD Lab, and published by the World Resources Institute. In their April 2026 release, they reported that in 2025 the world lost 4.3 million hectares of tropical primary forest. That was down 36 percent from 2024, which had been a record high - but it was still 46 percent higher than a decade ago. The analysis is built mainly on free, medium-resolution optical imagery such as Landsat and Sentinel-2, with longer-wavelength radar added in the tropics where cloud blocks an optical view. This one is in service, not a pilot - anyone can open the maps in a browser.
+
+  - kind: bullets
+    heading: Case 2 - the EU Deforestation Regulation
+    items:
+      - The EUDR asks companies to prove their goods are not linked to deforestation after the end of 2020
+      - Seven commodities are in scope - cattle, cocoa, coffee, oil palm, rubber, soy, and wood - plus derived products
+      - It applies to large and medium operators from 30 December 2026, and to smaller ones from 30 June 2027
+      - Satellite forest data is one of the ways companies check the plots they buy from
+    say: Case two is not a company but a regulation - and it is the single biggest reason demand is growing. The EU Deforestation Regulation asks any company selling or exporting certain goods in the EU to prove those goods were not produced on land cleared of forest after the end of 2020. Seven commodities are in scope - cattle, cocoa, coffee, oil palm, rubber, soy, and wood - along with products made from them. According to the European Commission, it applies to large and medium operators from the thirtieth of December 2026, and to small and micro enterprises from the thirtieth of June 2027. To comply, companies attach the location of each plot they source from, and satellite forest data is one of the main ways to check whether that plot stayed forested. Note that the application date has already been postponed twice, so always confirm the current date from the Commission before you build a proposal around it.
+
+  - kind: bullets
+    heading: Case 3 - Carbon Mapper's Tanager-1
+    items:
+      - A methane- and carbon-dioxide-detecting satellite, launched in August 2024
+      - A partnership of the non-profit Carbon Mapper, Planet, and NASA's Jet Propulsion Laboratory
+      - In two years it published about 14,400 methane plumes and about 3,900 carbon-dioxide plumes
+      - In its first five months of US notifications, 60 alerts went out and 10 sources were confirmed fixed
+    say: Case three is Carbon Mapper's Tanager-1. It is a satellite that detects plumes of methane and carbon dioxide from individual sites, launched in August 2024. It comes from a partnership of the non-profit Carbon Mapper, the company Planet, and NASA's Jet Propulsion Laboratory. Over its first two years, Carbon Mapper reported publishing about 14,400 methane plumes and about 3,900 carbon-dioxide plumes. And it does not just watch - in the first five months of a notification programme in selected US jurisdictions, it issued about 60 alerts covering more than 50 unique sources, and helped confirm that 10 of those sources were fixed. This one is in service, and its detections are published openly.
+
+  - kind: bullets
+    heading: The data and methods behind these
+    items:
+      - Forest loss - medium-resolution optical such as Landsat and Sentinel-2, free and reaching back years
+      - Cloudy tropics - longer-wavelength radar, which sees through cloud and day or night
+      - Methane and CO2 - imaging spectrometers that read the wavelengths the gases absorb
+      - The forest data is free; turning it into a compliant, auditable dossier is the paid work
+    say: So what is actually behind these cases? For forest loss, the workhorse is free, medium-resolution optical imagery - Landsat and Sentinel-2 - which lets you compare the same place across years. In the cloudy tropics, longer-wavelength radar is added, because it sees through cloud and works day or night. For methane and carbon dioxide, the satellites carry imaging spectrometers that read the specific wavelengths those gases absorb. The important point for a client is simple. The forest imagery itself is free and open, but turning it into a compliant, auditable record - one that will stand up to a regulator or an auditor - is the work that costs money.
+
+  - kind: table
+    heading: How to read the numbers
+    columns: [What the number is, What it does not mean]
+    widths: [0.5, 0.5]
+    rows:
+      - ["Forest loss down 36% in 2025", "One year's change from a record high; loss is still 46% above a decade ago"]
+      - ["Landsat and Sentinel-2 data are free", "A compliant dossier still needs analysis and ground checks - free data is not a free result"]
+      - ["14,400 methane plumes in two years", "A detection catalogue, not proof of repair; only a small number were confirmed fixed"]
+      - ["Satellites detect emissions", "They do not enforce a fix, and the method depends on the satellite staying alive"]
+    say: Now, how to read these numbers without overselling them. The 36 percent drop in forest loss is one year's change measured against a record high, and loss is still well above where it was a decade ago - so it is progress, not a solved problem. The Landsat and Sentinel-2 data behind the forest cases is free, but a dossier that satisfies a regulator still takes analysis and ground checks. Free data does not mean a free result. Tanager-1's 14,400 plumes is a detection catalogue, not proof that anything was repaired - only a small number were confirmed fixed. And a satellite that detects emissions does not force anyone to act, and the method depends on the satellite staying in service. Remember that MethaneSAT, another methane satellite, lost contact in 2025 and its operator said it was likely not recoverable.
+
+  - kind: bullets
+    heading: What a consultant should take from this
+    items:
+      - The strongest overseas cases pair free public monitoring with regulation-driven compliance
+      - The EUDR is the near-term driver; its date has moved twice, so confirm it before you pitch
+      - Free forest data lowers the entry cost, but small plots and shade-grown crops still need ground truth
+      - Carbon-credit MRV is under tighter scrutiny, so a satellite estimate alone is not enough
+      - In Japan this is usually commissioned per project - lead with the decision and the rule, not the sensor
+    say: So what should a consultant take from this? First, the strongest overseas cases are not clever technology on its own - they pair a free, public monitoring service with regulation that forces companies to use it. Demand follows rules and disclosure. Second, in the near term the EU Deforestation Regulation is the driver, and its date has already moved twice, so your client's budget moves with it - confirm the current date before you pitch. Third, free forest data lowers the cost of entry, but ten-metre imagery still struggles with small plots and with shade-grown crops like coffee and cocoa, so ground truth stays essential. Fourth, carbon-credit measurement is under tighter scrutiny after concerns about over-issuance, so a satellite estimate on its own will not carry a claim - pair it with field survey. And finally, in Japan this kind of monitoring is usually commissioned project by project rather than run as a free public service, so lead with the decision and the regulation it answers, not with the sensor.
+
+  - kind: cta
+    heading: Planning forest or carbon monitoring?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Case 1 - WRI Global Forest Watch (Apr 2026): https://www.wri.org/news/release-tropical-rainforest-loss-drops-36-2025-fires-threaten-global-progress"
+      - "Case 2 - European Commission, EUDR: https://environment.ec.europa.eu/topics/forests/deforestation/regulation-deforestation-free-products_en"
+      - "Case 3 - Carbon Mapper, Tanager-1 two-year update (Aug 2026): https://carbonmapper.org/articles/tanager-1-two-years-of-turning-satellite-data-into-methane-action"
+      - "MethaneSAT lost contact (2025) - EDF: https://www.edf.org/media/methanesat-loses-contact-satellite"
+    say: If you are planning forest or carbon monitoring, here is the next step. We help you write the request for proposal and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
