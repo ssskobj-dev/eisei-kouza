@@ -52,6 +52,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: actions/setup-python@v5
+        id: py
         with:
           python-version: "3.11"
       - run: pip install pyyaml
@@ -110,7 +111,9 @@ jobs:
         id: vv
         with:
           path: vv
-          key: voicevox-0.15.7
+          # 仮想環境（vv/venv）は実行環境の Python の場所を指す。Python の版（3.11.17 → 3.11.18 など）が
+          # 変わると指す先が消えて壊れるので、鍵に Python の版を含め、版ごとに作り直す
+          key: voicevox-0.15.7-py${{ steps.py.outputs.python-version }}
       - if: steps.gate.outputs.go == 'yes' && steps.vv.outputs.cache-hit != 'true'
         run: |
           mkdir -p vv && cd vv
@@ -119,6 +122,18 @@ jobs:
           curl -sSL -o dic.tgz https://github.com/r9y9/open_jtalk/releases/download/v1.11.1/open_jtalk_dic_utf_8-1.11.tar.gz
           unzip -q core.zip && tar xzf dic.tgz && rm core.zip dic.tgz
           python -m venv venv && ./venv/bin/pip install -q "voicevox_core-0.15.7+cpu-cp38-abi3-linux_x86_64.whl" numpy
+      - name: VOICEVOX の仮想環境が動くか確かめ、壊れていれば作り直す
+        if: steps.gate.outputs.go == 'yes'
+        run: |
+          cd vv
+          if ./venv/bin/python -c "import voicevox_core, numpy" 2>/dev/null; then
+            echo "仮想環境は正常です"
+          else
+            echo "仮想環境が壊れているので作り直します（キャッシュの Python と実行環境の Python が違う、など）"
+            rm -rf venv
+            python -m venv venv && ./venv/bin/pip install -q "voicevox_core-0.15.7+cpu-cp38-abi3-linux_x86_64.whl" numpy
+            ./venv/bin/python -c "import voicevox_core, numpy"
+          fi
       - name: 動画を作って投稿し、1本ごとに書き戻す
         if: steps.gate.outputs.go == 'yes'
         shell: bash
