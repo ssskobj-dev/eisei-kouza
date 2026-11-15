@@ -1,0 +1,47 @@
+# note記事「測量船が入れない浅い海の深さを、衛星データでどこまで推定できるか。海上保安庁の検証では水深10mまで誤差±2m」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 水産・海洋
+    title: 衛星画像で浅い海の水深を推定
+    sub: 水深約10mまで平均誤差±2m。海図の基準には届かない
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星が行う
+      items:
+        - 浅海域の水深を面で推定する
+        - 海底地形の変化を広く捉える
+        - 災害直後に現地に行かず概略を出す
+    right:
+      title: 人が行う
+      items:
+        - 学習用の実測水深を数測線取る
+        - 本測量の範囲と順番を決める
+        - 海図に載せるかを基準で判断する
+    note: 水深約10mまで平均誤差±2m程度。測量の代わりにはならない
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 深さは約20mまで
+        text: 透明度の良い所で。多くは5〜15m
+        role: none
+      - title: 誤差は±2m程度
+        text: 海図の測量基準（S-44）に届かない
+        role: none
+      - title: 濁ると解析できない
+        text: 河口、出水や被災の直後
+        role: none
+      - title: 実測の学習データが要る
+        text: 海図か数測線の測深を与える
+        role: none
+      - title: 小さな障害物は見えない
+        text: 一辺2mの検出は困難
+        role: none

@@ -1,0 +1,75 @@
+# ユースケースの記事「ロックフィルダム堤体の沈下を衛星データのInSARで面的に測る」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星が行う
+      items:
+        - 堤体の表面全体を数mの細かさで測る
+        - 測量点の間の局所的な変形を拾う
+        - 地震の前後の差を現地に行かずに出す
+    right:
+      title: 人が行う
+      items:
+        - 光波測量やGNSSで基準点を測る
+        - 植生の伐採と工事の記録を管理する
+        - 変形の原因と安全性を判断する
+    note: 19基の検証で、半数以上が測量との差5mm以下。測量の代替ではなく補助
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: ロックフィルの堤体だけ
+        text: 斜面とコンクリートダムは精度未検証
+        role: none
+      - title: 電波の向きで精度が変わる
+        text: 正面・背面は弱い。急斜面は陰になる
+        role: none
+      - title: 植生・積雪・工事
+        text: 誤差や欠けが出る。伐採と履歴が要る
+        role: none
+      - title: 視線方向の1次元
+        text: 沈下と水平を分けるには両軌道が要る
+        role: none
+      - title: 観測は年3〜4回程度
+        text: 軌道ごと。アーカイブの有無を先に確認
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 衛星SARをダムの変位計測の補助に入れる手順
+    steps:
+      - title: 条件を見る
+        text: 堤体の向きと軌道
+        who: human
+      - title: データ集め
+        text: SARと測量記録
+        who: satellite
+      - title: 時系列解析
+        text: 雑音を減らす
+        who: satellite
+      - title: 基準で検証
+        text: 測量点と照合
+        who: human
+      - title: 点検の順番
+        text: 分布図で選ぶ
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星SARによるダムの変位計測が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 植生の少ない堤体
+        text: ロックフィルで記録あり
+      - title: 地震後の優先順位
+        text: 行けないダムの前後比較
+      - title: 植生・積雪が多い
+        text: 干渉性が落ちて欠ける
+      - title: 斜面・コンクリート
+        text: 定量的な精度はこれから

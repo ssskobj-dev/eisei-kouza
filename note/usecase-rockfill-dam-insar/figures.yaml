@@ -1,0 +1,47 @@
+# note記事「ダムの測量点の間で何が起きているか。衛星SARで堤体の沈下を面で測る、国総研の19基の検証」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: インフラ・建設
+    title: ダムの沈下を衛星SARで面で測る
+    sub: 19基の検証。半数以上で測量との差5mm以下
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星が行う
+      items:
+        - 堤体の表面全体を数mの細かさで測る
+        - 測量点の間の局所的な変形を拾う
+        - 地震の前後の差を現地に行かずに出す
+    right:
+      title: 人が行う
+      items:
+        - 光波測量やGNSSで基準点を測る
+        - 植生の伐採と工事の記録を管理する
+        - 変形の原因と安全性を判断する
+    note: 19基の検証で、半数以上が測量との差5mm以下。測量の代替ではなく補助
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: ロックフィルの堤体だけ
+        text: 斜面とコンクリートダムは精度未検証
+        role: none
+      - title: 電波の向きで精度が変わる
+        text: 正面・背面は弱い。急斜面は陰になる
+        role: none
+      - title: 植生・積雪・工事
+        text: 誤差や欠けが出る。伐採と履歴が要る
+        role: none
+      - title: 視線方向の1次元
+        text: 沈下と水平を分けるには両軌道が要る
+        role: none
+      - title: 観測は年3〜4回程度
+        text: 軌道ごと。アーカイブの有無を先に確認
+        role: none
