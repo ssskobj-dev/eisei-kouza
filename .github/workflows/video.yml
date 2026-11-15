@@ -93,6 +93,40 @@ jobs:
             echo "go=yes" >> "$GITHUB_OUTPUT"
             case " $pairs " in *":en:"*) echo "need_en=yes" >> "$GITHUB_OUTPUT" ;; *) echo "need_en=no" >> "$GITHUB_OUTPUT" ;; esac
           fi
+      - name: 投稿の鍵（YouTube）が生きているか先に確かめる
+        if: steps.gate.outputs.go == 'yes'
+        shell: bash
+        env:
+          YT_CLIENT_ID_EN: ${{ secrets.YT_CLIENT_ID_EN }}
+          YT_CLIENT_SECRET_EN: ${{ secrets.YT_CLIENT_SECRET_EN }}
+          YT_REFRESH_TOKEN_EN: ${{ secrets.YT_REFRESH_TOKEN_EN }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: |
+          pip install -q google-auth
+          python - <<'EOF'
+          import os, sys
+          from google.oauth2.credentials import Credentials
+          from google.auth.transport.requests import Request
+          pairs = "${{ steps.plan.outputs.pairs }}".split()
+          chans = sorted({p.split(":")[1] for p in pairs})
+          bad = []
+          for ch in chans:
+              suf = "_EN" if ch == "en" else ""
+              creds = Credentials(None, refresh_token=os.environ.get("YT_REFRESH_TOKEN" + suf),
+                                  token_uri="https://oauth2.googleapis.com/token",
+                                  client_id=os.environ.get("YT_CLIENT_ID" + suf), client_secret=os.environ.get("YT_CLIENT_SECRET" + suf))
+              try:
+                  creds.refresh(Request())
+                  print(f"{ch}: 鍵は有効です")
+              except Exception as e:
+                  bad.append(ch)
+                  print(f"::error::{ch} チャンネルの投稿の鍵（YT_REFRESH_TOKEN{suf}）が使えません：{e}")
+          if bad:
+              print("::error::docs/youtube-setup.md の手順4で鍵を作り直し、手順5で Secrets を登録し直してください。同意画面が「テスト」のままだと鍵は7日で切れます（「本番」に切り替えると切れません）")
+              sys.exit(1)
+          EOF
       - name: 日本語フォントと ffmpeg を入れる
         if: steps.gate.outputs.go == 'yes'
         run: sudo apt-get update && sudo apt-get install -y fonts-noto-cjk ffmpeg chromium-browser || sudo apt-get install -y chromium
@@ -104,21 +138,41 @@ jobs:
           pip install piper-tts
           mkdir -p piper_voices && cd piper_voices
           for v in en_US-ryan-medium en_US-joe-medium; do python -m piper.download_voices $v --data-dir . ; done
-      - name: 合成音声（VOICEVOX）を用意する
+      - name: 合成音声（VOICEVOX）の前回の準備結果を取り出す
         if: steps.gate.outputs.go == 'yes'
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         id: vv
         with:
           path: vv
-          key: voicevox-0.15.7
-      - if: steps.gate.outputs.go == 'yes' && steps.vv.outputs.cache-hit != 'true'
+          key: voicevox-0.15.7-copies-v2
+      - name: 合成音声（VOICEVOX）を確かめ、無いか壊れていれば作り直す
+        if: steps.gate.outputs.go == 'yes'
+        id: vv_build
+        shell: bash
         run: |
-          mkdir -p vv && cd vv
+          # venv の python が実行できて、本体のライブラリと辞書がそろっていれば、前回の準備結果を使う。
+          # （venv を symlink で作ると、ランナーの Python の更新で壊れる。--copies で作って依存をなくす）
+          if [ -x vv/venv/bin/python ] && vv/venv/bin/python -c "import numpy" >/dev/null 2>&1 \
+             && [ -d vv/voicevox_core-linux-x64-cpu-0.15.7 ] && [ -d vv/open_jtalk_dic_utf_8-1.11 ]; then
+            echo "前回の準備結果を使います"
+            echo "built=no" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "VOICEVOX を準備し直します"
+          rm -rf vv && mkdir -p vv && cd vv
           curl -sSL -o core.zip https://github.com/VOICEVOX/voicevox_core/releases/download/0.15.7/voicevox_core-linux-x64-cpu-0.15.7.zip
           curl -sSL -o "voicevox_core-0.15.7+cpu-cp38-abi3-linux_x86_64.whl" "https://github.com/VOICEVOX/voicevox_core/releases/download/0.15.7/voicevox_core-0.15.7+cpu-cp38-abi3-linux_x86_64.whl"
           curl -sSL -o dic.tgz https://github.com/r9y9/open_jtalk/releases/download/v1.11.1/open_jtalk_dic_utf_8-1.11.tar.gz
           unzip -q core.zip && tar xzf dic.tgz && rm core.zip dic.tgz
-          python -m venv venv && ./venv/bin/pip install -q "voicevox_core-0.15.7+cpu-cp38-abi3-linux_x86_64.whl" numpy
+          python -m venv --copies venv && ./venv/bin/pip install -q "voicevox_core-0.15.7+cpu-cp38-abi3-linux_x86_64.whl" numpy
+          ./venv/bin/python -c "import numpy"
+          echo "built=yes" >> "$GITHUB_OUTPUT"
+      - name: 合成音声（VOICEVOX）の準備結果を保存する（作り直したときだけ）
+        if: steps.gate.outputs.go == 'yes' && steps.vv_build.outputs.built == 'yes'
+        uses: actions/cache/save@v4
+        with:
+          path: vv
+          key: voicevox-0.15.7-copies-v2
       - name: 動画を作って投稿し、1本ごとに書き戻す
         if: steps.gate.outputs.go == 'yes'
         shell: bash
