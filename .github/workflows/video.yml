@@ -104,7 +104,7 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
         run: |
-          pip install -q google-auth
+          pip install -q google-auth requests
           python - <<'EOF'
           import os, sys
           from google.oauth2.credentials import Credentials
