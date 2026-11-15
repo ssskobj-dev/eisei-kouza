@@ -1,0 +1,51 @@
+SAR衛星で浸水の深さと冠水道路を推定する：阿武隈川25.7km²の例
+
+■ この動画の内容
+SAR衛星で抜き出した浸水の範囲に標高データを重ね、浸水の深さと冠水した道路を推定する使い方を解説します。阿武隈川の解析例では浸水域25.72km²、浸水建物6,800棟以上と推計。救援の順番を決める材料にはなりますが、床上か床下かの境目は衛星だけでは決められません。無償衛星でどこまでできるか、有償画像の概算までを6分で。
+
+▶ RFPの作成と相見積もりの相談は、フォームから
+https://ssskobj-dev.github.io/eisei-kouza/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-flood-depth-roads
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-flood-depth-roads&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=usecase-flood-depth-roads&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 SAR衛星で浸水の深さと冠水道路を推定
+0:37 Satellite to Decision とは
+0:56 どこで、誰が、何のために
+1:43 阿武隈川の解析例で公表された推計
+2:30 業務の流れの、どこに入るか
+3:22 衛星に任せることと、人が行うこと
+4:09 何を決める材料になるか
+4:48 衛星データの資格
+5:01 2026年時点の限界
+5:55 無償の衛星で、どこまでできるか
+6:28 有償の画像を使うと、いくらか（概算）
+7:24 向いている条件、向いていない条件
+8:10 自分の地域で検討する方へ
+8:29 2つの資格が取得できます
+
+■ 出典と表記
+出典：Synspective「Analysing the Abukuma River Flood (2019) with Flood Damage Assessment」（2020年12月11日） https://synspective.com/usecase/2020/fda1
+出典：Synspective「Analyzing the flood damage from the Rokkaku River in Saga Prefecture (Kyushu)」（2021年8月19日） https://synspective.com/usecase/2021/fda2
+出典：Synspective プレスリリース「SAR-based Flood Damage Assessment Solution Service」（2020年12月10日）
+　https://synspective.com/press-release/2020/synspective-announces-the-release-of-sar-based-flood-damage-assessment-solution-service/
+出典：国土地理院 関東地方測量部「国土地理院における災害対応支援の取組み」（2018年9月） https://www.ktr.mlit.go.jp/ktr_content/content/000717693.pdf
+出典：国土交通省 中部地方整備局「衛星画像を活用した浸水域判読」（2023年度 管内技術研究発表会） https://www.cbr.mlit.go.jp/kikaku/2023kannai/pdf/re02_07.pdf
+価格：Umbra「Pricing」（2025年12月19日更新） https://umbra.space/pricing/
+衛星の仕様：Copernicus SentiWiki「Sentinel-1 Mission」
+音声：VOICEVOX:もち子さん　案内役：もち子
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
