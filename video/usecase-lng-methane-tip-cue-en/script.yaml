@@ -1,0 +1,131 @@
+# English use-case video. Same facts as casebook/lng-methane-tip-cue.qmd; English narration & slides.
+lang: en
+voice: Ryan
+title: Satellite data to verify methane in the LNG supply chain
+series: CASEBOOK
+kicker: Use case
+number: 63
+total: 221
+thumb: Methane from space
+summary: How LNG buyers and banks can cross-check a supplier's methane emissions with satellites. A Japanese government project is testing a "Tip and Cue" method - a wide-area government satellite flags suspect areas, then a high-resolution commercial constellation looks closely. We cover where it fits, what you can decide, the 2026 limits, and where the cost sits. 6 minutes.
+scenes:
+  - kind: cover
+    heading: Verifying LNG methane with satellites
+    sub: A government satellite flags suspect areas; a commercial constellation looks closely
+    say: Can a buyer check a supplier's reported methane emissions with satellites? Partly, yes, but not on its own. A Japanese government project is testing how. A wide-area government satellite flags areas where emissions are suspected, and a high-resolution commercial constellation is then tasked to look closely. In this video, we look at who uses it, where it fits in the workflow, what decisions it supports, the limits as of 2026, how far the free satellite goes, and where the cost sits.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Country: Japan. A FY2026 technical verification project run by JOGMEC"
+      - "Who: LNG buyers, resource developers, and banks (the buyers of this information)"
+      - "Why: to cross-check a supplier's reported methane emissions, not rely on self-reporting alone"
+      - "Methane is the main component of LNG, and a stronger greenhouse gas than carbon dioxide"
+    say: The setting is Japan. In the fiscal year 2026, JOGMEC, Japan's energy and metals organisation, opened a project to verify, using satellite data, how greenhouse gas emission sources can be identified and measured. The information is for LNG buyers, resource developers, and banks. Methane is the main component of LNG, and a stronger greenhouse gas than carbon dioxide. It leaks at the production, liquefaction, and transport stages. Buyers want to confirm the emissions a supplier reports, rather than trust the self-report alone.
+
+  - kind: steps
+    heading: How Tip and Cue works, and where it fits
+    items:
+      - A wide-area government satellite measures methane concentration over a broad area (Tip)
+      - It flags areas where concentration is high and emissions are suspected
+      - A high-resolution commercial constellation is tasked to observe those areas (Cue)
+      - It estimates the location and rate of the emission source
+      - People compare the estimate against the supplier's reported value
+    say: Here is how it works. One satellite that sees a wide area at once has large pixels, so it cannot separate individual facilities. Another that sees facilities in fine detail has a narrow field of view, so you must decide where to point it first. So you combine them. The wide-area satellite flags the suspect area - that is the Tip. The high-resolution constellation is then tasked to look closely - that is the Cue. This is called Tip and Cue. It goes in before you talk to a supplier, to decide which suppliers to look at and what to ask them.
+
+  - kind: bullets
+    heading: The case - JOGMEC's FY2026 verification project
+    items:
+      - "Mitsubishi Electric signed the commissioned project with JOGMEC, announced 25 June 2026"
+      - "Consortium: Satellite Data Services, JGC Global, Mitsubishi Electric Software, and Canada's GHGSat; MUFG Bank's expertise is also used"
+      - "Wide-area: GOSAT-GW (nicknamed IBUKI-GW), launched 29 June 2025"
+      - "Close-up: GHGSat's commercial constellation"
+      - "Stage: demonstration (technical verification), not yet an in-service product"
+    say: The case is JOGMEC's fiscal year 2026 technical verification project. Mitsubishi Electric was selected as the contractor and announced the contract on the 25th of June, 2026. The consortium includes Satellite Data Services, JGC Global, Mitsubishi Electric Software, and Canada's GHGSat, and it draws on the expertise of MUFG Bank. The wide-area satellite is GOSAT-GW, nicknamed IBUKI-GW, launched on the 29th of June, 2025. The close-up work is done by GHGSat's commercial constellation. This is a demonstration - a technical verification - not yet a service you can buy.
+
+  - kind: table
+    heading: The two satellites
+    columns: ["GOSAT-GW (government, wide-area)", "GHGSat (commercial, close-up)"]
+    widths: [0.5, 0.5]
+    rows:
+      - [Operated by Japan's Environment Ministry, NIES, and JAXA, A commercial constellation of about 12 satellites]
+      - ["Wide mode: 911 km swath, 10 km pixels", "Resolution about 25 to 30 m"]
+      - ["Fine mode: 90 km swath, 3 km pixels, up to ~90 sites every 3 days", "Scene 12 km by 12 km"]
+      - [Finds which region has high concentration, Pinpoints the source within a flagged area]
+    say: Here are the two satellites. GOSAT-GW is operated by Japan's Environment Ministry, the National Institute for Environmental Studies, and JAXA. Its wide mode has a 911 kilometre swath at 10 kilometre pixels; its fine mode has a 90 kilometre swath at 3 kilometre pixels and can observe up to about 90 sites once every three days. GHGSat is a commercial constellation of about twelve satellites, with a resolution of roughly 25 to 30 metres and a scene of 12 kilometres by 12 kilometres. The government satellite finds which region has high concentration. The commercial satellite pinpoints the source within that region.
+
+  - kind: table
+    heading: Satellite versus people
+    columns: [The satellite does, The people do]
+    widths: [0.5, 0.5]
+    rows:
+      - [Flag regions with high concentration, Decide which areas and when to observe]
+      - [Estimate the source location and rate, Compare the estimate with the reported value]
+      - ["", Ask high-difference suppliers to explain, and reflect it in terms]
+    say: The split of roles looks like this. The satellites flag the regions with high concentration and estimate the location and rate of the source. The people decide which areas to observe and when, compare the estimate against the reported value, and ask the suppliers with large differences to explain - then reflect that in contract terms or in how the supplier is rated. The point is this. You do not use the satellite number as the basis of a contract on its own. You use it as the trigger to ask for an explanation.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.45, 0.55]
+    rows:
+      - [Map of methane concentration by region, Which supplier's area to look at closely]
+      - [Source location and estimated rate per facility, Which supplier to ask for an explanation]
+      - [Difference between estimate and reported value, Whether to treat it as lower-emission LNG, or change the supplier rating]
+      - [Record of observation count and detection limit, How far to trust the estimate; separate "not observed" from "no emission"]
+    say: Here is the data you receive and what it lets you decide. The concentration map tells you which supplier's area to look at closely. The per-facility source location and estimated rate tell you which supplier to ask for an explanation. The difference between the estimate and the reported value tells you whether to treat the gas as lower-emission LNG, or to change the supplier rating. And the record of how many times you observed and what the detection limit was tells you how far to trust the estimate. That last one is the most easily overlooked. It is what keeps you from reading "the satellite found no leak" as "there is no leak".
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - Performance is still under verification; detection and quantification results are not yet published
+      - At 10 km and 3 km pixels, the government satellite cannot separate individual facilities
+      - Small leaks fall below the detection limit - about 100 kg per hour at a 3 m/s wind for the commercial satellite
+      - A satellite sees only the moment it passes over; intermittent or night leaks may be missed
+      - Satellites alone do not meet OGMP 2.0 facility-level measurement
+    say: The limits are stated plainly in the source material. First, this project is still verifying performance; the figures for what size of leak can be found, and how reliably, are not yet published as of November 2026. Second, at 10 and 3 kilometre pixels, the government satellite can only say a region is high; it cannot separate facilities. Third, small leaks fall below the detection limit - about 100 kilograms per hour at a 3 metre per second wind for the commercial satellite, and higher when the wind is stronger. Fourth, a satellite measures only the moment it passes overhead, so intermittent or night-time leaks can be missed. Fifth, the UN Environment Programme holds that satellites alone are not sufficient as a facility-level measurement technique under OGMP 2.0. Satellite results are used together with ground or aircraft measurements, not instead of them.
+
+  - kind: bullets
+    heading: How far does the free satellite go?
+    items:
+      - "GOSAT-GW data is provided free by Japan's National Institute for Environmental Studies"
+      - Anyone can use the published standard products; fine-mode tasking is limited to qualified users
+      - Free data shows you which region has high concentration
+      - But pinpointing and quantifying a facility needs the paid commercial satellite, or ground and aircraft measurement
+    say: So how far does the free satellite take you? GOSAT-GW data is provided free by Japan's National Institute for Environmental Studies. Anyone can use the published standard products, though requesting the fine observation mode is limited to users who meet the requirements. The free data shows you which region has high concentration. But to pinpoint and quantify an individual facility, you need the paid commercial satellite, or measurement from the ground or from aircraft. In short, the free data narrows the search; it does not finish the job.
+
+  - kind: table
+    heading: Where the cost sits
+    columns: [Item, How the cost works]
+    widths: [0.32, 0.68]
+    rows:
+      - [GOSAT-GW data, Provided free by Japan's NIES; actual costs only if any arise for delivery]
+      - [Commercial satellite, "GHGSat is commercial; tasking and data prices are not published. ESA offers data for research on an accepted project proposal, within a quota"]
+      - [Analysis, "Estimating source location and rate from concentration, and matching against reported values"]
+      - [Operation, "Observation planning, dialogue with suppliers, and record-keeping - this does not go away"]
+    say: Now the cost. This is not a quote - the project's contract amount is not published. The government satellite data is free from the National Institute for Environmental Studies, with only actual costs if any arise for delivery. The commercial satellite is where paid cost sits; GHGSat is commercial, and its tasking and data prices are not published, so I will not put a number on it. For research, the European Space Agency offers data on an accepted project proposal, within a quota. On top of the imagery sit the analysis - estimating the source and matching it to reported values - and the operation, which means planning, talking with suppliers, and keeping records. That last part does not go away.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.24, 0.38, 0.38]
+    rows:
+      - [Leak size, Large leaks over ~100 kg/hour, Small or scattered leaks]
+      - [Facility location, "Onshore, few other sources nearby", "Beside a city or other facilities, sources mixed"]
+      - [What you want, A trigger to ask a supplier to explain, A confirmed value for a contract or report]
+      - [Reporting, A supporting input alongside ground measurement, Meeting OGMP 2.0 level 5 by satellite alone]
+      - [Time, You can record observation count and limits, You want to read "not found" as "no leak"]
+    say: Finally, where it fits. It fits for large leaks, over about 100 kilograms per hour, at onshore facilities with few other sources nearby, when what you want is a trigger to ask a supplier to explain, and when the satellite result is a supporting input alongside ground measurement. It does not fit for small, scattered leaks, for facilities crowded in beside a city where sources mix, when you need a confirmed value to put directly into a contract, when you want to meet OGMP 2.0's top level by satellite alone, or when you are tempted to read "not found" as "no leak". When you propose this, three things matter. Ask first which reporting level the supplier's figure comes from. Never say the satellite "measures" the emission. And explain the free and paid satellites as separate roles.
+
+  - kind: cta
+    heading: Considering it for a supplier?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source: Mitsubishi Electric news release on the JOGMEC commissioned project (25 Jun 2026) https://www.mitsubishielectric.co.jp/ja/pr/2026/0625_ds/"
+      - "Satellite specs (GOSAT-GW): JAXA, 'GOSAT-GW press kit' (May 2025) https://fanfun.jaxa.jp/countdown/gosat-gw_h2af50/files/GOSAT-GW_presskit_250516.pdf"
+      - "Satellite specs & detection limit (GHGSat): ESA Earth Online, 'GHGSat' mission https://dragon3.esa.int/eogateway/missions/ghgsat"
+      - "OGMP 2.0: UNEP, OGMP 2.0 Frequently Asked Questions https://www.ogmpartnership.org/frequently-asked-questions"
+      - "GOSAT-GW data policy: NIES, 'TANSO-3 Data Policy' (rev. 22 Jun 2026) https://www.nies.go.jp/soc/doc/TANSO-3_DataPolicy_ja_20260622b.pdf"
+    say: To consider this for your own supply chain, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
