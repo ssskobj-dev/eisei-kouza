@@ -1,0 +1,45 @@
+# note記事「国の洪水予報は6時間先まで。衛星データの予測で、参集と点検をどこまで前倒しできるか。適中率25%の使い方」の見出し画像と図。
+figures:
+- id: thumbnail
+  type: thumbnail
+  kind: usecase
+  tag: 防災
+  title: 洪水を30時間以上前に予測する
+  sub: 台風19号の破堤142地点中130地点を平均32.3時間前に予測
+- id: fig-1
+  type: split
+  alt: 衛星と模擬に任せることと、職員が行うこと
+  link: ＋
+  left:
+    title: 衛星と模擬が行う
+    items:
+    - 降水と日射を広く観測する
+    - 河川の流量と氾濫を約1km格子で計算
+    - 30時間以上先の危険度を地図にする
+  right:
+    title: 職員が行う
+    items:
+    - 危険度と行動の対応表を決める
+    - 参集と施設の点検の順番を決める
+    - 空振りと見逃しを記録する
+  note: 台風19号の破堤142地点中130地点を平均32.3時間前に予測。適中率は約25%
+- id: fig-2
+  type: cards
+  alt: この使い方の5つの限界
+  columns: 2
+  items:
+  - title: 適中率は約25%
+    text: 4回のうち3回は空振り。捕捉率は約90%
+    role: none
+  - title: 格子は約1km
+    text: 中小河川、内水氾濫は表せない
+    role: none
+  - title: 予報値は一般公開されない
+    text: 気象業務法。共同研究の相手に限る
+    role: none
+  - title: 検証は台風19号が中心
+    text: 河川流量の相関は地点でばらつく
+    role: none
+  - title: 堤防のどこが切れるかは不明
+    text: 避難の行動、ポンプの稼働も写らない
+    role: none

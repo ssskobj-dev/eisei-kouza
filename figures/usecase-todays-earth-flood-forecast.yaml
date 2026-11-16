@@ -1,0 +1,75 @@
+# ユースケースの記事「衛星データで洪水を30時間以上前に予測する防災システム」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星と模擬に任せることと、職員が行うこと
+    link: ＋
+    left:
+      title: 衛星と模擬が行う
+      items:
+        - 降水と日射を広く観測する
+        - 河川の流量と氾濫を約1km格子で計算
+        - 30時間以上先の危険度を地図にする
+    right:
+      title: 職員が行う
+      items:
+        - 危険度と行動の対応表を決める
+        - 参集と施設の点検の順番を決める
+        - 空振りと見逃しを記録する
+    note: 台風19号の破堤142地点中130地点を平均32.3時間前に予測。適中率は約25%
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 適中率は約25%
+        text: 4回のうち3回は空振り。捕捉率は約90%
+        role: none
+      - title: 格子は約1km
+        text: 中小河川、内水氾濫は表せない
+        role: none
+      - title: 予報値は一般公開されない
+        text: 気象業務法。共同研究の相手に限る
+        role: none
+      - title: 検証は台風19号が中心
+        text: 河川流量の相関は地点でばらつく
+        role: none
+      - title: 堤防のどこが切れるかは不明
+        text: 避難の行動、ポンプの稼働も写らない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 30時間先の予測を初動の判断に入れる手順
+    steps:
+      - title: 共同研究に参加
+        text: 予報値の入口
+        who: human
+      - title: 対応表を決める
+        text: 危険度と行動
+        who: human
+      - title: 地図とメールを確認
+        text: 台風の接近時
+        who: satellite
+      - title: 準備を前倒し
+        text: 参集と施設の点検
+        who: human
+      - title: 事後に記録
+        text: 空振りと見逃し
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 長時間の洪水予測が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 参集と点検の前倒し
+        text: 1日以上前の準備
+      - title: 流域の単位で見分ける
+        text: 危険な河川の順番
+      - title: 中小河川と内水氾濫
+        text: 約1km格子では表せない
+      - title: 避難指示の根拠
+        text: 国の洪水予報と水位計で
