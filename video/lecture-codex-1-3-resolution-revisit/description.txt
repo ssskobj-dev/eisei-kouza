@@ -1,0 +1,52 @@
+衛星データの使える枚数の数え方：Sentinel-2は2か月24回観測で晴天8回
+
+■ この動画の内容
+「分解能10m、5日に1回」という仕様の数字と、手元で実際に使える画像の枚数は、なぜ大きく違うのか。Sentinel-2とLandsatの分解能と撮影の間隔を押さえたあと、雲の割合の単位、範囲を一部しか覆わない区画、同じ日の2製品、季節の偏りという落とし穴を、AIが返した誤りを仕込んだコードを一緒にレビューして見つけます。幅30mの農道が何画素分に写るかを電卓で確かめる練習と、宿題つき。
+
+▶ 出典、指示文の例、誤りを仕込んだ抜粋の解説、ケース問題2問は、章のページで
+https://ssskobj-dev.github.io/eisei-kouza/learn/codex/codex-1-3-resolution-revisit.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-1-3-resolution-revisit
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-1-3-resolution-revisit&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-1-3-resolution-revisit&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 使える画像を数える：分解能と撮影の間隔
+0:40 Satellite to Decision とは
+0:58 できるようになること
+1:44 しくみ：2つの「間隔」
+2:59 数字の読み違い2つ
+4:45 手順：6段階
+6:07 AIへの頼み方
+7:18 一緒に：抜粋を読む
+8:54 一緒に：判定する
+10:40 衛星データ 市場レポート
+10:51 一緒に：対象の画素数を電卓で確かめる
+12:11 結果の目視観点：絞り込みの各段を見る
+14:26 この型が向かない条件
+15:28 手順のまとめ
+16:19 宿題：ケース問題 問1
+17:58 宿題を解いたら、章のページへ
+18:13 2つの資格が取得できます
+
+■ 出典と表記
+出典：ESA「S2 Mission」「S2 Products」「S2 Processing」SentiWiki（Sentinel-2の分解能と再訪、運用体制、110km四方の区画、雲の割合とシーン分類）
+出典：ESA「OData basics」Copernicus Data Space Ecosystem Documentation（製品の検索と cloudCover）
+出典：米国地質調査所（USGS）「Landsat 9」「Landsat Collections: Land Cloud Cover」（Landsatの画素と回帰、CLOUD_COVER と CLOUD_COVER_LAND）
+出典：農研機構 農村工学研究部門「Sentinel-2衛星データを用いた水田の取水開始時期の把握手法」（2019年。約2か月に24回の観測、うち晴天8回）
+出典：岩手県農業研究センター 横田紀雄「無償衛星データによる水稲の田植え・稲刈りの進捗判断の可能性の検討」東北農業研究75（2022年）
+ケース問題と抜粋の場面は架空です。対象の画素数の例は、画素の格子と対象の縁がそろった場合の計算です
+音声：VOICEVOX:もち子さん　案内役：もち子
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
