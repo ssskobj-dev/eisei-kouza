@@ -1,0 +1,51 @@
+衛星データ解析の役割分担：AIに任せる3つ、人が決める4つ、人が確かめる3つ
+
+■ この動画の内容
+コードが書けなくても、AIに書かせれば衛星データの解析は進められます。ただし、問いと条件と合格の基準を決めることと、コードと結果を確かめることは、人の仕事として残ります。AIが自信のある口調で誤る例（Sentinel-2とLandsatの波長帯の混同）を、公式の表と突き合わせて見つけるところまで、一緒にやってみます。宿題つき。
+
+▶ 役割の表、7項目の指示の例、ケース問題2問は、章のページで
+https://ssskobj-dev.github.io/eisei-kouza/learn/codex/codex-0-1-roles.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-0-1-roles
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-0-1-roles&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-0-1-roles&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 役割の分担：AIに任せる、人が決める、人が確かめる
+0:30 Satellite to Decision とは
+0:49 できるようになること
+1:12 結論：3つの役割の分担
+1:43 なぜ人に残るのか
+2:24 AIが混ぜやすい衛星の決まり
+2:55 確かめ方を先に決める手順
+3:51 AIへの頼み方：7項目
+5:17 コードのレビュー観点3つ
+5:53 法人プランと研修
+6:08 一緒に：AIのコードを見る
+7:23 一緒に：公式の表と比べる
+8:21 結果の目視レビュー3つ
+9:40 任せてはいけない判断
+10:39 手順のまとめ
+11:19 宿題：ケース問題 問1
+12:20 宿題を解いたら、章のページへ
+12:34 2つの資格が取得できます
+
+■ 出典と表記
+出典：ESA「S2 Mission」「S2 Products」「S2 Processing」SentiWiki（Sentinel-2の波長帯の中心波長と画素の大きさ、処理の段階、シーン分類）
+出典：米国地質調査所（USGS）「What are the band designations for the Landsat satellites?」（Landsat 8・9のBand 4が赤、Band 5が近赤外、30m）
+出典：農研機構 農村工学研究部門「Sentinel-2衛星データを用いた水田の取水開始時期の把握手法」（2019年8月。2018年4〜6月に24回の観測、うち晴天8回）
+波長帯の中心波長は、2A号機の値を丸めたものです。衛星（2A、2B、2C）ごとに少し違います
+音声：VOICEVOX:もち子さん　案内役：もち子
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
