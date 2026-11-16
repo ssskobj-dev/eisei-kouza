@@ -1,0 +1,51 @@
+衛星データの光学とSARを並べる3つの確認：日付・座標・dBの単位
+
+■ この動画の内容
+光学のSentinel-2とレーダーのSentinel-1を同じ場所で並べる前に、人が確かめる3つのこと。観測の日付と時刻、範囲と座標、値の単位（真値とデシベル）です。雲の日の見え方と水面が暗く写る理由を見たあと、AIが返した誤りを仕込んだコードを一緒にレビューして4つの誤りを見つけ、平均の順番で値がどれだけ変わるかを電卓で確かめます。宿題つき。
+
+▶ 出典、指示文の例、誤りを仕込んだ抜粋の解説、ケース問題2問は、章のページで
+https://ssskobj-dev.github.io/eisei-kouza/learn/codex/codex-1-2-optical-vs-radar-view.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-1-2-optical-vs-radar-view
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-1-2-optical-vs-radar-view&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-1-2-optical-vs-radar-view&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 光学とレーダーを同じ場所で並べて見る
+0:36 Satellite to Decision とは
+0:55 できるようになること
+1:32 しくみ：測っているものが違う
+2:50 並べる前にそろえる3つ
+4:49 手順：5つ
+5:55 AIへの頼み方
+6:51 一緒に：抜粋を読む
+8:18 一緒に：判定する
+9:46 衛星データ 市場レポート
+9:58 一緒に：平均の順番を電卓で確かめる
+11:03 結果の目視観点5つ
+13:02 この型が向かない条件
+14:01 手順のまとめ
+14:44 宿題：ケース問題 問1
+16:24 宿題を解いたら、章のページへ
+16:39 2つの資格が取得できます
+
+■ 出典と表記
+出典：ESA「S2 Mission」「S2 Products」「S2 Processing」SentiWiki（Sentinel-2の軌道と再訪、110km四方の区画、シーン分類）
+出典：ESA「S1 Mission」「S1 Products」SentiWiki（Cバンド、昼夜と天候に関係なく観測、再訪、GRDの画素の間隔と分解能、製品の名前の日時）
+出典：ESA「Sentinel-1 SAR User Guide: Level-1」「Radiometric Calibration of S-1 Level 1 Products」（GRDの投影、較正の表、σ0、dB）
+出典：NASA Earthdata「SAR Image Interpretation」、NASA Earth Observatory「How to Interpret a False-Color Satellite Image」（水面と建物の見え方、地形の補正）
+ケース問題と抜粋の場面は架空です。dBの平均の例は説明のための計算で、実際の画像の値ではありません
+音声：VOICEVOX:もち子さん　案内役：もち子
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
