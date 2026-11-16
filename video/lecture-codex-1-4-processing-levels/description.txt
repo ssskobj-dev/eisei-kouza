@@ -1,0 +1,51 @@
+衛星データの処理段階：Sentinel-2の補正前後の値を比べ、誤り4つを見抜く
+
+■ この動画の内容
+AIが「Level-2Aは補正済みです」と言うとき、何が補正されていて、何が補正されていないのか。Sentinel-2のLevel-1C（大気上端の反射率）とLevel-2A（地表の反射率）、Landsatの段階と版ごとに違う倍率、レーダーのGRDに残る山の位置ずれを押さえたあと、ずらしの抜け、古い版の倍率、温度の帯の取り違え、地形の補正の抜けという4つの誤りを、AIが返したコードを一緒にレビューして見つけます。製品の名前と付属情報を手元で読む練習と、宿題つき。
+
+▶ 出典、指示文の例、誤りを仕込んだ抜粋の解説、ケース問題2問は、章のページで
+https://ssskobj-dev.github.io/eisei-kouza/learn/codex/codex-1-4-processing-levels.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-1-4-processing-levels
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-1-4-processing-levels&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-1-4-processing-levels&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 処理の段階と補正：前後で値を比べる
+0:44 Satellite to Decision とは
+1:02 できるようになること
+1:49 しくみ：Sentinel-2の段階
+3:23 Landsatの段階と倍率
+4:40 2種類の補正：値か、場所か
+6:01 AIへの頼み方
+7:19 一緒に：抜粋を読む
+8:55 一緒に：判定する
+10:41 衛星データの資格
+10:54 一緒に：製品の名前を読む
+12:36 結果の目視観点：5つ
+14:32 この型が向かない条件
+15:32 手順のまとめ
+16:35 宿題：ケース問題 問1
+18:12 宿題を解いたら、章のページへ
+18:27 2つの資格が取得できます
+
+■ 出典と表記
+出典：ESA「S2 Products」「S2 Processing」SentiWiki（Sentinel-2の処理の段階、倍率とずらし、処理の版04.00、雲の分類、地形の補正）
+出典：米国地質調査所（USGS）「Landsat Levels of Processing」「Using the USGS Landsat Level-1 Data Product」「How do I use a scale factor with Landsat Level-2 science products?」「Landsat Collection 2 Surface Reflectance」（Landsatの段階、倍率とずらし、欠けた値、地表の反射率の条件）
+出典：ESA「Sentinel-1 SAR User Guide: Level-1」（GRDは楕円モデルに投影、標高は付属情報の定数）
+出典：NASA Earthdata「SAR Image Interpretation」（斜面のゆがみと地形の補正）、NASA Earth Observatory「Crepuscular Rays and Light Scattering」（短い波長の散乱）
+ケース問題と抜粋の場面は架空です
+音声：VOICEVOX:もち子さん　案内役：もち子
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
