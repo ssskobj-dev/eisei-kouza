@@ -1,0 +1,108 @@
+# English use-case video. Same facts as casebook/national-inventory-gosat.qmd; English narration & slides.
+lang: en
+voice: Ryan
+title: "Satellite data verifies a nation's CO2 report: Mongolia's 1.5% match"
+series: CASEBOOK
+kicker: Use case
+number: 64
+total: 221
+thumb: 1.5% match
+summary: How a country can verify the CO2 emissions it reports to the UN using satellite data. Mongolia placed a GOSAT-based estimate beside its own figure for the 2018 energy sector, and the two agreed within about 1.5% - the world's first such case in a UN report. Where it fits in the inventory workflow, what it decides, the limits in 2026, and where the cost falls. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: "Satellite data verifies a nation's CO2 report"
+    sub: "Mongolia placed a GOSAT estimate beside its own, within 1.5%"
+    say: Can the CO2 emissions a country reports be checked by an independent method? Yes. The answer is to estimate emissions from satellite measurements of atmospheric CO2, and place that number beside the country's own. Mongolia did this with the GOSAT satellite, and the two agreed within about 1.5 percent. It became the world's first case of a satellite-based estimate appearing in a United Nations emissions report. In this video, we look at who uses it, where it fits, what it decides, the limits in 2026, and where the cost falls.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Country: Mongolia, with support from Japan. Target area: Ulaanbaatar"
+      - "Who: a national environment authority, backed by universities and Japan's Ministry of the Environment"
+      - "Why: to verify the emissions a country reports to the UN under the Paris Agreement"
+      - "The problem: bottom-up reports carry uncertainty where statistics are thin"
+    say: The case is set in Mongolia, with support from Japan. Under the Paris Agreement, every country reports its greenhouse gas emissions to the United Nations. Those reports are built bottom-up, by multiplying activity data, such as fuel use, by an emission factor and summing it up. Where statistics are thin, that leaves uncertainty, and many developing countries cannot file a report at all. The user here is a national environment authority, backed by Chuo University, Mongolian research institutes, and Japan's Ministry of the Environment. The goal is to verify the reported number by a second, independent method.
+
+  - kind: steps
+    heading: Where it fits in the workflow
+    items:
+      - The authority builds the report bottom-up, by sector
+      - Researchers estimate emissions top-down, from satellite CO2 measurements
+      - Both numbers are lined up for the same year and the same sector
+      - Sectors with a large gap get their statistics reviewed
+      - The comparison is written into the report's quality-control section
+    say: Here is where it fits. It does not replace the bottom-up report; it sits alongside it. First, the authority builds the report as usual, by sector. Separately, researchers estimate emissions top-down, from the CO2 concentration the satellite measures, using an atmospheric transport model and inverse analysis. The two numbers are lined up for the same year and the same sector. Where they agree, the report is backed by an independent method. Where they differ, it points to which sector's statistics to review. Finally, the comparison goes into the report's quality assurance and quality control section.
+
+  - kind: table
+    heading: Satellite versus people
+    columns: [The satellite and analysis do, The authority does]
+    widths: [0.5, 0.5]
+    rows:
+      - [Measure atmospheric CO2 concentration, Build the report bottom-up by sector]
+      - [Estimate emissions by inverse analysis, Review the sectors with a large gap]
+      - [Produce the gap against the reported value, Decide whether to cite it in the UN report]
+    say: The split of roles looks like this. The satellite measures the CO2 concentration in the air. The analysis runs an atmospheric transport model and inverse analysis to work emissions backward, and produces the gap against the reported value. The authority builds the bottom-up report, reviews the sectors where the gap is large, and decides whether to cite the satellite estimate in its UN report. For Mongolia's 2018 energy sector, the satellite estimate was about 20.6 million tonnes a year, against a reported 20.3 million, a gap of about 1.5 percent. This is a demonstration, not yet routine operation. Mongolia is the one confirmed case.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.44, 0.56]
+    rows:
+      - [Top-down estimate with its confidence range, Whether an independent method backs the reported total]
+      - ["The gap against the reported value, by sector", Which sector's activity data and factors to review]
+      - [Count of observations and usable days, "How far to trust the estimate, and how to treat thin seasons"]
+      - [Draft wording for the report, Whether and how to cite the estimate in the UN report]
+    say: Here is the data you receive and what it lets you decide. The top-down estimate, with its confidence range, tells you whether an independent method backs your reported total. The gap by sector tells you which sector's activity data and emission factors to review. The count of observations and usable days tells you how far to trust the estimate, and how to handle seasons with little data. And the draft wording tells you whether, and how, to cite the estimate in your UN report. In Mongolia the gap was small, about 1.5 percent, so it strengthened confidence in the report. A large gap would not mean the satellite is right. You weigh the number of observations and the seasonal bias to decide which number to doubt.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - The match rests on 14 observation points and 23 usable days in a year
+      - It resolves the energy-sector total, not individual plants
+      - "Livestock methane, about half of Mongolia's emissions in 2018, is out of scope"
+      - "Roughly 31% of the national total is scaled up from Ulaanbaatar's share"
+      - "Cloudy countries get few observations: Malaysia saw about 30 points a year"
+    say: The limits are stated plainly. First, the one-point-five percent match rests on just 14 observation points and 23 usable days across the year, with the data skewed toward winter. Second, it resolves the energy-sector total, not individual power plants, and livestock methane, about half of Mongolia's emissions in 2018, is out of scope. Third, roughly 31 percent of the national total is scaled up from Ulaanbaatar's share, assuming that share stays constant. Fourth, because CO2 is read from reflected sunlight, clouds block it, and Malaysia saw only about thirty points a year. Fifth, the successor satellite, GOSAT-GW, launched in 2025 and observes in swaths rather than points, but validating its data is only just getting under way.
+
+  - kind: bullets
+    heading: What you can do with free data
+    items:
+      - GOSAT and GOSAT-GW are government satellites; the data is provided free by Japan's NIES
+      - So the satellite data itself costs nothing - the spend is elsewhere
+      - Free data does not include the inverse-analysis compute or the specialists to run it
+      - Requests for the precise observation mode are limited to qualified users
+    say: So how far does free data take you? GOSAT and its successor are government satellites, and Japan's National Institute for Environmental Studies provides the data free, under its data policy revised in June 2026. So the satellite data itself costs nothing. But free data is not the same as a free result. The inverse-analysis modelling, and the specialists who run it, are not free, and requests for the precise observation mode are limited to qualified users. In Mongolia's case, the work was carried out as university research with Japanese government support.
+
+  - kind: table
+    heading: Where the cost actually falls
+    columns: [Item, What it involves]
+    widths: [0.3, 0.7]
+    rows:
+      - [Satellite data, "Free from NIES; actual-cost fees may apply if special provision is needed"]
+      - [Inverse-analysis compute, "Running the transport model and Bayesian estimate; needs research-grade computing and specialists"]
+      - [Ground-truthing, "Combining satellite with ground measurements; a hybrid is seen as key to accuracy"]
+      - [Report writing, "Interpreting the gap and drafting the quality-control section; the authority's own staff time"]
+    say: Where does the cost actually fall? This is the cost structure, not a quote. The satellite data is free from NIES, under its data policy revised in June 2026, though actual-cost fees can apply if special provision is needed. The real spend sits in three places. Inverse-analysis compute, running the transport model and the Bayesian estimate, needs research-grade computing and specialists. Ground-truthing, combining satellite with ground measurements, is seen as the key to accuracy. And report writing, interpreting the gap and drafting the quality-control section, lands on the authority's own staff. The published source gives no project cost figure for Mongolia, so we do not state one.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.22, 0.39, 0.39]
+    rows:
+      - [Emission spread, "Concentrated in a few places, like a capital", Thinly spread across the country]
+      - [Climate, "Dry, with many clear days", Cloudy; only tens of observations a year]
+      - [Target, Energy-sector CO2, "Livestock methane, land-use swings"]
+      - [What you want, Back up a reported total, Pinpoint a single facility's emissions]
+    say: Finally, where it fits. It fits where emissions are concentrated, like in a capital city, where the climate is dry with many clear days, where the target is energy-sector CO2, and where you want to back up a reported total. It does not fit where emissions are thinly spread, where clouds leave only tens of observations a year, where you need livestock methane or land-use change, or where you want to pinpoint a single facility. Internationally, top-down estimates are framed as three uses - verify, complement, or replace - chosen by sector and gas. Mongolia's case is verification. When you advise on this, never present the one-point-five percent match on its own; always give the conditions behind it.
+
+  - kind: cta
+    heading: For your country?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Case & figures: Watanabe, Oba, Saito et al., Scientific Reports 13, 15427 (2023) https://www.nature.com/articles/s41598-023-42664-3"
+      - "World's first & agreement: Ministry of the Environment, Japan, press release (17 Nov 2023) https://www.env.go.jp/press/press_02207.html"
+      - "Free data policy: NIES, GOSAT-GW TANSO-3 Data Policy (rev. 22 June 2026)"
+      - "Context & Central Asia: Ohba, CONSEO x MOEJ GOSAT-GW seminar keynote (25 June 2026)"
+    say: To consider this for your own country or client, here is the next step. We help you write the request for proposals and gather competitive quotes, independent of any satellite operator or analytics provider. Use the form in the description to get in touch. Thanks for watching.
