@@ -1,0 +1,51 @@
+衛星データ解析コードの読み方：5つの塊と12の観点で、書けなくても確かめる
+
+■ この動画の内容
+AIが書いた衛星データの解析コードを、コードを書けない人が確かめる型です。取る、選ぶ、計算する、まとめる、出すの5つの塊に区切り、塊の境目の行だけをAIに1行ずつ説明させ、12項目の観点で公式資料と突き合わせます。Sentinel-2のLevel-2AにLandsatの決まりが混ざった抜粋を、一緒にレビューして3つの誤りを見つけます。宿題つき。
+
+▶ 12項目の一覧、誤りを仕込んだ抜粋の解説、ケース問題2問は、章のページで
+https://ssskobj-dev.github.io/eisei-kouza/learn/codex/codex-0-3-code-review.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-0-3-code-review
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-0-3-code-review&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-0-3-code-review&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 解析コードの読み方：5つの塊と12の観点
+0:46 Satellite to Decision とは
+1:04 できるようになること
+1:35 しくみ：5つの塊
+3:13 手順：確かめる4つ
+4:39 AIへの頼み方
+5:40 レビュー観点1〜6
+6:38 レビュー観点7〜12
+7:44 一緒に：塊に区切る
+9:13 衛星データ 市場レポート
+9:25 一緒に：資料と比べる
+11:15 結果の目視レビュー観点4つ
+13:10 この型が向かない条件
+14:06 手順のまとめ
+14:53 宿題：ケース問題 問1
+16:13 宿題を解いたら、章のページへ
+16:29 2つの資格が取得できます
+
+■ 出典と表記
+出典：ESA「S2 Products」SentiWiki（Level-2Aの反射率は（画素の値＋BOA_ADD_OFFSET）÷QUANTIFICATION_VALUE。ずらしは処理の版04.00から）
+出典：ESA「S2 Processing」SentiWiki（倍率は10000。ずらしは2022年1月25日の版04.00から。シーン分類：3が雲の影、8と9が雲、10が薄い雲）
+出典：USGS「How do I use a scale factor with Landsat Level-2 science products?」（Collection 2の地表反射率は、画素の値×0.0000275−0.2）
+出典：農研機構 農村工学研究部門「Sentinel-2衛星データを用いた水田の取水開始時期の把握手法」（2019年8月。2018年4〜6月に24回の観測、うち晴天8回）
+12項目の観点は、この教材の決まりです。ケース問題の場面は架空です。倍率、ずらし、分類の番号は、公式資料で確かめてから使ってください
+音声：VOICEVOX:もち子さん　案内役：もち子
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
