@@ -1,0 +1,52 @@
+衛星データ解析のAIへの頼み方：指示に必ず入れる7項目と、途中の値で確かめる型
+
+■ この動画の内容
+「Sentinel-2で、ため池の水を調べるコードを書いて」と頼むと、AIは場所も期間も処理の段階も雲の扱いも、黙って補います。目的、場所、期間、衛星と処理の段階、手順、出力、確かめ方の7項目を埋める指示文の型を、ため池の例で見ます。AIが「4と5が雲」と説明してきたコードを、公式のシーン分類の表と突き合わせて誤りを見つけるところまで、一緒にやってみます。宿題つき。
+
+▶ 7項目の表、指示文の例、ケース問題2問は、章のページで
+https://ssskobj-dev.github.io/eisei-kouza/learn/codex/codex-0-2-prompting.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-0-2-prompting
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-0-2-prompting&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-0-2-prompting&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 AIへの頼み方：指示に必ず入れる7項目
+0:39 Satellite to Decision とは
+0:57 できるようになること
+1:23 指示に必ず入れる7項目
+3:05 空欄だとAIが補うこと
+3:40 手順：試してから広げる
+4:37 あいまいな指示の例
+5:07 7項目を埋めた指示の例
+6:24 コードのレビュー観点4つ
+7:13 法人プランと研修
+7:28 一緒に：AIのコードを見る
+8:56 一緒に：公式の表と比べる
+10:34 結果の目視レビュー4つ
+11:56 この型が向かない条件
+12:39 手順のまとめ
+13:22 宿題：ケース問題 問1
+14:35 宿題を解いたら、章のページへ
+14:49 2つの資格が取得できます
+
+■ 出典と表記
+出典：ESA「S2 Products」SentiWiki（Level-1CとLevel-2Aの違い、110km四方の区画、画素10m・20m・60m、反射率＝（画素の値＋ずらし）÷倍率）
+出典：ESA、Copernicus Data Space Ecosystem「Sentinel-2 L2A processing baseline」（処理の版04.00の観測日は2022年1月25日から）
+出典：ESA「S2 Processing」SentiWiki（Level-2Aのシーン分類。3が雲の影、4が植物、5が植物以外、6が水、8と9が雲、10が薄い雲）
+出典：農研機構 農村工学研究部門「Sentinel-2衛星データを用いた水田の取水開始時期の把握手法」（2019年8月。2018年4〜6月に24回の観測、うち晴天8回）
+ケース問題の場面は架空です。分類の番号、ずらしと倍率は、公式資料で確かめてから使ってください
+音声：VOICEVOX:もち子さん　案内役：もち子
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
