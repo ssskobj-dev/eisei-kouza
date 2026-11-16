@@ -1,0 +1,75 @@
+# ユースケースの記事「不法投棄の懸念箇所を衛星データとAIで洗い出す」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星とAIに任せることと、職員が行うこと
+    link: ＋
+    left:
+      title: 衛星とAIが行う
+      items:
+        - 2時期の画像から変化した場所を拾う
+        - 過去の投棄情報から懸念箇所を判読する
+        - 発生確率の高い区域を地図にする
+    right:
+      title: 職員が行う
+      items:
+        - 懸念箇所を現地で確かめる
+        - 行為者を特定し土地所有者を指導する
+        - 地図でパトロールの経路を組む
+    note: 静岡県は懸念箇所269か所を抽出。投棄かどうかは現地で決まる
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 拾えるのは裸地への変化
+        text: 元から裸地の場所、積み増しは出にくい
+        role: none
+      - title: 出るのは「懸念箇所」
+        text: 工事や造成も同じに写る。現地で確認
+        role: none
+      - title: 衛星名と大きさは未公表
+        text: 分解能、検出できる面積、頻度は不明
+        role: none
+      - title: 過去の投棄情報が要る
+        text: AIの教師データ。台帳の整備が前提
+        role: none
+      - title: 木の下と屋内は見えない
+        text: 物の種類、量、行為者も分からない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 懸念箇所の抽出をパトロール計画に入れる手順
+    steps:
+      - title: 台帳を整える
+        text: 過去の事案の位置
+        who: human
+      - title: 画像を手配
+        text: 2時期の光学
+        who: satellite
+      - title: 候補を抽出
+        text: AI、目視、台帳
+        who: satellite
+      - title: 現地確認と経路
+        text: 発生確率の地図
+        who: human
+      - title: 結果を戻す
+        text: 翌年の教師データ
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星とAIの抽出が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 山間部の広い範囲
+        text: 植生から裸地への変化
+      - title: 台帳が整っている
+        text: 過去の事案を学ばせる
+      - title: 既存の投棄の積み増し
+        text: 変化として出にくい
+      - title: 木の下や屋内
+        text: 光学衛星では見えない

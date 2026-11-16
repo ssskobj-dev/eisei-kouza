@@ -1,0 +1,76 @@
+# ユースケースの記事「キャベツの出荷量と卸売価格を衛星データで8週間前に予測し、広告と店頭販促を連動させる」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星が行う
+      items:
+        - 産地の畑の生育を定期的に観測する
+        - 現地調査と市場データに合わせる材料になる
+        - 雲があると光学の観測は欠ける
+    right:
+      title: 人が行う
+      items:
+        - 現地で生育と天候を記録する
+        - 広告枠を組み換える
+        - 売り場と販促を組む
+        - 予測の当たり外れを検証する
+    note: 8週間前の予測で広告と売り場の時期を合わせる。精度の数字は非公表
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 精度の数字は非公表
+        text: 「概ね近い」「高い相関」の表現のみ
+        role: none
+      - title: 雲で光学データが欠ける
+        text: SAR（だいち4号）の活用はこれから
+        role: none
+      - title: 検証は1産地1作物
+        text: 嬬恋村のキャベツ。他は展開を検討中
+        role: none
+      - title: 現地調査と市場データが要る
+        text: 衛星だけでは出荷量が出ない
+        role: none
+      - title: 価格は他産地と需要で動く
+        text: 売り場が動かなければ効果は出ない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 産地の予測を広告と販促の計画に入れる手順
+    steps:
+      - title: 産地と協定
+        text: 出荷データの提供
+        who: human
+      - title: 観測して予測
+        text: 8週間前の量と価格
+        who: satellite
+      - title: 広告を仮組み
+        text: 増える週に合わせる
+        who: human
+      - title: 更新して確定
+        text: 広告枠の組み換え
+        who: human
+      - title: 実績と比べる
+        text: 翌年の判断材料
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星による出荷予測が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 産地がまとまる
+        text: 出荷データを共有できる
+      - title: 数週間前で動く判断
+        text: 広告枠、店頭販促
+      - title: 価格が他産地で動く
+        text: 産地の生育では読めない
+      - title: 数日前の正確な量
+        text: 物流の手配には粗い
