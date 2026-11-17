@@ -1,0 +1,45 @@
+# note記事「不法投棄と残土の埋立て、県内全域は見きれない。衛星データとAIでどこまで絞れるか。茨城県の実証と環境部局のパトロール」の見出し画像と図。
+figures:
+- id: thumbnail
+  type: thumbnail
+  kind: usecase
+  tag: 環境・水
+  title: 不法投棄の候補を衛星で拾う
+  sub: 茨城県が1.5mの画像を新旧比較。投棄かは現地で決まる
+- id: fig-1
+  type: split
+  alt: 衛星とAIに任せることと、職員が行うこと
+  link: ＋
+  left:
+    title: 衛星とAIが行う
+    items:
+    - 新旧の画像を比べて変わった場所を拾う
+    - 過去の不法投棄情報で学習し候補を出す
+    - 県全域を一度に見る
+  right:
+    title: 職員が行う
+    items:
+    - 候補を事案の情報と台帳に突き合わせる
+    - 現地で確かめる
+    - 行為者を指導し、経路を組む
+  note: 茨城県は分解能1.5mの光学衛星で実証。投棄かどうかは現地で決まる
+- id: fig-2
+  type: cards
+  alt: この使い方の5つの限界
+  columns: 2
+  items:
+  - title: 小さな投棄は拾いにくい
+    text: 分解能1.5m。数m四方は画素数個分
+    role: none
+  - title: 拾えるのは地表の変化
+    text: 工事も造成も同じに写る。台帳と現地で
+    role: none
+  - title: 林の中と屋根の下は見えない
+    text: 雲の日の画像は使えない
+    role: none
+  - title: 過去の事案の台帳が要る
+    text: AIの学習と精度の評価の両方に
+    role: none
+  - title: 精度の数字は未公表
+    text: 一致率、現地確認の結果は非公開
+    role: none

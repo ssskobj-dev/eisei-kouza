@@ -1,0 +1,75 @@
+# ユースケースの記事「森林の資源量（材積）を衛星データで推定し、標準地調査の手間を減らす」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 林班ごとのバイオマス量を全域で推定
+        - 伐採の候補地の優先順位の材料を出す
+        - 毎年同じ条件で更新する
+    right:
+      title: 人が行う
+      items:
+        - 航空レーザーと地上調査で正解を整える
+        - 候補地だけ現地で測る
+        - 売買と計画の根拠を決める
+    note: 北海道の実証は2026年8月に開始。結果はまだ公表されていない
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 結果はまだ出ていない
+        text: 精度、代替できる範囲、費用は検証中
+        role: none
+      - title: 正解のデータに頼る
+        text: 航空レーザーと地上調査が前提
+        role: none
+      - title: 林内の幹は見えない
+        text: 分かるのは林の上面と電波の返り
+        role: none
+      - title: 茂った林では頭打ち
+        text: 蓄積の多い林は量の違いが出にくい
+        role: none
+      - title: 雲と地形の影
+        text: 光学は同じ時期にそろわないことも
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 資源量の推定を計画と候補地の選定に入れる手順
+    steps:
+      - title: 正解を整える
+        text: 航空レーザー
+        who: human
+      - title: 全域を推定
+        text: 光学とSAR
+        who: satellite
+      - title: 候補地に順位
+        text: 搬出路と重ねる
+        who: satellite
+      - title: 候補地を測る
+        text: ずれを記録
+        who: human
+      - title: 計画と売買
+        text: 翌年に戻す
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の推定が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 航空レーザーがある
+        text: 正解を整えやすい
+      - title: 広い林の全域の目安
+        text: 候補地の優先順位
+      - title: 正解のデータがない
+        text: 地上調査から始める
+      - title: 売買の根拠の精度
+        text: 現地の計測が要る

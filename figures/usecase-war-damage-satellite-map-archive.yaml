@@ -1,0 +1,75 @@
+# ユースケースの記事「戦災の記録を衛星データと3Dモデルで立体地図に残す」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星画像に任せることと、制作チームが行うこと
+    link: ＋
+    left:
+      title: 衛星画像が示す
+      items:
+        - 入れない場所の被害を上から記録する
+        - 同じ縮尺で面として示す
+        - 撮影時点の姿を残す
+    right:
+      title: 制作チームが行う
+      items:
+        - 出どころと利用条件を確かめる
+        - 地点を手作業で特定して重ねる
+        - 証言や3Dモデルと束ねて公開する
+    note: 東京大学の研究室は1か月で約130点を地図化。いつ誰が壊したかは別の情報で
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 載せられるのは公開画像
+        text: 提供元が公開した範囲と時期に縛られる
+        role: none
+      - title: 地点の特定は手作業
+        text: 住宅地は難しく、1地点30分の例も
+        role: none
+      - title: 画像は撮影時点の姿
+        text: いつ誰が壊したかは証言と調査で
+        role: none
+      - title: 信頼性の見極めが要る
+        text: 場所や日付の違う画像が混じる
+        role: none
+      - title: 無償の10mでは建物は無理
+        text: 広い焼失や浸水は示せる
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 被害の記録を立体地図にする制作の手順
+    steps:
+      - title: 地点と期間
+        text: 何を伝えるか
+        who: human
+      - title: 画像を集める
+        text: 利用条件を記録
+        who: satellite
+      - title: 地点を特定
+        text: 向きと縮尺
+        who: human
+      - title: 証言と結ぶ
+        text: 写真、3Dモデル
+        who: human
+      - title: 公開と訂正
+        text: 窓口を置く
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 立体地図の記録が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 公開画像が多い地点
+        text: 建物や街区の変化を示す
+      - title: 大きな建物や道路
+        text: 位置の手がかりになる
+      - title: 特徴の少ない住宅地
+        text: 特定に時間がかかる
+      - title: 公開画像がない地域
+        text: 新たな手配は有償

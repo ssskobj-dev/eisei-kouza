@@ -1428,6 +1428,7 @@ usecases:
   verified: true
 - 'no': 72
   name: 不法投棄と残土の埋立ての監視
+  slug: illegal-dumping-ibaraki-spot-ai
   theme: 環境・水
   field: 環境・気候
   stage: 実証
@@ -1447,6 +1448,7 @@ usecases:
   verified: true
 - 'no': 73
   name: 戦災の衛星画像の記録公開
+  slug: war-damage-satellite-map-archive
   theme: 生活・文化・その他
   field: 報道・調査
   stage: 実証
@@ -1466,6 +1468,7 @@ usecases:
   verified: true
 - 'no': 74
   name: 森林資源量（材積）の推定
+  slug: forest-biomass-satellite-hokkaido
   theme: 林業・カーボン
   field: 林業
   stage: 実証
