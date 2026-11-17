@@ -1,0 +1,45 @@
+# note記事「森林の材積、標準地調査だけでは追いつかない。衛星データでどこまで推定できるか。北海道の実証と森林管理の現地調査」の見出し画像と図。
+figures:
+- id: thumbnail
+  type: thumbnail
+  kind: usecase
+  tag: 林業・カーボン
+  title: 森林の材積を衛星で推定する
+  sub: 北海道が光学4種とSAR2種を比較。結果はこれから
+- id: fig-1
+  type: split
+  alt: 衛星に任せることと、人が行うこと
+  link: ＋
+  left:
+    title: 衛星の解析が行う
+    items:
+    - 林班ごとのバイオマス量を全域で推定
+    - 伐採の候補地の優先順位の材料を出す
+    - 毎年同じ条件で更新する
+  right:
+    title: 人が行う
+    items:
+    - 航空レーザーと地上調査で正解を整える
+    - 候補地だけ現地で測る
+    - 売買と計画の根拠を決める
+  note: 北海道の実証は2026年8月に開始。結果はまだ公表されていない
+- id: fig-2
+  type: cards
+  alt: この使い方の5つの限界
+  columns: 2
+  items:
+  - title: 結果はまだ出ていない
+    text: 精度、代替できる範囲、費用は検証中
+    role: none
+  - title: 正解のデータに頼る
+    text: 航空レーザーと地上調査が前提
+    role: none
+  - title: 林内の幹は見えない
+    text: 分かるのは林の上面と電波の返り
+    role: none
+  - title: 茂った林では頭打ち
+    text: 蓄積の多い林は量の違いが出にくい
+    role: none
+  - title: 雲と地形の影
+    text: 光学は同じ時期にそろわないことも
+    role: none
