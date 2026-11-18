@@ -1,0 +1,52 @@
+衛星データの色の合成：Sentinel-2の近赤外でAIが誤る4点を見抜く
+
+■ この動画の内容
+衛星画像（Sentinel-2）の3つの波長帯を赤・緑・青に割り当てて1枚の色の画像にする「色の合成」の章。自然な色、植物が赤く写る近赤外、雪と雲を分ける短波赤外の3種類と、波長帯の番号（近赤外はB8で10m、B5は赤の端で20m）、画素の大きさのそろえ方、明るさの飛びとつぶれを、しくみから見ます。「Landsatと同じで近赤外はB5」という取り違え、画素数を0で埋める誤り、重ねる順番の逆、固定の上限を黙って当てる誤りの4つを、AIが返したコードを一緒にレビューして見つけます。できた画像と表を手元で確かめる練習と、宿題つき。
+
+▶ 出典、指示文の例、ケース問題2問は章のページで
+https://ssskobj-dev.github.io/eisei-kouza/learn/codex/codex-2-6-color-composites.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-2-6-color-composites
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-2-6-color-composites&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-2-6-color-composites&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 色の合成：3つの波長帯を赤・緑・青に重ねる
+0:45 Satellite to Decision とは
+1:04 できるようになること
+1:40 しくみ：3種類の合成
+3:07 波長帯の番号と画素の大きさ
+4:18 画素の大きさと明るさの直し方
+5:35 AIへの頼み方
+6:51 一緒に：抜粋を読む
+8:34 一緒に：判定する
+10:33 衛星データの資格
+10:46 一緒に：画像と表を確かめる
+12:05 結果の目視観点と、2つの例
+13:56 この型が向かない条件
+14:48 手順のまとめ
+16:06 宿題：ケース問題 問1
+17:47 宿題を解いたら、章のページへ
+18:03 2つの資格が取得できます
+
+■ 出典と表記
+出典：NASA Earth Observatory「How to Interpret a False-Color Satellite Image」（近赤外の合成で植物は濃い赤、水は黒。短波赤外で雪と氷は明るい青）
+出典：NASA Earth Observatory「Measuring Vegetation (NDVI & EVI)」（健康な植物は目に見える光を吸収し、近赤外を強く反射）
+出典：ESA「S2 Mission」SentiWiki（Sentinel-2Aの帯の中心の波長と画素の大きさ。B5 704.1nm 20m、B8 832.8nm 10m、B11 1613.7nm、B12 2202.4nm 20m）
+出典：USGS「What are the band designations for the Landsat satellites?」（Landsat 8と9の近赤外はBand 5、30m。Landsat 7はBand 4）
+出典：ESA「S2 Products」「S2 Processing」SentiWiki（10m用・20m用のフォルダ、処理の版04.00以降のずらし、倍率は既定で10000、値0は欠け）
+上限0.3は章の例の目安。ケース問題の場面は架空です
+音声：VOICEVOX:もち子さん　案内役：もち子
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
