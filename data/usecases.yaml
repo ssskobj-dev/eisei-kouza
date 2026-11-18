@@ -1488,6 +1488,7 @@ usecases:
   verified: true
 - 'no': 75
   name: 河川堤防・護岸の変状スクリーニング
+  slug: river-levee-sar-screening
   theme: インフラ・建設
   field: インフラ維持管理
   stage: 実証
@@ -1507,6 +1508,7 @@ usecases:
   verified: true
 - 'no': 76
   name: 山間部の見回り対象の絞り込み
+  slug: kanagawa-mountain-patrol-ai
   theme: 都市・行政
   field: 行政の業務
   stage: 実証
@@ -1526,6 +1528,7 @@ usecases:
   verified: true
 - 'no': 77
   name: 災害時の衛星の一括手配
+  slug: japan-disaster-charter
   theme: 防災
   field: 防災・災害対応
   stage: 実証
