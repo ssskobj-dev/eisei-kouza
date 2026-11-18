@@ -1,0 +1,75 @@
+# ユースケースの記事「河川堤防と護岸の変状を衛星データのSARで先に絞る」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が行う
+      items:
+        - 堤防沿いの上下変動を面で出す
+        - 数年単位の沈下の傾向を示す
+        - 半年ごとに同じ条件で更新する
+    right:
+      title: 人が行う
+      items:
+        - 週2回の巡視と年2回の点検
+        - 変動の原因を現地で確かめる
+        - 補修の優先順位を決める
+    note: 加古川の試行の結論は、変状を直接拾うのは困難。重点的に見る区間を決める材料
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 精度は10mm単位
+        text: 理論上は1mm/年でも、運用では10mm単位
+        role: none
+      - title: 観測は年2〜3回
+        text: 豪雨の直後の変状はすぐ見られない
+        role: none
+      - title: 3mメッシュ
+        text: 狭い変状や陥没は捉えにくい
+        role: none
+      - title: 解析点は選べない
+        text: 電波を安定して返す点だけが対象
+        role: none
+      - title: 現象は現地で確かめる
+        text: 沈下の原因は衛星では決まらない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 巡視と点検の前に、変動の時系列を入れる手順
+    steps:
+      - title: 記録を地図に
+        text: 被災、陥没、埋設物
+        who: human
+      - title: 上下変動を出す
+        text: SARの解析
+        who: satellite
+      - title: 外れた区間
+        text: 傾向が通常と違う
+        who: satellite
+      - title: 重点的に見る
+        text: 巡視と点検
+        who: human
+      - title: 記録して比べる
+        text: 半年後の更新
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の時系列解析が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 数年単位の沈下の傾向
+        text: 広域を面で見る
+      - title: 構造物や舗装の面
+        text: 電波が安定して返る
+      - title: 草の多い法面
+        text: 解析点が取りにくい
+      - title: 豪雨直後の洗掘、陥没
+        text: 突然の狭い変状

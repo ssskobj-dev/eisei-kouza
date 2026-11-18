@@ -1,0 +1,75 @@
+# ユースケースの記事「災害時の衛星の手配を事務局に任せる「日本版災害チャータ」」の図。
+figures:
+  - id: split
+    type: split
+    alt: 事務局に任せることと、災害対応の機関が行うこと
+    link: ＋
+    left:
+      title: 事務局と衛星が行う
+      items:
+        - 災害に合う衛星を選ぶ
+        - 撮影と解析を手配する
+        - 被災の箇所の解析データを届ける
+    right:
+      title: 災害対応の機関が行う
+      items:
+        - 災害の種類と場所を伝える
+        - 推定の範囲を現地の情報で確かめる
+        - 初動の配置と復旧の順番を決める
+    note: 2024年7月から2025年12月までに15回発動。有償のサービスで、金額は非公表
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 通過より早くは撮れない
+        text: 依頼から観測までは衛星の軌道で決まる
+        role: none
+      - title: 3時間以内は目標
+        text: 発生から届くまでの実績の時間は非公表
+        role: none
+      - title: 24時間365日はこれから
+        text: 将来のサービス拡張の目標
+        role: none
+      - title: 有償で金額は非公表
+        text: 発動1回の費用、契約の形は未公開
+        role: none
+      - title: 推定は現地で確かめる
+        text: 水深、建物の内部、安否は分からない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 災害対策本部の初動に、衛星の一括手配を入れる手順
+    steps:
+      - title: 平時の準備
+        text: 契約、窓口
+        who: human
+      - title: 事務局に伝える
+        text: 災害の種類と場所
+        who: human
+      - title: 衛星を手配
+        text: 観測と解析
+        who: satellite
+      - title: 現地と重ねる
+        text: 通報、水位
+        who: human
+      - title: 配置を決める
+        text: 復旧も追う
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の一括手配が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 広域の浸水、土砂
+        text: 面の範囲を初動でつかむ
+      - title: 復旧の進み具合
+        text: 同じ場所の定期観測
+      - title: 発災後1時間以内
+        text: 衛星の通過を待つ
+      - title: 建物の内部、安否
+        text: 衛星では決まらない

@@ -1,0 +1,75 @@
+# ユースケースの記事「山間部の見回り先を衛星データとAIの変化検知で絞る」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星とAIが行う
+      items:
+        - 新旧の画像を比べて変化の候補を出す
+        - 候補の位置を職員に通知する
+        - 同じ範囲を繰り返し見る
+    right:
+      title: 人が行う
+      items:
+        - 候補を現地で確かめる
+        - 変化が何かを判断する
+        - 対応の優先順位を決める
+    note: 神奈川県の実証は2026年7月に採択。結果はまだ公表されていない
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 結果はまだ出ていない
+        text: 精度、減らせる見回り、費用は検証中
+        role: none
+      - title: 変化が何かは決まらない
+        text: 投棄か、許可された工事かは現地と台帳
+        role: none
+      - title: 精度、頻度、費用
+        text: 見落としと空振りの割合は未公表
+        role: none
+      - title: 木の下は見えにくい
+        text: 樹冠の下や分解能より小さい物
+        role: none
+      - title: 業務設計が要る
+        text: 通知を誰がいつ確かめるか
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 見回りの前に、変化の候補の抽出を入れる手順
+    steps:
+      - title: 記録を地図に
+        text: 通報、届出の位置
+        who: human
+      - title: 候補を抽出
+        text: 新旧の画像を比較
+        who: satellite
+      - title: 部局に通知
+        text: 種類で振り分け
+        who: satellite
+      - title: 現地で確認
+        text: ドローンか職員
+        who: human
+      - title: 結果を記録
+        text: 条件を直す
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の変化検知が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 開けた場所の造成
+        text: 広い範囲を繰り返し見る
+      - title: 届出の位置がある
+        text: 空振りを先に除ける
+      - title: 違法かどうかの判断
+        text: 台帳と現地が要る
+      - title: 木の下の小さな投棄物
+        text: 上空からは見えない

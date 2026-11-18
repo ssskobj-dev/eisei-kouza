@@ -1,0 +1,45 @@
+# note記事「堤防の巡視、全部は回れない。衛星データのSARで、重点的に見る区間をどこまで絞れるか」の見出し画像と図。
+figures:
+- id: thumbnail
+  type: thumbnail
+  kind: usecase
+  tag: インフラ・建設
+  title: 堤防の変状を衛星で先に絞る
+  sub: 加古川で国が試行。陥没は直接拾えない
+- id: fig-1
+  type: split
+  alt: 衛星に任せることと、人が行うこと
+  link: ＋
+  left:
+    title: 衛星の解析が行う
+    items:
+    - 堤防沿いの上下変動を面で出す
+    - 数年単位の沈下の傾向を示す
+    - 半年ごとに同じ条件で更新する
+  right:
+    title: 人が行う
+    items:
+    - 週2回の巡視と年2回の点検
+    - 変動の原因を現地で確かめる
+    - 補修の優先順位を決める
+  note: 加古川の試行の結論は、変状を直接拾うのは困難。重点的に見る区間を決める材料
+- id: fig-2
+  type: cards
+  alt: この使い方の5つの限界
+  columns: 2
+  items:
+  - title: 精度は10mm単位
+    text: 理論上は1mm/年でも、運用では10mm単位
+    role: none
+  - title: 観測は年2〜3回
+    text: 豪雨の直後の変状はすぐ見られない
+    role: none
+  - title: 3mメッシュ
+    text: 狭い変状や陥没は捉えにくい
+    role: none
+  - title: 解析点は選べない
+    text: 電波を安定して返す点だけが対象
+    role: none
+  - title: 現象は現地で確かめる
+    text: 沈下の原因は衛星では決まらない
+    role: none
