@@ -1,0 +1,116 @@
+# English use-case video. Same facts as casebook/satellite-derived-bathymetry.qmd; English narration & slides.
+lang: en
+voice: Ryan
+title: Satellite-derived bathymetry for shallow seas
+yt_title: "Satellite data for shallow-sea depth: about 2 m error to 10 m, not chart-grade"
+series: CASEBOOK
+kicker: Use case
+number: 67
+total: 221
+thumb: Depth from space
+summary: Can you map the depth of shallow seas from a satellite image? Yes, roughly. Japan's hydrographic bodies tested it and got about 2 m error down to around 10 m, which is useful for planning surveys but below the chart standard. Where it fits, what you can decide, and its limits as of 2026. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: Satellite-derived bathymetry for shallow seas
+    sub: Estimating shallow-water depth from optical satellite images
+    say: Can you read the depth of shallow seas from a satellite image, without a survey ship? Yes, but only roughly. The answer is to estimate a rough depth surface from optical imagery, then use it to plan where the real survey goes. Japan's hydrographic bodies tested this and got about two metres of error down to around ten metres of depth, below the chart standard. In this video, we look at who uses it, where it fits, what decisions it supports, its limits as of 2026, and where the cost falls.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Country: Japan, with testing in several coastal areas"
+      - "Who: Japan Coast Guard hydrographic office, Japan Hydrographic Association, RESTEC"
+      - "Why: to get depth where survey ships struggle to go"
+      - "The idea: light fades with depth, so colour bands reveal shallow-water depth"
+    say: The case is set in Japan. The buyers and researchers are the Japan Coast Guard's Hydrographic and Oceanographic Department, together with the Japan Hydrographic Association and the remote sensing centre RESTEC. The goal is to get depth information where survey ships struggle to reach, in very shallow water, in areas that change often, and in channels after an earthquake or tsunami. The physics is simple. Light fades with depth, so the brightness across several colour bands of an optical satellite can be turned into an estimate of shallow-water depth. This is called satellite-derived bathymetry.
+
+  - kind: steps
+    heading: Where it fits in the workflow
+    items:
+      - Decide the sea area and the depth range you care about
+      - Pick a clear-water, cloud-free image, avoiding turbid seasons
+      - Take training depths; a few single-beam lines, or existing chart records
+      - Have an analyst build the estimated depth surface, with error bands
+      - Use it to set the range and order of the real survey
+    say: Here is where it fits. It goes in before the survey plan is made. First, decide the sea area and the depth range you care about; if the subject is deeper than about fifteen metres, this does not suit it. Second, pick a clear-water, cloud-free image and avoid the turbid seasons. Third, take training depths, because the method is empirical and needs measured depths to learn from; the report suggests about three single-beam lines may be enough. Fourth, an analyst builds the estimated depth surface, and the delivery must include the error bands and the areas that could not be analysed. Fifth, you use that surface to narrow where the survey ship or airborne laser goes, and in what order. The satellite does not replace the survey. It decides the scope and the order.
+
+  - kind: table
+    heading: What the satellite tested on
+    columns: [Sea area, Image and result]
+    widths: [0.3, 0.7]
+    rows:
+      - ["Hateruma Island, Okinawa", "75 sq km image; to about 24 m; 95% band about 3 m at 5 m deep, about 6 m at 20 m"]
+      - ["Off Kochi", "75 sq km image; to about 18 m; turbidity blocked the deeper area below 10 m"]
+      - ["Choshi Port, Chiba", "25 sq km image; mean error within 1 m over the widest range, 0 to 6 m"]
+    say: The March 2017 research report gives three worked examples, using the US commercial satellite WorldView-2, at one point eight four metre resolution. Off Hateruma Island in Okinawa, where the water is very clear, depth was estimated down to about twenty-four metres, with a ninety-five percent error band of about three metres at five metres deep, widening to about six metres at twenty metres. Off Kochi, the estimate reached about eighteen metres, but turbidity blocked the deeper central area below ten metres. At Choshi Port, with training data drawn from varied areas, the mean error stayed within one metre over the widest range, zero to six metres. Across many areas, the summary was about two metres of mean error down to roughly ten metres.
+
+  - kind: table
+    heading: Satellite versus people
+    columns: [The satellite does, The people do]
+    widths: [0.5, 0.5]
+    rows:
+      - ["Estimate a rough depth surface over wide shallows", "Take the training soundings to calibrate it"]
+      - ["Flag where the seabed may have changed", "Run the formal survey on the narrowed range"]
+      - ["Give a quick picture after a disaster", "Decide what goes on the nautical chart"]
+    say: The split of roles looks like this. The satellite estimates a rough depth surface over wide shallow areas, flags where the seabed may have changed, and gives a quick picture after a disaster without anyone going on site. The people take the training soundings that calibrate it, run the formal survey on the range the satellite narrows down, and decide what actually goes on the nautical chart. This was a pilot study, not a service in routine operation, and the methods were set to be transferred to the Japan Hydrographic Association after the project.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.42, 0.58]
+    rows:
+      - ["Estimated depth surface of the shallows", "Where to run the formal survey, and in what order"]
+      - ["Error bands and the un-analysable areas", "Which parts are only rough, and which you must measure"]
+      - ["Difference between two dates", "Where the seabed may have changed, to re-survey"]
+      - ["A rough surface right after a disaster", "Which channels or berths to check for sediment first"]
+    say: Here is what you receive and what it lets you decide. The estimated depth surface tells you where to run the formal survey and in what order, by showing where the shallows spread. The error bands and the un-analysable areas tell you which parts to treat as only rough, and which you must measure directly. The difference between two dates points to where the seabed may have changed, so you can consider a re-survey. And a rough surface taken right after an earthquake or tsunami tells you which channels or berths to check first for sediment inflow. Every one of these decides where to measure first. None of them produces a final, certified depth.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - Best to about 20 m in clear water, mostly 5 to 15 m; light cannot reach deeper
+      - Depth error about 2 m, below the chart survey standard
+      - Turbidity blocks analysis, exactly where you often want it; clouds block the image
+      - It needs training soundings, and cannot find small seabed obstacles
+    say: The limits are stated plainly in the source. First, the estimate reaches about twenty metres at best in clear water, and mostly only five to fifteen metres; light cannot reach deeper. Second, the depth error is about two metres, which is below the international chart survey standard, so the values cannot go straight onto a chart; deeper water also tends to be underestimated. Third, turbidity blocks the analysis, exactly at river mouths and after a tsunami where you most want the answer, and clouds block the optical image entirely. Fourth, it needs measured depths to train on, and it cannot find small seabed obstacles; detecting a two-metre cube is expected to be difficult at this resolution. Wrecks, rocks, cables and the bottom type still need acoustic survey or diving.
+
+  - kind: bullets
+    heading: How far do free satellites go?
+    items:
+      - "Europe's Sentinel-2 is free, at 10 m resolution"
+      - At 10 m it is coarse for a narrow quay front, but may give a rough picture of wide shallows
+      - The 1.84 m accuracy shown here does not carry over; it needs separate testing
+      - Note; this free-data idea is an assumption, not part of the source study
+    say: So how far could free satellites take you? Europe's Sentinel-2 is free, but at ten metre resolution. That is coarse for something narrow like the front of a quay, yet it might give a rough picture of the spread of shallows across a wide bay, without paying for imagery. But be careful here. The accuracy of about two metres shown in this case came from one point eight four metre imagery, and it does not simply carry over to ten metre data; that would need separate testing. And this free-data idea is our own assumption. The source study itself used paid high-resolution imagery and does not discuss free data.
+
+  - kind: bullets
+    heading: Where the cost falls
+    items:
+      - Imagery; this case used paid WorldView-2, which varies by area and new versus archive
+      - Training and validation soundings, if no existing records exist
+      - Analysis; the correction, the regression, and the error assessment
+      - The formal survey, which the satellite narrows but never removes
+    say: Now the cost. The cost of this research study is not public, so we will not put a number on it. What we can say is where the cost falls. First, the imagery; this case used paid WorldView-2, and paid imagery varies by area and by whether it is a new tasking or an archive scene. Second, the training and validation soundings, if no existing chart or survey records can be reused. Third, the analysis work, the correction, the regression and the error assessment. And fourth, the formal survey, which the satellite narrows but never removes. The report's point is that this is lower cost and faster than full survey, and needs almost no local infrastructure. Always confirm real figures with a quote.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.22, 0.39, 0.39]
+    rows:
+      - ["Sea area", "Clear water, shallower than about 15 m", "River mouths, turbid water, deeper than 20 m"]
+      - ["Accuracy", "A rough surface is enough", "Certified chart depth, centimetre precision"]
+      - ["Training data", "Chart or survey records exist", "No soundings and no way to take them"]
+      - ["Purpose", "Planning surveys, ordering disaster checks", "Finding obstacles, fixing the bottom type"]
+    say: Finally, where it fits. It fits in clear water shallower than about fifteen metres, such as coral reefs, remote islands and the shallow parts of a port. It fits when a rough surface is enough, to narrow a survey or to look for change. And it fits when chart or survey records exist to train on. It does not fit at river mouths or in turbid water, or deeper than twenty metres. It does not fit when you need a certified chart depth or centimetre precision, or when you need to find obstacles or fix the bottom type. When you propose this, three points matter. Ask first how deep and how precise the client really needs. Never say it replaces the survey. And put the error bands and the un-analysable areas into the delivery spec.
+
+  - kind: cta
+    heading: Considering it for your waters?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source: Japan Coast Guard, Hydrographic and Oceanographic Dept, research presentation (8 Mar 2017) https://www1.kaiho.mlit.go.jp/kenkyu/happyo/2016/O-5_Matsumoto_H290308.pdf"
+      - "Source: Matsumoto et al., 'Outlook for ocean information work using satellite-derived bathymetry', Report of Hydrographic and Oceanographic Researches No.54 (27 Mar 2017) https://www1.kaiho.mlit.go.jp/kenkyu/report/rhr54/rhr54-TR01.pdf"
+      - "Satellite specs: WorldView-2, 8 bands, 1.84 m, as cited in the report above"
+      - "Note: the free-data (Sentinel-2) idea is our own assumption, not from the source study"
+    say: To consider this for your own waters or your client, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
