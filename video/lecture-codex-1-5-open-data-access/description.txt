@@ -1,0 +1,51 @@
+衛星データを無料で入手：Sentinel-2の検索でAIが誤る4点を見抜く
+
+■ この動画の内容
+無料の衛星データ（Sentinel-2、Landsat）を解析に使う前の「入手」の手順。場所と期間で探し、雲の割合で絞り、区画の端の切れを確かめ、利用の条件が求める出どころの表記を付けて保存するまでを、しくみから見ます。座標の順番（経度が先）、雲0%は「不明」を含む、区画の端で画像が途中まで、「© ESA」は利用の条件の文言ではない、という4つの誤りを、AIが返したコードを一緒にレビューして見つけます。検索に使った最初の点と候補の表を手元で確かめる練習と、宿題つき。
+
+▶ 出典、指示文の例、誤りを仕込んだ抜粋の解説、ケース問題2問は、章のページで
+https://ssskobj-dev.github.io/eisei-kouza/learn/codex/codex-1-5-open-data-access.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-1-5-open-data-access
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-1-5-open-data-access&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-1-5-open-data-access&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 無料の衛星データの入手：検索を4点で確かめる
+0:47 Satellite to Decision とは
+1:05 できるようになること
+1:44 しくみ：入手の流れと、人が確かめる点
+3:04 しくみ：区画、座標の順番、雲の割合
+5:03 AIへの頼み方
+6:18 一緒に：抜粋を読む
+8:11 一緒に：判定する
+10:09 法人プランと研修
+10:24 一緒に：最初の点と、候補の表を確かめる
+11:37 結果の目視観点：4つの穴と、2つの例
+13:40 この型が向かない条件
+14:43 手順のまとめ
+15:52 宿題：ケース問題 問1
+17:31 宿題を解いたら、章のページへ
+17:46 2つの資格が取得できます
+
+■ 出典と表記
+出典：欧州連合「Copernicus Sentinel data licence (rev. 1)」（無償で開かれた利用。表記の文言）
+出典：USGS「Are there any restrictions on the use or redistribution of Landsat data?」（利用や再配布の制限なし。出どころの明記）
+出典：ESA「S2 Products」「S2 Mission」SentiWiki（110km四方の区画、帯の端の途中までの製品、画素の値0、観測の幅290km、5日ごと）
+出典：NASA「The Worldwide Reference System」「Landsat 9 brochure」（233本のパスと248のロウ、観測の幅185km）
+出典：IETF「RFC 7946」、ESA Copernicus Data Space Ecosystem「OData」「OpenSearch」、Copernicus Browserの新機能（経度が先、cloudCoverの0・−1）
+ケース問題と抜粋の場面は架空です
+音声：VOICEVOX:もち子さん　案内役：もち子
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
