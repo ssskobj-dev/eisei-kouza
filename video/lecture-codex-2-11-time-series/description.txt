@@ -1,0 +1,47 @@
+衛星データの時系列解析：Sentinel-2の1年分でAIが誤る3点を見抜く
+
+■ この動画の内容
+Sentinel-2の1年分の画像から、農地の区画（筆）ごとに植生の指数の推移を並べ、作物の暦と照らす「時系列解析」の章。2機で5日ごとの撮影から雲の日を除くと残る日は偏ること、筆の縁の画素を外すこと、欠けた日を線でつながないことを、しくみから見ます。画像全体の雲の割合で日を選ぶ、縁の画素を平均に混ぜる、欠けた期間を直線で補う、という3つの誤りを、AIが返したコードを一緒にレビューして見つけます。推移のグラフと表を手元で確かめる練習と、宿題つき。
+
+▶ 出典、指示文の例、ケース問題2問は章のページで
+https://ssskobj-dev.github.io/eisei-kouza/learn/codex/codex-2-11-time-series.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-2-11-time-series
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-2-11-time-series&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-2-11-time-series&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 時系列解析：1年分の推移を筆ごとに並べる
+0:44 Satellite to Decision とは
+1:03 できるようになること
+1:43 しくみ：点を並べる前に決める3つのこと
+4:08 AIへの頼み方
+5:24 一緒に：抜粋を読む
+7:17 一緒に：判定する
+8:59 一緒に：グラフと表を確かめる
+10:23 法人プランと研修
+10:37 生育に見えてしまうものと、2つの例
+12:40 この型が向かない条件
+13:44 手順のまとめ
+15:00 宿題：ケース問題 問1
+16:51 宿題を解いたら、章のページへ
+17:04 2つの資格が取得できます
+
+■ 出典と表記
+出典：ESA「S2 Mission」SentiWiki（2機で5日ごと。B4とB8は10m、B8Aは20m）、「Sentinel-2 Level-2A ATBD」V2.10.0（SCL：3が雲の影、8と9が雲、10が薄い雲）
+出典：NASA Earth Observatory「Measuring Vegetation (NDVI & EVI)」、NASA「HLS Product User Guide」V2.0（Landsat 8・9とSentinel-2を30mでそろえ、平均1.6日ごと）
+出典：農林水産省「農地の区画情報（筆ポリゴン）のデータ提供・利用」。「1年で70枚ほど」は5日ごとからの概算、2画素・5・0.2・20日・30mは章で例として置いた値
+音声：VOICEVOX:もち子さん　案内役：もち子
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
