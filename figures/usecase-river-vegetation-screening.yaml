@@ -1,0 +1,75 @@
+# ユースケースの記事「河道内の樹木の繁茂を衛星データで先に絞る」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が担う
+      items:
+        - 河道全体を水域・砂礫地・草地・樹木に分類する
+        - 複数年の変化から対策候補の区間を抽出する
+        - 過去の画像から経年変化を遡る
+    right:
+      title: 人が行う
+      items:
+        - 候補区間の詳細把握とドローン撮影
+        - 樹高と河床の確認
+        - 予算と現地の状況で伐採の優先度を決める
+    note: 候補は「対策を必須とするもの」ではない。優先度は人が決める
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 一致しない2割弱が残る
+        text: 人の判読との整合度は8割以上
+        role: none
+      - title: 冬季の画像は対象外
+        text: 草地と樹木の見え方が大きく変わる
+        role: none
+      - title: 樹高と河床は分からない
+        text: 洗掘や流下能力は直接は写らない
+        role: none
+      - title: 技術基準はまだ案
+        text: 利用実証で検証中の段階
+        role: none
+      - title: 雲と出水期の欠測
+        text: 光学は雲の下を写せない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 維持管理計画に、衛星の一次スクリーニングを入れる手順
+    steps:
+      - title: 評価の単位を決める
+        text: 距離標や10m分割
+        who: human
+      - title: 画像を複数年揃える
+        text: 冬季を避けて3年以上
+        who: human
+      - title: 4分類と変化の抽出
+        text: AIで候補区間を出す
+        who: satellite
+      - title: 候補を現地で見る
+        text: ドローンも使って
+        who: human
+      - title: 優先度を付け計画に
+        text: 伐採と掘削の年次
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の一次スクリーニングが効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 広域の経年変化
+        text: 長い区間を毎年追う
+      - title: 樹木と草地の広がり
+        text: 判読との一致8割以上
+      - title: 冬季の画像
+        text: AIの適用対象外
+      - title: 樹高と河床の深さ
+        text: 上空の画像では分からない

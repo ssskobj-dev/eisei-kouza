@@ -1,0 +1,75 @@
+# ユースケースの記事「都市計画基礎調査の土地利用現況を衛星データで絞る」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が担う
+      items:
+        - 前回から見た目が変わった区画を拾う
+        - 低未利用地の候補を一次判定する
+        - 現地調査に行く区画の一覧を出す
+    right:
+      title: 人が行う
+      items:
+        - 用途と面積の確定
+        - 台帳と登記簿との照合、低未利用地の認定
+        - 調書とGISデータの整備
+    note: 実施要領の位置づけは「調査の補助資料」。現地調査は残る
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 位置づけは補助資料
+        text: 現地調査による確認が望ましいとされる
+        role: none
+      - title: 精度の数字がない
+        text: 要領にもリストにも分解能の目安はない
+        role: none
+      - title: 用途と階数は分からない
+        text: 分かるのは建物と空地の有無と形まで
+        role: none
+      - title: 低未利用地は認定できない
+        text: 空き家調査などの資料と現地で決める
+        role: none
+      - title: 県と市の分担が要る
+        text: 調査主体は都道府県、市町村と連携
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 土地利用現況調査に、衛星の一次判定を入れる手順
+    steps:
+      - title: 前回のデータを整える
+        text: 土地利用ポリゴンと用途
+        who: human
+      - title: 2時期の画像を揃える
+        text: 前回と今回
+        who: human
+      - title: 変化の疑いを抽出
+        text: 新築、除却、空地化
+        who: satellite
+      - title: 台帳と登記簿で照合
+        text: 用途を一次判定
+        who: human
+      - title: 現地で確定し調書に
+        text: GISデータに整備
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の一次判定が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 区域全体の変化抽出
+        text: 現地に行く区画を絞る
+      - title: 形が変わる変化
+        text: 新築、除却、空地化
+      - title: 用途と階数の判定
+        text: 台帳と現地で確かめる
+      - title: 低未利用地の認定
+        text: 画像だけでは決まらない

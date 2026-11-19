@@ -1,0 +1,47 @@
+# note記事「駐車場の空き地、足で探すには広すぎる。衛星データで候補地をどこまで先に絞れるか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 生活・文化・その他
+    title: 駐車場の候補地を衛星で拾う
+    sub: 福岡と札幌の実証で検出精度は約75%。営業先の下見を減らす
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が担う
+      items:
+        - 指定した地域の駐車場候補を地図にする
+        - 目印の周りの候補の数と大きさを出す
+        - 訪問先の順番を決める材料を出す
+    right:
+      title: 人が行う
+      items:
+        - 空いているかの確認
+        - 持ち主の調査と交渉
+        - 小さな区画と未検出の区画を足で補う
+    note: 分かるのは「駐車場らしい区画」。貸せるかは現地で決まる
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 小さな区画は精度が低い
+        text: 1〜2台分は大きな区画より難しい
+        role: none
+      - title: 空きは1枚では分からない
+        text: 駐車中か空いているかは時間の情報が要る
+        role: none
+      - title: 持ち主は分からない
+        text: 地上のデータと組み合わせる必要
+        role: none
+      - title: 2都市以外は未検証
+        text: 福岡と札幌以外で同じ精度かは不明
+        role: none
+      - title: 高分解能データの費用
+        text: 事業として成り立つかの壁
+        role: none
