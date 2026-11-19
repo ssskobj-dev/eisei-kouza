@@ -1,0 +1,47 @@
+# note記事「土地利用の現況調査、全区画を歩くには広すぎる。衛星データで現地に行く区画をどこまで絞れるか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 都市・行政
+    title: 土地利用の現況調査を衛星で絞る
+    sub: 国の実施要領が「補助資料」と明記。現地に行く区画を先に決める
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が担う
+      items:
+        - 前回から見た目が変わった区画を拾う
+        - 低未利用地の候補を一次判定する
+        - 現地調査に行く区画の一覧を出す
+    right:
+      title: 人が行う
+      items:
+        - 用途と面積の確定
+        - 台帳と登記簿との照合、低未利用地の認定
+        - 調書とGISデータの整備
+    note: 実施要領の位置づけは「調査の補助資料」。現地調査は残る
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 位置づけは補助資料
+        text: 現地調査による確認が望ましいとされる
+        role: none
+      - title: 精度の数字がない
+        text: 要領にもリストにも分解能の目安はない
+        role: none
+      - title: 用途と階数は分からない
+        text: 分かるのは建物と空地の有無と形まで
+        role: none
+      - title: 低未利用地は認定できない
+        text: 空き家調査などの資料と現地で決める
+        role: none
+      - title: 県と市の分担が要る
+        text: 調査主体は都道府県、市町村と連携
+        role: none

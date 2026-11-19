@@ -1,0 +1,47 @@
+# note記事「河道の樹木、5年に1回の測量では追いつかない。衛星データで伐採の候補区間をどこまで先に絞れるか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: インフラ・建設
+    title: 河道内の樹木を衛星で先に絞る
+    sub: 木曽川でAIが4分類、人の判読との一致は8割以上
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が担う
+      items:
+        - 河道全体を水域・砂礫地・草地・樹木に分類する
+        - 複数年の変化から対策候補の区間を抽出する
+        - 過去の画像から経年変化を遡る
+    right:
+      title: 人が行う
+      items:
+        - 候補区間の詳細把握とドローン撮影
+        - 樹高と河床の確認
+        - 予算と現地の状況で伐採の優先度を決める
+    note: 候補は「対策を必須とするもの」ではない。優先度は人が決める
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 一致しない2割弱が残る
+        text: 人の判読との整合度は8割以上
+        role: none
+      - title: 冬季の画像は対象外
+        text: 草地と樹木の見え方が大きく変わる
+        role: none
+      - title: 樹高と河床は分からない
+        text: 洗掘や流下能力は直接は写らない
+        role: none
+      - title: 技術基準はまだ案
+        text: 利用実証で検証中の段階
+        role: none
+      - title: 雲と出水期の欠測
+        text: 光学は雲の下を写せない
+        role: none

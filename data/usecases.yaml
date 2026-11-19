@@ -1548,6 +1548,7 @@ usecases:
   verified: true
 - 'no': 78
   name: 駐車場にできる空き地の抽出
+  slug: parking-space-detection
   theme: 生活・文化・その他
   field: 通信・モビリティ
   stage: 実証
@@ -1567,6 +1568,7 @@ usecases:
   verified: true
 - 'no': 79
   name: 河道内の樹木の繁茂の把握
+  slug: river-vegetation-screening
   theme: インフラ・建設
   field: インフラ維持管理
   stage: 実証
@@ -1586,6 +1588,7 @@ usecases:
   verified: true
 - 'no': 80
   name: 都市計画基礎調査の土地利用現況
+  slug: city-planning-landuse-survey
   theme: 都市・行政
   field: 都市・不動産
   stage: 実証

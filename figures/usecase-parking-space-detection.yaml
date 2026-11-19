@@ -1,0 +1,75 @@
+# ユースケースの記事「駐車場にできる空き地を衛星データで拾う」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星の解析が担う
+      items:
+        - 指定した地域の駐車場候補を地図にする
+        - 目印の周りの候補の数と大きさを出す
+        - 訪問先の順番を決める材料を出す
+    right:
+      title: 人が行う
+      items:
+        - 空いているかの確認
+        - 持ち主の調査と交渉
+        - 小さな区画と未検出の区画を足で補う
+    note: 分かるのは「駐車場らしい区画」。貸せるかは現地で決まる
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 小さな区画は精度が低い
+        text: 1〜2台分は大きな区画より難しい
+        role: none
+      - title: 空きは1枚では分からない
+        text: 駐車中か空いているかは時間の情報が要る
+        role: none
+      - title: 持ち主は分からない
+        text: 地上のデータと組み合わせる必要
+        role: none
+      - title: 2都市以外は未検証
+        text: 福岡と札幌以外で同じ精度かは不明
+        role: none
+      - title: 高分解能データの費用
+        text: 事業として成り立つかの壁
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 営業計画に、衛星の候補地一覧を入れる手順
+    steps:
+      - title: 目印と圏域を決める
+        text: 会場や駅の徒歩圏
+        who: human
+      - title: 高分解能画像を入手
+        text: 時期と雲を確かめる
+        who: human
+      - title: 候補地の一覧を作る
+        text: AIで区画を抽出
+        who: satellite
+      - title: 訪問先の順番を決める
+        text: 人の配分も
+        who: human
+      - title: 現地で確かめ学習に戻す
+        text: 空きと持ち主
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 衛星の候補地抽出が効く条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 広い範囲の下見
+        text: 歩いて回りきれない圏域
+      - title: 20台以上の区画
+        text: 網羅性も精度も80〜90%
+      - title: 1〜2台の小さな区画
+        text: 精度が落ち、足で補う
+      - title: 空きと持ち主の確認
+        text: 画像からは分からない
