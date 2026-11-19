@@ -1,0 +1,108 @@
+# English use-case video. Same facts as casebook/war-damage-satellite-map-archive.qmd; English narration & slides.
+lang: en
+voice: Ryan
+title: "Satellite data archives war damage: Ukraine, 130 sites in one month"
+series: CASEBOOK
+kicker: Use case
+number: 73
+total: 221
+thumb: Mapping war damage
+summary: How a University of Tokyo lab recorded war damage in Ukraine by placing publicly released satellite images on a 3D map and bundling them with photos, testimony, and citizen-made 3D models - about 130 sites in a month. Where the method fits for newsrooms, museums, and schools, what it helps decide, its limits, how far free satellites go, and the shape of its cost. 6 minutes.
+scenes:
+  - kind: cover
+    heading: "Archiving war damage on a 3D map"
+    sub: Placing publicly released satellite images at their true locations
+    say: Can the damage of a war be recorded and kept in a form people can trace later, place by place? Yes. The answer is to put publicly released satellite images at their true locations on a 3D map, and bundle them with photos, testimony, and 3D models. A University of Tokyo lab did this for Ukraine, mapping about one hundred thirty sites in roughly a month. In this video, we look at who makes it, how it is built, what it helps decide, how far free satellites go, and what it costs.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Place: damage in Ukraine, recorded from Japan's academia"
+      - "Who: Professor Watanabe's lab at the University of Tokyo, with Professor Furuhashi's lab at Aoyama Gakuin University"
+      - "Why: to record war damage and tell it, tied to the place it happened"
+      - "For: newsrooms, museums, universities, and schools"
+    say: This is a case from academia in Japan, recording damage in Ukraine. The makers are Professor Hidenori Watanabe's lab at the University of Tokyo, working with Professor Taichi Furuhashi's lab at Aoyama Gakuin University. The goal is to record the damage of the war and convey it in a form people can trace by place. The method is aimed at newsrooms, museums, universities, and schools that must keep a record of damage and tell it later. Work began on the twenty-fifth of February 2022, just after the invasion, and by the twenty-fifth of March about one hundred thirty satellite images had been placed on the map.
+
+  - kind: steps
+    heading: How the map is built
+    items:
+      - Collect satellite images that commercial operators released publicly
+      - Identify each location by hand, using Google Earth, place names, and shadows
+      - Adjust orientation and scale, and overlay each image at its true place
+      - Tie ground photos, testimony, and 3D models to each site
+      - Publish on a browser-based digital globe, and keep updating
+    say: Here is how the map is built. First, the team collects satellite images that commercial operators - Maxar and BlackSky - released publicly, images that circulated through news and social media. Satellite images carry no detailed location data, so each spot is identified by hand, using Google Earth, place names, and the direction of shadows; at local solar noon a shadow points true north. One hard-to-place site in Mariupol took about thirty minutes. The team then adjusts the orientation and scale, and overlays each image at its real location, on the Cesium digital globe. Ground photos, testimony, and citizen-made 3D models are tied to each site. The map is published in a browser and updated over time.
+
+  - kind: table
+    heading: The satellite versus the team
+    columns: [The satellite shows, The team does]
+    widths: [0.5, 0.5]
+    rows:
+      - ["Damage from above, at one scale", "Check each image's source and licence"]
+      - ["How a place looked on the day imaged", "Locate and overlay each image by hand"]
+      - ["", "Tie testimony and 3D models to each site"]
+    say: The split of roles looks like this. The satellite shows damage from above, at one scale, as a place looked on the day it was imaged. It does not say when the damage happened or who caused it. The team checks each image's source and licence, locates and overlays each image by hand, and ties testimony and citizen 3D models to each site. Those 3D models are built by photogrammetry. For example, a German researcher built a model of a building in Borodyanka from drone footage, and residents of Donetsk shared a model of an apartment basement used as a bomb shelter. This was a lab project, published as a record; use and adoption numbers after release are not public.
+
+  - kind: table
+    heading: What it helps decide
+    columns: [What you receive, What you can decide]
+    widths: [0.42, 0.58]
+    rows:
+      - ["Per-site images, placed on a map", "Which sites to feature, and in what order"]
+      - ["A ledger of image sources and licences", "Which images are clear to publish"]
+      - ["Photos, testimony, 3D models per site", "How deep to go at one site"]
+      - ["The record of location clues", "Whether a point can be re-checked if questioned"]
+    say: Here is what you receive, and what it lets you decide. The per-site images, placed on the map, tell you which sites to feature and in what order for an exhibit or a lesson. A ledger of each image's source and licence tells you which images are clear to publish and which need permission. The photos, testimony, and 3D models tied to a site let you decide how deep to go there. And the record of location clues lets you re-check a point if someone questions it. Receive the map on its own, and you cannot answer later questions about corrections or sources - so take the ledger and the clue record with it.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - Only imagery the operators chose to release can be used
+      - Locating sites is manual; one hard site took about 30 minutes
+      - An image is a snapshot; when and who caused the damage needs other sources
+      - Circulating images vary in reliability; untraceable ones should be left out
+      - Free 10 m imagery cannot show damage to a single building
+    say: The limits are stated plainly. First, you can only use imagery the operators chose to release - not any place or date you want. Second, locating each site is manual work; one hard site in Mariupol took about thirty minutes, and the labour grows with the number of sites. Third, an image is only how a place looked that day; when the damage happened, and who caused it, has to be confirmed from testimony, reporting, and investigation. Fourth, images circulating online vary in reliability, so ones you cannot trace to a source should be left out. Fifth, free ten-metre imagery can show wide burning or flooding, but not damage to a single building. And what is inside a building, the human toll, and the state of evacuation are not visible from a satellite at all.
+
+  - kind: bullets
+    heading: How far do free satellites go?
+    items:
+      - "Europe's Sentinel-2 is free, with 10 m pixels"
+      - Wide burning or flooding over an area can be shown at no data cost
+      - At 10 m, damage to a single building cannot be read
+      - For the building scale, you need public commercial imagery or paid high-resolution imagery
+    say: So how far do free satellites go? Europe's Sentinel-2 is free, with ten-metre pixels. Wide burning or flooding across an area can be shown at no data cost. But at ten metres, damage to a single building cannot be read. To show the building scale, you need either imagery that a commercial operator has released publicly, or paid high-resolution imagery.
+
+  - kind: table
+    heading: The shape of the cost
+    columns: [Item, Note]
+    widths: [0.3, 0.7]
+    rows:
+      - [Imagery, "Released images: no image cost, but check each licence. New shots need paid high-res"]
+      - [Locating & overlay, "Manual. One hard site ~30 min, so cost scales with the number of sites"]
+      - [Map base & publishing, "A browser-based digital globe; no special equipment"]
+      - [Updates & corrections, "Ongoing, if you keep it as a record"]
+    say: Now the cost. The project was a lab effort and its budget is not public, so this is the shape of the cost, not a quote. Publicly released images cost nothing to use; the work there is checking each image's licence, and getting permission where needed. New imagery of a specific place and date would mean paid high-resolution imagery. Locating and overlaying is manual - one hard site took about thirty minutes, so cost scales with the number of sites. The map base is a browser-based digital globe, so no special equipment is needed. And updates and corrections continue if you keep the map as a record. Because no public price is quoted for this project, we give no money figure here; confirm any imagery price with a real quote.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.22, 0.39, 0.39]
+    rows:
+      - ["Imagery", "Many publicly released images", "No released images"]
+      - ["Unit shown", "Buildings and city blocks", "Inside a building, the human toll"]
+      - ["Location clues", "Large buildings, roads, place names", "Featureless housing or farmland"]
+      - ["Use", "Tracing a record by place; lessons and exhibits", "Establishing facts or assigning blame"]
+    say: Finally, where it fits. It fits where many images have been released publicly, where you want to show the building or block scale, and where there are large buildings, roads, or place names to locate by. It fits for tracing a record by place, in lessons and exhibits. It does not fit where no images have been released, where you need what is inside a building or the human toll, where the scene is featureless housing or farmland, or where the aim is to establish facts or assign blame. When you propose this, three things matter - put a licence-check step first, never say the satellite proves what happened, and estimate cost by the number of sites.
+
+  - kind: cta
+    heading: Recording damage for your project?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source: University of Tokyo, 'Satellite Images Map of Ukraine' https://www.u-tokyo.ac.jp/adm/uci/en/projects/dp/project_00036.html"
+      - "Source: University of Tokyo PR feature (11 Apr 2022) https://www.u-tokyo.ac.jp/focus/en/features/z1304_00194.html"
+      - "Satellite specs: ESA, 'Sentinel-2: Facts and figures'"
+      - "Note: budget not public, so no price estimate. Figures (~130 sites, 25 Mar 2022; ~30 min for one hard site) from the source."
+    say: To record damage for your own project, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
