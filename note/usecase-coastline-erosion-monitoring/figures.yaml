@@ -1,0 +1,47 @@
+# note記事「砂浜の後退を、測量の合間にどう追うか。衛星の海岸線は傾向までで、位置は潮と波でぶれる」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: インフラ・建設
+    title: 海岸線の後退を衛星データで追う
+    sub: 台風前後の侵食は捉えた。測量の精度には届かない
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 繰り返しの画像から海岸線を抜き出す
+        - 評価線ごとに位置の推移を並べる
+        - 記録が残る限り過去にさかのぼる
+    right:
+      title: 人が行う
+      items:
+        - 潮位と波の影響を読む
+        - 測量で位置と標高を確かめる
+        - 養浜や施設の整備の順番を決める
+    note: 衛星は「傾向をつかむ」道具。位置の確定と砂の量は測量
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 測量の精度に届かない
+        text: 高分解能にしても精度は上がらない
+        role: none
+      - title: 潮位と波でぶれる
+        text: 撮影の瞬間の水際が海岸線になる
+        role: none
+      - title: 沖合の施設を誤認
+        text: 離岸堤などを海岸線と間違える
+        role: none
+      - title: 標高と海底は不明
+        text: 砂の量と勾配は測量で
+        role: none
+      - title: 雲と時刻は選べない
+        text: 潮位の低い時刻を狙えない
+        role: none

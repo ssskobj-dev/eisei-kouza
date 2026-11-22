@@ -1,0 +1,47 @@
+# note記事「津波警報で港に入れない。衛星のレーダー画像で、防波堤の被害はどこまで分かるか」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: インフラ・建設
+    title: 港湾の被災を衛星データで把握
+    sub: 変状は見えるが、動いた向きと距離は測れない
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 夜間や悪天候でも港湾を撮る
+        - 前後の画像から変化した場所を抜き出す
+        - 被害の疑いのある施設を一覧にする
+    right:
+      title: 人が行う
+      items:
+        - 点検班を送る施設の順番を決める
+        - 移動量と損傷を現地で測る
+        - 港の利用の可否を判断する
+    note: 衛星で分かるのは「変わった場所」。動いた量と使えるかは現地
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 移動の向きと距離は不明
+        text: 変状は見えるが変位量は測れない
+        role: none
+      - title: 被害以外も検出
+        text: 施設と重ねて読む作業が残る
+        role: none
+      - title: 結果まで数時間〜数日
+        text: 指示、観測、受信にそれぞれ時間
+        role: none
+      - title: 災害時だけでは成り立たない
+        text: 費用と体制の面で平時から
+        role: none
+      - title: 使えるかは現地で
+        text: 段差、水深、荷役機械
+        role: none
