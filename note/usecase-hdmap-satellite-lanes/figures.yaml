@@ -1,0 +1,47 @@
+# note記事「測量車が走っていない一般道の地図を、どう作るか。衛星画像の下図は相対精度25cm程度、ただし条件の良い一部で」の見出し画像と図。
+figures:
+  - id: thumbnail
+    type: thumbnail
+    kind: usecase
+    tag: 生活・文化・その他
+    title: 自動運転の地図を衛星データで作る
+    sub: 東京23区と海外6都市で相対精度25cm程度の参考値
+
+  - id: fig-1
+    type: split
+    alt: 衛星に任せることと、人と車載カメラが行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 広い範囲の道路を一度に写す
+        - 車線と道路の縁の下図を自動で抜き出す
+        - 車や影など余計な要素を取り除く
+    right:
+      title: 人と車載カメラが行う
+      items:
+        - 標識と信号の中身を確かめる
+        - 高架の下とトンネルを補う
+        - 日々の変化を更新し精度を検証する
+    note: 衛星は「下図と整備の順番」。完成品は車載データと計測車両で
+
+  - id: fig-2
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 25cmは参考値
+        text: 条件の良い一部での数字
+        role: none
+      - title: 車・影・倒れこみ
+        text: 道路を隠す。補正の限界は不明
+        role: none
+      - title: 高架の下とトンネル
+        text: 真上からは写らない
+        role: none
+      - title: 標識の中身は読めない
+        text: 位置は見えても表示は不明
+        role: none
+      - title: 日々の変化に届かない
+        text: 毎日写す前提ではない
+        role: none

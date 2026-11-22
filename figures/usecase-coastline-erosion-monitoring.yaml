@@ -1,0 +1,75 @@
+# ユースケースの記事「海岸線の後退を衛星データでモニタリングする」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 繰り返しの画像から海岸線を抜き出す
+        - 評価線ごとに位置の推移を並べる
+        - 記録が残る限り過去にさかのぼる
+    right:
+      title: 人が行う
+      items:
+        - 潮位と波の影響を読む
+        - 測量で位置と標高を確かめる
+        - 養浜や施設の整備の順番を決める
+    note: 衛星は「傾向をつかむ」道具。位置の確定と砂の量は測量
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 測量の精度に届かない
+        text: 高分解能にしても精度は上がらない
+        role: none
+      - title: 潮位と波でぶれる
+        text: 撮影の瞬間の水際が海岸線になる
+        role: none
+      - title: 沖合の施設を誤認
+        text: 離岸堤などを海岸線と間違える
+        role: none
+      - title: 標高と海底は不明
+        text: 砂の量と勾配は測量で
+        role: none
+      - title: 雲と時刻は選べない
+        text: 潮位の低い時刻を狙えない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 定期測量の合間に、衛星の海岸線を入れる手順
+    steps:
+      - title: 評価線を決める
+        text: 過去の画像と地形図を並べる
+        who: human
+      - title: 海岸線を抽出
+        text: 年に数回、雲のない画像から
+        who: satellite
+      - title: 条件を記録
+        text: 撮影時刻の潮位と波
+        who: human
+      - title: 測量で確認
+        text: 後退が続く評価線に絞る
+        who: human
+      - title: 整備の順番を決める
+        text: 養浜と施設、観察の継続
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 長い砂浜の傾向
+        text: 中長期の後退と前進
+      - title: 台風前後の後退
+        text: 大きな変化の把握
+      - title: 施設の多い海岸
+        text: 誤認の確認が残る
+      - title: 砂の量と勾配
+        text: 標高と海底は測量で

@@ -1,0 +1,75 @@
+# ユースケースの記事「自動運転用の一般道の高精度地図を衛星データから自動生成する」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人と車載カメラが行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 広い範囲の道路を一度に写す
+        - 車線と道路の縁の下図を自動で抜き出す
+        - 車や影など余計な要素を取り除く
+    right:
+      title: 人と車載カメラが行う
+      items:
+        - 標識と信号の中身を確かめる
+        - 高架の下とトンネルを補う
+        - 日々の変化を更新し精度を検証する
+    note: 衛星は「下図と整備の順番」。完成品は車載データと計測車両で
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 25cmは参考値
+        text: 条件の良い一部での数字
+        role: none
+      - title: 車・影・倒れこみ
+        text: 道路を隠す。補正の限界は不明
+        role: none
+      - title: 高架の下とトンネル
+        text: 真上からは写らない
+        role: none
+      - title: 標識の中身は読めない
+        text: 位置は見えても表示は不明
+        role: none
+      - title: 日々の変化に届かない
+        text: 毎日写す前提ではない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 衛星の下図から、車載データで直す手順
+    steps:
+      - title: 都市と道路を選ぶ
+        text: 画像の有無を確かめる
+        who: human
+      - title: 下図を作る
+        text: 車線と道路の縁
+        who: satellite
+      - title: 区間を分ける
+        text: 隠れた区間に印を付ける
+        who: human
+      - title: 車載データで直す
+        text: 標識と信号の中身を加える
+        who: human
+      - title: 計測車両を回す
+        text: 残った区間に集中
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 広い範囲の下図
+        text: 測量車のない道路
+      - title: 整備の順番
+        text: 都市と道路の優先付け
+      - title: 密集した都市部
+        text: 影と倒れこみが多い
+      - title: 高架下と標識の中身
+        text: 衛星では得られない
