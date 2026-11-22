@@ -1,0 +1,107 @@
+# English use-case video. Same facts as casebook/hdmap-satellite-lanes.qmd; English narration & slides.
+lang: en
+title: Mapping lanes for self-driving cars from space
+series: CASEBOOK
+kicker: Use case
+number: 81
+total: 221
+thumb: Lanes from space
+summary: How Toyota's TRI-AD, Maxar and NTT DATA generated high-definition road maps from commercial satellite imagery, reaching about 25 cm relative accuracy in a 2020 proof of concept. What the result really means, what satellites cannot see, and why the cost saving was only "expected". 6 minutes.
+voice: Ryan
+scenes:
+  - kind: cover
+    heading: Mapping lanes for self-driving cars from space
+    sub: Turning high-resolution satellite images into a first-draft road map
+    say: Self-driving cars need a high-definition map of every lane and road edge. Building that map with survey vehicles is slow and costly, so today it covers only a tiny share of the world's roads. Can satellites help draw the first draft instead? In 2020, a Toyota group showed they can. In this video, we look at who used it, where it fits in the workflow, what the accuracy number really means, what satellites cannot see, and how to think about the cost.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Where: Tokyo's 23 wards and 6 more cities worldwide (both Japan and overseas)"
+      - "Who: TRI-AD, a Toyota group company (the buyer), with Maxar and NTT DATA (imagery and analysis)"
+      - "Why: high-definition maps cover less than 1% of the world's road network"
+      - "The goal: draw lane and road-edge maps of ordinary roads, cheaply and over wide areas"
+    say: The case is a proof of concept by TRI-AD, a Toyota group company, together with Maxar Technologies and NTT DATA. In their 2019 announcement, they noted that high-definition maps then covered less than one percent of the world's road network. Survey vehicles are expensive, so coverage had been limited to highways. The idea was to use wide-area satellite imagery to draft maps of ordinary surface roads. The satellite work ran across Tokyo's twenty-three wards and six more cities around the world.
+
+  - kind: steps
+    heading: Where it fits in the workflow
+    items:
+      - Pick the cities and roads to map, and check the commercial image archive
+      - Automatically extract lanes and road edges from the satellite image
+      - Flag hidden and low-accuracy stretches to fill by other means
+      - Correct the draft with in-vehicle camera data, and add sign and signal content
+      - Send survey vehicles only to the stretches that remain
+    say: Here is where it fits. The satellite map is a first draft, made before the survey vehicles go out. First, you choose the cities and roads to map, and check whether the commercial archive has good enough imagery. Next, software extracts lanes and road edges from the image automatically. Then you flag the stretches the satellite could not see or could not map accurately, to fill another way. In-vehicle camera data corrects the draft and adds the content of signs and signals. Finally, survey vehicles are sent only to the stretches that are left. The satellite does not finish the map. It sets the order of work and decides where the survey vehicles go.
+
+  - kind: table
+    heading: Satellite versus people
+    columns: [The satellite does, People and vehicle cameras do]
+    widths: [0.5, 0.5]
+    rows:
+      - [Image wide areas at once, Read the content of signs and signals]
+      - [Extract lanes and road edges, Fill under elevated roads and tunnels]
+      - ["Remove cars, shadows and building lean", "Update day-to-day changes and verify accuracy"]
+    say: The split of roles looks like this. The satellite images wide areas in one pass, extracts the lanes and road edges, and automatically removes the clutter that is not part of the map, such as parked cars, shadows, and the lean of tall buildings. People and in-vehicle cameras read the content of signs and signals, fill in what sits under elevated roads and inside tunnels, update the day-to-day changes, and verify the accuracy. The two sides are partners, not substitutes.
+
+  - kind: table
+    heading: What the 2020 proof of concept showed
+    columns: [Part of the test, Result]
+    widths: [0.4, 0.6]
+    rows:
+      - [Satellite imagery (Maxar + NTT DATA), "About 25 cm relative accuracy*, Tokyo 23 wards + 6 cities"]
+      - [Dash-cam data (CARMERA), "About 40 cm relative accuracy*, Tokyo 23 wards + 2 US cities"]
+      - [Overall result, Relative accuracy of less than 50 cm for surface-road maps]
+      - ["* Footnote in the release", Reference values in some areas with good data accuracy only]
+    say: Here is what the proof of concept reported, announced on March tenth, 2020. From the highest-resolution commercial satellite imagery, the team created maps with about twenty-five centimeters of relative accuracy, within Tokyo's twenty-three wards and six cities worldwide. A separate test using dash-cam data reached about forty centimeters. Overall, the release described relative accuracy of less than fifty centimeters for surface roads. One point matters here. The release attaches a footnote to the twenty-five and forty centimeter figures. They are reference values from parts of the test area where the data was especially good, not a guarantee for the whole area. And relative accuracy means the positions of features relative to each other, which is different from absolute position on the globe.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - "25 cm is a footnoted reference value for good conditions, not the whole area"
+      - Cars, shadows and building lean hide parts of the road
+      - What sits under elevated roads and inside tunnels is not visible from above
+      - The content of signs and signals cannot be read from straight overhead
+      - On-demand imaging is too infrequent for daily changes like roadworks
+    say: The limits are worth stating plainly. First, the twenty-five centimeter figure is a footnoted reference value for good conditions, not a result across the whole area. Second, parked cars, shadows, and the lean of tall buildings hide parts of the road, which is exactly why the method has to remove them. Third, anything under an elevated road, inside a tunnel, or beneath a roof is not visible from above. Fourth, the content of signs and signals cannot be read from directly overhead, so in-vehicle cameras cover that. Fifth, commercial high-resolution imaging is ordered on demand, not captured daily, so it is too infrequent for day-to-day changes such as roadworks. Note also that the release does not name the satellite used or its resolution, and no newer accuracy figures from this work have been published.
+
+  - kind: bullets
+    heading: Why free satellites do not fit here
+    items:
+      - "Free optical data, such as Europe's Sentinel-2, is about 10 m per pixel"
+      - A traffic lane is only about 3 m wide, finer than a free-data pixel
+      - This case relies on the highest-resolution commercial imagery instead
+      - "So, unlike many use cases, free data alone does not carry this one"
+    say: A fair question is whether free satellite data could do this. Here, it cannot. Free optical data, such as Europe's Sentinel-2, is about ten meters per pixel. A traffic lane is only about three meters wide, finer than a single free-data pixel, so lanes blur away. This is why the case relies on the highest-resolution commercial imagery, around thirty centimeters per pixel or better. Many satellite use cases run on free data. This is one that does not.
+
+  - kind: table
+    heading: How to think about the cost
+    columns: [Cost component, What to know]
+    widths: [0.33, 0.67]
+    rows:
+      - [Satellite imagery, "Paid high-resolution imagery is required; free data does not work. Price varies by area and recency"]
+      - [Analysis, "The software that removes clutter and extracts the map; built jointly by the three companies"]
+      - [In-vehicle data, "Dash-cam collection and processing, shown as a separate test, not a combined price"]
+      - [Verification and survey vehicles, "These remain; the satellite narrows where they go, it does not remove them"]
+    say: Now the cost. The actual figures for this proof of concept were not disclosed, so this is how to think about it, not a quote. There are four parts. First is satellite imagery. Paid high-resolution imagery is required, free data does not work, and the price changes with area and how recent the image is. Second is analysis, the software that removes the clutter and extracts the map, built jointly by the three companies. Third is in-vehicle data, shown in the release as a separate test, so there is no combined price. And fourth, verification and survey vehicles, which do not go away. The announcement itself only says that update time, coverage, and build-and-maintain cost are expected to improve. It does not promise a specific saving.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.24, 0.38, 0.38]
+    rows:
+      - [Goal, Draft wide areas first, Finish the whole map from space alone]
+      - [Roads, Open surface roads, "Under elevated roads, tunnels, dense streets"]
+      - [Information, Lane shape and road edges, Content of signs and signals]
+      - [Update cycle, Yearly mapping, Daily updates]
+    say: Finally, where it fits. It fits when the goal is to draft wide areas first, on open surface roads, where what you need is the shape of lanes and road edges, on a yearly mapping cycle. It does not fit when you expect to finish the whole map from space alone, on roads hidden under structures or in dense narrow streets, where you need the content of signs and signals, or where you need daily updates. When you propose this, three points matter. Always quote the accuracy figure together with its footnote. Never say the satellite alone makes the map. And separate the cost into imagery, analysis, vehicle data, and verification, rather than promising one headline saving.
+
+  - kind: cta
+    heading: Considering it for your fleet or map program?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source, result (10 Mar 2020): https://global.toyota/en/newsroom/corporate/31898884.html"
+      - "Source, collaboration (25 Apr 2019): nttdata.com/global/en/news/press-release/2019/april/build-high-definition-maps-for-autonomous-vehicles-from-space"
+      - "Free-data resolution: Copernicus SentiWiki, Sentinel-2 Mission"
+    say: To consider this for your own fleet or mapping program, here is the next step. We help you write the request for proposals and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
