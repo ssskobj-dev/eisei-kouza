@@ -1,0 +1,45 @@
+# note記事「下水道管の点検、全部は見られない。衛星データで損傷リスクの順番を付ける共同研究と、まだ精度の数字がない限界」の見出し画像と図。
+figures:
+- id: thumbnail
+  type: thumbnail
+  kind: usecase
+  tag: インフラ・建設
+  title: 下水道管の点検順を衛星で決める
+  sub: 損傷リスクをA〜Eの5段階に。精度の数字はまだない
+- id: fig-1
+  type: split
+  alt: 衛星と解析に任せることと、人が行うこと
+  link: ＋
+  left:
+    title: 衛星と解析が行う
+    items:
+    - 地表面温度・地盤変動・降水量をそろえる
+    - 台帳・埋設環境と合わせ損傷リスクを推定
+    - 優先度A〜Eを地図にする
+  right:
+    title: 人が行う
+    items:
+    - 処理場の流入水と水質のデータを整える
+    - 優先度の高い路線から管の中を調べる
+    - 調査の結果を診断に戻して確かめる
+  note: 衛星は「順番を決める」材料。管の状態の確定は管内調査
+- id: fig-2
+  type: cards
+  alt: この使い方の5つの限界
+  columns: 2
+  items:
+  - title: 精度の数字がない
+    text: 的中率と見逃しは未公表
+    role: none
+  - title: 衛星名が未公表
+    text: 無償で成り立つかは不明
+    role: none
+  - title: 管の中は写らない
+    text: 腐食や亀裂は管内調査で
+    role: none
+  - title: 出るのは順番
+    text: 損傷の有無の確定ではない
+    role: none
+  - title: 地上のデータが前提
+    text: 台帳・埋設環境・流入水
+    role: none

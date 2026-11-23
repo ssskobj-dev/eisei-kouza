@@ -1,0 +1,45 @@
+# note記事「盛土の監視、県全域は歩けない。無償の衛星データで151か所の候補を出した佐賀県の実証と、見落とす変化の種類」の見出し画像と図。
+figures:
+- id: thumbnail
+  type: thumbnail
+  kind: usecase
+  tag: インフラ・建設
+  title: 盛土の候補地を無償の衛星で絞る
+  sub: 佐賀市約431km²で151か所。少しずつ広がる伐開は見落とす
+- id: fig-1
+  type: split
+  alt: 衛星と解析に任せることと、人が行うこと
+  link: ＋
+  left:
+    title: 衛星と解析が行う
+    items:
+    - 光学で植生の変化を2時期で比べる
+    - SARの強度の差分で地形の変化を拾う
+    - 機械学習でノイズを除いて候補地に
+  right:
+    title: 人が行う
+    items:
+    - 許可と届出の記録と照合する
+    - パトロールと立入調査で確かめる
+    - 是正の指導や命令を判断する
+  note: 衛星は「見に行く場所」を絞る道具。盛土かどうかは現地で
+- id: fig-2
+  type: cards
+  alt: この使い方の5つの限界
+  columns: 2
+  items:
+  - title: ゆっくり広がる伐開
+    text: 漸進的な変化は検出しきれない
+    role: none
+  - title: 草が戻った場所
+    text: 光学だけでは拾えない
+    role: none
+  - title: 無償データは粗い
+    text: 商用の光学より分解能が低い
+    role: none
+  - title: 誤検出は未公表
+    text: 再現できなかった理由も不明
+    role: none
+  - title: 盛土かは決まらない
+    text: 変化の種類は台帳と現地で
+    role: none

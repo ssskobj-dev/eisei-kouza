@@ -1,0 +1,88 @@
+# ユースケースの記事「盛土と地形改変の候補地を無償の衛星データで洗い出す」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星と解析に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 光学で植生の変化を2時期で比べる
+        - SARの強度の差分で地形の変化を拾う
+        - 機械学習でノイズを除いて候補地に
+    right:
+      title: 人が行う
+      items:
+        - 許可と届出の記録と照合する
+        - パトロールと立入調査で確かめる
+        - 是正の指導や命令を判断する
+    note: 衛星は「見に行く場所」を絞る道具。盛土かどうかは現地で
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: ゆっくり広がる伐開
+        text: 漸進的な変化は検出しきれない
+        role: none
+      - title: 草が戻った場所
+        text: 光学だけでは拾えない
+        role: none
+      - title: 無償データは粗い
+        text: 商用の光学より分解能が低い
+        role: none
+      - title: 誤検出は未公表
+        text: 再現できなかった理由も不明
+        role: none
+      - title: 盛土かは決まらない
+        text: 変化の種類は台帳と現地で
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 年次の監視に衛星の抽出を入れる手順
+    steps:
+      - title: 範囲と期間
+        text: 対象と比べる年
+        who: human
+      - title: 候補地を抽出
+        text: 光学とSARで抽出
+        who: satellite
+      - title: 記録と照合
+        text: 台帳と照合する
+        who: human
+      - title: 順番を決める
+        text: 巡視と立入調査
+        who: human
+      - title: 結果を戻す
+        text: 誤検出も記録
+        who: human
+
+  - id: bar
+    type: bar
+    alt: 佐賀市約431km²の実証で抽出された変化の数
+    unit: か所
+    source: Synspective（佐賀県 令和7年度 衛星データの活用可能性実証事業、2017〜2025年の変化）
+    items:
+      - label: 従来の方法で把握していた数
+        value: 17
+      - label: うち新しい方法で再現した数
+        value: 15
+      - label: 新しい方法で抽出した合計
+        value: 151
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 県全域の監視
+        text: 人が見て回れない広さ
+      - title: 短期の伐開と盛土
+        text: 2時期の差で出やすい
+      - title: 小さな改変
+        text: 10mの画素では拾いにくい
+      - title: ゆっくり広がる改変
+        text: 現在の方法では難しい

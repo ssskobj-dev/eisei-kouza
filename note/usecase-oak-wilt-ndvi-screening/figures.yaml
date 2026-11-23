@@ -1,0 +1,45 @@
+# note記事「ナラ枯れの調査、ヘリも踏査も足りない。無償の衛星画像で被害地の候補を先に絞る方法と、林分までしか分からない限界」の見出し画像と図。
+figures:
+- id: thumbnail
+  type: thumbnail
+  kind: usecase
+  tag: 林業・カーボン
+  title: ナラ枯れの被害地を衛星で絞る
+  sub: 2年分のNDVIの差で候補地に。単木としきい値は現地で
+- id: fig-1
+  type: split
+  alt: 衛星に任せることと、人が行うこと
+  link: ＋
+  left:
+    title: 衛星と解析が行う
+    items:
+    - 無償の10m級画像からNDVIを計算
+    - 前年との差が大きい林分を候補に
+    - 定期の観測で時系列の変化を追う
+  right:
+    title: 人が行う
+    items:
+    - しきい値を決める現地調査
+    - 候補地にドローンやヘリを向ける
+    - 被害木を確かめ駆除の計画を立てる
+  note: 衛星は林分の候補まで。被害木の本数と駆除の量は現地で
+- id: fig-2
+  type: cards
+  alt: この使い方の5つの限界
+  columns: 2
+  items:
+  - title: 単木は分からない
+    text: 10m級は林分まで。単木は30〜50cm級
+    role: none
+  - title: 伐採や風倒も出る
+    text: NDVIの低下はナラ枯れだけでない
+    role: none
+  - title: 落葉と枯れの区別
+    text: 落葉樹は撮影の時期を選ぶ
+    role: none
+  - title: しきい値は現地で
+    text: 0.2は鴨川市周辺の目安
+    role: none
+  - title: 精度の数字がない
+    text: 的中率と見逃しは報告にない
+    role: none
