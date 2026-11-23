@@ -1,0 +1,75 @@
+# ユースケースの記事「ナラ枯れの被害地を無償の衛星データで先に絞る」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 無償の10m級画像からNDVIを計算
+        - 前年との差が大きい林分を候補に
+        - 定期の観測で時系列の変化を追う
+    right:
+      title: 人が行う
+      items:
+        - しきい値を決める現地調査
+        - 候補地にドローンやヘリを向ける
+        - 被害木を確かめ駆除の計画を立てる
+    note: 衛星は林分の候補まで。被害木の本数と駆除の量は現地で
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 単木は分からない
+        text: 10m級は林分まで。単木は30〜50cm級
+        role: none
+      - title: 伐採や風倒も出る
+        text: NDVIの低下はナラ枯れだけでない
+        role: none
+      - title: 落葉と枯れの区別
+        text: 落葉樹は撮影の時期を選ぶ
+        role: none
+      - title: しきい値は現地で
+        text: 0.2は鴨川市周辺の目安
+        role: none
+      - title: 精度の数字がない
+        text: 的中率と見逃しは報告にない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 被害調査の一次ふるい分けに衛星を入れる手順
+    steps:
+      - title: 画像を集める
+        text: 着葉期の2年分、雲の少ない日
+        who: human
+      - title: 差分で候補地
+        text: NDVIの差が基準を超える
+        who: satellite
+      - title: 基準を決める
+        text: 既知の被害地と現地調査
+        who: human
+      - title: 記録と照合
+        text: 伐採届と風倒を外す
+        who: human
+      - title: 現地で確認
+        text: ドローンやヘリで被害木
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 県全域の大まかな把握
+        text: 林分単位の大規模な被害
+      - title: 常緑の広葉樹林
+        text: 枯れた葉を抽出しやすい
+      - title: 落葉の広葉樹林
+        text: 落葉と枯れの区別が難しい
+      - title: 1本ごとの把握
+        text: ドローンか30〜50cm級

@@ -1309,6 +1309,7 @@ usecases:
   verified: true
 - 'no': 66
   name: 藻場の分布図とブルーカーボン
+  skip: true  # no.58（seagrass-blue-carbon-map）と同じ事例（ウミトロン、上天草市と伊豆大島）のため、記事にしない
   theme: 林業・カーボン
   field: カーボン
   stage: 実証
@@ -1668,6 +1669,7 @@ usecases:
   verified: true
 - 'no': 84
   name: 下水道管きょの点検優先度の診断
+  slug: sewer-pipe-priority-diagnosis
   theme: インフラ・建設
   field: インフラ維持管理
   stage: 実証
@@ -1687,6 +1689,7 @@ usecases:
   verified: true
 - 'no': 85
   name: 盛土・地形改変の候補地の抽出
+  slug: embankment-change-screening-saga
   theme: インフラ・建設
   field: 建設・土木
   stage: 実証
@@ -1706,6 +1709,7 @@ usecases:
   verified: true
 - 'no': 86
   name: ナラ枯れ被害地の抽出
+  slug: oak-wilt-ndvi-screening
   theme: 林業・カーボン
   field: 林業
   stage: 研究

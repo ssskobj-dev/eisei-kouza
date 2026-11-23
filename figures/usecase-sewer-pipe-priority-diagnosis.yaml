@@ -1,0 +1,75 @@
+# ユースケースの記事「下水道管きょの点検の順番を衛星データで決める」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星と解析に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 地表面温度・地盤変動・降水量をそろえる
+        - 台帳・埋設環境と合わせ損傷リスクを推定
+        - 優先度A〜Eを地図にする
+    right:
+      title: 人が行う
+      items:
+        - 処理場の流入水と水質のデータを整える
+        - 優先度の高い路線から管の中を調べる
+        - 調査の結果を診断に戻して確かめる
+    note: 衛星は「順番を決める」材料。管の状態の確定は管内調査
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 精度の数字がない
+        text: 的中率と見逃しは未公表
+        role: none
+      - title: 衛星名が未公表
+        text: 無償で成り立つかは不明
+        role: none
+      - title: 管の中は写らない
+        text: 腐食や亀裂は管内調査で
+        role: none
+      - title: 出るのは順番
+        text: 損傷の有無の確定ではない
+        role: none
+      - title: 地上のデータが前提
+        text: 台帳・埋設環境・流入水
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 点検・調査計画に優先度の診断を入れる手順
+    steps:
+      - title: 台帳を整える
+        text: 布設年度・管種・埋設環境
+        who: human
+      - title: 流入水の整理
+        text: 処理場のデータと水質
+        who: human
+      - title: 健全度と重要度
+        text: 衛星データと合わせて推定
+        who: satellite
+      - title: 順番を決める
+        text: A〜Eで管内調査の対象
+        who: human
+      - title: 結果を戻す
+        text: 当たりを確かめて翌年へ
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 延長が長い事業体
+        text: 網羅的な点検が難しい
+      - title: 台帳が電子化
+        text: 年度と管種が地図で使える
+      - title: 流入水の記録なし
+        text: 新しい入力が使えない
+      - title: 状態の確定
+        text: 損傷の有無は管内調査で
