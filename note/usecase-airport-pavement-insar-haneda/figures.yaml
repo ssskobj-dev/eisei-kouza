@@ -1,0 +1,45 @@
+# note記事「空港の路面測量、夜の5〜6時間しか使えない。羽田空港で衛星SARが測量との差約1cmで沈下の傾向を捉えた提案と、4mmには届かない限界」の見出し画像と図。
+figures:
+- id: thumbnail
+  type: thumbnail
+  kind: usecase
+  tag: インフラ・建設
+  title: 空港の路面の沈下を衛星で測る
+  sub: 羽田空港で測量との差は約1cm。4mmの勾配の管理は残る
+- id: fig-1
+  type: split
+  alt: 衛星に任せることと、人が行うこと
+  link: ＋
+  left:
+    title: 衛星と解析が行う
+    items:
+    - 10mメッシュで路面の上下を面で捉える
+    - 測量のない年の沈下の傾向を追う
+    - 沈下が進む区画を見つける
+  right:
+    title: 人が行う
+    items:
+    - 3年に1回の勾配の管理の水準測量
+    - 衛星と測量の値の継続性を確かめる
+    - 区画の詳細測量と補修の判断
+  note: 衛星は約1cmの精度。4mmが要る勾配の管理は測量で
+- id: fig-2
+  type: cards
+  alt: この使い方の5つの限界
+  columns: 2
+  items:
+  - title: 4mmには届かない
+    text: 測量との差はRMSE約1cm
+    role: none
+  - title: 点は特定できない
+    text: 10mメッシュの値。段差は見えない
+    role: none
+  - title: 衛星の種類を選ぶ
+    text: Lは感度が低くCは分解能が足りない
+    role: none
+  - title: 画像の調達費
+    text: Xバンドは有償。金額は非公開
+    role: none
+  - title: 測量との継続性
+    text: 許容する誤差を既存と比べて決める
+    role: none

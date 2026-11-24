@@ -1729,6 +1729,7 @@ usecases:
   verified: true
 - 'no': 87
   name: ノリ養殖の赤潮監視
+  slug: nori-red-tide-sgli-ariake
   theme: 水産・海洋
   field: 水産・養殖
   stage: 研究
@@ -1748,6 +1749,7 @@ usecases:
   verified: true
 - 'no': 88
   name: 空港舗装の沈下の面的な把握
+  slug: airport-pavement-insar-haneda
   theme: インフラ・建設
   field: インフラ維持管理
   stage: 研究
@@ -1767,6 +1769,7 @@ usecases:
   verified: true
 - 'no': 89
   name: 夜間光による地域の経済活動の推計
+  slug: night-light-economic-activity
   theme: 都市・行政
   field: 行政の業務
   stage: 研究
