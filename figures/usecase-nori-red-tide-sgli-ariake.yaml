@@ -1,0 +1,75 @@
+# ユースケースの記事「ノリ養殖の赤潮を衛星データで見張れるか」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 250mの格子でクロロフィルを面で見る
+        - 1〜2日おきに広がりの変化を追う
+        - 観測点の少ない沖合を補う
+    right:
+      title: 人が行う
+      items:
+        - 約35地点を週1〜2回観測する
+        - 採水して種類と密度を確かめる
+        - 漁業者に知らせ摘み取りを決める
+    note: 衛星は着色の広がりまで。種類と密度は採水で
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 雲で欠ける
+        text: 冬の漁期は不明瞭や欠測が多い
+        role: none
+      - title: 濁りで高く出る
+        text: 懸濁物を植物プランクトンと取り違える
+        role: none
+      - title: 網1枚は見えない
+        text: 250mは湾の広がりを見る粗さ
+        role: none
+      - title: 種類と密度は不明
+        text: 色落ちを起こす種かは採水で
+        role: none
+      - title: 精度の数字がない
+        text: 合う頻度は資料にない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 赤潮の見張りに衛星の画像を補助として加える手順
+    steps:
+      - title: 現場観測
+        text: 週1〜2回をこれまでどおり
+        who: human
+      - title: 画像を見る
+        text: 晴れた日のクロロフィルと自然色
+        who: satellite
+      - title: 照合を記録
+        text: 高く出る場所と時期を把握
+        who: human
+      - title: 採水を向ける
+        text: 観測点の間と沖合の着色域
+        who: human
+      - title: 知らせる
+        text: 種類と密度を確かめ漁業者へ
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 濁りの少ない漁場
+        text: 外洋寄りで晴れが続く
+      - title: 広がりの位置と向き
+        text: 採水を向ける先の当たり
+      - title: 濁った内湾の奥
+        text: 値が異常に高く出る
+      - title: 種類と密度の判定
+        text: 衛星では分からない

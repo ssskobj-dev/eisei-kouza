@@ -1,0 +1,75 @@
+# ユースケースの記事「空港の滑走路の地盤沈下を衛星データのInSARで面で測る」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 10mメッシュで路面の上下を面で捉える
+        - 測量のない年の沈下の傾向を追う
+        - 沈下が進む区画を見つける
+    right:
+      title: 人が行う
+      items:
+        - 3年に1回の勾配の管理の水準測量
+        - 衛星と測量の値の継続性を確かめる
+        - 区画の詳細測量と補修の判断
+    note: 衛星は約1cmの精度。4mmが要る勾配の管理は測量で
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 4mmには届かない
+        text: 測量との差はRMSE約1cm
+        role: none
+      - title: 点は特定できない
+        text: 10mメッシュの値。段差は見えない
+        role: none
+      - title: 衛星の種類を選ぶ
+        text: Lは感度が低くCは分解能が足りない
+        role: none
+      - title: 画像の調達費
+        text: Xバンドは有償。金額は非公開
+        role: none
+      - title: 測量との継続性
+        text: 許容する誤差を既存と比べて決める
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 測量の間の2年を衛星で埋める手順
+    steps:
+      - title: 測量を続ける
+        text: 勾配の管理は3年に1回
+        who: human
+      - title: 差を確かめる
+        text: 同じ年の衛星と測量を比べる
+        who: human
+      - title: 2年を衛星で
+        text: 時系列解析で沈下の傾向
+        who: satellite
+      - title: 区画を抽出
+        text: 沈下が進む所を記録
+        who: satellite
+      - title: 詳細測量
+        text: 必要な区画だけ測り補修を判断
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 平坦な舗装が広い空港
+        text: 1cm程度で足りる沈下の管理
+      - title: 過去の測量の記録
+        text: 許容する誤差を決められる
+      - title: 無償データだけ
+        text: Cバンドは分解能が足りない
+      - title: 4mm以内の勾配の管理
+        text: 水準測量が残る

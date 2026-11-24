@@ -1,0 +1,45 @@
+# note記事「統計が出るまで待てない。夜間光の衛星データで地域の経済活動の増減をつかむ考え方と、首都圏の500m格子で時短命令の効き目を測った研究」の見出し画像と図。
+figures:
+- id: thumbnail
+  type: thumbnail
+  kind: usecase
+  tag: 都市・行政
+  title: 夜間光で経済活動の増減をつかむ
+  sub: 首都圏の500m格子で、時短命令の効き目を測った研究
+- id: fig-1
+  type: split
+  alt: 衛星に任せることと、人が行うこと
+  link: ＋
+  left:
+    title: 衛星と解析が行う
+    items:
+    - 500m格子で夜の明るさの増減を面で見る
+    - 日次のデータで統計より早くつかむ
+    - 統計が粗い地域の動きを補う
+  right:
+    title: 人が行う
+    items:
+    - 店舗や事業所の位置データと重ねる
+    - 増減の原因を現地や統計で確かめる
+    - 政策の効果の判断と調査の設計
+  note: 衛星は増減の当たりまで。原因と効果の判断は人が
+- id: fig-2
+  type: cards
+  alt: この使い方の5つの限界
+  columns: 2
+  items:
+  - title: 光のない活動
+    text: 農園や鉱山は土地被覆で補う
+    role: none
+  - title: 1店は見えない
+    text: 500m格子の光はまとめた値
+    role: none
+  - title: 原因は分からない
+    text: 減った理由は光だけでは不明
+    role: none
+  - title: NO2は山火事も
+    text: 経済活動以外の影響が大きい
+    role: none
+  - title: 位置データの網羅性
+    text: 公開の地図は店の一部
+    role: none
