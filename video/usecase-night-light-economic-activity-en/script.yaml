@@ -1,0 +1,121 @@
+# English use-case video. Same facts as casebook/night-light-economic-activity.qmd; English narration & slides.
+lang: en
+voice: Ryan
+title: Reading local economic activity from satellite night lights
+series: CASEBOOK
+kicker: Use case
+number: 89
+total: 221
+thumb: Night lights, local economy
+summary: How researchers and public bodies use satellite nighttime light to sense local economic activity before official statistics arrive. A Tokyo-area study measured the effect of restaurant shortened-hours orders on night light. Where it fits, what it decides, its limits, and why it runs on free data. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: Reading local economic activity from satellite night lights
+    sub: Sensing change before the statistics arrive
+    say: Can you sense how a local economy is moving before the official statistics come out? Sometimes, yes. The answer is to watch the change in the lights the Earth gives off at night, as a proxy for activity. In this video we look at who uses satellite nighttime light this way, a real Tokyo-area study, where it fits in the workflow, what it can decide, its limits, and why it runs on free data.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Region: both overseas and Japan. Used by researchers and public survey teams"
+      - "Who: international bodies, research institutes, government survey departments"
+      - "Why: official statistics are slow, and often not available below the city level"
+      - "The idea: night light brightness as a stand-in indicator for economic activity"
+    say: Local economic activity is normally read from official statistics. But statistics take time to compile, and often are not published below the municipal level. In developing regions the statistics themselves can be coarse. So social-science researchers have long used the brightness of the light a satellite sees at night as a stand-in for economic activity. A researcher at ERIA, the Economic Research Institute for ASEAN and East Asia, presented this approach at a JAXA Earth-observation consortium meeting in May 2024. NASA satellite data became public in 2009 and European Space Agency data in 2010, which brought it within reach of social-science budgets.
+
+  - kind: table
+    heading: The case - Tokyo restaurant orders, 2020
+    columns: [Item, Detail]
+    widths: [0.36, 0.64]
+    rows:
+      - [Data, "NASA nighttime light product, about 500 m grid, daily, moonlight-corrected"]
+      - [Period, "2 January to 23 June 2020"]
+      - [Area, "Tokyo and 8 neighbouring prefectures; grids within 1 km of prefecture borders"]
+      - [Sample, "5,088 grid cells, 342,488 grid-by-day observations"]
+      - [Restaurants, "Counted from OpenStreetMap point data"]
+    say: The headline study measured the effect of the shortened-hours orders that local governments gave restaurants during COVID-19. It used NASA's nighttime light product, an about five hundred metre grid, daily, corrected for moonlight, from the second of January to the twenty-third of June 2020. The area was Tokyo and eight neighbouring prefectures. To compare the different local orders, it kept grid cells within one kilometre of the prefecture borders - five thousand and eighty-eight cells, and three hundred forty-two thousand observations. Restaurant locations were counted from OpenStreetMap.
+
+  - kind: bullets
+    heading: What the study found
+    items:
+      - The orders were issued in April 2020; in Tokyo and Kanagawa, 11 April to 18 June
+      - Grids with more restaurants saw night light fall significantly during the order
+      - Grids with no restaurants saw light rise - read as people staying home
+      - After the order was lifted, night light tended to return
+    say: The orders were issued in April 2020; in Tokyo and Kanagawa they ran from the eleventh of April to the eighteenth of June. The result was this - the more restaurants a five hundred metre grid held, the more its night light fell during the order, and significantly so. Grids with no restaurants actually grew brighter, which the paper reads as residents staying home. After the orders were lifted, the light tended to come back. Because the light is available about a week after observation, the paper notes it can signal compliance and economic impact earlier than waiting for accounting records. This is research, not an operational government service.
+
+  - kind: steps
+    heading: Where it fits in the workflow
+    items:
+      - Obtain the free night light data over your area on the 500 m grid
+      - Use the quality flags for moon, cloud and snow to pick usable days
+      - Overlay store or business location data to split the area by type
+      - Map the change versus the previous year or month, as a map and a time series
+      - Check the cause of large changes on the ground and against statistics
+    say: If a survey team wanted to use this as a reference before statistics arrive, the flow is roughly this. Obtain the free night light data over your area on the five hundred metre grid. Use the quality flags for moon, cloud and snow to choose usable days. Overlay store or business location data, so you can tell commercial from residential from industrial areas. Map the increase or decrease against the previous year or month, as both a map and a time series. Then check the cause of the big changes on the ground and against statistics, and decide where to dig deeper. The preprocessing in step two is the first real hurdle for a public survey team.
+
+  - kind: table
+    heading: Satellite versus people
+    columns: [The satellite does, The people do]
+    widths: [0.5, 0.5]
+    rows:
+      - ["Show where brightness rose or fell across the grid", "Overlay store and business location data"]
+      - ["Give a daily series, earlier than statistics", "Confirm the cause on the ground or in statistics"]
+      - ["Fill in where statistics are coarse", "Judge policy effect and design deeper surveys"]
+    say: The split of roles looks like this. The satellite shows, across the grid, where night brightness rose or fell; it gives a daily series earlier than statistics can; and it fills in where statistics are coarse. The people overlay the store and business location data, confirm the cause of a change on the ground or in the statistics, and judge the policy effect and design the deeper surveys. The satellite finds where something happened. Why it happened, and whether a policy worked, stays a human job.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.42, 0.58]
+    rows:
+      - ["Change map of night light (500 m grid)", "Which areas rose or fell; where to survey in depth"]
+      - ["Time series by area type", "Change around a policy; a hypothesis to test its effect"]
+      - ["Record of usable days and quality", "How far to trust the indicator; how to treat cloudy spells"]
+      - ["Result of cross-check with statistics", "Whether to use the same indicator next year"]
+    say: Here is the data you receive and what it lets you decide. The change map of night light on the five hundred metre grid tells you which areas rose or fell, and where to survey in depth. The time series by area type shows the change around a policy, and gives you a hypothesis to test its effect. The record of usable days and quality tells you how far to trust the indicator, and how to treat cloudy spells. And the cross-check once statistics are out tells you whether to keep using the indicator next year. The night light map is for finding where something happened; cause and policy effect are settled by statistics and field checks.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - Some land cover is barely lit at night - farms and mines can stay invisible
+      - At 500 m, a single store cannot be seen; the grid sums all its light
+      - Light alone does not tell you the cause; observation is around 11pm to midnight
+      - Nitrogen dioxide, another proxy, is also driven heavily by wildfires
+      - Store location data from open maps is not fully comprehensive
+    say: The limits matter. First, some land cover is barely lit at night, so farms, mines and similar activity can stay invisible; the report gives the example of large plantations in northern Laos in the early 2000s, before exports began. Second, at five hundred metres a single store cannot be seen - the grid sums the light of its shops, homes, streetlights and roads. Third, light alone does not tell you the cause, and since the satellite observes around eleven at night to midnight, stores that close earlier are hard to catch. Fourth, nitrogen dioxide, another proxy mentioned in the report, is also driven heavily by wildfires, not economic activity alone. Fifth, store locations from open map data are not fully comprehensive.
+
+  - kind: table
+    heading: What it costs
+    columns: [Item, Note]
+    widths: [0.36, 0.64]
+    rows:
+      - [Satellite data, "NASA nighttime light product - free, publicly available. Data cost is zero"]
+      - [Preprocessing, "Day selection by quality flags, grid extraction, overlay - the technology hurdle"]
+      - [Location data, "Obtaining and aggregating store or business locations onto the grid"]
+      - [Analysis and cross-check, "Mapping the change, checking against statistics - mostly staff time"]
+    say: On cost, the structure is the point. The satellite data is NASA's nighttime light product, free and publicly available, so the data cost is zero. No figure for this research is published. What costs money is the work - the preprocessing, selecting days by quality flags, cutting out the grid, and overlaying - which the report calls the technology hurdle; obtaining and aggregating the store or business location data; and the analysis and the cross-check with statistics, which is mostly staff time. The report lists budget, technology and interest as the three barriers to wider use, and proposes lowering the cost of access and providing data pre-processed for social-science researchers.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.24, 0.38, 0.38]
+    rows:
+      - ["What you want", "A sense of local rise and fall, and timing", "Whether one store or site is open"]
+      - ["Area", "Brightly lit commercial and urban areas", "Farms or mines, dark at night"]
+      - ["Comparison", "Same grid, before versus after", "Brightness between different kinds of area"]
+      - ["Location data", "You have store or business locations", "No way to split by sector"]
+    say: Finally, where it fits. It fits when you want a sense of local rise and fall and its timing, in brightly lit commercial or urban areas, comparing the same grid before and after a change, and when you have store or business location data to read it by sector. It does not fit when you need to know whether one specific store or site is open, in areas that are dark at night like farms or mines, when you are comparing brightness between fundamentally different kinds of area, or when you have no way to split the area by sector. When you propose this, three points matter - ask first whether store or business location data exists, never say night light alone tells you the economy, and offer it as an indicator before the statistics, not a replacement for them.
+
+  - kind: cta
+    heading: Considering it for your region?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source: Keola (ERIA), satellite data in social science research (JAXA CONSEO, 14 May 2024)"
+      - "https://earth.jaxa.jp/conseo/news/20240520-1/document_04.pdf"
+      - "Study: Hayakawa, Keola & Urata (IDE Discussion Paper 822, Jul 2021; Japan and the World Economy vol. 63, 2022)"
+      - "https://www.ide.go.jp/English/Publish/Reports/Dp/822.html"
+      - "Nighttime light data: NASA Black Marble VNP46A2 (free, publicly available)"
+    say: To consider this for your own region or clients, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
