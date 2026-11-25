@@ -1,0 +1,91 @@
+# ユースケースの記事「太陽光発電施設が潰した生態系の面積を衛星データと航空写真で把握する」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星と航空写真に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星画像と航空写真から
+      items:
+        - 施設の範囲を全国で一様に地図データにする
+        - 建設前の土地被覆と重ねて失われた面積を数える
+        - 保護区と重ねて中の施設を数える
+    right:
+      title: 人が行う
+      items:
+        - 画像から範囲をなぞって描く
+        - どこを規制しどこへ誘導するかを決める
+        - 個々の場所の生物への影響を評価する
+    note: 分かるのは面積まで。生物への影響の質は現地の調査で
+
+  - id: bar
+    type: bar
+    alt: 国内の自然保護区の中にあった太陽光発電施設の数
+    unit: 施設
+    source: 国立環境研究所 報道発表（2021年3月29日）。0.5MW以上の施設。合計1,027施設、約35km²
+    items:
+      - label: 鳥獣保護区
+        value: 605
+        note: 約20km²
+      - label: 都道府県立自然公園
+        value: 245
+        note: 約8km²
+      - label: 国立公園
+        value: 101
+        note: 約5km²
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 0.5MW未満は対象外
+        text: 屋根や小さな野立ては数えない
+        role: none
+      - title: 範囲は人が描く
+        text: 8,725施設。更新に手間がかかる
+        role: none
+      - title: 建設前は地図から推定
+        text: 地図の年と建設の時期のずれ
+        role: none
+      - title: 影響の質は分からない
+        text: 分かるのは土地被覆ごとの面積
+        role: none
+      - title: 一覧にない施設
+        text: データベース漏れは対象外
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 立地の規制や誘導の検討に施設の地図を入れる手順
+    steps:
+      - title: 一覧を集める
+        text: 発電容量と所在地
+        who: human
+      - title: 範囲を描く
+        text: 衛星画像や航空写真から
+        who: satellite
+      - title: 重ねて数える
+        text: 建設前の土地被覆と保護区
+        who: satellite
+      - title: 建ちやすさ
+        text: 気象・地形・社会条件の地図
+        who: satellite
+      - title: 区域の案
+        text: 規制と誘導。現地で評価
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 広域の分布と面積
+        text: 規制や誘導の区域の検討
+      - title: 一覧と地図がある
+        text: 施設の一覧と建設前の地図
+      - title: 小さな施設
+        text: 0.5MW未満は対象外
+      - title: 生物への影響の質
+        text: 現地の調査が要る

@@ -1789,6 +1789,7 @@ usecases:
   verified: true
 - 'no': 90
   name: 液状化の範囲の推定
+  slug: liquefaction-sar-coherence-noto
   theme: 防災
   field: 防災・災害対応
   stage: 研究
@@ -1808,6 +1809,7 @@ usecases:
   verified: true
 - 'no': 91
   name: 洋上風力の風況の面的な推定
+  slug: offshore-wind-sar-ireland
   theme: エネルギー・資源
   field: エネルギー
   stage: 研究
@@ -1827,6 +1829,7 @@ usecases:
   verified: true
 - 'no': 92
   name: 太陽光発電施設の立地の影響評価
+  slug: solar-siting-ecosystem-nies
   theme: 環境・水
   field: 環境・気候
   stage: 研究
