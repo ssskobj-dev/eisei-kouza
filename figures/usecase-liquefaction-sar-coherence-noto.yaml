@@ -1,0 +1,75 @@
+# ユースケースの記事「地震の液状化の範囲を衛星データのSARで推定する」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 地震の前後でコヒーレンスの低下を面で抜き出す
+        - 変状の可能性が高い範囲を地図にする
+        - 旧地形図の埋立地と重ねる
+    right:
+      title: 人が行う
+      items:
+        - 家屋の調査に入る街区の順番を決める
+        - 貫入試験や表面波探査で地盤の緩みを確かめる
+        - 罹災証明と復旧の判断
+    note: 衛星は「可能性が高い範囲」まで。液状化の判定は現地で
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 的中率の数字がない
+        text: 検証は旧地形図との目視の比較
+        role: none
+      - title: 液状化以外でも下がる
+        text: 倒壊、がれき、積雪でも変わる
+        role: none
+      - title: 次の観測を待つ
+        text: この事例は地震の10日後の画像
+        role: none
+      - title: 可能性が高い範囲まで
+        text: 沈下量や家屋の傾きは分からない
+        role: none
+      - title: 地盤の中は見えない
+        text: 埋立層の深さは現地の調査で
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 地震後の被害把握の初動に衛星を入れる手順
+    steps:
+      - title: 平時に用意
+        text: 地震前の画像と旧地形図
+        who: human
+      - title: 差分を出す
+        text: 地震後の観測を待ち解析
+        who: satellite
+      - title: 重ねる
+        text: 埋立地や旧河道と照合
+        who: satellite
+      - title: 街区の順番
+        text: 疑いの強い所から調査員を
+        who: human
+      - title: 現地で確認
+        text: 貫入試験で緩みを確かめ記録
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 埋立地の資料がある
+        text: 街区ごとにまとまる液状化
+      - title: 10日前後で足りる初動
+        text: 調査の順番を決める材料
+      - title: 積雪や倒壊が広い
+        text: 他の原因と区別しにくい
+      - title: 翌日に範囲が要る
+        text: 次の観測を待てない

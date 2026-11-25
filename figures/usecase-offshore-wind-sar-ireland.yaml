@@ -1,0 +1,94 @@
+# ユースケースの記事「洋上風力の風況を衛星データのSARで面で見積もる」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 海上10mの風速を1km格子で面で推定する
+        - 2年分を統計にして平均風速と風力密度の地図に
+        - 候補海域の強弱を比べる
+    right:
+      title: 人が行う
+      items:
+        - ブイや観測所の記録と比べて偏りを確かめる
+        - ライダーやブイを置く場所を決める
+        - 風車の高さの風と事業性を現地の観測で評価
+    note: 衛星は候補の比較まで。事業性の根拠は現地の観測で
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 朝夕の決まった時刻
+        text: 月10〜20回。日変化は捉えない
+        role: none
+      - title: 高さ10mの風
+        text: 風車の高さには換算が要る
+        role: none
+      - title: 約0.4m/s低く出る
+        text: 弱い風ほど偏りが大きい
+        role: none
+      - title: 岸から1kmと端
+        text: 陸の混入。観測幅の端は除く
+        role: none
+      - title: 軌道の筋が残る
+        text: 精度は場所で変わる
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 区域選定の初期に衛星の風況図を入れる手順
+    steps:
+      - title: 2年分集める
+        text: 無償の海上風のデータ
+        who: satellite
+      - title: 偏りを確認
+        text: ブイや観測所の記録と比較
+        who: human
+      - title: 地図を作る
+        text: 平均風速と風力密度の1km格子
+        who: satellite
+      - title: 候補を比べる
+        text: 機器を置く場所と外す海域
+        who: human
+      - title: 現地で観測
+        text: 風車の高さの風と事業性
+        who: human
+
+  - id: bar
+    type: bar
+    alt: 同じ時刻の比較で見た、衛星の風速の偏りとRMSE
+    unit: m/s
+    source: de Montera ほか、Wind Energy Science（2017年5月〜2019年5月の2年間、アイルランド周辺）
+    items:
+      - label: 偏り（ブイ4基）
+        value: 0.42
+        note: （−0.42。衛星が低く出る）
+      - label: 偏り（沿岸の観測所3か所）
+        value: 0.39
+        note: （−0.39）
+      - label: RMSE（ブイ4基）
+        value: 1.41
+        note: （1.41）
+      - label: RMSE（沿岸の観測所3か所）
+        value: 1.51
+        note: （1.51）
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 区域選定の初期
+        text: 機器を置く前の候補の比較
+      - title: 比べる記録がある
+        text: 偏りを確かめて補正できる
+      - title: 岸から1km未満
+        text: 陸の反射が混ざる
+      - title: 事業性の根拠
+        text: 風車の高さの風は現地で

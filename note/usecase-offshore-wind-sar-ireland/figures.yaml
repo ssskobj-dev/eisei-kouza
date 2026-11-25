@@ -1,0 +1,45 @@
+# note記事「洋上風力の候補海域、観測機器を置く前にどう比べるか。アイルランド全周で無償の衛星データをブイと比べた検証と、朝夕しか観測できない限界」の見出し画像と図。
+figures:
+- id: thumbnail
+  type: thumbnail
+  kind: usecase
+  tag: エネルギー・資源
+  title: 洋上風力の風況を衛星で見積もる
+  sub: アイルランド全周を1km格子で。風力密度の誤差は約10%
+- id: fig-1
+  type: split
+  alt: 衛星に任せることと、人が行うこと
+  link: ＋
+  left:
+    title: 衛星と解析が行う
+    items:
+    - 海上10mの風速を1km格子で面で推定する
+    - 2年分を統計にして平均風速と風力密度の地図に
+    - 候補海域の強弱を比べる
+  right:
+    title: 人が行う
+    items:
+    - ブイや観測所の記録と比べて偏りを確かめる
+    - ライダーやブイを置く場所を決める
+    - 風車の高さの風と事業性を現地の観測で評価
+  note: 衛星は候補の比較まで。事業性の根拠は現地の観測で
+- id: fig-2
+  type: cards
+  alt: この使い方の5つの限界
+  columns: 2
+  items:
+  - title: 朝夕の決まった時刻
+    text: 月10〜20回。日変化は捉えない
+    role: none
+  - title: 高さ10mの風
+    text: 風車の高さには換算が要る
+    role: none
+  - title: 約0.4m/s低く出る
+    text: 弱い風ほど偏りが大きい
+    role: none
+  - title: 岸から1kmと端
+    text: 陸の混入。観測幅の端は除く
+    role: none
+  - title: 軌道の筋が残る
+    text: 精度は場所で変わる
+    role: none
