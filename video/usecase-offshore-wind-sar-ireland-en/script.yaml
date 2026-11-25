@@ -1,0 +1,114 @@
+# English use-case video. Same facts as casebook/offshore-wind-sar-ireland.qmd; English narration & slides.
+lang: en
+voice: Ryan
+title: SAR satellites map offshore wind resource around Ireland (free data)
+series: CASEBOOK
+kicker: Use case
+number: 91
+total: 221
+thumb: Offshore wind resource
+summary: How a university study mapped the offshore wind resource around Ireland from free SAR satellite data, checked against buoys. Where it fits in site selection, what it decides, how accurate it is, and its limits as of 2026. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: Mapping offshore wind resource with SAR satellites
+    sub: Comparing candidate sea areas before placing a single buoy
+    say: Can you compare the wind resource across candidate sea areas before you place a single buoy? Yes. The answer is to map the sea-surface wind first, from free radar satellite data. A university team in Ireland did this for the whole coast and checked it against weather buoys. In this video, we look at who uses it, where it fits in site selection, what decisions it supports, how accurate it is, and where its limits are.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Country: Ireland. A study by University College Cork, published in 2020"
+      - "Who: offshore wind developers and energy authorities (the buyer)"
+      - "Why: to rank candidate sea areas by wind strength, early in site selection"
+      - "The problem: buoys measure single points, and placing them offshore is slow and costly"
+    say: The case is set around Ireland, in a study by the marine energy research centre at University College Cork, published in Wind Energy Science in 2020. The users in mind are offshore wind developers and energy authorities. The goal is to rank candidate sea areas by wind strength before deciding where to place observation instruments. The problem is that buoys and coastal stations measure only single points, they cannot cover a whole sea area, and putting instruments offshore takes time and money. So the satellite is used to compare the wind across areas as a map.
+
+  - kind: steps
+    heading: Where it fits in the workflow
+    items:
+      - Collect two or more years of the free sea-surface wind product for the candidate areas
+      - Compare against existing buoys and coastal stations to measure the bias
+      - Fit a Weibull distribution and build 1 km maps of mean wind speed and power density
+      - Compare the candidate areas, decide where to place lidar or buoys, and which areas to drop
+      - Start field observation to assess hub-height wind and bankability
+    say: Here is where it fits. It goes in at the very start of site selection, before instruments are placed. First, collect two or more years of the satellite sea-surface wind product for the candidate areas. Second, compare it against existing buoys and coastal stations to measure how far off it is. Third, fit a statistical distribution and build one-kilometre maps of mean wind speed and mean wind power density. Fourth, compare the areas, and decide where to place lidar or buoys and which areas to drop. Finally, start field observation, which is what actually assesses hub-height wind and bankability. The satellite narrows the choices; it does not replace the field campaign.
+
+  - kind: bullets
+    heading: How the satellite reads the wind
+    items:
+      - SAR radar records the roughness of the sea surface from the strength of the echo
+      - Stronger wind roughens the sea, so wind speed at 10 m can be inferred
+      - The product is Sentinel-1 Level-2 ocean wind, on a 1 km grid, from the European Space Agency
+      - Radar sees through cloud and at night, and the grid reaches close to the coast
+    say: Here is how it works. Synthetic aperture radar, or SAR, records the roughness of the sea surface as the strength of the returned echo. The stronger the wind, the rougher the sea, so the wind speed near the surface can be worked back from the echo. The European Space Agency publishes this as the Sentinel-1 Level-2 ocean wind product, giving the wind at ten metres above the sea on a one-kilometre grid. Unlike older scatterometers at about twelve kilometres, this grid reaches close to the coast, and radar is not blocked by cloud or darkness.
+
+  - kind: table
+    heading: The validation around Ireland
+    columns: [Item, Figure from the study]
+    widths: [0.4, 0.6]
+    rows:
+      - [Period and images, "2 years, May 2017 to May 2019. 5,509 Sentinel-1 images"]
+      - [Checked against, "4 offshore buoys and 3 coastal stations; 1,544 matched pairs"]
+      - [Bias of satellite wind, "0.42 m/s low vs buoys, 0.39 m/s low vs stations"]
+      - [RMSE and correlation, "1.41 and 1.51 m/s; correlation 0.93 and 0.92"]
+    say: Here is what the validation found. Over two years, from May 2017 to May 2019, the team collected five thousand five hundred and nine Sentinel-1 images. They compared them against four offshore weather buoys and three coastal stations, giving one thousand five hundred and forty-four matched pairs at the same times. On these pairs, the satellite wind reads low, by about zero point four metres per second against both. The root-mean-square error is around one point four to one point five metres per second, and the correlation is zero point nine three and zero point nine two. The bias is larger in light winds, because a calm sea stays smooth and the radar has little to read.
+
+  - kind: bullets
+    heading: Why it still works for wind resource
+    items:
+      - Over two years, fitted with a Weibull distribution, the speed bias cancels out
+      - Mean wind power density came within about 10 percent at buoys, about 5 percent at stations
+      - Power scales with the cube of wind speed, so the authors call this result notable
+      - The fixed morning and evening overpass times changed the mean power by under 7 percent
+    say: So why does a biased reading still give a useful wind resource? Because the resource is a long-term average, not a single reading. When two years of data are fitted with a Weibull distribution, the speed bias cancels out. The mean wind power density then comes within about ten percent at the buoys and about five percent at the coastal stations. Since power scales with the cube of the wind speed, small speed errors could have grown large, so the authors call this result notable. They also checked the effect of the satellite only passing in the fixed morning and evening windows, and found it changed the mean power by less than seven percent. The northwest sea area, above fifty-three degrees north, stood out at around seven hundred watts per square metre, about twenty percent above the roughly five hundred elsewhere.
+
+  - kind: table
+    heading: What decisions it supports
+    columns: [What you receive, What you can decide]
+    widths: [0.44, 0.56]
+    rows:
+      - ["Mean wind speed map (1 km grid)", "Which sea areas to compare, and which to drop"]
+      - ["Mean power density map (seasonal)", "Where to place lidar or buoys, and seasonal bias"]
+      - ["Sample count per grid cell", "Which values to trust, and the daily-cycle bias"]
+      - ["Comparison table vs observations", "The correction, and absolute values versus ranking"]
+    say: Here is the data you receive and what it lets you decide. The mean wind speed map, on a one-kilometre grid, tells you which sea areas to compare and which to drop. The seasonal power density map tells you where to place lidar or buoys, and how the wind shifts by season. The map of how many samples fell in each grid cell tells you which values to trust and how large the daily-cycle bias may be. And the comparison table against existing observations tells you how much to correct the data, and whether you can use absolute values or only a relative ranking. The field observation that follows is what gives you bankable numbers for finance and tenders.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - Observations come only at fixed morning and evening times, 10 to 20 times a month
+      - The output is the wind at 10 m, not at the turbine hub height of around 100 m
+      - Wind reads about 0.4 m/s low, and worse in light winds, so it needs correcting
+      - Within 1 km of shore and at the swath edge the data is unreliable, and orbit stripes remain in the maps
+    say: The limits are stated plainly in the study. First, the satellite passes only in fixed morning and evening windows, ten to twenty times a month, so it cannot capture how the wind changes through the day. Second, the output is the wind at ten metres, not at the turbine hub height of around one hundred metres, which needs a separate conversion the study does not cover. Third, the wind reads about zero point four metres per second low, and worse in light winds, so you cannot use it uncorrected. Fourth, within one kilometre of shore and at the edge of the radar swath the data is unreliable, and faint stripes from the satellite's orbit remain in the averaged maps. Wind shear, turbulence, and the temperature layering of the air cannot be seen from the surface wind at all; those come from offshore lidar or buoys.
+
+  - kind: bullets
+    heading: How far does free data go?
+    items:
+      - This whole study runs on free data; Sentinel-1 ocean wind costs nothing
+      - The 1 km maps and the validation were all built without buying imagery
+      - What you still pay for is the analysis labour and the field campaign
+      - Without comparable buoy records nearby, you are limited to a relative ranking of areas
+    say: So how far does free data take you? In this case, all the way through the mapping. The entire study runs on free Sentinel-1 ocean wind data, under the Copernicus licence, which also allows commercial use. The one-kilometre maps and the whole validation were built without buying any imagery. What you still pay for is the analysis labour, collecting two years of the product, screening it, running the statistics and the mapping, and then the field campaign of lidar or buoys, which remains necessary for hub-height wind and bankability. One caution, though. This worked because Ireland had buoys and stations to check against. Without comparable records near your area, you cannot measure the bias, and you are limited to a relative ranking of the areas rather than absolute values.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.24, 0.38, 0.38]
+    rows:
+      - ["Stage", "Early site selection, before instruments", "Bankability or tender basis"]
+      - ["Sea area", "1 km or more from shore", "Within 1 km, or complex coastline"]
+      - ["Reference data", "Comparable buoys or stations exist", "No records, but need absolute values"]
+      - ["What you need", "10 m mean wind speed and power", "Hub height, turbulence, daily cycle"]
+    say: Finally, where it fits. It fits at the early stage of site selection, before instruments go in; where the sea area is at least one kilometre from shore and clear of the swath edge; where you have comparable buoys or stations to check against; and where what you need is the mean wind speed and power at ten metres. It does not fit as a basis for bankability, finance, or a tender; within one kilometre of shore or along a complex coastline; where you have no reference records but need absolute values; or where you need the wind at hub height, the turbulence, or the daily cycle. When you propose this, three points matter. Ask first whether comparable observation records exist. Never say the satellite gives you the wind resource outright, because it is a ten-metre wind that reads low. And explain the orbit stripes and the unreliable edges up front, because a clean-looking map hides that the accuracy varies by place.
+
+  - kind: cta
+    heading: Considering it for your region?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source: de Montera et al., Wind Energy Science 5, 1023, 2020. https://wes.copernicus.org/articles/5/1023/2020/"
+      - "Data licence: Copernicus Sentinel data licence. https://ads.atmosphere.copernicus.eu/licences/ec-sentinel"
+      - "Satellite: ESA Copernicus, Sentinel-1 mission"
+    say: To consider this for your own region or client, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.
