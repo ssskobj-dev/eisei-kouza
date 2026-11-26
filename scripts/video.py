@@ -580,33 +580,48 @@ def pick_voice(ctx, vid):
 
 # 話す速さの標準（利用者の指定で 1.2 倍）。台本の speed で上書きできる
 SPEED_DEFAULT = 1.2
-# 日本語の読み替え（合成音声が英字をうまく読めないので、読みに直してから渡す。字幕は元のまま）
-READINGS_JA = [
-    ("InSAR", "インサー"), ("SAR", "サー"), ("Sentinel-1", "センチネルワン"), ("Sentinel-2", "センチネルツー"),
-    ("Sentinel", "センチネル"), ("Landsat", "ランドサット"), ("NDVI", "エヌディーブイアイ"), ("NDWI", "エヌディーダブリューアイ"),
-    ("GIS", "ジーアイエス"), ("GNSS", "ジーエヌエスエス"), ("RFP", "アールエフピー"), ("QR", "キューアール"),
-    ("AI", "エーアイ"), ("API", "エーピーアイ"), ("CSV", "シーエスブイ"), ("PDF", "ピーディーエフ"),
-    ("JAXA", "ジャクサ"), ("ESA", "イーサ"), ("NASA", "ナサ"), ("USGS", "ユーエスジーエス"), ("EU", "イーユー"),
-    ("Satellite to Decision", "サテライト トゥ ディシジョン"), ("YouTube", "ユーチューブ"), ("Python", "パイソン"),
-    ("Lバンド", "エルバンド"), ("Cバンド", "シーバンド"), ("Xバンド", "エックスバンド"), ("km", "キロメートル"), ("m級", "メートル級"),
-    ("ASTER", "アスター"), ("JOGMEC", "ジョグメック"), ("Terra", "テラ"), ("eMAFF", "イーマフ"),
-]
+# 日本語の読み替え（合成音声が英字と、読み方が2つ以上ある漢字を読み違えるので、読みに直してから渡す。字幕は元のまま）。
+# 表は video/readings.yaml。台本の readings:（同じ形の一覧）があれば、その動画だけ先に当てる
+_READINGS_CACHE = {}
 
 
-def speakable(text_):
-    """合成音声に渡す文。日本語は英字を読みに直す。英語はそのまま。"""
+def load_readings(extra=None):
+    """読み替えの一覧を、(正規表現, 置き換え) の順で返す。台本の分 → 表の分の順。長い from から当てる"""
+    key = id(extra) if extra else 0
+    if key in _READINGS_CACHE:
+        return _READINGS_CACHE[key]
+    rows = []
+    path = ROOT / "video" / "readings.yaml"
+    table = (yaml.safe_load(path.read_text(encoding="utf-8")) or {}).get("readings", []) if path.exists() else []
+    for src in (extra or [], table):
+        part = []
+        for r in src:
+            if isinstance(r, dict) and "from" in r and "to" in r:
+                part.append((str(r["from"]), str(r["to"]), bool(r.get("regex"))))
+            elif isinstance(r, (list, tuple)) and len(r) >= 2:
+                part.append((str(r[0]), str(r[1]), False))
+        # 長い文字列から先に当てる（「真値」を「値」より先に）。正規表現は書いた順のまま、その後ろに
+        plain = sorted([x for x in part if not x[2]], key=lambda x: -len(x[0]))
+        rows += [(re.compile(re.escape(a)), b) for a, b, _ in plain]
+        rows += [(re.compile(a), b) for a, b, _ in part if _]
+    _READINGS_CACHE[key] = rows
+    return rows
+
+
+def speakable(text_, ctx=None):
+    """合成音声に渡す文。日本語は英字と読み違えやすい漢字を読みに直す。英語はそのまま。"""
     if LANG != "ja":
         return text_
     out = text_
-    for a, b in READINGS_JA:
-        out = out.replace(a, b)
+    for pat, rep in load_readings((ctx or {}).get("readings")):
+        out = pat.sub(rep, out)
     return out
 
 
 def synth(text_, out_wav, ctx):
     voice = ctx["_voice"]
     speed = ctx.get("speed", SPEED_DEFAULT)
-    text_ = speakable(text_)
+    text_ = speakable(text_, ctx)
     if voice.get("engine") == "piper":
         model = Path(os.environ.get("PIPER_VOICE_DIR", str(ROOT / "piper_voices"))) / (voice["model"] + ".onnx")
         subprocess.run([sys.executable, str(ROOT / "scripts" / "piper_tts.py"), str(model), text_, str(out_wav), str(speed),
@@ -667,18 +682,79 @@ def ass_time(t):
     return f"{int(h)}:{int(m):02d}:{s:05.2f}"
 
 
-ASS_HEAD = """[Script Info]
+# 字幕の帯は下の150px。2行なら52px、3行なら40pxの文字で収まる
+SUB_FONT = {1: 52, 2: 52, 3: 40}
+
+
+def ass_head(max_lines=2):
+    size = SUB_FONT.get(max_lines, 40)
+    margin = 40 if max_lines <= 2 else 24
+    return f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: 1920
 PlayResY: 1080
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Sub,Noto Sans CJK JP,52,&H00F7F5F2,&H00FFFFFF,&H00241509,&H00000000,-1,0,0,0,100,100,0,0,1,1,0,2,100,100,40,1
+Style: Sub,Noto Sans CJK JP,{size},&H00F7F5F2,&H00FFFFFF,&H00241509,&H00000000,-1,0,0,0,100,100,0,0,1,1,0,2,100,100,{margin},1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
+
+
+def subtitle_chunks(sent, units=30, max_lines=2):
+    """1文を、字幕に収まる塊（max_lines 行以内）に分ける。切り捨てない。
+    長い文は読点（英語はカンマ）で分け、それでも長ければ行の切れ目で分ける。"""
+    if len(wrap(sent, units)) <= max_lines:
+        return [sent]
+    if LANG == "en":
+        pieces, joiner = re.split(r"(?<=[,;:])\s+", sent), " "
+    else:
+        pieces, joiner = [p for p in re.split(r"(?<=、)", sent) if p], ""
+    chunks, cur = [], ""
+    for p in pieces:
+        cand = (cur + joiner + p) if cur else p
+        if cur and len(wrap(cand, units)) > max_lines:
+            chunks.append(cur)
+            cur = p
+        else:
+            cur = cand
+    if cur:
+        chunks.append(cur)
+    out = []
+    for c in chunks:
+        ls = wrap(c, units)
+        if len(ls) <= max_lines:
+            out.append(c)
+            continue
+        # 読点で分けても長い塊は、ほぼ同じ長さの n 個に分ける（最後だけ1語、にならないように）
+        n = -(-len(ls) // max_lines)
+        tokens = c.split() if LANG == "en" else list(c)
+        target = len(tokens) / n
+        groups, cur = [], []
+        for tk in tokens:
+            cur.append(tk)
+            if len(groups) < n - 1 and len(cur) >= target:
+                groups.append(cur)
+                cur = []
+        if cur:
+            groups.append(cur)
+        out += [joiner.join(g) for g in groups]
+    return out
+
+
+def subtitle_events(a, b, sent, units=30, max_lines=2):
+    """1文の音声の区間 (a, b) を、塊ごとの字幕の区間に分ける。長さは文字数の割合で配る"""
+    chunks = subtitle_chunks(sent, units, max_lines)
+    weights = [max(1, len(c)) for c in chunks]
+    total, t, ev = sum(weights), a, []
+    for c, w in zip(chunks, weights):
+        d = (b - a) * w / total
+        ev.append((t, t + d, c))
+        t += d
+    return ev
+
 
 
 # ---------------------------------------------------------------- 組み立て
@@ -752,12 +828,15 @@ def build(vid, slides_only=False):
         total = wav_len(audio) + 0.4
         # 字幕
         ass = work / f"sub_{i:02d}.ass"
+        max_lines = int(s.get("sub_lines", ctx.get("sub_lines", 2)))   # 台本に sub_lines: 3 で3行（文字は小さくなる）
         ev = []
         for a, b, sent in times:
-            ls = wrap(sent, 30)[:2]
-            joined = "\\N".join(ls)
-            ev.append(f"Dialogue: 0,{ass_time(a)},{ass_time(b + 0.3)},Sub,,0,0,0,,{joined}")
-        ass.write_text(ASS_HEAD + "\n".join(ev) + "\n", encoding="utf-8")
+            segs = subtitle_events(a, b, sent, 30, max_lines)
+            for k, (sa, sb, chunk) in enumerate(segs):
+                tail = 0.3 if k == len(segs) - 1 else 0.0   # 最後の塊だけ、音声の後に少し残す
+                joined = "\\N".join(wrap(chunk, 30)[:max_lines])
+                ev.append(f"Dialogue: 0,{ass_time(sa)},{ass_time(sb + tail)},Sub,,0,0,0,,{joined}")
+        ass.write_text(ass_head(max_lines) + "\n".join(ev) + "\n", encoding="utf-8")
         # アバターの口
         out = work / f"scene_{i:02d}.mp4"
         show_avatar = s.get("avatar", ctx.get("avatar", False)) and s["kind"] not in ("cover", "cta")
