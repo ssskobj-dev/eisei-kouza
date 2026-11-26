@@ -579,7 +579,7 @@ def pick_voice(ctx, vid):
 
 
 # 話す速さの標準（利用者の指定で 1.2 倍）。台本の speed で上書きできる
-SPEED_DEFAULT = 1.2
+SPEED_DEFAULT = 1.1
 # 日本語の読み替え（合成音声が英字と、読み方が2つ以上ある漢字を読み違えるので、読みに直してから渡す。字幕は元のまま）。
 # 表は video/readings.yaml。台本の readings:（同じ形の一覧）があれば、その動画だけ先に当てる
 _READINGS_CACHE = {}
