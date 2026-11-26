@@ -9,7 +9,7 @@
 #
 # チャンネルと公開範囲（見回りのとき）：
 #  - フォルダ名が -en で終わる台本 → 英語チャンネル（Secret は YT_*_EN）
-#  - それ以外                     → 日本語チャンネル（Secret は YT_*）
+#  - それ以外                     → 日本語チャンネル（Secret は YT_*）。声は video/voices.yaml から動画ごとに自動で選ぶ（Style-Bert-VITS2）
 #  - 公開範囲は public
 #  - 台本に publish: false と書いてあるものは投稿しない（試作など）
 #
@@ -46,7 +46,7 @@ concurrency:
 jobs:
   render-and-upload:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 240
     steps:
       - uses: actions/checkout@v4
         with:
@@ -173,6 +173,49 @@ jobs:
         with:
           path: vv
           key: voicevox-0.15.7-copies-v2
+      - name: 合成音声（Style-Bert-VITS2）の前回の準備結果を取り出す
+        if: steps.gate.outputs.go == 'yes'
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            sbv2
+            ~/.cache/huggingface
+          key: sbv2-v1-${{ hashFiles('video/voices.yaml') }}
+          restore-keys: |
+            sbv2-v1-
+      - name: 合成音声（Style-Bert-VITS2）を確かめ、無いか足りなければ作る
+        if: steps.gate.outputs.go == 'yes'
+        id: sbv2_build
+        shell: bash
+        env:
+          SBV2_MODELS: ${{ github.workspace }}/sbv2/models
+          CMAKE_POLICY_VERSION_MINIMUM: "3.5"
+        run: |
+          # 日本語の声（voices.yaml の engine: sbv2）。AivisHub と Hugging Face から声のモデルを取り、BERT と一緒に保存しておく。
+          # venv は --copies（ランナーの Python の更新で壊れないように）
+          built=no
+          if ! [ -x sbv2/venv/bin/python ] || ! sbv2/venv/bin/python -c "import style_bert_vits2, torch, scipy" >/dev/null 2>&1; then
+            echo "Style-Bert-VITS2 を準備し直します"
+            rm -rf sbv2/venv && mkdir -p sbv2
+            python -m venv --copies sbv2/venv
+            sbv2/venv/bin/pip install -q --index-url https://download.pytorch.org/whl/cpu torch
+            sbv2/venv/bin/pip install -q style-bert-vits2 scipy pyyaml
+            built=yes
+          fi
+          # 声のモデル（足りない分だけ取る）。1つでも新しく取ったら保存し直す
+          before=$(ls sbv2/models 2>/dev/null | wc -l)
+          sbv2/venv/bin/python scripts/sbv2_tts.py prepare
+          after=$(ls sbv2/models 2>/dev/null | wc -l)
+          [ "$before" != "$after" ] && built=yes
+          echo "built=$built" >> "$GITHUB_OUTPUT"
+      - name: 合成音声（Style-Bert-VITS2）の準備結果を保存する（作り直したときだけ）
+        if: steps.gate.outputs.go == 'yes' && steps.sbv2_build.outputs.built == 'yes'
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            sbv2
+            ~/.cache/huggingface
+          key: sbv2-v1-${{ hashFiles('video/voices.yaml') }}
       - name: 動画を作って投稿し、1本ごとに書き戻す
         if: steps.gate.outputs.go == 'yes'
         shell: bash
@@ -181,6 +224,8 @@ jobs:
           VOICEVOX_LIB: ${{ github.workspace }}/vv/voicevox_core-linux-x64-cpu-0.15.7
           OPEN_JTALK_DICT: ${{ github.workspace }}/vv/open_jtalk_dic_utf_8-1.11
           PIPER_VOICE_DIR: ${{ github.workspace }}/piper_voices
+          SBV2_PY: ${{ github.workspace }}/sbv2/venv/bin/python
+          SBV2_MODELS: ${{ github.workspace }}/sbv2/models
           YT_CLIENT_ID_EN: ${{ secrets.YT_CLIENT_ID_EN }}
           YT_CLIENT_SECRET_EN: ${{ secrets.YT_CLIENT_SECRET_EN }}
           YT_REFRESH_TOKEN_EN: ${{ secrets.YT_REFRESH_TOKEN_EN }}

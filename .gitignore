@@ -21,3 +21,7 @@ figures/*/
 
 /.quarto/
 _cert_map.qmd
+
+# 合成音声（Style-Bert-VITS2）の準備結果
+sbv2/
+sbv2_models/

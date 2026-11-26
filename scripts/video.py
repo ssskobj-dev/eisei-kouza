@@ -569,12 +569,13 @@ def pick_voice(ctx, vid):
     import hashlib
     roster = yaml.safe_load((ROOT / "video" / "voices.yaml").read_text(encoding="utf-8"))["voices"]
     lang = ctx.get("lang", "ja")
-    same = [v for v in roster if v.get("lang", "ja") == lang] or roster
     want = ctx.get("voice")
     if want not in (None, "", "random"):
         for v in roster:
             if want == v.get("name") or want == v.get("id"):
                 return v
+    # 指定が無ければ、同じ言語でランダムの対象（random: false 以外）から、動画の id で1つ選ぶ
+    same = [v for v in roster if v.get("lang", "ja") == lang and v.get("random", True) is not False] or roster
     return same[int(hashlib.md5(vid.encode()).hexdigest(), 16) % len(same)]
 
 
@@ -618,10 +619,37 @@ def speakable(text_, ctx=None):
     return out
 
 
+def sbv2_python():
+    return os.environ.get("SBV2_PY", sys.executable)
+
+
+def synth_batch(items, ctx):
+    """Style-Bert-VITS2 は、モデルの読み込みに時間がかかるので、動画1本分の文をまとめて合成する。items は [(文, 出力wav), ...]"""
+    voice = ctx["_voice"]
+    todo = [(t, Path(w)) for t, w in items if not Path(w).exists()]
+    if voice.get("engine") != "sbv2" or not todo:
+        return
+    speed = ctx.get("speed", SPEED_DEFAULT)
+    jobs = Path(todo[0][1]).parent / "sbv2_jobs.json"
+    jobs.write_text(json.dumps([{"text": speakable(t, ctx), "out": str(w), "speed": speed} for t, w in todo], ensure_ascii=False), encoding="utf-8")
+    r = subprocess.run([sbv2_python(), str(ROOT / "scripts" / "sbv2_tts.py"), "batch", voice["name"], str(jobs)],
+                       capture_output=True, text=True, timeout=7200)
+    if r.returncode or not all(w.exists() for _, w in todo):
+        print(r.stdout[-800:], r.stderr[-1500:])
+        sys.exit("音声の合成（Style-Bert-VITS2）に失敗しました")
+
+
 def synth(text_, out_wav, ctx):
     voice = ctx["_voice"]
     speed = ctx.get("speed", SPEED_DEFAULT)
     text_ = speakable(text_, ctx)
+    if voice.get("engine") == "sbv2":
+        r = subprocess.run([sbv2_python(), str(ROOT / "scripts" / "sbv2_tts.py"), "one", voice["name"], text_, str(out_wav), str(speed)],
+                           capture_output=True, text=True, timeout=1800)
+        if out_wav.exists():
+            return
+        print(r.stderr[-800:])
+        sys.exit("音声の合成（Style-Bert-VITS2）に失敗しました")
     if voice.get("engine") == "piper":
         model = Path(os.environ.get("PIPER_VOICE_DIR", str(ROOT / "piper_voices"))) / (voice["model"] + ".onnx")
         subprocess.run([sys.executable, str(ROOT / "scripts" / "piper_tts.py"), str(model), text_, str(out_wav), str(speed),
@@ -768,7 +796,7 @@ def build(vid, slides_only=False):
     for s in ctx["scenes"]:
         if s["kind"] == "cta":
             s.setdefault("credits", [])
-            s["credits"] = [c for c in s["credits"] if "VOICEVOX" not in c and "Piper" not in c] + [L[LANG]["credit"](ctx["_voice"])]
+            s["credits"] = [c for c in s["credits"] if not any(k in c for k in ("VOICEVOX", "Piper", "Style-Bert-VITS2", "AivisSpeech"))] + [L[LANG]["credit"](ctx["_voice"])]
     work = vdir / "_work"
     work.mkdir(exist_ok=True)
     scenes = ctx["scenes"]
@@ -798,6 +826,10 @@ def build(vid, slides_only=False):
         return
     # 案内役の顔は、既定では出さない（口が動くだけの顔は学習の助けにならないため。台本に avatar: true で出せる）
     avatars = build_avatar_frames(work) if ctx.get("avatar") or any(sc.get("avatar") for sc in scenes) else None
+    # Style-Bert-VITS2 の声は、全部の文をまとめて先に合成する（モデルの読み込みを1回で済ませる）
+    vkey = ctx["_voice"].get("id", ctx["_voice"]["name"])
+    synth_batch([(sent, work / f"s{i:02d}_{j:02d}_{vkey}.wav")
+                 for i, sc in enumerate(scenes) for j, sent in enumerate(split_sentences(sc.get("say", "")))], ctx)
     parts, scene_starts, scene_lengths = [], [], []
     for i, s in enumerate(scenes):
         say = s.get("say", "")
