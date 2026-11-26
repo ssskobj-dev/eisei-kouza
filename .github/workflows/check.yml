@@ -26,3 +26,7 @@ jobs:
         env:
           VERIFY_BASE: origin/${{ github.base_ref }}
         run: python scripts/verify.py --changed --links
+      - name: 台本の点検（video/*/script.yaml）
+        env:
+          VERIFY_BASE: origin/${{ github.base_ref }}
+        run: python scripts/verify_script.py --changed
