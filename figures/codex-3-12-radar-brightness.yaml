@@ -15,7 +15,7 @@ figures:
         text: 壁と地面の角が衛星に返し、明るい点
         role: satellite
       - title: 偏波
-        text: 値が違う。森はVHが、面と角はVVが強い
+        text: 森はVHの主な源、面と角はVVが強い
         role: satellite
       - title: 斜面の向き
         text: 衛星に向く側は明るく、反対側は暗い

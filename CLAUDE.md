@@ -135,6 +135,7 @@ noteへの投稿は人が行う。Claudeは投稿しない。プルリクエス�
 2. 先頭の候補を1つ選ぶ。章の原稿（`learn/<シリーズ>/<章のid>.qmd`）、同じ章のケース問題（`learn/quiz/<章のid>.qmd`）、章の図（`figures/<章のid>.yaml`）を読む。`{{< var >}}` の値は `_variables.yml` で確かめる
 3. `video/lecture-<章のid>/script.yaml` を、`patterns/outputs/video.md` の「日本語の講義動画」「題名（SEO）と、資格の案内」と手本に従って書く（声は台本に書かない（`video/voices.yaml` から動画ごとに自動で選ばれる）、「一緒にやってみよう」と「宿題」を必ず入れる。題名はキーワードを先頭近くに・40字以内。資格の案内は自動で最後に入る）
 4. `python scripts/video.py lecture-<章のid> --slides` でスライドだけ作り、文字のはみ出しや折り返しを1枚ずつ見て直す（動画の生成と投稿は GitHub 側で自動）
+4-2. **別の目で点検する**：`python scripts/verify_script.py video/lecture-<章のid>/script.yaml` を通したあと、サブエージェント（台本を書いていない Claude）に、台本・章・ケース問題と `patterns/outputs/video_review.md` を渡して点検させ、A（事実・数値）は全部、B（分かりやすさ）は可能な限り直す。直したら `verify_script.py` をもう一度通す。点検の件数（A・B）をプルリクエストの説明欄に書く
 5. ブランチ `learn/<日付>-video` を作って台本をコミットし、プッシュしてプルリクエストを出す（講座の章から作るので `learn/` の下。自動マージの対象）。説明欄に、題名・もとの章・宿題に使ったケース問題を書く。マージ（自動）後、日本語チャンネルに public で投稿される
 6. 作った本数と題名、プルリクエストのURLを短く報告する
 
@@ -144,6 +145,7 @@ noteへの投稿は人が行う。Claudeは投稿しない。プルリクエス�
 2. 先頭の候補を1つ選ぶ。記事（`casebook/<slug>.qmd`）と `data/usecases.yaml` の行、図（`figures/<slug>.yaml`）を読む。`source_url` を開いて、事例・数字・費用を確かめる
 3. `video/usecase-<slug>/script.yaml` を、`patterns/outputs/video.md` の「日本語の事例動画」「題名（SEO）と、資格の案内」と手本に従って書く（声は台本に書かない（`video/voices.yaml` から動画ごとに自動で選ばれる）。題名はキーワードを先頭近くに・40字以内。資格の案内は自動で最後に入る）
 4. `python scripts/video.py usecase-<slug> --slides` でスライドだけ作り、文字のはみ出しや折り返しを1枚ずつ見て直す
+4-2. **別の目で点検する**：講義動画の 4-2 と同じ（`verify_script.py` → サブエージェントの点検（記事と出典を渡す）→ 直す → もう一度 `verify_script.py`）
 5. ブランチ `casebook/<日付>-video` を作って台本をコミットし、プッシュしてプルリクエストを出す（事例記事から作るので `casebook/` の下。自動マージの対象）。説明欄に、題名・もとの事例・主な出典を書く。マージ（自動）後、日本語チャンネルに public で投稿される
 6. 作った本数と題名、プルリクエストのURLを短く報告する
 

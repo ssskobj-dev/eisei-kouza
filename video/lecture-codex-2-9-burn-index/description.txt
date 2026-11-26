@@ -1,0 +1,52 @@
+衛星データの焼け跡の指数：Sentinel-2で焼損面積を出す、誤り3つ
+
+■ この動画の内容
+衛星データ（Sentinel-2、Landsat）の近赤外と短波長赤外から焼け跡の指数（NBR）を計算し、火災の前後の差（dNBR）を段階に分けて、林野火災の焼損面積を災害データにする章。短波長赤外が2つあって波長の長いほう（B12、Band 7）を使うこと、差は前から後を引くこと、段階の区切り（0.1、0.27、0.44、0.66）は手引きの目安で出どころを書くこと、刈り取った畑・水面・煙を除くこと、公的な記録は速報から確定へ変わることを、AIが返したコードと段階の地図を一緒にレビューして見つけます。手元で数分でできる確かめ方と、宿題つき。
+
+▶ 出典、指示文の例、ケース問題2問は章のページで
+https://ssskobj-dev.github.io/eisei-kouza/learn/codex/codex-2-9-burn-index.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-2-9-burn-index
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-2-9-burn-index&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-2-9-burn-index&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 焼け跡の指数：前後の差を段階に分ける
+0:58 Satellite to Decision とは
+1:13 できるようになること
+2:05 しくみ：前から後を引く
+3:49 帯域と、区切りの出どころ
+5:42 AIへの頼み方
+7:11 一緒に：抜粋を読む
+8:52 一緒に：判定する
+11:05 衛星データ 市場レポート
+11:16 一緒に：地図と表を見る
+12:50 取り違えと、2つの例
+14:58 この型が向かない条件
+16:07 手順のまとめ
+17:42 宿題：ケース問題 問1
+19:39 宿題を解いたら、章のページへ
+19:54 2つの資格が取得できます
+
+■ 出典と表記
+出典：USGS「Landsat Normalized Burn Ratio」「Normalized Burn Ratio 2」（NBRの式、Landsatの帯域、NBR2は回復の研究に）
+出典：Key & Benson（2006）FIREMON（dNBR＝前−後、次の生育期の評価は別）／UN-SPIDER「NBR」「burn-severity」（B8AとB12、区切りは目安）
+出典：Humboldt State Univ. GSP 216「Normalized Burn Ratio」（USGS FireMonの区切り 0.1／0.27／0.44／0.66、−0.1）
+出典：USGS EROS「Sentinel-2」／USGS「Landsat band designations」（B8 842nm 10m、B8A 865nm 20m、B11 1610nm、B12 2190nm、Band 5・6・7）
+出典：ESA「Sentinel-2 Level-2A ATBD」V2.10.0（SCLの番号）／ESA「S2 Products」SentiWiki（UTM/WGS84、BOA_ADD_OFFSET）
+出典：林野庁「林野火災の発生状況」（2024年 831件・1,073ha、2020〜24年平均 約1,167件・約752ha）／消防庁「令和7年版 消防白書」（大船渡市 約3,370ha 速報値）
+出典：林野庁 大船渡市 被害状況 第6報（3月7日 2,900ha）。「前後2週間」「SCLの3、6、8、9、10を除く」は章の指示文の例の条件。例とケース問題の場面は架空です
+音声：AivisSpeech: fumifumi（ACML 1.0）/ Style-Bert-VITS2　案内役：fumifumi
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。

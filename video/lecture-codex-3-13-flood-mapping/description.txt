@@ -1,0 +1,49 @@
+衛星データで浸水の面積を出す：Sentinel-1前後の比でAIが誤る4点
+
+■ この動画の内容
+大雨の翌朝、Sentinel-1の災害前後の2枚から浸水の候補の範囲と地区ごとの面積を出す章。同じ軌道の2枚を較正した真値で比べ、後を前で割って暗くなった場所を候補にし、普段から水のある場所と傾斜地を除く手順を、しくみから見ます。日付だけで画像を選ぶ、dBの値どうしを割る、傾斜の単位を確かめない、画素を10m四方と決めつける、という4つの誤りと、「市街地に候補が出ないから浸水していない」という読み違いを、AIが返したコードと表を一緒にレビューして見つけます。地図と表を手元で確かめる練習と、宿題つき。
+
+▶ 出典、指示文の例、ケース問題2問は章のページで
+https://ssskobj-dev.github.io/eisei-kouza/learn/codex/codex-3-13-flood-mapping.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-3-13-flood-mapping
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-3-13-flood-mapping&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-3-13-flood-mapping&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 前後の比較で浸水を見る：同じ軌道、比、除外
+0:44 Satellite to Decision とは
+1:00 できるようになること
+1:50 しくみ：前後の比較で候補を出す5つの手順
+4:40 AIへの頼み方
+6:06 一緒に：抜粋を読む
+7:55 一緒に：判定する
+10:21 一緒に：地図と表を確かめる
+11:47 RFPと相見積もりの支援
+12:01 抜けるもの、紛れるもの、例2つ
+13:58 この型が向かない条件
+15:25 手順のまとめ
+17:02 宿題：ケース問題 問1
+18:45 宿題を解いたら、章のページへ
+18:58 2つの資格が取得できます
+
+■ 出典と表記
+出典：国土交通省・JAXA「災害時の人工衛星活用ガイドブック 水害版・浸水編」（2023年9月更新）
+出典：UN-SPIDER「Recommended Practice: Flood Mapping and Damage Assessment Using Sentinel-1 SAR Data in Google Earth Engine」
+出典：Copernicus EMS「Global Flood Monitoring Product Definition Document」v4.0、NASA Earthdata「SAR Image Interpretation」
+出典：ESA「Sentinel-1 SAR User Guide」「Radiometric Calibration of S-1 Level 1 Products」、SentiWiki「S1 Products」、ASF「Sentinel-1 RTC Product Guide」
+−10dB→−20dBの計算例、5度と5%の換算、暗い月10か月、2026年6月13日は章で例として置いた値
+音声：AivisSpeech: 阿井田 茂（ACML 1.0）/ Style-Bert-VITS2　案内役：阿井田茂
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。

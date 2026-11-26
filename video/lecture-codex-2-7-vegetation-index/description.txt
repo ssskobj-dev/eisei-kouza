@@ -1,0 +1,53 @@
+衛星データの植生指数：Sentinel-2で雲を除いて区画ごとに平均、誤り4つ
+
+■ この動画の内容
+衛星データ（Sentinel-2）の赤B4と近赤外B8から植生の指数（NDVI）を計算し、雲と影を除いて区画ごとに平均し、生育診断や農地調査の表を作る章。指数が−1〜1に収まるしくみと値の目安（森は0.6〜0.8、岩や砂は0.1以下）、「倍率は打ち消されるからずらしも不要」という誤り、分類の番号の取り違え、分母が0の画素、除いた画素を0にして平均する誤りの4つを、AIが返したコードを一緒にレビューして見つけます。できた表と地図を手元で確かめる練習と、宿題つき。
+
+▶ 出典、指示文の例、ケース問題2問は章のページで
+https://ssskobj-dev.github.io/eisei-kouza/learn/codex/codex-2-7-vegetation-index.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-2-7-vegetation-index
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-2-7-vegetation-index&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-2-7-vegetation-index&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 植生の指数：雲を除いて、区画ごとに平均する
+0:50 Satellite to Decision とは
+1:06 できるようになること
+1:46 しくみ：差を和で割る
+2:56 使う帯と、除く分類の番号
+4:25 なぜ「ずらし」と「影」が効くのか
+5:21 AIへの頼み方
+6:44 一緒に：抜粋を読む
+8:33 一緒に：判定する
+10:32 衛星データの資格
+10:45 一緒に：表と地図を確かめる
+12:20 結果の目視観点と、2つの例
+14:26 この型が向かない条件
+15:30 手順のまとめ
+16:54 宿題：ケース問題 問1
+18:45 宿題を解いたら、章のページへ
+19:01 2つの資格が取得できます
+
+■ 出典と表記
+出典：NASA Earth Observatory「Measuring Vegetation (NDVI & EVI)」（指数のしくみ、−1〜+1、値の目安、雲は指数を低くする、密な葉で頭打ち）
+出典：USGS「Landsat Normalized Difference Vegetation Index」（Landsat 8と9はBand 5とBand 4、Landsat 4〜7はBand 4とBand 3）
+出典：ESA「S2 Mission」SentiWiki（B4 664.6nm 10m、B8 832.8nm 10m）
+出典：ESA「S2 Products」SentiWiki（処理の版04.00（2022年1月25日）以降、反射率は（画素の値＋BOA_ADD_OFFSET）÷QUANTIFICATION_VALUE。値0は欠け）
+出典：ESA「Sentinel-2 Level-2A ATBD」V2.10.0（SCL：3 雲の影、4 植物、5 植物以外、6 水、8・9 雲、10 薄い雲、11 雪）
+出典：道総研 十勝農業試験場「衛星画像を用いた秋まき小麦『きたほなみ』の茎数推定・起生期無追肥判定の実施マニュアル」（2023年3月。雲や雪の画像は使えない。茎数を実測）
+「除いた割合が3割」は章で例として置いた目安。例1の森0.25・裸地0.15は作例。ケース問題の場面は架空です
+音声：AivisSpeech: TANAKA（ACML 1.0）/ Style-Bert-VITS2　案内役：TANAKA
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
