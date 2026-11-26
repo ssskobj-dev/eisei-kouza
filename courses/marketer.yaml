@@ -3,6 +3,14 @@
 id: marketer
 title: 衛星データマーケッター 資格の教材（2級・1級）
 public: true
+# 販売用の本（python scripts/build.py book marketer）の表紙と奥付
+book:
+  title: 衛星データマーケッター 公式テキスト
+  subtitle: 2級・1級　衛星データを「使う側」の判断力を証明する
+  tagline: 強み、限界、費用、提案の筋を、場面で判断できるようになる
+  cert_name: 衛星データマーケッター
+  edition: 第1版
+  date: 2026年12月
 sections:
   - name: 2級 A. 衛星と手法を選ぶ
     lead: 目的と条件から、使う衛星と解析手法を選び、苦手な条件を先に挙げられるようになります。

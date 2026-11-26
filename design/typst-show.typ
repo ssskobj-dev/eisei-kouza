@@ -8,6 +8,15 @@ $endif$
 $if(kouza-book)$
   book: true,
 $endif$
+$if(kouza-print)$
+  print: true,
+$endif$
+$if(kouza-tagline)$
+  tagline: [$kouza-tagline$],
+$endif$
+$if(kouza-edition)$
+  edition: [$kouza-edition$],
+$endif$
 $if(lang)$
   lang: "$lang$",
 $endif$

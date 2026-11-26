@@ -6,6 +6,7 @@
   python scripts/build.py todo             まだ書かれていない章を一覧する
   python scripts/build.py nav              メニューと、自動で作るページ（各シリーズの入口、講座、テーマ）を作る
   python scripts/build.py course <講座id>  講座を1つの文書にまとめる（研修テキスト用）
+  python scripts/build.py book <講座id>    販売用の本にする（印刷用PDF＝JIS B5と、Kindle用EPUB）。要確認の節は外す
   python scripts/build.py reports [本数]   次に書く市場レポート（テーマと切り口）を一覧する
   python scripts/build.py usecases [本数]  次に書くユースケースの記事を一覧する
 """
@@ -827,8 +828,9 @@ def typ(s):
     return '"' + str(s).replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
-def course(course_id):
-    """講座を1冊にまとめる。目次、部の扉、章番号が付く。custom/ は公開されず、git にも入らない。"""
+def course(course_id, book=False):
+    """講座を1冊にまとめる。目次、部の扉、章番号が付く。custom/ は公開されず、git にも入らない。
+    book=True のときは販売用：要確認の節と印を外し、はじめに・ケース問題・奥付を足し、JIS B5 で組む。"""
     parts = load_parts()
     c = next((x for x in load_courses() if x["id"] == course_id), None)
     if c is None:
@@ -837,13 +839,27 @@ def course(course_id):
     # 題名の末尾の（…向け）は、表紙で副題として小さく出す
     m = re.match(r"^(.*?)（(.+)）$", c["title"])
     main, sub = (m.group(1), m.group(2)) if m else (c["title"], None)
+    bk = c.get("book", {}) if book else {}
+    if book:
+        main = bk.get("title", main)
+        sub = bk.get("subtitle", sub)
+        # 本に入れる部を絞る（例：2級だけ）。名前の先頭で選ぶ
+        if bk.get("only_prefix"):
+            c = dict(c, sections=[s for s in c["sections"] if s["name"].startswith(bk["only_prefix"])])
+    variables = load("_variables.yml")
+    site = variables["site"]
+    extra = ""
+    if book:
+        extra = ("kouza-print: true\n"
+                 f"kouza-tagline: \"{bk.get('tagline', '公式テキスト')}\"\n"
+                 f"kouza-edition: \"{bk.get('edition', '第1版')}\"\n")
     head = (f"---\ntitle: \"{main}\"\n" + (f"subtitle: \"{sub}\"\n" if sub else "")
-            + "kouza-book: true\nlang: ja\n"
-            "format:\n  typst:\n    toc: false\n    papersize: a4\n"
-            "    mainfont: \"Noto Sans CJK JP\"\n    shift-heading-level-by: 0\n"
+            + "kouza-book: true\nlang: ja\n" + extra
+            + "format:\n  typst:\n    toc: false\n"
+            + ("    papersize: jis-b5\n" if book else "    papersize: a4\n")
+            + "    mainfont: \"Noto Sans CJK JP\"\n    shift-heading-level-by: 0\n"
             "    template-partials:\n      - ../design/typst-template.typ\n"
             "      - ../design/typst-show.typ\n---\n")
-    variables = load("_variables.yml")
 
     def fill_var(match):
         value = variables
@@ -884,6 +900,8 @@ def course(course_id):
             if src.is_dir():
                 shutil.copytree(src, ROOT / "custom" / "figures" / pid, dirs_exist_ok=True)
             text = re.sub(r"\{\{<\s*var\s+([\w.\-]+)\s*>\}\}", fill_var, text)
+            if book:
+                text = strip_review_notes(text)
             # 章の中の見出しを1段下げて、章の題名を見出しにする
             text = "\n".join("#" + l if l.startswith("#") else l for l in text.splitlines())
             # 同じ見出しが章ごとに出てくるので、自動で付く目印を外す
@@ -904,11 +922,176 @@ def course(course_id):
     toc.append("```")
     dest = ROOT / "custom"
     dest.mkdir(exist_ok=True)
-    (dest / f"{course_id}.qmd").write_text(head + "\n".join(toc) + "\n" + "\n".join(body), encoding="utf-8")
-    print(f"custom/{course_id}.qmd を作りました")
-    print(f"PDFにする: quarto render custom/{course_id}.qmd --to typst")
+    name = f"{course_id}-book" if book else course_id
+    front, back = "", ""
+    if book:
+        front = book_preface(c, bk, variables)
+        back = book_quiz_appendix(c, parts, fill_var) + book_colophon(c, bk, variables)
+    (dest / f"{name}.qmd").write_text(head + front + "\n".join(toc) + "\n" + "\n".join(body) + back, encoding="utf-8")
+    print(f"custom/{name}.qmd を作りました")
+    print(f"PDFにする: quarto render custom/{name}.qmd --to typst")
+    if book:
+        book_epub(course_id, c, bk, parts, fill_var, variables)
     if missing:
         print("まだ原稿がない部品: " + ", ".join(missing))
+
+
+def strip_review_notes(text):
+    """「要確認」の節（内部の確認メモ）と【要確認】の印を外す。販売用。"""
+    lines, out, skip, lvl = text.splitlines(), [], False, 0
+    for ln in lines:
+        m = re.match(r"^(#+)\s+(.*)$", ln)
+        if m:
+            if re.match(r"^要確認", m.group(2).strip()):
+                skip, lvl = True, len(m.group(1))
+                continue
+            if skip and len(m.group(1)) <= lvl:
+                skip = False
+        if not skip:
+            out.append(ln)
+    text = "\n".join(out)
+    text = text.replace("【要確認】", "")
+    return text
+
+
+def _book_meta(c, bk, variables):
+    site = variables["site"]
+    cert = variables.get("cert", {})
+    return dict(
+        title=bk.get("title", c["title"]), site=site, cert=cert,
+        edition=bk.get("edition", "第1版"), date=bk.get("date", ""),
+        cert_name=bk.get("cert_name", ""), cert_url=cert.get("page", site["url"] + "cert.html"),
+    )
+
+
+def book_preface(c, bk, variables):
+    m = _book_meta(c, bk, variables)
+    cert_name = m["cert_name"] or "この資格"
+    n_sec = len(c["sections"])
+    n_ch = sum(len(s["parts"]) for s in c["sections"])
+    custom = bk.get("preface", "").strip()
+    body = custom or (
+        f"この本は、{m['site']['name']} が運営する資格「{cert_name}」の公式テキストです。"
+        f"試験の出題範囲は、この本の{n_sec}つの部、{n_ch}の章に対応しています。\n\n"
+        "この資格は、用語を説明できることではなく、**場面を示されて判断できること**を問います。"
+        "そのため各章は、現場で実際に起きる判断の場面から始め、言えることと言えないこと、"
+        "費用のかかる場所、確かめ方の順に進みます。章末のチェックリストは、仕事でそのまま使える形にしてあります。\n\n"
+        "巻末には、章ごとのケース問題と解説を収めました。本文を読んだあとに解くと、"
+        "読み飛ばした箇所が分かります。試験の形式と申込は、"
+        f"{m['site']['name']} のサイト（{m['cert_url']}）で案内しています。\n\n"
+        "本文中の数字と事例は、公的機関の資料や発表元の一次資料で確かめたものだけを、出典の番号付きで載せています。"
+        "衛星と制度は変わります。出典の年月を見て、最新の資料で確かめてからお使いください。"
+        "特定の事業者やサービスを勧める意図はありません。"
+    )
+    return ("\n```{=typst}\n#heading(level: 3, outlined: false)[はじめに]\n```\n\n" + body +
+            "\n\n```{=typst}\n#pagebreak(weak: true)\n```\n\n")
+
+
+def quiz_text(pid, fill_var, heading_prefix="###"):
+    """ケース問題のファイルを、本に収める形にする。無ければ空。"""
+    qp = ROOT / "learn" / "quiz" / f"{pid}.qmd"
+    if not qp.exists():
+        return ""
+    t = strip_front_matter(qp.read_text(encoding="utf-8"))
+    t = re.sub(r"^\[本文に戻る\]\([^)]*\)\s*$", "", t, flags=re.M)
+    t = re.sub(r"\{\{<\s*var\s+([\w.\-]+)\s*>\}\}", fill_var, t)
+    # 折りたたみの答えを、見える枠にする
+    t = t.replace('collapse="true" ', "")
+    # 問いの見出しを、章の下の節にする
+    t = re.sub(r"^## ", heading_prefix + " ", t, flags=re.M)
+    t = re.sub(r"^(#{3,} .*?)\s*$", r"\1 {.unnumbered .unlisted}", t, flags=re.M)
+    return t.strip()
+
+
+def book_quiz_appendix(c, parts, fill_var):
+    out = ["\n```{=typst}\n#chapter-no.update(none)\n#chapter-sub.update(none)\n```\n",
+           "## 付録　ケース問題と解説 {#quiz-appendix}\n",
+           "場面はすべて架空です。本文を読んだあとに解いてください。正解と解説は、各問いのすぐ下にあります。\n"]
+    any_q = False
+    for i, sec in enumerate(c["sections"], start=1):
+        for j, pid in enumerate(sec["parts"], start=1):
+            q = quiz_text(pid, fill_var, heading_prefix="####")
+            if not q:
+                continue
+            any_q = True
+            title = parts[pid]["title"].partition("：")[0]
+            out.append(f"\n### 第{i}-{j}章　{title} {{.unnumbered .unlisted}}\n\n{q}\n")
+    return "\n".join(out) if any_q else ""
+
+
+def book_colophon(c, bk, variables):
+    m = _book_meta(c, bk, variables)
+    site = m["site"]
+    rows = [("発行", site.get("operator", "")), ("住所", site.get("address", "")),
+            ("連絡先", site.get("email", "")), ("サイト", site["url"]),
+            ("監修", site.get("supervision", ""))]
+    if m["date"]:
+        rows.insert(0, (m["edition"] + " 発行", m["date"]))
+    tbl = "".join(f"{typ(k)}, {typ(v)}, " for k, v in rows if v)
+    return ("\n```{=typst}\n#pagebreak(weak: true)\n#v(1fr)\n"
+            "#set text(size: 9pt)\n"
+            f"#text(size: 11pt, weight: \"bold\", {typ(m['title'])})\n#v(4pt)\n"
+            f"#table(columns: (auto, 1fr), stroke: none, inset: (x: 6pt, y: 3pt), {tbl})\n"
+            "#v(6pt)\n"
+            "#text(size: 8pt)[本書の内容の無断転載を禁じます。本書に記載の数字・制度は出典に示した時点のもので、変わることがあります。"
+            "本書は特定の事業者・サービスを推奨するものではありません。]\n```\n")
+
+
+def book_epub(course_id, c, bk, parts, fill_var, variables):
+    """Kindle 用の EPUB の原稿を作る。図は PNG にする（Kindle は SVG が苦手）。"""
+    sys.path.insert(0, str(ROOT / "scripts"))
+    try:
+        from figures import to_png
+    except Exception:
+        to_png = None
+    m = _book_meta(c, bk, variables)
+    title = bk.get("title", c["title"])
+    sub = bk.get("subtitle")
+    head = (f"---\ntitle: \"{title}\"\n" + (f"subtitle: \"{sub}\"\n" if sub else "")
+            + f"author: \"{variables['site'].get('operator', '')}\"\nlang: ja\n"
+            "format:\n  epub:\n    toc: true\n    toc-depth: 2\n    number-sections: false\n"
+            "    epub-cover-image: cover.png\n---\n")
+    body = ["# はじめに {.unnumbered}\n", re.sub(r"```\{=typst\}.*?```", "", book_preface(c, bk, variables), flags=re.S).strip(), ""]
+    for i, sec in enumerate(c["sections"], start=1):
+        body.append(f"\n# {sec['name']} {{.unnumbered}}\n")
+        if sec.get("lead"):
+            body.append(sec["lead"] + "\n")
+        for j, pid in enumerate(sec["parts"], start=1):
+            p = parts[pid]
+            path = chapter_path(p)
+            if not path.exists():
+                continue
+            text = strip_front_matter(path.read_text(encoding="utf-8"))
+            text = re.sub(r"\{\{<\s*var\s+([\w.\-]+)\s*>\}\}", fill_var, text)
+            text = strip_review_notes(text)
+            text = text.replace("](../../figures/", "](figures/")
+            # SVG → PNG
+            for svg in re.findall(r"\]\(figures/([^)]+?)\.svg\)", text):
+                src = ROOT / "figures" / f"{svg}.svg"
+                dst = ROOT / "custom" / "figures" / f"{svg}.png"
+                if src.exists() and not dst.exists() and to_png:
+                    dst.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy(src, dst.with_suffix(".svg"))
+                    to_png(dst.with_suffix(".svg"))
+            text = re.sub(r"\]\(figures/([^)]+?)\.svg\)", r"](figures/\1.png)", text)
+            text = "\n".join("#" + l if l.startswith("#") else l for l in text.splitlines())
+            body.append(f"\n## 第{i}-{j}章　{p['title']} {{.unnumbered}}\n\n{text}\n")
+    body.append("\n# 付録　ケース問題と解説 {.unnumbered}\n\n場面はすべて架空です。\n")
+    for i, sec in enumerate(c["sections"], start=1):
+        for j, pid in enumerate(sec["parts"], start=1):
+            q = quiz_text(pid, fill_var, heading_prefix="###")
+            if q:
+                body.append(f"\n## 第{i}-{j}章　{parts[pid]['title'].partition('：')[0]} {{.unnumbered}}\n\n{q}\n")
+    site = variables["site"]
+    body.append("\n# 奥付 {.unnumbered}\n\n" + f"**{title}**\n\n"
+                + (f"{m['edition']}　{m['date']}\n\n" if m["date"] else "")
+                + f"発行：{site.get('operator', '')}  \n連絡先：{site.get('email', '')}  \nサイト：{site['url']}\n\n"
+                + (f"{site.get('supervision', '')}\n\n" if site.get("supervision") else "")
+                + "本書の内容の無断転載を禁じます。本書に記載の数字・制度は出典に示した時点のもので、変わることがあります。本書は特定の事業者・サービスを推奨するものではありません。\n")
+    name = f"{course_id}-epub"
+    (ROOT / "custom" / f"{name}.qmd").write_text(head + "\n".join(body), encoding="utf-8")
+    print(f"custom/{name}.qmd を作りました（Kindle用）")
+    print(f"EPUBにする: quarto render custom/{name}.qmd --to epub  （custom/cover.png が要ります）")
 
 
 if __name__ == "__main__":
@@ -937,5 +1120,7 @@ if __name__ == "__main__":
         reports(int(sys.argv[2]) if len(sys.argv) > 2 else 2)
     elif cmd == "course" and len(sys.argv) > 2:
         course(sys.argv[2])
+    elif cmd == "book" and len(sys.argv) > 2:
+        course(sys.argv[2], book=True)
     else:
         print(__doc__)

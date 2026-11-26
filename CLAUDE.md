@@ -179,3 +179,13 @@ noteへの投稿は人が行う。Claudeは投稿しない。プルリクエス�
 - 「デザインを変えて」→ `design/` の3ファイル（PDF、サイト）と `scripts/figures.py`（図）の色をそろえて直す
 - 「example-custom の講座を1冊にまとめて」→ `python scripts/build.py course example-custom`
 - 「新しい分野（水道）の章立てを提案して」→ `syllabus/water.yaml` と `courses/water.yaml` の案を出す
+
+## 「教材を本にして」と頼まれたら（Amazon KDP で売る本）
+
+1. `python scripts/figures.py` で図を作っておく（本は図を直接読む）
+2. `python scripts/build.py book <講座id>`（`marketer` か `codex`）。`courses/<id>.yaml` の `book:` に、題名・副題・帯の文・版・発行年月・入れる部（`only_prefix`）がある
+3. `quarto render custom/<id>-book.qmd --to typst` → 印刷用PDF（JIS B5、KDPの余白、要確認の節なし、はじめに・ケース問題・奥付つき）
+4. `scripts/book_cover.sh <id> <ページ数> [題名] [副題] [帯] [箇条書き|区切り] [裏表紙の文]` → Kindle用の表紙PNGと、印刷用の表紙PDF（表4＋背＋表1、塗り足し込み。背の幅はページ数から計算）
+5. `quarto render custom/<id>-epub.qmd --to epub` → Kindle用EPUB（図はPNG）
+6. PDFを開いて、表紙・目次・章の頭・図・付録・奥付を見る。できたファイルは `custom/` にあり、git には入らない
+7. Amazon KDP への登録と価格の設定は人が行う。本の中身と同じ数字・制度は、版を上げるたびに出典の年月を確かめる
