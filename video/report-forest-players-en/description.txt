@@ -1,0 +1,45 @@
+Forest carbon from space - who sells it, who verifies it, who buys it | Satellite Data
+
+What this video covers
+A plain map of the players in satellite forest and carbon monitoring - who provides the data, who turns it into carbon numbers, who sets the rules and grades the quality, and who pays. Company names are given only as documented examples, not recommendations. Figures are from Verra, NASA, ESA, Planet and WRI, with the source stated for each. About 6 minutes.
+
+▶ For an RFP and competitive quotes, contact us from the form
+https://ssskobj-dev.github.io/eisei-kouza/en/register.html?utm_source=youtube&utm_medium=video&utm_campaign=report-forest-players-en
+
+🎓 Earn two certifications: Satellite Data Analysis Engineer and Satellite Data Marketer
+https://ssskobj-dev.github.io/eisei-kouza/en/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=report-forest-players-en&utm_content=cert
+
+About Satellite to Decision
+Satellite to Decision organises what you need to know to use satellite data in business decisions, from the buyer's side. Independent of any satellite operator or analytics company.
+What we offer:
+- Satellite data market reports (market size, players, overseas cases, barriers by sector)
+- Satellite data use cases (where it fits in the workflow, what decision it supports, cost estimates)
+- Training in satellite data analysis and use (courses, analysis curriculum, case questions)
+- Certifications: Satellite Data Marketer / Satellite Data Analysis Engineer
+- For organisations: help writing RFPs and gathering competitive quotes, training
+Website: https://ssskobj-dev.github.io/eisei-kouza/en/?utm_source=youtube&utm_medium=video&utm_campaign=report-forest-players-en&utm_content=about
+Certifications: https://ssskobj-dev.github.io/eisei-kouza/en/cert.html
+
+Chapters
+0:00 Forest carbon from space - who sells it, who verifies it, who buys it?
+0:30 About Satellite to Decision
+0:44 What this report covers
+1:10 Who provides the data
+2:02 Who turns the data into carbon numbers
+2:50 Who sets the rules, and who grades quality
+3:39 Who is buying
+4:27 Help with RFPs and competitive quotes
+4:40 How the roles connect
+5:18 How to read the numbers
+6:01 What a consultant should take from this
+6:50 Choosing forest or carbon monitoring partners?
+7:06 Two certifications you can earn
+
+Sources and credits
+Verra / Verified Carbon Standard, figures per Verra (2026) - verra.org/about/overview
+NASA GEDI - eoportal.org/satellite-missions/iss-gedi  |  ESA Biomass (P-band) - esa.int  |  Planet - docs.planet.com
+CTrees - ctrees.org  |  Ratings: sylvera.com, bezerocarbon.com  |  Global Forest Watch / WRI - globalforestwatch.org
+Voice: Piper TTS (en_US-ryan, MIT) · Host: Ryan
+
+Satellite to Decision | From Earth observation data to business decisions.
+Made independently of any satellite operator or analytics company.
