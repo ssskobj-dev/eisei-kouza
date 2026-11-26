@@ -1,0 +1,45 @@
+# note記事「来春の花粉は多いのか。前年の夏の森の緑の濃さを衛星で積み上げ、八王子の飛散量との相関0.69を示した自由研究と、そこから言えること・言えないこと」の見出し画像と図。
+figures:
+- id: thumbnail
+  type: thumbnail
+  kind: usecase
+  tag: 公衆衛生・人道支援
+  title: 花粉の飛散量を衛星で見積もる
+  sub: 前年の夏の植生指数と八王子の飛散量の相関0.69
+- id: fig-1
+  type: split
+  alt: 衛星に任せることと、人が行うこと
+  link: ＋
+  left:
+    title: 衛星と解析が行う
+    items:
+    - 前年7〜8月の植生指数を格子で積む
+    - スギ・ヒノキの林だけに絞る
+    - 翌春の多い少ないを相対地図にする
+  right:
+    title: 人が行う
+    items:
+    - 観測地点の飛散数で推定式を検証する
+    - 表年・裏年や気象の情報を重ねる
+    - 注意喚起や仕入れの判断をする
+  note: 衛星は多い少ないの当たりまで。時期と判断は人が
+- id: fig-2
+  type: cards
+  alt: この使い方の5つの限界
+  columns: 2
+  items:
+  - title: 1地点・6年分
+    text: 八王子だけ、相関の点は6つ
+    role: none
+  - title: 相関0.69
+    text: 説明できる変動はおよそ半分
+    role: none
+  - title: 表年・裏年は未対応
+    text: 気象も式に入っていない
+    role: none
+  - title: 相対区分だけ
+    text: 開始日や日ごとの量は不明
+    role: none
+  - title: 緑の濃さ≠雄花
+    text: 間接の推定で他の植生も混ざる
+    role: none

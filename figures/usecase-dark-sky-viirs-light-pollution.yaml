@@ -1,0 +1,88 @@
+# ユースケースの記事「星空観光地の光害を夜間光の衛星データで追う」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 約500mの格子で上向きの光を面で捉える
+        - 月ごとの合成値を2012年から追う
+        - 認定地と周辺の市街の増減を比べる
+    right:
+      title: 人が行う
+      items:
+        - 地上の測定器で夜空の暗さを測る
+        - 照明の更新をどの地区から進めるか決める
+        - 認定の年次報告書を作る
+    note: 衛星は上に漏れる光の増減まで。夜空の暗さは地上で
+
+  - id: lamps
+    type: bar
+    alt: 日本の星空保護区で光害対策型に交換した屋外照明の数
+    unit: 灯
+    source: 越智信彰「星空保護区認定制度の概要とその意義」（東洋大学紀要、2024年）
+    items:
+      - label: 井原市美星町（2021年認定）
+        value: 740
+      - label: 神津島（2020年認定、約）
+        value: 550
+      - label: 大野市南六呂師（2023年認定）
+        value: 360
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 街灯1本は見えない
+        text: 約500mの格子の光をまとめた値
+        role: none
+      - title: 夜空の暗さではない
+        text: 測るのは上に漏れる光だけ
+        role: none
+      - title: LED更新で見かけ減
+        text: 青い光に感度が低い
+        role: none
+      - title: 雲と夏で欠ける
+        text: 観測回数のファイルが必須
+        role: none
+      - title: 検定は厳密でない
+        text: 地域どうしが独立でない
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 夜間光で周辺の明るさの年次変化を報告書に載せる手順
+    steps:
+      - title: 取得する
+        text: 年次と月次の合成値
+        who: satellite
+      - title: 月を選ぶ
+        text: 観測回数で秋に揃える
+        who: satellite
+      - title: 増減を地図に
+        text: 認定地と周辺の時系列
+        who: satellite
+      - title: 重ねる
+        text: 地上の測定と更新の記録
+        who: human
+      - title: 決めて報告
+        text: 更新する地区と年次報告
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 市街の年次変化
+        text: 同じ格子の前後を比べる
+      - title: 長期の傾向
+        text: 2012年から追える
+      - title: 個々の照明の効果
+        text: 500m格子では見えない
+      - title: 夜空の暗さそのもの
+        text: 地上の測定で決まる
