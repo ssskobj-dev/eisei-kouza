@@ -1,0 +1,75 @@
+# ユースケースの記事「スギ・ヒノキの花粉飛散量を衛星データで見積もる」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 前年7〜8月の植生指数を格子で積む
+        - スギ・ヒノキの林だけに絞る
+        - 翌春の多い少ないを相対地図にする
+    right:
+      title: 人が行う
+      items:
+        - 観測地点の飛散数で推定式を検証する
+        - 表年・裏年や気象の情報を重ねる
+        - 注意喚起や仕入れの判断をする
+    note: 衛星は多い少ないの当たりまで。時期と判断は人が
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 1地点・6年分
+        text: 八王子だけ、相関の点は6つ
+        role: none
+      - title: 相関0.69
+        text: 説明できる変動はおよそ半分
+        role: none
+      - title: 表年・裏年は未対応
+        text: 気象も式に入っていない
+        role: none
+      - title: 相対区分だけ
+        text: 開始日や日ごとの量は不明
+        role: none
+      - title: 緑の濃さ≠雄花
+        text: 間接の推定で他の植生も混ざる
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 前年の夏の植生指数から翌春の飛散量の当たりを付ける手順
+    steps:
+      - title: 画像を取得
+        text: 7〜8月のNDVI
+        who: satellite
+      - title: 林に絞る
+        text: 植生図で積算する
+        who: satellite
+      - title: 推定式
+        text: 観測地点の飛散数と相関
+        who: human
+      - title: 相対地図
+        text: 地域ごとの多い少ない
+        who: satellite
+      - title: 判断する
+        text: 現地調査と気象を合わせる
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 地域の相対比較
+        text: 多い少ないの当たり
+      - title: 観測データがある
+        text: 推定式を検証できる
+      - title: 年ごとの絶対量
+        text: 表年・裏年と気象で外れる
+      - title: 日ごとの予報
+        text: この方法では分からない

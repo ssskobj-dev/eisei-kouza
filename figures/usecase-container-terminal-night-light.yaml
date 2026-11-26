@@ -1,0 +1,92 @@
+# ユースケースの記事「夜の衛星データでコンテナターミナルの稼働を見分ける」の図。
+figures:
+  - id: split
+    type: split
+    alt: 衛星に任せることと、人が行うこと
+    link: ＋
+    left:
+      title: 衛星と解析が行う
+      items:
+        - 夜の照明を5.1mの画素で面で捉える
+        - 明るさのしきい値で点灯と消灯を分ける
+        - AISでは分からない夜の様子を補う
+    right:
+      title: 人が行う
+      items:
+        - AISと運営者の情報で荷役を確かめる
+        - 輸送網モデルの処理能力を決める
+        - 寄港先や荷物の振り分けを判断する
+    note: 衛星は照明の点灯まで。荷役の有無と判断は人が
+
+  - id: resolution
+    type: bar
+    alt: 夜間光を観測する衛星の画素の大きさ
+    unit: m（1画素の大きさ）
+    source: Murata ほか（Frontiers in Remote Sensing, 2023）の記述
+    items:
+      - label: DMSP/OLS（米国）
+        value: 3000
+      - label: VIIRS（米国）
+        value: 740
+      - label: 珞珈一号（中国）
+        value: 130
+      - label: CE-SAT-IIB（日本）
+        value: 5.1
+      - label: JL1-3B（中国）
+        value: 0.92
+
+  - id: limits
+    type: cards
+    alt: この使い方の5つの限界
+    columns: 2
+    items:
+      - title: 画像1枚の検証
+        text: しきい値は他の画像に移せない
+        role: none
+      - title: 点灯≠荷役
+        text: 船がいなくても点いていた例
+        role: none
+      - title: 無償データは粗い
+        text: 数百mではターミナルを分けられない
+        role: none
+      - title: 定期観測がない
+        text: 1枚3.5km×2.3km、群はまだ
+        role: none
+      - title: 雲があると不可
+        text: 可視光なので晴れた夜だけ
+        role: none
+
+  - id: flow
+    type: flow
+    alt: 夜間画像でターミナルの稼働を推定する手順
+    steps:
+      - title: 区画を決める
+        text: 港とターミナルの地図
+        who: human
+      - title: 画像を発注
+        text: 夜の高分解能画像
+        who: satellite
+      - title: 明るさの分布
+        text: 区画ごとに箱ひげ図
+        who: satellite
+      - title: 点灯と消灯
+        text: 緑と赤の帯のしきい値
+        who: satellite
+      - title: 突き合わせ
+        text: AISと運営者の情報で反映
+        who: human
+
+  - id: scale
+    type: scale
+    alt: 効きやすい条件から、効きにくい条件まで
+    left: 効きやすい
+    right: 効きにくい
+    items:
+      - title: 点灯の当たり
+        text: 照明の有無を面で見る
+      - title: AISと組み合わせ
+        text: 船の有無と合わせて読む
+      - title: 荷役の有無
+        text: 点灯だけでは分からない
+      - title: 毎晩・世界中
+        text: 調達と検証が追いつかない

@@ -1849,6 +1849,7 @@ usecases:
   verified: true
 - 'no': 93
   name: コンテナターミナルの夜間稼働
+  slug: container-terminal-night-light
   theme: 安全保障・物流
   field: 物流
   stage: 研究
@@ -1868,6 +1869,7 @@ usecases:
   verified: true
 - 'no': 94
   name: スギ・ヒノキ花粉の飛散量予測
+  slug: pollen-forecast-gcom-c-ndvi
   theme: 公衆衛生・人道支援
   field: 公衆衛生
   stage: 研究
@@ -1887,6 +1889,7 @@ usecases:
   verified: true
 - 'no': 95
   name: 星空観光地の光害の把握
+  slug: dark-sky-viirs-light-pollution
   theme: 生活・文化・その他
   field: 観光・レジャー
   stage: 研究

@@ -1,0 +1,45 @@
+# note記事「星空は守れているのか。星空保護区の周辺98地域で上に漏れる光が年1.6%減った研究に見る、無償の夜間光データで照明の更新を評価する考え方」の見出し画像と図。
+figures:
+- id: thumbnail
+  type: thumbnail
+  kind: usecase
+  tag: 生活・文化・その他
+  title: 星空観光地の光害を衛星で追う
+  sub: 星空保護区の周辺98地域で上向きの光が年1.6%減った研究
+- id: fig-1
+  type: split
+  alt: 衛星に任せることと、人が行うこと
+  link: ＋
+  left:
+    title: 衛星と解析が行う
+    items:
+    - 約500mの格子で上向きの光を面で捉える
+    - 月ごとの合成値を2012年から追う
+    - 認定地と周辺の市街の増減を比べる
+  right:
+    title: 人が行う
+    items:
+    - 地上の測定器で夜空の暗さを測る
+    - 照明の更新をどの地区から進めるか決める
+    - 認定の年次報告書を作る
+  note: 衛星は上に漏れる光の増減まで。夜空の暗さは地上で
+- id: fig-2
+  type: cards
+  alt: この使い方の5つの限界
+  columns: 2
+  items:
+  - title: 街灯1本は見えない
+    text: 約500mの格子の光をまとめた値
+    role: none
+  - title: 夜空の暗さではない
+    text: 測るのは上に漏れる光だけ
+    role: none
+  - title: LED更新で見かけ減
+    text: 青い光に感度が低い
+    role: none
+  - title: 雲と夏で欠ける
+    text: 観測回数のファイルが必須
+    role: none
+  - title: 検定は厳密でない
+    text: 地域どうしが独立でない
+    role: none

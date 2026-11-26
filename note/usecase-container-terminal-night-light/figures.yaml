@@ -1,0 +1,45 @@
+# note記事「港のターミナルは夜も動いているのか。船の位置情報では分からない稼働を、5.1mの夜間衛星画像で判定した東京港の研究」の見出し画像と図。
+figures:
+- id: thumbnail
+  type: thumbnail
+  kind: usecase
+  tag: 安全保障・物流
+  title: 夜間画像で港の稼働を見分ける
+  sub: 東京港の8ターミナルを5.1mの画像1枚で判定した研究
+- id: fig-1
+  type: split
+  alt: 衛星に任せることと、人が行うこと
+  link: ＋
+  left:
+    title: 衛星と解析が行う
+    items:
+    - 夜の照明を5.1mの画素で面で捉える
+    - 明るさのしきい値で点灯と消灯を分ける
+    - AISでは分からない夜の様子を補う
+  right:
+    title: 人が行う
+    items:
+    - AISと運営者の情報で荷役を確かめる
+    - 輸送網モデルの処理能力を決める
+    - 寄港先や荷物の振り分けを判断する
+  note: 衛星は照明の点灯まで。荷役の有無と判断は人が
+- id: fig-2
+  type: cards
+  alt: この使い方の5つの限界
+  columns: 2
+  items:
+  - title: 画像1枚の検証
+    text: しきい値は他の画像に移せない
+    role: none
+  - title: 点灯≠荷役
+    text: 船がいなくても点いていた例
+    role: none
+  - title: 無償データは粗い
+    text: 数百mではターミナルを分けられない
+    role: none
+  - title: 定期観測がない
+    text: 1枚3.5km×2.3km、群はまだ
+    role: none
+  - title: 雲があると不可
+    text: 可視光なので晴れた夜だけ
+    role: none
