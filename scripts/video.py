@@ -494,12 +494,19 @@ def cert_scene(ctx):
 
 def svg_to_png(svg, png):
     browser = find_browser()
+    if not browser:
+        raise RuntimeError("スライドを画像にするブラウザ（Chromium）が見つかりません。python -m playwright install chromium-headless-shell で入れてください")
     html = png.with_suffix(".html")
     html.write_text(f'<html><body style="margin:0">{svg}</body></html>', encoding="utf-8")
-    subprocess.run([browser, "--headless", "--no-sandbox", "--disable-gpu", "--hide-scrollbars",
-                    f"--window-size={W},{H + 200}", f"--screenshot={png}", html.resolve().as_uri()],
-                   capture_output=True, timeout=120)
+    png.unlink(missing_ok=True)
+    res = subprocess.run([browser, "--headless", "--no-sandbox", "--disable-gpu", "--hide-scrollbars",
+                          f"--window-size={W},{H + 200}", f"--screenshot={png}", html.resolve().as_uri()],
+                         capture_output=True, text=True, timeout=120)
     html.unlink()
+    if not png.exists():
+        # ブラウザが黙って終わったとき（snap の依存が壊れている等）、原因が分かるように出力を出す
+        tail = (res.stderr or res.stdout or "").strip().splitlines()[-5:]
+        raise RuntimeError(f"ブラウザが画像を書けませんでした：{browser}（終了コード {res.returncode}）\n" + "\n".join(tail))
     Image.open(png).crop((0, 0, W, H)).save(png)
 
 

@@ -9,6 +9,7 @@
 図の型（type）は patterns/figures.md を参照。色は design/typst-template.typ と同じ。
 """
 import glob
+import os
 import re
 import shutil
 import subprocess
@@ -463,13 +464,25 @@ TYPES = {
 
 
 def find_browser():
-    """PNGへの変換に使うブラウザを探す。なければ None。"""
-    # 画面の枠を持たない版を優先する（普通の版は、下が切れた画像になる）
-    for pattern in ("/opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell",
-                    "/opt/pw-browsers/chromium-*/chrome-linux/chrome"):
-        found = sorted(glob.glob(pattern))
-        if found:
-            return found[-1]
+    """PNGへの変換に使うブラウザを探す。なければ None。
+
+    Playwright が入れた Chromium（PLAYWRIGHT_BROWSERS_PATH、/opt/pw-browsers、~/.cache/ms-playwright）を優先する。
+    画面の枠を持たない headless shell が最優先（普通の版は、下が切れた画像になる）。
+    無ければ PATH の chromium / google-chrome。GitHub の snap 版 chromium は、依存の snap の取得に失敗すると
+    起動せずに終わることがあるので、ワークフローでは Playwright の Chromium を使う。
+    """
+    roots = [os.environ.get("PLAYWRIGHT_BROWSERS_PATH"), "/opt/pw-browsers", os.path.expanduser("~/.cache/ms-playwright")]
+    patterns = ("chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell",
+                "chromium_headless_shell-*/chrome-linux/headless_shell",
+                "chromium-*/chrome-linux64/chrome",
+                "chromium-*/chrome-linux/chrome")
+    for root in roots:
+        if not root:
+            continue
+        for pattern in patterns:
+            found = sorted(p for p in glob.glob(os.path.join(root, pattern)) if os.access(p, os.X_OK))
+            if found:
+                return found[-1]
     for name in ("chromium", "chromium-browser", "google-chrome", "chrome"):
         if shutil.which(name):
             return shutil.which(name)
