@@ -180,9 +180,9 @@ jobs:
           path: |
             sbv2
             ~/.cache/huggingface
-          key: sbv2-v1-${{ hashFiles('video/voices.yaml') }}
+          key: sbv2-v2-${{ hashFiles('video/voices.yaml') }}
           restore-keys: |
-            sbv2-v1-
+            sbv2-v2-
       - name: 合成音声（Style-Bert-VITS2）を確かめ、無いか足りなければ作る
         if: steps.gate.outputs.go == 'yes'
         id: sbv2_build
@@ -194,7 +194,7 @@ jobs:
           # 日本語の声（voices.yaml の engine: sbv2）。AivisHub と Hugging Face から声のモデルを取り、BERT と一緒に保存しておく。
           # venv は --copies（ランナーの Python の更新で壊れないように）
           built=no
-          if ! [ -x sbv2/venv/bin/python ] || ! sbv2/venv/bin/python -c "import style_bert_vits2, torch, scipy" >/dev/null 2>&1; then
+          if ! [ -x sbv2/venv/bin/python ] || ! sbv2/venv/bin/python -c "import style_bert_vits2, torch, scipy, pyopenjtalk" >/dev/null 2>&1; then
             echo "Style-Bert-VITS2 を準備し直します"
             rm -rf sbv2/venv && mkdir -p sbv2
             python -m venv --copies sbv2/venv
@@ -203,9 +203,10 @@ jobs:
             sbv2/venv/bin/pip install --index-url https://download.pytorch.org/whl/cpu torch
             echo "::endgroup::"
             echo "::group::style-bert-vits2"
-            sbv2/venv/bin/pip install style-bert-vits2 scipy pyyaml
+            sbv2/venv/bin/pip install style-bert-vits2 scipy pyyaml "numpy<2"
             echo "::endgroup::"
-            sbv2/venv/bin/python -c "import style_bert_vits2, torch, scipy; print('torch', torch.__version__)"
+            # pyopenjtalk は numpy 1系向けに作られている（2系だと「numpy.dtype size changed」で止まる）
+            sbv2/venv/bin/python -c "import style_bert_vits2, torch, scipy, numpy, pyopenjtalk; print('torch', torch.__version__, 'numpy', numpy.__version__)"
             built=yes
           fi
           # 声のモデル（足りない分だけ取る）。1つでも新しく取ったら保存し直す
@@ -224,7 +225,7 @@ jobs:
           path: |
             sbv2
             ~/.cache/huggingface
-          key: sbv2-v1-${{ hashFiles('video/voices.yaml') }}
+          key: sbv2-v2-${{ hashFiles('video/voices.yaml') }}
       - name: 動画を作って投稿し、1本ごとに書き戻す
         if: steps.gate.outputs.go == 'yes'
         shell: bash
