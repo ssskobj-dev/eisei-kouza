@@ -21,3 +21,6 @@ figures/*/
 
 /.quarto/
 _cert_map.qmd
+
+# 下書きの学習ページ（drafts/sdb-prep/web/build.py が作る）
+drafts/sdb-prep/web/ch1.html

@@ -1,0 +1,521 @@
+<title>衛星データの種類と特性</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* 学習アプリ：上に進み具合の帯、左にステップの一覧、右に1ステップずつ。スマホでは一覧が上の横並びになる */
+:root{
+  --bg:#f4f6f9; --surface:#ffffff; --ink:#1a2433; --muted:#5d6a78; --line:#dde4ec;
+  --main:#2f5d94; --main-soft:#e6edf6; --warm:#ff6b2c; --warm-ink:#c2410c; --warm-soft:#ffeee5;
+  --ok:#1f8a5b; --ok-soft:#e3f4ec; --ng:#c43d2f; --ng-soft:#fbe7e4;
+  --figure-bg:#ffffff;
+  --display:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;
+  --body:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1622; --surface:#16202e; --ink:#e7edf4; --muted:#9aa8b8; --line:#26354a;
+  --main:#7fb0ea; --main-soft:#1c2d45; --warm:#ff8a52; --warm-ink:#ffb08a; --warm-soft:#3a2418;
+  --ok:#5fd09a; --ok-soft:#163327; --ng:#ff8a7a; --ng-soft:#3a1d1a; --figure-bg:#ffffff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1622; --surface:#16202e; --ink:#e7edf4; --muted:#9aa8b8; --line:#26354a;
+  --main:#7fb0ea; --main-soft:#1c2d45; --warm:#ff8a52; --warm-ink:#ffb08a; --warm-soft:#3a2418;
+  --ok:#5fd09a; --ok-soft:#163327; --ng:#ff8a7a; --ng-soft:#3a1d1a; --figure-bg:#ffffff; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.85;margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--warm);outline-offset:2px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+
+/* 上の帯 */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1120px;margin:0 auto;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.crumb{font-size:12px;color:var(--muted);letter-spacing:.04em;line-height:1.4}
+.crumb b{display:block;font-family:var(--display);font-size:16px;color:var(--ink);letter-spacing:0}
+.prog{flex:1;min-width:180px;display:flex;align-items:center;gap:10px}
+.track{flex:1;height:10px;background:var(--main-soft);border-radius:99px;overflow:hidden}
+.fill{height:100%;width:0;background:var(--main);border-radius:99px;transition:width .4s}
+.pct{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:3.2em;text-align:right}
+
+/* 全体の配置 */
+.wrap{max-width:1120px;margin:0 auto;padding-block:24px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:240px minmax(0,1fr);gap:28px;align-items:start}
+nav.steps{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px);display:flex;flex-direction:column;gap:4px}
+.navlabel{font-size:11.5px;color:var(--muted);letter-spacing:.08em;margin:0 0 6px 10px}
+.nav-i{display:flex;gap:10px;align-items:center;text-align:left;background:none;border:0;padding:8px 10px;border-radius:10px;font-size:14px;line-height:1.45;color:var(--muted)}
+.nav-i:hover{background:var(--main-soft);color:var(--ink)}
+.nav-i[aria-current="step"]{background:var(--surface);color:var(--ink);font-weight:700;box-shadow:0 0 0 1px var(--line)}
+.dot{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:12px;font-weight:600;border:2px solid var(--line);background:var(--surface);color:var(--muted)}
+.nav-i.done .dot{background:var(--main);border-color:var(--main);color:#fff}
+.nav-i.test .dot{border-color:var(--warm);color:var(--warm-ink)}
+.nav-i.test.done .dot{background:var(--warm);color:#fff}
+
+main{min-width:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,3.5vw,40px)}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;color:var(--warm-ink);font-weight:600}
+h1,h2{font-family:var(--display);font-weight:900;line-height:1.35;text-wrap:balance;margin:.2em 0 .6em}
+h1{font-size:clamp(24px,3.4vw,32px)}
+h2{font-size:clamp(21px,2.8vw,26px)}
+h3{font-family:var(--display);font-size:18px;margin:1.6em 0 .4em}
+.prose{max-width:40em}
+.prose p{margin:0 0 1em}
+.lead{font-size:17.5px;font-weight:500;border-left:4px solid var(--warm);padding-left:14px;margin:0 0 1.2em}
+.src{font-family:var(--mono);font-size:.72em;color:var(--muted);vertical-align:super;margin-left:1px}
+figure{margin:24px 0;background:var(--figure-bg);border:1px solid var(--line);border-radius:14px;padding:8px;overflow-x:auto}
+figure img{display:block;width:100%;height:auto;min-width:560px}
+figcaption{font-size:12.5px;color:#5d6a78;padding:6px 8px 2px}
+.meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:-4px 0 18px}
+.meta span{display:inline-flex;gap:6px;align-items:center}
+
+/* 問題 */
+.q{margin-top:28px;border-radius:16px;background:var(--main-soft);padding:20px}
+.q-head{display:flex;gap:10px;align-items:center;font-size:13px;font-weight:700;color:var(--main);letter-spacing:.04em;margin-bottom:8px}
+.q-tag{font-family:var(--mono);font-size:11px;background:var(--surface);border:1px solid var(--line);color:var(--muted);border-radius:99px;padding:1px 9px;font-weight:500}
+.q-text{font-weight:700;font-size:16.5px;margin:0 0 14px;line-height:1.7}
+.choices{display:grid;gap:8px}
+.ch{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;background:var(--surface);border:2px solid var(--line);border-radius:12px;padding:12px 14px;line-height:1.6;transition:border-color .15s,background .15s}
+.ch:hover:not([disabled]){border-color:var(--main)}
+.ch .k{flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-family:var(--mono);font-weight:600;font-size:13px;background:var(--main-soft);color:var(--main)}
+.ch[disabled]{cursor:default}
+.ch.ok{border-color:var(--ok);background:var(--ok-soft)}
+.ch.ok .k{background:var(--ok);color:#fff}
+.ch.ng{border-color:var(--ng);background:var(--ng-soft)}
+.ch.ng .k{background:var(--ng);color:#fff}
+.ch.dim{opacity:.55}
+.fb{margin-top:14px;border-radius:12px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);font-size:15px}
+.fb b.ok{color:var(--ok)} .fb b.ng{color:var(--ng)}
+.fb .why{margin:.4em 0 0}
+.fb .others{margin:.8em 0 0;padding:0;list-style:none;display:grid;gap:4px;font-size:13.5px;color:var(--muted)}
+
+.actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-top:28px}
+.btn{border:0;border-radius:12px;padding:12px 20px;font-weight:700;background:var(--main);color:#fff}
+.btn.warm{background:var(--warm);color:#fff}
+.btn.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.btn[disabled]{opacity:.4;cursor:not-allowed}
+
+/* 体験：3つの問い */
+.sim{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin-top:22px}
+.sim-q{background:var(--main-soft);border-radius:14px;padding:16px}
+.sim-q h4{margin:0 0 10px;font-family:var(--display);font-size:16px;display:flex;gap:8px;align-items:center}
+.sim-q h4 .n{font-family:var(--mono);background:var(--warm);color:#fff;border-radius:50%;width:24px;height:24px;display:grid;place-items:center;font-size:12px}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{flex:1 1 auto;border:2px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 10px;font-size:14px;line-height:1.4}
+.seg button[aria-pressed="true"]{border-color:var(--main);background:var(--main);color:#fff;font-weight:700}
+.result{grid-column:1/-1;border:2px solid var(--main);border-radius:16px;padding:18px 20px;background:var(--surface)}
+.result .pick{font-family:var(--display);font-weight:900;font-size:21px;margin:.1em 0 .4em;color:var(--main)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+.chip{font-size:12.5px;border-radius:99px;padding:3px 10px;background:var(--main-soft);color:var(--main);font-weight:700}
+.chip.warn{background:var(--warm-soft);color:var(--warm-ink)}
+.result ul{margin:.3em 0 0;padding-left:1.2em}
+
+/* ○✕ */
+.tf{display:grid;gap:10px;margin-top:18px}
+.tf-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;background:var(--main-soft);border-radius:12px;padding:12px 14px}
+.tf-row p{margin:0;font-weight:700;line-height:1.6}
+.tf-row .exp{grid-column:1/-1;font-size:14px;font-weight:400;color:var(--muted)}
+.tf-btns{display:flex;gap:6px}
+.tf-btns button{width:46px;height:40px;border-radius:10px;border:2px solid var(--line);background:var(--surface);font-weight:900;font-size:17px}
+.tf-btns button.ok{border-color:var(--ok);background:var(--ok);color:#fff}
+.tf-btns button.ng{border-color:var(--ng);background:var(--ng);color:#fff}
+
+/* テスト */
+.test-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.pace{font-family:var(--mono);font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px;font-variant-numeric:tabular-nums}
+.pace .ring{width:64px;height:6px;border-radius:99px;background:var(--main-soft);overflow:hidden}
+.pace .ring i{display:block;height:100%;background:var(--main);width:100%;transition:width 1s linear}
+.pace.over .ring i{background:var(--warm)}
+.score{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin:8px 0 18px}
+.big{font-family:var(--display);font-weight:900;font-size:56px;line-height:1;color:var(--main);font-variant-numeric:tabular-nums}
+.big small{font-size:22px;color:var(--muted)}
+.rev{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.rev li{border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14.5px}
+.rev .mk{font-weight:900;margin-right:6px}
+.rev .mk.ok{color:var(--ok)} .rev .mk.ng{color:var(--ng)}
+.rev details{margin-top:6px;color:var(--muted)}
+.rev summary{cursor:pointer;color:var(--main);font-weight:700}
+.note{font-size:12.5px;color:var(--muted);margin-top:28px;line-height:1.7}
+.notice{background:var(--warm-soft);color:var(--ink);border-radius:12px;padding:12px 14px;font-size:13.5px;margin-bottom:18px;line-height:1.7}
+
+@media (max-width:860px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:16px}
+  nav.steps{position:static;flex-direction:row;overflow-x:auto;padding-bottom:4px;gap:6px}
+  .navlabel{display:none}
+  .nav-i{flex:none;padding:6px 10px;white-space:nowrap}
+  .nav-i .t{display:none}
+  .nav-i[aria-current="step"] .t{display:inline}
+  .sim{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="bar">
+  <div class="bar-in">
+    <div class="crumb">サテライトデータビジネス検定 対策講座（素案）<b>第1章 衛星データの種類と特性</b></div>
+    <div class="prog" aria-label="進み具合"><div class="track"><div class="fill" id="fill"></div></div><span class="pct" id="pct">0%</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="steps" id="nav" aria-label="ステップ"></nav>
+  <main><div class="card" id="view"></div></main>
+</div>
+
+<script>
+const IMG = {
+  "two-kinds": "%%IMG:two-kinds%%",
+  "band-mountain": "%%IMG:band-mountain%%",
+  "triangle": "%%IMG:triangle%%",
+  "three-questions": "%%IMG:three-questions%%",
+  "myths": "%%IMG:myths%%"
+};
+const S = n => `<span class="src">[${n}]</span>`;
+
+// ステップ。check は理解チェック（4択、選択肢ごとの解説つき）
+const STEPS = [
+ { id:"intro", title:"衛星データは2種類", min:3, fig:["two-kinds","光学（昼間の写真）とSAR（暗闇の懐中電灯）"],
+   lead:"衛星データは大きく2種類です。太陽の光の反射を写す「光学」と、自分で電波を出して跳ね返りを受け取る「SAR（合成開口レーダ）」。",
+   body:`<p>光学は写真なので見て分かるが、雲と夜に弱い。SARは雲も夜も関係ないが、写真ではない。</p>
+   <p>そしてどちらも、細かく撮るほど一度に撮れる幅は狭くなり、同じ場所に戻ってくる回数は減ります。だから「衛星で何ができるか」ではなく、<b>「この仕事に、どの衛星の、どの撮り方が合うか」</b>で考えます。この章の最後で、それを3つの問いで判断できるようにします。</p>`,
+   check:{q:"夜でも、雲が出ていても地表を撮れるのはどれですか。", tag:"易", choices:[
+     {t:"光学衛星", why:"光学は太陽の光の反射を写すので、夜は撮れず、雲があると地表が写りません。"},
+     {t:"SAR衛星", ok:true, why:"SARは自分で電波を出し、その電波は雲や雨を通ります。夜も天気も関係ありません。"},
+     {t:"どちらも撮れる", why:"光学は夜と雲に弱いので、両方ではありません。"},
+     {t:"どちらも撮れない", why:"SARは撮れます。"}]}},
+ { id:"optical", title:"光学は「昼間の写真」", min:3,
+   lead:"光学衛星は、太陽の光が地表で反射したものを写します。見れば分かるのが強みです。",
+   body:`<p>人の目に見える光のほか、目に見えない近赤外の光も記録します${S(1)}。画像を見れば、建物や田畑、道路が分かります。</p>
+   <p>弱点もここから来ます。太陽の光が要るので、夜は撮れない。光は雲を通らないので、雲があると地表が写らない${S(1)}。日の当たり方でも見え方が変わり、同じ場所でも朝と昼、夏と冬で色が違います${S(1)}。</p>
+   <p>近赤外が写るのは、ビジネス上は大きいです。作物の勢いや水の有無のように、目では色の差として見えない状態を、数字（指標）にできます。</p>`,
+   check:{q:"光学衛星が近赤外の光も記録することで、何ができるようになりますか。", tag:"易", choices:[
+     {t:"夜でも撮れるようになる", why:"近赤外も太陽の光の反射です。夜は撮れません。"},
+     {t:"作物の勢いや水の有無を、指標にできる", ok:true, why:"目には色の差として見えない状態を、近赤外を使って数字にできます。"},
+     {t:"雲を通して地表が見える", why:"光は雲を通りません。雲を越えたいならSARです。"},
+     {t:"地面のcm単位の動きが測れる", why:"それは干渉SARの使い方です。"}]}},
+ { id:"sar", title:"SARは「暗闇の懐中電灯」", min:4,
+   lead:"SARは自分で電波を出し、跳ね返ってきた電波から画像を作ります。写っているのは写真ではなく、電波の跳ね返りの強さです。",
+   body:`<p>暗闇で懐中電灯を当てて、跳ね返りを見るようなものです${S(2)}。自分で光るので夜も撮れ、使う電波は雲や雨を通るので天気も関係ありません${S(3)}。</p>
+   <p>ただし、見た目で判別する仕事にはそのまま使えず、読むには慣れか、解析をする人が要ります。</p>
+   <h3>写真にはない使い方：干渉SAR</h3>
+   <p>同じ場所を2回撮って電波の差を取ると、地表がどれだけ動いたかが分かります${S(2)}。国土地理院は、地震、火山、地盤沈下、斜面の変動をこの方法で面的に捉えています${S(2)}。目で見ても分からないcm単位の動きを測れるのは、SARだけです。</p>
+   <p>注意点が1つ。干渉SARが測っているのは<b>「衛星と地表を結ぶ方向の距離の変化」</b>で${S(2)}、真下に沈んだ量そのものではありません。</p>`,
+   check:{q:"干渉SARで直接分かるのはどれですか。", tag:"中", choices:[
+     {t:"地面が真下に沈んだ量", why:"真下の量に直すには、別の仮定や測量が要ります。"},
+     {t:"衛星と地表を結ぶ方向の、距離の変化", ok:true, why:"2回の観測の差から分かるのは、衛星から見た方向の距離の変化です。"},
+     {t:"地表の色の変化", why:"SARの画像は写真ではありません。色は測っていません。"},
+     {t:"1回の観測でのcm単位の高さ", why:"動きを知るには、同じ場所を2回撮る必要があります。"}]}},
+ { id:"band", title:"波長：山はL、街はどれでも", min:4, fig:["band-mountain","SARの波長で変わる、草木の通り抜け"],
+   lead:"SARの電波には波長の違いがあり、波長が長いほど草木を通り抜けます。",
+   body:`<p>長い順に、Lバンド約24cm、Cバンド約6cm、Xバンド約3cmです${S(4)}。日本のだいち2号（ALOS-2）はLバンド、ヨーロッパが無償で公開しているSentinel-1はCバンドです${S(3)}${S(5)}。</p>
+   <p>CバンドやXバンドで森林を撮ると、電波は枝葉で跳ね返って地面まで届きません${S(6)}。Lバンドは植生を通るので、森林でも地面の動きを捉えられます${S(6)}。</p>
+   <p>国土交通省の道路の研究では、山地で干渉の質が一定以上だった場所の割合が、Xバンド0%、Cバンド約30%、Lバンド約80%でした${S(4)}。都市部ではどのバンドも90%以上です${S(4)}。無償のCバンドで結果が出なくても、Lバンドなら出ることがあります。</p>`,
+   check:{q:"森に覆われた山の斜面で、わずかな動きを捉えたい。最初に検討するのはどれですか。", tag:"中", choices:[
+     {t:"Xバンドの干渉SAR", why:"波長が短く、枝葉で跳ね返ります。山地で干渉の質が保てた割合は0%でした。"},
+     {t:"Cバンドの干渉SAR", why:"無償で試しやすい一方、山地では約30%にとどまりました。"},
+     {t:"Lバンドの干渉SAR", ok:true, why:"波長が長く植生を通り抜けます。山地で約80%でした。"},
+     {t:"細かい光学衛星", why:"光学ではcm単位の動きは測れません。"}]}},
+ { id:"trade", title:"細かさ・広さ・頻度", min:4, fig:["triangle","3つ全部は同時に手に入らない"],
+   lead:"光学でもSARでも、「細かく、広く、頻繁に」は同時には成り立ちません。",
+   body:`<p><b>細かさと広さ。</b>だいち2号は、最も細かいモードが分解能1〜3mで幅25km、3mのモードで幅50km、広域観測は100mで幅350kmです${S(3)}。Sentinel-1も、5m×5mのモードは幅80km、標準のモードは幅250kmです${S(7)}。分解能は「画像の1つの点が、地上の何mに当たるか」です。</p>
+   <p><b>広さと頻度。</b>幅が広いほど、地球を一巡りするのが早く終わります。Sentinel-1は標準のモードで、1機なら12日ごとに陸地を一巡りします${S(8)}。光学のSentinel-2は2機で赤道上5日ごと${S(9)}、Landsatは2機で8日ごとです${S(10)}。</p>
+   <p>細かいモードはさらに回数が減ります。だいち2号の3mモードで日本全域を撮り切るには最短56日かかり、計画上は年に最大4回です${S(11)}。頻度を上げるには衛星の機数が要り、そのぶん費用に跳ね返ります。</p>`,
+   check:{q:"「細かい画像を、県全域で、毎週ほしい」という依頼への説明として、正しいものはどれですか。", tag:"中", choices:[
+     {t:"最新の衛星なら1機で実現できる", why:"細かさ・広さ・頻度の関係は、どの衛星でも変わりません。"},
+     {t:"細かくするほど幅が狭く、回数も減るので、1機では難しい。機数と費用を確かめる", ok:true, why:"頻度を上げるには機数が要り、費用に跳ね返ります。"},
+     {t:"細かさと頻度は関係ないので、広さだけ諦めればよい", why:"幅が狭くなると、一巡りにかかる日数が増え、頻度も下がります。"},
+     {t:"無償の衛星を使えば実現できる", why:"無償かどうかは、細かさ・広さ・頻度の関係を変えません。"}]}},
+ { id:"past", title:"過去に遡れる、ただし撮っていれば", min:3,
+   lead:"衛星は頼まれなくても撮り続けています。「3年前はどうだったか」を今から調べられるのは、衛星の大きな強みです。",
+   body:`<p>米国のLandsatは1972年から観測を続け、2008年からは画像がすべて無償で公開されています${S(10)}。</p>
+   <p>ただし遡れるのは、<b>その場所をその衛星が撮っていた期間だけ</b>です。細かいモードほど撮る回数は少ないので、「過去5年、毎月の細かい画像」は、ふつう存在しません。過去を調べたい依頼では、最初に「その画像が実際にあるか」を確かめます。</p>`,
+   check:{q:"「5年前から毎月、この工場の周りを分解能1mで見たい」と相談された。最初に確かめることはどれですか。", tag:"難", choices:[
+     {t:"その期間に、その場所を、その細かさで撮った画像が実際にあるか", ok:true, why:"遡れるのは撮っていた期間だけです。細かい画像が毎月そろっていることは、ふつうありません。"},
+     {t:"最新の衛星の名前", why:"これから打ち上がる衛星は、過去を撮っていません。"},
+     {t:"解析ソフトの種類", why:"画像がなければ解析もできません。先に画像の有無です。"},
+     {t:"画像の色の数", why:"判断の材料になりません。"}]}},
+ { id:"sim", title:"体験：3つの問いで衛星を選ぶ", min:5, fig:["three-questions","その仕事に使えるかを決める3つの問い"], kind:"sim",
+   lead:"ここまでを判断の手順にします。条件を選ぶと、向く衛星データと注意点が変わります。いろいろ切り替えてみてください。",
+   body:`<p>3つの問い（見た目か動きか／撮る日を選べるか／草木があるか）に答えたら、最後に要る細かさを決めます。粗くて足りる仕事に細かい画像を買うと、幅も頻度も費用も損をします。</p>`},
+ { id:"myth", title:"よくある誤解を見抜く", min:3, fig:["myths","よくある4つの誤解"], kind:"tf",
+   lead:"検定でも実務でも、間違いの選択肢はたいてい「よくある誤解」からできています。○か✕で答えてください。",
+   tf:[
+     {s:"SARは、雲を越えられる光学衛星だと考えてよい", a:false, why:"SARは写真ではありません。雲を越えたいだけなら、光学で晴れを待つほうが早いこともあります。"},
+     {s:"分解能は、高いほど良い", a:false, why:"細かくするほど、幅も回数も減ります。要る細かさを決めてから選びます。"},
+     {s:"衛星には回ってくる周期があり、撮りたい日に撮れるとは限らない", a:true, why:"さらに光学は、雲があると地表が写りません。"},
+     {s:"干渉SARで分かるのは、衛星から見た方向の距離の変化である", a:true, why:"沈下量そのものではありません。"}]},
+ { id:"test", title:"章末テスト（8問）", min:10, kind:"test" }
+];
+
+// 章末テスト（本番と同じ4択。難しさの配分：易3・中3・難2）
+const TEST = [
+ {q:"ある市が、梅雨の時期に起きた浸水の範囲を、翌朝までに把握したい。最初に検討する衛星データとして、最も適切なものはどれですか。", tag:"中", choices:[
+   {t:"分解能の細かい光学衛星の画像", why:"梅雨の時期は雲が多く、地表が写らないことがあります。"},
+   {t:"SAR衛星の画像", ok:true, why:"雲や雨を通る電波を使うので、天気を選べない仕事に向きます。"},
+   {t:"Landsatの過去の画像", why:"過去の画像には、今回の浸水は写っていません。"},
+   {t:"近赤外を含む光学衛星の画像", why:"近赤外も光です。雲は通りません。"}]},
+ {q:"SARの波長について、正しいものはどれですか。", tag:"易", choices:[
+   {t:"Lバンドは約3cmで、最も短い", why:"Lバンドは約24cmで、3つの中で最も長い波長です。"},
+   {t:"波長が長いほど、草木を通り抜けやすい", ok:true, why:"Lバンドは植生を通り、森林でも地面を捉えられます。"},
+   {t:"Sentinel-1はLバンドである", why:"Sentinel-1はCバンドです。日本のだいち2号がLバンドです。"},
+   {t:"都市部ではLバンドしか使えない", why:"都市部ではどのバンドも、干渉の質が保てた割合は90%以上でした。"}]},
+ {q:"「細かい画像を、広い範囲で、毎週ほしい」という依頼への説明として、正しいものはどれですか。", tag:"中", choices:[
+   {t:"最新の衛星なら1機で実現できる", why:"細かさ・広さ・頻度の関係は、どの衛星でも変わりません。"},
+   {t:"細かく撮るほど一度に撮れる幅が狭くなり、同じ場所を撮る回数も減るので、1機では難しい", ok:true, why:"頻度を上げるには機数が要り、費用に跳ね返ります。"},
+   {t:"細かさと頻度は関係ないので、広さだけ諦めればよい", why:"幅が狭いほど一巡りに日数がかかり、頻度も下がります。"},
+   {t:"無償の衛星を使えば実現できる", why:"無償かどうかは関係を変えません。"}]},
+ {q:"干渉SARで得られた地盤の変動について、正しい説明はどれですか。", tag:"易", choices:[
+   {t:"地面が真下に沈んだ量そのものが分かる", why:"真下の量に直すには、別の仮定や測量が要ります。"},
+   {t:"衛星と地表を結ぶ方向の、距離の変化が分かる", ok:true, why:"2回の観測の差から分かるのは、この変化です。"},
+   {t:"雲があると測れない", why:"SARなので雲は関係ありません。"},
+   {t:"1回の観測だけで分かる", why:"同じ場所を2回撮る必要があります。"}]},
+ {q:"米国のLandsatの画像が、すべて無償で公開されるようになったのはいつからですか。", tag:"易", choices:[
+   {t:"1972年", why:"1972年は観測を始めた年です。"},
+   {t:"2008年", ok:true, why:"2008年から、すべての画像が無償で公開されています。"},
+   {t:"2015年", why:"違います。"},
+   {t:"まだ有償である", why:"無償で公開されています。"}]},
+ {q:"ある町が、年に数回、田畑の作付けの状況を把握したい。晴れた日のデータを待つ余裕がある。最初に検討するのはどれですか。", tag:"中", choices:[
+   {t:"光学衛星の画像", ok:true, why:"見て分かるものは光学が出発点です。撮る日を選べるなら、晴れを待てます。"},
+   {t:"干渉SAR", why:"干渉SARは地面の動きを測る方法で、作付けの見た目の判別には向きません。"},
+   {t:"Xバンドの干渉SAR", why:"動きを測る方法なので、目的に合いません。"},
+   {t:"どの衛星でも同じ", why:"見た目か動きかで、選ぶ衛星は変わります。"}]},
+ {q:"森林の多い地域で、無償のSentinel-1を使って斜面の動きを解析したが、結果がほとんど出なかった。次の一手として最も適切なものはどれですか。", tag:"難", choices:[
+   {t:"衛星では斜面の動きは測れないと結論づける", why:"「衛星が駄目」ではなく「その波長が駄目」だった可能性があります。"},
+   {t:"波長の長いLバンドのデータで試す", ok:true, why:"Sentinel-1はCバンドで、草木のある場所では干渉しにくい。Lバンドなら結果が出ることがあります。"},
+   {t:"より細かい光学衛星に切り替える", why:"光学ではcm単位の動きは測れません。"},
+   {t:"同じCバンドのデータの枚数を減らす", why:"波長の問題は、枚数を減らしても解決しません。"}]},
+ {q:"「5年前から毎月、この工場の周りを分解能1mで見たい」と相談された。最初に確かめることはどれですか。", tag:"難", choices:[
+   {t:"その期間に、その場所を、その細かさで撮った画像が実際にあるか", ok:true, why:"遡れるのは撮っていた期間だけです。"},
+   {t:"最新の衛星の名前", why:"これからの衛星は過去を撮っていません。"},
+   {t:"解析ソフトの種類", why:"画像がなければ解析もできません。"},
+   {t:"画像の色の数", why:"判断の材料になりません。"}]}
+];
+
+const SOURCES = [
+ "CONSEO事務局「CONSEO衛星データガイドブック」（2022年12月）",
+ "国土地理院「干渉SARのQ&A Q1」",
+ "JAXA「だいち2号（ALOS-2）プレスキット」",
+ "国土交通省 道路局「SARの道路土構造物の維持管理への活用マニュアル（案）」（2021年7月）",
+ "ESA「Sentinel-1 Mission」（SentiWiki）",
+ "国土地理院「干渉SARのQ&A Q4」",
+ "ESA「Sentinel-1 SAR Instrument: Resolution and Swath」",
+ "ESA「Sentinel-1 SAR User Guide: Revisit and Coverage」",
+ "ESA、Copernicus Data Space Ecosystem「Sentinel-2」",
+ "NASA「Landsat 9 brochure」",
+ "JAXA「ALOS-2基本観測シナリオ（第4版）」（2025年10月）"
+];
+
+// ---- 状態（この人のブラウザだけに保存） ----
+const KEY = "sdb-prep-ch1-v1";
+let st = {cur:0, done:{}, ans:{}, tf:{}, test:null, wrong:[]};
+try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) st = Object.assign(st, s); } catch(e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch(e) {} };
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
+const KEYS = ["A","B","C","D"];
+
+function progress(){
+  const n = STEPS.length, d = STEPS.filter(s => st.done[s.id]).length;
+  const p = Math.round(d / n * 100);
+  $("#fill").style.width = p + "%"; $("#pct").textContent = p + "%";
+}
+function renderNav(){
+  $("#nav").innerHTML = `<div class="navlabel">ステップ</div>` + STEPS.map((s, i) =>
+    `<button class="nav-i ${st.done[s.id] ? "done" : ""} ${s.kind === "test" ? "test" : ""}" data-i="${i}" ${i === st.cur ? 'aria-current="step"' : ""}>
+      <span class="dot">${st.done[s.id] ? "✓" : (s.kind === "test" ? "T" : i + 1)}</span><span class="t">${esc(s.title)}</span></button>`).join("");
+  $("#nav").querySelectorAll(".nav-i").forEach(b => b.onclick = () => go(+b.dataset.i));
+}
+function go(i){ st.cur = Math.max(0, Math.min(STEPS.length - 1, i)); save(); render(); window.scrollTo({top:0, behavior:"smooth"}); }
+function complete(id){ st.done[id] = true; save(); progress(); renderNav(); }
+
+function choiceBlock(qid, q, mode){
+  const a = st.ans[qid];
+  const answered = a !== undefined;
+  const btns = q.choices.map((c, k) => {
+    let cls = "";
+    if (answered) cls = c.ok ? "ok" : (k === a ? "ng" : "dim");
+    return `<button class="ch ${cls}" data-k="${k}" ${answered ? "disabled" : ""}><span class="k">${KEYS[k]}</span><span>${esc(c.t)}</span></button>`;
+  }).join("");
+  let fb = "";
+  if (answered){
+    const right = q.choices[a].ok;
+    const correct = q.choices.findIndex(c => c.ok);
+    fb = `<div class="fb" role="status"><b class="${right ? "ok" : "ng"}">${right ? "正解です" : "惜しい。正解は " + KEYS[correct]}</b>
+      <p class="why">${esc(q.choices[a].why)}</p>
+      ${right ? "" : `<p class="why"><b>${KEYS[correct]}：</b>${esc(q.choices[correct].why)}</p>`}
+      <ul class="others">${q.choices.map((c, k) => (k === a || k === correct) ? "" : `<li>${KEYS[k]}：${esc(c.why)}</li>`).join("")}</ul></div>`;
+  }
+  return `<div class="q" id="q-${qid}"><div class="q-head">${mode} <span class="q-tag">${q.tag}</span></div>
+    <p class="q-text">${esc(q.q)}</p><div class="choices">${btns}</div>${fb}</div>`;
+}
+function bindChoices(qid, onAnswer){
+  document.querySelectorAll(`#q-${qid} .ch`).forEach(b => b.onclick = () => { st.ans[qid] = +b.dataset.k; save(); onAnswer && onAnswer(); });
+}
+
+function figure(f){ return f ? `<figure><img src="${IMG[f[0]]}" alt="${esc(f[1])}"><figcaption>${esc(f[1])}</figcaption></figure>` : ""; }
+function nav2(i, canNext){
+  const last = i === STEPS.length - 1;
+  return `<div class="actions"><button class="btn ghost" id="prev" ${i === 0 ? "disabled" : ""}>← 前へ</button>
+   ${last ? "" : `<button class="btn ${STEPS[i + 1].kind === "test" ? "warm" : ""}" id="next">${canNext ? (STEPS[i + 1].kind === "test" ? "章末テストへ →" : "次へ →") : "答えずに次へ"}</button>`}</div>`;
+}
+function bindNav2(i){ const p = $("#prev"), n = $("#next"); if (p) p.onclick = () => go(i - 1); if (n) n.onclick = () => { if (!STEPS[i].check) complete(STEPS[i].id); go(i + 1); }; }
+
+function render(){
+  renderNav(); progress();
+  const i = st.cur, s = STEPS[i];
+  if (s.kind === "test") return renderTest();
+  let html = `<div class="eyebrow">STEP ${i + 1} / ${STEPS.length - 1}</div><h2>${esc(s.title)}</h2>
+   <div class="meta"><span>読む目安 約${s.min}分</span><span>測る力：① 衛星データの基礎理解</span></div>
+   <div class="prose"><p class="lead">${esc(s.lead)}</p>${s.body || ""}</div>${figure(s.fig)}`;
+  if (s.check) html += choiceBlock(s.id, s.check, "理解チェック");
+  if (s.kind === "sim") html += simHTML();
+  if (s.kind === "tf") html += tfHTML(s);
+  const canNext = s.check ? st.ans[s.id] !== undefined : true;
+  html += nav2(i, canNext);
+  if (i === 0) html = `<div class="notice">Satellite to Decision が独自に作っている、サテライトデータビジネス検定の受験対策講座（素案）です。検定の運営団体とは関係がなく、公式の教材ではありません。検定のシラバスは公開されていないため、運営が公開している「測る3つの力」に沿って組んでいます。</div>` + html;
+  if (i === STEPS.length - 2) html += srcHTML();
+  $("#view").innerHTML = html;
+  if (s.check) bindChoices(s.id, () => { complete(s.id); render(); });
+  if (s.kind === "sim") bindSim();
+  if (s.kind === "tf") bindTf(s);
+  bindNav2(i);
+}
+
+// ---- 体験：3つの問い ----
+let sim = {goal:"look", wait:"yes", veg:"no", res:"mid"};
+function simHTML(){
+  const seg = (k, opts) => `<div class="seg" role="group">${opts.map(([v, l]) => `<button data-k="${k}" data-v="${v}" aria-pressed="${sim[k] === v}">${l}</button>`).join("")}</div>`;
+  return `<div class="sim">
+   <div class="sim-q"><h4><span class="n">1</span>知りたいのは</h4>${seg("goal", [["look","見た目（何があるか）"],["move","動き（沈下・変動）"]])}</div>
+   <div class="sim-q"><h4><span class="n">2</span>撮る日を選べるか</h4>${seg("wait", [["yes","晴れを待てる"],["no","待てない（災害・梅雨）"]])}</div>
+   <div class="sim-q"><h4><span class="n">3</span>対象に草木は</h4>${seg("veg", [["yes","森・草地が多い"],["no","街・開けた土地"]])}</div>
+   <div class="sim-q"><h4><span class="n">4</span>要る細かさ</h4>${seg("res", [["fine","建物1棟（数m以下）"],["mid","区画・田畑（10m前後）"],["coarse","市や県の広がり"]])}</div>
+   <div class="result" id="simres" aria-live="polite">${simResult()}</div></div>`;
+}
+function simResult(){
+  const r = {pick:"", chips:[], notes:[]};
+  if (sim.goal === "move"){
+    r.pick = sim.veg === "yes" ? "干渉SAR（Lバンド）" : "干渉SAR（Cバンドから試せる）";
+    r.chips.push("SAR", sim.veg === "yes" ? "Lバンド：だいち2号" : "Cバンド：Sentinel-1（無償）");
+    r.notes.push("分かるのは衛星から見た方向の距離の変化。真下の沈下量ではない");
+    if (sim.veg === "yes") r.notes.push("山地で干渉の質が保てた割合は、Lバンド約80%、Cバンド約30%、Xバンド0%");
+    else r.notes.push("都市部はどのバンドも干渉の質が保てた割合は90%以上。まず無償のデータで試せる");
+    if (sim.wait === "no") r.chips.push("天気は関係なし");
+  } else if (sim.wait === "no"){
+    r.pick = "SAR（雲を越えたいとき）";
+    r.chips.push("SAR", "雲・夜・雨でも撮れる");
+    r.notes.push("写真ではない。何を見分けたいかを事業者に伝え、SARで見分けられるかを確かめる");
+    r.notes.push("急がないなら、光学で晴れを待つほうが早いこともある");
+  } else {
+    r.pick = "光学衛星";
+    r.chips.push("光学", "晴れた日の画像を待つ");
+    r.notes.push("雲があると写らない。必要な時期の前後で、晴れた日の画像があるかを確かめる");
+    r.notes.push("作物の勢いや水の有無は、近赤外の指標で見られる");
+  }
+  if (sim.res === "fine"){ r.chips.push("細かい撮り方"); r.notes.push("細かくするほど幅は狭く、撮る回数も減る。撮れる時期と費用を事業者に確かめる"); r.warn = true; }
+  if (sim.res === "coarse"){ r.chips.push("広く撮る撮り方"); r.notes.push("広く撮るモードほど、同じ場所に戻る回数が多い。粗くて足りるなら細かい画像は買わない"); }
+  if (sim.res === "mid" && sim.goal === "look" && sim.wait === "yes"){ r.chips.push("無償データから試す"); r.notes.push("まず無償のSentinel-2やLandsatで足りるかを見る。足りなければ細かい画像を検討する"); }
+  if (sim.goal === "look" && sim.veg === "yes" && sim.wait === "no") r.notes.push("草木の下を見たいなら、SARでも波長の長いLバンドが第一候補");
+  return `<div class="eyebrow">この条件なら</div><div class="pick">${esc(r.pick)}</div>
+    <div class="chips">${r.chips.map((c, k) => `<span class="chip ${r.warn && k === r.chips.length - 1 ? "warn" : ""}">${esc(c)}</span>`).join("")}</div>
+    <ul>${r.notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>`;
+}
+function bindSim(){
+  document.querySelectorAll(".seg button").forEach(b => b.onclick = () => {
+    sim[b.dataset.k] = b.dataset.v;
+    document.querySelectorAll(`.seg button[data-k="${b.dataset.k}"]`).forEach(x => x.setAttribute("aria-pressed", x.dataset.v === b.dataset.v));
+    $("#simres").innerHTML = simResult();
+    complete("sim");
+  });
+}
+
+// ---- ○✕ ----
+function tfHTML(s){
+  return `<div class="tf">${s.tf.map((r, k) => {
+    const a = st.tf[k];
+    const okb = a === undefined ? "" : (a === true ? (r.a ? "ok" : "ng") : "");
+    const ngb = a === undefined ? "" : (a === false ? (!r.a ? "ok" : "ng") : "");
+    return `<div class="tf-row"><p>${esc(r.s)}</p><div class="tf-btns">
+      <button data-k="${k}" data-v="1" class="${okb}" aria-label="○" ${a !== undefined ? "disabled" : ""}>○</button>
+      <button data-k="${k}" data-v="0" class="${ngb}" aria-label="✕" ${a !== undefined ? "disabled" : ""}>✕</button></div>
+      ${a !== undefined ? `<p class="exp">${a === r.a ? "正解。" : "答えは " + (r.a ? "○" : "✕") + "。"}${esc(r.why)}</p>` : ""}</div>`;
+  }).join("")}</div>`;
+}
+function bindTf(s){
+  document.querySelectorAll(".tf-btns button").forEach(b => b.onclick = () => {
+    st.tf[+b.dataset.k] = b.dataset.v === "1"; save();
+    if (s.tf.every((_, k) => st.tf[k] !== undefined)) complete(s.id);
+    render();
+  });
+}
+
+// ---- 章末テスト ----
+let timer = null;
+function renderTest(){
+  clearInterval(timer);
+  const t = st.test;
+  if (!t || t.phase === "intro") return testIntro();
+  if (t.phase === "q") return testQ();
+  return testResult();
+}
+function testIntro(){
+  const prev = st.test && st.test.last;
+  $("#view").innerHTML = `<div class="eyebrow">章末テスト</div><h2>本番と同じ形で、8問</h2>
+   <div class="prose"><p class="lead">4択から1つ。本番は約50問を60分で解くので、1問あたり約72秒です。時間は目安として表示しますが、止まりません。</p>
+   <p>終わると、点数と、選んだ選択肢ごとの解説が出ます。間違えた問題は「復習リスト」に入り、あとで解き直せます。</p></div>
+   ${prev !== undefined ? `<p class="meta"><span>前回の結果：${prev} / ${TEST.length} 問</span></p>` : ""}
+   <div class="actions"><button class="btn ghost" id="prev">← 前へ</button>
+   <div style="display:flex;gap:10px;flex-wrap:wrap">${st.wrong.length ? `<button class="btn ghost" id="retry">復習リスト（${st.wrong.length}問）</button>` : ""}<button class="btn warm" id="start">始める</button></div></div>`;
+  $("#prev").onclick = () => go(st.cur - 1);
+  $("#start").onclick = () => startTest(TEST.map((_, k) => k));
+  if ($("#retry")) $("#retry").onclick = () => startTest(st.wrong.slice());
+}
+function startTest(list){ st.test = {phase:"q", list, at:0, picks:{}, last:st.test && st.test.last}; save(); renderTest(); }
+function testQ(){
+  const t = st.test, qi = t.list[t.at], q = TEST[qi], a = t.picks[qi];
+  const answered = a !== undefined;
+  const btns = q.choices.map((c, k) => {
+    let cls = answered ? (c.ok ? "ok" : (k === a ? "ng" : "dim")) : "";
+    return `<button class="ch ${cls}" data-k="${k}" ${answered ? "disabled" : ""}><span class="k">${KEYS[k]}</span><span>${esc(c.t)}</span></button>`;
+  }).join("");
+  const right = answered && q.choices[a].ok;
+  $("#view").innerHTML = `<div class="test-top"><div class="eyebrow">章末テスト　${t.at + 1} / ${t.list.length}</div>
+   <div class="pace" id="pace"><span>目安 72秒</span><span class="ring"><i id="ring"></i></span><span id="sec">72</span></div></div>
+   <div class="q" style="margin-top:8px"><div class="q-head">問${t.at + 1} <span class="q-tag">${q.tag}</span></div>
+   <p class="q-text">${esc(q.q)}</p><div class="choices">${btns}</div>
+   ${answered ? `<div class="fb" role="status"><b class="${right ? "ok" : "ng"}">${right ? "正解" : "不正解"}</b><p class="why">${esc(q.choices[a].why)}</p></div>` : ""}</div>
+   <div class="actions"><span></span>${answered ? `<button class="btn ${t.at === t.list.length - 1 ? "warm" : ""}" id="tnext">${t.at === t.list.length - 1 ? "結果を見る" : "次の問題 →"}</button>` : ""}</div>`;
+  document.querySelectorAll(".ch").forEach(b => b.onclick = () => { t.picks[qi] = +b.dataset.k; save(); testQ(); });
+  if ($("#tnext")) $("#tnext").onclick = () => { if (t.at === t.list.length - 1){ t.phase = "done"; } else t.at++; save(); renderTest(); };
+  if (!answered){
+    let left = 72; const ring = $("#ring"), sec = $("#sec"), pace = $("#pace");
+    timer = setInterval(() => { left--; sec.textContent = left >= 0 ? left : "+" + (-left); ring.style.width = Math.max(0, left / 72 * 100) + "%"; if (left < 0) pace.classList.add("over"); if (left < -600) clearInterval(timer); }, 1000);
+  }
+}
+function testResult(){
+  const t = st.test;
+  const rows = t.list.map(qi => ({qi, q:TEST[qi], a:t.picks[qi], ok:TEST[qi].choices[t.picks[qi]] && TEST[qi].choices[t.picks[qi]].ok}));
+  const n = rows.filter(r => r.ok).length;
+  const wrong = rows.filter(r => !r.ok).map(r => r.qi);
+  const full = t.list.length === TEST.length;
+  st.wrong = Array.from(new Set(full ? wrong : st.wrong.filter(x => !rows.find(r => r.qi === x && r.ok))));
+  if (full) t.last = n;
+  complete("test"); save();
+  const rate = Math.round(n / t.list.length * 100);
+  $("#view").innerHTML = `<div class="eyebrow">${full ? "章末テストの結果" : "復習の結果"}</div><h2>${rate >= 70 ? "この章は合格ラインです" : "もう一度、本文に戻りましょう"}</h2>
+   <div class="score"><div class="big">${n}<small> / ${t.list.length}</small></div>
+   <div class="prose"><p style="margin:0">正答率 ${rate}%。検定の合格ラインは公開されていないので、この講座では<b>章ごとに70%</b>を目安にしています。</p></div></div>
+   <ol class="rev">${rows.map((r, k) => `<li><span class="mk ${r.ok ? "ok" : "ng"}">${r.ok ? "○" : "✕"}</span>${esc(r.q.q)}
+     <details ${r.ok ? "" : "open"}><summary>解説</summary>
+      <p>あなたの答え：${KEYS[r.a]}　${esc(r.q.choices[r.a].t)}<br>${esc(r.q.choices[r.a].why)}</p>
+      ${r.ok ? "" : `<p>正解：${KEYS[r.q.choices.findIndex(c => c.ok)]}　${esc(r.q.choices.find(c => c.ok).t)}<br>${esc(r.q.choices.find(c => c.ok).why)}</p>`}
+     </details></li>`).join("")}</ol>
+   <div class="actions"><button class="btn ghost" id="again">最初から解き直す</button>
+   ${st.wrong.length ? `<button class="btn warm" id="wr">間違えた問題だけ（${st.wrong.length}問）</button>` : `<span class="meta" style="margin:0">復習リストは空です</span>`}</div>
+   ${srcHTML()}`;
+  $("#again").onclick = () => startTest(TEST.map((_, k) => k));
+  if ($("#wr")) $("#wr").onclick = () => startTest(st.wrong.slice());
+}
+function srcHTML(){ return `<p class="note"><b>出典</b><br>${SOURCES.map((s, k) => `[${k + 1}] ${esc(s)}`).join("<br>")}<br>問題の場面はすべて架空です。</p>`; }
+
+render();
+</script>
