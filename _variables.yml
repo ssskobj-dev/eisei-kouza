@@ -53,7 +53,8 @@ site:
   operator: Spacify合同会社
   address: 東京都台東区下谷2-10-1
   representative: 佐藤孝也
-  email: head.sourcing@longevity-ooo.com
+  # spacify.co.jp の本登録（会社の登記の完了後）までの仮の問い合わせ先
+  email: ssskobj@gmail.com
   operator_en: Spacify LLC (Spacify合同会社)
   address_en: 2-10-1 Shitaya, Taito-ku, Tokyo, Japan
   # 相談の窓口（Googleフォーム）
