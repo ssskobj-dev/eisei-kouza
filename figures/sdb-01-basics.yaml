@@ -1,0 +1,89 @@
+# サテライトデータビジネス検定 対策講座 第1章（drafts/sdb-prep/01-satellite-data-basics.qmd）の図。
+# 型は patterns/figures.md を参照。scripts/figures.py が figures/sdb-01-basics/<id>.svg を作る。
+
+figures:
+  - id: two-kinds
+    type: split
+    alt: 衛星データは大きく2種類
+    link: vs
+    left:
+      title: 光学＝昼間の写真
+      items:
+        - 太陽光の反射を写す
+        - 見れば分かる
+        - 近赤外で作物や水も指標に
+        - 雲と夜は撮れない
+    right:
+      title: SAR＝暗闇の懐中電灯
+      items:
+        - 自分で電波を出す
+        - 雲・夜・雨でも撮れる
+        - 2回撮ると地面の動きが分かる
+        - 写真ではない。読むのに慣れが要る
+    note: どちらも、細かく撮るほど幅は狭く、同じ場所に戻る回数は減る
+
+  - id: three-questions
+    type: flow
+    alt: その仕事に使えるかを決める3つの問い
+    steps:
+      - title: 見た目か、動きか
+        text: 見た目→光学、動き→干渉SAR
+        who: human
+      - title: 撮る日を選べるか
+        text: 待てる→光学、待てない→SAR
+        who: human
+      - title: 草木があるか
+        text: あるならLバンドを第一候補に
+        who: human
+      - title: 要る細かさを決める
+        text: 対象の大きさから何mで足りるか
+        who: human
+      - title: 衛星と撮り方が決まる
+        text: 事業者に伝える条件になる
+        who: satellite
+
+  - id: band-mountain
+    type: scale
+    alt: 山地で干渉の質が保てた場所の割合（国交省の道路の研究）
+    left: 草木を通り抜ける
+    right: 草木で跳ね返る
+    items:
+      - title: Lバンド 約24cm
+        text: 山地で約80%。だいち2号
+      - title: Cバンド 約6cm
+        text: 山地で約30%。Sentinel-1（無償）
+      - title: Xバンド 約3cm
+        text: 山地で0%。都市部なら90%以上
+
+  - id: triangle
+    type: cards
+    alt: 細かさ、広さ、頻度は同時に手に入らない
+    columns: 3
+    items:
+      - title: 細かさ
+        text: 細かくするほど、1回で撮れる幅が狭くなる
+        mark: 細
+      - title: 広さ
+        text: 幅が狭いほど、地球を一巡りするのに日数がかかる
+        mark: 広
+      - title: 頻度
+        text: 回数を増やすには衛星の機数が要り、費用に跳ね返る
+        mark: 頻
+
+  - id: myths
+    type: cards
+    alt: よくある4つの誤解
+    columns: 2
+    items:
+      - title: SARは雲を越える光学
+        text: 写真ではない。見た目の判別には向かない
+        role: none
+      - title: 細かいほど良い
+        text: 幅も回数も減る。要る細かさを先に決める
+        role: none
+      - title: 撮りたい日に撮れる
+        text: 回ってくる周期があり、光学は雲で写らない
+        role: none
+      - title: 干渉SARで沈下量が分かる
+        text: 分かるのは衛星から見た方向の距離の変化
+        role: none
