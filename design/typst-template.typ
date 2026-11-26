@@ -128,6 +128,9 @@
   title: none,
   subtitle: none,
   book: false,
+  print: false,          // 販売用の印刷（KDP）：綴じ側の余白を広く取る
+  tagline: none,         // 表紙の帯の文
+  edition: none,         // 表紙に小さく出す版（第1版 など）
   paper: "a4",
   lang: "ja",
   font: ("Noto Sans CJK JP",),
@@ -138,9 +141,11 @@
   // 章だけのときは、Quartoが見出しを1段上げるので 節=1。
   let sec = if book { 3 } else { 1 }
 
+  // KDP の決まり：ページ数 151〜300 で綴じ側 12.7mm 以上、外側 6.4mm 以上。余裕を持たせる
+  let mg = if print { (inside: 20mm, outside: 15mm, top: 20mm, bottom: 18mm) } else { (x: 22mm, top: 26mm, bottom: 24mm) }
   set page(
     paper: paper,
-    margin: (x: 22mm, top: 26mm, bottom: 24mm),
+    margin: mg,
     header: context {
       if counter(page).get().first() > 1 or not book {
         set text(size: 8pt, fill: c-deep, weight: "bold")
@@ -223,19 +228,24 @@
 
   if book {
     // 表紙
-    page(header: none, footer: none, margin: 0pt)[
-      #block(width: 100%, height: 38%, fill: c-main)[]
-      #block(inset: (x: 26mm, top: 14mm))[
+    // 印刷（KDP）では、紙面の端まで色を置けないので、余白の内側に収める
+    page(header: none, footer: none, margin: if print { mg } else { 0pt })[
+      #block(width: 100%, height: 38%, fill: c-main, radius: if print { 6pt } else { 0pt })[]
+      #block(inset: (x: if print { 6mm } else { 26mm }, top: 14mm))[
         #set par(justify: false, leading: 0.6em)
         #text(size: 10pt, weight: "bold", fill: c-main)[Satellite to Decision]
         #v(4mm)
-        #text(size: 24pt, weight: "black", fill: c-ink)[#title]
+        #text(size: if print { 20pt } else { 24pt }, weight: "black", fill: c-ink)[#title]
         #if subtitle != none [
           #v(1mm)
           #text(size: 13pt, weight: "bold", fill: c-deep)[#subtitle]
         ]
         #v(6mm)
-        #block(fill: c-pale, radius: (right: 12pt), inset: (x: 12pt, y: 7pt))[#text(size: 11pt, fill: c-deep, weight: "bold")[強み、限界、現実的な落とし所]]
+        #block(fill: c-pale, radius: (right: 12pt), inset: (x: 12pt, y: 7pt))[#text(size: 11pt, fill: c-deep, weight: "bold")[#if tagline != none { tagline } else { [強み、限界、現実的な落とし所] }]]
+        #if edition != none [
+          #v(1fr)
+          #text(size: 9pt, fill: c-deep)[#edition]
+        ]
       ]
     ]
     counter(page).update(1)
