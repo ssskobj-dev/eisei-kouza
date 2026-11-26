@@ -198,15 +198,24 @@ jobs:
             echo "Style-Bert-VITS2 を準備し直します"
             rm -rf sbv2/venv && mkdir -p sbv2
             python -m venv --copies sbv2/venv
-            sbv2/venv/bin/pip install -q --index-url https://download.pytorch.org/whl/cpu torch
-            sbv2/venv/bin/pip install -q style-bert-vits2 scipy pyyaml
+            sbv2/venv/bin/python -m pip install --upgrade pip
+            echo "::group::torch（CPU 版）"
+            sbv2/venv/bin/pip install --index-url https://download.pytorch.org/whl/cpu torch
+            echo "::endgroup::"
+            echo "::group::style-bert-vits2"
+            sbv2/venv/bin/pip install style-bert-vits2 scipy pyyaml
+            echo "::endgroup::"
+            sbv2/venv/bin/python -c "import style_bert_vits2, torch, scipy; print('torch', torch.__version__)"
             built=yes
           fi
           # 声のモデル（足りない分だけ取る）。1つでも新しく取ったら保存し直す
-          before=$(ls sbv2/models 2>/dev/null | wc -l)
+          mkdir -p sbv2/models
+          before=$(ls sbv2/models | wc -l)
+          echo "::group::声のモデルと BERT"
           sbv2/venv/bin/python scripts/sbv2_tts.py prepare
-          after=$(ls sbv2/models 2>/dev/null | wc -l)
-          [ "$before" != "$after" ] && built=yes
+          echo "::endgroup::"
+          after=$(ls sbv2/models | wc -l)
+          if [ "$before" != "$after" ]; then built=yes; fi
           echo "built=$built" >> "$GITHUB_OUTPUT"
       - name: 合成音声（Style-Bert-VITS2）の準備結果を保存する（作り直したときだけ）
         if: steps.gate.outputs.go == 'yes' && steps.sbv2_build.outputs.built == 'yes'
