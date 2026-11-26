@@ -1,0 +1,43 @@
+# 「正解データの作り方：数と場所の偏りを見る」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-4-17-training-data/<id>.svg を作る。
+# 位置のずれの出典：ESA Sentinel-2 Collection 1 L1C（5m未満）。均質な画素だけを使う：Stanimirova ほか 2023。
+
+figures:
+  - id: properties
+    type: cards
+    alt: 正解データで見る4つの性質
+    columns: 4
+    items:
+      - title: 定義
+        text: 台帳のコードと知りたい種類の対応表を作る
+        role: human
+      - title: 数
+        text: 種類ごとの件数。少ない種類は確認用に残す
+        role: human
+      - title: 場所
+        text: 地域ごとの件数。区画か升目で分ける
+        role: human
+      - title: 境目
+        text: 区画の縁の画素は隣と混ざる。内側に寄せる
+        role: satellite
+
+  - id: holdout
+    type: split
+    alt: 当てにならない確認用と、当てになる確認用
+    link: ⇔
+    left:
+      title: 当てにならない確認用
+      role: none
+      items:
+        - 画素を無作為に分けた
+        - 同じ区画が両方に入っている
+        - 行きやすい場所の正解だけ
+        - 少ない種類が0件
+    right:
+      title: 当てになる確認用
+      role: human
+      items:
+        - 区画か升目の単位で分けた
+        - どの地区にも確認用がある
+        - 少ない種類も件数を確保
+        - 地図より確かな資料で答えを付けた
