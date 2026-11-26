@@ -1,13 +1,72 @@
 # 案内役の声の一覧。台本の voice に名前を書く。書かなければ、同じ言語の中から動画ごとに選ぶ（idで決まるので再生成しても同じ声）。
-# lang：ja は VOICEVOX、en は Piper（model に声のモデル名）。credit は動画末尾に自動で入る表記。
+# lang：ja は Style-Bert-VITS2（engine: sbv2）か VOICEVOX（engine: voicevox）、en は Piper（model に声のモデル名）。
+# credit は動画末尾に自動で入る表記。random: false の声は、ランダムの選択から外す（台本で名前を指定したときだけ使う）。
+#
+# engine: sbv2 の声（AivisSpeech と同じ仕組み。scripts/sbv2_tts.py）
+#   source  aivishub:<UUID>（https://hub.aivis-project.com の声。ACML 1.0 は商用可・表記任意）
+#           hf:<repo>/<folder>/<weights>（Hugging Face）
+#   style   話し方の調子（モデルにある名前。無ければ最初の調子）。style_weight で強さ
+#   sdp     声の揺れ（0〜1。大きいほど抑揚が付く）。noise / noise_w も揺れ。assist は雰囲気の指示文（任意）
 voices:
+# ---- 日本語：Style-Bert-VITS2（ランダムの対象）
+- name: 小春音アミ
+  lang: ja
+  engine: sbv2
+  source: hf:litagin/sbv2_koharune_ami/koharune-ami/koharune-ami.safetensors
+  style: ノーマル
+  sdp: 0.5
+  credit: 小春音アミ（あみたろの声素材工房）/ Style-Bert-VITS2
+  note: 女性。明るい。商用可・クレジット表記が条件
+- name: fumifumi
+  lang: ja
+  engine: sbv2
+  source: aivishub:71e72188-2726-4739-9aa9-39567396fb2a
+  style: ノーマル
+  sdp: 0.5
+  credit: "AivisSpeech: fumifumi（ACML 1.0）/ Style-Bert-VITS2"
+  note: 男性。落ち着いた青年
+- name: 阿井田茂
+  lang: ja
+  engine: sbv2
+  source: aivishub:47e53151-a378-46f3-abee-ce13aa07feb1
+  style: ノーマル
+  sdp: 0.5
+  credit: "AivisSpeech: 阿井田 茂（ACML 1.0）/ Style-Bert-VITS2"
+  note: 男性。バリトンの朗らかなおじさん。調子は ノーマル / Calm / Far / Heavy / Mid / Shout / Surprise
+- name: Lux
+  lang: ja
+  engine: sbv2
+  source: aivishub:3dabea2b-cc10-41da-955b-4618ce84e716
+  style: ノーマル
+  sdp: 0.5
+  credit: "AivisSpeech: Lux（ACML 1.0）/ Style-Bert-VITS2"
+  note: 男性。プロ録音の若い声、クリア
+- name: TANAKA
+  lang: ja
+  engine: sbv2
+  source: aivishub:470a41e2-863f-4bf2-8a20-bf7cde0d8f7b
+  style: ノーマル
+  sdp: 0.5
+  credit: "AivisSpeech: TANAKA（ACML 1.0）/ Style-Bert-VITS2"
+  note: 男性。ナレーション用の年配の声。調子は ノーマル / Anger / Happy / Silly / surprise
+- name: 立神ケイ
+  lang: ja
+  engine: sbv2
+  source: aivishub:b2bee8fc-3f65-4c99-9607-a1075a10066b
+  style: ノーマル
+  sdp: 0.5
+  credit: "AivisSpeech: 立神ケイ（ACML 1.0）/ Style-Bert-VITS2"
+  note: 男性。低めでぼそっとした声
+# ---- 日本語：VOICEVOX（台本で名前を指定したときだけ）
 - name: もち子
   id: 20
   pitch: -0.04
   credit: VOICEVOX:もち子さん
-  note: 女性。親しみのある話し方。少し低くしている
+  note: 女性。親しみのある話し方。少し低くしている。以前の標準の声
   lang: ja
   engine: voicevox
+  random: false
+# ---- 英語：Piper
 - name: Ryan
   lang: en
   engine: piper

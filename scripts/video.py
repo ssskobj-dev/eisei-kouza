@@ -569,44 +569,87 @@ def pick_voice(ctx, vid):
     import hashlib
     roster = yaml.safe_load((ROOT / "video" / "voices.yaml").read_text(encoding="utf-8"))["voices"]
     lang = ctx.get("lang", "ja")
-    same = [v for v in roster if v.get("lang", "ja") == lang] or roster
     want = ctx.get("voice")
     if want not in (None, "", "random"):
         for v in roster:
             if want == v.get("name") or want == v.get("id"):
                 return v
+    # 指定が無ければ、同じ言語でランダムの対象（random: false 以外）から、動画の id で1つ選ぶ
+    same = [v for v in roster if v.get("lang", "ja") == lang and v.get("random", True) is not False] or roster
     return same[int(hashlib.md5(vid.encode()).hexdigest(), 16) % len(same)]
 
 
 # 話す速さの標準（利用者の指定で 1.2 倍）。台本の speed で上書きできる
-SPEED_DEFAULT = 1.2
-# 日本語の読み替え（合成音声が英字をうまく読めないので、読みに直してから渡す。字幕は元のまま）
-READINGS_JA = [
-    ("InSAR", "インサー"), ("SAR", "サー"), ("Sentinel-1", "センチネルワン"), ("Sentinel-2", "センチネルツー"),
-    ("Sentinel", "センチネル"), ("Landsat", "ランドサット"), ("NDVI", "エヌディーブイアイ"), ("NDWI", "エヌディーダブリューアイ"),
-    ("GIS", "ジーアイエス"), ("GNSS", "ジーエヌエスエス"), ("RFP", "アールエフピー"), ("QR", "キューアール"),
-    ("AI", "エーアイ"), ("API", "エーピーアイ"), ("CSV", "シーエスブイ"), ("PDF", "ピーディーエフ"),
-    ("JAXA", "ジャクサ"), ("ESA", "イーサ"), ("NASA", "ナサ"), ("USGS", "ユーエスジーエス"), ("EU", "イーユー"),
-    ("Satellite to Decision", "サテライト トゥ ディシジョン"), ("YouTube", "ユーチューブ"), ("Python", "パイソン"),
-    ("Lバンド", "エルバンド"), ("Cバンド", "シーバンド"), ("Xバンド", "エックスバンド"), ("km", "キロメートル"), ("m級", "メートル級"),
-    ("ASTER", "アスター"), ("JOGMEC", "ジョグメック"), ("Terra", "テラ"), ("eMAFF", "イーマフ"),
-]
+SPEED_DEFAULT = 1.1
+# 日本語の読み替え（合成音声が英字と、読み方が2つ以上ある漢字を読み違えるので、読みに直してから渡す。字幕は元のまま）。
+# 表は video/readings.yaml。台本の readings:（同じ形の一覧）があれば、その動画だけ先に当てる
+_READINGS_CACHE = {}
 
 
-def speakable(text_):
-    """合成音声に渡す文。日本語は英字を読みに直す。英語はそのまま。"""
+def load_readings(extra=None):
+    """読み替えの一覧を、(正規表現, 置き換え) の順で返す。台本の分 → 表の分の順。長い from から当てる"""
+    key = id(extra) if extra else 0
+    if key in _READINGS_CACHE:
+        return _READINGS_CACHE[key]
+    rows = []
+    path = ROOT / "video" / "readings.yaml"
+    table = (yaml.safe_load(path.read_text(encoding="utf-8")) or {}).get("readings", []) if path.exists() else []
+    for src in (extra or [], table):
+        part = []
+        for r in src:
+            if isinstance(r, dict) and "from" in r and "to" in r:
+                part.append((str(r["from"]), str(r["to"]), bool(r.get("regex"))))
+            elif isinstance(r, (list, tuple)) and len(r) >= 2:
+                part.append((str(r[0]), str(r[1]), False))
+        # 長い文字列から先に当てる（「真値」を「値」より先に）。正規表現は書いた順のまま、その後ろに
+        plain = sorted([x for x in part if not x[2]], key=lambda x: -len(x[0]))
+        rows += [(re.compile(re.escape(a)), b) for a, b, _ in plain]
+        rows += [(re.compile(a), b) for a, b, _ in part if _]
+    _READINGS_CACHE[key] = rows
+    return rows
+
+
+def speakable(text_, ctx=None):
+    """合成音声に渡す文。日本語は英字と読み違えやすい漢字を読みに直す。英語はそのまま。"""
     if LANG != "ja":
         return text_
     out = text_
-    for a, b in READINGS_JA:
-        out = out.replace(a, b)
+    for pat, rep in load_readings((ctx or {}).get("readings")):
+        out = pat.sub(rep, out)
     return out
+
+
+def sbv2_python():
+    return os.environ.get("SBV2_PY", sys.executable)
+
+
+def synth_batch(items, ctx):
+    """Style-Bert-VITS2 は、モデルの読み込みに時間がかかるので、動画1本分の文をまとめて合成する。items は [(文, 出力wav), ...]"""
+    voice = ctx["_voice"]
+    todo = [(t, Path(w)) for t, w in items if not Path(w).exists()]
+    if voice.get("engine") != "sbv2" or not todo:
+        return
+    speed = ctx.get("speed", SPEED_DEFAULT)
+    jobs = Path(todo[0][1]).parent / "sbv2_jobs.json"
+    jobs.write_text(json.dumps([{"text": speakable(t, ctx), "out": str(w), "speed": speed} for t, w in todo], ensure_ascii=False), encoding="utf-8")
+    r = subprocess.run([sbv2_python(), str(ROOT / "scripts" / "sbv2_tts.py"), "batch", voice["name"], str(jobs)],
+                       capture_output=True, text=True, timeout=7200)
+    if r.returncode or not all(w.exists() for _, w in todo):
+        print(r.stdout[-800:], r.stderr[-1500:])
+        sys.exit("音声の合成（Style-Bert-VITS2）に失敗しました")
 
 
 def synth(text_, out_wav, ctx):
     voice = ctx["_voice"]
     speed = ctx.get("speed", SPEED_DEFAULT)
-    text_ = speakable(text_)
+    text_ = speakable(text_, ctx)
+    if voice.get("engine") == "sbv2":
+        r = subprocess.run([sbv2_python(), str(ROOT / "scripts" / "sbv2_tts.py"), "one", voice["name"], text_, str(out_wav), str(speed)],
+                           capture_output=True, text=True, timeout=1800)
+        if out_wav.exists():
+            return
+        print(r.stderr[-800:])
+        sys.exit("音声の合成（Style-Bert-VITS2）に失敗しました")
     if voice.get("engine") == "piper":
         model = Path(os.environ.get("PIPER_VOICE_DIR", str(ROOT / "piper_voices"))) / (voice["model"] + ".onnx")
         subprocess.run([sys.executable, str(ROOT / "scripts" / "piper_tts.py"), str(model), text_, str(out_wav), str(speed),
@@ -667,18 +710,79 @@ def ass_time(t):
     return f"{int(h)}:{int(m):02d}:{s:05.2f}"
 
 
-ASS_HEAD = """[Script Info]
+# 字幕の帯は下の150px。2行なら52px、3行なら40pxの文字で収まる
+SUB_FONT = {1: 52, 2: 52, 3: 40}
+
+
+def ass_head(max_lines=2):
+    size = SUB_FONT.get(max_lines, 40)
+    margin = 40 if max_lines <= 2 else 24
+    return f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: 1920
 PlayResY: 1080
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Sub,Noto Sans CJK JP,52,&H00F7F5F2,&H00FFFFFF,&H00241509,&H00000000,-1,0,0,0,100,100,0,0,1,1,0,2,100,100,40,1
+Style: Sub,Noto Sans CJK JP,{size},&H00F7F5F2,&H00FFFFFF,&H00241509,&H00000000,-1,0,0,0,100,100,0,0,1,1,0,2,100,100,{margin},1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
+
+
+def subtitle_chunks(sent, units=30, max_lines=2):
+    """1文を、字幕に収まる塊（max_lines 行以内）に分ける。切り捨てない。
+    長い文は読点（英語はカンマ）で分け、それでも長ければ行の切れ目で分ける。"""
+    if len(wrap(sent, units)) <= max_lines:
+        return [sent]
+    if LANG == "en":
+        pieces, joiner = re.split(r"(?<=[,;:])\s+", sent), " "
+    else:
+        pieces, joiner = [p for p in re.split(r"(?<=、)", sent) if p], ""
+    chunks, cur = [], ""
+    for p in pieces:
+        cand = (cur + joiner + p) if cur else p
+        if cur and len(wrap(cand, units)) > max_lines:
+            chunks.append(cur)
+            cur = p
+        else:
+            cur = cand
+    if cur:
+        chunks.append(cur)
+    out = []
+    for c in chunks:
+        ls = wrap(c, units)
+        if len(ls) <= max_lines:
+            out.append(c)
+            continue
+        # 読点で分けても長い塊は、ほぼ同じ長さの n 個に分ける（最後だけ1語、にならないように）
+        n = -(-len(ls) // max_lines)
+        tokens = c.split() if LANG == "en" else list(c)
+        target = len(tokens) / n
+        groups, cur = [], []
+        for tk in tokens:
+            cur.append(tk)
+            if len(groups) < n - 1 and len(cur) >= target:
+                groups.append(cur)
+                cur = []
+        if cur:
+            groups.append(cur)
+        out += [joiner.join(g) for g in groups]
+    return out
+
+
+def subtitle_events(a, b, sent, units=30, max_lines=2):
+    """1文の音声の区間 (a, b) を、塊ごとの字幕の区間に分ける。長さは文字数の割合で配る"""
+    chunks = subtitle_chunks(sent, units, max_lines)
+    weights = [max(1, len(c)) for c in chunks]
+    total, t, ev = sum(weights), a, []
+    for c, w in zip(chunks, weights):
+        d = (b - a) * w / total
+        ev.append((t, t + d, c))
+        t += d
+    return ev
+
 
 
 # ---------------------------------------------------------------- 組み立て
@@ -692,7 +796,7 @@ def build(vid, slides_only=False):
     for s in ctx["scenes"]:
         if s["kind"] == "cta":
             s.setdefault("credits", [])
-            s["credits"] = [c for c in s["credits"] if "VOICEVOX" not in c and "Piper" not in c] + [L[LANG]["credit"](ctx["_voice"])]
+            s["credits"] = [c for c in s["credits"] if not any(k in c for k in ("VOICEVOX", "Piper", "Style-Bert-VITS2", "AivisSpeech"))] + [L[LANG]["credit"](ctx["_voice"])]
     work = vdir / "_work"
     work.mkdir(exist_ok=True)
     scenes = ctx["scenes"]
@@ -722,6 +826,10 @@ def build(vid, slides_only=False):
         return
     # 案内役の顔は、既定では出さない（口が動くだけの顔は学習の助けにならないため。台本に avatar: true で出せる）
     avatars = build_avatar_frames(work) if ctx.get("avatar") or any(sc.get("avatar") for sc in scenes) else None
+    # Style-Bert-VITS2 の声は、全部の文をまとめて先に合成する（モデルの読み込みを1回で済ませる）
+    vkey = ctx["_voice"].get("id", ctx["_voice"]["name"])
+    synth_batch([(sent, work / f"s{i:02d}_{j:02d}_{vkey}.wav")
+                 for i, sc in enumerate(scenes) for j, sent in enumerate(split_sentences(sc.get("say", "")))], ctx)
     parts, scene_starts, scene_lengths = [], [], []
     for i, s in enumerate(scenes):
         say = s.get("say", "")
@@ -752,12 +860,15 @@ def build(vid, slides_only=False):
         total = wav_len(audio) + 0.4
         # 字幕
         ass = work / f"sub_{i:02d}.ass"
+        max_lines = int(s.get("sub_lines", ctx.get("sub_lines", 2)))   # 台本に sub_lines: 3 で3行（文字は小さくなる）
         ev = []
         for a, b, sent in times:
-            ls = wrap(sent, 30)[:2]
-            joined = "\\N".join(ls)
-            ev.append(f"Dialogue: 0,{ass_time(a)},{ass_time(b + 0.3)},Sub,,0,0,0,,{joined}")
-        ass.write_text(ASS_HEAD + "\n".join(ev) + "\n", encoding="utf-8")
+            segs = subtitle_events(a, b, sent, 30, max_lines)
+            for k, (sa, sb, chunk) in enumerate(segs):
+                tail = 0.3 if k == len(segs) - 1 else 0.0   # 最後の塊だけ、音声の後に少し残す
+                joined = "\\N".join(wrap(chunk, 30)[:max_lines])
+                ev.append(f"Dialogue: 0,{ass_time(sa)},{ass_time(sb + tail)},Sub,,0,0,0,,{joined}")
+        ass.write_text(ass_head(max_lines) + "\n".join(ev) + "\n", encoding="utf-8")
         # アバターの口
         out = work / f"scene_{i:02d}.mp4"
         show_avatar = s.get("avatar", ctx.get("avatar", False)) and s["kind"] not in ("cover", "cta")
