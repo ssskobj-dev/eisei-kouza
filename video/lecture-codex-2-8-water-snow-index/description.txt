@@ -1,0 +1,53 @@
+衛星データの水と雪の指数：Sentinel-2で浸水の面積を出す、誤り4つ
+
+■ この動画の内容
+衛星データ（Sentinel-2）の緑B3、近赤外B8、短波長赤外B11から水の指数（NDWI、MNDWI）と雪の指数（NDSI）を計算し、基準を超えた画素を数えて、浸水や積雪の面積を災害データにする章。同じ「NDWI」の名前で2つの別の式があること、基準の値は製品ごとに違い出どころが要ること、修正水指数と雪の指数が同じ帯域の組で湖が雪になること、緯度経度のまま画素を数えると面積の桁が狂うことを、AIが返したコードと面積の表を一緒にレビューして見つけます。手元で数分でできる地図と表の確かめ方と、宿題つき。
+
+▶ 出典、指示文の例、ケース問題2問は章のページで
+https://ssskobj-dev.github.io/eisei-kouza/learn/codex/codex-2-8-water-snow-index.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-2-8-water-snow-index
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-2-8-water-snow-index&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-2-8-water-snow-index&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 水と雪の指数：範囲を数えて面積に
+0:46 Satellite to Decision とは
+1:01 できるようになること
+1:58 しくみ：帯域の組が違う
+4:02 帯域と、基準の出どころ
+5:28 面積の座標も人が決める
+6:08 AIへの頼み方
+7:34 一緒に：抜粋を読む
+9:25 一緒に：判定する
+11:12 衛星データ 市場レポート
+11:23 一緒に：地図と表を見る
+12:42 取り違えと、2つの例
+14:31 この型が向かない条件
+15:29 手順のまとめ
+16:49 宿題：ケース問題 問1
+18:34 宿題を解いたら、章のページへ
+18:48 2つの資格が取得できます
+
+■ 出典と表記
+出典：McFeeters, S. K.（1996）NDWI（緑と近赤外で開いた水面を取り出す）／Xu, H.（2006）MNDWI（短波長赤外で建物の混ざりを抑える）
+出典：USGS「Normalized Difference Snow Index」／NSIDC「What is NDSI snow cover」（雪の指数の式、Landsatの帯域、0より大きければ雪）
+出典：NASA「MODIS Snow and Sea Ice Mapping Algorithms ATBD」（0.4以上かつ近赤外11%超、緑10%未満は雪でない、薄い巻雲）
+出典：ESA「S2 Mission」「S2 Products」SentiWiki（B3 560nm 10m、B8 833nm 10m、B11 1614nm 20m、UTM/WGS84の110km区画）
+出典：ESA「Sentinel-2 Level-2A ATBD」V2.10.0（雪の閾値 0.35／0.50、SCLの番号）／CESBIO「Two NDWI」（McFeeters 1996 と Gao 1996）
+出典：農研機構「Sentinel-2衛星データを用いた水田の取水開始時期の把握手法マニュアル」（2019年。MNDWI、面積ベースで98%）
+「基準は0より大きい」は章の指示文の例で置いた値。例1・例2とケース問題の場面は架空です
+音声：AivisSpeech: fumifumi（ACML 1.0）/ Style-Bert-VITS2　案内役：fumifumi
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
