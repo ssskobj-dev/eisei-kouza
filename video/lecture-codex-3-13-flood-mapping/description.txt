@@ -1,7 +1,7 @@
 衛星データで浸水の面積を出す：Sentinel-1前後の比でAIが誤る4点
 
 ■ この動画の内容
-大雨の翌朝、Sentinel-1の災害前後の2枚から浸水の候補の範囲と地区ごとの面積を出す章。同じ軌道の2枚を較正した真値で比べ、後を前で割って暗くなった場所を候補にし、普段から水のある場所と傾斜地を除く手順を、しくみから見ます。日付だけで画像を選ぶ、dBの値どうしを割る、傾斜の単位を確かめない、画素を10m四方と決めつける、という4つの誤りと、「市街地に候補が出ないから浸水していない」という読み違いを、AIが返したコードと表を一緒にレビューして見つけます。地図と表を手元で確かめる練習と、宿題つき。
+大雨の翌朝、Sentinel-1の災害前後の2枚から浸水の候補の範囲と地区ごとの面積を出す章。同じ軌道の2枚を真値σ0で比べ、後÷前で暗くなった場所を候補にし、普段の水面と傾斜地を除きます。日付だけで画像を選ぶ、dBどうしを割る（真値0.1→0.01は比0.1なのに2.0が出る）、傾斜の単位、画素10mの決めつけの4つの誤りと、「市街地に候補が出ない＝浸水なし」の読み違いを、AIの擬似コードと表から一緒に見つけます。宿題つき。
 
 ▶ 出典、指示文の例、ケース問題2問は章のページで
 https://ssskobj-dev.github.io/eisei-kouza/learn/codex/codex-3-13-flood-mapping.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-3-13-flood-mapping
@@ -22,27 +22,34 @@ Satellite to Decision は、衛星データを仕事の判断に使うための�
 
 ■ 章立て
 0:00 前後の比較で浸水を見る：同じ軌道、比、除外
-0:44 Satellite to Decision とは
-1:00 できるようになること
-1:50 しくみ：前後の比較で候補を出す5つの手順
-4:40 AIへの頼み方
-6:06 一緒に：抜粋を読む
-7:55 一緒に：判定する
-10:21 一緒に：地図と表を確かめる
-11:47 RFPと相見積もりの支援
-12:01 抜けるもの、紛れるもの、例2つ
-13:58 この型が向かない条件
-15:25 手順のまとめ
-17:02 宿題：ケース問題 問1
-18:45 宿題を解いたら、章のページへ
-18:58 2つの資格が取得できます
+0:52 Satellite to Decision とは
+1:07 できるようになること
+2:28 しくみ：暗くなった場所
+4:05 手順の全体像：5つ
+4:58 前提1：同じ軌道の2枚
+6:39 前提2・3：比で見る、除く
+8:43 AIへの頼み方
+10:28 一緒に：擬似コードを読む
+12:19 RFPと相見積もりの支援
+12:32 一緒に：判定する
+15:02 一緒に：地図と表の確認
+16:41 抜けるもの、紛れるもの
+19:02 この型が向かない条件
+20:30 手順のまとめ
+21:55 宿題：ケース問題 問1
+23:36 宿題を解いたら、章のページへ
+23:48 2つの資格が取得できます
 
 ■ 出典と表記
-出典：国土交通省・JAXA「災害時の人工衛星活用ガイドブック 水害版・浸水編」（2023年9月更新）
-出典：UN-SPIDER「Recommended Practice: Flood Mapping and Damage Assessment Using Sentinel-1 SAR Data in Google Earth Engine」
-出典：Copernicus EMS「Global Flood Monitoring Product Definition Document」v4.0、NASA Earthdata「SAR Image Interpretation」
-出典：ESA「Sentinel-1 SAR User Guide」「Radiometric Calibration of S-1 Level 1 Products」、SentiWiki「S1 Products」、ASF「Sentinel-1 RTC Product Guide」
-−10dB→−20dBの計算例、5度と5%の換算、暗い月10か月、2026年6月13日は章で例として置いた値
+出典：国土交通省・JAXA「災害時の人工衛星活用ガイドブック 水害版・浸水編」（2023年9月更新。同じ観測の角度と向き、都市部と水田、50m四方、推定）
+出典：UN-SPIDER「Recommended Practice: Flood Mapping (Sentinel-1, GEE)」（後÷前、基準1.25、10か月、傾斜5%、画素ごとの面積、市街地は過小）
+出典：Copernicus EMS「GFM Product Definition Document」v4.0（除外の印、風の注意の印）、NASA Earthdata「SAR Image Interpretation」
+出典：ESA「Sentinel-1 SAR User Guide」（12日の周期で175本の軌道、2機で6日。相対軌道の番号の出し方は要確認）、ASF「RTC Product Guide」
+出典：ESA「Radiometric Calibration of S-1 Level 1 Products」（σ0、dB＝10×log10）、SentiWiki「S1 Products」（画素10m、分解能およそ20m×22m）
+作例：真値0.1→0.01は比0.01÷0.1＝0.1。dB＝10×log10で−10→−20、差−10。dBどうしの割り算は−20÷−10＝2.0
+作例：差と比は0.1→0.05と0.01→0.005（差0.05と0.005、比はどちらも0.5）。傾斜5度＝tan(5°)≒8.7%、5%＝atan(0.05)≒2.9度
+作例：10m画素＝0.01ha、1ha＝100画素。6月13日の12日前＝6月1日、6日前＝6月7日。町の3割とケース問題の面積は章で例として置いた値（10か月・1.25・5%はUN-SPIDERの値）
+出典：ESA「Sentinel-1 SAR User Guide」（右を見る観測：降交は東向き、昇交は西向きの斜面が衛星に向く）
 音声：AivisSpeech: 阿井田 茂（ACML 1.0）/ Style-Bert-VITS2　案内役：阿井田茂
 
 Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
