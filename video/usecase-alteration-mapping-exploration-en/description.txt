@@ -1,0 +1,47 @@
+Satellite data for mineral exploration: ASTER alteration mapping
+
+What this video covers
+How resource companies narrow metal-exploration targets by mapping hydrothermal alteration zones from free ASTER multispectral data, as reported by Japan's national resource agency JOGMEC in Chile. Where it fits, what it decides, how far free data goes, and the limits as of 2026. About 6 minutes.
+
+▶ For an RFP and competitive quotes, contact us from the form
+https://ssskobj-dev.github.io/eisei-kouza/en/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-alteration-mapping-exploration-en
+
+🎓 Earn two certifications: Satellite Data Analysis Engineer and Satellite Data Marketer
+https://ssskobj-dev.github.io/eisei-kouza/en/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-alteration-mapping-exploration-en&utm_content=cert
+
+About Satellite to Decision
+Satellite to Decision organises what you need to know to use satellite data in business decisions, from the buyer's side. Independent of any satellite operator or analytics company.
+What we offer:
+- Satellite data market reports (market size, players, overseas cases, barriers by sector)
+- Satellite data use cases (where it fits in the workflow, what decision it supports, cost estimates)
+- Training in satellite data analysis and use (courses, analysis curriculum, case questions)
+- Certifications: Satellite Data Marketer / Satellite Data Analysis Engineer
+- For organisations: help writing RFPs and gathering competitive quotes, training
+Website: https://ssskobj-dev.github.io/eisei-kouza/en/?utm_source=youtube&utm_medium=video&utm_campaign=usecase-alteration-mapping-exploration-en&utm_content=about
+Certifications: https://ssskobj-dev.github.io/eisei-kouza/en/cert.html
+
+Chapters
+0:00 Narrowing exploration targets with free satellite data
+0:28 About Satellite to Decision
+0:42 Field, who, and why
+1:03 Where it fits in the workflow
+1:39 What ASTER measures
+2:07 Satellite versus the exploration team
+2:36 What decisions it supports
+3:06 Plans and training for organisations
+3:18 Limits as of 2026
+4:02 How the cost works
+4:36 When it fits, and when it does not
+5:12 Considering it for your project?
+5:27 Two certifications you can earn
+
+Sources and credits
+Case: Taro Yajima (JOGMEC), 'Use of optical sensor data in mineral resource exploration', JAXA ALOS-3 workshop, 13 Dec 2012 https://www.eorc.jaxa.jp/ALOS/conf/workshop/alos2-3ws4/ALOS3_3_5_YajimaTaro.pdf
+SWIR anomaly: NASA Earthdata, 'ASTER SWIR Anomaly' (updated 17 Dec 2025) https://www.earthdata.nasa.gov/data/alerts-outages/aster-swir-anomaly
+Free data: NASA / JPL, 'NASA, Japan Make ASTER Earth Data Available at No Cost' (1 Apr 2016) https://www.jpl.nasa.gov/news/nasa-japan-make-aster-earth-data-available-at-no-cost/
+Sensor specs: AIST ASTER Science Project, 'Characteristics of ASTER' (accessed Oct 2026) https://unit.aist.go.jp/igg/rs-rg/ASTERSciWeb_AIST/en/about_aster/sensor/tokutyou.html
+Terra timeline: NASA, 'Terra Timeline if Maximally Extended' (Sep 2022) https://terra.nasa.gov/wp-content/uploads/2022/09/TerraLifetimeSummary.pdf
+Voice: Piper TTS (en_US-ryan, MIT) · Host: Ryan
+
+Satellite to Decision | From Earth observation data to business decisions.
+Made independently of any satellite operator or analytics company.
