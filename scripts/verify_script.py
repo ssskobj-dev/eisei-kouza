@@ -135,6 +135,24 @@ def check(path):
         if first_ans and len(first_ans.group(1)) > 60:
             mark.append(f"表紙：「答えは…」の1文が長い（{len(first_ans.group(1))}字）。結論を短く言い、作業は分けて後から")
 
+    # 9. 英語の読み：ナレーションに、video/readings.yaml（と台本の readings:）で読みに直らない英語が残っていないか
+    #    残っていると合成音声が1文字ずつつづりを読む（「Band」→「ビー、エー、エヌ、ディー」）。patterns/outputs/video.md の 16
+    try:
+        sys.path.insert(0, str(ROOT / "scripts"))
+        from video import speakable
+        unread = {}
+        for i, s in enumerate(scenes):
+            spoken = speakable(str(s.get("say", "")), {"readings": doc.get("readings")})
+            for w in re.findall(r"[A-Za-z][A-Za-z0-9_\-]*", spoken):
+                if re.fullmatch(r"[A-D]", w):       # 選択肢の A〜D は「エー」と読める
+                    continue
+                unread.setdefault(w, i + 1)
+        if unread:
+            words = "、".join(f"{w}（場面{n}）" for w, n in list(unread.items())[:12])
+            stop.append(f"ナレーションに読みの無い英語があります。video/readings.yaml か台本の readings: に日本語の読みを足す：{words}")
+    except Exception as e:  # video.py が読めない環境でも点検は続ける
+        mark.append(f"英語の読みの点検ができませんでした：{e}")
+
     # 8. 作例の数字に計算の根拠（credits）があるか
     cta = next((s for s in scenes if s.get("kind") == "cta"), None)
     creds = "\n".join(map(str, (cta or {}).get("credits", []) or []))
