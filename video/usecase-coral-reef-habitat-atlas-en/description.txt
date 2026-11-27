@@ -1,0 +1,45 @@
+Mapping coral reef habitats with free satellite data
+
+What this video covers
+How governments and NGOs narrow marine protected area work using the free, satellite-built Allen Coral Atlas. Where it fits in the workflow, what decisions it supports, what the free maps cover, where the cost falls, and the limits as of 2026. About 6 minutes.
+
+▶ For an RFP and competitive quotes, contact us from the form
+https://ssskobj-dev.github.io/eisei-kouza/en/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-coral-reef-habitat-atlas-en
+
+🎓 Earn two certifications: Satellite Data Analysis Engineer and Satellite Data Marketer
+https://ssskobj-dev.github.io/eisei-kouza/en/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-coral-reef-habitat-atlas-en&utm_content=cert
+
+About Satellite to Decision
+Satellite to Decision organises what you need to know to use satellite data in business decisions, from the buyer's side. Independent of any satellite operator or analytics company.
+What we offer:
+- Satellite data market reports (market size, players, overseas cases, barriers by sector)
+- Satellite data use cases (where it fits in the workflow, what decision it supports, cost estimates)
+- Training in satellite data analysis and use (courses, analysis curriculum, case questions)
+- Certifications: Satellite Data Marketer / Satellite Data Analysis Engineer
+- For organisations: help writing RFPs and gathering competitive quotes, training
+Website: https://ssskobj-dev.github.io/eisei-kouza/en/?utm_source=youtube&utm_medium=video&utm_campaign=usecase-coral-reef-habitat-atlas-en&utm_content=about
+Certifications: https://ssskobj-dev.github.io/eisei-kouza/en/cert.html
+
+Chapters
+0:00 Mapping coral reef habitats with free satellite data
+0:23 About Satellite to Decision
+0:37 Where, who, and why
+1:06 Where it fits in the workflow
+1:40 Satellite versus people
+2:15 What decisions it supports
+2:46 Limits as of 2026
+3:33 Help with RFPs and competitive quotes
+3:46 What the free maps are built from
+4:21 Where the cost actually falls
+5:01 When it fits, and when it does not
+5:47 Planning a protected area or coastal assessment?
+6:02 Two certifications you can earn
+
+Sources and credits
+Sources: Allen Coral Atlas Resources/FAQ (allencoralatlas.org/resources); GEE ACA reef habitat v2.0
+Area estimates: Lyons et al. 2024, Cell Reports Sustainability
+Government uses: ICRI / ASU Allen Coral Atlas overview, Sept 2021
+Voice: Piper TTS (en_US-ryan, MIT) · Host: Ryan
+
+Satellite to Decision | From Earth observation data to business decisions.
+Made independently of any satellite operator or analytics company.
