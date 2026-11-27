@@ -1,0 +1,48 @@
+衛星データで探鉱の候補地を絞る：無償ASTERの変質帯地図、JOGMECの実務
+
+■ この動画の内容
+資源会社や資源機関が、権益を取る前の広い範囲から有望な地区を絞るために、無償の衛星データ（ASTER）で変質帯の地図を作る事例。JOGMECの実務をもとに、業務のどこに入れ、何を決める材料になるか、2008年以降の短波長赤外が使えないという限界と費用の考え方までを6分で解説します。
+
+▶ RFPの作成と相見積もりの相談は、フォームから
+https://ssskobj-dev.github.io/eisei-kouza/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-alteration-mapping-exploration
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-alteration-mapping-exploration&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=usecase-alteration-mapping-exploration&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 衛星データで探鉱の候補地を絞る
+0:30 Satellite to Decision とは
+0:46 どこで、誰が、何のために
+1:25 業務の流れの、どこに入るか
+2:06 衛星に任せることと、人が行うこと
+2:42 何を決める材料になるか
+3:25 2026年時点の限界
+4:22 法人プランと研修
+4:37 無償の衛星データで、どこまでできるか
+5:23 費用の考え方（金額は非公開）
+6:09 向いている条件、向いていない条件
+6:50 自分の案件で検討する方へ
+7:10 2つの資格が取得できます
+
+■ 出典と表記
+出典：矢島太郎（JOGMEC 資源探査部）「鉱物資源探査における光学センサデータの活用」JAXA ALOS-3ワークショップ（2012年12月13日）
+出典URL：https://www.eorc.jaxa.jp/ALOS/conf/workshop/alos2-3ws4/ALOS3_3_5_YajimaTaro.pdf
+仕様：産業技術総合研究所 ASTER Science Project「Characteristics of ASTER」（2026年10月閲覧）
+短波長赤外の異常：NASA Earthdata「ASTER SWIR Anomaly」（2009年1月13日公開、2025年12月17日更新）
+無償化：NASA Earthdata「Japan, NASA Provide Open Access to ASTER Data」（2016年4月1日付）
+費用：この事例の金額は非公開。有償データの価格はこの動画では扱っていない
+音声：AivisSpeech: Lux（ACML 1.0）/ Style-Bert-VITS2　案内役：Lux
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
