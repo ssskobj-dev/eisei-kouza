@@ -151,10 +151,33 @@ def agenda_panel():
     out = [f'<rect x="{x}" y="{y0 - 50}" width="300" height="{H - 150 - (y0 - 50) - 40}" rx="14" fill="{MIST}"/>',
            text(x + 24, y0, L[LANG]["agenda"], 20, SLATE, "bold")]
     avail = H - 150 - 40 - y0 - 60
-    size = 22 if len(items) * (22 * 1.25 + 22) <= avail else 19
+    # 項目が多いときは、文字を小さく・間を詰める。それでも入らなければ、今の節のまわりだけを見せる
+    def layout(size, gap, max_lines):
+        rows = []
+        for label in items:
+            lines = wrap(label, int(236 / (size * 0.95)))
+            if len(lines) > max_lines:
+                lines = lines[:max_lines]
+                lines[-1] = lines[-1][:-1] + "…"
+            rows.append(lines)
+        return rows, sum(size * 1.25 * len(r) + gap for r in rows)
+    shown = list(range(len(items)))
+    for size, gap, max_lines in ((22, 20, 2), (20, 16, 2), (18, 13, 2), (17, 11, 1)):
+        rows, total = layout(size, gap, max_lines)
+        if total <= avail:
+            break
+    else:
+        per = size * 1.25 + gap
+        keep = max(3, int((avail - per) // per))   # 「…」の1行分を残す
+        c = cur if cur is not None else 0
+        start = max(0, min(c - keep // 3, len(items) - keep))
+        shown = list(range(start, start + keep))
     y = y0 + 48
-    for i, label in enumerate(items):
-        lines = wrap(label, int(236 / (size * 0.95)))[:2]
+    if shown[0] > 0:
+        out.append(text(x + 52, y, "…", size, SLATE))
+        y += size * 1.25 + gap
+    for i in shown:
+        lines = rows[i]
         state = "now" if i == cur else ("done" if cur is not None and i < cur else "todo")
         if state == "now":
             out.append(f'<rect x="{x + 10}" y="{y - size - 4}" width="280" height="{size * 1.25 * len(lines) + 12:.0f}" rx="8" fill="{ORANGE}"/>')
@@ -165,7 +188,9 @@ def agenda_panel():
         else:
             out.append(f'<circle cx="{x + 30}" cy="{y - size * 0.4:.0f}" r="4" fill="{SLATE}"/>')
             out.append(text(x + 52, y, lines, size, INK, lh=1.25))
-        y += size * 1.25 * len(lines) + 20
+        y += size * 1.25 * len(lines) + gap
+    if shown[-1] < len(items) - 1:
+        out.append(text(x + 52, y, "…", size, SLATE))
     return "".join(out)
 
 

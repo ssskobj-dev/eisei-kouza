@@ -118,7 +118,7 @@ def svg(height, body, title):
     markers = "".join(
         f'<marker id="ah-{c[1:]}" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" '
         f'markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="{c}"/></marker>'
-        for c in (MAIN, WARM, GRAY, DEEP, INK))
+        for c in (MAIN, WARM, GRAY, DEEP, INK, "#e0403a", "#9b4dca", "#5aa553"))
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {height:.0f}" '
             f'font-family="{FONT}" role="img"><title>{escape(title)}</title><defs>{markers}</defs>'
             f'<rect width="{W}" height="{height:.0f}" rx="14" fill="#ffffff" stroke="{PALE}" stroke-width="2"/>'
@@ -461,7 +461,7 @@ def fig_scene(spec):
     pw = (W - PAD * 2 - gap * (n - 1)) / n
     ah = spec.get("height", 210)
     palette = {"satellite": MAIN, "human": WARM, "none": GRAY, "deep": DEEP, "ink": INK, "white": "#ffffff",
-               "warm": WARM, "blue": MAIN, "gray": GRAY, "sun": "#f5b731", "green": "#5aa553", "water": "#4f8fd6"}
+               "warm": WARM, "blue": MAIN, "gray": GRAY, "sun": "#f5b731", "green": "#5aa553", "water": "#4f8fd6", "red": "#e0403a", "nir": "#9b4dca"}
     col = lambda c, d=MAIN: palette.get(c, c) if c else d
 
     laid = []
@@ -496,7 +496,7 @@ def fig_scene(spec):
             X = lambda fx: x0 + fx * pw
             Y = lambda fy: y0 + fy * ah
             if "icon" in d:
-                kw = {k: d[k] for k in ("calm", "lit") if k in d}
+                kw = {k: d[k] for k in ("calm", "lit", "mood", "value", "text") if k in d}
                 out.append(draw_icon(d["icon"], X(d["x"]), Y(d["y"]), d.get("size", 56), col(d.get("color"), None), **kw))
             elif "beam" in d:   # 電波や光の線。[x1, y1, x2, y2]
                 x1, y1, x2, y2 = d["beam"]
