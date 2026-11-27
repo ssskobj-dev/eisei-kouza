@@ -198,11 +198,83 @@ def house(cx, cy, size, color=PALE_BLUE):
     return g(cx, cy, size, body)
 
 
+RED, NIR = "#e0403a", "#9b4dca"   # 赤の光、近赤外の光（目に見えないので紫で描く）
+
+
+def leaf(cx, cy, size, color=GREEN, mood="happy"):
+    """顔のある葉っぱ。mood は happy（にっこり）/ sad（しょんぼり）/ surprised（えっ）/ sweat（汗）/ sleepy（ぐったり、茶色）。"""
+    fill = "#b08a4a" if mood == "sleepy" else color
+    deep = "#7d5d2c" if mood == "sleepy" else GREEN_DEEP
+    body = (f'<path d="M50,4 C82,16 94,46 80,72 C70,90 56,96 50,96 C44,96 30,90 20,72 C6,46 18,16 50,4 Z" fill="{fill}" stroke="{deep}" stroke-width="3"/>'
+            f'<path d="M50,10 L50,94" stroke="{deep}" stroke-width="2.5" opacity="0.45"/>'
+            f'<path d="M50,96 L50,100" stroke="{deep}" stroke-width="4" stroke-linecap="round"/>')
+    eyes = {"happy": f'<path d="M34,46 q5,-6 10,0 M56,46 q5,-6 10,0" fill="none" stroke="{NAVY}" stroke-width="3.5" stroke-linecap="round"/>',
+            "sleepy": f'<path d="M33,47 h11 M56,47 h11" stroke="{NAVY}" stroke-width="3.5" stroke-linecap="round"/>'}
+    eye = eyes.get(mood, f'<circle cx="39" cy="45" r="4.5" fill="{NAVY}"/><circle cx="61" cy="45" r="4.5" fill="{NAVY}"/>')
+    mouth = {"happy": f'<path d="M38,60 q12,12 24,0" fill="{WHITE}" stroke="{NAVY}" stroke-width="3" stroke-linejoin="round"/>',
+             "sad": f'<path d="M38,66 q12,-10 24,0" fill="none" stroke="{NAVY}" stroke-width="3.5" stroke-linecap="round"/>',
+             "surprised": f'<ellipse cx="50" cy="64" rx="6" ry="8" fill="{NAVY}"/>',
+             "sweat": f'<path d="M40,64 q10,-6 20,0" fill="none" stroke="{NAVY}" stroke-width="3.5" stroke-linecap="round"/>',
+             "sleepy": f'<path d="M42,64 h16" stroke="{NAVY}" stroke-width="3.5" stroke-linecap="round"/>'}[mood]
+    cheek = f'<circle cx="30" cy="56" r="5" fill="#ff8a8a" opacity="0.55"/><circle cx="70" cy="56" r="5" fill="#ff8a8a" opacity="0.55"/>' if mood == "happy" else ""
+    drop = f'<path d="M80,22 q7,10 0,16 q-7,-6 0,-16 Z" fill="{WATER}"/>' if mood in ("sweat", "surprised") else ""
+    return g(cx, cy, size, body + eye + mouth + cheek + drop)
+
+
+def gauge(cx, cy, size, color=NAVY, value=0.0):
+    """NDVIメーター。−1〜+1 の半円の目盛りに針。value の数字も出す。"""
+    import math
+    segs = [(-1, 0, WATER), (0, 0.2, SAND_DEEP), (0.2, 0.6, "#a6d36b"), (0.6, 1, GREEN_DEEP)]
+    out = [f'<rect x="2" y="6" width="96" height="88" rx="14" fill="{WHITE}" stroke="{NAVY}" stroke-width="3"/>']
+    for a, b, c in segs:
+        t1, t2 = math.pi * (1 - (a + 1) / 2), math.pi * (1 - (b + 1) / 2)
+        x1, y1 = 50 + 36 * math.cos(t1), 58 - 36 * math.sin(t1)
+        x2, y2 = 50 + 36 * math.cos(t2), 58 - 36 * math.sin(t2)
+        out.append(f'<path d="M{x1:.1f},{y1:.1f} A36,36 0 0,1 {x2:.1f},{y2:.1f}" fill="none" stroke="{c}" stroke-width="11"/>')
+    v = max(-1.0, min(1.0, float(value)))
+    t = math.pi * (1 - (v + 1) / 2)
+    out.append(f'<line x1="50" y1="58" x2="{50 + 30 * math.cos(t):.1f}" y2="{58 - 30 * math.sin(t):.1f}" stroke="{color}" stroke-width="4.5" stroke-linecap="round"/>')
+    out.append(f'<circle cx="50" cy="58" r="5" fill="{color}"/>')
+    out.append(f'<text x="10" y="74" font-size="10" fill="{NAVY}">−1</text><text x="47" y="18" font-size="10" fill="{NAVY}">0</text><text x="84" y="74" font-size="10" fill="{NAVY}">1</text>')
+    out.append(f'<text x="50" y="88" font-size="17" font-weight="bold" fill="{color}" text-anchor="middle">{v:.2f}</text>')
+    return g(cx, cy, size, "".join(out))
+
+
+def weight(cx, cy, size, color=NAVY, text="+1000"):
+    """重り。text に書いた数字を背負っている。"""
+    body = (f'<path d="M36,30 a14,14 0 1,1 28,0" fill="none" stroke="{color}" stroke-width="7"/>'
+            f'<path d="M22,34 L78,34 L92,92 L8,92 Z" fill="{color}" stroke-linejoin="round"/>'
+            f'<text x="50" y="72" font-size="{20 if len(str(text)) <= 5 else 14}" font-weight="bold" fill="{WHITE}" text-anchor="middle">{text}</text>')
+    return g(cx, cy, size, body)
+
+
+def ghost(cx, cy, size, color="#f4f6fb", text="0"):
+    """おばけ。欠けた画素なのに「0」として平均に紛れ込む。"""
+    body = (f'<path d="M18,92 L18,44 C18,20 34,8 50,8 C66,8 82,20 82,44 L82,92 L72,84 L62,92 L50,84 L38,92 L28,84 Z" fill="{color}" stroke="{GRAY}" stroke-width="3" stroke-linejoin="round"/>'
+            f'<circle cx="38" cy="40" r="5" fill="{NAVY}"/><circle cx="62" cy="40" r="5" fill="{NAVY}"/>'
+            f'<path d="M42,52 q8,6 16,0" fill="none" stroke="{NAVY}" stroke-width="3" stroke-linecap="round"/>'
+            f'<text x="50" y="78" font-size="22" font-weight="bold" fill="{ORANGE}" text-anchor="middle">{text}</text>')
+    return g(cx, cy, size, body)
+
+
+def shadow(cx, cy, size, color="#3a4250"):
+    """雲の影（地面に落ちた暗いしみ）。"""
+    return g(cx, cy, size, f'<ellipse cx="50" cy="62" rx="46" ry="20" fill="{color}" opacity="0.55"/>')
+
+
+def tag(cx, cy, size, color=BLUE, text="4"):
+    """番号の札（SCL の分類の番号など）。"""
+    body = (f'<rect x="8" y="26" width="84" height="48" rx="10" fill="{color}"/>'
+            f'<text x="50" y="{60 if len(str(text)) > 2 else 61}" font-size="{24 if len(str(text)) > 2 else 28}" font-weight="bold" fill="{WHITE}" text-anchor="middle">{text}</text>')
+    return g(cx, cy, size, body)
+
+
 ICONS = {
     "satellite": satellite, "sun": sun, "moon": moon, "cloud": cloud, "rain": rain_cloud, "tree": tree,
     "building": building, "buildings": buildings, "mountain": mountain, "water": water, "field": field, "ground": ground,
     "magnifier": magnifier, "calendar": calendar, "ruler": ruler, "coins": coins, "check": check, "cross": cross,
     "warning": warning, "eye": eye, "person": person, "drone": drone, "radar": radar_waves, "house": house,
+    "leaf": leaf, "gauge": gauge, "weight": weight, "ghost": ghost, "shadow": shadow, "tag": tag,
 }
 
 
