@@ -1,0 +1,49 @@
+Reading the Arctic shipping route with satellite sea ice
+
+What this video covers
+How a shipping line decides whether to route through the Arctic, using a satellite sea-ice forecast of when the route opens. In 2019 the summer forecast said "mid-August"; the route actually opened on August 20. Where it fits in the workflow, what it decides, the width of the forecast, and how far free data goes. 6 minutes.
+
+▶ For an RFP and competitive quotes, contact us from the form
+https://ssskobj-dev.github.io/eisei-kouza/en/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-arctic-route-sea-ice-en
+
+🎓 Earn two certifications: Satellite Data Analysis Engineer and Satellite Data Marketer
+https://ssskobj-dev.github.io/eisei-kouza/en/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-arctic-route-sea-ice-en&utm_content=cert
+
+About Satellite to Decision
+Satellite to Decision organises what you need to know to use satellite data in business decisions, from the buyer's side. Independent of any satellite operator or analytics company.
+What we offer:
+- Satellite data market reports (market size, players, overseas cases, barriers by sector)
+- Satellite data use cases (where it fits in the workflow, what decision it supports, cost estimates)
+- Training in satellite data analysis and use (courses, analysis curriculum, case questions)
+- Certifications: Satellite Data Marketer / Satellite Data Analysis Engineer
+- For organisations: help writing RFPs and gathering competitive quotes, training
+Website: https://ssskobj-dev.github.io/eisei-kouza/en/?utm_source=youtube&utm_medium=video&utm_campaign=usecase-arctic-route-sea-ice-en&utm_content=about
+Certifications: https://ssskobj-dev.github.io/eisei-kouza/en/cert.html
+
+Chapters
+0:00 Reading the Arctic shipping route with satellite sea ice
+0:29 About Satellite to Decision
+0:43 Where, who, and why
+1:21 Where it fits in the workflow
+1:55 Satellite versus people
+2:31 The 2019 forecast and what happened
+3:15 What decisions it supports
+3:48 Satellite data market reports
+3:58 Limits as of 2026
+5:05 How far do free satellites go?
+5:41 How to think about cost
+6:15 When it fits, and when it does not
+6:55 Considering it for your fleet?
+7:12 Two certifications you can earn
+
+Sources and credits
+Source: Weathernews, '2019 Arctic sea ice summary' (20 Dec 2019) https://global.weathernews.com/wp-content/uploads/2019/12/20191220_3.pdf
+Source: Weathernews, '2019 Arctic sea ice forecast' (4 Jul 2019) https://global.weathernews.com/wp-content/uploads/2019/07/20190704_2.pdf
+Route distance and permit rules: MLIT Japan, 'Trends in use of the Northern Sea Route' (28 Jul 2021) https://www.mlit.go.jp/sogoseisaku/ocean_policy/content/001476544.pdf
+Satellite spec: JAXA EORC, 'AMSR2 mission requirements' https://www.eorc.jaxa.jp/AMSR/datacatalog/am2_mission_ja.html
+Data: NOAA CoastWatch, 'AMSR2 Sea Ice Concentration' https://coastwatch.noaa.gov/cwn/products/amsr2-sea-ice-concentration.html
+Cost: the forecast service price is not public; no estimate is given in this video
+Voice: Piper TTS (en_US-ryan, MIT) · Host: Ryan
+
+Satellite to Decision | From Earth observation data to business decisions.
+Made independently of any satellite operator or analytics company.
