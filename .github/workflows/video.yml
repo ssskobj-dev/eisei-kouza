@@ -135,9 +135,30 @@ jobs:
           EOF
       - name: 日本語フォントと ffmpeg を入れる
         if: steps.gate.outputs.go == 'yes'
-        run: sudo apt-get update && sudo apt-get install -y fonts-noto-cjk ffmpeg chromium-browser || sudo apt-get install -y chromium
+        run: sudo apt-get update && sudo apt-get install -y fonts-noto-cjk ffmpeg
       - if: steps.gate.outputs.go == 'yes'
-        run: pip install pillow numpy qrcode google-api-python-client google-auth google-auth-oauthlib
+        run: pip install pillow numpy qrcode google-api-python-client google-auth google-auth-oauthlib playwright
+      - name: スライドを画像にするブラウザ（Playwright の Chromium）の前回の準備結果を取り出す
+        if: steps.gate.outputs.go == 'yes'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: pw-chromium-headless-shell-${{ runner.os }}-${{ hashFiles('.github/workflows/video.yml') }}
+      - name: スライドを画像にするブラウザ（Playwright の Chromium）を入れる
+        if: steps.gate.outputs.go == 'yes'
+        shell: bash
+        run: |
+          # apt の chromium-browser は snap を呼ぶ。snap は依存の snap の取得に失敗すると、入ったように見えて起動せずに終わる
+          # （2026-11-26 run #192：英語の動画4本で slide_00.png が作られず失敗）。Playwright の Chromium（headless shell）に替える
+          python -m playwright install --with-deps chromium-headless-shell
+          python - <<'EOF'
+          import sys
+          sys.path.insert(0, "scripts")
+          from figures import find_browser
+          b = find_browser()
+          print("ブラウザ：", b)
+          assert b and "ms-playwright" in b, "Playwright の Chromium が見つかりません"
+          EOF
       - name: 英語の音声（Piper）を用意する
         if: steps.gate.outputs.go == 'yes' && steps.gate.outputs.need_en == 'yes'
         run: |
