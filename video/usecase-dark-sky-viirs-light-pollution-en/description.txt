@@ -1,0 +1,45 @@
+Tracking light pollution at dark-sky sites with satellites
+
+What this video covers
+How towns that sell their night sky watch the surrounding glow with free satellite night-light data. A 2021 study found upward light fell about 1.6% a year in and around 98 certified dark-sky places. Where it fits, what it decides, how far free data goes, and its limits as of 2026. About 6 minutes.
+
+▶ For an RFP and competitive quotes, contact us from the form
+https://ssskobj-dev.github.io/eisei-kouza/en/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-dark-sky-viirs-light-pollution-en
+
+🎓 Earn two certifications: Satellite Data Analysis Engineer and Satellite Data Marketer
+https://ssskobj-dev.github.io/eisei-kouza/en/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-dark-sky-viirs-light-pollution-en&utm_content=cert
+
+About Satellite to Decision
+Satellite to Decision organises what you need to know to use satellite data in business decisions, from the buyer's side. Independent of any satellite operator or analytics company.
+What we offer:
+- Satellite data market reports (market size, players, overseas cases, barriers by sector)
+- Satellite data use cases (where it fits in the workflow, what decision it supports, cost estimates)
+- Training in satellite data analysis and use (courses, analysis curriculum, case questions)
+- Certifications: Satellite Data Marketer / Satellite Data Analysis Engineer
+- For organisations: help writing RFPs and gathering competitive quotes, training
+Website: https://ssskobj-dev.github.io/eisei-kouza/en/?utm_source=youtube&utm_medium=video&utm_campaign=usecase-dark-sky-viirs-light-pollution-en&utm_content=about
+Certifications: https://ssskobj-dev.github.io/eisei-kouza/en/cert.html
+
+Chapters
+0:00 Tracking light pollution at dark-sky sites with satellites
+0:28 About Satellite to Decision
+0:43 Where, who, and why
+1:10 Where it fits in the workflow
+1:45 Satellite versus people
+2:12 The study - 98 dark-sky regions, 2012 to 2020
+3:02 Limits as of 2026
+3:45 Help with RFPs and competitive quotes
+3:58 How far do free satellites go?
+4:28 What it costs
+5:06 When it fits, and when it does not
+5:48 Protecting a dark sky in your area?
+6:02 Two certifications you can earn
+
+Sources and credits
+Source: Kyba & Coesfeld, 'Satellite Observations Show Reductions in Light Emissions at International Dark Sky Places During 2012-2020', Int. J. Sustainable Lighting 23 (2021) https://lightingjournal.org/index.php/path/article/view/111
+Data: Earth Observation Group, Colorado School of Mines, 'VIIRS Nighttime Light' (15 arc-second grid, about 500 m at the equator, much under CC BY 4.0, accessed Nov 2026) https://eogdata.mines.edu/products/vnl/
+Lamp-replacement figures: Ochi, 'Overview and significance of the International Dark Sky Places program', Bulletin of Toyo University, Natural Science 68 (2024)
+Voice: Piper TTS (en_US-ryan, MIT) · Host: Ryan
+
+Satellite to Decision | From Earth observation data to business decisions.
+Made independently of any satellite operator or analytics company.

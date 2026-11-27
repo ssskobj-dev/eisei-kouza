@@ -1,0 +1,106 @@
+# English use-case video. Same facts as casebook/dark-sky-viirs-light-pollution.qmd; English narration & slides.
+lang: en
+voice: Ryan
+title: Tracking light pollution at dark-sky sites with satellites
+series: CASEBOOK
+kicker: Use case
+number: 95
+total: 221
+thumb: Dark skies, night light
+summary: How towns that sell their night sky watch the surrounding glow with free satellite night-light data. A 2021 study found upward light fell about 1.6% a year in and around 98 certified dark-sky places. Where it fits, what it decides, how far free data goes, and its limits as of 2026. About 6 minutes.
+scenes:
+  - kind: cover
+    heading: Tracking light pollution at dark-sky sites with satellites
+    sub: Following upward light around certified dark-sky places with free night-light data
+    say: If a town sells its night sky as a tourist draw, how does it watch whether the surrounding glow is getting worse? One way is the free satellite night-light record. A 2021 study tracked the areas in and around ninety-eight certified dark-sky places and found their upward light fell by about one point six percent a year. In this video we look at who uses it, where it fits in the workflow, what it decides, how far free satellites go, and the limits as of twenty twenty-six.
+
+  - kind: bullets
+    heading: Where, who, and why
+    items:
+      - "Region: both overseas and Japan"
+      - "Who: municipalities, tourism associations, and environment departments"
+      - "Why: dark-sky certification requires measuring the night sky's darkness over time"
+      - "The gap: a ground meter reads one spot, not how a whole town's brightness changed"
+    say: This is used both overseas and in Japan, by municipalities, tourism associations, and environment departments that want to protect a dark sky. Dark-sky certification asks a place to set a lighting policy, upgrade to shielded fixtures, and measure the night sky's darkness over time. A ground meter does that well, but only at the spot where it sits. It cannot show how the brightness of the whole surrounding town changed across an area. That is the gap the satellite fills.
+
+  - kind: steps
+    heading: Where it fits in the workflow
+    items:
+      - Pull the annual and monthly night-light composites for the area and nearby towns
+      - Use the observation-count file to keep usable months, lined up in autumn
+      - Map the year-by-year change for the certified area and the surrounding towns
+      - Overlay the ground-meter readings and the lighting-upgrade record
+      - Decide which districts to upgrade first, and put it in the annual report
+    say: Here is where it fits. It goes into the annual reporting and planning, not instead of the ground measurement. First, pull the Earth Observation Group's annual and monthly composites for the area and the towns around it. Use the observation-count file to keep only the months with good data, and line them up in autumn to limit cloud and seasonal effects. Map the year-by-year change for the certified area against the surrounding towns. Overlay the ground-meter readings and the record of lighting upgrades, meaning when, where, and how many fixtures. Then decide which districts to upgrade first, and write it into the annual report.
+
+  - kind: table
+    heading: Satellite versus people
+    columns: [The satellite does, The people do]
+    widths: [0.5, 0.5]
+    rows:
+      - [Capture upward light across an area on a 500 m grid, Measure the real night-sky darkness with a ground meter]
+      - [Follow the long-term trend from 2012, Decide which districts to upgrade first]
+      - [Compare the certified area with nearby towns, Write the certification annual report]
+    say: The split of roles looks like this. The satellite captures upward light across an area on a five hundred metre grid, follows the long-term trend from twenty twelve, and compares the certified area with the towns nearby. The people measure the real night-sky darkness on the ground with a meter, decide which districts to upgrade first, and write the certification annual report. One thing to be clear about. The case we are about to show is published research, not a service already running in towns.
+
+  - kind: table
+    heading: The study - 98 dark-sky regions, 2012 to 2020
+    columns: [What the study did, What it found]
+    widths: [0.52, 0.48]
+    rows:
+      - ["Compared 98 areas in or near certified dark-sky places with 98 similar areas 100 to 300 km away in the same country", "Upward light fell a median 1.6% per year in the certified areas"]
+      - ["Used VIIRS day-night-band monthly composites, autumn months only, 2012 to 2020", "The distant control areas rose 0.1% per year"]
+      - ["Corrected for airglow and the 2017 calibration change", "A statistical test gave a 2.5% chance of this by luck - cautiously optimistic, not conclusive"]
+    say: Here is the study. Researchers at the German Research Centre for Geosciences compared ninety-eight areas in or near certified dark-sky places with ninety-eight similar-sized areas one hundred to three hundred kilometres away in the same country. They used the VIIRS day-night-band monthly composites, autumn months only, from twenty twelve to twenty twenty, and corrected for faint atmospheric glow and a twenty seventeen change in the satellite's calibration. The upward light fell by a median of one point six percent a year in the certified areas, while the distant control areas rose by one tenth of a percent. A statistical test put the chance of seeing this by luck at about two and a half percent. The authors call the evidence cautiously optimistic, and say it is still too early to make strong claims. The reserves studied were in Europe, such as the Rhoen, Kerry, Snowdonia, and Westhavelland.
+
+  - kind: bullets
+    heading: Limits as of 2026
+    items:
+      - At about 500 m a single streetlight or sign is invisible; each cell blends all its light
+      - The satellite measures upward light, not the sky darkness you see from the ground
+      - Switching high-pressure sodium to white LED can make the value appear to drop
+      - Monthly values drop out under cloud and in high-latitude summers
+      - Nearby areas are not independent, so standard statistical tests are not strictly valid
+    say: The limits are stated plainly in the source too. First, at about five hundred metres a single streetlight or lit sign cannot be seen; each grid cell blends all the light within it. Second, the satellite measures the light leaking upward, not the darkness of the sky as you see it from the ground; that still needs a ground meter. Third, switching from high-pressure sodium lamps to white LED, even at the same light output, can make the satellite value appear to drop. Fourth, monthly values drop out under cloud, and in high-latitude summers when nights are short, so you must check the observation count. Fifth, nearby areas share the same atmosphere, so they are not independent, and standard statistical tests are not strictly valid. The result is a signal, not a verdict.
+
+  - kind: bullets
+    heading: How far do free satellites go?
+    items:
+      - The VIIRS night-light composites are free, much of it under a CC BY 4.0 licence
+      - The record runs from 2012, long enough to show a multi-year trend
+      - Data cost is zero; what costs money is analysis, ground measurement, and the report
+      - At about 500 m you see the town's trend, not individual lamps
+    say: So how far can free satellites take you? The VIIRS night-light composites from the Earth Observation Group are free, much of them under a Creative Commons attribution licence, as long as you credit the group. The record runs from twenty twelve, long enough to show a multi-year trend. The data itself costs nothing. On the other hand, at about five hundred metres you see the trend of the town as a whole, not individual lamps, and the ground measurement that certification requires cannot be skipped. What costs money is people, not data.
+
+  - kind: table
+    heading: What it costs
+    columns: [Item, What drives the cost]
+    widths: [0.32, 0.68]
+    rows:
+      - [Satellite data, "Free. VIIRS night lights, much under CC BY 4.0, with credit to the Earth Observation Group"]
+      - [Data work, "Analyst time: pick usable months, cut out the area, compute the year-by-year change"]
+      - [Ground measurement, "A sky-quality meter, measured regularly. Required for certification, so the satellite cannot replace it"]
+      - [Reporting, "Combining the maps and trends with the upgrade records and the ground readings"]
+    say: Here is how the cost breaks down. There is no quote here, and we add no numbers the research does not give. The satellite data is free, under a Creative Commons attribution licence, with credit to the Earth Observation Group. What you pay for is people. The data work is analyst time, meaning picking the usable months, cutting out your area, and computing the year-by-year change. The ground measurement needs a sky-quality meter read regularly, and because certification requires it, the satellite cannot replace it. And reporting is the work of combining the maps and trends with the upgrade records and the ground readings. The specific fees are not public, so we do not estimate them.
+
+  - kind: table
+    heading: When it fits, and when it does not
+    columns: [Factor, Fits, Does not fit]
+    widths: [0.24, 0.38, 0.38]
+    rows:
+      - ["What you want", "The year-by-year change in the town's upward light", "The sky darkness itself, or whether certification is met"]
+      - ["Area", "A whole municipality or surrounding town", "A single streetlight or one sign"]
+      - ["Comparison", "The same cell, before versus after in time", "Two different areas' brightness against each other"]
+      - ["LED upgrades", "Read together with the upgrade records", "Judging a white-LED switch by the satellite value alone"]
+    say: Finally, where it fits. It fits when you want the year-by-year change in the surrounding town's upward light, across a whole municipality, comparing the same cell before and after in time, and read together with the lighting-upgrade records. It does not fit when you want the sky darkness itself or proof that certification is met, when you care about a single streetlight or one sign, when you try to compare two different areas' brightness against each other, or when you judge a white-LED switch by the satellite value alone. When you propose this, three points matter. Ask first whether the ground measurement and the upgrade records exist. Never say the satellite tells you the sky's darkness. And add a caution on LED upgrades, because the value can fall even when the light does not.
+
+  - kind: cta
+    heading: Protecting a dark sky in your area?
+    action: For an RFP and competitive quotes, contact us from the form
+    url: ssskobj-dev.github.io/eisei-kouza/en/register.html
+    url_full: https://ssskobj-dev.github.io/eisei-kouza/en/register.html
+    credits:
+      - "Source: Kyba & Coesfeld, 'Satellite Observations Show Reductions in Light Emissions at International Dark Sky Places During 2012-2020', Int. J. Sustainable Lighting 23 (2021) https://lightingjournal.org/index.php/path/article/view/111"
+      - "Data: Earth Observation Group, Colorado School of Mines, 'VIIRS Nighttime Light' (15 arc-second grid, about 500 m at the equator, much under CC BY 4.0, accessed Nov 2026) https://eogdata.mines.edu/products/vnl/"
+      - "Lamp-replacement figures: Ochi, 'Overview and significance of the International Dark Sky Places program', Bulletin of Toyo University, Natural Science 68 (2024)"
+    say: To consider this for your own region or client, here is the next step. We help you write the RFP and gather competitive quotes, independent of any satellite operator or analytics company. Use the form in the description to get in touch. Thanks for watching.

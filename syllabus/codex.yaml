@@ -1,5 +1,5 @@
 # 衛星データ解析エンジニア（資格）の教材＝解析教材（AIに書かせて、人が確かめる）。章立て案 第3版の30章。
-# 2級＝第0〜3部（20章、status: todo）。1級＝第4〜6部（10章、status: hold。2級が揃ったら todo に変える）。
+# 2級＝第0〜3部（20章、status: todo）。1級＝第4〜6部（10章。2級が揃ったので 2026-11-27 に hold から todo に変えた）。
 # 章の型は codex（patterns/chapter_types/codex.md）。テキストベース（指示文＋レビュー観点＋誤り例）。
 # 有料の線は一旦なし（learn/codex/_metadata.yml で全部無料）。対応表は data/cert_map.yaml。
 
@@ -202,7 +202,7 @@ parts:
       - 正解データを読み込み、種類ごとの数と場所の偏りを出し、学習用と確認用を場所で分けられる
     must_include: [種類の定義とコードの区分, 場所で分ける, 隣の画素の混入, 数の偏り, 地域の偏り]
     material: ""
-    status: hold
+    status: done
 
   - id: codex-4-18-ml-classification
     title: 機械学習による分類：学習して、範囲全体を分類する
@@ -211,7 +211,7 @@ parts:
       - 正解データで学習して範囲全体を分類し、確認用の混入と答えの混入と乱数の固定を確かめられる
     must_include: [確認用を学習に使わない, 入力に答えが紛れる, 乱数の固定, 区画の境目, 雲の日の帯状の誤り]
     material: ""
-    status: hold
+    status: done
 
   - id: codex-4-19-accuracy
     title: 精度の測り方：当たり、見逃し、誤検出
@@ -220,7 +220,7 @@ parts:
       - 当たり、見逃し、誤検出の表と種類ごとの割合を出し、正しい分母で精度を読める
     must_include: [見逃しと誤検出を分ける, 対象が少ない種類の分母, 「精度90%」の落とし穴, どの種類同士を取り違えるか]
     material: ""
-    status: hold
+    status: todo
 
   # ---------- 第5部 水と大気（1級 B） ----------
   - id: codex-5-20-water-quality
@@ -230,7 +230,7 @@ parts:
       - 湖の範囲で植物プランクトンの量の目安を計算し、水面だけの取り出しと大気の影響の除去を確かめられる
     must_include: [水面だけを取り出す, 岸の画素を除く, 大気の影響を除いたデータ, 計算式の出どころ, 岸に沿った高い帯]
     material: ""
-    status: hold
+    status: todo
 
   - id: codex-5-21-atmospheric-gas
     title: 大気のガスを見る：月平均の地図を作る
@@ -239,7 +239,7 @@ parts:
       - 都市の範囲でガスの量の月平均を作り、品質の基準、単位、日数を確かめられる
     must_include: [品質の低い観測を除く, 単位の明示, 日ごとの枚数, 画素より細かい模様を読まない, 雲の多い月]
     material: ""
-    status: hold
+    status: todo
 
   # ---------- 第6部 結果を使う（1級 C〜E） ----------
   - id: codex-6-22-field-check-combo
@@ -249,7 +249,7 @@ parts:
       - 候補に順位を付け、現地で見る場所と抜き取りで見る場所の一覧を作り、無作為と偏りを確かめられる
     must_include: [順位の付け方, 無作為の抜き取り, 行きやすい場所への偏り, 「問題なし」側からも選ぶ]
     material: ""
-    status: hold
+    status: todo
 
   - id: codex-6-23-maps-and-tables
     title: 結果を地図と表にする：区画や路線の単位にまとめる
@@ -258,7 +258,7 @@ parts:
       - 画素の結果を区画や路線の単位にまとめ、台帳の番号つきの表にして、落ちた行と色分けの印象を確かめられる
     must_include: [区画にまたがる画素, 平均・最大・割合の使い分け, 番号の突き合わせ, 色分けの段階]
     material: ""
-    status: hold
+    status: todo
 
   - id: codex-6-24-what-can-be-said
     title: 言えることと言えないことの書き方：報告の文の下書き
@@ -268,7 +268,7 @@ parts:
     must_include: [測ったことと推定したこと, AIが結果にない原因を書き足す, 「異常なし」と「検出されなかった」, 条件と限界]
     tradeoffs: [state_what_cannot_be_said]
     material: ""
-    status: hold
+    status: todo
 
   - id: codex-6-25-briefing-vendors
     title: 解析を頼むときの伝え方：指示文を依頼文に直す
@@ -277,7 +277,7 @@ parts:
       - 自分の指示文を、目的、対象、範囲、頻度、許せる誤り、成果物、検収の方法がそろった依頼文に直せる
     must_include: [7項目との対応, 依頼文の型, 検収の方法, 抜けの見つけ方]
     material: ""
-    status: hold
+    status: todo
 
   - id: codex-6-26-common-failures
     title: よくある失敗：誤りを仕込んだコードと結果を読む（総合問題）
@@ -287,4 +287,4 @@ parts:
       - 共通のレビュー観点を上から順に当て、コードと結果の問題を挙げられる
     must_include: [共通の観点を順に当てる, 複数の誤りが重なった例, 直し方の優先順位]
     material: ""
-    status: hold
+    status: todo

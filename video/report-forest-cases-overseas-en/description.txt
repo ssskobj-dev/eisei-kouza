@@ -1,0 +1,45 @@
+How the world monitors forests and carbon from orbit | Satellite Data
+
+What this video covers
+Three documented overseas cases of satellite monitoring for forests and carbon - a free global forest-loss service, the EU regulation now driving demand, and a methane-detection satellite in operation. What they measure, how to read the numbers, and what a consultant should take from them. About 6 minutes.
+
+▶ For an RFP and competitive quotes, contact us from the form
+https://ssskobj-dev.github.io/eisei-kouza/en/register.html?utm_source=youtube&utm_medium=video&utm_campaign=report-forest-cases-overseas-en
+
+🎓 Earn two certifications: Satellite Data Analysis Engineer and Satellite Data Marketer
+https://ssskobj-dev.github.io/eisei-kouza/en/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=report-forest-cases-overseas-en&utm_content=cert
+
+About Satellite to Decision
+Satellite to Decision organises what you need to know to use satellite data in business decisions, from the buyer's side. Independent of any satellite operator or analytics company.
+What we offer:
+- Satellite data market reports (market size, players, overseas cases, barriers by sector)
+- Satellite data use cases (where it fits in the workflow, what decision it supports, cost estimates)
+- Training in satellite data analysis and use (courses, analysis curriculum, case questions)
+- Certifications: Satellite Data Marketer / Satellite Data Analysis Engineer
+- For organisations: help writing RFPs and gathering competitive quotes, training
+Website: https://ssskobj-dev.github.io/eisei-kouza/en/?utm_source=youtube&utm_medium=video&utm_campaign=report-forest-cases-overseas-en&utm_content=about
+Certifications: https://ssskobj-dev.github.io/eisei-kouza/en/cert.html
+
+Chapters
+0:00 How the world monitors forests and carbon from orbit
+0:30 About Satellite to Decision
+0:44 What this report covers
+1:15 Case 1 - Global Forest Watch
+2:02 Case 2 - the EU Deforestation Regulation
+2:54 Case 3 - Carbon Mapper's Tanager-1
+3:36 Plans and training for organisations
+3:47 The data and methods behind these
+4:25 How to read the numbers
+5:14 What a consultant should take from this
+6:09 Planning forest or carbon monitoring?
+6:24 Two certifications you can earn
+
+Sources and credits
+Case 1 - WRI Global Forest Watch (Apr 2026): https://www.wri.org/news/release-tropical-rainforest-loss-drops-36-2025-fires-threaten-global-progress
+Case 2 - European Commission, EUDR: https://environment.ec.europa.eu/topics/forests/deforestation/regulation-deforestation-free-products_en
+Case 3 - Carbon Mapper, Tanager-1 two-year update (Aug 2026): https://carbonmapper.org/articles/tanager-1-two-years-of-turning-satellite-data-into-methane-action
+MethaneSAT lost contact (2025) - EDF: https://www.edf.org/media/methanesat-loses-contact-satellite
+Voice: Piper TTS (en_US-ryan, MIT) · Host: Ryan
+
+Satellite to Decision | From Earth observation data to business decisions.
+Made independently of any satellite operator or analytics company.

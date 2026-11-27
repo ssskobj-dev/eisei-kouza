@@ -1,0 +1,42 @@
+# 「機械学習による分類：学習して、範囲全体を分類する」の章の図。型は patterns/figures.md を参照。
+# scripts/figures.py が、ここから figures/codex-4-18-ml-classification/<id>.svg を作る。
+# 情報の漏れの定義の出典：scikit-learn「Common pitfalls and recommended practices」。位置のずれ：ESA Sentinel-2 Collection 1 L1C。
+
+figures:
+  - id: stages
+    type: flow
+    alt: 学習、確認、適用の3段階と、漏れが起きる3か所
+    steps:
+      - title: 学習
+        text: 学習用の正解だけで決まりを作る。基準化も学習用だけ
+        who: satellite
+      - title: 確認
+        text: 学習に使っていない確認用で当たり具合を測る
+        who: satellite
+      - title: 適用
+        text: 範囲全体に当てて地図にする。撮影日も記録
+        who: satellite
+      - title: 人が確かめる
+        text: 入力に台帳の列が無いか、確認用が隣に無いか、種と幅
+        who: human
+
+  - id: artifacts
+    type: split
+    alt: 分類の地図で見つかる2つの誤りの形
+    link: ⇔
+    left:
+      title: 区画の境目のまだら
+      role: none
+      items:
+        - 道路や畦に沿って点々と並ぶ
+        - 原因は混ざった画素と位置のずれ
+        - 区画の多数決でまとめる
+        - 境目の画素は数えない
+    right:
+      title: 雲の日の帯状の誤り
+      role: none
+      items:
+        - 区画の形と関係なく一定の向きに並ぶ
+        - 原因は合成の撮影日の境目と薄い雲
+        - 画素ごとの撮影日の地図と重ねる
+        - 帯の中は判定できないとする
