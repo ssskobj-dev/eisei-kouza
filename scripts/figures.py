@@ -19,6 +19,9 @@ from pathlib import Path
 
 import yaml
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from icons import icon as draw_icon  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 W = 720  # 図の幅。高さは内容に合わせて決まる
 PAD = 22
@@ -450,6 +453,112 @@ def fig_thumbnail(spec):
             f'font-family="{FONT}" role="img"><title>{escape(spec["title"])}</title>{"".join(out)}</svg>\n')
 
 
+def fig_scene(spec):
+    """絵のある図解。空・地面・アイコン・電波の線・印を置いた「絵の面」と、見出しの帯、箇条書きを1〜3枚並べる。
+    draw の座標は絵の面の中の割合（x, y は 0〜1）。size はピクセル。色は role 名（satellite/human/none）か色コード。"""
+    panels = spec["panels"]
+    n, gap = len(panels), (54 if spec.get("between") else 18)
+    pw = (W - PAD * 2 - gap * (n - 1)) / n
+    ah = spec.get("height", 210)
+    palette = {"satellite": MAIN, "human": WARM, "none": GRAY, "deep": DEEP, "ink": INK, "white": "#ffffff",
+               "warm": WARM, "blue": MAIN, "gray": GRAY, "sun": "#f5b731", "green": "#5aa553", "water": "#4f8fd6"}
+    col = lambda c, d=MAIN: palette.get(c, c) if c else d
+
+    laid = []
+    for p in panels:
+        items = [wrap(i, (pw - 40) / 13.5) for i in p.get("items", [])]
+        ih = sum(text_h(len(i), 13.5, 1.45) + 7 for i in items)
+        laid.append((items, ih))
+    body_h = max(ih for _, ih in laid)
+    title_h = 40 if any(p.get("title") for p in panels) else 0
+    out, y0 = [], PAD
+    # 線の種類
+    dash = {"dashed": "9 7", "dotted": "3 6", "solid": None}
+    for k, (p, (items, _)) in enumerate(zip(panels, laid)):
+        x0 = PAD + k * (pw + gap)
+        role = p.get("role", "satellite")
+        stroke, fill, ink, _ = ROLES.get(role, ROLES["satellite"])
+        sky = p.get("sky", "day")
+        sky_fill = {"day": "#e9f2fb", "night": DEEP, "plain": fill, "white": "#ffffff"}.get(sky, sky)
+        night = sky == "night"
+        out.append(f'<clipPath id="clip-{spec["id"]}-{k}"><rect x="{x0:.1f}" y="{y0:.1f}" width="{pw:.1f}" height="{ah}" rx="12"/></clipPath>')
+        out.append(rect(x0, y0, pw, ah, sky_fill, stroke, r=12, sw=2))
+        out.append(f'<g clip-path="url(#clip-{spec["id"]}-{k})">')
+        if night:
+            import random
+            rnd = random.Random(k + 7)
+            out += [f'<circle cx="{x0 + rnd.random() * pw:.1f}" cy="{y0 + rnd.random() * ah * 0.6:.1f}" r="1.6" fill="#fff" opacity="0.8"/>' for _ in range(18)]
+        gr = p.get("ground", "sand")
+        if gr and gr != "none":
+            gfill = {"sand": ("#e6d4b0" if not night else "#3a3326"), "grass": "#bfe0a8", "water": "#4f8fd6"}.get(gr, gr)
+            out.append(f'<rect x="{x0:.1f}" y="{y0 + ah * 0.78:.1f}" width="{pw:.1f}" height="{ah * 0.22:.1f}" fill="{gfill}"/>')
+        for d in p.get("draw", []):
+            X = lambda fx: x0 + fx * pw
+            Y = lambda fy: y0 + fy * ah
+            if "icon" in d:
+                kw = {k: d[k] for k in ("calm", "lit") if k in d}
+                out.append(draw_icon(d["icon"], X(d["x"]), Y(d["y"]), d.get("size", 56), col(d.get("color"), None), **kw))
+            elif "beam" in d:   # 電波や光の線。[x1, y1, x2, y2]
+                x1, y1, x2, y2 = d["beam"]
+                c = col(d.get("color"), WARM)
+                st = d.get("style", "dashed")
+                sw = d.get("width", 3.5)
+                if st in ("wavy", "zigzag"):
+                    import math
+                    dx, dy = X(x2) - X(x1), Y(y2) - Y(y1)
+                    L = math.hypot(dx, dy); ux, uy = dx / L, dy / L; nx, ny = -uy, ux
+                    amp, step = d.get("amp", 7), d.get("step", 12 if st == "wavy" else 9)
+                    pts, t, sgn = [], 0.0, 1
+                    while t <= L:
+                        px, py = X(x1) + ux * t, Y(y1) + uy * t
+                        pts.append((px + nx * amp * sgn * (0 if t in (0.0,) else 1), py + ny * amp * sgn * (0 if t in (0.0,) else 1)))
+                        sgn, t = -sgn, t + step
+                    pts.append((X(x2), Y(y2)))
+                    if st == "wavy":
+                        path = f"M{pts[0][0]:.1f},{pts[0][1]:.1f} " + " ".join(f"Q{a[0]:.1f},{a[1]:.1f} {(a[0]+b[0])/2:.1f},{(a[1]+b[1])/2:.1f}" for a, b in zip(pts[1:], pts[2:]))
+                    else:
+                        path = "M" + " L".join(f"{px:.1f},{py:.1f}" for px, py in pts)
+                    head = f' marker-end="url(#ah-{c[1:]})"' if d.get("head") else ""
+                    out.append(f'<path d="{path}" fill="none" stroke="{c}" stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round"{head}/>')
+                else:
+                    da = f' stroke-dasharray="{dash[st]}"' if dash.get(st) else ""
+                    head = f' marker-end="url(#ah-{c[1:]})"' if d.get("head", True) else ""
+                    out.append(f'<line x1="{X(x1):.1f}" y1="{Y(y1):.1f}" x2="{X(x2):.1f}" y2="{Y(y2):.1f}" stroke="{c}" stroke-width="{sw}" stroke-linecap="round"{da}{head}/>')
+            elif "label" in d:   # 短い文字。mark に check / cross / warning を付けられる
+                c = col(d.get("color"), WARM if d.get("mark") == "cross" else MAIN)
+                lines = wrap(d["label"], d.get("units", 8))
+                size = d.get("size", 13)
+                lx = X(d["x"])
+                if d.get("mark"):
+                    out.append(draw_icon(d["mark"], lx, Y(d["y"]), d.get("mark_size", 26), c))
+                    lx += d.get("mark_size", 26) / 2 + 6
+                    out.append(text(lx, Y(d["y"]) + size * 0.38 - (len(lines) - 1) * size * 0.65, lines, size=size, fill=(ink if not night else "#fff") if not d.get("color") else c, weight="bold", lh=1.3))
+                else:
+                    out.append(text(lx, Y(d["y"]) + size * 0.38, lines, size=size, fill=c if d.get("color") else (ink if not night else "#fff"),
+                                    weight=d.get("weight", "bold"), anchor=d.get("anchor", "middle"), lh=1.3))
+        out.append('</g>')
+        y = y0 + ah + 12
+        if title_h:
+            out.append(rect(x0, y, pw, 36, stroke, "none", r=8))
+            out.append(text(x0 + pw / 2, y + 24, p.get("title", ""), size=15, fill="#fff", weight="bold", anchor="middle"))
+            y += title_h + 10
+        for lines in items:
+            out.append(f'<circle cx="{x0 + 12:.1f}" cy="{y + 9:.1f}" r="4" fill="{stroke}"/>')
+            out.append(text(x0 + 24, y + 14, lines, size=13.5, lh=1.45))
+            y += text_h(len(lines), 13.5, 1.45) + 7
+        if k < n - 1 and spec.get("between"):
+            mid = x0 + pw + gap / 2
+            out.append(f'<circle cx="{mid:.1f}" cy="{y0 + ah / 2:.1f}" r="20" fill="#fff" stroke="{DEEP}" stroke-width="2"/>')
+            out.append(text(mid, y0 + ah / 2 + 6, spec["between"], size=15, fill=DEEP, weight="bold", anchor="middle"))
+    y = y0 + ah + 12 + (title_h + 10 if title_h else 0) + body_h
+    if spec.get("note"):
+        lines = wrap(spec["note"], (W - PAD * 2 - 28) / 13.5)
+        y += 8
+        out.append(text(PAD + 4, y + 14, lines, size=13.5, fill=GRAY, weight="bold", lh=1.45))
+        y += text_h(len(lines), 13.5, 1.45)
+    return y + PAD, "".join(out)
+
+
 TYPES = {
     "thumbnail": fig_thumbnail,
     "bar": fig_bar,
@@ -460,6 +569,7 @@ TYPES = {
     "split": fig_split,
     "scale": fig_scale,
     "sightline": fig_sightline,
+    "scene": fig_scene,
 }
 
 

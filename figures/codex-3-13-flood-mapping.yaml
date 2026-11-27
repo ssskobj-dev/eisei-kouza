@@ -43,3 +43,89 @@ figures:
         - 田植えの時期の水田
         - 斜面の影とレイオーバー
         - 軌道の向きが違う斜面と建物
+
+  - id: mechanism
+    type: scene
+    alt: 浸水の前後でレーダーの明るさがどう変わるか。災害前のざらついた畑は電波を散らして明るく、災害後の静かな水面は電波を反対側へ跳ね返して暗い。市街地は建物の壁と水面の角で電波が衛星に戻るので暗くならず、浸水が抜ける
+    height: 200
+    panels:
+      - title: 災害前：畑は明るい
+        role: satellite
+        sky: day
+        ground: sand
+        draw:
+          - {icon: sun, x: 0.88, y: 0.16, size: 40}
+          - {icon: satellite, x: 0.3, y: 0.2, size: 62}
+          - {icon: field, x: 0.42, y: 0.86, size: 120}
+          - {beam: [0.33, 0.36, 0.42, 0.72], style: solid, color: warm}
+          - {beam: [0.44, 0.72, 0.36, 0.40], style: dashed, color: warm, width: 2.5}
+          - {beam: [0.44, 0.72, 0.22, 0.52], style: dashed, color: warm, width: 2}
+          - {beam: [0.46, 0.72, 0.58, 0.54], style: dashed, color: warm, width: 2}
+          - {label: ざらついた面は電波を散らし、一部が衛星に戻る, x: 0.80, y: 0.52, size: 11.5, units: 7, weight: normal}
+        items:
+          - ざらついた畑や草地は明るく写る
+      - title: 災害後：水面は暗い
+        role: satellite
+        sky: day
+        ground: sand
+        draw:
+          - {icon: rain, x: 0.86, y: 0.18, size: 44}
+          - {icon: satellite, x: 0.3, y: 0.2, size: 62}
+          - {icon: water, x: 0.42, y: 0.86, size: 120, calm: true}
+          - {beam: [0.33, 0.36, 0.42, 0.72], style: solid, color: warm}
+          - {beam: [0.44, 0.72, 0.64, 0.38], style: dashed, color: warm, width: 2.5}
+          - {label: 静かな水面は鏡。電波は反対へ跳ね、衛星に戻らない, x: 0.80, y: 0.50, size: 11.5, units: 7, weight: normal}
+        items:
+          - 「明るかったのに暗くなった」場所が浸水の候補
+      - title: 市街地：暗くならない
+        role: none
+        sky: day
+        ground: sand
+        draw:
+          - {icon: satellite, x: 0.3, y: 0.2, size: 62}
+          - {icon: water, x: 0.5, y: 0.86, size: 130, calm: true}
+          - {icon: buildings, x: 0.70, y: 0.62, size: 76}
+          - {beam: [0.33, 0.36, 0.50, 0.76], style: solid, color: warm}
+          - {beam: [0.50, 0.76, 0.56, 0.72], style: solid, color: warm, width: 2.5, head: false}
+          - {beam: [0.56, 0.72, 0.38, 0.40], style: dashed, color: warm, width: 2.5}
+          - {label: 抜ける, x: 0.12, y: 0.62, mark: cross, color: warm, size: 13}
+        items:
+          - 壁と水面の角で電波が戻り、暗くならない
+          - 候補に出ない＝浸水していない、ではない
+    note: 出典：NASA Earthdata「SAR Image Interpretation」、国土交通省・JAXA「災害時の人工衛星活用ガイドブック 水害版・浸水編」
+
+  - id: orbit
+    type: scene
+    alt: 同じ軌道の2枚で比べる理由。衛星に向いた斜面は明るく、反対側は暗い。前後で軌道の向きが違うと、明るい斜面が入れ替わり、浸水と無関係な「変化」が山に出る
+    height: 190
+    between: vs
+    panels:
+      - title: 同じ軌道の2枚
+        role: satellite
+        sky: day
+        ground: sand
+        draw:
+          - {icon: satellite, x: 0.18, y: 0.2, size: 56}
+          - {icon: mountain, x: 0.6, y: 0.5, size: 150, lit: left}
+          - {beam: [0.24, 0.34, 0.46, 0.60], style: solid, color: warm}
+          - {label: 明るい, x: 0.50, y: 0.70, size: 12, color: warm}
+          - {label: 暗い, x: 0.76, y: 0.70, size: 12, color: white}
+          - {label: 前も後も同じ向き, x: 0.22, y: 0.56, size: 11.5, units: 9, weight: normal}
+        items:
+          - 斜面の明るさは前後で同じ。変わった場所だけが残る
+      - title: 向きが違う2枚
+        role: none
+        sky: day
+        ground: sand
+        draw:
+          - {icon: satellite, x: 0.16, y: 0.2, size: 56}
+          - {icon: satellite, x: 0.86, y: 0.2, size: 56}
+          - {icon: mountain, x: 0.52, y: 0.5, size: 150, lit: right}
+          - {beam: [0.22, 0.34, 0.40, 0.58], style: dashed, color: warm, width: 2.5}
+          - {beam: [0.80, 0.34, 0.64, 0.56], style: solid, color: warm}
+          - {label: 前, x: 0.16, y: 0.54, size: 12, color: warm}
+          - {label: 後, x: 0.88, y: 0.54, size: 12, color: warm}
+          - {label: 前は明るく、後は暗い＝偽の変化, x: 0.08, y: 0.90, mark: cross, color: warm, size: 11.5, units: 16}
+        items:
+          - 明るい側が入れ替わり、山の斜面が「浸水」になる
+    note: 出典：ESA「Sentinel-1 SAR User Guide：Revisit and Coverage」、国土交通省・JAXA「災害時の人工衛星活用ガイドブック 水害版・浸水編」
