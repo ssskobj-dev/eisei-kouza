@@ -3,6 +3,10 @@
 # 再開するとき：書き直した台本のプルリクエストで、その id の行を消す。
 #
 # 止めている理由：話し言葉への書き直し（patterns/outputs/video.md の 10〜15）と別の目の点検がまだの、日本語の事例台本。
+# 古い台本で公開してしまい削除した3本（ai-3d-city、airport-pavement、alteration-mapping）も、書き直すまで止める
+usecase-ai-3d-city-digital-twin
+usecase-airport-pavement-insar-haneda
+usecase-alteration-mapping-exploration
 usecase-arctic-route-sea-ice
 usecase-basemap-change-detection
 usecase-cabbage-forecast-ad-timing
