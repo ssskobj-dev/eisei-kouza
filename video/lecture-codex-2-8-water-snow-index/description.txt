@@ -1,7 +1,7 @@
-衛星データの水と雪の指数：Sentinel-2で浸水の面積を出す、誤り4つ
+衛星データのNDWI・NDSI：Sentinel-2で浸水と積雪の面積、誤り4つ
 
 ■ この動画の内容
-衛星データ（Sentinel-2）の緑B3、近赤外B8、短波長赤外B11から水の指数（NDWI、MNDWI）と雪の指数（NDSI）を計算し、基準を超えた画素を数えて、浸水や積雪の面積を災害データにする章。同じ「NDWI」の名前で2つの別の式があること、基準の値は製品ごとに違い出どころが要ること、修正水指数と雪の指数が同じ帯域の組で湖が雪になること、緯度経度のまま画素を数えると面積の桁が狂うことを、AIが返したコードと面積の表を一緒にレビューして見つけます。手元で数分でできる地図と表の確かめ方と、宿題つき。
+衛星データ（Sentinel-2）の緑B3、近赤外B8、短波長赤外B11から、水を取り出すNDWIとMNDWI、雪を取り出すNDSIを計算し、基準を超えた画素を数えて、浸水や積雪の面積を災害データにする章。同じ「NDWI」の名前で2つの別の式があること、基準の値（0.4、0.35、0）は製品ごとに違い出どころが要ること、MNDWIとNDSIが同じ帯域の組で湖が雪になること、緯度経度のまま画素を数えると面積の桁が狂うことを、AIが返した擬似コードと面積の表を一緒に点検して見つけます。手元で数分でできる地図と表の確かめ方と、宿題つき。
 
 ▶ 出典、指示文の例、ケース問題2問は章のページで
 https://ssskobj-dev.github.io/eisei-kouza/learn/codex/codex-2-8-water-snow-index.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-2-8-water-snow-index
@@ -21,32 +21,34 @@ Satellite to Decision は、衛星データを仕事の判断に使うための�
 資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
 
 ■ 章立て
-0:00 水と雪の指数：範囲を数えて面積に
-0:46 Satellite to Decision とは
+0:00 NDWIとNDSI：範囲を数えて面積に
+0:45 Satellite to Decision とは
 1:01 できるようになること
-1:58 しくみ：帯域の組が違う
-4:02 帯域と、基準の出どころ
-5:28 面積の座標も人が決める
-6:08 AIへの頼み方
-7:34 一緒に：抜粋を読む
-9:25 一緒に：判定する
-11:12 衛星データ 市場レポート
-11:23 一緒に：地図と表を見る
-12:42 取り違えと、2つの例
-14:31 この型が向かない条件
-15:29 手順のまとめ
-16:49 宿題：ケース問題 問1
-18:34 宿題を解いたら、章のページへ
-18:48 2つの資格が取得できます
+2:03 しくみ：NDWIとMNDWI
+3:37 しくみ：NDSIと、同じ組の落とし穴
+4:48 帯域と、基準の出どころ
+7:01 面積の座標も人が決める
+7:58 AIへの頼み方
+9:32 一緒に：擬似コードを読む
+10:50 衛星データ 市場レポート
+11:01 一緒に：判定する
+13:24 一緒に：地図と表を見る
+14:59 取り違えと、2つの例
+17:19 この型が向かない条件
+18:29 手順のまとめ
+19:52 宿題：ケース問題 問1
+21:23 宿題を解いたら、章のページへ
+21:39 2つの資格が取得できます
 
 ■ 出典と表記
-出典：McFeeters, S. K.（1996）NDWI（緑と近赤外で開いた水面を取り出す）／Xu, H.（2006）MNDWI（短波長赤外で建物の混ざりを抑える）
-出典：USGS「Normalized Difference Snow Index」／NSIDC「What is NDSI snow cover」（雪の指数の式、Landsatの帯域、0より大きければ雪）
-出典：NASA「MODIS Snow and Sea Ice Mapping Algorithms ATBD」（0.4以上かつ近赤外11%超、緑10%未満は雪でない、薄い巻雲）
+出典：McFeeters（1996）NDWI（緑と近赤外で開いた水面）／Xu（2006）MNDWI（短波長赤外で建物の混ざりを抑える）／CESBIO「Two NDWI」（Gao 1996）
+出典：USGS「Normalized Difference Snow Index」（式、Landsatの帯域）／NSIDC「NDSI snow cover」（0より大きければ雪）／ESA「L2A ATBD」V2.10.0（0.35／0.50、SCL）
+出典：NASA「MODIS Snow ATBD」（NDSI 0.4以上かつ近赤外11%超、緑10%未満は雪でない、薄い巻雲）／NASA Earth Observatory（水は近赤外・短波長赤外で暗い）
 出典：ESA「S2 Mission」「S2 Products」SentiWiki（B3 560nm 10m、B8 833nm 10m、B11 1614nm 20m、UTM/WGS84の110km区画）
-出典：ESA「Sentinel-2 Level-2A ATBD」V2.10.0（雪の閾値 0.35／0.50、SCLの番号）／CESBIO「Two NDWI」（McFeeters 1996 と Gao 1996）
+出典：ESA「S2 Products」SentiWiki（反射率＝(画素の値＋BOA_ADD_OFFSET)÷QUANTIFICATION_VALUE、画素の値0は欠け。処理の版04.00以降）
 出典：農研機構「Sentinel-2衛星データを用いた水田の取水開始時期の把握手法マニュアル」（2019年。MNDWI、面積ベースで98%）
-「基準は0より大きい」は章の指示文の例で置いた値。例1・例2とケース問題の場面は架空です
+作例：NDWI 湖 緑0.1・近赤外0.02→0.08÷0.12=0.67、畑 緑0.1・近赤外0.4→−0.3÷0.5=−0.6。NDSI 雪 緑0.8・短波長赤外0.1→0.7÷0.9=0.78、湖 0.1・0.02→0.67
+作例：近赤外と短波長赤外の式 森 0.4・0.15→0.25÷0.55=0.45、湖 0.02・0.02→0。120ha（1,200,000m²）÷400m²=3,000画素、÷100m²=12,000画素。例1・例2・宿題は架空
 音声：AivisSpeech: fumifumi（ACML 1.0）/ Style-Bert-VITS2　案内役：fumifumi
 
 Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
