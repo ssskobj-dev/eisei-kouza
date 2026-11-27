@@ -1,0 +1,46 @@
+衛星データとAIで3Dの街を自動生成：15cm画像で浸水を見せたトンガの防災
+
+■ この動画の内容
+衛星画像と標高データからAIで3Dの街を自動生成し、浸水や海面上昇の模擬を重ねて住民に見せる防災の事例。トンガの試行事業、ガーナの首都アクラ、2026年6月に英連邦と国連宇宙部が始めた枠組みをもとに、業務のどこに入れ、何を決める材料になるか、精度の数字が公表されていないという限界と費用のかかる所までを6分で解説します。
+
+▶ RFPの作成と相見積もりの相談は、フォームから
+https://ssskobj-dev.github.io/eisei-kouza/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-ai-3d-city-digital-twin
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-ai-3d-city-digital-twin&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=usecase-ai-3d-city-digital-twin&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 衛星データとAIで3Dの街を自動生成し、浸水を見せる
+0:36 Satellite to Decision とは
+0:52 どこで、誰が、何のために
+1:36 業務の流れの、どこに入るか
+2:25 衛星とAIに任せることと、人が行うこと
+3:10 何を決める材料になるか
+3:58 2026年時点の限界
+4:55 衛星データの資格
+5:08 無償の衛星で、どこまでできるか
+5:53 費用がかかる所（金額は非公開）
+6:43 向いている条件、向いていない条件
+7:33 自分の地域で検討する方へ
+7:54 2つの資格が取得できます
+
+■ 出典と表記
+出典：内閣府「第7回宇宙開発利用大賞 外務大臣賞 受賞事例（株式会社スペースデータ）」 https://www8.cao.go.jp/space/prize/seventh/04.pdf
+出典：UN-SPIDER「Digital Twin for Sea Level Rise Simulation in Tonga」 https://www.un-spider.org/es/node/13461
+出典：The Commonwealth「Space4Resilience」（2026年6月18日） https://thecommonwealth.org/news/space4resilience-launched-strengthen-climate-response
+費用：この事例の費用は公表資料に金額がないため、この動画では概算を出していません
+音声：AivisSpeech: TANAKA（ACML 1.0）/ Style-Bert-VITS2　案内役：TANAKA
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
