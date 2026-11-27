@@ -13,8 +13,10 @@
 #  - 公開範囲は public
 #  - 台本に publish: false と書いてあるものは投稿しない（試作など）
 #
-# 一時停止：video/PAUSE というファイルが main にあるあいだ、見回り（schedule・push）は何も作らず投稿しない。
-#           手動（workflow_dispatch）は止まらない。再開は、そのファイルを消すプルリクエストを出す。
+# 一時停止：video/PAUSE というファイルが main にあるあいだ、見回り（schedule・push）は投稿を止める。
+#           ファイルの中に動画のid（1行に1つ。# はコメント、* のワイルドカード可）を書くと、そのidだけ止める。
+#           idが1つも書いてなければ全部止める。手動（workflow_dispatch）は止まらない。
+#           再開は、ファイルから id を消す（または、ファイルを消す）プルリクエストを出す。
 #
 # 投稿が終わるたびに youtube.json 等を main に書き戻すので、途中で落ちても二重投稿にならない。
 name: video
@@ -65,15 +67,20 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             vid="${{ github.event.inputs.video_id }}"
             echo "pairs=$vid:${{ github.event.inputs.channel }}:${{ github.event.inputs.privacy }}" >> "$GITHUB_OUTPUT"
-          elif [ -f video/PAUSE ]; then
-            echo "video/PAUSE があるので、見回りは何もしません（手動の実行は止まりません）"
-            echo "pairs=" >> "$GITHUB_OUTPUT"
           else
             pairs=""
             n=0
             for s in video/*/script.yaml; do
               d=$(dirname "$s"); id=$(basename "$d")
               [ -f "$d/youtube.json" ] && continue
+              # 一時停止（video/PAUSE）：id の一覧があればそれに合うものだけ、無ければ全部を止める
+              if [ -f video/PAUSE ] && python - "$id" <<'EOF'
+          import fnmatch, sys
+          pats = [l.split("#", 1)[0].strip() for l in open("video/PAUSE", encoding="utf-8")]
+          pats = [p for p in pats if p]
+          sys.exit(0 if not pats or any(fnmatch.fnmatch(sys.argv[1], p) for p in pats) else 1)
+          EOF
+              then echo "止める（video/PAUSE）: $id"; continue; fi
               if python - "$s" <<'EOF'
           import sys, yaml
           doc = yaml.safe_load(open(sys.argv[1], encoding="utf-8")) or {}
