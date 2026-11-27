@@ -1,0 +1,45 @@
+Daily satellite ocean data maps for aquaculture feeding decisions
+
+What this video covers
+How fish, shellfish and seaweed farmers use daily satellite and ocean-model maps of water temperature, salinity, dissolved oxygen, chlorophyll and wave height to decide feeding and harvest timing. Where it fits, what it decides, its limits, and how the free base data and paid service split. 6 minutes.
+
+▶ For an RFP and competitive quotes, contact us from the form
+https://ssskobj-dev.github.io/eisei-kouza/en/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-aquaculture-ocean-data-en
+
+🎓 Earn two certifications: Satellite Data Analysis Engineer and Satellite Data Marketer
+https://ssskobj-dev.github.io/eisei-kouza/en/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-aquaculture-ocean-data-en&utm_content=cert
+
+About Satellite to Decision
+Satellite to Decision organises what you need to know to use satellite data in business decisions, from the buyer's side. Independent of any satellite operator or analytics company.
+What we offer:
+- Satellite data market reports (market size, players, overseas cases, barriers by sector)
+- Satellite data use cases (where it fits in the workflow, what decision it supports, cost estimates)
+- Training in satellite data analysis and use (courses, analysis curriculum, case questions)
+- Certifications: Satellite Data Marketer / Satellite Data Analysis Engineer
+- For organisations: help writing RFPs and gathering competitive quotes, training
+Website: https://ssskobj-dev.github.io/eisei-kouza/en/?utm_source=youtube&utm_medium=video&utm_campaign=usecase-aquaculture-ocean-data-en&utm_content=about
+Certifications: https://ssskobj-dev.github.io/eisei-kouza/en/cert.html
+
+Chapters
+0:00 Daily satellite ocean maps for aquaculture
+0:26 About Satellite to Decision
+0:40 Where, who, and why
+1:11 Where it fits in the daily workflow
+1:48 Satellite and model versus the farmer
+2:24 What decisions it supports
+3:01 Limits as of 2026
+3:47 Satellite data market reports
+3:58 The free base data underneath
+4:29 What it costs (how to read it)
+5:08 When it fits, and when it does not
+5:55 Considering it for your farm or client?
+6:09 Two certifications you can earn
+
+Sources and credits
+Source: Copernicus Marine Service, 'UMITRON PULSE: high-resolution ocean data map for aquaculture farmers' (use case, Sep 2020) https://marine.copernicus.eu/services/use-cases/umitron-pulse-high-resolution-ocean-data-map-aquaculture-farmers
+Service: UMITRON, 'UMITRON launches PULSE' (press release, Jul 2020) https://pr-en.umitron.com/post/624833147494940672/pulse
+Free-data policy: Copernicus Marine Service Help Centre, 'will it still be free in 2, 3 or 5 years?' (free at least through 30 Jun 2028) https://help.marine.copernicus.eu/en/articles/4220312-i-just-opened-my-account-but-will-it-still-be-free-in-2-3-or-5-years
+Voice: Piper TTS (en_US-ryan, MIT) · Host: Ryan
+
+Satellite to Decision | From Earth observation data to business decisions.
+Made independently of any satellite operator or analytics company.
