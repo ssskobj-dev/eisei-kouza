@@ -1,0 +1,50 @@
+衛星データの干渉SAR（InSAR）：縞1周2.8cmでAIが誤る4点
+
+■ この動画の内容
+公開されている干渉SAR（InSAR）の結果を開き、縞の色の変化を周りと比べて数え、干渉性（コヒーレンス）の低い森と水面を除き、衛星に近づくか遠ざかるかの向きを確かめて、地盤変位の候補を出す章。色が1周すると距離が半波長（Sentinel-1でおよそ2.8cm）変わること、測れるのは視線方向の1次元だけであること、大気の誤差が変位と同じ色で現れることを、しくみから見ます。1周を別の衛星の12cmにする、折り返した位相をそのまま変位にする、干渉性の値の範囲を確かめずに除いた画素を0で埋める、符号の向きを決めつける、という4つの誤りを、AIが返したコードと説明を一緒にレビューして見つけます。地図を手元で確かめる練習と、宿題つき。
+
+▶ 出典、指示文の例、ケース問題2問は章のページで
+https://ssskobj-dev.github.io/eisei-kouza/learn/codex/codex-3-14-insar-concepts.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-3-14-insar-concepts
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-3-14-insar-concepts&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=lecture-codex-3-14-insar-concepts&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 干渉SARの縞：半波長、干渉性、向き
+0:51 Satellite to Decision とは
+1:08 できるようになること
+2:33 しくみ：縞は距離の変化、測れるのは1方向
+4:53 読む前に知っておく3つのこと
+7:01 AIへの頼み方
+9:25 一緒に：抜粋を読む
+11:06 一緒に：判定する
+13:46 RFPと相見積もりの支援
+14:01 一緒に：地図を確かめる
+16:00 信頼できる場所、できない場所、例2つ
+18:18 この型が向かない条件
+20:02 手順のまとめ
+21:44 宿題：ケース問題 問1
+23:35 宿題を解いたら、章のページへ
+23:49 2つの資格が取得できます
+
+■ 出典と表記
+出典：国土地理院「干渉SARのQ&A」（トップ、Q3 読み方、Q4 誤差）、「干渉SARの誤差と補正」
+出典：ESA「InSAR Principles（TM-19、2007年）」、ESA「Sentinel-1 SAR User Guide：Level-1」、SentiWiki「S1 Mission」
+出典：COMET「LiCSAR File Structure and Products Details」（干渉性は0〜255、画素はおよそ100m）
+Sentinel-1の1周2.8cmは波長5.55cmの半分として章で計算した値。1周半の18cm（12×1.5）と4.2cm（2.8×1.5）、4倍以上（12÷2.8）は作例として置いた計算
+2026年3月と9月、町の北の埋立地、東の森、南の川は章で例として置いた場面
+音声：小春音アミ（あみたろの声素材工房）/ Style-Bert-VITS2　案内役：小春音アミ
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
