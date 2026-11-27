@@ -1,0 +1,46 @@
+衛星データのInSARで滑走路の沈下を測る：羽田で測量との差約1cm
+
+■ この動画の内容
+国土交通省の東京空港整備事務所が、羽田空港の滑走路とエプロンの沈下を衛星SARの時系列干渉解析（InSAR）で測り、水準測量と比べた検討の事例。測量との差はRMSE約1cmで、勾配の管理に要る4mmには届かず、3年に1回の測量は残ります。業務のどこに入れ、何を決める材料になるか、限界と費用の考え方までを6分で解説します。
+
+▶ RFPの作成と相見積もりの相談は、フォームから
+https://ssskobj-dev.github.io/eisei-kouza/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-airport-pavement-insar-haneda
+
+🎓 衛星データ解析エンジニア・衛星データマーケッターの2つの資格を取得できます
+https://ssskobj-dev.github.io/eisei-kouza/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-airport-pavement-insar-haneda&utm_content=cert
+
+■ Satellite to Decision について
+Satellite to Decision は、衛星データを仕事の判断に使うための知識を、使う側の立場で整理するサイトです。どの衛星会社にも解析会社にも属しません。
+提供しているもの：
+・衛星データ 市場レポート（分野ごとの市場規模、プレイヤー、海外事例、普及の壁）
+・衛星データ 活用事例（ユースケース集：業務のどこに入り、何を決める材料になるか、費用の概算）
+・衛星データ 解析と活用の学習プログラム（講座、解析教材、ケース問題）
+・資格試験：衛星データマーケッター／衛星データ解析エンジニア
+・法人向け：RFPの作成と相見積もりの支援、研修
+サイト：https://ssskobj-dev.github.io/eisei-kouza/?utm_source=youtube&utm_medium=video&utm_campaign=usecase-airport-pavement-insar-haneda&utm_content=about
+資格：https://ssskobj-dev.github.io/eisei-kouza/cert.html
+
+■ 章立て
+0:00 衛星データのInSARで滑走路の沈下を測る
+0:37 Satellite to Decision とは
+0:53 どこで、誰が、何のために
+1:33 業務の流れの、どこに入るか
+2:11 衛星に任せることと、人が行うこと
+3:09 何を決める材料になるか
+3:46 2026年時点の限界
+4:33 衛星データ 市場レポート
+4:44 無償の衛星で、どこまでできるか
+5:24 費用の考え方（金額は非公開）
+6:15 向いている条件、向いていない条件
+6:54 自分の施設で検討する方へ
+7:13 2つの資格が取得できます
+
+■ 出典と表記
+出典：山田悠斗・有路隆一（関東地方整備局 東京空港整備事務所）「衛星SARを活用した羽田空港路面測量のDX化と実装可能性に関する一提案」
+　https://www.ktr.mlit.go.jp/ktr_content/content/000948272.pdf
+衛星の仕様：ESA Earth Online「PAZ」 https://earth.esa.int/eogateway/missions/paz
+費用：この検討の費用と画像の価格は公開されていないため、金額の概算は示していません
+音声：AivisSpeech: 立神ケイ（ACML 1.0）/ Style-Bert-VITS2　案内役：立神ケイ
+
+Satellite to Decision ｜ 地球観測データを、事業の意思決定へ。
+どの衛星会社にも解析会社にも属さない立場で作っています。
