@@ -1,7 +1,29 @@
-このファイルがあるあいだ、video ワークフローの見回り（毎時・main への push）は動画を作らず投稿もしない。
-手動（Actions → video → Run workflow で id を指定）は、このファイルがあっても動く。
-
-止めている理由：台本の書き直し中。古い台本で投稿してしまった4本（2-8、2-9、3-12、3-13）を削除し、
-新しい台本が main にそろってから、このファイルを消して再投稿する。
-
-再開するとき：このファイルを削除するプルリクエストを出す（main に入った次の見回りから、未投稿の台本を最大4本ずつ投稿する）。
+# 一時停止の一覧。ここに書いた動画のid（1行に1つ。* のワイルドカード可）は、見回り（毎時・main への push）で作らず投稿しない。
+# id が1つも無ければ全部を止める。手動（Actions → video → Run workflow で id を指定）は止まらない。
+# 再開するとき：書き直した台本のプルリクエストで、その id の行を消す。
+#
+# 止めている理由：話し言葉への書き直し（patterns/outputs/video.md の 10〜15）と別の目の点検がまだの、日本語の事例台本。
+# 古い台本で公開してしまい削除した3本（ai-3d-city、airport-pavement、alteration-mapping）も、書き直すまで止める
+usecase-ai-3d-city-digital-twin
+usecase-airport-pavement-insar-haneda
+usecase-alteration-mapping-exploration
+usecase-arctic-route-sea-ice
+usecase-basemap-change-detection
+usecase-cabbage-forecast-ad-timing
+usecase-city-planning-landuse-survey
+usecase-coastline-erosion-monitoring
+usecase-conflict-damage-verification
+usecase-coral-bleaching-alert
+usecase-coral-reef-habitat-atlas
+usecase-defense-constellation-imagery
+usecase-disaster-charter-activation
+usecase-embankment-change-screening-saga
+usecase-emissions-independent-estimate
+usecase-eudr-plot-check
+usecase-farmland-auto-judge
+usecase-fixed-asset-change-ai-nagano
+usecase-fixed-asset-ortho
+usecase-flood-analysis-service
+usecase-flood-extent-emergency
+usecase-flood-forecast-nagano-cmap
+usecase-flood-insurance-payout
