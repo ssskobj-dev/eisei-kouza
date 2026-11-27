@@ -151,7 +151,13 @@ def agenda_panel():
     out = [f'<rect x="{x}" y="{y0 - 50}" width="300" height="{H - 150 - (y0 - 50) - 40}" rx="14" fill="{MIST}"/>',
            text(x + 24, y0, L[LANG]["agenda"], 20, SLATE, "bold")]
     avail = H - 150 - 40 - y0 - 60
-    size = 22 if len(items) * (22 * 1.25 + 22) <= avail else 19
+    # 節が多いときは文字を小さく、間を詰める（場面に short: があれば目次にはそれを出す）
+    size, gap = 22, 20
+    for size in (22, 19, 17, 15):
+        gap = 20 if size >= 19 else max(10, int(size * 0.8))
+        need = sum(size * 1.25 * len(wrap(lb, int(236 / (size * 0.95)))[:2]) + gap for lb in items)
+        if need <= avail:
+            break
     y = y0 + 48
     for i, label in enumerate(items):
         lines = wrap(label, int(236 / (size * 0.95)))[:2]
@@ -165,7 +171,7 @@ def agenda_panel():
         else:
             out.append(f'<circle cx="{x + 30}" cy="{y - size * 0.4:.0f}" r="4" fill="{SLATE}"/>')
             out.append(text(x + 52, y, lines, size, INK, lh=1.25))
-        y += size * 1.25 * len(lines) + 20
+        y += size * 1.25 * len(lines) + gap
     return "".join(out)
 
 
@@ -814,7 +820,7 @@ def build(vid, slides_only=False):
                 sc["say"] = re.sub(r"\s*(ご視聴ありがとうございました[。！]?|Thanks for watching[.!]?)\s*$", "", sc["say"].strip())
         scenes.append(cert_scene(ctx))
     body_idx = [i for i, sc in enumerate(scenes) if sc["kind"] not in ("cover", "cta", "cert", "intro", "promo")]
-    agenda = [sc.get("heading", "") for i, sc in enumerate(scenes) if i in body_idx]
+    agenda = [sc.get("short") or sc.get("heading", "") for i, sc in enumerate(scenes) if i in body_idx]
     for i, s in enumerate(scenes):
         CURRENT.clear()
         CURRENT.update({"n": len(scenes), "i": i, "agenda": agenda,

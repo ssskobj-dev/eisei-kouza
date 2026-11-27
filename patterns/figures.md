@@ -81,7 +81,7 @@
   note: 出典：…
 ```
 
-- アイコンは `scripts/icons.py` にある名前：satellite、sun、moon、cloud、rain、tree、building、buildings、house、mountain、water、field、ground、magnifier、calendar、ruler、coins、check、cross、warning、eye、person、drone、radar。足すときは同じ書き方で1つ関数を足す（100×100 の座標で描く）
+- アイコンは `scripts/icons.py` にある名前：satellite、sun、moon、cloud、rain、tree、building、buildings、house、mountain、water、field、ground、magnifier、calendar、ruler、coins、check、cross、warning、eye、person、drone、radar、leaf（葉）、grid（画素のマス目。`cells` に16色で塗り分け）、sheet（表）、rock（岩と裸地）、robot（AI）、shadow（雲の影）。足すときは同じ書き方で1つ関数を足す（100×100 の座標で描く）
 - 色は役割名（satellite=青、human=橙、none=灰、warm、white）か色コード
 - 文字は短く。絵で分かることを文で繰り返さない。出典は `note` に書く
 - 手本：`figures/codex-3-13-flood-mapping.yaml` の `mechanism`（3枚）と `orbit`（2枚、vs）

@@ -198,11 +198,61 @@ def house(cx, cy, size, color=PALE_BLUE):
     return g(cx, cy, size, body)
 
 
+def leaf(cx, cy, size, color=GREEN):
+    """葉。光の跳ね返り（赤を吸い、近赤外を返す）の説明に使う。"""
+    body = (f'<path d="M50,6 C86,20 96,60 58,94 C16,70 14,30 50,6 Z" fill="{color}" stroke="{GREEN_DEEP}" stroke-width="3" stroke-linejoin="round"/>'
+            f'<path d="M50,14 L54,90" fill="none" stroke="{GREEN_DEEP}" stroke-width="3" stroke-linecap="round"/>'
+            f'<path d="M52,40 L70,30 M52,56 L74,50 M52,72 L72,70" fill="none" stroke="{GREEN_DEEP}" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>')
+    return g(cx, cy, size, body)
+
+
+def grid(cx, cy, size, color=GREEN, cells=None):
+    """画素のマス目（4×4）。cells に 16 個の色を渡すと、その色で塗る（None は薄い緑）。"""
+    palette = cells or [GREEN, GREEN, GREEN_DEEP, GREEN, GREEN_DEEP, GREEN, GREEN, GREEN,
+                        GREEN, GREEN_DEEP, GREEN, GREEN, GREEN, GREEN, GREEN_DEEP, GREEN]
+    body = "".join(f'<rect x="{4 + (i % 4) * 23}" y="{4 + (i // 4) * 23}" width="23" height="23" fill="{palette[i] or GREEN}" '
+                   f'stroke="{WHITE}" stroke-width="2"/>' for i in range(16))
+    body += f'<rect x="4" y="4" width="92" height="92" fill="none" stroke="{NAVY}" stroke-width="2.5" opacity="0.6"/>'
+    return g(cx, cy, size, body)
+
+
+def sheet(cx, cy, size, color=BLUE):
+    """表（区画ごとの一覧）。"""
+    rows = "".join(f'<line x1="14" y1="{y}" x2="86" y2="{y}" stroke="{GRAY_PALE}" stroke-width="3"/>' for y in (44, 60, 76))
+    body = (f'<rect x="8" y="10" width="84" height="80" rx="5" fill="{WHITE}" stroke="{color}" stroke-width="3"/>'
+            f'<rect x="8" y="10" width="84" height="18" rx="5" fill="{color}"/>'
+            f'<line x1="40" y1="28" x2="40" y2="90" stroke="{GRAY_PALE}" stroke-width="3"/>' + rows)
+    return g(cx, cy, size, body)
+
+
+def rock(cx, cy, size, color=SAND_DEEP):
+    """岩と裸地。葉の無い場所の例。"""
+    body = (f'<path d="M8,86 L24,48 L44,38 L66,46 L92,80 L92,88 L8,88 Z" fill="{color}" stroke="{NAVY}" stroke-width="2.5" stroke-linejoin="round" opacity="0.9"/>'
+            f'<path d="M44,38 L50,88 M24,48 L36,88" fill="none" stroke="{NAVY}" stroke-width="2" opacity="0.25"/>')
+    return g(cx, cy, size, body)
+
+
+def robot(cx, cy, size, color=BLUE):
+    """AI（話し相手のロボット）。説明の吹き出しの主に使う。"""
+    body = (f'<line x1="50" y1="6" x2="50" y2="18" stroke="{color}" stroke-width="5"/><circle cx="50" cy="6" r="5" fill="{ORANGE}"/>'
+            f'<rect x="14" y="18" width="72" height="60" rx="14" fill="{color}"/>'
+            f'<rect x="24" y="34" width="52" height="26" rx="8" fill="{NAVY}"/>'
+            f'<circle cx="38" cy="47" r="6" fill="{WHITE}"/><circle cx="62" cy="47" r="6" fill="{WHITE}"/>'
+            f'<rect x="30" y="80" width="40" height="12" rx="4" fill="{color}"/>')
+    return g(cx, cy, size, body)
+
+
+def shadow(cx, cy, size, color=NAVY):
+    """雲の影（地面に落ちる暗い楕円）。"""
+    return g(cx, cy, size, f'<ellipse cx="50" cy="50" rx="50" ry="14" fill="{color}" opacity="0.45"/>')
+
+
 ICONS = {
     "satellite": satellite, "sun": sun, "moon": moon, "cloud": cloud, "rain": rain_cloud, "tree": tree,
     "building": building, "buildings": buildings, "mountain": mountain, "water": water, "field": field, "ground": ground,
     "magnifier": magnifier, "calendar": calendar, "ruler": ruler, "coins": coins, "check": check, "cross": cross,
     "warning": warning, "eye": eye, "person": person, "drone": drone, "radar": radar_waves, "house": house,
+    "leaf": leaf, "grid": grid, "sheet": sheet, "rock": rock, "robot": robot, "shadow": shadow,
 }
 
 

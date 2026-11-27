@@ -1,0 +1,238 @@
+# 講義動画「衛星データのNDVI」作り直し版（video/lecture-codex-2-7-vegetation-index-v2）の図。型は patterns/figures.md を参照。
+# 章の図（figures/codex-2-7-vegetation-index.yaml の scale、shadow）も動画で使う。ここには動画のために足した絵のある図を置く。
+# 数字は章と同じ：NASA Earth Observatory（値の目安）、ESA SentiWiki S2 Products（BOA_ADD_OFFSET −1000、QUANTIFICATION_VALUE 10000、値0は欠け）、
+# ESA L2A ATBD（SCL の番号）。計算例（0.5/0.1 → 0.67、6000/2000 → 0.50、(0−1000)÷10000 = −0.1）は章の公式の値で計算した作例。
+
+figures:
+  # 1. しくみ：葉は赤を吸って近赤外を返す。岩は両方を似た量だけ返す
+  - id: leaf-light
+    type: scene
+    alt: 太陽の光のうち、葉は赤を吸収して近赤外を強く跳ね返す。岩や砂は赤も近赤外も似た量だけ跳ね返す。差を和で割ったNDVIは、葉で大きく、岩で小さい
+    height: 200
+    panels:
+      - title: 茂った葉：赤を吸い、近赤外を返す
+        role: satellite
+        sky: day
+        ground: grass
+        draw:
+          - {icon: sun, x: 0.14, y: 0.16, size: 44}
+          - {icon: satellite, x: 0.84, y: 0.16, size: 58}
+          - {icon: leaf, x: 0.48, y: 0.70, size: 86}
+          - {beam: [0.20, 0.26, 0.42, 0.56], style: solid, color: "#d9342b", width: 3}
+          - {beam: [0.24, 0.20, 0.50, 0.52], style: solid, color: "#7a3fb8", width: 3}
+          - {beam: [0.54, 0.52, 0.78, 0.30], style: solid, color: "#7a3fb8", width: 3.5}
+          - {label: 赤は吸われる, x: 0.14, y: 0.62, size: 11.5, color: "#d9342b", units: 7}
+          - {label: 近赤外は強く返る, x: 0.80, y: 0.56, size: 11.5, color: "#7a3fb8", units: 8}
+        items:
+          - 近赤外0.5、赤0.1 → 差0.4 ÷ 和0.6 ＝ 0.67
+      - title: 岩と砂：どちらも似た量を返す
+        role: none
+        sky: day
+        ground: sand
+        draw:
+          - {icon: sun, x: 0.14, y: 0.16, size: 44}
+          - {icon: satellite, x: 0.84, y: 0.16, size: 58}
+          - {icon: rock, x: 0.48, y: 0.72, size: 90}
+          - {beam: [0.20, 0.26, 0.40, 0.58], style: solid, color: "#d9342b", width: 3}
+          - {beam: [0.24, 0.20, 0.48, 0.54], style: solid, color: "#7a3fb8", width: 3}
+          - {beam: [0.50, 0.56, 0.76, 0.32], style: solid, color: "#d9342b", width: 3}
+          - {beam: [0.56, 0.60, 0.80, 0.38], style: solid, color: "#7a3fb8", width: 3}
+          - {label: 赤も近赤外も返る, x: 0.80, y: 0.60, size: 11.5, units: 8, weight: normal}
+        items:
+          - 近赤外0.22、赤0.20 → 差0.02 ÷ 和0.42 ＝ 0.05
+    note: 出典：NASA Earth Observatory「Measuring Vegetation (NDVI & EVI)」。0.5/0.1は章の計算例、岩の数字は動画の作例
+
+  # 2. 画素とは：衛星の画像はマス目の集まりで、マス目ごとに「光を何割跳ね返したか」の数が入る
+  - id: pixel
+    type: scene
+    alt: 衛星の画像は10m四方のマス目（画素）の集まり。マス目ごとに赤と近赤外の値が入り、その2つからNDVIが1つ計算される。農地の区画には多くの画素が入る
+    height: 200
+    panels:
+      - title: 画像はマス目（画素）の集まり
+        role: satellite
+        sky: white
+        ground: none
+        draw:
+          - {icon: grid, x: 0.30, y: 0.50, size: 150}
+          - {icon: magnifier, x: 0.56, y: 0.30, size: 44}
+          - {label: 1マス＝10m四方, x: 0.78, y: 0.26, size: 12, units: 9}
+          - {label: マスごとに赤と近赤外の値が1つずつ, x: 0.78, y: 0.56, size: 11.5, units: 12, weight: normal}
+          - {label: → NDVIもマスごとに1つ, x: 0.78, y: 0.82, size: 11.5, units: 13}
+        items:
+          - Sentinel-2の赤B4と近赤外B8は10mの画素
+      - title: 区画の値＝中の画素の平均
+        role: human
+        sky: white
+        ground: none
+        draw:
+          - {icon: grid, x: 0.26, y: 0.52, size: 150, cells: ["#5aa553", "#5aa553", "#3b7a3a", "#5aa553", "#5aa553", "#3b7a3a", "#5aa553", "#5aa553", "#3b7a3a", "#5aa553", "#5aa553", "#5aa553", "#5aa553", "#3b7a3a", "#5aa553", "#5aa553"]}
+          - {beam: [0.44, 0.52, 0.56, 0.52], style: solid, color: human, width: 3.5}
+          - {icon: sheet, x: 0.74, y: 0.50, size: 96}
+          - {label: 区画12：0.72, x: 0.74, y: 0.88, size: 12}
+        items:
+          - 区画に入る画素のNDVIを平均して、表の1行にする
+    note: 出典：ESA SentiWiki「S2 Mission」（B4、B8は10m）
+
+  # 3. 画素の値を反射率に直す流れ
+  - id: offset-flow
+    type: flow
+    alt: 配られる画素の値は反射率ではない。付属情報のBOA_ADD_OFFSET（−1000）を足し、QUANTIFICATION_VALUE（10000）で割ると反射率になる。6000なら、1000を引いて5000、10000で割って0.5
+    steps:
+      - title: 配られる画素の値
+        text: 例：6000（反射率ではない）
+        who: satellite
+      - title: BOA_ADD_OFFSET を足す
+        text: 値は−1000 → 5000
+        who: satellite
+      - title: QUANTIFICATION_VALUE で割る
+        text: 値は10000 → 0.5
+        who: satellite
+      - title: 反射率
+        text: 0.5＝光の5割を跳ね返した
+        who: satellite
+    note: 出典：ESA SentiWiki「S2 Products」（処理の版04.00、2022年1月25日以降のLevel-2A）
+
+  # 4. 直した場合と、直さない場合
+  - id: offset-vs
+    type: scene
+    alt: 反射率に直してからNDVIを計算すると0.67。画素の値のまま計算すると0.50。倍率は割り算で消えるが、−1000の足し算は消えないので、値が0に向かって縮む
+    height: 190
+    between: vs
+    panels:
+      - title: 直してから計算
+        role: satellite
+        sky: white
+        ground: none
+        draw:
+          - {icon: leaf, x: 0.16, y: 0.40, size: 70}
+          - {label: 近赤外 0.5、赤 0.1, x: 0.62, y: 0.22, size: 13, units: 14}
+          - {label: (0.5−0.1)÷(0.5+0.1), x: 0.62, y: 0.48, size: 12.5, weight: normal, units: 16}
+          - {label: ＝ 0.67, x: 0.62, y: 0.74, size: 18}
+          - {icon: check, x: 0.90, y: 0.74, size: 30}
+        items:
+          - 森の目安 0.6〜0.8 に入る
+      - title: 画素の値のまま計算
+        role: none
+        sky: white
+        ground: none
+        draw:
+          - {icon: leaf, x: 0.16, y: 0.40, size: 70}
+          - {label: 近赤外 6000、赤 2000, x: 0.62, y: 0.22, size: 13, units: 14}
+          - {label: (6000−2000)÷(6000+2000), x: 0.62, y: 0.48, size: 12.5, weight: normal, units: 18}
+          - {label: ＝ 0.50, x: 0.62, y: 0.74, size: 18, color: warm}
+          - {icon: cross, x: 0.90, y: 0.74, size: 30}
+        items:
+          - 差は変わらず、和だけ大きい → 0に向かって縮む
+    note: 作例：BOA_ADD_OFFSET −1000、QUANTIFICATION_VALUE 10000 で計算。暗い画素ほど縮み方が大きい
+
+  # 5. 画素の値0はデータが無い印。反射率に直す前に印を付ける
+  - id: nodata
+    type: scene
+    alt: 画像の端や欠けた帯では画素の値が0で、これはデータが無い印。反射率に直すと(0−1000)÷10000＝−0.1になり、ほかの値と見分けがつかなくなる。直す前に「データなし」の印を付けておく
+    height: 190
+    between: vs
+    panels:
+      - title: 直す前：値0＝データなし
+        role: satellite
+        sky: white
+        ground: none
+        draw:
+          - {icon: grid, x: 0.28, y: 0.50, size: 140, cells: ["#5aa553", "#5aa553", "#3b7a3a", "#e3e8ee", "#5aa553", "#3b7a3a", "#5aa553", "#e3e8ee", "#3b7a3a", "#5aa553", "#5aa553", "#e3e8ee", "#5aa553", "#5aa553", "#3b7a3a", "#e3e8ee"]}
+          - {label: 0, x: 0.465, y: 0.21, size: 12, color: gray}
+          - {label: 0, x: 0.465, y: 0.40, size: 12, color: gray}
+          - {label: 0, x: 0.465, y: 0.60, size: 12, color: gray}
+          - {label: 0, x: 0.465, y: 0.79, size: 12, color: gray}
+          - {label: 画像の端の0は「データが無い」, x: 0.76, y: 0.34, size: 12, units: 11}
+          - {label: ここで印を付ける, x: 0.56, y: 0.72, mark: check, size: 12, units: 12}
+        items:
+          - 値が0のうちに「データなし」の印を付ける
+      - title: 直した後：見分けられない
+        role: none
+        sky: white
+        ground: none
+        draw:
+          - {icon: grid, x: 0.28, y: 0.50, size: 140, cells: ["#5aa553", "#5aa553", "#3b7a3a", "#c9d4a8", "#5aa553", "#3b7a3a", "#5aa553", "#c9d4a8", "#3b7a3a", "#5aa553", "#5aa553", "#c9d4a8", "#5aa553", "#5aa553", "#3b7a3a", "#c9d4a8"]}
+          - {label: (0−1000)÷10000＝−0.1, x: 0.76, y: 0.34, size: 12, units: 14}
+          - {label: 暗い値に見える, x: 0.54, y: 0.72, mark: cross, size: 12, units: 12}
+        items:
+          - データなしが「葉がない暗い場所」に化ける
+    note: 出典：ESA SentiWiki「S2 Products」（画素の値0は欠けた値のまま）。−0.1は章の公式の値で計算した作例
+
+  # 6. 雲と影が区画にかかると、平均がどうなるか
+  - id: cloud-shadow
+    type: scene
+    alt: 太陽の光を雲がさえぎると、雲の横にずれた位置に影が落ちる。影の中の画素は暗く、NDVIが低く出る。影のかかった画素を0にして平均すると区画の平均が下がる。除いてデータなしのまま平均すれば残りの画素の平均になる
+    height: 200
+    panels:
+      - title: 雲の横に、影が落ちる
+        role: none
+        sky: day
+        ground: grass
+        draw:
+          - {icon: sun, x: 0.10, y: 0.14, size: 42}
+          - {icon: satellite, x: 0.88, y: 0.14, size: 54}
+          - {icon: cloud, x: 0.40, y: 0.30, size: 74}
+          - {beam: [0.16, 0.22, 0.34, 0.30], style: solid, color: sun, width: 3, head: false}
+          - {beam: [0.20, 0.16, 0.74, 0.74], style: dotted, color: sun, width: 2.5, head: false}
+          - {icon: field, x: 0.30, y: 0.86, size: 100}
+          - {icon: field, x: 0.66, y: 0.86, size: 100}
+          - {icon: shadow, x: 0.68, y: 0.80, size: 110}
+          - {label: 影の中は暗い, x: 0.76, y: 0.52, size: 11.5, units: 7}
+        items:
+          - SCLの3が雲の影、8と9が雲、10が薄い雲
+      - title: 影の画素を0にして平均
+        role: none
+        sky: white
+        ground: none
+        draw:
+          - {icon: grid, x: 0.26, y: 0.40, size: 104, cells: ["#5aa553", "#5aa553", "#3b7a3a", "#5aa553", "#5aa553", "#3b7a3a", "#5aa553", "#5aa553", "#1f2a3a", "#1f2a3a", "#1f2a3a", "#1f2a3a", "#1f2a3a", "#1f2a3a", "#1f2a3a", "#1f2a3a"]}
+          - {label: 下半分が0, x: 0.76, y: 0.30, size: 12, units: 7}
+          - {label: 雲のかかり具合で順位が決まる, x: 0.76, y: 0.58, size: 11, units: 7, weight: normal}
+          - {label: 平均が半分に下がる, x: 0.10, y: 0.88, mark: cross, size: 12, units: 14}
+        items:
+          - 0は「緑の葉がない」という意味の値
+      - title: 除いて、残りで平均
+        role: satellite
+        sky: white
+        ground: none
+        draw:
+          - {icon: grid, x: 0.26, y: 0.40, size: 104, cells: ["#5aa553", "#5aa553", "#3b7a3a", "#5aa553", "#5aa553", "#3b7a3a", "#5aa553", "#5aa553", "#cfd6dc", "#cfd6dc", "#cfd6dc", "#cfd6dc", "#cfd6dc", "#cfd6dc", "#cfd6dc", "#cfd6dc"]}
+          - {label: 下半分はデータなし, x: 0.76, y: 0.30, size: 12, units: 7}
+          - {label: 使った画素数と除いた割合も表に, x: 0.76, y: 0.58, size: 11, units: 7, weight: normal}
+          - {label: 残りの画素だけで平均, x: 0.10, y: 0.88, mark: check, size: 12, units: 14}
+        items:
+          - 除いた割合が高い区画は、順位に入れるか人が決める
+    note: 出典：ESA「Sentinel-2 Level-2A ATBD」V2.10.0（SCLの番号、雲の影は暗い画素として分類）
+
+  # 7. AIの説明と、人が確かめる観点
+  - id: ai-claims
+    type: scene
+    alt: AIは自信のある口調で「倍率は打ち消されるので反射率に直す必要はない」「雲はSCLの4で除いた」「0で割った画素は0で埋めた」と説明する。人は、BOA_ADD_OFFSETを足しているか、雲と影の番号は3・8・9・10か、データなしを数に入れていないか、平均に0を入れていないかを確かめる
+    height: 200
+    between: vs
+    panels:
+      - title: AIの説明（自信たっぷり）
+        role: none
+        sky: white
+        ground: none
+        draw:
+          - {icon: robot, x: 0.16, y: 0.46, size: 90}
+          - {label: 「比なので倍率は打ち消されます。反射率に直す手間は省きました」, x: 0.64, y: 0.22, size: 11.5, units: 17, weight: normal}
+          - {label: 「雲はSCLの4で除きました」, x: 0.64, y: 0.52, size: 11.5, units: 17, weight: normal}
+          - {label: 「0で割った画素は0で埋めてあります」, x: 0.64, y: 0.78, size: 11.5, units: 17, weight: normal}
+        items:
+          - 動かしても止まらない。表はもっともらしく出る
+      - title: 人が確かめる4つ
+        role: human
+        sky: white
+        ground: none
+        draw:
+          - {icon: person, x: 0.14, y: 0.40, size: 80}
+          - {icon: magnifier, x: 0.26, y: 0.66, size: 44}
+          - {label: BOA_ADD_OFFSET を足しているか, x: 0.64, y: 0.18, size: 11.5, units: 16}
+          - {label: 雲と影の番号は 3・8・9・10 か（4は植物）, x: 0.64, y: 0.40, size: 11.5, units: 20}
+          - {label: 値0のデータなしを、数に入れていないか, x: 0.64, y: 0.62, size: 11.5, units: 20}
+          - {label: 平均に0を入れていないか, x: 0.64, y: 0.84, size: 11.5, units: 16}
+        items:
+          - 観点を先に決めてから、コードを上から読む
+    note: 章「コードのレビュー観点」より

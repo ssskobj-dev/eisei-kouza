@@ -495,7 +495,7 @@ def fig_scene(spec):
             X = lambda fx: x0 + fx * pw
             Y = lambda fy: y0 + fy * ah
             if "icon" in d:
-                kw = {k: d[k] for k in ("calm", "lit") if k in d}
+                kw = {k: d[k] for k in ("calm", "lit", "cells") if k in d}
                 out.append(draw_icon(d["icon"], X(d["x"]), Y(d["y"]), d.get("size", 56), col(d.get("color"), None), **kw))
             elif "beam" in d:   # 電波や光の線。[x1, y1, x2, y2]
                 x1, y1, x2, y2 = d["beam"]
