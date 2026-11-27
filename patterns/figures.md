@@ -14,6 +14,7 @@
 | `sightline` | 衛星SARが測れる向き（固定の図） | 干渉SARの限界を説明する章 |
 | `bar` | 横棒のグラフ。大きさの比較（1系列） | 市場規模の推移や比較。予測や見込みの値は `muted: true` で灰色にする。`unit` と `source` は必須 |
 | `range` | 推計の幅。小さい値から大きい値までの帯 | 調査会社ごとに数字が違うとき。`low` と `high` を書く。値が1つなら `low` だけ |
+| `scene` | 絵のある図解。空・地面・アイコン・電波の線・印を置いた「絵の面」と、見出しの帯、箇条書きを1〜3枚並べる | しくみの説明（電波の跳ね返り、軌道の向き、雲と夜）、対比（`between: vs`）。型にはまらない図はこれで組む。下の「scene の書き方」 |
 | `thumbnail` | noteの見出し画像（1280×670） | note記事。`kind` は `news`（時事）、`course`（本編連動）、`guide`（実務メモ）、`report`（市場レポート）、`usecase`（ユースケース） |
 
 色の役割は3つ。`satellite`（青）は衛星や解析が行うこと、`human`（橙）は人や現地が行うこと、`none`（灰）は限界や対象外。
@@ -53,3 +54,34 @@
 - 実績と、見込みや予測を同じ色にしない。見込みと予測は `muted: true`
 - 単位（`unit`）と出どころ（`source`、年を含む）を必ず書く
 - 円グラフ、2つの目盛りを持つグラフは作らない
+
+
+## scene の書き方（絵のある図解）
+
+```yaml
+- id: mechanism
+  type: scene
+  alt: 図を文で説明（必須）
+  height: 200          # 絵の面の高さ（px）。省略時 210
+  between: vs          # パネルの間に入れる印（省略可）
+  panels:
+    - title: 災害前：畑は明るい      # 見出しの帯
+      role: satellite               # 帯と枠の色（satellite / human / none）
+      sky: day                      # 絵の面の地：day（水色）/ night（紺、星）/ plain（役割の色）/ white
+      ground: sand                  # 下の帯：sand / grass / water / none
+      draw:                         # 置くもの。x, y は絵の面の中の割合（0〜1）、size は px
+        - {icon: satellite, x: 0.3, y: 0.2, size: 62}
+        - {icon: water, x: 0.42, y: 0.86, size: 120, calm: true}
+        - {icon: mountain, x: 0.6, y: 0.5, size: 150, lit: left}     # lit は明るい側
+        - {beam: [0.33, 0.36, 0.42, 0.72], style: solid, color: warm}  # 線。style は solid / dashed / dotted / wavy / zigzag。head: false で矢じり無し
+        - {label: 抜ける, x: 0.12, y: 0.62, mark: cross, color: warm}  # 短い文字。mark は check / cross / warning
+        - {label: 説明の文, x: 0.8, y: 0.5, size: 11.5, units: 7, weight: normal}   # units は折り返す幅（全角の文字数）
+      items:                        # 帯の下の箇条書き
+        - ざらついた畑や草地は明るく写る
+  note: 出典：…
+```
+
+- アイコンは `scripts/icons.py` にある名前：satellite、sun、moon、cloud、rain、tree、building、buildings、house、mountain、water、field、ground、magnifier、calendar、ruler、coins、check、cross、warning、eye、person、drone、radar、leaf（葉）、grid（画素のマス目。`cells` に16色で塗り分け）、sheet（表）、rock（岩と裸地）、robot（AI）、shadow（雲の影）。足すときは同じ書き方で1つ関数を足す（100×100 の座標で描く）
+- 色は役割名（satellite=青、human=橙、none=灰、warm、white）か色コード
+- 文字は短く。絵で分かることを文で繰り返さない。出典は `note` に書く
+- 手本：`figures/codex-3-13-flood-mapping.yaml` の `mechanism`（3枚）と `orbit`（2枚、vs）

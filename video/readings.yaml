@@ -12,6 +12,82 @@
 readings:
   # ---- 英字・記号（略語は1文字ずつ、単位は日本語で）
   - {from: "Satellite to Decision", to: "サテライトトゥーディシジョン"}
+  # 英語の語は、日本語での呼び方に直す（Band は「バンド」。1文字ずつ読ませない）
+  - {from: "Band", to: "バンド"}
+  - {from: "band", to: "バンド"}
+  # 波長帯域の番号（Sentinel-2 の B4 など）。長いものから当たる（B10 は B1 より先）
+  - {from: "B8A", to: "ビーはちエー"}
+  - {from: "B10", to: "ビーじゅう"}
+  - {from: "B11", to: "ビーじゅういち"}
+  - {from: "B12", to: "ビーじゅうに"}
+  - {from: "B1", to: "ビーいち"}
+  - {from: "B2", to: "ビーに"}
+  - {from: "B3", to: "ビーさん"}
+  - {from: "B4", to: "ビーよん"}
+  - {from: "B5", to: "ビーご"}
+  - {from: "B6", to: "ビーろく"}
+  - {from: "B7", to: "ビーなな"}
+  - {from: "B8", to: "ビーはち"}
+  - {from: "B9", to: "ビーきゅう"}
+  - {from: "SCL", to: "エスシーエル"}
+  - {from: "NDSI", to: "エヌディーエスアイ"}
+  - {from: "NDMI", to: "エヌディーエムアイ"}
+  - {from: "EVI", to: "イーブイアイ"}
+  - {from: "BOA_ADD_OFFSET", to: "ビーオーエー アド オフセット"}
+  - {from: "RADIO_ADD_OFFSET", to: "ラジオ アド オフセット"}
+  - {from: "QUANTIFICATION_VALUE", to: "クオンティフィケーション バリュー"}
+  - {from: "Collection", to: "コレクション"}
+  - {from: "Tier", to: "ティア"}
+  - {from: "Copernicus", to: "コペルニクス"}
+  - {from: "SentiWiki", to: "センチウィキ"}
+  - {from: "UTM", to: "ユーティーエム"}
+  - {from: "WGS84", to: "ダブリュージーエス はちじゅうよん"}
+  - {from: "WGS", to: "ダブリュージーエス"}
+  - {from: "EPSG", to: "イーピーエスジー"}
+  - {from: "MODIS", to: "モディス"}
+  - {from: "HLS", to: "エイチエルエス"}
+  - {from: "MSI", to: "エムエスアイ"}
+  - {from: "NOAA", to: "ノア"}
+  - {from: "NSIDC", to: "エヌエスアイディーシー"}
+  - {from: "AMSR2", to: "エーエムエスアールツー"}
+  - {from: "ALOS-2", to: "エイロスツー"}
+  - {from: "ALOS", to: "エイロス"}
+  - {from: "PlanetScope", to: "プラネットスコープ"}
+  - {from: "ICEYE", to: "アイサイ"}
+  - {from: "GeoJSON", to: "ジオジェイソン"}
+  - {from: "BigQuery", to: "ビッグクエリ"}
+  - {from: "Google", to: "グーグル"}
+  - {from: "Climate TRACE", to: "クライメート トレース"}
+  - {from: "Climate Detectives", to: "クライメート ディテクティブズ"}
+  - {from: "Coral Reef Watch", to: "コーラル リーフ ウォッチ"}
+  - {from: "Allen Coral Atlas", to: "アレン コーラル アトラス"}
+  - {from: "DHW", to: "ディーエイチダブリュー"}
+  - {from: "RMSE", to: "アールエムエスイー"}
+  - {from: "CO2", to: "シーオーツー"}
+  - {from: "NGO", to: "エヌジーオー"}
+  - {from: "SNS", to: "エスエヌエス"}
+  - {from: "NHK", to: "エヌエイチケー"}
+  - {from: "JST", to: "ジェイエスティー"}
+  - {from: "DX", to: "ディーエックス"}
+  - {from: "J-SPARC", to: "ジェイ スパーク"}
+  - {from: "JA", to: "ジェイエー"}
+  - {from: "WAGRI", to: "ワグリ"}
+  - {from: "RESTEC", to: "レステック"}
+  - {from: "EUDR", to: "イーユーディーアール"}
+  - {from: "NeRF", to: "ナーフ"}
+  - {from: "DCG", to: "ディーシージー"}
+  - {from: "PAZ", to: "パス"}
+  - {from: "Planet", to: "プラネット"}
+  - {from: "CC BY", to: "シーシー バイ"}
+  - {from: "JSAT", to: "ジェイサット"}
+  - {from: "PFI", to: "ピーエフアイ"}
+  - {from: "Professional", to: "プロフェッショナル"}
+  - {from: "Enterprise", to: "エンタープライズ"}
+  - {from: "numpy", to: "ナンパイ"}
+  - {from: "rasterio", to: "ラスタリオ"}
+  - {from: "cloud_cover", to: "クラウド カバー"}
+  - {from: "QA_PIXEL", to: "キューエー ピクセル"}
+  - {from: '(\d)nm(?![A-Za-z])', to: '\1ナノメートル', regex: true}
   - {from: "Sentinel-1", to: "センチネルワン"}
   - {from: "Sentinel-2", to: "センチネルツー"}
   - {from: "Sentinel", to: "センチネル"}
