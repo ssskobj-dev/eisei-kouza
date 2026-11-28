@@ -1,0 +1,46 @@
+Free satellite imagery for big disasters (International Charter)
+
+What this video covers
+How national disaster authorities get satellite imagery for free when a major disaster hits, through the International Charter. Who can request it, where it fits in the response, what decisions it supports, its 2026 limits, and the cost picture for the side that receives it. About 6 minutes.
+
+▶ For an RFP and competitive quotes, contact us from the form
+https://ssskobj-dev.github.io/eisei-kouza/en/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-disaster-charter-activation-en
+
+🎓 Earn two certifications: Satellite Data Analysis Engineer and Satellite Data Marketer
+https://ssskobj-dev.github.io/eisei-kouza/en/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-disaster-charter-activation-en&utm_content=cert
+
+About Satellite to Decision
+Satellite to Decision organises what you need to know to use satellite data in business decisions, from the buyer's side. Independent of any satellite operator or analytics company.
+What we offer:
+- Satellite data market reports (market size, players, overseas cases, barriers by sector)
+- Satellite data use cases (where it fits in the workflow, what decision it supports, cost estimates)
+- Training in satellite data analysis and use (courses, analysis curriculum, case questions)
+- Certifications: Satellite Data Marketer / Satellite Data Analysis Engineer
+- For organisations: help writing RFPs and gathering competitive quotes, training
+Website: https://ssskobj-dev.github.io/eisei-kouza/en/?utm_source=youtube&utm_medium=video&utm_campaign=usecase-disaster-charter-activation-en&utm_content=about
+Certifications: https://ssskobj-dev.github.io/eisei-kouza/en/cert.html
+
+Chapters
+0:00 Free satellite imagery for big disasters
+0:26 About Satellite to Decision
+0:40 What it is
+1:23 Who can request it
+1:59 How it works
+2:40 Example: two activations in Japan
+3:31 What decisions it supports
+4:01 Satellite data market reports
+4:11 Limits as of 2026
+4:49 How far do free satellites go?
+5:22 What the receiving side pays (estimate)
+6:11 When it fits, and when it does not
+6:49 Planning disaster response with satellite data?
+7:05 Two certifications you can earn
+
+Sources and credits
+Source: International Charter, 'About the Charter' and '1,000 activations' (2025) https://disasterscharter.org/about-the-charter
+Source: JAXA, Great East Japan EQ report; Sentinel Asia, Kumamoto EQ 2026 https://sentinel-asia.org/EO/2026/article20260728JP.html
+Price: ALOS-2 reference, Ministry of the Environment Japan, satellite-use manual, Mar 2026 revision, Table 2-11
+Voice: Piper TTS (en_US-ryan, MIT) · Host: Ryan
+
+Satellite to Decision | From Earth observation data to business decisions.
+Made independently of any satellite operator or analytics company.
