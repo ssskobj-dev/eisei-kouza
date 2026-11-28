@@ -1,0 +1,47 @@
+Independent emissions estimates from satellites: Climate TRACE
+
+What this video covers
+How investors and local governments check a company's reported greenhouse gas emissions against an independent, satellite-based estimate. Climate TRACE publishes free facility-level estimates for about 2.76 million sources. Where it fits, what it decides, the limits in 2026, and how to think about cost. About 6 minutes.
+
+▶ For an RFP and competitive quotes, contact us from the form
+https://ssskobj-dev.github.io/eisei-kouza/en/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-emissions-independent-estimate-en
+
+🎓 Earn two certifications: Satellite Data Analysis Engineer and Satellite Data Marketer
+https://ssskobj-dev.github.io/eisei-kouza/en/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-emissions-independent-estimate-en&utm_content=cert
+
+About Satellite to Decision
+Satellite to Decision organises what you need to know to use satellite data in business decisions, from the buyer's side. Independent of any satellite operator or analytics company.
+What we offer:
+- Satellite data market reports (market size, players, overseas cases, barriers by sector)
+- Satellite data use cases (where it fits in the workflow, what decision it supports, cost estimates)
+- Training in satellite data analysis and use (courses, analysis curriculum, case questions)
+- Certifications: Satellite Data Marketer / Satellite Data Analysis Engineer
+- For organisations: help writing RFPs and gathering competitive quotes, training
+Website: https://ssskobj-dev.github.io/eisei-kouza/en/?utm_source=youtube&utm_medium=video&utm_campaign=usecase-emissions-independent-estimate-en&utm_content=about
+Certifications: https://ssskobj-dev.github.io/eisei-kouza/en/cert.html
+
+Chapters
+0:00 Independent emissions estimates from satellites
+0:28 About Satellite to Decision
+0:42 Where, who, and why
+1:08 What the satellite actually does
+1:35 The case: Climate TRACE
+2:09 How the data is published
+2:38 How it fits a dialogue with a company
+3:16 Limits as of 2026 (part 1)
+3:49 Plans and training for organisations
+4:01 Limits as of 2026 (part 2)
+4:45 What you can decide
+5:08 Cost of this use (estimate)
+5:48 When it fits, and when it does not
+6:28 Considering this for your portfolio?
+6:42 Two certifications you can earn
+
+Sources and credits
+Source & license: Climate TRACE, About / Data (CC BY 4.0), accessed Nov 2026 — climatetrace.org/about, /data
+Monthly updates & 60-day lag: Climate TRACE, 27 Mar 2025 — climatetrace.org/news
+Discrepancy study: Gurney, Northern Arizona University, Environmental Research Letters 2026 — in.nau.edu/news/gurney-2026
+Voice: Piper TTS (en_US-ryan, MIT) · Host: Ryan
+
+Satellite to Decision | From Earth observation data to business decisions.
+Made independently of any satellite operator or analytics company.
