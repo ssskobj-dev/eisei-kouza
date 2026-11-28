@@ -1,0 +1,47 @@
+Checking rice-paddy carbon credits with satellite SAR
+
+What this video covers
+How Japanese demonstrations use satellite SAR to cross-check rice-paddy carbon credits from extending mid-season drainage. Where it fits as a screening step, what it can and cannot decide, how far free satellites go, and a cost estimate for paid imagery. Records and photos stay the official evidence. About 6 minutes.
+
+▶ For an RFP and competitive quotes, contact us from the form
+https://ssskobj-dev.github.io/eisei-kouza/en/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-nakaboshi-flooding-check-en
+
+🎓 Earn two certifications: Satellite Data Analysis Engineer and Satellite Data Marketer
+https://ssskobj-dev.github.io/eisei-kouza/en/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-nakaboshi-flooding-check-en&utm_content=cert
+
+About Satellite to Decision
+Satellite to Decision organises what you need to know to use satellite data in business decisions, from the buyer's side. Independent of any satellite operator or analytics company.
+What we offer:
+- Satellite data market reports (market size, players, overseas cases, barriers by sector)
+- Satellite data use cases (where it fits in the workflow, what decision it supports, cost estimates)
+- Training in satellite data analysis and use (courses, analysis curriculum, case questions)
+- Certifications: Satellite Data Marketer / Satellite Data Analysis Engineer
+- For organisations: help writing RFPs and gathering competitive quotes, training
+Website: https://ssskobj-dev.github.io/eisei-kouza/en/?utm_source=youtube&utm_medium=video&utm_campaign=usecase-nakaboshi-flooding-check-en&utm_content=about
+Certifications: https://ssskobj-dev.github.io/eisei-kouza/en/cert.html
+
+Chapters
+0:00 Paddy carbon credits, checked by satellite
+0:30 About Satellite to Decision
+0:45 Where, who, and why
+1:20 Where it fits in the workflow
+1:57 Satellite versus people
+2:33 What it can decide
+3:02 Limits as of 2026
+3:43 Satellite data certifications
+3:55 How far do free satellites go?
+4:34 What paid imagery would cost (estimate)
+5:28 When it fits, and when it does not
+6:10 Considering it for your scheme?
+6:24 Two certifications you can earn
+
+Sources and credits
+Source: JAXA CONSEO, 'The strength of satellite data: Earth observation in carbon credits' (poster) https://earth.jaxa.jp/conseo/img/poster/poster_04_document.pdf
+Source: MAFF, 'J-Credit methodology: extending the mid-season drainage period in rice cultivation' (Jul 2026) https://www.maff.go.jp/j/seisan/kankyo/ondanka/attach/pdf/index-175.pdf
+Demonstration: JAXA, 'ALOS-2 and ALOS-4 toward carbon credits' (14 Jul 2025) https://www.satnavi.jaxa.jp/ja/news/2025/07/14/11212/index.html
+Price: Ministry of the Environment, manual for satellite use (Mar 2026 revision), ALOS-2 scene price
+Satellite specs: Copernicus SentiWiki, Sentinel-1 Mission
+Voice: Piper TTS (en_US-ryan, MIT) · Host: Ryan
+
+Satellite to Decision | From Earth observation data to business decisions.
+Made independently of any satellite operator or analytics company.
