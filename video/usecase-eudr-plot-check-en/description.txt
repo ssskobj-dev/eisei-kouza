@@ -1,0 +1,48 @@
+Checking EUDR sourcing plots for deforestation with satellite data
+
+What this video covers
+How satellite-based deforestation maps help companies meet the EU Deforestation Regulation, which applies from 30 December 2026. Where it fits in due diligence, what it decides, a published software price, and why shade-grown farms and missing coordinates keep field checks in the loop. About 6 minutes.
+
+▶ For an RFP and competitive quotes, contact us from the form
+https://ssskobj-dev.github.io/eisei-kouza/en/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-eudr-plot-check-en
+
+🎓 Earn two certifications: Satellite Data Analysis Engineer and Satellite Data Marketer
+https://ssskobj-dev.github.io/eisei-kouza/en/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-eudr-plot-check-en&utm_content=cert
+
+About Satellite to Decision
+Satellite to Decision organises what you need to know to use satellite data in business decisions, from the buyer's side. Independent of any satellite operator or analytics company.
+What we offer:
+- Satellite data market reports (market size, players, overseas cases, barriers by sector)
+- Satellite data use cases (where it fits in the workflow, what decision it supports, cost estimates)
+- Training in satellite data analysis and use (courses, analysis curriculum, case questions)
+- Certifications: Satellite Data Marketer / Satellite Data Analysis Engineer
+- For organisations: help writing RFPs and gathering competitive quotes, training
+Website: https://ssskobj-dev.github.io/eisei-kouza/en/?utm_source=youtube&utm_medium=video&utm_campaign=usecase-eudr-plot-check-en&utm_content=about
+Certifications: https://ssskobj-dev.github.io/eisei-kouza/en/cert.html
+
+Chapters
+0:00 Checking EUDR sourcing plots with satellite data
+0:26 About Satellite to Decision
+0:41 What the rule asks, and who it is for
+1:15 Where satellite matching fits
+1:55 The satellite part, and the human part
+2:21 Example - LiveEO's TradeAware
+3:06 What decisions it supports
+3:39 Help with RFPs and competitive quotes
+3:52 Limits as of 2026
+4:45 How far do free satellites go?
+5:18 What the software costs
+6:07 When it fits, and when it does not
+6:49 Facing EUDR in your supply chain?
+7:03 Two certifications you can earn
+
+Sources and credits
+EUDR: Regulation (EU) 2023/1115 https://eur-lex.europa.eu/eli/reg/2023/1115/oj
+Application date: EU Commission https://green-forum.ec.europa.eu/deforestation-regulation-implementation_en
+Example & price: LiveEO TradeAware pricing, accessed 2026-11 https://www.live-eo.com/tradeaware-pricing
+TradeAware Lite, 13 Mar 2024 https://www.live-eo.com/company/press/liveeo-launches-free-eudr-compliance-tool-tradeaware-lite
+Map limits: Mongabay, 19 Dec 2025 https://news.mongabay.com/2025/12/researchers-find-concerning-gaps-in-global-maps-used-for-eudr-compliance/
+Voice: Piper TTS (en_US-ryan, MIT) · Host: Ryan
+
+Satellite to Decision | From Earth observation data to business decisions.
+Made independently of any satellite operator or analytics company.
