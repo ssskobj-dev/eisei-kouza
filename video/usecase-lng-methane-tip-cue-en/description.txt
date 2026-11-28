@@ -1,0 +1,49 @@
+Satellite data to verify methane in the LNG supply chain
+
+What this video covers
+How LNG buyers and banks can cross-check a supplier's methane emissions with satellites. A Japanese government project is testing a "Tip and Cue" method - a wide-area government satellite flags suspect areas, then a high-resolution commercial constellation looks closely. We cover where it fits, what you can decide, the 2026 limits, and where the cost sits. 6 minutes.
+
+▶ For an RFP and competitive quotes, contact us from the form
+https://ssskobj-dev.github.io/eisei-kouza/en/register.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-lng-methane-tip-cue-en
+
+🎓 Earn two certifications: Satellite Data Analysis Engineer and Satellite Data Marketer
+https://ssskobj-dev.github.io/eisei-kouza/en/cert.html?utm_source=youtube&utm_medium=video&utm_campaign=usecase-lng-methane-tip-cue-en&utm_content=cert
+
+About Satellite to Decision
+Satellite to Decision organises what you need to know to use satellite data in business decisions, from the buyer's side. Independent of any satellite operator or analytics company.
+What we offer:
+- Satellite data market reports (market size, players, overseas cases, barriers by sector)
+- Satellite data use cases (where it fits in the workflow, what decision it supports, cost estimates)
+- Training in satellite data analysis and use (courses, analysis curriculum, case questions)
+- Certifications: Satellite Data Marketer / Satellite Data Analysis Engineer
+- For organisations: help writing RFPs and gathering competitive quotes, training
+Website: https://ssskobj-dev.github.io/eisei-kouza/en/?utm_source=youtube&utm_medium=video&utm_campaign=usecase-lng-methane-tip-cue-en&utm_content=about
+Certifications: https://ssskobj-dev.github.io/eisei-kouza/en/cert.html
+
+Chapters
+0:00 Verifying LNG methane with satellites
+0:30 About Satellite to Decision
+0:44 Where, who, and why
+1:17 How Tip and Cue works, and where it fits
+1:48 The case - JOGMEC's FY2026 verification project
+2:28 The two satellites
+3:06 Satellite versus people
+3:35 What decisions it supports
+4:09 Plans and training for organisations
+4:21 Limits as of 2026
+5:11 How far does the free satellite go?
+5:42 Where the cost sits
+6:22 When it fits, and when it does not
+7:06 Considering it for a supplier?
+7:20 Two certifications you can earn
+
+Sources and credits
+Source: Mitsubishi Electric news release on the JOGMEC commissioned project (25 Jun 2026) https://www.mitsubishielectric.co.jp/ja/pr/2026/0625_ds/
+Satellite specs (GOSAT-GW): JAXA, 'GOSAT-GW press kit' (May 2025) https://fanfun.jaxa.jp/countdown/gosat-gw_h2af50/files/GOSAT-GW_presskit_250516.pdf
+Satellite specs & detection limit (GHGSat): ESA Earth Online, 'GHGSat' mission https://dragon3.esa.int/eogateway/missions/ghgsat
+OGMP 2.0: UNEP, OGMP 2.0 Frequently Asked Questions https://www.ogmpartnership.org/frequently-asked-questions
+GOSAT-GW data policy: NIES, 'TANSO-3 Data Policy' (rev. 22 Jun 2026) https://www.nies.go.jp/soc/doc/TANSO-3_DataPolicy_ja_20260622b.pdf
+Voice: Piper TTS (en_US-ryan, MIT) · Host: Ryan
+
+Satellite to Decision | From Earth observation data to business decisions.
+Made independently of any satellite operator or analytics company.
